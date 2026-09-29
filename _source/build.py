@@ -28,6 +28,7 @@ VERIFY = {
     "google-site-verification": "",
     "naver-site-verification": "131662d11b92d5ad870f190a7d06d1d96c50a225",
     "msvalidate.01": "575FA911DCD5006EA2DA8F4A4EE835AA",
+    "seznam-wmt": "m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s",
 }
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
