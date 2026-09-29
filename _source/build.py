@@ -20,7 +20,7 @@ from i18n_site import SITE
 BASE = "https://tokensave.app"
 LASTMOD = "2026-09-30"
 # Google AdSense publisher id, e.g. "ca-pub-1234567890123456". Empty = no ad code on the pages.
-ADSENSE_PUB = ""
+ADSENSE_PUB = "ca-pub-6520495092767533"
 # Search engine ownership tags (content value only). Empty = not added.
 VERIFY = {
     "google-site-verification": "",
