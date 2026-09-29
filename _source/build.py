@@ -2,19 +2,26 @@
 """Build the static multi-language, multi-tool site for tokensave.app.
 
 src/base.html (shared layout) + src/<tool>_body.html + src/i18n*.py + src/*.js  ->  dist/
-  dist/index.html, dist/video.html              English
-  dist/<slug>/index.html, dist/<slug>/video.html  other languages (served at /<slug>/ and /<slug>/video)
+  dist/index.html, video.html, image.html   English
+  dist/<slug>/index.html, video.html, image.html  other languages (served at /<slug>/, /<slug>/video, /<slug>/image)
   dist/common.js, token.js, video.js, CNAME, robots.txt, sitemap.xml
 """
 import html, json, os, shutil, hashlib, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "src"))
 from i18n import LANGS, S
 from i18n_video import NAV, V
+from i18n_image import I
+
+# Image page reuses shared labels from the video page strings
+SHARED = ["badge", "res", "model", "total", "na", "cheapest", "srcOfficial", "srcRunway", "f2"]
+IMG = {tag: {**{k: V[tag][k] for k in SHARED}, **{k: v for k, v in I[tag].items() if k != "navImage"}} for tag in I}
+for tag in I:
+    NAV[tag]["navImage"] = I[tag]["navImage"]
 
 BASE = "https://tokensave.app"
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC, DIST = os.path.join(ROOT, "src"), os.path.join(ROOT, "dist")
-JS_FILES = ["common.js", "token.js", "video.js"]
+JS_FILES = ["common.js", "token.js", "video.js", "image.js"]
 
 TOOLS = [
     # key, nav label key, body file, strings, script, file name, page path, runtime keys
@@ -25,6 +32,9 @@ TOOLS = [
     dict(key="video", nav="navVideo", body="video_body.html", strings=V, script="video.js",
          file="video.html", page="video",
          runtime=["na", "noAudio", "cheapest", "srcOfficial", "srcRunway", "audioIncl", "clipNote"]),
+    dict(key="image", nav="navImage", body="image_body.html", strings=IMG, script="image.js",
+         file="image.html", page="image",
+         runtime=["na", "cheapest", "srcOfficial", "srcRunway"]),
 ]
 
 def path_for(slug, tool):

@@ -7,7 +7,8 @@
 //   Kling .......... kling.ai/dev/pricing (1 unit = $0.14 list)
 //   Runway, Seedance, Hailuo, Wan, Gemini Omni Flash ... docs.dev.runwayml.com/guides/pricing
 //   Luma Ray 3.2 ... lumalabs.ai/api/pricing (billed per 5 s / 10 s clip)
-//   Grok Imagine ... docs.x.ai/developers/models/grok-imagine-video
+//   Grok Imagine ... docs.x.ai/developers/pricing (Imagine API)
+//   FLUX 3 Video ... bfl.ai/pricing (text/image-to-video; HD=720p, FHD=1080p, UHD=4K; audio included)
 // Sora 2 is excluded: OpenAI removed it from the API on 2026-09-24.
 
 import { tr } from './common.js';
@@ -35,8 +36,14 @@ const MODELS = [
   { name: 'Luma Ray 3.2',       by: 'Luma AI',   src: 'official', clipBilled: true,
     // price per 5 s clip / 10 s clip
     p: { '480': { a: null, n: [0.15, 0.45], label: '540p' }, '720': { a: null, n: [0.30, 0.90] }, '1080': { a: null, n: [1.20, 3.60] } } },
+  { name: 'Grok Imagine Video 1.5', by: 'xAI',   src: 'official',
+    p: { '480': both(0.08), '720': both(0.14), '1080': both(0.25) } },
   { name: 'Grok Imagine Video', by: 'xAI',       src: 'official',
     p: { '480': both(0.05), '720': both(0.07) } },
+  { name: 'FLUX 3 Video',       by: 'Black Forest Labs', src: 'official', audioIncl: true,
+    p: { '720': both(0.17), '1080': both(0.29), '4k': both(0.80) } },
+  { name: 'FLUX 3 Video Draft', by: 'Black Forest Labs', src: 'official', audioIncl: true,
+    p: { '720': both(0.06) } },
   { name: 'Seedance 2.0',       by: 'ByteDance', src: 'runway',
     p: { '480': both(0.36), '720': both(0.36), '1080': both(0.40), '4k': both(1.50) } },
   { name: 'Seedance 2.0 Fast',  by: 'ByteDance', src: 'runway',
