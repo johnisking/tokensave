@@ -15,6 +15,7 @@ from i18n import LANGS, S
 from i18n_video import NAV, V
 from i18n_image import I
 from i18n_site import SITE
+from seo_meta import META
 
 # ---------------------------------------------------------------- settings
 BASE = "https://tokensave.app"
@@ -54,11 +55,11 @@ TOOLS = [
 # English-only site pages (not in the tool menu)
 PAGES = [
     dict(file="about.html", path="/about", body="about_body.html",
-         title="About TokenSave – Free AI Cost Calculators",
-         desc="TokenSave offers free, private AI calculators: token counter, AI video cost and AI image cost comparisons in 21 languages."),
+         title="About TokenSave",
+         desc="Free, private AI calculators for tokens, video and image costs in 21 languages."),
     dict(file="privacy.html", path="/privacy", body="privacy_body.html",
          title="Privacy Policy | TokenSave",
-         desc="How TokenSave handles your data: text stays in your browser, cookieless analytics, and Google AdSense advertising."),
+         desc="How TokenSave handles data: text stays in your browser, cookieless analytics, ads."),
     dict(file="404.html", path=None, body="404_body.html",
          title="Page not found | TokenSave", desc="This page does not exist."),
 ]
@@ -142,6 +143,8 @@ def build():
         for slug, tag, native, og, direction in LANGS:
             s = dict(tool["strings"][tag])
             s.setdefault("lang", S[tag]["lang"])
+            s["title"], s["desc"] = META[tool["key"]][tag]
+            assert len(s["title"]) <= 40 and len(s["desc"]) <= 80, f"meta too long: {tool['key']} {tag}"
             options = "\n".join(
                 f'          <option value="{path_for(sl, tool)}" data-code="{sl or "en"}"{" selected" if sl == slug else ""}>{esc(nat)}</option>'
                 for sl, _, nat, _, _ in LANGS
@@ -210,7 +213,7 @@ def build():
     for f in os.listdir(os.path.join(SRC, "static")):
         shutil.copy(os.path.join(SRC, "static", f), os.path.join(DIST, f))
     open(os.path.join(DIST, "CNAME"), "w").write("tokensave.app\n")
-    open(os.path.join(DIST, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n")
+    open(os.path.join(DIST, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\n\nUser-agent: Yeti\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n")
     if ADSENSE_PUB:
         open(os.path.join(DIST, "ads.txt"), "w").write(
             f"google.com, {ADSENSE_PUB.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")
