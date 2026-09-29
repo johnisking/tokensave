@@ -72,9 +72,28 @@
             </div>
           </div>
 
-          <div class="mt-3 bg-gradient-to-br from-violet-500/10 to-indigo-500/10 border border-violet-500/20 rounded-xl p-3">
+          <div class="mt-3 bg-zinc-950/60 border border-zinc-800 rounded-xl p-3">
+          <div class="flex items-center justify-between gap-2">
+            <span class="text-xs uppercase tracking-wider text-zinc-500 font-semibold">{{eff}}</span>
+            <span id="wasteLabel" class="text-xs font-bold text-emerald-400"></span>
+          </div>
+          <div class="ltr flex items-center gap-1 mt-3" aria-hidden="true">
+            <div id="battery" class="flex-1 grid grid-cols-10 gap-1 p-1 border-2 border-zinc-600 rounded-lg h-10"></div>
+            <div class="w-1.5 h-4 bg-zinc-600 rounded-r"></div>
+          </div>
+          <div class="flex items-baseline justify-between gap-2 mt-3">
+            <span id="effPercent" class="text-2xl font-extrabold tabular-nums"></span>
+            <span id="effText" class="text-xs text-zinc-400"></span>
+          </div>
+          <p id="langMix" class="text-[11px] text-zinc-500 mt-2"></p>
+          <p class="text-[11px] text-zinc-600 mt-1">{{tip}}</p>
+          </div>
+        </div>
+
+          <!-- Estimated cost -->
+        <div class="bg-gradient-to-br from-violet-500/10 to-indigo-500/10 backdrop-blur border border-violet-500/30 rounded-2xl p-5">
             <div class="flex items-center justify-between gap-2">
-              <div class="text-[11px] uppercase tracking-wider text-violet-300 font-semibold">{{cost}}</div>
+              <div class="text-xs uppercase tracking-wider text-violet-300 font-semibold">{{cost}}</div>
               <span id="overheadBadge" class="hidden text-[11px] font-bold px-2 py-0.5 rounded-full"></span>
             </div>
             <div class="flex items-baseline justify-between mt-2 gap-2">
@@ -108,25 +127,6 @@
             </div>
             <p id="priceNote" class="text-[11px] text-zinc-500 mt-2"></p>
           </div>
-        </div>
-
-        <!-- Language efficiency gauge -->
-        <div class="bg-zinc-900/70 backdrop-blur border border-zinc-800 rounded-2xl p-5">
-          <div class="flex items-center justify-between gap-2">
-            <span class="text-xs uppercase tracking-wider text-zinc-500 font-semibold">{{eff}}</span>
-            <span id="wasteLabel" class="text-xs font-bold text-emerald-400"></span>
-          </div>
-          <div class="ltr flex items-center gap-1 mt-3" aria-hidden="true">
-            <div id="battery" class="flex-1 grid grid-cols-10 gap-1 p-1 border-2 border-zinc-600 rounded-lg h-10"></div>
-            <div class="w-1.5 h-4 bg-zinc-600 rounded-r"></div>
-          </div>
-          <div class="flex items-baseline justify-between gap-2 mt-3">
-            <span id="effPercent" class="text-2xl font-extrabold tabular-nums"></span>
-            <span id="effText" class="text-xs text-zinc-400"></span>
-          </div>
-          <p id="langMix" class="text-[11px] text-zinc-500 mt-2"></p>
-          <p class="text-[11px] text-zinc-600 mt-1">{{tip}}</p>
-        </div>
 
         <!-- ===== AD PLACEHOLDER: Sidebar rectangle (300x250) ===== -->
         <!-- <div class="flex justify-center"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" ...></ins></div> -->
