@@ -1,0 +1,59 @@
+name: Update LLM prices
+
+on:
+  schedule:
+    - cron: "17 21 * * *"   # every day 06:17 KST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check LiteLLM price list
+        id: check
+        run: |
+          set +e
+          python3 _source/update_prices.py
+          code=$?
+          set -e
+          if [ "$code" = "10" ]; then echo "changed=true" >> "$GITHUB_OUTPUT";
+          elif [ "$code" = "0" ]; then echo "changed=false" >> "$GITHUB_OUTPUT";
+          else exit "$code"; fi
+
+      - name: Rebuild site
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          python3 _source/build.py
+          cp -r _source/dist/* .
+          rm -rf _source/dist
+
+      - name: Commit and deploy
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then echo "Nothing to commit"; exit 0; fi
+          git config user.name "tokensave-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Update LLM prices from LiteLLM ($(date -u +%F))"
+          git push
+          # Pushes made with GITHUB_TOKEN may not start a Pages build on their own, so request one.
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || true
+        env:
+          GH_TOKEN: ${{ github.token }}

@@ -28,6 +28,11 @@ const PROVIDERS = {
     { id: 'gemini-3-8-flash', name: 'Gemini 3.8 Flash', in: 0.75, out: 3.75,  ratio: 0.95 },
   ],
 };
+// Latest prices from src/llm_prices.json (refreshed daily by GitHub Actions), injected by build.py
+const LIVE = (window.T && window.T.prices) || {};
+for (const list of Object.values(PROVIDERS)) for (const m of list) {
+  if (LIVE[m.id]) { m.in = LIVE[m.id].in; m.out = LIVE[m.id].out; }
+}
 let provider = 'openai';
 let model = PROVIDERS.openai[0];
 let enc = null;

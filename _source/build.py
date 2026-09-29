@@ -16,6 +16,7 @@ from i18n_video import NAV, V
 from i18n_image import I
 from i18n_site import SITE
 from seo_meta import META
+LLM = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "src", "llm_prices.json"), encoding="utf-8"))
 
 # ---------------------------------------------------------------- settings
 BASE = "https://tokensave.app"
@@ -170,6 +171,8 @@ def build():
                     {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": url_for(slug, TOOLS[0])},
                     {"@type": "ListItem", "position": 2, "name": s["h1"], "item": url}]})
             runtime = {k: s[k] for k in tool["runtime"]}
+            if tool["key"] == "token":
+                runtime["prices"] = {k: {"in": v["in"], "out": v["out"]} for k, v in LLM["models"].items()}
             runtime["viewIn"] = VIEW_IN
             values = {k: esc(v) for k, v in s.items()}
             values.update({k: esc(v) for k, v in SITE[tag].items()})
