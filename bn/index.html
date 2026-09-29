@@ -53,7 +53,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=fee10c25" />
+  <link rel="stylesheet" href="/styles.css?v=1510a562" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="google-adsense-account" content="ca-pub-6520495092767533" />
@@ -147,7 +147,13 @@
       <!-- Input -->
       <div class="lg:col-span-3 bg-zinc-900/70 backdrop-blur border border-zinc-800 rounded-2xl p-4 sm:p-5 flex flex-col">
         <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-          <label for="input" class="text-sm font-semibold text-zinc-300">আপনার প্রম্পট</label>
+          <div class="flex items-center gap-3">
+            <label for="input" class="text-sm font-semibold text-zinc-300">আপনার প্রম্পট</label>
+            <div id="modeTabs" class="inline-flex p-0.5 bg-zinc-950/70 border border-zinc-800 rounded-lg gap-0.5" role="tablist" aria-label="Input format">
+              <button data-mode="text" class="tab px-2.5 py-1 rounded-md text-[11px] font-semibold text-zinc-400">টেক্সট</button>
+              <button data-mode="chat" class="tab px-2.5 py-1 rounded-md text-[11px] font-semibold text-zinc-400">চ্যাট (JSON)</button>
+            </div>
+          </div>
           <div class="flex gap-2">
             <button id="btnOptimize" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/25 transition" title="অতিরিক্ত স্পেস ও ফাঁকা লাইন মুছে ফেলুন">✨ অপ্টিমাইজ</button>
             <button id="btnCopy" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 transition">কপি</button>
@@ -157,6 +163,7 @@
         <textarea id="input" spellcheck="false" dir="auto"
           class="w-full flex-1 min-h-[280px] lg:min-h-[420px] resize-y bg-zinc-950/70 border border-zinc-800 rounded-xl p-4 text-sm leading-relaxed text-zinc-100 placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50"
           placeholder="এখানে আপনার প্রম্পট পেস্ট করুন বা লিখুন...&#10;&#10;লেখার সঙ্গে সঙ্গে টোকেন, অক্ষর ও আনুমানিক খরচ আপডেট হয়। যেকোনো ভাষায় কাজ করে।"></textarea>
+        <p id="chatInfo" class="hidden mt-2 text-xs"></p>
         <p id="toast" class="h-5 mt-2 text-xs text-emerald-400 transition-opacity opacity-0" aria-live="polite"></p>
       </div>
 
@@ -182,14 +189,38 @@
           </div>
 
           <div class="mt-3 bg-gradient-to-br from-violet-500/10 to-indigo-500/10 border border-violet-500/20 rounded-xl p-3">
-            <div class="text-[11px] uppercase tracking-wider text-violet-300 font-semibold">আনুমানিক খরচ</div>
-            <div class="flex items-baseline justify-between mt-1">
-              <span class="text-sm text-zinc-400">ইনপুট হিসেবে</span>
-              <span id="costIn" class="ltr text-lg font-bold tabular-nums">$0.000000</span>
+            <div class="flex items-center justify-between gap-2">
+              <div class="text-[11px] uppercase tracking-wider text-violet-300 font-semibold">আনুমানিক খরচ</div>
+              <span id="overheadBadge" class="hidden text-[11px] font-bold px-2 py-0.5 rounded-full"></span>
             </div>
-            <div class="flex items-baseline justify-between">
-              <span class="text-sm text-zinc-400">আউটপুট হিসেবে</span>
-              <span id="costOut" class="ltr text-lg font-bold tabular-nums">$0.000000</span>
+            <div class="flex items-baseline justify-between mt-2 gap-2">
+              <span class="text-sm text-zinc-400">ইনপুট <span id="inTokNote" class="ltr inline-block text-[11px] text-zinc-500"></span></span>
+              <span id="costIn" class="ltr text-base font-bold tabular-nums">$0</span>
+            </div>
+            <div class="mt-2">
+              <div class="flex items-center justify-between gap-2">
+                <label for="outTokens" class="text-[11px] text-zinc-500">প্রত্যাশিত আউটপুট (টোকেন)</label>
+                <input id="outTokensNum" type="number" min="0" max="128000" step="50" value="500" inputmode="numeric" aria-label="প্রত্যাশিত আউটপুট (টোকেন)"
+                  class="ltr w-24 bg-zinc-950/70 border border-zinc-800 rounded-md px-2 py-0.5 text-xs text-end tabular-nums focus:outline-none focus:ring-2 focus:ring-violet-500/50" />
+              </div>
+              <input id="outTokens" type="range" min="0" max="8000" step="50" value="500" class="ltr w-full mt-1 accent-violet-500" aria-label="প্রত্যাশিত আউটপুট (টোকেন)" />
+            </div>
+            <div class="flex items-baseline justify-between gap-2">
+              <span class="text-sm text-zinc-400">আউটপুট</span>
+              <span id="costOut" class="ltr text-base font-bold tabular-nums">$0</span>
+            </div>
+            <div class="flex items-baseline justify-between gap-2 mt-2 pt-2 border-t border-violet-500/20">
+              <span class="text-sm font-semibold text-zinc-200">প্রতি অনুরোধ</span>
+              <span id="costReq" class="ltr text-lg font-extrabold tabular-nums">$0</span>
+            </div>
+            <div class="flex items-center justify-between gap-2 mt-2">
+              <label for="reqs" class="text-[11px] text-zinc-500">মাসিক অনুরোধ</label>
+              <input id="reqs" type="number" min="1" max="100000000" value="1000" inputmode="numeric"
+                class="ltr w-28 bg-zinc-950/70 border border-zinc-800 rounded-md px-2 py-0.5 text-xs text-end tabular-nums focus:outline-none focus:ring-2 focus:ring-violet-500/50" />
+            </div>
+            <div class="flex items-baseline justify-between gap-2 mt-1">
+              <span class="text-sm font-semibold text-violet-200">প্রতি মাস</span>
+              <span id="costMonth" class="ltr text-2xl font-extrabold tabular-nums text-violet-100">$0</span>
             </div>
             <p id="priceNote" class="text-[11px] text-zinc-500 mt-2"></p>
           </div>
@@ -245,7 +276,7 @@
 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
-  <script>window.T = {"note": "{name}: প্রতি ১০ লাখ টোকেনে ইনপুট ${in} / আউটপুট ${out}", "exact": "সঠিক (o200k)", "based": "o200k-ভিত্তিক", "est": "আনুমানিক", "waste": "{x}x টোকেন অপচয়", "efficient": "{p}% দক্ষ", "great": "চমৎকার", "moderate": "মাঝারি অপচয়", "high": "বেশি টোকেন অপচয়", "share": "অ-ইংরেজি অংশ: {p}%", "tSaved": "অপ্টিমাইজ হয়েছে — {n} টোকেন বাঁচল", "tAlready": "আগেই অপ্টিমাইজ করা", "tNothing": "কপি করার কিছু নেই", "tCopied": "ক্লিপবোর্ডে কপি হয়েছে", "tCleared": "মুছে ফেলা হয়েছে", "prices": {"gpt-6-astra": {"in": 10.0, "out": 50.0}, "gpt-6-1-sol": {"in": 2.0, "out": 10.0}, "gpt-6-sol": {"in": 2.0, "out": 10.0}, "gpt-6-luna": {"in": 0.1, "out": 0.5}, "gpt-4o": {"in": 2.5, "out": 10.0}, "claude-opus-5-5": {"in": 4.0, "out": 20.0}, "claude-sonnet-5-5": {"in": 2.0, "out": 10.0}, "claude-haiku-4-5": {"in": 1.0, "out": 5.0}, "gemini-3-1-pro": {"in": 2.0, "out": 12.0}, "gemini-3-8-flash": {"in": 0.75, "out": 3.75}}, "viewIn": {"en": "View this page in English", "ko": "이 페이지를 한국어로 보기", "ja": "このページを日本語で見る", "zh-cn": "用简体中文查看此页面", "zh-tw": "以繁體中文檢視此頁面", "es": "Ver esta página en español", "pt": "Ver esta página em português", "fr": "Voir cette page en français", "de": "Diese Seite auf Deutsch ansehen", "it": "Visualizza questa pagina in italiano", "ru": "Открыть эту страницу на русском", "uk": "Відкрити цю сторінку українською", "tr": "Bu sayfayı Türkçe görüntüle", "ar": "عرض هذه الصفحة بالعربية", "fa": "نمایش این صفحه به فارسی", "hi": "यह पेज हिन्दी में देखें", "id": "Lihat halaman ini dalam Bahasa Indonesia", "vi": "Xem trang này bằng tiếng Việt", "th": "ดูหน้านี้เป็นภาษาไทย", "pl": "Zobacz tę stronę po polsku", "nl": "Bekijk deze pagina in het Nederlands", "bn": "এই পাতাটি বাংলায় দেখুন", "ur": "یہ صفحہ اردو میں دیکھیں", "fil": "Tingnan ang page na ito sa Filipino", "cs": "Zobrazit tuto stránku v češtině", "sv": "Visa sidan på svenska", "he": "הצגת הדף בעברית"}};</script>
-  <script type="module" src="/token.js?v=fee10c25"></script>
+  <script>window.T = {"note": "{name}: প্রতি ১০ লাখ টোকেনে ইনপুট ${in} / আউটপুট ${out}", "exact": "সঠিক (o200k)", "based": "o200k-ভিত্তিক", "est": "আনুমানিক", "waste": "{x}x টোকেন অপচয়", "efficient": "{p}% দক্ষ", "great": "চমৎকার", "moderate": "মাঝারি অপচয়", "high": "বেশি টোকেন অপচয়", "share": "অ-ইংরেজি অংশ: {p}%", "tSaved": "অপ্টিমাইজ হয়েছে — {n} টোকেন বাঁচল", "tAlready": "আগেই অপ্টিমাইজ করা", "tNothing": "কপি করার কিছু নেই", "tCopied": "ক্লিপবোর্ডে কপি হয়েছে", "tCleared": "মুছে ফেলা হয়েছে", "overhead": "ইংরেজির তুলনায় {x}× টোকেন", "overheadTip": "একই কনটেন্ট ইংরেজিতে প্রায় {x}× কম টোকেন লাগত।", "chatErr": "বৈধ চ্যাট JSON নয়। [{\"role\": \"user\", \"content\": \"...\"}] এর মতো একটি messages অ্যারে পেস্ট করুন", "chatInfo": "{n}টি বার্তা · ~{o} টোকেন চ্যাট ফরম্যাটিং সহ", "prices": {"gpt-6-astra": {"in": 10.0, "out": 50.0}, "gpt-6-1-sol": {"in": 2.0, "out": 10.0}, "gpt-6-sol": {"in": 2.0, "out": 10.0}, "gpt-6-luna": {"in": 0.1, "out": 0.5}, "gpt-4o": {"in": 2.5, "out": 10.0}, "claude-opus-5-5": {"in": 4.0, "out": 20.0}, "claude-sonnet-5-5": {"in": 2.0, "out": 10.0}, "claude-haiku-4-5": {"in": 1.0, "out": 5.0}, "gemini-3-1-pro": {"in": 2.0, "out": 12.0}, "gemini-3-8-flash": {"in": 0.75, "out": 3.75}}, "viewIn": {"en": "View this page in English", "ko": "이 페이지를 한국어로 보기", "ja": "このページを日本語で見る", "zh-cn": "用简体中文查看此页面", "zh-tw": "以繁體中文檢視此頁面", "es": "Ver esta página en español", "pt": "Ver esta página em português", "fr": "Voir cette page en français", "de": "Diese Seite auf Deutsch ansehen", "it": "Visualizza questa pagina in italiano", "ru": "Открыть эту страницу на русском", "uk": "Відкрити цю сторінку українською", "tr": "Bu sayfayı Türkçe görüntüle", "ar": "عرض هذه الصفحة بالعربية", "fa": "نمایش این صفحه به فارسی", "hi": "यह पेज हिन्दी में देखें", "id": "Lihat halaman ini dalam Bahasa Indonesia", "vi": "Xem trang này bằng tiếng Việt", "th": "ดูหน้านี้เป็นภาษาไทย", "pl": "Zobacz tę stronę po polsku", "nl": "Bekijk deze pagina in het Nederlands", "bn": "এই পাতাটি বাংলায় দেখুন", "ur": "یہ صفحہ اردو میں دیکھیں", "fil": "Tingnan ang page na ito sa Filipino", "cs": "Zobrazit tuto stránku v češtině", "sv": "Visa sidan på svenska", "he": "הצגת הדף בעברית"}};</script>
+  <script type="module" src="/token.js?v=1510a562"></script>
 </body>
 </html>

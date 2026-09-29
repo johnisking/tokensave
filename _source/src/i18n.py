@@ -579,3 +579,8 @@ from extra_langs import EXTRA as _EXTRA
 for _e in _EXTRA:
     LANGS.append((_e.SLUG, _e.TAG, _e.NATIVE, _e.OG, _e.DIR))
     S[_e.TAG] = _e.S
+
+# Cost-planner strings (input/output split, chat mode, language overhead badge)
+from i18n_budget import B as _B
+for _tag in S:
+    S[_tag].update(_B[_tag])

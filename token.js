@@ -117,7 +117,12 @@ const els = {
   costIn: $('costIn'), costOut: $('costOut'), priceNote: $('priceNote'), badge: $('methodBadge'),
   battery: $('battery'), effPct: $('effPercent'), effText: $('effText'), waste: $('wasteLabel'),
   mix: $('langMix'), toast: $('toast'), select: $('modelSelect'),
+  costReq: $('costReq'), costMonth: $('costMonth'), overhead: $('overheadBadge'), inTokNote: $('inTokNote'),
+  outRange: $('outTokens'), outNum: $('outTokensNum'), reqs: $('reqs'), chatInfo: $('chatInfo'),
 };
+let mode = 'text';
+const TEXT_PLACEHOLDER = els.input.placeholder;
+const CHAT_PLACEHOLDER = '[\n  {"role": "system", "content": "You are a helpful assistant."},\n  {"role": "user", "content": "..."}\n]';
 
 for (let i = 0; i < 10; i++) {
   const c = document.createElement('div');
@@ -127,6 +132,41 @@ for (let i = 0; i < 10; i++) {
 
 const fmt = n => n.toLocaleString('en-US');
 const money = n => '$' + (n < 0.01 ? n.toFixed(6) : n.toFixed(4));
+const moneyBig = n => '$' + (n >= 100 ? Math.round(n).toLocaleString('en-US') : n >= 1 ? n.toFixed(2) : n < 0.01 ? n.toFixed(6) : n.toFixed(4));
+const clamp = (v, lo, hi, d) => { const n = Math.round(+v); return Number.isFinite(n) ? Math.min(hi, Math.max(lo, n)) : d; };
+
+// Chat mode: OpenAI-style messages. Content tokens + ~4 formatting tokens per message + 3 to prime the reply.
+function parseChat(text) {
+  if (!text.trim()) return { ok: true, parts: [], n: 0 };
+  let data;
+  try { data = JSON.parse(text); } catch (_) { return { ok: false }; }
+  const msgs = Array.isArray(data) ? data : data && Array.isArray(data.messages) ? data.messages : null;
+  if (!msgs || !msgs.every(m => m && typeof m === 'object')) return { ok: false };
+  const parts = [];
+  for (const m of msgs) {
+    if (typeof m.content === 'string') parts.push(m.content);
+    else if (Array.isArray(m.content)) m.content.forEach(c => { if (c && typeof c.text === 'string') parts.push(c.text); });
+    if (typeof m.name === 'string') parts.push(m.name);
+  }
+  return { ok: true, parts, n: msgs.length, data };
+}
+
+function cleanText(t) {
+  return t.replace(/\r\n/g, '\n').replace(/[ \t\u00a0\u3000]+/g, ' ').replace(/ *\n */g, '\n').replace(/\n{2,}/g, '\n').trim();
+}
+
+// Tokens for whatever is in the box (plain text, or the contents of a chat JSON)
+function measure() {
+  const raw = els.input.value;
+  if (mode === 'text') return { ...countTokens(raw), text: raw, chat: null };
+  const c = parseChat(raw);
+  if (!c.ok) return { ...countTokens(raw), text: raw, chat: c };
+  const text = c.parts.join('\n');
+  let tokens = 0, exact = false, based = false;
+  for (const part of c.parts) { const r = countTokens(part); tokens += r.tokens; exact = r.exact; based = r.based; }
+  const fmtTokens = c.n ? c.n * 4 + 3 : 0;
+  return { tokens: tokens + fmtTokens, exact, based, a: analyze(text), text, chat: { ...c, fmtTokens } };
+}
 
 function countTokens(text) {
   const a = analyze(text);
@@ -143,16 +183,28 @@ function update() {
 }
 
 function render() {
-  const text = els.input.value;
+  const { tokens, exact, based, a, text, chat } = measure();
   const chars = [...text].length;
   const words = (text.trim().match(/\S+/g) || []).length;
-  const { tokens, exact, based, a } = countTokens(text);
+
+  if (chat) {
+    els.chatInfo.className = 'mt-2 text-xs ' + (chat.ok ? 'text-zinc-500' : 'text-amber-400');
+    els.chatInfo.textContent = !chat.ok ? tr('chatErr') : chat.n ? tr('chatInfo', { n: fmt(chat.n), o: fmt(chat.fmtTokens) }) : '';
+  } else {
+    els.chatInfo.className = 'hidden';
+  }
 
   els.tokens.textContent = fmt(tokens);
   els.chars.textContent = fmt(chars);
   els.words.textContent = fmt(words);
-  els.costIn.textContent = money(tokens / 1e6 * model.in);
-  els.costOut.textContent = money(tokens / 1e6 * model.out);
+  const outTok = clamp(els.outNum.value, 0, 128000, 0);
+  const reqs = clamp(els.reqs.value, 1, 100000000, 1);
+  const cIn = tokens / 1e6 * model.in, cOut = outTok / 1e6 * model.out, cReq = cIn + cOut;
+  els.inTokNote.textContent = '(' + fmt(tokens) + ')';
+  els.costIn.textContent = money(cIn);
+  els.costOut.textContent = money(cOut);
+  els.costReq.textContent = moneyBig(cReq);
+  els.costMonth.textContent = moneyBig(cReq * reqs);
   els.priceNote.textContent = tr('note', { name: model.name, in: model.in, out: model.out });
 
   els.badge.textContent = exact ? tr('exact') : based ? tr('based') : tr('est');
@@ -171,6 +223,17 @@ function render() {
   els.waste.textContent = tr('waste', { x: e.waste.toFixed(1) });
   els.waste.className = 'text-xs font-bold ' + { emerald: 'text-emerald-400', amber: 'text-amber-400', rose: 'text-rose-400' }[tone];
   els.mix.textContent = tr('share', { p: Math.round(e.share * 100) });
+
+  // Language overhead badge next to the cost: amber from 1.15x, red from 2x
+  if (e.waste >= 1.15) {
+    const x = e.waste.toFixed(1);
+    els.overhead.textContent = '⚠ ' + tr('overhead', { x });
+    els.overhead.title = tr('overheadTip', { x });
+    els.overhead.className = 'text-[11px] font-bold px-2 py-0.5 rounded-full ' +
+      (e.waste >= 2 ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40' : 'bg-amber-400/15 text-amber-300 border border-amber-400/40');
+  } else {
+    els.overhead.className = 'hidden';
+  }
 }
 
 function toast(msg) {
@@ -207,17 +270,41 @@ tabs[0].click();
 
 // Optimize: collapse repeated spaces/tabs, trim line edges, remove blank lines
 $('btnOptimize').addEventListener('click', () => {
-  const before = countTokens(els.input.value).tokens;
-  els.input.value = els.input.value
-    .replace(/\r\n/g, '\n')
-    .replace(/[ \t 　]+/g, ' ')
-    .replace(/ *\n */g, '\n')
-    .replace(/\n{2,}/g, '\n')
-    .trim();
+  const before = measure().tokens;
+  if (mode === 'chat') {
+    const c = parseChat(els.input.value);
+    if (!c.ok) { render(); return toast(tr('chatErr')); }
+    if (c.data) {
+      const msgs = Array.isArray(c.data) ? c.data : c.data.messages;
+      for (const m of msgs) {
+        if (typeof m.content === 'string') m.content = cleanText(m.content);
+        else if (Array.isArray(m.content)) m.content.forEach(p => { if (p && typeof p.text === 'string') p.text = cleanText(p.text); });
+      }
+      els.input.value = JSON.stringify(c.data, null, 2);
+    }
+  } else {
+    els.input.value = cleanText(els.input.value);
+  }
   render();
-  const saved = before - countTokens(els.input.value).tokens;
+  const saved = before - measure().tokens;
   toast(saved > 0 ? '✨ ' + tr('tSaved', { n: fmt(saved) }) : tr('tAlready'));
 });
+
+// Text / Chat (JSON) mode
+const modeTabs = document.querySelectorAll('#modeTabs .tab');
+modeTabs.forEach(btn => btn.addEventListener('click', () => {
+  mode = btn.dataset.mode;
+  modeTabs.forEach(b => b.classList.toggle('tab-active', b === btn));
+  els.input.placeholder = mode === 'chat' ? CHAT_PLACEHOLDER : TEXT_PLACEHOLDER;
+  els.input.dir = mode === 'chat' ? 'ltr' : 'auto';
+  update();
+}));
+modeTabs[0].classList.add('tab-active');
+
+// Expected output tokens (slider + number stay in sync) and requests per month
+els.outRange.addEventListener('input', () => { els.outNum.value = els.outRange.value; update(); });
+els.outNum.addEventListener('input', () => { els.outRange.value = Math.min(8000, +els.outNum.value || 0); update(); });
+els.reqs.addEventListener('input', update);
 
 $('btnCopy').addEventListener('click', async () => {
   if (!els.input.value) return toast(tr('tNothing'));
