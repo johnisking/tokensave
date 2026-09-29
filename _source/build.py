@@ -24,7 +24,7 @@ ADSENSE_PUB = "ca-pub-6520495092767533"
 # Search engine ownership tags (content value only). Empty = not added.
 VERIFY = {
     "google-site-verification": "",
-    "naver-site-verification": "",
+    "naver-site-verification": "131662d11b92d5ad870f190a7d06d1d96c50a225",
     "msvalidate.01": "575FA911DCD5006EA2DA8F4A4EE835AA",
 }
 
