@@ -13,6 +13,7 @@ import { tr } from './common.js';
 const PROVIDERS = {
   openai: [
     { id: 'gpt-6-astra', name: 'GPT-6 Astra', in: 10.00, out: 50.00, ratio: 1.00, exact: false },
+    { id: 'gpt-6-1-sol', name: 'GPT-6.1 Sol', in: 2.00,  out: 10.00, ratio: 1.00, exact: false },
     { id: 'gpt-6-sol',   name: 'GPT-6 Sol',   in: 2.00,  out: 10.00, ratio: 1.00, exact: false },
     { id: 'gpt-6-luna',  name: 'GPT-6 Luna',  in: 0.10,  out: 0.50,  ratio: 1.00, exact: false },
     { id: 'gpt-4o',      name: 'GPT-4o',      in: 2.50,  out: 10.00, ratio: 1.00, exact: true  },

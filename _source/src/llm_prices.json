@@ -7,6 +7,11 @@
       "out": 50.0,
       "key": "gpt-6-astra"
     },
+    "gpt-6-1-sol": {
+      "in": 2.0,
+      "out": 10.0,
+      "key": "gpt-6.1-sol"
+    },
     "gpt-6-sol": {
       "in": 2.0,
       "out": 10.0,
