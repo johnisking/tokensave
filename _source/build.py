@@ -25,7 +25,7 @@ ADSENSE_PUB = "ca-pub-6520495092767533"
 VERIFY = {
     "google-site-verification": "",
     "naver-site-verification": "",
-    "msvalidate.01": "",
+    "msvalidate.01": "575FA911DCD5006EA2DA8F4A4EE835AA",
 }
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
