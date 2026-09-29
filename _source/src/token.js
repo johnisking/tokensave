@@ -62,12 +62,14 @@ const RE = {
   arabic:   /[؀-ۿݐ-ݿﭐ-﷿ﹰ-﻿]/,
   thai:     /[฀-๿]/,
   devan:    /[ऀ-ॿ]/,
+  bengali:  /[\u0980-\u09FF]/,
+  hebrew:   /[\u0590-\u05FF]/,
   emoji:    /\p{Extended_Pictographic}/u,
 };
-const WEIGHT = { hangul: 2.0, kana: 1.6, cjk: 1.8, cyrillic: 0.55, arabic: 0.6, thai: 0.9, devan: 1.1, emoji: 2.5 };
+const WEIGHT = { hangul: 2.0, kana: 1.6, cjk: 1.8, cyrillic: 0.55, arabic: 0.6, thai: 0.9, devan: 1.1, bengali: 1.2, hebrew: 0.6, emoji: 2.5 };
 
 function analyze(text) {
-  const counts = { hangul: 0, kana: 0, cjk: 0, cyrillic: 0, arabic: 0, thai: 0, devan: 0, emoji: 0 };
+  const counts = { hangul: 0, kana: 0, cjk: 0, cyrillic: 0, arabic: 0, thai: 0, devan: 0, bengali: 0, hebrew: 0, emoji: 0 };
   let latinBuf = '', latinTokens = 0, symbolTokens = 0;
   const flushLatin = () => {
     if (!latinBuf) return;
@@ -95,7 +97,7 @@ function analyze(text) {
 // =========================================================
 // 4) Language efficiency — token waste vs. English for the same meaning
 // =========================================================
-const PENALTY = { hangul: 2.4, kana: 2.1, cjk: 1.9, cyrillic: 1.8, arabic: 1.9, thai: 2.6, devan: 2.8, emoji: 1.0 };
+const PENALTY = { hangul: 2.4, kana: 2.1, cjk: 1.9, cyrillic: 1.8, arabic: 1.9, thai: 2.6, devan: 2.8, bengali: 3.0, hebrew: 1.9, emoji: 1.0 };
 function efficiency(a, text) {
   const nonSpace = (text.match(/\S/g) || []).length;
   if (!nonSpace || !a.nonLatinChars) return { waste: 1, pct: 100, share: 0 };

@@ -103,9 +103,9 @@ function compute() {
         <div class="font-semibold text-sm"><span class="ltr inline-block">${esc(r.m.name)}</span>${best}</div>
         <div class="text-[11px] text-zinc-500 mt-0.5 flex flex-wrap gap-1 items-center"><span>${esc(r.m.by)}</span> ${tags}</div>
       </div>
-      <div class="col-span-4 sm:col-span-2 text-end ltr tabular-nums text-sm text-zinc-300">${money(r.perSec)}<span class="text-zinc-500">/s</span></div>
-      <div class="col-span-4 sm:col-span-2 text-end ltr tabular-nums text-sm text-zinc-300">${money(r.perClip)}</div>
-      <div class="col-span-4 sm:col-span-3 text-end ltr tabular-nums text-base font-bold">${money(r.total)}</div>
+      <div class="col-span-4 sm:col-span-2 text-end tabular-nums text-sm text-zinc-300"><span class="ltr inline-block">${money(r.perSec)}<span class="text-zinc-500">/s</span></span></div>
+      <div class="col-span-4 sm:col-span-2 text-end tabular-nums text-sm text-zinc-300"><span class="ltr inline-block">${money(r.perClip)}</span></div>
+      <div class="col-span-4 sm:col-span-3 text-end tabular-nums text-base font-bold"><span class="ltr inline-block">${money(r.total)}</span></div>
     </li>`;
   }).join('') + bad.map(r => `<li class="grid grid-cols-12 gap-3 px-5 py-2.5 items-center opacity-45">
       <div class="col-span-7 sm:col-span-5 text-sm"><span class="ltr inline-block">${esc(r.m.name)}</span> <span class="text-[11px] text-zinc-500">${esc(r.m.by)}</span></div>

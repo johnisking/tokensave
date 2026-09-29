@@ -1,0 +1,121 @@
+SLUG = "fil"
+TAG = "fil"
+NATIVE = "Filipino"
+OG = "fil_PH"
+DIR = "ltr"
+
+S = dict(
+    title="AI Token Counter para sa GPT, Claude at Gemini – TokenSave",
+    desc="Libreng AI token counter para sa GPT, Claude at Gemini. Bilangin agad ang tokens, characters at tinatayang API cost sa browser mo, sa kahit anong wika. Walang ina-upload.",
+    badge="100% sa browser · Walang ina-upload",
+    h1="AI Token Counter",
+    sub="Bilangin ang tokens, characters at API cost nang real time — sa kahit anong wika.",
+    prompt="Ang prompt mo",
+    optimize="I-optimize",
+    optimizeTip="Alisin ang sobrang espasyo at blangkong linya",
+    copy="Kopyahin",
+    clear="Burahin",
+    ph1="I-paste o i-type dito ang prompt mo...",
+    ph2="Agad na nag-a-update ang tokens, characters at tinatayang cost habang nagta-type ka. Gumagana sa kahit anong wika.",
+    tokens="Tokens",
+    chars="Characters",
+    words="Salita",
+    cost="Tinatayang cost",
+    asIn="Bilang input",
+    asOut="Bilang output",
+    note="{name}: ${in} input / ${out} output kada 1M tokens",
+    exact="Eksakto (o200k)",
+    based="Batay sa o200k",
+    est="Tinatayang",
+    eff="Episyensya ng Wika",
+    waste="{x}x sayang na tokens",
+    efficient="{p}% episyente",
+    great="Mahusay",
+    moderate="Katamtamang sayang",
+    high="Maraming sayang na tokens",
+    share="Bahaging hindi English: {p}%",
+    tip="Tip: Kadalasang mas maraming tokens ang kailangan ng mga hindi Latin na sulat para sa parehong kahulugan. Makakatipid ka kung sa English isusulat ang system prompts.",
+    q1="Ano ang token?",
+    a1="Ang token ay isang piraso ng text na binabasa ng AI model. Sa English, ang 1 token ay humigit-kumulang 4 na character o ¾ ng isang salita.",
+    q2="Bakit mas mahal ang ibang wika?",
+    a2="Karamihan sa training ng tokenizers ay sa English, kaya ang Korean, Japanese, Chinese at marami pang ibang wika ay nahahati sa mas maraming tokens para sa parehong kahulugan.",
+    q3="Pribado ba ang text ko?",
+    a3="Oo. Lahat ay tumatakbo nang lokal sa browser mo. Hindi kailanman ipinapadala ang text mo sa anumang server.",
+    f1="Binibilang ang OpenAI models gamit ang o200k tokenizer. Tantiya lang ang bilang para sa Claude at Gemini.",
+    f2="Ang mga presyo ay list rates kada 1M tokens, huling tiningnan noong Setyembre 2026. Laging kumpirmahin sa pricing page ng provider.",
+    tSaved="Na-optimize — nakatipid ng {n} tokens",
+    tAlready="Optimized na",
+    tNothing="Walang makokopya",
+    tCopied="Nakopya sa clipboard",
+    tCleared="Nabura na",
+    lang="Wika",
+)
+
+V = dict(
+    title="AI Video Cost Calculator – Presyo ng Veo 3.1, Kling, Runway, Luma | TokenSave",
+    desc="Ikumpara ang API cost ng AI video models: Veo 3.1, Kling 3.0, Runway Gen-4.5, Luma Ray, Grok Imagine, Seedance at iba pa. Itakda ang haba, resolution at audio para makita agad ang presyo kada clip.",
+    badge="Opisyal na API prices · Na-update Setyembre 2026",
+    h1="AI Video Cost Calculator",
+    sub="Tingnan kung magkano ang parehong video sa bawat pangunahing AI video model.",
+    len="Haba kada clip (segundo)",
+    clips="Bilang ng clips",
+    res="Resolution",
+    audio="Audio",
+    audioOn="May audio",
+    audioOff="Walang audio",
+    model="Model",
+    perSec="Kada segundo",
+    perClip="Kada clip",
+    total="Kabuuan",
+    notes="Ang mga presyo ay kada segundo ng nagawang video. Hindi kasama ang buwis, volume discounts at mga pumalyang generation.",
+    na="Hindi available sa resolution na ito",
+    noAudio="Walang native audio",
+    cheapest="Pinakamura",
+    srcOfficial="Opisyal na presyo",
+    srcRunway="Sa Runway API",
+    audioIncl="Kasama ang audio",
+    clipNote="Sinisingil kada 5/10 s na clip",
+    q1="Paano pinepresyuhan ang AI video?",
+    a1="Karamihan sa video APIs ay naniningil kada segundo ng nagawang video. Mas mahal ang mas mataas na resolution at native audio, kaya ang 1080p o 4K na clip ay puwedeng ilang beses na mas mahal kaysa sa 720p.",
+    q2="Ano ang pinakamurang AI video model?",
+    a2="Depende sa resolution. Ang magagaang model gaya ng Veo 3.1 Lite, Grok Imagine at Wan ay nagsisimula sa mga $0.05 kada segundo, habang ang premium models sa 4K ay puwedeng umabot ng $0.40 kada segundo o higit pa.",
+    q3="Kasama ba ang Sora?",
+    a3="Hindi. Inalis ng OpenAI ang Sora 2 video models sa API nito noong Setyembre 24, 2026, kaya hindi na available ang Sora sa mga developer.",
+    f1="Opisyal na list prices mula sa API pricing page ng bawat provider, tiningnan noong Setyembre 30, 2026. Ang mga model na walang pampublikong per-second API price ay ipinapakita sa Runway API rates.",
+    f2="Madalas magbago ang presyo — kumpirmahin sa page ng provider bago ang malalaking trabaho.",
+)
+
+I = dict(
+    title="AI Image Cost Calculator – Presyo ng Nano Banana, GPT Image, FLUX, Grok | TokenSave",
+    desc="Ikumpara ang API cost kada image ng Nano Banana 2, Nano Banana Pro, GPT Image 2.5, FLUX.2, Grok Imagine, Seedream at Runway. Pumili ng resolution at bilang para makita agad ang kabuuan.",
+    h1="AI Image Cost Calculator",
+    sub="Tingnan kung magkano ang parehong images sa bawat pangunahing AI image model.",
+    count="Bilang ng images",
+    perImg="Kada image",
+    notes="Ang mga presyo ay kada nagawang image. Hindi kasama ang reference-image fees, buwis at volume discounts.",
+    q1="Paano pinepresyuhan ang AI image generation?",
+    a1="Karamihan sa image APIs ay may nakapirming presyo kada image na tumataas kasabay ng resolution. Mas mahal din sa OpenAI models ang mas mataas na quality setting, at ang FLUX ay naniningil kada megapixel.",
+    q2="Ano ang pinakamurang AI image model?",
+    a2="Ang maliliit na model gaya ng FLUX.2 [klein], Grok Imagine at GPT Image sa low quality ay nasa $0.01–0.02 kada image. Ang premium models sa 4K ay puwedeng umabot ng $0.15–0.40 kada image.",
+    q3="Ano ang Nano Banana?",
+    a3="Ang Nano Banana ay palayaw ng Gemini image models ng Google. Ang Nano Banana 2 ay Gemini 3.1 Flash Image at ang Nano Banana Pro ay Gemini 3 Pro Image.",
+    f1="Opisyal na list prices mula sa API pricing page ng bawat provider, tiningnan noong Setyembre 30, 2026. Ang OpenAI at Nano Banana Pro ay ipinapakita sa Runway API rates.",
+)
+
+NAV = dict(
+    navToken="Token Counter",
+    navVideo="Video Cost",
+    navImage="Image Cost",
+)
+
+SITE = dict(
+    fAbout="Tungkol sa Amin",
+    fPrivacy="Privacy",
+    viewIn="Tingnan ang page na ito sa Filipino",
+)
+
+META = {
+    "token": ("AI Token Counter – GPT, Claude, Gemini", "Bilangin ang tokens at API cost ng GPT, Claude at Gemini. Libre at pribado."),
+    "video": ("Presyo ng AI Video – Veo, Kling, Runway", "Ikumpara ang API prices ng Veo 3.1, Kling, Runway, Luma kada segundo at clip."),
+    "image": ("Presyo ng AI Image – Nano Banana, FLUX", "Ikumpara ang presyo kada image ng Nano Banana, GPT Image, FLUX, Grok at iba pa."),
+}

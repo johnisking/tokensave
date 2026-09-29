@@ -296,3 +296,8 @@ I["nl"] = dict(
   q3="Wat is Nano Banana?", a3="Nano Banana is de bijnaam voor de Gemini-beeldmodellen van Google. Nano Banana 2 is Gemini 3.1 Flash Image en Nano Banana Pro is Gemini 3 Pro Image.",
   f1="Officiële prijzen van de API-prijspagina van elke aanbieder, gecontroleerd op 30 september 2026. OpenAI en Nano Banana Pro worden getoond tegen Runway API-tarieven.",
 )
+
+# Extra languages (i18n_extra/*.py)
+from extra_langs import EXTRA as _EXTRA
+for _e in _EXTRA:
+    I[_e.TAG] = dict(_e.I, navImage=_e.NAV["navImage"])

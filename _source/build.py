@@ -57,7 +57,7 @@ TOOLS = [
 PAGES = [
     dict(file="about.html", path="/about", body="about_body.html",
          title="About TokenSave",
-         desc="Free, private AI calculators for tokens, video and image costs in 21 languages."),
+         desc="Free, private AI calculators for tokens, video and image costs in 27 languages."),
     dict(file="privacy.html", path="/privacy", body="privacy_body.html",
          title="Privacy Policy | TokenSave",
          desc="How TokenSave handles data: text stays in your browser, cookieless analytics, ads."),

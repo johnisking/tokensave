@@ -573,3 +573,9 @@ S["nl"] = dict(
   tSaved="Geoptimaliseerd — {n} tokens bespaard", tAlready="Al geoptimaliseerd", tNothing="Niets om te kopiëren", tCopied="Gekopieerd naar klembord", tCleared="Gewist",
   lang="Taal",
 )
+
+# Extra languages (i18n_extra/*.py)
+from extra_langs import EXTRA as _EXTRA
+for _e in _EXTRA:
+    LANGS.append((_e.SLUG, _e.TAG, _e.NATIVE, _e.OG, _e.DIR))
+    S[_e.TAG] = _e.S

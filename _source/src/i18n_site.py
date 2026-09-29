@@ -22,3 +22,8 @@ SITE = {
   "pl":    dict(fAbout="O stronie", fPrivacy="Prywatność", viewIn="Zobacz tę stronę po polsku"),
   "nl":    dict(fAbout="Over", fPrivacy="Privacy", viewIn="Bekijk deze pagina in het Nederlands"),
 }
+
+# Extra languages (i18n_extra/*.py)
+from extra_langs import EXTRA as _EXTRA
+for _e in _EXTRA:
+    SITE[_e.TAG] = _e.SITE

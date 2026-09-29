@@ -75,3 +75,9 @@ META["image"] = {
   "pl":    ("Koszt obrazów AI – Nano Banana, GPT", "Porównaj cenę za obraz w Nano Banana, GPT Image, FLUX, Grok i innych."),
   "nl":    ("AI-beeldkosten – Nano Banana, GPT Image", "Vergelijk de prijs per afbeelding van Nano Banana, GPT Image, FLUX en Grok."),
 }
+
+# Extra languages (i18n_extra/*.py)
+from extra_langs import EXTRA as _EXTRA
+for _e in _EXTRA:
+    for _tool in ("token", "video", "image"):
+        META[_tool][_e.TAG] = _e.META[_tool]

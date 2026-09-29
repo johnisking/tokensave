@@ -425,3 +425,9 @@ V["nl"] = dict(
   f1="Officiële prijzen van de API-prijspagina van elke aanbieder, gecontroleerd op 30 september 2026. Modellen zonder openbare prijs per seconde worden getoond tegen de tarieven van de Runway-API.",
   f2="Prijzen veranderen vaak — controleer de pagina van de aanbieder voor grote opdrachten.",
 )
+
+# Extra languages (i18n_extra/*.py)
+from extra_langs import EXTRA as _EXTRA
+for _e in _EXTRA:
+    NAV[_e.TAG] = dict(navToken=_e.NAV["navToken"], navVideo=_e.NAV["navVideo"])
+    V[_e.TAG] = _e.V
