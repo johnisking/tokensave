@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { background: radial-gradient(ellipse at top, #1e1b4b 0%, #0a0a0f 55%); background-color: #0a0a0f; }
+textarea::-webkit-scrollbar { width: 8px; }
+textarea::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 8px; }
+.tab-active { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff !important; box-shadow: 0 4px 20px -4px rgba(139,92,246,.6); }
+.battery-cell { transition: background-color .3s; }
+.ltr { direction: ltr; }
+input[type=number]::-webkit-inner-spin-button { opacity: .4; }
+.prose-ts h2 { font-size: 1.125rem; font-weight: 700; margin: 1.75rem 0 .5rem; color: #f4f4f5; }
+.prose-ts p, .prose-ts li { color: #a1a1aa; line-height: 1.7; }
+.prose-ts ul { list-style: disc; padding-inline-start: 1.25rem; margin: .5rem 0; }
+.prose-ts a { color: #c4b5fd; text-decoration: underline; }

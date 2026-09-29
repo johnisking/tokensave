@@ -34,25 +34,21 @@
   <meta property="og:title" content="شمارنده توکن هوش مصنوعی برای GPT، Claude و Gemini – TokenSave" />
   <meta property="og:description" content="شمارنده رایگان توکن برای GPT، Claude و Gemini. تعداد توکن، کاراکتر و هزینه تخمینی API را فوراً در مرورگر خود و به هر زبانی محاسبه کنید. هیچ چیزی آپلود نمی‌شود." />
   <meta property="og:locale" content="fa_IR" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>" />
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "TokenSave – شمارنده توکن هوش مصنوعی", "url": "https://tokensave.app/fa/", "inLanguage": "fa", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "شمارنده رایگان توکن برای GPT، Claude و Gemini. تعداد توکن، کاراکتر و هزینه تخمینی API را فوراً در مرورگر خود و به هر زبانی محاسبه کنید. هیچ چیزی آپلود نمی‌شود."}</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
-  </script>
+  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="TokenSave" />
+  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "شمارنده توکن هوش مصنوعی", "url": "https://tokensave.app/fa/", "inLanguage": "fa", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "شمارنده رایگان توکن برای GPT، Claude و Gemini. تعداد توکن، کاراکتر و هزینه تخمینی API را فوراً در مرورگر خود و به هر زبانی محاسبه کنید. هیچ چیزی آپلود نمی‌شود.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "fa", "mainEntity": [{"@type": "Question", "name": "توکن چیست؟", "acceptedAnswer": {"@type": "Answer", "text": "توکن بخشی از متن است که مدل هوش مصنوعی می‌خواند. در انگلیسی، هر توکن تقریباً ۴ کاراکتر یا سه‌چهارم یک کلمه است."}}, {"@type": "Question", "name": "چرا زبان‌های دیگر گران‌ترند؟", "acceptedAnswer": {"@type": "Answer", "text": "توکنایزرها بیشتر با انگلیسی آموزش دیده‌اند، بنابراین فارسی و بسیاری از زبان‌های دیگر برای همان معنا به توکن‌های بیشتری تقسیم می‌شوند."}}, {"@type": "Question", "name": "آیا متن من خصوصی است؟", "acceptedAnswer": {"@type": "Answer", "text": "بله. همه چیز به‌صورت محلی در مرورگر شما اجرا می‌شود و متن شما هرگز به هیچ سروری ارسال نمی‌شود."}}]}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    body { background: radial-gradient(ellipse at top, #1e1b4b 0%, #0a0a0f 55%); background-color: #0a0a0f; }
-    textarea::-webkit-scrollbar { width: 8px; }
-    textarea::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 8px; }
-    .tab-active { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff !important; box-shadow: 0 4px 20px -4px rgba(139,92,246,.6); }
-    .battery-cell { transition: background-color .3s; }
-    .ltr { direction: ltr; }
-    input[type=number]::-webkit-inner-spin-button { opacity: .4; }
-  </style>
+  <link rel="stylesheet" href="/styles.css?v=7af04778" />
+
   <!-- Cloudflare Web Analytics (cookieless). Only page views are sent — never what you type. -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "553cc8f2baba4297bd3b81f73b138536"}'></script>
 </head>
@@ -66,7 +62,7 @@
     <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         <a href="/fa/" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300">
-          <span class="text-lg">🪙</span> TokenSave
+          <img src="/favicon.svg" alt="" width="22" height="22" /> TokenSave
         </a>
         <nav class="flex gap-1 text-xs" aria-label="Tools">
           <a href="/fa/" class="px-2.5 py-1 rounded-md font-semibold tab-active" aria-current="page">شمارنده توکن</a>
@@ -228,13 +224,13 @@
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">
       <p>مدل‌های OpenAI با توکنایزر o200k شمرده می‌شوند. اعداد Claude و Gemini تخمینی هستند.</p>
       <p>قیمت‌ها نرخ رسمی به ازای هر ۱ میلیون توکن هستند و در سپتامبر ۲۰۲۶ بررسی شده‌اند. همیشه در صفحه قیمت هر ارائه‌دهنده تأیید کنید.</p>
-      <p class="pt-2">© 2026 TokenSave</p>
+      <p class="pt-2"><a href="/about" class="hover:text-zinc-300">درباره</a> · <a href="/privacy" class="hover:text-zinc-300">حریم خصوصی</a> · © 2026 TokenSave</p>
     </footer>
   </main>
 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
-  <script>window.T = {"note": "{name}: ورودی ${in} / خروجی ${out} به ازای هر ۱ میلیون توکن", "exact": "دقیق (o200k)", "based": "بر پایه o200k", "est": "تخمینی", "waste": "هدررفت توکن ×{x}", "efficient": "بهره‌وری {p}%", "great": "عالی", "moderate": "هدررفت متوسط", "high": "هدررفت زیاد", "share": "سهم کاراکترهای غیرانگلیسی: {p}%", "tSaved": "بهینه شد — {n} توکن صرفه‌جویی شد", "tAlready": "از قبل بهینه است", "tNothing": "چیزی برای کپی وجود ندارد", "tCopied": "در کلیپ‌بورد کپی شد", "tCleared": "پاک شد"};</script>
-  <script type="module" src="/token.js?v=68688614"></script>
+  <script>window.T = {"note": "{name}: ورودی ${in} / خروجی ${out} به ازای هر ۱ میلیون توکن", "exact": "دقیق (o200k)", "based": "بر پایه o200k", "est": "تخمینی", "waste": "هدررفت توکن ×{x}", "efficient": "بهره‌وری {p}%", "great": "عالی", "moderate": "هدررفت متوسط", "high": "هدررفت زیاد", "share": "سهم کاراکترهای غیرانگلیسی: {p}%", "tSaved": "بهینه شد — {n} توکن صرفه‌جویی شد", "tAlready": "از قبل بهینه است", "tNothing": "چیزی برای کپی وجود ندارد", "tCopied": "در کلیپ‌بورد کپی شد", "tCleared": "پاک شد", "viewIn": {"en": "View this page in English", "ko": "이 페이지를 한국어로 보기", "ja": "このページを日本語で見る", "zh-cn": "用简体中文查看此页面", "zh-tw": "以繁體中文檢視此頁面", "es": "Ver esta página en español", "pt": "Ver esta página em português", "fr": "Voir cette page en français", "de": "Diese Seite auf Deutsch ansehen", "it": "Visualizza questa pagina in italiano", "ru": "Открыть эту страницу на русском", "uk": "Відкрити цю сторінку українською", "tr": "Bu sayfayı Türkçe görüntüle", "ar": "عرض هذه الصفحة بالعربية", "fa": "نمایش این صفحه به فارسی", "hi": "यह पेज हिन्दी में देखें", "id": "Lihat halaman ini dalam Bahasa Indonesia", "vi": "Xem trang này bằng tiếng Việt", "th": "ดูหน้านี้เป็นภาษาไทย", "pl": "Zobacz tę stronę po polsku", "nl": "Bekijk deze pagina in het Nederlands"}};</script>
+  <script type="module" src="/token.js?v=7af04778"></script>
 </body>
 </html>

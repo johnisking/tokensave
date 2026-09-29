@@ -34,25 +34,21 @@
   <meta property="og:title" content="AI 이미지 생성 비용 계산기 – 나노바나나, GPT Image, FLUX, Grok 가격 비교 | TokenSave" />
   <meta property="og:description" content="나노바나나 2, 나노바나나 프로, GPT Image 2.5, FLUX.2, Grok Imagine, Seedream, Runway의 이미지 1장당 API 비용을 비교하세요. 해상도와 장수를 정하면 합계가 바로 나옵니다." />
   <meta property="og:locale" content="ko_KR" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>" />
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "TokenSave – AI 이미지 생성 비용 계산기", "url": "https://tokensave.app/ko/image", "inLanguage": "ko", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "나노바나나 2, 나노바나나 프로, GPT Image 2.5, FLUX.2, Grok Imagine, Seedream, Runway의 이미지 1장당 API 비용을 비교하세요. 해상도와 장수를 정하면 합계가 바로 나옵니다."}</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
-  </script>
+  <meta property="og:image" content="https://tokensave.app/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="TokenSave" />
+  <meta name="twitter:image" content="https://tokensave.app/og-image.jpg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI 이미지 생성 비용 계산기", "url": "https://tokensave.app/ko/image", "inLanguage": "ko", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "나노바나나 2, 나노바나나 프로, GPT Image 2.5, FLUX.2, Grok Imagine, Seedream, Runway의 이미지 1장당 API 비용을 비교하세요. 해상도와 장수를 정하면 합계가 바로 나옵니다.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "ko", "mainEntity": [{"@type": "Question", "name": "AI 이미지는 어떻게 과금되나요?", "acceptedAnswer": {"@type": "Answer", "text": "대부분의 이미지 API는 장당 고정 가격을 받고, 해상도가 높을수록 비싸집니다. OpenAI 모델은 품질 설정이 높을수록 더 비싸고, FLUX는 메가픽셀 단위로 과금합니다."}}, {"@type": "Question", "name": "가장 싼 AI 이미지 모델은?", "acceptedAnswer": {"@type": "Answer", "text": "FLUX.2 [klein], Grok Imagine, 낮은 품질의 GPT Image 같은 모델은 장당 약 $0.01–0.02입니다. 고급 모델로 4K를 만들면 장당 $0.15–0.40까지 들 수 있습니다."}}, {"@type": "Question", "name": "나노바나나가 뭔가요?", "acceptedAnswer": {"@type": "Answer", "text": "나노바나나는 구글 Gemini 이미지 모델의 별명입니다. 나노바나나 2는 Gemini 3.1 Flash Image, 나노바나나 프로는 Gemini 3 Pro Image입니다."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ko/"}, {"@type": "ListItem", "position": 2, "name": "AI 이미지 생성 비용 계산기", "item": "https://tokensave.app/ko/image"}]}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    body { background: radial-gradient(ellipse at top, #1e1b4b 0%, #0a0a0f 55%); background-color: #0a0a0f; }
-    textarea::-webkit-scrollbar { width: 8px; }
-    textarea::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 8px; }
-    .tab-active { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff !important; box-shadow: 0 4px 20px -4px rgba(139,92,246,.6); }
-    .battery-cell { transition: background-color .3s; }
-    .ltr { direction: ltr; }
-    input[type=number]::-webkit-inner-spin-button { opacity: .4; }
-  </style>
+  <link rel="stylesheet" href="/styles.css?v=7af04778" />
+
   <!-- Cloudflare Web Analytics (cookieless). Only page views are sent — never what you type. -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "553cc8f2baba4297bd3b81f73b138536"}'></script>
 </head>
@@ -66,7 +62,7 @@
     <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         <a href="/ko/" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300">
-          <span class="text-lg">🪙</span> TokenSave
+          <img src="/favicon.svg" alt="" width="22" height="22" /> TokenSave
         </a>
         <nav class="flex gap-1 text-xs" aria-label="Tools">
           <a href="/ko/" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">토큰 계산기</a>
@@ -173,13 +169,13 @@
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">
       <p>각 회사 API 요금 페이지의 공식 가격이며 2026년 9월 30일에 확인했습니다. OpenAI와 나노바나나 프로는 Runway API 가격으로 표시합니다.</p>
       <p>가격은 자주 바뀝니다. 대량 작업 전에는 각 회사 페이지에서 꼭 확인하세요.</p>
-      <p class="pt-2">© 2026 TokenSave</p>
+      <p class="pt-2"><a href="/about" class="hover:text-zinc-300">소개</a> · <a href="/privacy" class="hover:text-zinc-300">개인정보처리방침</a> · © 2026 TokenSave</p>
     </footer>
   </main>
 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
-  <script>window.T = {"na": "이 해상도는 지원 안 함", "cheapest": "최저가", "srcOfficial": "공식 가격", "srcRunway": "Runway API 경유"};</script>
-  <script type="module" src="/image.js?v=68688614"></script>
+  <script>window.T = {"na": "이 해상도는 지원 안 함", "cheapest": "최저가", "srcOfficial": "공식 가격", "srcRunway": "Runway API 경유", "viewIn": {"en": "View this page in English", "ko": "이 페이지를 한국어로 보기", "ja": "このページを日本語で見る", "zh-cn": "用简体中文查看此页面", "zh-tw": "以繁體中文檢視此頁面", "es": "Ver esta página en español", "pt": "Ver esta página em português", "fr": "Voir cette page en français", "de": "Diese Seite auf Deutsch ansehen", "it": "Visualizza questa pagina in italiano", "ru": "Открыть эту страницу на русском", "uk": "Відкрити цю сторінку українською", "tr": "Bu sayfayı Türkçe görüntüle", "ar": "عرض هذه الصفحة بالعربية", "fa": "نمایش این صفحه به فارسی", "hi": "यह पेज हिन्दी में देखें", "id": "Lihat halaman ini dalam Bahasa Indonesia", "vi": "Xem trang này bằng tiếng Việt", "th": "ดูหน้านี้เป็นภาษาไทย", "pl": "Zobacz tę stronę po polsku", "nl": "Bekijk deze pagina in het Nederlands"}};</script>
+  <script type="module" src="/image.js?v=7af04778"></script>
 </body>
 </html>

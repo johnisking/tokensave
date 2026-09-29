@@ -34,25 +34,21 @@
   <meta property="og:title" content="AI画像生成コスト計算ツール – Nano Banana・GPT Image・FLUX・Grokの料金比較 | TokenSave" />
   <meta property="og:description" content="Nano Banana 2、Nano Banana Pro、GPT Image 2.5、FLUX.2、Grok Imagine、Seedream、Runwayの1枚あたりのAPI料金を比較。解像度と枚数を選ぶと合計がすぐにわかります。" />
   <meta property="og:locale" content="ja_JP" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>" />
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "TokenSave – AI画像生成コスト計算ツール", "url": "https://tokensave.app/ja/image", "inLanguage": "ja", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Nano Banana 2、Nano Banana Pro、GPT Image 2.5、FLUX.2、Grok Imagine、Seedream、Runwayの1枚あたりのAPI料金を比較。解像度と枚数を選ぶと合計がすぐにわかります。"}</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
-  </script>
+  <meta property="og:image" content="https://tokensave.app/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="TokenSave" />
+  <meta name="twitter:image" content="https://tokensave.app/og-image.jpg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI画像生成コスト計算ツール", "url": "https://tokensave.app/ja/image", "inLanguage": "ja", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Nano Banana 2、Nano Banana Pro、GPT Image 2.5、FLUX.2、Grok Imagine、Seedream、Runwayの1枚あたりのAPI料金を比較。解像度と枚数を選ぶと合計がすぐにわかります。", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "ja", "mainEntity": [{"@type": "Question", "name": "AI画像生成の料金体系は？", "acceptedAnswer": {"@type": "Answer", "text": "多くの画像APIは1枚ごとの固定料金で、解像度が上がるほど高くなります。OpenAIのモデルは品質設定が高いほど高く、FLUXはメガピクセル単位で課金されます。"}}, {"@type": "Question", "name": "いちばん安いAI画像モデルは？", "acceptedAnswer": {"@type": "Answer", "text": "FLUX.2 [klein]、Grok Imagine、低品質のGPT Imageなどは1枚あたり約$0.01〜0.02です。上位モデルで4Kを作ると1枚$0.15〜0.40かかることもあります。"}}, {"@type": "Question", "name": "Nano Bananaとは？", "acceptedAnswer": {"@type": "Answer", "text": "Nano BananaはGoogleのGemini画像モデルの愛称です。Nano Banana 2はGemini 3.1 Flash Image、Nano Banana ProはGemini 3 Pro Imageです。"}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ja/"}, {"@type": "ListItem", "position": 2, "name": "AI画像生成コスト計算ツール", "item": "https://tokensave.app/ja/image"}]}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    body { background: radial-gradient(ellipse at top, #1e1b4b 0%, #0a0a0f 55%); background-color: #0a0a0f; }
-    textarea::-webkit-scrollbar { width: 8px; }
-    textarea::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 8px; }
-    .tab-active { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff !important; box-shadow: 0 4px 20px -4px rgba(139,92,246,.6); }
-    .battery-cell { transition: background-color .3s; }
-    .ltr { direction: ltr; }
-    input[type=number]::-webkit-inner-spin-button { opacity: .4; }
-  </style>
+  <link rel="stylesheet" href="/styles.css?v=7af04778" />
+
   <!-- Cloudflare Web Analytics (cookieless). Only page views are sent — never what you type. -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "553cc8f2baba4297bd3b81f73b138536"}'></script>
 </head>
@@ -66,7 +62,7 @@
     <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         <a href="/ja/" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300">
-          <span class="text-lg">🪙</span> TokenSave
+          <img src="/favicon.svg" alt="" width="22" height="22" /> TokenSave
         </a>
         <nav class="flex gap-1 text-xs" aria-label="Tools">
           <a href="/ja/" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">トークン計算</a>
@@ -173,13 +169,13 @@
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">
       <p>各社API料金ページの公式価格（2026年9月30日確認）。OpenAIとNano Banana ProはRunway APIの料金で表示しています。</p>
       <p>料金は頻繁に変わります。大量に生成する前に各社のページでご確認ください。</p>
-      <p class="pt-2">© 2026 TokenSave</p>
+      <p class="pt-2"><a href="/about" class="hover:text-zinc-300">概要</a> · <a href="/privacy" class="hover:text-zinc-300">プライバシー</a> · © 2026 TokenSave</p>
     </footer>
   </main>
 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
-  <script>window.T = {"na": "この解像度は非対応", "cheapest": "最安", "srcOfficial": "公式料金", "srcRunway": "Runway API経由"};</script>
-  <script type="module" src="/image.js?v=68688614"></script>
+  <script>window.T = {"na": "この解像度は非対応", "cheapest": "最安", "srcOfficial": "公式料金", "srcRunway": "Runway API経由", "viewIn": {"en": "View this page in English", "ko": "이 페이지를 한국어로 보기", "ja": "このページを日本語で見る", "zh-cn": "用简体中文查看此页面", "zh-tw": "以繁體中文檢視此頁面", "es": "Ver esta página en español", "pt": "Ver esta página em português", "fr": "Voir cette page en français", "de": "Diese Seite auf Deutsch ansehen", "it": "Visualizza questa pagina in italiano", "ru": "Открыть эту страницу на русском", "uk": "Відкрити цю сторінку українською", "tr": "Bu sayfayı Türkçe görüntüle", "ar": "عرض هذه الصفحة بالعربية", "fa": "نمایش این صفحه به فارسی", "hi": "यह पेज हिन्दी में देखें", "id": "Lihat halaman ini dalam Bahasa Indonesia", "vi": "Xem trang này bằng tiếng Việt", "th": "ดูหน้านี้เป็นภาษาไทย", "pl": "Zobacz tę stronę po polsku", "nl": "Bekijk deze pagina in het Nederlands"}};</script>
+  <script type="module" src="/image.js?v=7af04778"></script>
 </body>
 </html>

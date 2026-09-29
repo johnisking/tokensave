@@ -34,25 +34,21 @@
   <meta property="og:title" content="AI Token 计算器 – 计算 GPT、Claude、Gemini 的 Token 数与费用 | TokenSave" />
   <meta property="og:description" content="免费的 AI Token 计算器，支持 GPT、Claude 和 Gemini。在浏览器中即时计算 Token 数、字符数和预估 API 费用，支持任何语言，内容不会上传。" />
   <meta property="og:locale" content="zh_CN" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>" />
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "TokenSave – AI Token 计算器", "url": "https://tokensave.app/zh-cn/", "inLanguage": "zh-CN", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "免费的 AI Token 计算器，支持 GPT、Claude 和 Gemini。在浏览器中即时计算 Token 数、字符数和预估 API 费用，支持任何语言，内容不会上传。"}</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
-  </script>
+  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="TokenSave" />
+  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI Token 计算器", "url": "https://tokensave.app/zh-cn/", "inLanguage": "zh-CN", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "免费的 AI Token 计算器，支持 GPT、Claude 和 Gemini。在浏览器中即时计算 Token 数、字符数和预估 API 费用，支持任何语言，内容不会上传。", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "zh-CN", "mainEntity": [{"@type": "Question", "name": "什么是 Token？", "acceptedAnswer": {"@type": "Answer", "text": "Token 是 AI 模型读取文本的基本单位。在英文中，1 个 Token 大约是 4 个字符，或 3/4 个单词。"}}, {"@type": "Question", "name": "为什么中文更耗 Token？", "acceptedAnswer": {"@type": "Answer", "text": "分词器主要基于英文训练，因此中文、日文、韩文等语言表达同样意思时会被切分成更多 Token。"}}, {"@type": "Question", "name": "我的文本安全吗？", "acceptedAnswer": {"@type": "Answer", "text": "安全。所有计算都在你的浏览器本地完成，文本不会发送到任何服务器。"}}]}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    body { background: radial-gradient(ellipse at top, #1e1b4b 0%, #0a0a0f 55%); background-color: #0a0a0f; }
-    textarea::-webkit-scrollbar { width: 8px; }
-    textarea::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 8px; }
-    .tab-active { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff !important; box-shadow: 0 4px 20px -4px rgba(139,92,246,.6); }
-    .battery-cell { transition: background-color .3s; }
-    .ltr { direction: ltr; }
-    input[type=number]::-webkit-inner-spin-button { opacity: .4; }
-  </style>
+  <link rel="stylesheet" href="/styles.css?v=7af04778" />
+
   <!-- Cloudflare Web Analytics (cookieless). Only page views are sent — never what you type. -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "553cc8f2baba4297bd3b81f73b138536"}'></script>
 </head>
@@ -66,7 +62,7 @@
     <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         <a href="/zh-cn/" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300">
-          <span class="text-lg">🪙</span> TokenSave
+          <img src="/favicon.svg" alt="" width="22" height="22" /> TokenSave
         </a>
         <nav class="flex gap-1 text-xs" aria-label="Tools">
           <a href="/zh-cn/" class="px-2.5 py-1 rounded-md font-semibold tab-active" aria-current="page">Token 计算器</a>
@@ -228,13 +224,13 @@
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">
       <p>OpenAI 模型使用 o200k 分词器计算，Claude 和 Gemini 为估算值。</p>
       <p>价格为每 100 万 Token 的官方标价，更新于 2026 年 9 月。请以各服务商的价格页面为准。</p>
-      <p class="pt-2">© 2026 TokenSave</p>
+      <p class="pt-2"><a href="/about" class="hover:text-zinc-300">关于</a> · <a href="/privacy" class="hover:text-zinc-300">隐私政策</a> · © 2026 TokenSave</p>
     </footer>
   </main>
 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
-  <script>window.T = {"note": "{name}：每 100 万 Token 输入 ${in} / 输出 ${out}", "exact": "精确 (o200k)", "based": "基于 o200k", "est": "估算", "waste": "Token 浪费 {x} 倍", "efficient": "效率 {p}%", "great": "很好", "moderate": "略有浪费", "high": "浪费较多", "share": "非英文字符占比：{p}%", "tSaved": "已优化 — 节省 {n} 个 Token", "tAlready": "已经是最优状态", "tNothing": "没有可复制的内容", "tCopied": "已复制到剪贴板", "tCleared": "已清空"};</script>
-  <script type="module" src="/token.js?v=68688614"></script>
+  <script>window.T = {"note": "{name}：每 100 万 Token 输入 ${in} / 输出 ${out}", "exact": "精确 (o200k)", "based": "基于 o200k", "est": "估算", "waste": "Token 浪费 {x} 倍", "efficient": "效率 {p}%", "great": "很好", "moderate": "略有浪费", "high": "浪费较多", "share": "非英文字符占比：{p}%", "tSaved": "已优化 — 节省 {n} 个 Token", "tAlready": "已经是最优状态", "tNothing": "没有可复制的内容", "tCopied": "已复制到剪贴板", "tCleared": "已清空", "viewIn": {"en": "View this page in English", "ko": "이 페이지를 한국어로 보기", "ja": "このページを日本語で見る", "zh-cn": "用简体中文查看此页面", "zh-tw": "以繁體中文檢視此頁面", "es": "Ver esta página en español", "pt": "Ver esta página em português", "fr": "Voir cette page en français", "de": "Diese Seite auf Deutsch ansehen", "it": "Visualizza questa pagina in italiano", "ru": "Открыть эту страницу на русском", "uk": "Відкрити цю сторінку українською", "tr": "Bu sayfayı Türkçe görüntüle", "ar": "عرض هذه الصفحة بالعربية", "fa": "نمایش این صفحه به فارسی", "hi": "यह पेज हिन्दी में देखें", "id": "Lihat halaman ini dalam Bahasa Indonesia", "vi": "Xem trang này bằng tiếng Việt", "th": "ดูหน้านี้เป็นภาษาไทย", "pl": "Zobacz tę stronę po polsku", "nl": "Bekijk deze pagina in het Nederlands"}};</script>
+  <script type="module" src="/token.js?v=7af04778"></script>
 </body>
 </html>

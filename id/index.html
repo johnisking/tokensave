@@ -34,25 +34,21 @@
   <meta property="og:title" content="Penghitung Token AI untuk GPT, Claude &amp; Gemini – TokenSave" />
   <meta property="og:description" content="Penghitung token AI gratis untuk GPT, Claude, dan Gemini. Hitung token, karakter, dan perkiraan biaya API langsung di browser, dalam bahasa apa pun. Tidak ada yang diunggah." />
   <meta property="og:locale" content="id_ID" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>" />
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "TokenSave – Penghitung Token AI", "url": "https://tokensave.app/id/", "inLanguage": "id", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Penghitung token AI gratis untuk GPT, Claude, dan Gemini. Hitung token, karakter, dan perkiraan biaya API langsung di browser, dalam bahasa apa pun. Tidak ada yang diunggah."}</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
-  </script>
+  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="TokenSave" />
+  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Penghitung Token AI", "url": "https://tokensave.app/id/", "inLanguage": "id", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Penghitung token AI gratis untuk GPT, Claude, dan Gemini. Hitung token, karakter, dan perkiraan biaya API langsung di browser, dalam bahasa apa pun. Tidak ada yang diunggah.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "id", "mainEntity": [{"@type": "Question", "name": "Apa itu token?", "acceptedAnswer": {"@type": "Answer", "text": "Token adalah potongan teks yang dibaca model AI. Dalam bahasa Inggris, 1 token kira-kira 4 karakter atau ¾ kata."}}, {"@type": "Question", "name": "Mengapa bahasa lain lebih mahal?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizer sebagian besar dilatih dengan bahasa Inggris, sehingga banyak bahasa lain dipecah menjadi lebih banyak token untuk makna yang sama."}}, {"@type": "Question", "name": "Apakah teks saya aman?", "acceptedAnswer": {"@type": "Answer", "text": "Ya. Semua proses berjalan lokal di browser Anda. Teks Anda tidak pernah dikirim ke server mana pun."}}]}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    body { background: radial-gradient(ellipse at top, #1e1b4b 0%, #0a0a0f 55%); background-color: #0a0a0f; }
-    textarea::-webkit-scrollbar { width: 8px; }
-    textarea::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 8px; }
-    .tab-active { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff !important; box-shadow: 0 4px 20px -4px rgba(139,92,246,.6); }
-    .battery-cell { transition: background-color .3s; }
-    .ltr { direction: ltr; }
-    input[type=number]::-webkit-inner-spin-button { opacity: .4; }
-  </style>
+  <link rel="stylesheet" href="/styles.css?v=7af04778" />
+
   <!-- Cloudflare Web Analytics (cookieless). Only page views are sent — never what you type. -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "553cc8f2baba4297bd3b81f73b138536"}'></script>
 </head>
@@ -66,7 +62,7 @@
     <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         <a href="/id/" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300">
-          <span class="text-lg">🪙</span> TokenSave
+          <img src="/favicon.svg" alt="" width="22" height="22" /> TokenSave
         </a>
         <nav class="flex gap-1 text-xs" aria-label="Tools">
           <a href="/id/" class="px-2.5 py-1 rounded-md font-semibold tab-active" aria-current="page">Penghitung token</a>
@@ -228,13 +224,13 @@
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">
       <p>Model OpenAI dihitung dengan tokenizer o200k. Angka untuk Claude dan Gemini adalah perkiraan.</p>
       <p>Harga adalah tarif resmi per 1 juta token, diperiksa pada September 2026. Selalu konfirmasi di halaman harga penyedia.</p>
-      <p class="pt-2">© 2026 TokenSave</p>
+      <p class="pt-2"><a href="/about" class="hover:text-zinc-300">Tentang</a> · <a href="/privacy" class="hover:text-zinc-300">Privasi</a> · © 2026 TokenSave</p>
     </footer>
   </main>
 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
-  <script>window.T = {"note": "{name}: input ${in} / output ${out} per 1 juta token", "exact": "Tepat (o200k)", "based": "Berbasis o200k", "est": "Perkiraan", "waste": "Pemborosan token {x}x", "efficient": "{p}% efisien", "great": "Bagus", "moderate": "Pemborosan sedang", "high": "Pemborosan tinggi", "share": "Porsi non-Inggris: {p}%", "tSaved": "Dioptimalkan — hemat {n} token", "tAlready": "Sudah optimal", "tNothing": "Tidak ada yang bisa disalin", "tCopied": "Disalin ke clipboard", "tCleared": "Dihapus"};</script>
-  <script type="module" src="/token.js?v=68688614"></script>
+  <script>window.T = {"note": "{name}: input ${in} / output ${out} per 1 juta token", "exact": "Tepat (o200k)", "based": "Berbasis o200k", "est": "Perkiraan", "waste": "Pemborosan token {x}x", "efficient": "{p}% efisien", "great": "Bagus", "moderate": "Pemborosan sedang", "high": "Pemborosan tinggi", "share": "Porsi non-Inggris: {p}%", "tSaved": "Dioptimalkan — hemat {n} token", "tAlready": "Sudah optimal", "tNothing": "Tidak ada yang bisa disalin", "tCopied": "Disalin ke clipboard", "tCleared": "Dihapus", "viewIn": {"en": "View this page in English", "ko": "이 페이지를 한국어로 보기", "ja": "このページを日本語で見る", "zh-cn": "用简体中文查看此页面", "zh-tw": "以繁體中文檢視此頁面", "es": "Ver esta página en español", "pt": "Ver esta página em português", "fr": "Voir cette page en français", "de": "Diese Seite auf Deutsch ansehen", "it": "Visualizza questa pagina in italiano", "ru": "Открыть эту страницу на русском", "uk": "Відкрити цю сторінку українською", "tr": "Bu sayfayı Türkçe görüntüle", "ar": "عرض هذه الصفحة بالعربية", "fa": "نمایش این صفحه به فارسی", "hi": "यह पेज हिन्दी में देखें", "id": "Lihat halaman ini dalam Bahasa Indonesia", "vi": "Xem trang này bằng tiếng Việt", "th": "ดูหน้านี้เป็นภาษาไทย", "pl": "Zobacz tę stronę po polsku", "nl": "Bekijk deze pagina in het Nederlands"}};</script>
+  <script type="module" src="/token.js?v=7af04778"></script>
 </body>
 </html>

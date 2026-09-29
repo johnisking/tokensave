@@ -1,66 +1,1649 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://tokensave.app/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/ko/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/ja/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/zh-cn/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/zh-tw/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/es/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/pt/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/fr/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/de/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/it/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/ru/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/uk/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/tr/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/ar/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/fa/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/hi/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/id/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/vi/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/th/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/pl/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/nl/</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/ko/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/ja/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/zh-cn/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/zh-tw/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/es/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/pt/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/fr/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/de/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/it/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/ru/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/uk/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/tr/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/ar/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/fa/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/hi/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/id/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/vi/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/th/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/pl/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/nl/video</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/ko/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/ja/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/zh-cn/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/zh-tw/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/es/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/pt/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/fr/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/de/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/it/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/ru/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/uk/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/tr/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/ar/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/fa/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/hi/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/id/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/vi/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/th/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/pl/image</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://tokensave.app/nl/image</loc><lastmod>2026-09-30</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://tokensave.app/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/zh-cn/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/zh-tw/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/es/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/pt/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/fr/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/de/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/it/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ru/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/uk/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/tr/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ar/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/fa/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/hi/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/id/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/vi/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/th/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/pl/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/nl/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/zh-cn/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/zh-tw/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/es/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/pt/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/fr/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/de/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/it/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ru/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/uk/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/tr/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ar/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/fa/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/hi/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/id/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/vi/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/th/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/pl/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/nl/video</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/video"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/video"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/video"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/video"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/video"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/video"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/video"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/video"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/video"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/video"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/video"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/video"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/video"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/video"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/video"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/video"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/video"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/video"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/video"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/video"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/zh-cn/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/zh-tw/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/es/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/pt/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/fr/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/de/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/it/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ru/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/uk/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/tr/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ar/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/fa/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/hi/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/id/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/vi/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/th/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/pl/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/nl/image</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/image"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/image"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/image"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/image"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/image"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/image"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/image"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/image"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/image"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/image"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/image"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/image"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://tokensave.app/ar/image"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://tokensave.app/fa/image"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://tokensave.app/hi/image"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://tokensave.app/id/image"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://tokensave.app/vi/image"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://tokensave.app/th/image"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/image"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/image"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/image"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/about</loc>
+    <lastmod>2026-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://tokensave.app/privacy</loc>
+    <lastmod>2026-09-30</lastmod>
+  </url>
 </urlset>

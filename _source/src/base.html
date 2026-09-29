@@ -13,25 +13,21 @@
   <meta property="og:title" content="{{title}}" />
   <meta property="og:description" content="{{desc}}" />
   <meta property="og:locale" content="{{ogLocale}}" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>" />
-{{redirect}}
+  <meta property="og:image" content="{{ogImage}}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="TokenSave" />
+  <meta name="twitter:image" content="{{ogImage}}" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script type="application/ld+json">{{ldjson}}</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    body { background: radial-gradient(ellipse at top, #1e1b4b 0%, #0a0a0f 55%); background-color: #0a0a0f; }
-    textarea::-webkit-scrollbar { width: 8px; }
-    textarea::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 8px; }
-    .tab-active { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff !important; box-shadow: 0 4px 20px -4px rgba(139,92,246,.6); }
-    .battery-cell { transition: background-color .3s; }
-    .ltr { direction: ltr; }
-    input[type=number]::-webkit-inner-spin-button { opacity: .4; }
-  </style>
+  <link rel="stylesheet" href="/styles.css?v={{ver}}" />
+{{adsHead}}
   <!-- Cloudflare Web Analytics (cookieless). Only page views are sent — never what you type. -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "553cc8f2baba4297bd3b81f73b138536"}'></script>
 </head>
@@ -45,7 +41,7 @@
     <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         <a href="{{homeUrl}}" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300">
-          <span class="text-lg">🪙</span> TokenSave
+          <img src="/favicon.svg" alt="" width="22" height="22" /> TokenSave
         </a>
         <nav class="flex gap-1 text-xs" aria-label="Tools">
 {{toolNav}}
@@ -64,31 +60,18 @@
 
     <!-- ===== AD PLACEHOLDER: In-content banner below tool (responsive) ===== -->
 
-    <section class="mt-12 grid sm:grid-cols-3 gap-4 text-sm">
-      <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
-        <h2 class="font-semibold mb-1.5">{{q1}}</h2>
-        <p class="text-zinc-400">{{a1}}</p>
-      </div>
-      <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
-        <h2 class="font-semibold mb-1.5">{{q2}}</h2>
-        <p class="text-zinc-400">{{a2}}</p>
-      </div>
-      <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
-        <h2 class="font-semibold mb-1.5">{{q3}}</h2>
-        <p class="text-zinc-400">{{a3}}</p>
-      </div>
-    </section>
+{{faq}}
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">
       <p>{{f1}}</p>
       <p>{{f2}}</p>
-      <p class="pt-2">© 2026 TokenSave</p>
+      <p class="pt-2"><a href="/about" class="hover:text-zinc-300">{{fAbout}}</a> · <a href="/privacy" class="hover:text-zinc-300">{{fPrivacy}}</a> · © 2026 TokenSave</p>
     </footer>
   </main>
 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {{tjson}};</script>
-  <script type="module" src="/{{script}}?v={{ver}}"></script>
+  {{scriptTag}}
 </body>
 </html>

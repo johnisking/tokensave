@@ -34,25 +34,21 @@
   <meta property="og:title" content="GPT, Claude और Gemini के लिए AI टोकन काउंटर – TokenSave" />
   <meta property="og:description" content="GPT, Claude और Gemini के लिए मुफ़्त AI टोकन काउंटर। अपने ब्राउज़र में तुरंत टोकन, अक्षर और अनुमानित API लागत गिनें, किसी भी भाषा में। कुछ भी अपलोड नहीं होता।" />
   <meta property="og:locale" content="hi_IN" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>" />
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "TokenSave – AI टोकन काउंटर", "url": "https://tokensave.app/hi/", "inLanguage": "hi", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "GPT, Claude और Gemini के लिए मुफ़्त AI टोकन काउंटर। अपने ब्राउज़र में तुरंत टोकन, अक्षर और अनुमानित API लागत गिनें, किसी भी भाषा में। कुछ भी अपलोड नहीं होता।"}</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
-  </script>
+  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="TokenSave" />
+  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI टोकन काउंटर", "url": "https://tokensave.app/hi/", "inLanguage": "hi", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "GPT, Claude और Gemini के लिए मुफ़्त AI टोकन काउंटर। अपने ब्राउज़र में तुरंत टोकन, अक्षर और अनुमानित API लागत गिनें, किसी भी भाषा में। कुछ भी अपलोड नहीं होता।", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "hi", "mainEntity": [{"@type": "Question", "name": "टोकन क्या है?", "acceptedAnswer": {"@type": "Answer", "text": "टोकन टेक्स्ट का वह टुकड़ा है जिसे AI मॉडल पढ़ता है। अंग्रेज़ी में 1 टोकन लगभग 4 अक्षर या किसी शब्द का ¾ होता है।"}}, {"@type": "Question", "name": "दूसरी भाषाएँ महँगी क्यों पड़ती हैं?", "acceptedAnswer": {"@type": "Answer", "text": "टोकनाइज़र ज़्यादातर अंग्रेज़ी पर प्रशिक्षित होते हैं, इसलिए हिंदी और कई अन्य भाषाएँ एक ही अर्थ के लिए ज़्यादा टोकन में बँटती हैं।"}}, {"@type": "Question", "name": "क्या मेरा टेक्स्ट निजी है?", "acceptedAnswer": {"@type": "Answer", "text": "हाँ। सब कुछ आपके ब्राउज़र में ही चलता है। आपका टेक्स्ट किसी सर्वर पर नहीं भेजा जाता।"}}]}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    body { background: radial-gradient(ellipse at top, #1e1b4b 0%, #0a0a0f 55%); background-color: #0a0a0f; }
-    textarea::-webkit-scrollbar { width: 8px; }
-    textarea::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 8px; }
-    .tab-active { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff !important; box-shadow: 0 4px 20px -4px rgba(139,92,246,.6); }
-    .battery-cell { transition: background-color .3s; }
-    .ltr { direction: ltr; }
-    input[type=number]::-webkit-inner-spin-button { opacity: .4; }
-  </style>
+  <link rel="stylesheet" href="/styles.css?v=7af04778" />
+
   <!-- Cloudflare Web Analytics (cookieless). Only page views are sent — never what you type. -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "553cc8f2baba4297bd3b81f73b138536"}'></script>
 </head>
@@ -66,7 +62,7 @@
     <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         <a href="/hi/" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300">
-          <span class="text-lg">🪙</span> TokenSave
+          <img src="/favicon.svg" alt="" width="22" height="22" /> TokenSave
         </a>
         <nav class="flex gap-1 text-xs" aria-label="Tools">
           <a href="/hi/" class="px-2.5 py-1 rounded-md font-semibold tab-active" aria-current="page">टोकन काउंटर</a>
@@ -228,13 +224,13 @@
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">
       <p>OpenAI मॉडल o200k टोकनाइज़र से गिने जाते हैं। Claude और Gemini के आँकड़े अनुमानित हैं।</p>
       <p>कीमतें प्रति 10 लाख टोकन की सूची दरें हैं, सितंबर 2026 में जाँची गईं। हमेशा प्रदाता के मूल्य पृष्ठ पर पुष्टि करें।</p>
-      <p class="pt-2">© 2026 TokenSave</p>
+      <p class="pt-2"><a href="/about" class="hover:text-zinc-300">परिचय</a> · <a href="/privacy" class="hover:text-zinc-300">गोपनीयता</a> · © 2026 TokenSave</p>
     </footer>
   </main>
 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
-  <script>window.T = {"note": "{name}: प्रति 10 लाख टोकन इनपुट ${in} / आउटपुट ${out}", "exact": "सटीक (o200k)", "based": "o200k आधारित", "est": "अनुमानित", "waste": "{x}x टोकन बर्बादी", "efficient": "{p}% कुशल", "great": "बढ़िया", "moderate": "मध्यम बर्बादी", "high": "ज़्यादा बर्बादी", "share": "गैर-अंग्रेज़ी हिस्सा: {p}%", "tSaved": "ऑप्टिमाइज़ हो गया — {n} टोकन बचे", "tAlready": "पहले से ऑप्टिमाइज़ है", "tNothing": "कॉपी करने के लिए कुछ नहीं", "tCopied": "क्लिपबोर्ड पर कॉपी हो गया", "tCleared": "साफ़ हो गया"};</script>
-  <script type="module" src="/token.js?v=68688614"></script>
+  <script>window.T = {"note": "{name}: प्रति 10 लाख टोकन इनपुट ${in} / आउटपुट ${out}", "exact": "सटीक (o200k)", "based": "o200k आधारित", "est": "अनुमानित", "waste": "{x}x टोकन बर्बादी", "efficient": "{p}% कुशल", "great": "बढ़िया", "moderate": "मध्यम बर्बादी", "high": "ज़्यादा बर्बादी", "share": "गैर-अंग्रेज़ी हिस्सा: {p}%", "tSaved": "ऑप्टिमाइज़ हो गया — {n} टोकन बचे", "tAlready": "पहले से ऑप्टिमाइज़ है", "tNothing": "कॉपी करने के लिए कुछ नहीं", "tCopied": "क्लिपबोर्ड पर कॉपी हो गया", "tCleared": "साफ़ हो गया", "viewIn": {"en": "View this page in English", "ko": "이 페이지를 한국어로 보기", "ja": "このページを日本語で見る", "zh-cn": "用简体中文查看此页面", "zh-tw": "以繁體中文檢視此頁面", "es": "Ver esta página en español", "pt": "Ver esta página em português", "fr": "Voir cette page en français", "de": "Diese Seite auf Deutsch ansehen", "it": "Visualizza questa pagina in italiano", "ru": "Открыть эту страницу на русском", "uk": "Відкрити цю сторінку українською", "tr": "Bu sayfayı Türkçe görüntüle", "ar": "عرض هذه الصفحة بالعربية", "fa": "نمایش این صفحه به فارسی", "hi": "यह पेज हिन्दी में देखें", "id": "Lihat halaman ini dalam Bahasa Indonesia", "vi": "Xem trang này bằng tiếng Việt", "th": "ดูหน้านี้เป็นภาษาไทย", "pl": "Zobacz tę stronę po polsku", "nl": "Bekijk deze pagina in het Nederlands"}};</script>
+  <script type="module" src="/token.js?v=7af04778"></script>
 </body>
 </html>

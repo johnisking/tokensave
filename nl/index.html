@@ -34,25 +34,21 @@
   <meta property="og:title" content="AI-tokenteller voor GPT, Claude en Gemini – TokenSave" />
   <meta property="og:description" content="Gratis AI-tokenteller voor GPT, Claude en Gemini. Tel direct tokens, tekens en geschatte API-kosten in je browser, in elke taal. Er wordt niets geüpload." />
   <meta property="og:locale" content="nl_NL" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>" />
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "TokenSave – AI-tokenteller", "url": "https://tokensave.app/nl/", "inLanguage": "nl", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Gratis AI-tokenteller voor GPT, Claude en Gemini. Tel direct tokens, tekens en geschatte API-kosten in je browser, in elke taal. Er wordt niets geüpload."}</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
-  </script>
+  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="TokenSave" />
+  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI-tokenteller", "url": "https://tokensave.app/nl/", "inLanguage": "nl", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Gratis AI-tokenteller voor GPT, Claude en Gemini. Tel direct tokens, tekens en geschatte API-kosten in je browser, in elke taal. Er wordt niets geüpload.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "nl", "mainEntity": [{"@type": "Question", "name": "Wat is een token?", "acceptedAnswer": {"@type": "Answer", "text": "Een token is een stukje tekst dat een AI-model leest. In het Engels is 1 token ongeveer 4 tekens of ¾ van een woord."}}, {"@type": "Question", "name": "Waarom kosten andere talen meer?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizers zijn vooral op Engels getraind, dus het Nederlands en veel andere talen worden voor dezelfde betekenis in meer tokens opgesplitst."}}, {"@type": "Question", "name": "Is mijn tekst privé?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Alles draait lokaal in je browser. Je tekst wordt nooit naar een server gestuurd."}}]}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    body { background: radial-gradient(ellipse at top, #1e1b4b 0%, #0a0a0f 55%); background-color: #0a0a0f; }
-    textarea::-webkit-scrollbar { width: 8px; }
-    textarea::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 8px; }
-    .tab-active { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff !important; box-shadow: 0 4px 20px -4px rgba(139,92,246,.6); }
-    .battery-cell { transition: background-color .3s; }
-    .ltr { direction: ltr; }
-    input[type=number]::-webkit-inner-spin-button { opacity: .4; }
-  </style>
+  <link rel="stylesheet" href="/styles.css?v=7af04778" />
+
   <!-- Cloudflare Web Analytics (cookieless). Only page views are sent — never what you type. -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "553cc8f2baba4297bd3b81f73b138536"}'></script>
 </head>
@@ -66,7 +62,7 @@
     <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         <a href="/nl/" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300">
-          <span class="text-lg">🪙</span> TokenSave
+          <img src="/favicon.svg" alt="" width="22" height="22" /> TokenSave
         </a>
         <nav class="flex gap-1 text-xs" aria-label="Tools">
           <a href="/nl/" class="px-2.5 py-1 rounded-md font-semibold tab-active" aria-current="page">Tokenteller</a>
@@ -228,13 +224,13 @@
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">
       <p>OpenAI-modellen worden geteld met de o200k-tokenizer. Waarden voor Claude en Gemini zijn schattingen.</p>
       <p>Prijzen zijn officiële tarieven per 1 mln tokens, gecontroleerd in september 2026. Controleer altijd de prijspagina van de aanbieder.</p>
-      <p class="pt-2">© 2026 TokenSave</p>
+      <p class="pt-2"><a href="/about" class="hover:text-zinc-300">Over</a> · <a href="/privacy" class="hover:text-zinc-300">Privacy</a> · © 2026 TokenSave</p>
     </footer>
   </main>
 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
-  <script>window.T = {"note": "{name}: ${in} invoer / ${out} uitvoer per 1 mln tokens", "exact": "Exact (o200k)", "based": "Op basis van o200k", "est": "Geschat", "waste": "{x}x tokenverspilling", "efficient": "{p}% efficiënt", "great": "Uitstekend", "moderate": "Matige verspilling", "high": "Veel verspilling", "share": "Niet-Engels aandeel: {p}%", "tSaved": "Geoptimaliseerd — {n} tokens bespaard", "tAlready": "Al geoptimaliseerd", "tNothing": "Niets om te kopiëren", "tCopied": "Gekopieerd naar klembord", "tCleared": "Gewist"};</script>
-  <script type="module" src="/token.js?v=68688614"></script>
+  <script>window.T = {"note": "{name}: ${in} invoer / ${out} uitvoer per 1 mln tokens", "exact": "Exact (o200k)", "based": "Op basis van o200k", "est": "Geschat", "waste": "{x}x tokenverspilling", "efficient": "{p}% efficiënt", "great": "Uitstekend", "moderate": "Matige verspilling", "high": "Veel verspilling", "share": "Niet-Engels aandeel: {p}%", "tSaved": "Geoptimaliseerd — {n} tokens bespaard", "tAlready": "Al geoptimaliseerd", "tNothing": "Niets om te kopiëren", "tCopied": "Gekopieerd naar klembord", "tCleared": "Gewist", "viewIn": {"en": "View this page in English", "ko": "이 페이지를 한국어로 보기", "ja": "このページを日本語で見る", "zh-cn": "用简体中文查看此页面", "zh-tw": "以繁體中文檢視此頁面", "es": "Ver esta página en español", "pt": "Ver esta página em português", "fr": "Voir cette page en français", "de": "Diese Seite auf Deutsch ansehen", "it": "Visualizza questa pagina in italiano", "ru": "Открыть эту страницу на русском", "uk": "Відкрити цю сторінку українською", "tr": "Bu sayfayı Türkçe görüntüle", "ar": "عرض هذه الصفحة بالعربية", "fa": "نمایش این صفحه به فارسی", "hi": "यह पेज हिन्दी में देखें", "id": "Lihat halaman ini dalam Bahasa Indonesia", "vi": "Xem trang này bằng tiếng Việt", "th": "ดูหน้านี้เป็นภาษาไทย", "pl": "Zobacz tę stronę po polsku", "nl": "Bekijk deze pagina in het Nederlands"}};</script>
+  <script type="module" src="/token.js?v=7af04778"></script>
 </body>
 </html>

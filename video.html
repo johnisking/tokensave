@@ -34,38 +34,21 @@
   <meta property="og:title" content="AI Video Cost Calculator – Veo 3.1, Kling, Runway, Luma Prices | TokenSave" />
   <meta property="og:description" content="Compare the API cost of AI video models: Veo 3.1, Kling 3.0, Runway Gen-4.5, Luma Ray, Grok Imagine, Seedance and more. Set length, resolution and audio to see the price per clip instantly." />
   <meta property="og:locale" content="en_US" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>" />
-  <script>
-  (function () {
-    try {
-      var saved = localStorage.getItem('ts_lang');
-      var MAP = {"ko": "/ko/video", "ja": "/ja/video", "zh-cn": "/zh-cn/video", "zh-tw": "/zh-tw/video", "es": "/es/video", "pt": "/pt/video", "fr": "/fr/video", "de": "/de/video", "it": "/it/video", "ru": "/ru/video", "uk": "/uk/video", "tr": "/tr/video", "ar": "/ar/video", "fa": "/fa/video", "hi": "/hi/video", "id": "/id/video", "vi": "/vi/video", "th": "/th/video", "pl": "/pl/video", "nl": "/nl/video"};
-      if (saved) { if (saved !== 'en' && MAP[saved]) location.replace(MAP[saved]); return; }
-      var l = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
-      var base = l.split('-')[0], key = null;
-      if (base === 'zh') key = /-(tw|hk|mo|hant)/.test(l) ? 'zh-tw' : 'zh-cn';
-      else if (MAP[base]) key = base;
-      if (key) location.replace(MAP[key]);
-    } catch (e) {}
-  })();
-  </script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "TokenSave – AI Video Cost Calculator", "url": "https://tokensave.app/video", "inLanguage": "en", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Compare the API cost of AI video models: Veo 3.1, Kling 3.0, Runway Gen-4.5, Luma Ray, Grok Imagine, Seedance and more. Set length, resolution and audio to see the price per clip instantly."}</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
-  </script>
+  <meta property="og:image" content="https://tokensave.app/og-video.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="TokenSave" />
+  <meta name="twitter:image" content="https://tokensave.app/og-video.jpg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI Video Cost Calculator", "url": "https://tokensave.app/video", "inLanguage": "en", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Compare the API cost of AI video models: Veo 3.1, Kling 3.0, Runway Gen-4.5, Luma Ray, Grok Imagine, Seedance and more. Set length, resolution and audio to see the price per clip instantly.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "How is AI video priced?", "acceptedAnswer": {"@type": "Answer", "text": "Most video APIs charge per second of generated video. Higher resolutions and native audio cost more, so a 1080p or 4K clip can cost several times a 720p clip."}}, {"@type": "Question", "name": "What is the cheapest AI video model?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the resolution. Light models such as Veo 3.1 Lite, Grok Imagine and Wan start around $0.05 per second, while premium models at 4K can cost $0.40 per second or more."}}, {"@type": "Question", "name": "Is Sora included?", "acceptedAnswer": {"@type": "Answer", "text": "No. OpenAI removed the Sora 2 video models from its API on September 24, 2026, so Sora is no longer available to developers."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "AI Video Cost Calculator", "item": "https://tokensave.app/video"}]}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    body { background: radial-gradient(ellipse at top, #1e1b4b 0%, #0a0a0f 55%); background-color: #0a0a0f; }
-    textarea::-webkit-scrollbar { width: 8px; }
-    textarea::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 8px; }
-    .tab-active { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff !important; box-shadow: 0 4px 20px -4px rgba(139,92,246,.6); }
-    .battery-cell { transition: background-color .3s; }
-    .ltr { direction: ltr; }
-    input[type=number]::-webkit-inner-spin-button { opacity: .4; }
-  </style>
+  <link rel="stylesheet" href="/styles.css?v=7af04778" />
+
   <!-- Cloudflare Web Analytics (cookieless). Only page views are sent — never what you type. -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "553cc8f2baba4297bd3b81f73b138536"}'></script>
 </head>
@@ -79,7 +62,7 @@
     <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         <a href="/" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300">
-          <span class="text-lg">🪙</span> TokenSave
+          <img src="/favicon.svg" alt="" width="22" height="22" /> TokenSave
         </a>
         <nav class="flex gap-1 text-xs" aria-label="Tools">
           <a href="/" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">Token Counter</a>
@@ -199,13 +182,13 @@
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">
       <p>Official list prices from each provider&#x27;s API pricing page, checked September 30, 2026. Models without a public per-second API price are shown at Runway API rates.</p>
       <p>Prices change often — confirm on the provider&#x27;s page before large jobs.</p>
-      <p class="pt-2">© 2026 TokenSave</p>
+      <p class="pt-2"><a href="/about" class="hover:text-zinc-300">About</a> · <a href="/privacy" class="hover:text-zinc-300">Privacy</a> · © 2026 TokenSave</p>
     </footer>
   </main>
 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
-  <script>window.T = {"na": "Not offered at this resolution", "noAudio": "No native audio", "cheapest": "Cheapest", "srcOfficial": "Official price", "srcRunway": "Via Runway API", "audioIncl": "Audio included", "clipNote": "Billed per 5/10 s clip"};</script>
-  <script type="module" src="/video.js?v=68688614"></script>
+  <script>window.T = {"na": "Not offered at this resolution", "noAudio": "No native audio", "cheapest": "Cheapest", "srcOfficial": "Official price", "srcRunway": "Via Runway API", "audioIncl": "Audio included", "clipNote": "Billed per 5/10 s clip", "viewIn": {"en": "View this page in English", "ko": "이 페이지를 한국어로 보기", "ja": "このページを日本語で見る", "zh-cn": "用简体中文查看此页面", "zh-tw": "以繁體中文檢視此頁面", "es": "Ver esta página en español", "pt": "Ver esta página em português", "fr": "Voir cette page en français", "de": "Diese Seite auf Deutsch ansehen", "it": "Visualizza questa pagina in italiano", "ru": "Открыть эту страницу на русском", "uk": "Відкрити цю сторінку українською", "tr": "Bu sayfayı Türkçe görüntüle", "ar": "عرض هذه الصفحة بالعربية", "fa": "نمایش این صفحه به فارسی", "hi": "यह पेज हिन्दी में देखें", "id": "Lihat halaman ini dalam Bahasa Indonesia", "vi": "Xem trang này bằng tiếng Việt", "th": "ดูหน้านี้เป็นภาษาไทย", "pl": "Zobacz tę stronę po polsku", "nl": "Bekijk deze pagina in het Nederlands"}};</script>
+  <script type="module" src="/video.js?v=7af04778"></script>
 </body>
 </html>

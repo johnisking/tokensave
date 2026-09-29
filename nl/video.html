@@ -34,25 +34,21 @@
   <meta property="og:title" content="AI-videokostencalculator – prijzen van Veo 3.1, Kling, Runway en Luma | TokenSave" />
   <meta property="og:description" content="Vergelijk de API-kosten van AI-videomodellen: Veo 3.1, Kling 3.0, Runway Gen-4.5, Luma Ray, Grok Imagine, Seedance en meer. Kies lengte, resolutie en audio en zie direct de prijs per clip." />
   <meta property="og:locale" content="nl_NL" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>" />
-
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "TokenSave – AI-videokostencalculator", "url": "https://tokensave.app/nl/video", "inLanguage": "nl", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Vergelijk de API-kosten van AI-videomodellen: Veo 3.1, Kling 3.0, Runway Gen-4.5, Luma Ray, Grok Imagine, Seedance en meer. Kies lengte, resolutie en audio en zie direct de prijs per clip."}</script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
-  </script>
+  <meta property="og:image" content="https://tokensave.app/og-video.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="TokenSave" />
+  <meta name="twitter:image" content="https://tokensave.app/og-video.jpg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI-videokostencalculator", "url": "https://tokensave.app/nl/video", "inLanguage": "nl", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Vergelijk de API-kosten van AI-videomodellen: Veo 3.1, Kling 3.0, Runway Gen-4.5, Luma Ray, Grok Imagine, Seedance en meer. Kies lengte, resolutie en audio en zie direct de prijs per clip.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "nl", "mainEntity": [{"@type": "Question", "name": "Hoe wordt AI-video afgerekend?", "acceptedAnswer": {"@type": "Answer", "text": "De meeste video-API's rekenen per seconde gegenereerde video. Hogere resolutie en eigen audio kosten meer, dus een clip in 1080p of 4K kan een veelvoud kosten van een 720p-clip."}}, {"@type": "Question", "name": "Wat is het goedkoopste AI-videomodel?", "acceptedAnswer": {"@type": "Answer", "text": "Dat hangt af van de resolutie. Lichte modellen zoals Veo 3.1 Lite, Grok Imagine en Wan beginnen rond $0,05 per seconde, terwijl premiummodellen in 4K meer dan $0,40 per seconde kunnen kosten."}}, {"@type": "Question", "name": "Waarom staat Sora er niet bij?", "acceptedAnswer": {"@type": "Answer", "text": "OpenAI heeft de Sora 2-videomodellen op 24 september 2026 uit de API gehaald, dus ontwikkelaars kunnen ze niet meer gebruiken."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/nl/"}, {"@type": "ListItem", "position": 2, "name": "AI-videokostencalculator", "item": "https://tokensave.app/nl/video"}]}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    body { background: radial-gradient(ellipse at top, #1e1b4b 0%, #0a0a0f 55%); background-color: #0a0a0f; }
-    textarea::-webkit-scrollbar { width: 8px; }
-    textarea::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 8px; }
-    .tab-active { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff !important; box-shadow: 0 4px 20px -4px rgba(139,92,246,.6); }
-    .battery-cell { transition: background-color .3s; }
-    .ltr { direction: ltr; }
-    input[type=number]::-webkit-inner-spin-button { opacity: .4; }
-  </style>
+  <link rel="stylesheet" href="/styles.css?v=7af04778" />
+
   <!-- Cloudflare Web Analytics (cookieless). Only page views are sent — never what you type. -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "553cc8f2baba4297bd3b81f73b138536"}'></script>
 </head>
@@ -66,7 +62,7 @@
     <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         <a href="/nl/" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300">
-          <span class="text-lg">🪙</span> TokenSave
+          <img src="/favicon.svg" alt="" width="22" height="22" /> TokenSave
         </a>
         <nav class="flex gap-1 text-xs" aria-label="Tools">
           <a href="/nl/" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">Tokenteller</a>
@@ -186,13 +182,13 @@
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">
       <p>Officiële prijzen van de API-prijspagina van elke aanbieder, gecontroleerd op 30 september 2026. Modellen zonder openbare prijs per seconde worden getoond tegen de tarieven van de Runway-API.</p>
       <p>Prijzen veranderen vaak — controleer de pagina van de aanbieder voor grote opdrachten.</p>
-      <p class="pt-2">© 2026 TokenSave</p>
+      <p class="pt-2"><a href="/about" class="hover:text-zinc-300">Over</a> · <a href="/privacy" class="hover:text-zinc-300">Privacy</a> · © 2026 TokenSave</p>
     </footer>
   </main>
 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
-  <script>window.T = {"na": "Niet beschikbaar in deze resolutie", "noAudio": "Geen eigen audio", "cheapest": "Goedkoopst", "srcOfficial": "Officiële prijs", "srcRunway": "Via Runway-API", "audioIncl": "Inclusief audio", "clipNote": "Per clip van 5/10 s gefactureerd"};</script>
-  <script type="module" src="/video.js?v=68688614"></script>
+  <script>window.T = {"na": "Niet beschikbaar in deze resolutie", "noAudio": "Geen eigen audio", "cheapest": "Goedkoopst", "srcOfficial": "Officiële prijs", "srcRunway": "Via Runway-API", "audioIncl": "Inclusief audio", "clipNote": "Per clip van 5/10 s gefactureerd", "viewIn": {"en": "View this page in English", "ko": "이 페이지를 한국어로 보기", "ja": "このページを日本語で見る", "zh-cn": "用简体中文查看此页面", "zh-tw": "以繁體中文檢視此頁面", "es": "Ver esta página en español", "pt": "Ver esta página em português", "fr": "Voir cette page en français", "de": "Diese Seite auf Deutsch ansehen", "it": "Visualizza questa pagina in italiano", "ru": "Открыть эту страницу на русском", "uk": "Відкрити цю сторінку українською", "tr": "Bu sayfayı Türkçe görüntüle", "ar": "عرض هذه الصفحة بالعربية", "fa": "نمایش این صفحه به فارسی", "hi": "यह पेज हिन्दी में देखें", "id": "Lihat halaman ini dalam Bahasa Indonesia", "vi": "Xem trang này bằng tiếng Việt", "th": "ดูหน้านี้เป็นภาษาไทย", "pl": "Zobacz tę stronę po polsku", "nl": "Bekijk deze pagina in het Nederlands"}};</script>
+  <script type="module" src="/video.js?v=7af04778"></script>
 </body>
 </html>
