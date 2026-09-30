@@ -37,7 +37,7 @@ SRC, DIST, TW = os.path.join(ROOT, "src"), os.path.join(ROOT, "dist"), os.path.j
 JS_FILES = ["common.js", "token.js", "video.js", "image.js"]
 DEV_POST = "https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m"
 BLOG_BY_TAG = {b["tag"]: b for b in BLOG}
-MORE_CLS = "underline decoration-dotted hover:text-white"
+MORE_CLS = "inline-block whitespace-nowrap font-semibold text-amber-300 underline underline-offset-2 decoration-amber-400/40 hover:text-white"
 
 def more_link(tag, label):
     b = BLOG_BY_TAG.get(tag)
