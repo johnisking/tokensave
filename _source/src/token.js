@@ -195,6 +195,7 @@ const els = {
   mix: $('langMix'), toast: $('toast'), select: $('modelSelect'),
   costReq: $('costReq'), costMonth: $('costMonth'), overhead: $('overheadBadge'), inTokNote: $('inTokNote'),
   outRange: $('outTokens'), outNum: $('outTokensNum'), reqs: $('reqs'), chatInfo: $('chatInfo'),
+  tokSaved: $('tokSaved'), monthSaved: $('monthSaved'),
 };
 let mode = 'text';
 let original = null; // text before "To English", so the user can go back
@@ -284,6 +285,17 @@ function render() {
   els.costReq.textContent = moneyBig(cReq);
   els.costMonth.textContent = moneyBig(cReq * reqs);
   els.priceNote.textContent = tr('note', { name: model.name, in: model.in, out: model.out });
+
+  // After "Save tokens": keep showing what was saved until the text is edited or restored
+  const o = original !== null && mode === 'text' ? countTokens(original).tokens : 0;
+  if (o > tokens) {
+    const d = o - tokens;
+    els.tokSaved.textContent = '↓' + fmt(d) + ' (−' + Math.round(d / o * 100) + '%)';
+    els.monthSaved.textContent = tr('monthSaved', {
+      a: moneyBig((o / 1e6 * model.in + cOut) * reqs), b: moneyBig(cReq * reqs), s: moneyBig(d / 1e6 * model.in * reqs) });
+  }
+  els.tokSaved.classList.toggle('hidden', !(o > tokens));
+  els.monthSaved.classList.toggle('hidden', !(o > tokens));
 
   els.badge.textContent = exact ? tr('exact') : based ? tr('based') : tr('est');
   els.badge.className = 'text-[10px] font-semibold px-2 py-0.5 rounded-full ' +
