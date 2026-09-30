@@ -584,3 +584,8 @@ for _e in _EXTRA:
 from i18n_budget import B as _B
 for _tag in S:
     S[_tag].update(_B[_tag])
+
+# Measured language-tax fact per language (token page callout + 4th FAQ)
+from i18n_fact import FACT as _F
+for _tag in S:
+    S[_tag].update(_F[_tag])

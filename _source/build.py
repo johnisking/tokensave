@@ -92,7 +92,7 @@ def head_extras():
     return "\n".join(out)
 
 def faq_html(s):
-    qs = [(s[f"q{i}"], s[f"a{i}"]) for i in (1, 2, 3) if f"q{i}" in s]
+    qs = [(s[f"q{i}"], s[f"a{i}"]) for i in (1, 2, 3, 4) if f"q{i}" in s]
     if not qs:
         return ""
     cards = "\n".join(
@@ -100,7 +100,8 @@ def faq_html(s):
         <h2 class="font-semibold mb-1.5">{esc(q)}</h2>
         <p class="text-zinc-400">{esc(a)}</p>
       </div>''' for q, a in qs)
-    return f'    <section class="mt-12 grid sm:grid-cols-3 gap-4 text-sm">\n{cards}\n    </section>'
+    cols = "sm:grid-cols-2 lg:grid-cols-4" if len(qs) == 4 else "sm:grid-cols-3"
+    return f'    <section class="mt-12 grid {cols} gap-4 text-sm">\n{cards}\n    </section>'
 
 def compile_css():
     if not os.path.isdir(os.path.join(TW, "node_modules")):
@@ -166,7 +167,7 @@ def build():
                  "publisher": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"}},
                 {"@type": "FAQPage", "inLanguage": tag, "mainEntity": [
                     {"@type": "Question", "name": s[f"q{i}"],
-                     "acceptedAnswer": {"@type": "Answer", "text": s[f"a{i}"]}} for i in (1, 2, 3)]},
+                     "acceptedAnswer": {"@type": "Answer", "text": s[f"a{i}"]}} for i in (1, 2, 3, 4) if f"q{i}" in s]},
             ]
             if tool["page"]:
                 graph.append({"@type": "BreadcrumbList", "itemListElement": [

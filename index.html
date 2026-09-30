@@ -49,11 +49,11 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI Token Counter", "url": "https://tokensave.app/", "inLanguage": "en", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Count tokens, characters and API cost for GPT, Claude and Gemini. Free, private.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "What is a token?", "acceptedAnswer": {"@type": "Answer", "text": "A token is a chunk of text an AI model reads. In English, 1 token is roughly 4 characters or ¾ of a word."}}, {"@type": "Question", "name": "Why do other languages cost more?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizers are trained mostly on English, so Korean, Japanese, Chinese and many other languages split into more tokens for the same meaning."}}, {"@type": "Question", "name": "Is my text private?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Everything runs locally in your browser. Your text is never sent to any server."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI Token Counter", "url": "https://tokensave.app/", "inLanguage": "en", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Count tokens, characters and API cost for GPT, Claude and Gemini. Free, private.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "What is a token?", "acceptedAnswer": {"@type": "Answer", "text": "A token is a chunk of text an AI model reads. In English, 1 token is roughly 4 characters or ¾ of a word."}}, {"@type": "Question", "name": "Why do other languages cost more?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizers are trained mostly on English, so Korean, Japanese, Chinese and many other languages split into more tokens for the same meaning."}}, {"@type": "Question", "name": "Is my text private?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Everything runs locally in your browser. Your text is never sent to any server."}}, {"@type": "Question", "name": "Do non-English prompts use more tokens?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: across 27 languages, the same prompt uses from 1.03× (Simplified Chinese) to 2.00× (Czech) the tokens of English on GPT's o200k tokenizer. The gap used to be much larger — Hindi, for example, dropped from 4.59× on the old GPT-4 tokenizer to 1.50× today."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=87a559e2" />
+  <link rel="stylesheet" href="/styles.css?v=c9eb0084" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -127,6 +127,7 @@
         AI Token Counter
       </h1>
       <p class="mt-3 text-zinc-400 text-sm sm:text-base">Count tokens, characters &amp; API cost in real time — in any language.</p>
+      <p class="mt-3 mx-auto max-w-2xl text-xs sm:text-sm text-amber-200/90 bg-amber-400/10 border border-amber-400/25 rounded-lg px-3 py-2">📊 The same text can cost from 1.03× (Chinese) to 2.00× (Czech) the tokens of English — see how we measured 27 languages. <a href="https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m" target="_blank" rel="noopener" class="underline decoration-dotted hover:text-white">How we measured ↗</a></p>
 
       <!-- Provider tabs -->
       <nav id="providerTabs" class="ltr mt-6 inline-flex p-1 bg-zinc-900/80 border border-zinc-800 rounded-xl gap-1" role="tablist" aria-label="AI provider">
@@ -253,7 +254,7 @@
 
     <!-- ===== AD PLACEHOLDER: In-content banner below tool (responsive) ===== -->
 
-    <section class="mt-12 grid sm:grid-cols-3 gap-4 text-sm">
+    <section class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">What is a token?</h2>
         <p class="text-zinc-400">A token is a chunk of text an AI model reads. In English, 1 token is roughly 4 characters or ¾ of a word.</p>
@@ -265,6 +266,10 @@
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Is my text private?</h2>
         <p class="text-zinc-400">Yes. Everything runs locally in your browser. Your text is never sent to any server.</p>
+      </div>
+      <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
+        <h2 class="font-semibold mb-1.5">Do non-English prompts use more tokens?</h2>
+        <p class="text-zinc-400">Yes: across 27 languages, the same prompt uses from 1.03× (Simplified Chinese) to 2.00× (Czech) the tokens of English on GPT&#x27;s o200k tokenizer. The gap used to be much larger — Hindi, for example, dropped from 4.59× on the old GPT-4 tokenizer to 1.50× today.</p>
       </div>
     </section>
 
@@ -278,6 +283,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"note": "{name}: ${in} input / ${out} output per 1M tokens", "exact": "Exact (o200k)", "based": "o200k-based", "est": "Estimated", "waste": "{x}x token waste", "efficient": "{p}% efficient", "great": "Great", "moderate": "Moderate waste", "high": "High token waste", "share": "Non-English share: {p}%", "tSaved": "Optimized — saved {n} tokens", "tAlready": "Already optimized", "tNothing": "Nothing to copy", "tCopied": "Copied to clipboard", "tCleared": "Cleared", "overhead": "{x}× tokens vs English", "overheadTip": "The same content in English would need about {x}× fewer tokens.", "chatErr": "Not valid chat JSON. Paste a messages array like [{\"role\": \"user\", \"content\": \"...\"}]", "chatInfo": "{n} messages · includes ~{o} tokens of chat formatting", "prices": {"gpt-6-astra": {"in": 10.0, "out": 50.0}, "gpt-6-1-sol": {"in": 2.0, "out": 10.0}, "gpt-6-sol": {"in": 2.0, "out": 10.0}, "gpt-6-luna": {"in": 0.1, "out": 0.5}, "gpt-4o": {"in": 2.5, "out": 10.0}, "claude-opus-5-5": {"in": 4.0, "out": 20.0}, "claude-sonnet-5-5": {"in": 2.0, "out": 10.0}, "claude-haiku-4-5": {"in": 1.0, "out": 5.0}, "gemini-3-1-pro": {"in": 2.0, "out": 12.0}, "gemini-3-8-flash": {"in": 0.75, "out": 3.75}}, "viewIn": {"en": "View this page in English", "ko": "이 페이지를 한국어로 보기", "ja": "このページを日本語で見る", "zh-cn": "用简体中文查看此页面", "zh-tw": "以繁體中文檢視此頁面", "es": "Ver esta página en español", "pt": "Ver esta página em português", "fr": "Voir cette page en français", "de": "Diese Seite auf Deutsch ansehen", "it": "Visualizza questa pagina in italiano", "ru": "Открыть эту страницу на русском", "uk": "Відкрити цю сторінку українською", "tr": "Bu sayfayı Türkçe görüntüle", "ar": "عرض هذه الصفحة بالعربية", "fa": "نمایش این صفحه به فارسی", "hi": "यह पेज हिन्दी में देखें", "id": "Lihat halaman ini dalam Bahasa Indonesia", "vi": "Xem trang này bằng tiếng Việt", "th": "ดูหน้านี้เป็นภาษาไทย", "pl": "Zobacz tę stronę po polsku", "nl": "Bekijk deze pagina in het Nederlands", "bn": "এই পাতাটি বাংলায় দেখুন", "ur": "یہ صفحہ اردو میں دیکھیں", "fil": "Tingnan ang page na ito sa Filipino", "cs": "Zobrazit tuto stránku v češtině", "sv": "Visa sidan på svenska", "he": "הצגת הדף בעברית"}};</script>
-  <script type="module" src="/token.js?v=87a559e2"></script>
+  <script type="module" src="/token.js?v=c9eb0084"></script>
 </body>
 </html>

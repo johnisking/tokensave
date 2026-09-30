@@ -49,11 +49,11 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Đếm token AI", "url": "https://tokensave.app/vi/", "inLanguage": "vi", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Đếm token và chi phí API của GPT, Claude, Gemini ngay. Miễn phí, không tải lên.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "vi", "mainEntity": [{"@type": "Question", "name": "Token là gì?", "acceptedAnswer": {"@type": "Answer", "text": "Token là một đoạn văn bản mà mô hình AI đọc. Trong tiếng Anh, 1 token xấp xỉ 4 ký tự hoặc ¾ một từ."}}, {"@type": "Question", "name": "Vì sao ngôn ngữ khác tốn hơn?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizer chủ yếu được huấn luyện bằng tiếng Anh, nên tiếng Việt và nhiều ngôn ngữ khác bị tách thành nhiều token hơn cho cùng một ý."}}, {"@type": "Question", "name": "Văn bản của tôi có riêng tư không?", "acceptedAnswer": {"@type": "Answer", "text": "Có. Mọi thứ chạy cục bộ trong trình duyệt. Văn bản của bạn không bao giờ được gửi đến máy chủ nào."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Đếm token AI", "url": "https://tokensave.app/vi/", "inLanguage": "vi", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Đếm token và chi phí API của GPT, Claude, Gemini ngay. Miễn phí, không tải lên.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "vi", "mainEntity": [{"@type": "Question", "name": "Token là gì?", "acceptedAnswer": {"@type": "Answer", "text": "Token là một đoạn văn bản mà mô hình AI đọc. Trong tiếng Anh, 1 token xấp xỉ 4 ký tự hoặc ¾ một từ."}}, {"@type": "Question", "name": "Vì sao ngôn ngữ khác tốn hơn?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizer chủ yếu được huấn luyện bằng tiếng Anh, nên tiếng Việt và nhiều ngôn ngữ khác bị tách thành nhiều token hơn cho cùng một ý."}}, {"@type": "Question", "name": "Văn bản của tôi có riêng tư không?", "acceptedAnswer": {"@type": "Answer", "text": "Có. Mọi thứ chạy cục bộ trong trình duyệt. Văn bản của bạn không bao giờ được gửi đến máy chủ nào."}}, {"@type": "Question", "name": "Tiếng Việt tốn gấp mấy lần token so với tiếng Anh?", "acceptedAnswer": {"@type": "Answer", "text": "Trên tokenizer o200k của GPT, tiếng Việt dùng khoảng 1.35× số token so với cùng nội dung bằng tiếng Anh. Tokenizer GPT-4 cũ cần tới 2.32×, nên chi phí cho tiếng Việt đã giảm đáng kể; trên 27 ngôn ngữ, tỷ lệ dao động từ 1.03× (tiếng Trung giản thể) đến 2.00× (tiếng Séc)."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=87a559e2" />
+  <link rel="stylesheet" href="/styles.css?v=c9eb0084" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -127,6 +127,7 @@
         Đếm token AI
       </h1>
       <p class="mt-3 text-zinc-400 text-sm sm:text-base">Đếm token, ký tự và chi phí API theo thời gian thực — với mọi ngôn ngữ.</p>
+      <p class="mt-3 mx-auto max-w-2xl text-xs sm:text-sm text-amber-200/90 bg-amber-400/10 border border-amber-400/25 rounded-lg px-3 py-2">📊 Tiếng Việt dùng khoảng 1.35× số token của tiếng Anh cho cùng một nội dung (đo trên tokenizer o200k của GPT). <a href="https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m" target="_blank" rel="noopener" class="underline decoration-dotted hover:text-white">Cách chúng tôi đo ↗</a></p>
 
       <!-- Provider tabs -->
       <nav id="providerTabs" class="ltr mt-6 inline-flex p-1 bg-zinc-900/80 border border-zinc-800 rounded-xl gap-1" role="tablist" aria-label="AI provider">
@@ -253,7 +254,7 @@
 
     <!-- ===== AD PLACEHOLDER: In-content banner below tool (responsive) ===== -->
 
-    <section class="mt-12 grid sm:grid-cols-3 gap-4 text-sm">
+    <section class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Token là gì?</h2>
         <p class="text-zinc-400">Token là một đoạn văn bản mà mô hình AI đọc. Trong tiếng Anh, 1 token xấp xỉ 4 ký tự hoặc ¾ một từ.</p>
@@ -265,6 +266,10 @@
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Văn bản của tôi có riêng tư không?</h2>
         <p class="text-zinc-400">Có. Mọi thứ chạy cục bộ trong trình duyệt. Văn bản của bạn không bao giờ được gửi đến máy chủ nào.</p>
+      </div>
+      <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
+        <h2 class="font-semibold mb-1.5">Tiếng Việt tốn gấp mấy lần token so với tiếng Anh?</h2>
+        <p class="text-zinc-400">Trên tokenizer o200k của GPT, tiếng Việt dùng khoảng 1.35× số token so với cùng nội dung bằng tiếng Anh. Tokenizer GPT-4 cũ cần tới 2.32×, nên chi phí cho tiếng Việt đã giảm đáng kể; trên 27 ngôn ngữ, tỷ lệ dao động từ 1.03× (tiếng Trung giản thể) đến 2.00× (tiếng Séc).</p>
       </div>
     </section>
 
@@ -278,6 +283,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"note": "{name}: đầu vào ${in} / đầu ra ${out} cho mỗi 1 triệu token", "exact": "Chính xác (o200k)", "based": "Dựa trên o200k", "est": "Ước tính", "waste": "Lãng phí token {x}x", "efficient": "Hiệu quả {p}%", "great": "Tốt", "moderate": "Lãng phí vừa", "high": "Lãng phí nhiều", "share": "Tỷ lệ ký tự không phải tiếng Anh: {p}%", "tSaved": "Đã tối ưu — tiết kiệm {n} token", "tAlready": "Đã được tối ưu", "tNothing": "Không có gì để sao chép", "tCopied": "Đã sao chép vào bộ nhớ tạm", "tCleared": "Đã xóa", "overhead": "{x}× token so với tiếng Anh", "overheadTip": "Cùng nội dung bằng tiếng Anh sẽ tốn ít hơn khoảng {x}× token.", "chatErr": "JSON chat không hợp lệ. Hãy dán mảng messages như [{\"role\": \"user\", \"content\": \"...\"}]", "chatInfo": "{n} tin nhắn · gồm ~{o} token định dạng chat", "prices": {"gpt-6-astra": {"in": 10.0, "out": 50.0}, "gpt-6-1-sol": {"in": 2.0, "out": 10.0}, "gpt-6-sol": {"in": 2.0, "out": 10.0}, "gpt-6-luna": {"in": 0.1, "out": 0.5}, "gpt-4o": {"in": 2.5, "out": 10.0}, "claude-opus-5-5": {"in": 4.0, "out": 20.0}, "claude-sonnet-5-5": {"in": 2.0, "out": 10.0}, "claude-haiku-4-5": {"in": 1.0, "out": 5.0}, "gemini-3-1-pro": {"in": 2.0, "out": 12.0}, "gemini-3-8-flash": {"in": 0.75, "out": 3.75}}, "viewIn": {"en": "View this page in English", "ko": "이 페이지를 한국어로 보기", "ja": "このページを日本語で見る", "zh-cn": "用简体中文查看此页面", "zh-tw": "以繁體中文檢視此頁面", "es": "Ver esta página en español", "pt": "Ver esta página em português", "fr": "Voir cette page en français", "de": "Diese Seite auf Deutsch ansehen", "it": "Visualizza questa pagina in italiano", "ru": "Открыть эту страницу на русском", "uk": "Відкрити цю сторінку українською", "tr": "Bu sayfayı Türkçe görüntüle", "ar": "عرض هذه الصفحة بالعربية", "fa": "نمایش این صفحه به فارسی", "hi": "यह पेज हिन्दी में देखें", "id": "Lihat halaman ini dalam Bahasa Indonesia", "vi": "Xem trang này bằng tiếng Việt", "th": "ดูหน้านี้เป็นภาษาไทย", "pl": "Zobacz tę stronę po polsku", "nl": "Bekijk deze pagina in het Nederlands", "bn": "এই পাতাটি বাংলায় দেখুন", "ur": "یہ صفحہ اردو میں دیکھیں", "fil": "Tingnan ang page na ito sa Filipino", "cs": "Zobrazit tuto stránku v češtině", "sv": "Visa sidan på svenska", "he": "הצגת הדף בעברית"}};</script>
-  <script type="module" src="/token.js?v=87a559e2"></script>
+  <script type="module" src="/token.js?v=c9eb0084"></script>
 </body>
 </html>
