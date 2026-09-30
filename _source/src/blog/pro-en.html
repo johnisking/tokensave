@@ -1,0 +1,104 @@
+<p>On September 29, 2026 OpenAI split ChatGPT Pro into three plans: <strong>Pro 100</strong>, <strong>Pro 200</strong> and a new <strong>Pro 500</strong>. It also quietly cut how much you get on Pro 200. If you are deciding between them, or wondering whether you need Pro at all, here is what actually changed and how to pick.</p>
+<p><img loading="lazy" width="1200" height="630" alt="ChatGPT plans compared by usage and price" src="/blog-chatgpt-pro-tiers.png" /></p>
+<h2>The plans side by side</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Plan</th>
+<th style="text-align: right;">Price / month</th>
+<th style="text-align: right;">Usage vs Plus</th>
+<th style="text-align: right;">Price per "Plus-worth" of usage</th>
+<th style="text-align: center;">Ultrafast</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Go</td>
+<td style="text-align: right;">$8</td>
+<td style="text-align: right;">lower</td>
+<td style="text-align: right;">–</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Plus</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">1×</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Pro 100</td>
+<td style="text-align: right;">$100</td>
+<td style="text-align: right;">5×</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Pro 200</td>
+<td style="text-align: right;">$200</td>
+<td style="text-align: right;">10×</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Pro 500</td>
+<td style="text-align: right;">$500</td>
+<td style="text-align: right;">25×</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: center;">✓</td>
+</tr>
+</tbody>
+</table></div>
+<p>US prices. OpenAI's help page only says that Pro 200 includes more usage than Pro 100 and Pro 500 the most; the 5×, 10× and 25× figures are the multipliers reported from OpenAI's announcement.</p>
+<p>All three Pro plans include the same features: Pro models, Codex, deep research, image creation, memory and file uploads. The only feature difference is <strong>Ultrafast</strong>, a faster mode for GPT-6 Astra, which is Pro 500 only. Buying extra credits on Pro 100 or Pro 200 does not unlock it.</p>
+<h2>The part most people miss: there is no bulk discount any more</h2>
+<p>Divide each price by the usage you get and every plan lands on the same number: <strong>$20 per Plus-worth of usage</strong>. Pro 500 is not a better deal than Pro 100; it is just more of the same thing, plus speed.</p>
+<p>That used to be different. Until this change Pro 200 gave <strong>20×</strong> Plus usage, which worked out to $10 per unit, half the price of everything else. New Pro 200 subscribers now get <strong>10×</strong>. If you were already on Pro 200, you keep the old 20× allowance until <strong>October 29, 2026</strong>, then drop to 10× at the same $200.</p>
+<p>So the rule is simple: <strong>buy the smallest plan you don't hit the limit on.</strong> Paying for headroom you never use is the only way to overpay.</p>
+<h2>Which one should you pick?</h2>
+<ul>
+<li><strong>You rarely hit the Plus limit:</strong> stay on Plus ($20). None of the Pro plans give you a smarter answer for everyday chat; they give you more of it.</li>
+<li><strong>You hit the Plus limit a few times a week:</strong> Pro 100. Five times the usage for five times the price, and the jump from $20 to $100 is the smallest step up.</li>
+<li><strong>You regularly run out on Pro 100:</strong> Pro 200. Same price per unit, twice the room.</li>
+<li><strong>You run Codex or agents most of the day, or waiting on output costs you money:</strong> Pro 500. It is the only plan with Ultrafast, but note that faster generation uses your allowance faster too.</li>
+<li><strong>You're on the old Pro 200:</strong> keep it until October 29; it is the best deal OpenAI sells right now. After that, look at how much you actually used. If you stayed under about a quarter of your old allowance, Pro 100 does the same job for $100 less.</li>
+</ul>
+<h2>What about just using the API?</h2>
+<p>If you mostly send short or medium messages, paying per token is often much cheaper than any Pro plan. Here is roughly what a month of chat costs through the API, assuming conversations of 6 messages and English text:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Your usage</th>
+<th style="text-align: right;">GPT-6 Sol API</th>
+<th style="text-align: right;">GPT-6 Astra API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>30 normal messages a day</td>
+<td style="text-align: right;">≈ $8</td>
+<td style="text-align: right;">≈ $39</td>
+</tr>
+<tr>
+<td>80 normal messages a day</td>
+<td style="text-align: right;">≈ $21</td>
+<td style="text-align: right;">≈ $103</td>
+</tr>
+<tr>
+<td>80 long messages a day (pasting documents)</td>
+<td style="text-align: right;">≈ $59</td>
+<td style="text-align: right;">≈ $294</td>
+</tr>
+<tr>
+<td>200 long messages a day</td>
+<td style="text-align: right;">≈ $147</td>
+<td style="text-align: right;">≈ $735</td>
+</tr>
+</tbody>
+</table></div>
+<p>"Normal" = about 150 tokens in and 500 out per message; "long" = about 2,000 in and 700 out. API prices: Sol $2 / $10 and Astra $10 / $50 per million input / output tokens.</p>
+<p>Two things push the numbers up fast. First, every new message re-sends the whole conversation, so long chats cost far more than short ones. Second, languages other than English need more tokens for the same text: Korean about 1.4×, Japanese about 1.8×, so the API bill grows by the same factor.</p>
+<p>The takeaway: light and medium users of the everyday model are usually better off on Plus or the API. Pro starts to pay off when you use the top models heavily, work with long documents, or live in Codex.</p>
+<h2>Check your own numbers</h2>
+<p>Everyone's usage is different. The <a href="/plans">Subscription vs API calculator</a> lets you enter how many messages you send, how long they are and which language you write in, and shows what the same month would cost on the API next to ChatGPT, Claude and Gemini plans.</p>
+<p><em>Prices as of October 1, 2026. OpenAI may change allowances again; check chatgpt.com/pricing before you buy.</em></p>

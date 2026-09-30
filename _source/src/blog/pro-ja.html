@@ -1,0 +1,104 @@
+<p>2026年9月29日、OpenAIはChatGPT Proを <strong>Pro 100</strong>、<strong>Pro 200</strong>、そして新設の <strong>Pro 500</strong> の3プランに分割しました。あわせて、Pro 200で使える量もひっそりと減らしています。どのプランにするか迷っている方、そもそもProが必要なのか気になっている方に向けて、ChatGPT Proの料金体系で実際に何が変わったのか、どう選べばよいのかを整理します。</p>
+<p><img loading="lazy" width="1200" height="630" alt="ChatGPTの各プランを利用量と料金で比較した図" src="/blog-chatgpt-pro-tiers.png" /></p>
+<h2>プラン比較表</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>プラン</th>
+<th style="text-align: right;">月額料金</th>
+<th style="text-align: right;">利用量（Plus比）</th>
+<th style="text-align: right;">「Plus 1つ分」の利用量あたりの料金</th>
+<th style="text-align: center;">Ultrafast</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Go</td>
+<td style="text-align: right;">$8</td>
+<td style="text-align: right;">Plusより少ない</td>
+<td style="text-align: right;">–</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Plus</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">1×</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Pro 100</td>
+<td style="text-align: right;">$100</td>
+<td style="text-align: right;">5×</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Pro 200</td>
+<td style="text-align: right;">$200</td>
+<td style="text-align: right;">10×</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Pro 500</td>
+<td style="text-align: right;">$500</td>
+<td style="text-align: right;">25×</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: center;">✓</td>
+</tr>
+</tbody>
+</table></div>
+<p>料金は米国価格です。OpenAIのヘルプページには「Pro 200はPro 100より利用量が多く、Pro 500が最も多い」としか書かれていません。5×・10×・25×という倍率は、OpenAIの発表内容として報じられている数値です。</p>
+<p>3つのProプランの機能はすべて共通で、Proモデル、Codex、ディープリサーチ、画像生成、メモリ、ファイルアップロードが使えます。唯一の違いは <strong>Ultrafast</strong>（GPT-6 Astraの高速モード）で、これはPro 500限定です。Pro 100やPro 200で追加クレジットを購入しても、Ultrafastは使えるようになりません。</p>
+<h2>見落としがちなポイント：「まとめ買い割引」はもうない</h2>
+<p>各プランの料金を利用量で割ると、どのプランも同じ数字になります。<strong>Plus 1つ分の利用量あたり$20</strong> です。つまりPro 500はPro 100よりお得なわけではなく、同じものを多く買えて、そこに速度が付いてくるだけです。</p>
+<p>以前は事情が違いました。今回の変更までは、Pro 200でPlusの <strong>20×</strong> の利用量が使え、1単位あたり$10、つまり他のプランの半額でした。新たにPro 200を契約する人は <strong>10×</strong> になります。すでにPro 200を契約している人は <strong>2026年10月29日</strong> まで従来の20×が維持され、その後は同じ$200のまま10×に下がります。</p>
+<p>ですから、選び方のルールはシンプルです。<strong>上限に達しない範囲で、いちばん小さいプランを選ぶ。</strong> 使わない余裕分にお金を払うことだけが、払いすぎの原因になります。</p>
+<h2>どのプランを選ぶべき？</h2>
+<ul>
+<li><strong>Plusの上限にほとんど達しない：</strong> Plus（$20）のままで十分です。どのProプランも、日常のチャットでより賢い回答をくれるわけではなく、使える量が増えるだけです。</li>
+<li><strong>Plusの上限に週に数回達する：</strong> Pro 100。料金5倍で利用量も5倍、$20から$100への移行はいちばん小さなステップアップです。</li>
+<li><strong>Pro 100でも頻繁に使い切る：</strong> Pro 200。単価は同じで、使える量が2倍になります。</li>
+<li><strong>Codexやエージェントを1日の大半動かしている、または出力待ちの時間がそのままコストになる：</strong> Pro 500。Ultrafastが使える唯一のプランです。ただし、生成が速い分、利用枠の消費も速くなる点に注意してください。</li>
+<li><strong>旧Pro 200を契約中：</strong> 10月29日までは続けましょう。現時点でOpenAIが提供している中で最もお得なプランです。その後は、実際にどれだけ使っていたかを確認してください。旧利用枠の4分の1程度に収まっていたなら、Pro 100で同じことが$100安くできます。</li>
+</ul>
+<h2>APIを直接使うのはどうか？</h2>
+<p>主に短め〜中程度のメッセージを送る使い方なら、トークン単位の従量課金のほうが、どのProプランよりも大幅に安く済むことがよくあります。以下は、1会話6メッセージ・英語テキストを前提に、1か月分のチャットをAPI経由で使った場合のおおよその料金です。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>利用量</th>
+<th style="text-align: right;">GPT-6 Sol API</th>
+<th style="text-align: right;">GPT-6 Astra API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>通常メッセージ 1日30件</td>
+<td style="text-align: right;">≈ $8</td>
+<td style="text-align: right;">≈ $39</td>
+</tr>
+<tr>
+<td>通常メッセージ 1日80件</td>
+<td style="text-align: right;">≈ $21</td>
+<td style="text-align: right;">≈ $103</td>
+</tr>
+<tr>
+<td>長文メッセージ 1日80件（ドキュメントを貼り付け）</td>
+<td style="text-align: right;">≈ $59</td>
+<td style="text-align: right;">≈ $294</td>
+</tr>
+<tr>
+<td>長文メッセージ 1日200件</td>
+<td style="text-align: right;">≈ $147</td>
+<td style="text-align: right;">≈ $735</td>
+</tr>
+</tbody>
+</table></div>
+<p>「通常」＝1メッセージあたり入力約150トークン・出力約500トークン、「長文」＝入力約2,000トークン・出力約700トークン。APIの料金は、100万入力／出力トークンあたりSolが$2／$10、Astraが$10／$50です。</p>
+<p>金額を一気に押し上げる要因が2つあります。1つ目は、新しいメッセージを送るたびに会話全体が再送信されるため、長いチャットは短いチャットよりはるかに高くつくことです。2つ目は、英語以外の言語では同じ内容でも多くのトークンが必要になることです。<strong>日本語は英語の約1.8倍</strong>、<strong>韓国語は約1.4倍</strong> のトークンを消費するため、APIの請求額もその分だけ増えます。日本語で使う場合は、上の表の金額を約1.8倍して考えてください。</p>
+<p>結論として、日常用モデルのライト〜ミドルユーザーは、たいていPlusかAPIのほうが得です。Proが元を取れるのは、最上位モデルをヘビーに使う場合、長いドキュメントを扱う場合、あるいはCodexに張り付いている場合です。</p>
+<h2>自分の数字で確かめる</h2>
+<p>使い方は人それぞれです。<a href="/ja/plans">サブスクリプション vs API 計算ツール</a> では、送信するメッセージの件数、長さ、使う言語を入力すると、同じ1か月分をAPIで使った場合の料金を、ChatGPT・Claude・Geminiの各プランと並べて比較できます。</p>
+<p><em>料金は2026年10月1日時点のものです。OpenAIが利用枠を再び変更する可能性もあるため、購入前に chatgpt.com/pricing をご確認ください。</em></p>

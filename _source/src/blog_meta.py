@@ -37,3 +37,63 @@ BLOG = [
 import json as _json, os as _os
 _auto = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "blog_data", "auto.json")
 BLOG += _json.load(open(_auto, encoding="utf-8"))
+
+
+# "ChatGPT Pro 100 vs 200 vs 500" (blog_src/pro-<tag>.md), links to the /plans calculator
+PRO = [
+ {
+  "tag": "en",
+  "path": "/blog/chatgpt-pro-100-vs-200-vs-500",
+  "src": "pro-en",
+  "title": "ChatGPT Pro 100 vs 200 vs 500: Which Plan Is Worth It?",
+  "desc": "ChatGPT Pro now comes in $100, $200 and $500 tiers. Usage per dollar, the Pro 200 cut, Ultrafast, and when the API is cheaper.",
+  "byline": "Jonhisking · October 1, 2026",
+  "cta": "Enter how many messages you send, how long they are and your language, and see whether a subscription or the API is cheaper for you.",
+  "ctaBtn": "Open the Subscription vs API calculator",
+  "date": "2026-10-01"
+ },
+ {
+  "tag": "ko",
+  "path": "/ko/blog/chatgpt-pro-yogeumje-bigyo",
+  "src": "pro-ko",
+  "title": "챗GPT Pro 100 vs 200 vs 500 요금제 비교: 뭘 골라야 할까",
+  "desc": "ChatGPT 프로 요금제가 Pro 100·200·500으로 나뉘었습니다. 사용량 대비 가격, Ultrafast 차이, 플러스와 API 중 무엇이 싼지 정리했습니다.",
+  "byline": "Jonhisking · 2026년 10월 1일",
+  "cta": "내 메시지 수와 길이, 언어를 넣고 구독과 API 중 어느 쪽이 더 싼지 직접 계산해 보세요.",
+  "ctaBtn": "구독 vs API 계산기 열기",
+  "date": "2026-10-01"
+ },
+ {
+  "tag": "ja",
+  "path": "/ja/blog/chatgpt-pro-ryokin-hikaku",
+  "src": "pro-ja",
+  "title": "ChatGPT Pro 料金比較：Pro 100・200・500どれを選ぶ？",
+  "desc": "ChatGPT Proが3プランに。Pro 100・200・500の料金と利用量を比較し、Pro 200の縮小やAPIとの料金差、日本語のトークン約1.8倍まで解説します。",
+  "byline": "Jonhisking · 2026年10月1日",
+  "cta": "メッセージ数・長さ・言語を入力して、あなたの使い方ならサブスクとAPIのどちらが安いか計算してみましょう。",
+  "ctaBtn": "料金を計算する",
+  "date": "2026-10-01"
+ },
+ {
+  "tag": "es",
+  "path": "/es/blog/chatgpt-pro-100-200-500-precios",
+  "src": "pro-es",
+  "title": "ChatGPT Pro 100, 200 o 500: precios y cuál vale la pena",
+  "desc": "Planes de ChatGPT Pro 100, 200 y 500: precio, uso frente a Plus, Ultrafast y cuándo te conviene más la API.",
+  "byline": "Jonhisking · 1 de octubre de 2026",
+  "cta": "Calcula cuánto te costaría tu uso real con una suscripción frente a la API.",
+  "ctaBtn": "Calcular mi costo",
+  "date": "2026-10-01"
+ },
+ {
+  "tag": "pt",
+  "path": "/pt/blog/chatgpt-pro-100-200-500-precos",
+  "src": "pro-pt",
+  "title": "ChatGPT Pro 100, 200 ou 500: qual plano vale a pena?",
+  "desc": "Pro 100, Pro 200 ou Pro 500: preço, uso e Ultrafast comparados, e quando a API do ChatGPT sai mais barata.",
+  "byline": "Jonhisking · 1 de outubro de 2026",
+  "cta": "Calcule quanto você pagaria pela sua assinatura e quanto gastaria usando a API.",
+  "ctaBtn": "Calcular meu custo",
+  "date": "2026-10-01"
+ }
+]
