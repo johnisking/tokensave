@@ -398,10 +398,10 @@ function savePreview(text, e) {
     const before = countTokens(text).tokens;
     const clean = cleanText(text);
     let after, foreign = e.waste >= FOREIGN;
-    if (foreign) after = countTokens(clean).tokens / (canTranslate ? e.waste : 1);   // translation estimated from measured overhead
+    if (foreign) after = countTokens(clean).tokens / e.waste;   // translation estimated from measured overhead
     else after = countTokens(shortenEnglish(clean)).tokens;                          // exact for English
     const saved = Math.max(0, Math.round(before - after));
-    saveCache = { key, saved, pct: before ? Math.round(saved / before * 100) : 0 };
+    saveCache = { key, saved, pct: before ? Math.round(saved / before * 100) : 0, needsChrome: foreign && !canTranslate };
   }
   return saveCache;
 }
@@ -419,7 +419,7 @@ function updateTranslateBtn(e) {
   trBtn.classList.toggle('hidden', !show);
   if (show) {
     trLabel.textContent = '💸 ' + tr('saveTok');
-    trSave.textContent = '−' + sp.pct + '%';
+    trSave.textContent = '−' + sp.pct + '%' + (sp.needsChrome ? ' · Chrome' : '');
   }
 }
 
