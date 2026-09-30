@@ -1,4 +1,4 @@
-<p>Ugyanazt az ügyfélszolgálati promptot lefordítottam 34 nyelvre, és a tokeneket az o200k_base-szel, az OpenAI jelenlegi tokenizálójával (GPT-4o és újabbak) számoltam meg. Angolul 34 token kell, magyarul <strong>59 — ez 1,74× annyi</strong>, 34 nyelv közül a 28. helyen a legolcsóbbtól számítva.</p>
+<p>Ugyanazt az ügyfélszolgálati promptot lefordítottam 41 nyelvre, és a tokeneket az o200k_base-szel, az OpenAI jelenlegi tokenizálójával (GPT-4o és újabbak) számoltam meg. Angolul 34 token kell, magyarul <strong>59 — ez 1,74× annyi</strong>, 41 nyelv közül a 30. helyen a legolcsóbbtól számítva.</p>
 <p>A magyar változat:</p>
 <blockquote>
 <p>Foglald össze az alábbi ügyfél-e-mailt három pontban, és javasolj egy udvarias választ. Az ügyfél azt írja, hogy a rendelés két nap késéssel érkezett, és egy termék hiányzott a dobozból.</p>
@@ -45,6 +45,12 @@
 <td style="text-align: right;">2,50×</td>
 </tr>
 <tr>
+<td>हिन्दी</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1,50×</td>
+<td style="text-align: right;">4,59×</td>
+</tr>
+<tr>
 <td><strong>Magyar</strong></td>
 <td style="text-align: right;"><strong>59</strong></td>
 <td style="text-align: right;"><strong>1,74×</strong></td>
@@ -68,9 +74,15 @@
 <td style="text-align: right;">2,06×</td>
 <td style="text-align: right;">4,94×</td>
 </tr>
+<tr>
+<td>ਪੰਜਾਬੀ</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">7,41×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1213" alt="Eredmények" src="/blog-language-tax-chart-v3.png" /></p>
+<p><img loading="lazy" width="960" height="1430" alt="Eredmények" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Miért</h2>
 <p>A tokenizáló főleg angol szövegből tanul: az olyan szavak, mint a " polite" vagy a " customer", egyetlen tokenek, a toldalékokkal hosszú magyar szavak viszont darabokra esnek:</p>
 <ul>
@@ -94,4 +106,4 @@
 <li>A Claude és a Gemini más tokenizálót használ — ezek a számok csak az OpenAI-modellekre érvényesek.</li>
 <li>A fordítás ellenőrzött gépi fordításon alapul.</li>
 </ul>
-<p>Mind a 34 nyelv eredménye (angolul): <a href="/blog/token-cost-by-language">34 nyelv összehasonlítása</a></p>
+<p>Mind a 41 nyelv eredménye (angolul): <a href="/blog/token-cost-by-language">41 nyelv összehasonlítása</a></p>

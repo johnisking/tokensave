@@ -1,6 +1,6 @@
 # Loads the extra language files in i18n_extra/*.py (one file per language) in a fixed order.
 import importlib.util, os
-ORDER = ["bn", "ur", "fil", "cs", "sv", "he", "el", "ro", "hu", "da", "fi", "no", "sk"]
+ORDER = ["bn", "ur", "fil", "cs", "sv", "he", "el", "ro", "hu", "da", "fi", "no", "sk", "mr", "gu", "kn", "ml", "ta", "te", "pa"]
 _DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "i18n_extra")
 EXTRA = []
 for _name in ORDER:

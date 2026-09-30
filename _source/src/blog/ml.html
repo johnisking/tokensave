@@ -1,0 +1,109 @@
+<p>ഒരേ കസ്റ്റമർ സപ്പോർട്ട് പ്രോംപ്റ്റ് 41 ഭാഷകളിലേക്ക് വിവർത്തനം ചെയ്ത്, OpenAI-യുടെ നിലവിലെ ടോക്കണൈസറായ o200k_base (GPT-4o-യും പുതിയ മോഡലുകളും) ഉപയോഗിച്ച് ടോക്കണുകൾ എണ്ണി. ഇംഗ്ലീഷിന് 34 ടോക്കൺ വേണം, മലയാളത്തിന് <strong>63 – അതായത് 1.85×</strong>; 41 ഭാഷകളിൽ 33-ാം സ്ഥാനം (1 = ഏറ്റവും വിലകുറഞ്ഞത്).</p>
+<p>മലയാളം പതിപ്പ്:</p>
+<blockquote>
+<p>താഴെയുള്ള ഉപഭോക്താവിന്റെ ഇമെയിൽ മൂന്ന് പോയിന്റുകളായി സംഗ്രഹിച്ച് ഒരു വിനീതമായ മറുപടി നിർദ്ദേശിക്കുക. ഓർഡർ രണ്ട് ദിവസം വൈകിയാണ് എത്തിയതെന്നും പെട്ടിയിൽ ഒരു സാധനം കുറവായിരുന്നുവെന്നും ഉപഭോക്താവ് പറയുന്നു.</p>
+</blockquote>
+<h2>ഫലങ്ങൾ</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>ഭാഷ</th>
+<th style="text-align: right;">ടോക്കൺ</th>
+<th style="text-align: right;">ഇംഗ്ലീഷിനെ അപേക്ഷിച്ച്</th>
+<th style="text-align: right;">പഴയ GPT-4 ടോക്കണൈസർ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">1.00×</td>
+<td style="text-align: right;">1.00×</td>
+</tr>
+<tr>
+<td>简体中文</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">1.03×</td>
+<td style="text-align: right;">1.53×</td>
+</tr>
+<tr>
+<td>Español</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">1.18×</td>
+<td style="text-align: right;">1.29×</td>
+</tr>
+<tr>
+<td>Deutsch</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">1.26×</td>
+<td style="text-align: right;">1.50×</td>
+</tr>
+<tr>
+<td>한국어</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">1.44×</td>
+<td style="text-align: right;">2.50×</td>
+</tr>
+<tr>
+<td>हिन्दी</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1.50×</td>
+<td style="text-align: right;">4.59×</td>
+</tr>
+<tr>
+<td>日本語</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">1.79×</td>
+<td style="text-align: right;">2.21×</td>
+</tr>
+<tr>
+<td><strong>മലയാളം</strong></td>
+<td style="text-align: right;"><strong>63</strong></td>
+<td style="text-align: right;"><strong>1.85×</strong></td>
+<td style="text-align: right;"><strong>10.09×</strong></td>
+</tr>
+<tr>
+<td>Čeština</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">2.00×</td>
+<td style="text-align: right;">2.59×</td>
+</tr>
+<tr>
+<td>Ελληνικά</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">2.06×</td>
+<td style="text-align: right;">4.94×</td>
+</tr>
+<tr>
+<td>ਪੰਜਾਬੀ</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">2.44×</td>
+<td style="text-align: right;">7.41×</td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" width="960" height="1430" alt="ഫലങ്ങൾ" src="/blog-language-tax-chart-v4.png" /></p>
+<h2>എന്തുകൊണ്ട്</h2>
+<p>ടോക്കണൈസർ കൂടുതലും ഇംഗ്ലീഷ് ടെക്സ്റ്റിൽ നിന്നാണ് പഠിക്കുന്നത്: " polite", " customer" പോലുള്ള വാക്കുകൾ ഓരോന്നും ഒറ്റ ടോക്കണാണ്. എന്നാൽ പ്രത്യയങ്ങൾ ചേർന്ന് നീളുന്ന മലയാളം വാക്കുകൾ പല കഷണങ്ങളായി മുറിയുന്നു:</p>
+<ul>
+<li>കുറവായിരുന്നുവെന്നും → <code>കുറ | വ | ായ | ിരുന്ന | ുവ | െന്നും</code> · 6</li>
+<li>ഉപഭോക്താവിന്റെ → <code>ഉപ | ഭ | ോക | ്ത | ാവ | ിന്റെ</code> · 6</li>
+<li>ഉപഭോക്താവ് → <code>ഉപ | ഭ | ോക | ്ത | ാവ്</code> · 5</li>
+</ul>
+<h2>പഴയ ടോക്കണൈസറുമായി താരതമ്യം</h2>
+<p>GPT-4 കാലത്തെ ടോക്കണൈസറിൽ (cl100k) ഇതേ പ്രോംപ്റ്റിന് <strong>10.09×</strong> വേണ്ടിയിരുന്നു – അളന്ന എല്ലാ ഭാഷകളിലും ഏറ്റവും കൂടുതൽ. ഇപ്പോൾ <strong>1.85×</strong> മാത്രം. ഈ മാറ്റത്തിൽ ഏറ്റവും വലിയ നേട്ടം മലയാളത്തിനാണ്.</p>
+<h2>പണത്തിന്റെ കണക്കിൽ</h2>
+<p>10 ലക്ഷം ഇൻപുട്ട് ടോക്കണിന് $2 നിരക്കുള്ള മോഡലിൽ ഈ പ്രോംപ്റ്റ് 10 ലക്ഷം തവണ അയയ്ക്കാൻ ഇംഗ്ലീഷിൽ 68 $, മലയാളത്തിൽ 126 $ ചെലവാകും. മറുപടിയും മലയാളത്തിലാണെങ്കിൽ ഇതേ ഗുണകം ഔട്ട്പുട്ട് ടോക്കണുകൾക്കും ബാധകമാണ്; അവയ്ക്ക് സാധാരണ 4–5× വില കൂടുതലാണ്.</p>
+<h2>എങ്ങനെ ലാഭിക്കാം</h2>
+<ul>
+<li>സിസ്റ്റം പ്രോംപ്റ്റും സ്ഥിരം നിർദ്ദേശങ്ങളും ഇംഗ്ലീഷിൽ എഴുതുക; യൂസറുടെ ഇൻപുട്ട് മാത്രം മലയാളത്തിൽ വിടുക.</li>
+<li>ഇടയിലെ ഘട്ടങ്ങൾ (ക്ലാസിഫിക്കേഷൻ, എക്സ്ട്രാക്ഷൻ, ടൂൾ കോളുകൾ) ഇംഗ്ലീഷിലോ JSON-ലോ ആവശ്യപ്പെടുക; അന്തിമ മറുപടി മാത്രം മലയാളത്തിൽ.</li>
+<li>പ്രോംപ്റ്റിന്റെ സ്ഥിരം ഭാഗത്തിന് പ്രോംപ്റ്റ് കാഷിംഗ് ഉപയോഗിക്കുക.</li>
+</ul>
+<h2>പരിമിതികൾ</h2>
+<ul>
+<li>ഒരു പ്രോംപ്റ്റ് മാത്രമാണ് അളന്നത്; മറ്റ് ടെക്സ്റ്റുകളിൽ അനുപാതം ±0.1–0.2 വ്യത്യാസപ്പെടാം.</li>
+<li>Claude, Gemini എന്നിവയ്ക്ക് വ്യത്യസ്ത ടോക്കണൈസറുകളാണ് – ഈ കണക്കുകൾ OpenAI മോഡലുകൾക്ക് മാത്രം ബാധകം.</li>
+<li>വിവർത്തനം പരിശോധിച്ച മെഷീൻ വിവർത്തനത്തെ അടിസ്ഥാനമാക്കിയുള്ളതാണ്.</li>
+</ul>
+<p>എല്ലാ 41 ഭാഷകളുടെയും ഫലങ്ങൾ (ഇംഗ്ലീഷിൽ): <a href="/blog/token-cost-by-language">41 ഭാഷകളുടെ താരതമ്യം</a></p>

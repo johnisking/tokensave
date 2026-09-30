@@ -66,13 +66,20 @@ const RE = {
   bengali:  /[\u0980-\u09FF]/,
   hebrew:   /[\u0590-\u05FF]/,
   greek:    /[\u0370-\u03FF\u1F00-\u1FFF]/,
+  gurmukhi: /[\u0A00-\u0A7F]/,
+  gujarati: /[\u0A80-\u0AFF]/,
+  tamil:    /[\u0B80-\u0BFF]/,
+  telugu:   /[\u0C00-\u0C7F]/,
+  kannada:  /[\u0C80-\u0CFF]/,
+  malayalam: /[\u0D00-\u0D7F]/,
   emoji:    /\p{Extended_Pictographic}/u,
 };
-// Tokens per character, calibrated on o200k (2026-09-30, same 34-token English prompt in 34 languages)
-const WEIGHT = { hangul: 0.8, kana: 0.9, cjk: 0.9, cyrillic: 0.4, arabic: 0.42, thai: 0.45, devan: 0.4, bengali: 0.4, hebrew: 0.5, greek: 0.42, emoji: 2.5 };
+// Tokens per character, calibrated on o200k (2026-09-30, same 34-token English prompt in 41 languages)
+const WEIGHT = { hangul: 0.8, kana: 0.9, cjk: 0.9, cyrillic: 0.4, arabic: 0.42, thai: 0.45, devan: 0.4, bengali: 0.4, hebrew: 0.5, greek: 0.42,
+  gurmukhi: 0.65, gujarati: 0.43, tamil: 0.35, telugu: 0.43, kannada: 0.37, malayalam: 0.34, emoji: 2.5 };
 
 function analyze(text) {
-  const counts = { hangul: 0, kana: 0, cjk: 0, cyrillic: 0, arabic: 0, thai: 0, devan: 0, bengali: 0, hebrew: 0, greek: 0, emoji: 0 };
+  const counts = { hangul: 0, kana: 0, cjk: 0, cyrillic: 0, arabic: 0, thai: 0, devan: 0, bengali: 0, hebrew: 0, greek: 0, gurmukhi: 0, gujarati: 0, tamil: 0, telugu: 0, kannada: 0, malayalam: 0, emoji: 0 };
   let latinBuf = '', latinTokens = 0, symbolTokens = 0;
   const flushLatin = () => {
     if (!latinBuf) return;
@@ -101,8 +108,10 @@ function analyze(text) {
 // =========================================================
 // 4) Language efficiency — token waste vs. English for the same meaning
 // =========================================================
-// Measured token overhead vs the same text in English (o200k): ko 1.44, ja 1.79, zh 1.03-1.35, ru 1.32 / uk 1.88, ar 1.26 / fa 1.24 / ur 1.59, th 1.74, hi 1.50, bn 1.68, he 1.56
-const PENALTY = { hangul: 1.45, kana: 1.8, cjk: 1.2, cyrillic: 1.6, arabic: 1.35, thai: 1.75, devan: 1.5, bengali: 1.7, hebrew: 1.55, greek: 2.06, emoji: 1.0 };
+// Measured token overhead vs the same text in English (o200k): ko 1.44, ja 1.79, zh 1.03-1.35, ru 1.32 / uk 1.88, ar 1.26 / fa 1.24 / ur 1.59, th 1.74, hi 1.50, bn 1.68, he 1.56,
+// mr 1.65, gu 1.59, kn 1.79, ml 1.85, ta 1.97, te 2.03, pa 2.44
+const PENALTY = { hangul: 1.45, kana: 1.8, cjk: 1.2, cyrillic: 1.6, arabic: 1.35, thai: 1.75, devan: 1.5, bengali: 1.7, hebrew: 1.55, greek: 2.06,
+  gurmukhi: 2.44, gujarati: 1.59, tamil: 1.97, telugu: 2.03, kannada: 1.79, malayalam: 1.85, emoji: 1.0 };
 // Latin-script languages: measured overhead of the page language (o200k, same prompt as English).
 // Applied to Latin letters only when the text doesn't look like English.
 const LATIN_TAX = { no: 1.32, da: 1.35, fi: 1.44, ro: 1.53, hu: 1.74, sk: 2.0, id: 1.15, es: 1.18, pt: 1.21, de: 1.26, fr: 1.29, nl: 1.29, sv: 1.32, vi: 1.35, it: 1.38, tr: 1.47, fil: 1.53, pl: 1.88, cs: 2.0 };
@@ -127,7 +136,7 @@ function latinTax(text) {
 
 // Scripts shared by several languages: use the page language's measured ratio when we know it
 const PAGE_PENALTY = { zh: { cjk: 1.03 }, 'zh-Hant': { cjk: 1.35 }, ru: { cyrillic: 1.32 }, uk: { cyrillic: 1.88 },
-  ar: { arabic: 1.26 }, fa: { arabic: 1.24 }, ur: { arabic: 1.59 } };
+  ar: { arabic: 1.26 }, fa: { arabic: 1.24 }, ur: { arabic: 1.59 }, mr: { devan: 1.65 } };
 
 function efficiency(a, text) {
   const nonSpace = (text.match(/\S/g) || []).length;
@@ -442,8 +451,8 @@ function guessLang(text) {
   const top = Object.keys(c).filter(k => k !== 'emoji').sort((a, b) => c[b] - c[a])[0];
   if (!top || !c[top]) return LATIN_TAX[PAGE_LANG] ? PAGE_LANG : guessLatin(text) || PAGE_LANG;
   const bySite = (list, dflt) => (list.includes(PAGE_LANG) ? PAGE_LANG : dflt);
-  return { hangul: 'ko', kana: 'ja', cjk: bySite(['zh', 'zh-Hant', 'ja'], 'zh'), thai: 'th', devan: 'hi', bengali: 'bn',
-           hebrew: 'he', greek: 'el', arabic: bySite(['ar', 'fa', 'ur'], 'ar'), cyrillic: bySite(['ru', 'uk'], 'ru') }[top] || PAGE_LANG;
+  return { hangul: 'ko', kana: 'ja', cjk: bySite(['zh', 'zh-Hant', 'ja'], 'zh'), thai: 'th', devan: bySite(['hi', 'mr'], 'hi'), bengali: 'bn',
+           hebrew: 'he', greek: 'el', gurmukhi: 'pa', gujarati: 'gu', tamil: 'ta', telugu: 'te', kannada: 'kn', malayalam: 'ml', arabic: bySite(['ar', 'fa', 'ur'], 'ar'), cyrillic: bySite(['ru', 'uk'], 'ru') }[top] || PAGE_LANG;
 }
 
 const withTimeout = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);

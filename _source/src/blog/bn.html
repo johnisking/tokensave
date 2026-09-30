@@ -1,4 +1,4 @@
-<p>একই কাস্টমার-সাপোর্ট প্রম্পট ৩৪টি ভাষায় অনুবাদ করে OpenAI-এর বর্তমান o200k_base টোকেনাইজার (GPT-4o ও পরের মডেল) দিয়ে টোকেন গোনা হয়েছে। ইংরেজিতে লাগে 34 টোকেন, বাংলায় <strong>57 টোকেন — ইংরেজির 1.68×</strong>; 34টি ভাষার মধ্যে সবচেয়ে সস্তা থেকে গুনলে 26 নম্বরে।</p>
+<p>একই কাস্টমার-সাপোর্ট প্রম্পট ৩৪টি ভাষায় অনুবাদ করে OpenAI-এর বর্তমান o200k_base টোকেনাইজার (GPT-4o ও পরের মডেল) দিয়ে টোকেন গোনা হয়েছে। ইংরেজিতে লাগে 34 টোকেন, বাংলায় <strong>57 টোকেন — ইংরেজির 1.68×</strong>; 41টি ভাষার মধ্যে সবচেয়ে সস্তা থেকে গুনলে 28 নম্বরে।</p>
 <p>বাংলা সংস্করণ:</p>
 <blockquote>
 <p>নিচের গ্রাহকের ইমেলটি তিনটি পয়েন্টে সংক্ষেপ করুন এবং একটি বিনীত উত্তর প্রস্তাব করুন। গ্রাহক বলছেন অর্ডারটি দুই দিন দেরিতে এসেছে এবং বাক্স থেকে একটি জিনিস অনুপস্থিত ছিল।</p>
@@ -45,6 +45,12 @@
 <td style="text-align: right;">2.50×</td>
 </tr>
 <tr>
+<td>हिन्दी</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1.50×</td>
+<td style="text-align: right;">4.59×</td>
+</tr>
+<tr>
 <td><strong>বাংলা</strong></td>
 <td style="text-align: right;"><strong>57</strong></td>
 <td style="text-align: right;"><strong>1.68×</strong></td>
@@ -68,9 +74,15 @@
 <td style="text-align: right;">2.06×</td>
 <td style="text-align: right;">4.94×</td>
 </tr>
+<tr>
+<td>ਪੰਜਾਬੀ</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">2.44×</td>
+<td style="text-align: right;">7.41×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1213" alt="ফলাফল" src="/blog-language-tax-chart-v3.png" /></p>
+<p><img loading="lazy" width="960" height="1430" alt="ফলাফল" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>কেন</h2>
 <p>টোকেনাইজার মূলত ইংরেজি লেখা থেকে শেখে: " polite" বা " customer"-এর মতো শব্দ একটিই টোকেন, কিন্তু অনেক বাংলা শব্দ কার-চিহ্নসহ টুকরো হয়ে যায়:</p>
 <ul>

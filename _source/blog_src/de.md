@@ -1,4 +1,4 @@
-Ich habe denselben Kundenservice-Prompt in 34 Sprachen übersetzt und die Tokens mit o200k_base gezählt, dem aktuellen Tokenizer von OpenAI (GPT-4o und neuer). Englisch braucht 34 Tokens, Deutsch **43 – also 1,26× so viele**, Platz 7 von 34 (1 = am günstigsten).
+Ich habe denselben Kundenservice-Prompt in 41 Sprachen übersetzt und die Tokens mit o200k_base gezählt, dem aktuellen Tokenizer von OpenAI (GPT-4o und neuer). Englisch braucht 34 Tokens, Deutsch **43 – also 1,26× so viele**, Platz 7 von 41 (1 = am günstigsten).
 
 Die deutsche Fassung:
 
@@ -13,11 +13,13 @@ Die deutsche Fassung:
 | Español | 40 | 1,18× | 1,29× |
 | **Deutsch** | **43** | **1,26×** | **1,50×** |
 | 한국어 | 49 | 1,44× | 2,50× |
+| हिन्दी | 51 | 1,50× | 4,59× |
 | 日本語 | 61 | 1,79× | 2,21× |
 | Čeština | 68 | 2,00× | 2,59× |
 | Ελληνικά | 70 | 2,06× | 4,94× |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
 
-![Ergebnisse](/blog-language-tax-chart-v3.png)
+![Ergebnisse](/blog-language-tax-chart-v4.png)
 
 ## Warum
 
@@ -47,4 +49,4 @@ Bei einem Modell mit 2 $ pro 1 Mio. Input-Tokens kostet es 68 $ auf Englisch und
 - Claude und Gemini haben andere Tokenizer – die Zahlen gelten nur für OpenAI-Modelle.
 - Die Übersetzung basiert auf einer geprüften maschinellen Übersetzung.
 
-Alle Ergebnisse für 34 Sprachen (auf Englisch): [Vergleich von 34 Sprachen](/blog/token-cost-by-language)
+Alle Ergebnisse für 41 Sprachen (auf Englisch): [Vergleich von 41 Sprachen](/blog/token-cost-by-language)

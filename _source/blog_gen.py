@@ -22,7 +22,7 @@ NATIVE = {tag: nat for _, tag, nat, *_ in LANGS}
 SLUG = {tag: slug for slug, tag, *_ in LANGS}
 EN_PATH = "/blog/token-cost-by-language"
 DATE = "2026-10-01"
-COMPARE = ["en", "zh-CN", "es", "de", "ko", "ja", "cs", "el"]
+COMPARE = ["en", "zh-CN", "es", "de", "ko", "hi", "ja", "cs", "el", "pa"]
 ENGLISH_NAME = {v["name"]: k for k, v in D.items() if not k.startswith("_")}
 
 
@@ -60,7 +60,7 @@ def article(tag):
     md = [
         f("intro"), "", s["plabel"], "", "> " + d["prompt"], "",
         "## " + s["h2"], "", table(tag, dec, s["th"], set(COMPARE + [tag]), tag), "",
-        f"![{s['h2']}](/blog-language-tax-chart-v3.png)", "",
+        f"![{s['h2']}](/blog-language-tax-chart-v4.png)", "",
         "## " + s["h3"], "", s["why"], "", splits_md(tag), "",
         "## " + s["h4"], "", f("old"), "",
         "## " + s["h5"], "", f("cost"), "",
@@ -89,7 +89,7 @@ The English prompt:
 
 {chr(10).join(tbl)}
 
-![Extra tokens per language vs English](/blog-language-tax-chart-v3.png)
+![Extra tokens per language vs English](/blog-language-tax-chart-v4.png)
 
 ## Why some languages cost more
 
@@ -157,6 +157,6 @@ if __name__ == "__main__":
         p = os.path.join(out_dir, tag + ".md")
         md = open(p, encoding="utf-8").read()
         md = re.sub(r"\(https://dev\.to/[^)]+\)", f"({EN_PATH})", md)
-        md = md.replace("[dev.to](" + EN_PATH, "[" + {"cs": "srovnání 34 jazyků", "pl": "porównanie 34 języków"}.get(tag, "dev.to") + "](" + EN_PATH)
+        md = md.replace("[dev.to](" + EN_PATH, "[" + {"cs": "srovnání 41 jazyků", "pl": "porównanie 41 języków"}.get(tag, "dev.to") + "](" + EN_PATH)
         open(p, "w", encoding="utf-8").write(md)
     print("wrote", len(meta), "generated articles")

@@ -1,4 +1,4 @@
-Am tradus același prompt de suport pentru clienți în 34 de limbi și am numărat tokenii cu o200k_base, tokenizatorul actual al OpenAI (GPT-4o și ulterioare). În engleză sunt 34 de tokeni; în română **52, adică 1,53× engleza**, locul 23 din 34 (1 = cel mai ieftin).
+Am tradus același prompt de suport pentru clienți în 41 de limbi și am numărat tokenii cu o200k_base, tokenizatorul actual al OpenAI (GPT-4o și ulterioare). În engleză sunt 34 de tokeni; în română **52, adică 1,53× engleza**, locul 23 din 41 (1 = cel mai ieftin).
 
 Versiunea în română:
 
@@ -13,12 +13,14 @@ Versiunea în română:
 | Español | 40 | 1,18× | 1,29× |
 | Deutsch | 43 | 1,26× | 1,50× |
 | 한국어 | 49 | 1,44× | 2,50× |
+| हिन्दी | 51 | 1,50× | 4,59× |
 | **Română** | **52** | **1,53×** | **1,76×** |
 | 日本語 | 61 | 1,79× | 2,21× |
 | Čeština | 68 | 2,00× | 2,59× |
 | Ελληνικά | 70 | 2,06× | 4,94× |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
 
-![Rezultate](/blog-language-tax-chart-v3.png)
+![Rezultate](/blog-language-tax-chart-v4.png)
 
 ## De ce
 
@@ -48,4 +50,4 @@ Cu un model de 2 $ per milion de tokeni de intrare, trimiterea acestui prompt de
 - Claude și Gemini folosesc alți tokenizatori — cifrele sunt valabile doar pentru modelele OpenAI.
 - Traducerea pornește de la o traducere automată verificată.
 
-Rezultatele complete pentru 34 de limbi (în engleză): [comparație între 34 de limbi](/blog/token-cost-by-language)
+Rezultatele complete pentru 41 de limbi (în engleză): [comparație între 41 de limbi](/blog/token-cost-by-language)

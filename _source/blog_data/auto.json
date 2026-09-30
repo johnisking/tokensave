@@ -3,8 +3,8 @@
   "tag": "en",
   "path": "/blog/token-cost-by-language",
   "date": "2026-10-01",
-  "title": "Same prompt, 34 languages: GPT token cost compared",
-  "desc": "One prompt in 34 languages on GPT's o200k tokenizer: from 1.03× (Chinese) to 2.06× the tokens of English.",
+  "title": "Same prompt, 41 languages: GPT token cost compared",
+  "desc": "One prompt in 41 languages on GPT's o200k tokenizer: from 1.03× (Chinese) to 2.44× the tokens of English.",
   "byline": "Jonhisking · Oct 1, 2026",
   "cta": "Measure your own text: see how many tokens and dollars your prompt costs, in any language.",
   "ctaBtn": "Open the token counter"
@@ -14,7 +14,7 @@
   "path": "/zh-cn/blog/zhongwen-token-gpt",
   "date": "2026-10-01",
   "title": "简体中文在 GPT 中的 Token 数几乎与英文相同（1.03×）",
-  "desc": "同一提示词翻译成 34 种语言实测：简体中文仅为英文的 1.03×，旧版 GPT-4 分词器为 1.53×。",
+  "desc": "同一提示词翻译成 41 种语言实测：简体中文仅为英文的 1.03×，旧版 GPT-4 分词器为 1.53×。",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "用你自己的文本测一测：中文提示词与英文相比要多少 Token 和费用。",
   "ctaBtn": "打开 Token 计算器"
@@ -24,7 +24,7 @@
   "path": "/zh-tw/blog/zhongwen-fanti-token-gpt",
   "date": "2026-10-01",
   "title": "繁體中文在 GPT 中比英文多用 35% Token（1.35×）",
-  "desc": "同一提示詞翻成 34 種語言實測：繁體中文為英文的 1.35×，簡體中文只有 1.03×。原因與省錢方法。",
+  "desc": "同一提示詞翻成 41 種語言實測：繁體中文為英文的 1.35×，簡體中文只有 1.03×。原因與省錢方法。",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "用你自己的文字測一測：中文提示詞比英文多多少 Token 和費用。",
   "ctaBtn": "開啟 Token 計算器"
@@ -34,7 +34,7 @@
   "path": "/es/blog/tokens-espanol-gpt",
   "date": "2026-10-01",
   "title": "El español gasta 1,18× más tokens que el inglés en GPT",
-  "desc": "Medí el mismo prompt en 34 idiomas: el español usa 1,18× los tokens del inglés. Por qué y cómo ahorrar.",
+  "desc": "Medí el mismo prompt en 41 idiomas: el español usa 1,18× los tokens del inglés. Por qué y cómo ahorrar.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Mide tu propio texto: cuántos tokens y cuánto dinero cuesta tu prompt en español frente al inglés.",
   "ctaBtn": "Abrir el contador de tokens"
@@ -44,7 +44,7 @@
   "path": "/pt/blog/tokens-portugues-gpt",
   "date": "2026-10-01",
   "title": "O português gasta 1,21× mais tokens que o inglês no GPT",
-  "desc": "Medi o mesmo prompt em 34 idiomas: o português usa 1,21× os tokens do inglês. Por quê e como economizar.",
+  "desc": "Medi o mesmo prompt em 41 idiomas: o português usa 1,21× os tokens do inglês. Por quê e como economizar.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Meça seu próprio texto: quantos tokens e quanto dinheiro seu prompt em português custa em relação ao inglês.",
   "ctaBtn": "Abrir o contador de tokens"
@@ -54,7 +54,7 @@
   "path": "/fr/blog/tokens-francais-gpt",
   "date": "2026-10-01",
   "title": "Le français consomme 1,29× plus de tokens que l’anglais dans GPT",
-  "desc": "Le même prompt mesuré dans 34 langues : le français utilise 1,29× les tokens de l’anglais. Pourquoi et comment économiser.",
+  "desc": "Le même prompt mesuré dans 41 langues : le français utilise 1,29× les tokens de l’anglais. Pourquoi et comment économiser.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Mesurez votre propre texte : combien de tokens et d’argent coûte votre prompt en français par rapport à l’anglais.",
   "ctaBtn": "Ouvrir le compteur de tokens"
@@ -64,7 +64,7 @@
   "path": "/de/blog/tokens-deutsch-gpt",
   "date": "2026-10-01",
   "title": "Deutsch braucht in GPT 1,26× so viele Tokens wie Englisch",
-  "desc": "Derselbe Prompt in 34 Sprachen gemessen: Deutsch braucht 1,26× die Tokens von Englisch. Warum und wie man spart.",
+  "desc": "Derselbe Prompt in 41 Sprachen gemessen: Deutsch braucht 1,26× die Tokens von Englisch. Warum und wie man spart.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Miss deinen eigenen Text: wie viele Tokens und wie viel Geld dein deutscher Prompt im Vergleich zu Englisch kostet.",
   "ctaBtn": "Token-Zähler öffnen"
@@ -74,7 +74,7 @@
   "path": "/it/blog/token-italiano-gpt",
   "date": "2026-10-01",
   "title": "L’italiano usa 1,38× i token dell’inglese in GPT",
-  "desc": "Lo stesso prompt misurato in 34 lingue: l’italiano usa 1,38× i token dell’inglese. Perché e come risparmiare.",
+  "desc": "Lo stesso prompt misurato in 41 lingue: l’italiano usa 1,38× i token dell’inglese. Perché e come risparmiare.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Misura il tuo testo: quanti token e quanti soldi costa il tuo prompt in italiano rispetto all’inglese.",
   "ctaBtn": "Apri il contatore di token"
@@ -84,7 +84,7 @@
   "path": "/ru/blog/tokeny-russkiy-gpt",
   "date": "2026-10-01",
   "title": "Русский в GPT требует в 1,32 раза больше токенов, чем английский",
-  "desc": "Один и тот же промпт на 34 языках: русский — 1,32× токенов английского (раньше 2,15×). Почему и как сэкономить.",
+  "desc": "Один и тот же промпт на 41 языке: русский — 1,32× токенов английского (раньше 2,15×). Почему и как сэкономить.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Измерьте свой текст: сколько токенов и денег стоит ваш промпт на русском по сравнению с английским.",
   "ctaBtn": "Открыть счётчик токенов"
@@ -94,7 +94,7 @@
   "path": "/uk/blog/tokeny-ukrainska-gpt",
   "date": "2026-10-01",
   "title": "Українська в GPT потребує в 1,88 раза більше токенів, ніж англійська",
-  "desc": "Один промпт 34 мовами: українська — 1,88× токенів англійської (раніше 3,15×). Чому так і як заощадити.",
+  "desc": "Один промпт 41 мовою: українська — 1,88× токенів англійської (раніше 3,15×). Чому так і як заощадити.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Виміряйте свій текст: скільки токенів і грошей коштує ваш промпт українською порівняно з англійською.",
   "ctaBtn": "Відкрити лічильник токенів"
@@ -104,7 +104,7 @@
   "path": "/tr/blog/token-turkce-gpt",
   "date": "2026-10-01",
   "title": "Türkçe, GPT'de İngilizceden 1,47× daha fazla token harcıyor",
-  "desc": "Aynı istemi 34 dilde ölçtüm: Türkçe, İngilizcenin 1,47× tokenini kullanıyor. Nedeni ve tasarruf yolları.",
+  "desc": "Aynı istemi 41 dilde ölçtüm: Türkçe, İngilizcenin 1,47× tokenini kullanıyor. Nedeni ve tasarruf yolları.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Kendi metninizi ölçün: Türkçe isteminiz İngilizceye göre kaç token ve ne kadar para tutuyor.",
   "ctaBtn": "Token sayacını aç"
@@ -114,7 +114,7 @@
   "path": "/ar/blog/tokens-arabic-gpt",
   "date": "2026-10-01",
   "title": "العربية في GPT تستهلك 1.26× رموز الإنجليزية",
-  "desc": "قِسنا الموجّه نفسه بـ34 لغة: العربية 1.26× رموز الإنجليزية بعد أن كانت 3.03×. السبب وطرق التوفير.",
+  "desc": "قِسنا الموجّه نفسه بـ41 لغة: العربية 1.26× رموز الإنجليزية بعد أن كانت 3.03×. السبب وطرق التوفير.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "قِس نصك بنفسك: كم رمزًا وكم دولارًا يكلف موجّهك بالعربية مقارنة بالإنجليزية.",
   "ctaBtn": "افتح عدّاد الرموز"
@@ -134,7 +134,7 @@
   "path": "/hi/blog/tokens-hindi-gpt",
   "date": "2026-10-01",
   "title": "GPT में हिन्दी, अंग्रेज़ी से 1.50× टोकन लेती है",
-  "desc": "एक ही प्रॉम्प्ट 34 भाषाओं में मापा: हिन्दी अब 1.50× है, पुराने GPT-4 टोकनाइज़र पर 4.59× थी। कारण और बचत के तरीके।",
+  "desc": "एक ही प्रॉम्प्ट 41 भाषाओं में मापा: हिन्दी अब 1.50× है, पुराने GPT-4 टोकनाइज़र पर 4.59× थी। कारण और बचत के तरीके।",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "अपना टेक्स्ट मापें: आपका हिन्दी प्रॉम्प्ट अंग्रेज़ी की तुलना में कितने टोकन और कितना पैसा लेता है।",
   "ctaBtn": "टोकन काउंटर खोलें"
@@ -144,7 +144,7 @@
   "path": "/id/blog/token-bahasa-indonesia-gpt",
   "date": "2026-10-01",
   "title": "Bahasa Indonesia memakai 1,15× token bahasa Inggris di GPT",
-  "desc": "Prompt yang sama diukur dalam 34 bahasa: bahasa Indonesia 1,15× token bahasa Inggris. Alasannya dan cara berhemat.",
+  "desc": "Prompt yang sama diukur dalam 41 bahasa: bahasa Indonesia 1,15× token bahasa Inggris. Alasannya dan cara berhemat.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Ukur teks Anda sendiri: berapa token dan biaya prompt bahasa Indonesia Anda dibanding bahasa Inggris.",
   "ctaBtn": "Buka penghitung token"
@@ -154,7 +154,7 @@
   "path": "/vi/blog/token-tieng-viet-gpt",
   "date": "2026-10-01",
   "title": "Tiếng Việt dùng gấp 1,35 lần token so với tiếng Anh trong GPT",
-  "desc": "Đo cùng một prompt bằng 34 ngôn ngữ: tiếng Việt 1,35× token tiếng Anh (trước đây 2,32×). Lý do và cách tiết kiệm.",
+  "desc": "Đo cùng một prompt bằng 41 ngôn ngữ: tiếng Việt 1,35× token tiếng Anh (trước đây 2,32×). Lý do và cách tiết kiệm.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Đo văn bản của bạn: prompt tiếng Việt tốn bao nhiêu token và tiền so với tiếng Anh.",
   "ctaBtn": "Mở công cụ đếm token"
@@ -164,7 +164,7 @@
   "path": "/th/blog/token-phasa-thai-gpt",
   "date": "2026-10-01",
   "title": "ภาษาไทยใช้โทเค็นมากกว่าภาษาอังกฤษ 1.74 เท่าใน GPT",
-  "desc": "วัดพรอมต์เดียวกันใน 34 ภาษา: ภาษาไทยใช้ 1.74× ของภาษาอังกฤษ (เดิม 3.71×) สาเหตุและวิธีประหยัด",
+  "desc": "วัดพรอมต์เดียวกันใน 41 ภาษา: ภาษาไทยใช้ 1.74× ของภาษาอังกฤษ (เดิม 3.71×) สาเหตุและวิธีประหยัด",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "ลองวัดข้อความของคุณเอง: พรอมต์ภาษาไทยใช้โทเค็นและค่าใช้จ่ายมากกว่าภาษาอังกฤษเท่าไร",
   "ctaBtn": "เปิดตัวนับโทเค็น"
@@ -174,7 +174,7 @@
   "path": "/nl/blog/tokens-nederlands-gpt",
   "date": "2026-10-01",
   "title": "Nederlands kost in GPT 1,29× zoveel tokens als Engels",
-  "desc": "Dezelfde prompt in 34 talen gemeten: Nederlands gebruikt 1,29× de tokens van Engels. Waarom en hoe je bespaart.",
+  "desc": "Dezelfde prompt in 41 talen gemeten: Nederlands gebruikt 1,29× de tokens van Engels. Waarom en hoe je bespaart.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Meet je eigen tekst: hoeveel tokens en geld je Nederlandse prompt kost vergeleken met Engels.",
   "ctaBtn": "Tokenteller openen"
@@ -194,7 +194,7 @@
   "path": "/ur/blog/token-urdu-gpt",
   "date": "2026-10-01",
   "title": "GPT میں اردو، انگریزی سے 1.59 گنا زیادہ ٹوکن لیتی ہے",
-  "desc": "ایک ہی پرامپٹ 34 زبانوں میں ناپا: اردو اب 1.59× ہے، پرانے GPT-4 ٹوکنائزر پر 4.24× تھی۔ وجہ اور بچت کے طریقے۔",
+  "desc": "ایک ہی پرامپٹ 41 زبانوں میں ناپا: اردو اب 1.59× ہے، پرانے GPT-4 ٹوکنائزر پر 4.24× تھی۔ وجہ اور بچت کے طریقے۔",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "اپنا متن ناپیں: آپ کا اردو پرامپٹ انگریزی کے مقابلے میں کتنے ٹوکن اور کتنا خرچ لیتا ہے۔",
   "ctaBtn": "ٹوکن کاؤنٹر کھولیں"
@@ -204,7 +204,7 @@
   "path": "/fil/blog/token-filipino-gpt",
   "date": "2026-10-01",
   "title": "Gumagamit ang Filipino ng 1.53× na token kumpara sa English sa GPT",
-  "desc": "Sinukat ang parehong prompt sa 34 wika: Filipino ay 1.53× ng token ng English. Bakit at paano makatipid.",
+  "desc": "Sinukat ang parehong prompt sa 41 wika: Filipino ay 1.53× ng token ng English. Bakit at paano makatipid.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Sukatin ang sarili mong text: ilang token at magkano ang prompt mo sa Filipino kumpara sa English.",
   "ctaBtn": "Buksan ang token counter"
@@ -214,7 +214,7 @@
   "path": "/sv/blog/tokens-svenska-gpt",
   "date": "2026-10-01",
   "title": "Svenska kostar 1,32× så många tokens som engelska i GPT",
-  "desc": "Samma prompt mätt på 34 språk: svenska använder 1,32× tokens jämfört med engelska. Varför och hur du sparar.",
+  "desc": "Samma prompt mätt på 41 språk: svenska använder 1,32× tokens jämfört med engelska. Varför och hur du sparar.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Mät din egen text: hur många tokens och hur mycket pengar din svenska prompt kostar jämfört med engelska.",
   "ctaBtn": "Öppna tokenräknaren"
@@ -233,8 +233,8 @@
   "tag": "el",
   "path": "/el/blog/tokens-ellinika-gpt",
   "date": "2026-10-01",
-  "title": "Τα ελληνικά στο GPT θέλουν 2,06× τα tokens των αγγλικών — τα ακριβότερα από 34 γλώσσες",
-  "desc": "Το ίδιο prompt σε 34 γλώσσες: τα ελληνικά χρειάζονται 2,06× τα tokens των αγγλικών, το υψηλότερο όλων. Γιατί και πώς να γλιτώσετε.",
+  "title": "Τα ελληνικά στο GPT θέλουν 2,06× τα tokens των αγγλικών — από τις ακριβότερες ανάμεσα σε 41 γλώσσες",
+  "desc": "Το ίδιο prompt σε 41 γλώσσες: τα ελληνικά θέλουν 2,06× τα tokens των αγγλικών, τα ακριβότερα στην Ευρώπη.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Μετρήστε το δικό σας κείμενο: πόσα tokens και πόσα χρήματα κοστίζει το prompt σας στα ελληνικά σε σχέση με τα αγγλικά.",
   "ctaBtn": "Άνοιγμα μετρητή tokens"
@@ -244,7 +244,7 @@
   "path": "/ro/blog/tokeni-romana-gpt",
   "date": "2026-10-01",
   "title": "Româna folosește 1,53× tokenii englezei în GPT",
-  "desc": "Același prompt măsurat în 34 de limbi: româna folosește 1,53× tokenii englezei. De ce și cum economisești.",
+  "desc": "Același prompt măsurat în 41 de limbi: româna folosește 1,53× tokenii englezei. De ce și cum economisești.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Măsoară-ți propriul text: câți tokeni și câți bani costă promptul tău în română față de engleză.",
   "ctaBtn": "Deschide numărătorul de tokeni"
@@ -254,7 +254,7 @@
   "path": "/hu/blog/tokenek-magyar-gpt",
   "date": "2026-10-01",
   "title": "A magyar 1,74× annyi tokent használ a GPT-ben, mint az angol",
-  "desc": "Ugyanaz a prompt 34 nyelven mérve: a magyar 1,74× annyi tokent használ, mint az angol. Miért, és hogyan spórolhatsz.",
+  "desc": "Ugyanaz a prompt 41 nyelven mérve: a magyar 1,74× annyi tokent használ, mint az angol. Miért, és hogyan spórolhatsz.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Mérd meg a saját szövegedet: hány tokenbe és mennyi pénzbe kerül a magyar promptod az angolhoz képest.",
   "ctaBtn": "Tokenszámláló megnyitása"
@@ -264,7 +264,7 @@
   "path": "/da/blog/tokens-dansk-gpt",
   "date": "2026-10-01",
   "title": "Dansk bruger 1,35× så mange tokens som engelsk i GPT",
-  "desc": "Samme prompt målt på 34 sprog: dansk bruger 1,35× så mange tokens som engelsk. Hvorfor, og hvordan du sparer.",
+  "desc": "Samme prompt målt på 41 sprog: dansk bruger 1,35× så mange tokens som engelsk. Hvorfor, og hvordan du sparer.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Mål din egen tekst: hvor mange tokens og penge din danske prompt koster i forhold til engelsk.",
   "ctaBtn": "Åbn tokentælleren"
@@ -274,7 +274,7 @@
   "path": "/fi/blog/tokenit-suomi-gpt",
   "date": "2026-10-01",
   "title": "Suomi vie GPT:ssä 1,44× englannin tokenmäärän",
-  "desc": "Sama prompt mitattuna 34 kielellä: suomi vie 1,44× englannin tokenit. Miksi näin ja miten säästää.",
+  "desc": "Sama prompt mitattuna 41 kielellä: suomi vie 1,44× englannin tokenit. Miksi näin ja miten säästää.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Mittaa oma tekstisi: montako tokenia ja paljonko rahaa suomenkielinen promptisi maksaa englantiin verrattuna.",
   "ctaBtn": "Avaa tokenlaskuri"
@@ -284,7 +284,7 @@
   "path": "/no/blog/tokens-norsk-gpt",
   "date": "2026-10-01",
   "title": "Norsk bruker 1,32× så mange tokens som engelsk i GPT",
-  "desc": "Samme prompt målt på 34 språk: norsk bruker 1,32× så mange tokens som engelsk. Hvorfor, og hvordan du sparer.",
+  "desc": "Samme prompt målt på 41 språk: norsk bruker 1,32× så mange tokens som engelsk. Hvorfor, og hvordan du sparer.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Mål din egen tekst: hvor mange tokens og hvor mye penger den norske prompten din koster sammenlignet med engelsk.",
   "ctaBtn": "Åpne tokentelleren"
@@ -294,9 +294,79 @@
   "path": "/sk/blog/tokeny-slovencina-gpt",
   "date": "2026-10-01",
   "title": "Slovenčina v GPT stojí 2,00× viac tokenov ako angličtina",
-  "desc": "Rovnaký prompt v 34 jazykoch: slovenčina spotrebuje 2,00× tokenov angličtiny, rovnako ako čeština. Prečo a ako ušetriť.",
+  "desc": "Rovnaký prompt v 41 jazykoch: slovenčina spotrebuje 2,00× tokenov angličtiny, rovnako ako čeština. Prečo a ako ušetriť.",
   "byline": "Jonhisking · 2026-10-01",
   "cta": "Zmerajte si vlastný text: koľko tokenov a peňazí stojí váš prompt v slovenčine oproti angličtine.",
   "ctaBtn": "Otvoriť počítadlo tokenov"
+ },
+ {
+  "tag": "mr",
+  "path": "/mr/blog/marathi-tokens-gpt",
+  "date": "2026-10-01",
+  "title": "GPT मध्ये मराठीला इंग्रजीच्या 1.65× टोकन लागतात",
+  "desc": "एकच प्रॉम्प्ट 41 भाषांमध्ये मोजला: मराठीला इंग्रजीच्या 1.65× टोकन लागतात. कारणे आणि बचतीचे मार्ग.",
+  "byline": "Jonhisking · 2026-10-01",
+  "cta": "तुमचा मजकूर मोजा: तुमचा मराठी प्रॉम्प्ट इंग्रजीच्या तुलनेत किती टोकन आणि किती पैसे घेतो ते पाहा.",
+  "ctaBtn": "टोकन काउंटर उघडा"
+ },
+ {
+  "tag": "gu",
+  "path": "/gu/blog/gujarati-tokens-gpt",
+  "date": "2026-10-01",
+  "title": "GPT માં ગુજરાતી અંગ્રેજી કરતાં 1.59× ટોકન લે છે",
+  "desc": "એક જ પ્રોમ્પ્ટ 41 ભાષાઓમાં માપ્યો: ગુજરાતી અંગ્રેજીના 1.59× ટોકન લે છે. કારણ અને બચતના રસ્તા.",
+  "byline": "Jonhisking · 2026-10-01",
+  "cta": "તમારું પોતાનું લખાણ માપો: તમારો ગુજરાતી પ્રોમ્પ્ટ અંગ્રેજીની સરખામણીએ કેટલા ટોકન અને કેટલા પૈસા લે છે.",
+  "ctaBtn": "ટોકન કાઉન્ટર ખોલો"
+ },
+ {
+  "tag": "kn",
+  "path": "/kn/blog/kannada-tokens-gpt",
+  "date": "2026-10-01",
+  "title": "GPT ಯಲ್ಲಿ ಕನ್ನಡಕ್ಕೆ ಇಂಗ್ಲಿಷ್‌ಗಿಂತ 1.79× ಟೋಕನ್‌ಗಳು ಬೇಕು",
+  "desc": "ಒಂದೇ ಪ್ರಾಂಪ್ಟ್ ಅನ್ನು 41 ಭಾಷೆಗಳಲ್ಲಿ ಅಳೆದೆವು: ಕನ್ನಡ ಈಗ 1.79×, ಹಳೆಯ GPT-4 ಟೋಕನೈಸರ್‌ನಲ್ಲಿ 9.35× ಇತ್ತು. ಕಾರಣ ಮತ್ತು ಉಳಿತಾಯದ ದಾರಿಗಳು.",
+  "byline": "Jonhisking · 2026-10-01",
+  "cta": "ನಿಮ್ಮ ಸ್ವಂತ ಪಠ್ಯ ಅಳೆಯಿರಿ: ನಿಮ್ಮ ಕನ್ನಡ ಪ್ರಾಂಪ್ಟ್ ಇಂಗ್ಲಿಷ್‌ಗೆ ಹೋಲಿಸಿದರೆ ಎಷ್ಟು ಟೋಕನ್ ಮತ್ತು ಎಷ್ಟು ಹಣ ತೆಗೆದುಕೊಳ್ಳುತ್ತದೆ.",
+  "ctaBtn": "ಟೋಕನ್ ಕೌಂಟರ್ ತೆರೆಯಿರಿ"
+ },
+ {
+  "tag": "ml",
+  "path": "/ml/blog/malayalam-tokens-gpt",
+  "date": "2026-10-01",
+  "title": "GPT-യിൽ മലയാളം: 10× ൽ നിന്ന് 1.85× ടോക്കണിലേക്ക്",
+  "desc": "ഒരേ പ്രോംപ്റ്റ് 41 ഭാഷകളിൽ അളന്നു: മലയാളം ഇപ്പോൾ ഇംഗ്ലീഷിന്റെ 1.85× ടോക്കൺ എടുക്കുന്നു. കാരണവും ലാഭിക്കാനുള്ള വഴികളും.",
+  "byline": "Jonhisking · 2026-10-01",
+  "cta": "നിങ്ങളുടെ സ്വന്തം ടെക്സ്റ്റ് അളക്കുക: ഇംഗ്ലീഷിനെ അപേക്ഷിച്ച് നിങ്ങളുടെ മലയാളം പ്രോംപ്റ്റിന് എത്ര ടോക്കണും എത്ര പണവും ചെലവാകുന്നു.",
+  "ctaBtn": "ടോക്കൺ കൗണ്ടർ തുറക്കുക"
+ },
+ {
+  "tag": "ta",
+  "path": "/ta/blog/tamil-tokens-gpt",
+  "date": "2026-10-01",
+  "title": "GPT-யில் தமிழுக்கு ஆங்கிலத்தை விட 1.97× டோக்கன்கள்",
+  "desc": "ஒரே ப்ராம்ப்ட் 41 மொழிகளில் அளவிடப்பட்டது: தமிழுக்கு ஆங்கிலத்தை விட 1.97× டோக்கன்கள். ஏன், எப்படிச் சேமிப்பது.",
+  "byline": "Jonhisking · 2026-10-01",
+  "cta": "உங்கள் சொந்த உரையை அளந்து பாருங்கள்: உங்கள் தமிழ் ப்ராம்ப்டுக்கு ஆங்கிலத்துடன் ஒப்பிடும்போது எத்தனை டோக்கன்கள், எவ்வளவு பணம் ஆகிறது.",
+  "ctaBtn": "டோக்கன் கவுண்டரைத் திற"
+ },
+ {
+  "tag": "te",
+  "path": "/te/blog/telugu-tokens-gpt",
+  "date": "2026-10-01",
+  "title": "GPTలో తెలుగుకు ఇంగ్లీష్ కంటే 2.03× టోకెన్‌లు",
+  "desc": "అదే ప్రాంప్ట్‌ను 41 భాషల్లో కొలిచాం: తెలుగుకు ఇంగ్లీష్ కంటే 2.03× టోకెన్‌లు. ఎందుకు, ఎలా ఆదా చేయాలి.",
+  "byline": "Jonhisking · 2026-10-01",
+  "cta": "మీ సొంత టెక్స్ట్‌ను కొలవండి: మీ తెలుగు ప్రాంప్ట్‌కు ఇంగ్లీష్‌తో పోలిస్తే ఎన్ని టోకెన్‌లు, ఎంత ఖర్చు అవుతుందో చూడండి.",
+  "ctaBtn": "టోకెన్ కౌంటర్ తెరవండి"
+ },
+ {
+  "tag": "pa",
+  "path": "/pa/blog/punjabi-tokens-gpt",
+  "date": "2026-10-01",
+  "title": "GPT ਵਿੱਚ ਪੰਜਾਬੀ ਨੂੰ ਅੰਗਰੇਜ਼ੀ ਦੇ 2.44× ਟੋਕਨ ਲੱਗਦੇ ਹਨ — 41 ਭਾਸ਼ਾਵਾਂ ਵਿੱਚੋਂ ਸਭ ਤੋਂ ਮਹਿੰਗੀ",
+  "desc": "ਇੱਕੋ ਪ੍ਰੌਂਪਟ 41 ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ ਮਾਪਿਆ: ਪੰਜਾਬੀ ਨੂੰ ਅੰਗਰੇਜ਼ੀ ਦੇ 2.44× ਟੋਕਨ ਲੱਗਦੇ ਹਨ, ਸਭ ਤੋਂ ਵੱਧ। ਕਿਉਂ, ਅਤੇ ਬਚਤ ਕਿਵੇਂ ਕਰੀਏ।",
+  "byline": "Jonhisking · 2026-10-01",
+  "cta": "ਆਪਣਾ ਟੈਕਸਟ ਮਾਪੋ: ਤੁਹਾਡਾ ਪੰਜਾਬੀ ਪ੍ਰੌਂਪਟ ਅੰਗਰੇਜ਼ੀ ਦੇ ਮੁਕਾਬਲੇ ਕਿੰਨੇ ਟੋਕਨ ਅਤੇ ਕਿੰਨੇ ਪੈਸੇ ਲੈਂਦਾ ਹੈ, ਵੇਖੋ।",
+  "ctaBtn": "ਟੋਕਨ ਕਾਊਂਟਰ ਖੋਲ੍ਹੋ"
  }
 ]

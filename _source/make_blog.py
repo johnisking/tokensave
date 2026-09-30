@@ -15,7 +15,7 @@ for f in sorted(os.listdir(SRC_DIR)):
         continue
     md = open(os.path.join(SRC_DIR, f), encoding="utf-8").read()
     out = markdown.markdown(md, extensions=["tables", "fenced_code"])
-    out = out.replace("<img ", '<img loading="lazy" width="960" height="1213" ')
+    out = out.replace("<img ", '<img loading="lazy" width="960" height="1430" ')
     out = re.sub(r'<a href="(https?://(?!tokensave\.app)[^"]+)"', r'<a href="\1" target="_blank" rel="noopener"', out)
     out = out.replace("<table>", '<div class="overflow-x-auto"><table>').replace("</table>", "</table></div>")
     out = out.replace("{{", "{ {")  # never collide with template placeholders

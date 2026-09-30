@@ -1,4 +1,4 @@
-<p>Přeložil jsem jeden běžný prompt do 34 jazyků a spočítal tokeny tokenizérem, který používají současné modely OpenAI (o200k_base, GPT-4o a novější). Čekal jsem, že nejhůř dopadne japonština nebo thajština. Na konci ale skončily evropské jazyky: dražší než <strong>čeština</strong> (2,00×) je jen řečtina (2,06×), stejně jako čeština vychází slovenština.</p>
+<p>Přeložil jsem jeden běžný prompt do 41 jazyků a spočítal tokeny tokenizérem, který používají současné modely OpenAI (o200k_base, GPT-4o a novější). Čekal jsem, že nejhůř dopadne japonština nebo thajština. Obě ale vyšly levněji než <strong>čeština</strong> (2,00×): z Evropy je dražší jen řečtina (2,06×), stejně jako čeština vychází slovenština, a z celého srovnání už jen indická telugština (2,03×) a pandžábština (2,44×).</p>
 <p>Prompt (anglicky 34 tokenů):</p>
 <blockquote>
 <p>Shrňte níže uvedený e-mail zákazníka do tří bodů a navrhněte zdvořilou odpověď. Zákazník píše, že objednávka dorazila se dvoudenním zpožděním a v krabici chyběla jedna položka.</p>
@@ -74,14 +74,26 @@
 <td style="text-align: right;">2,53×</td>
 </tr>
 <tr>
+<td>Telugština</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">2,03×</td>
+<td style="text-align: right;">9,38×</td>
+</tr>
+<tr>
 <td>Řečtina</td>
 <td style="text-align: right;">70</td>
 <td style="text-align: right;">2,06×</td>
 <td style="text-align: right;">4,94×</td>
 </tr>
+<tr>
+<td>Pandžábština</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">7,41×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1213" alt="Graf" src="/blog-language-tax-chart-v3.png" /></p>
+<p><img loading="lazy" width="960" height="1430" alt="Graf" src="/blog-language-tax-chart-v4.png" /></p>
 <p><strong>Proč?</strong> Tokenizér zná celá anglická slova (" polite", " customer" = 1 token), ale česká slova skládá z kousků. Háčky a čárky často tvoří samostatný token:</p>
 <ul>
 <li>" zdvořilou" → <code>zd | vo | ř | il | ou</code> (5 tokenů)</li>
@@ -97,4 +109,4 @@
 <li>Využít prompt caching pro pevnou část promptu.</li>
 </ul>
 <p>Omezení: je to jeden prompt, u jiných textů se poměr může lišit o ±0,1–0,2. Claude a Gemini mají jiné tokenizéry, čísla platí jen pro modely OpenAI. Překlad je strojový, pokud v něm najdete chybu, přeměřím to.</p>
-<p>Celé výsledky všech 34 jazyků (anglicky): <a href="/blog/token-cost-by-language">srovnání 34 jazyků</a></p>
+<p>Celé výsledky všech 41 jazyků (anglicky): <a href="/blog/token-cost-by-language">srovnání 41 jazyků</a></p>

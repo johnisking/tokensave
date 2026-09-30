@@ -1,4 +1,4 @@
-Tôi dịch cùng một prompt chăm sóc khách hàng sang 34 ngôn ngữ và đếm token bằng o200k_base, tokenizer hiện tại của OpenAI (GPT-4o trở về sau). Tiếng Anh cần 34 token, tiếng Việt **46 token — gấp 1,35 lần**, đứng thứ 15/34 (1 = rẻ nhất).
+Tôi dịch cùng một prompt chăm sóc khách hàng sang 41 ngôn ngữ và đếm token bằng o200k_base, tokenizer hiện tại của OpenAI (GPT-4o trở về sau). Tiếng Anh cần 34 token, tiếng Việt **46 token — gấp 1,35 lần**, đứng thứ 15/41 (1 = rẻ nhất).
 
 Bản tiếng Việt:
 
@@ -14,11 +14,13 @@ Bản tiếng Việt:
 | Deutsch | 43 | 1,26× | 1,50× |
 | **Tiếng Việt** | **46** | **1,35×** | **2,32×** |
 | 한국어 | 49 | 1,44× | 2,50× |
+| हिन्दी | 51 | 1,50× | 4,59× |
 | 日本語 | 61 | 1,79× | 2,21× |
 | Čeština | 68 | 2,00× | 2,59× |
 | Ελληνικά | 70 | 2,06× | 4,94× |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
 
-![Kết quả](/blog-language-tax-chart-v3.png)
+![Kết quả](/blog-language-tax-chart-v4.png)
 
 ## Vì sao
 
@@ -48,4 +50,4 @@ Với mô hình giá 2 $ cho 1 triệu token đầu vào, gửi prompt này 1 tr
 - Claude và Gemini dùng tokenizer khác; các con số chỉ đúng với mô hình OpenAI.
 - Bản dịch dựa trên dịch máy đã được kiểm tra.
 
-Kết quả đầy đủ 34 ngôn ngữ (tiếng Anh): [so sánh 34 ngôn ngữ](/blog/token-cost-by-language)
+Kết quả đầy đủ 41 ngôn ngữ (tiếng Anh): [so sánh 41 ngôn ngữ](/blog/token-cost-by-language)

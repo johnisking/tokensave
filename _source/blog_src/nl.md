@@ -1,4 +1,4 @@
-Ik vertaalde dezelfde klantenservice-prompt naar 34 talen en telde de tokens met o200k_base, de huidige tokenizer van OpenAI (GPT-4o en nieuwer). Engels heeft 34 tokens nodig, Nederlands **44 — 1,29× zoveel**, plaats 10 van 34 (1 = goedkoopst).
+Ik vertaalde dezelfde klantenservice-prompt naar 41 talen en telde de tokens met o200k_base, de huidige tokenizer van OpenAI (GPT-4o en nieuwer). Engels heeft 34 tokens nodig, Nederlands **44 — 1,29× zoveel**, plaats 10 van 41 (1 = goedkoopst).
 
 De Nederlandse versie:
 
@@ -14,11 +14,13 @@ De Nederlandse versie:
 | Deutsch | 43 | 1,26× | 1,50× |
 | **Nederlands** | **44** | **1,29×** | **1,74×** |
 | 한국어 | 49 | 1,44× | 2,50× |
+| हिन्दी | 51 | 1,50× | 4,59× |
 | 日本語 | 61 | 1,79× | 2,21× |
 | Čeština | 68 | 2,00× | 2,59× |
 | Ελληνικά | 70 | 2,06× | 4,94× |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
 
-![Resultaten](/blog-language-tax-chart-v3.png)
+![Resultaten](/blog-language-tax-chart-v4.png)
 
 ## Waarom
 
@@ -48,4 +50,4 @@ Bij een model van $2 per miljoen inputtokens kost het 68 dollar in het Engels en
 - Claude en Gemini gebruiken andere tokenizers; deze cijfers gelden alleen voor OpenAI-modellen.
 - De vertaling is gebaseerd op een gecontroleerde machinevertaling.
 
-Alle resultaten voor 34 talen (in het Engels): [vergelijking van 34 talen](/blog/token-cost-by-language)
+Alle resultaten voor 41 talen (in het Engels): [vergelijking van 41 talen](/blog/token-cost-by-language)

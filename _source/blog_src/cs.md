@@ -1,4 +1,4 @@
-Přeložil jsem jeden běžný prompt do 34 jazyků a spočítal tokeny tokenizérem, který používají současné modely OpenAI (o200k_base, GPT-4o a novější). Čekal jsem, že nejhůř dopadne japonština nebo thajština. Na konci ale skončily evropské jazyky: dražší než **čeština** (2,00×) je jen řečtina (2,06×), stejně jako čeština vychází slovenština.
+Přeložil jsem jeden běžný prompt do 41 jazyků a spočítal tokeny tokenizérem, který používají současné modely OpenAI (o200k_base, GPT-4o a novější). Čekal jsem, že nejhůř dopadne japonština nebo thajština. Obě ale vyšly levněji než **čeština** (2,00×): z Evropy je dražší jen řečtina (2,06×), stejně jako čeština vychází slovenština, a z celého srovnání už jen indická telugština (2,03×) a pandžábština (2,44×).
 
 Prompt (anglicky 34 tokenů):
 
@@ -16,9 +16,11 @@ Prompt (anglicky 34 tokenů):
 | Ukrajinština | 64 | 1,88× | 3,15× |
 | **Čeština** | **68** | **2,00×** | **2,59×** |
 | Slovenština | 68 | 2,00× | 2,53× |
+| Telugština | 69 | 2,03× | 9,38× |
 | Řečtina | 70 | 2,06× | 4,94× |
+| Pandžábština | 83 | 2,44× | 7,41× |
 
-![Graf](/blog-language-tax-chart-v3.png)
+![Graf](/blog-language-tax-chart-v4.png)
 
 **Proč?** Tokenizér zná celá anglická slova (" polite", " customer" = 1 token), ale česká slova skládá z kousků. Háčky a čárky často tvoří samostatný token:
 
@@ -38,4 +40,4 @@ Zajímavost: stejný text **bez diakritiky** má 60 tokenů místo 68 (o 12 % m�
 
 Omezení: je to jeden prompt, u jiných textů se poměr může lišit o ±0,1–0,2. Claude a Gemini mají jiné tokenizéry, čísla platí jen pro modely OpenAI. Překlad je strojový, pokud v něm najdete chybu, přeměřím to.
 
-Celé výsledky všech 34 jazyků (anglicky): [srovnání 34 jazyků](/blog/token-cost-by-language)
+Celé výsledky všech 41 jazyků (anglicky): [srovnání 41 jazyků](/blog/token-cost-by-language)

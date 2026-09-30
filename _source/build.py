@@ -257,14 +257,14 @@ def build():
         ld = {"@context": "https://schema.org", "@graph": [
             {"@type": "BlogPosting", "headline": b["title"], "description": b["desc"], "inLanguage": tag,
              "url": url, "mainEntityOfPage": url, "datePublished": bdate, "dateModified": bdate,
-             "image": f"{BASE}/blog-language-tax-chart-v3.png",
+             "image": f"{BASE}/blog-language-tax-chart-v4.png",
              "author": {"@type": "Person", "name": "Jonhisking"},
              "publisher": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"}},
             {"@type": "BreadcrumbList", "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + tool_home},
                 {"@type": "ListItem", "position": 2, "name": b["title"], "item": url}]}]}
         values = dict(
-            htmlLang=tag, dir=tag_dir[tag], url=url, ogLocale=tag_og[tag], ogImage=f"{BASE}/blog-language-tax-chart-v3.png",
+            htmlLang=tag, dir=tag_dir[tag], url=url, ogLocale=tag_og[tag], ogImage=f"{BASE}/blog-language-tax-chart-v4.png",
             title=esc(b["title"] + " | TokenSave"), desc=esc(b["desc"]), lang=esc(S[tag]["lang"]),
             homeUrl=tool_home, hreflang=blog_alts, langOptions=opts, toolNav=nav, ver=ver, adsHead=extras, faq="",
             f1="", f2="", fAbout=esc(SITE[tag]["fAbout"]), fPrivacy=esc(SITE[tag]["fPrivacy"]),

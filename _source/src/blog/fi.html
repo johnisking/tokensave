@@ -1,4 +1,4 @@
-<p>Käänsin saman asiakaspalvelupromptin 34 kielelle ja laskin tokenit o200k_basella, OpenAI:n nykyisellä tokenisoijalla (GPT-4o ja uudemmat). Englanniksi tarvitaan 34 tokenia, suomeksi <strong>49 eli 1,44×</strong>, sija 19/34 (1 = halvin).</p>
+<p>Käänsin saman asiakaspalvelupromptin 41 kielelle ja laskin tokenit o200k_basella, OpenAI:n nykyisellä tokenisoijalla (GPT-4o ja uudemmat). Englanniksi tarvitaan 34 tokenia, suomeksi <strong>49 eli 1,44×</strong>, sija 19/41 (1 = halvin).</p>
 <p>Suomenkielinen versio:</p>
 <blockquote>
 <p>Tiivistä alla oleva asiakkaan sähköposti kolmeen kohtaan ja ehdota kohteliasta vastausta. Asiakas kertoo, että tilaus saapui kaksi päivää myöhässä ja laatikosta puuttui yksi tuote.</p>
@@ -39,16 +39,22 @@
 <td style="text-align: right;">1,50×</td>
 </tr>
 <tr>
+<td>한국어</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">2,50×</td>
+</tr>
+<tr>
 <td><strong>Suomi</strong></td>
 <td style="text-align: right;"><strong>49</strong></td>
 <td style="text-align: right;"><strong>1,44×</strong></td>
 <td style="text-align: right;"><strong>2,03×</strong></td>
 </tr>
 <tr>
-<td>한국어</td>
-<td style="text-align: right;">49</td>
-<td style="text-align: right;">1,44×</td>
-<td style="text-align: right;">2,50×</td>
+<td>हिन्दी</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1,50×</td>
+<td style="text-align: right;">4,59×</td>
 </tr>
 <tr>
 <td>日本語</td>
@@ -68,9 +74,15 @@
 <td style="text-align: right;">2,06×</td>
 <td style="text-align: right;">4,94×</td>
 </tr>
+<tr>
+<td>ਪੰਜਾਬੀ</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">7,41×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1213" alt="Tulokset" src="/blog-language-tax-chart-v3.png" /></p>
+<p><img loading="lazy" width="960" height="1430" alt="Tulokset" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Miksi</h2>
 <p>Tokenisoija oppii enimmäkseen englanninkielisestä tekstistä: sanat kuten " polite" tai " customer" ovat yksi token, kun taas päätteiden pidentämät suomen sanat pilkkoutuvat:</p>
 <ul>
@@ -94,4 +106,4 @@
 <li>Claudella ja Geminillä on eri tokenisoijat – luvut pätevät vain OpenAI:n malleihin.</li>
 <li>Käännös perustuu tarkistettuun konekäännökseen.</li>
 </ul>
-<p>Kaikkien 34 kielen tulokset (englanniksi): <a href="/blog/token-cost-by-language">34 kielen vertailu</a></p>
+<p>Kaikkien 41 kielen tulokset (englanniksi): <a href="/blog/token-cost-by-language">41 kielen vertailu</a></p>

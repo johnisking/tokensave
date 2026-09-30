@@ -1,4 +1,4 @@
-Jeg oversatte den samme kundeserviceprompt til 34 sprog og talte tokens med o200k_base, OpenAI's nuværende tokenizer (GPT-4o og nyere). Engelsk kræver 34 tokens, dansk **46 – altså 1,35× så mange**, plads 16 af 34 (1 = billigst).
+Jeg oversatte den samme kundeserviceprompt til 41 sprog og talte tokens med o200k_base, OpenAI's nuværende tokenizer (GPT-4o og nyere). Engelsk kræver 34 tokens, dansk **46 – altså 1,35× så mange**, plads 16 af 41 (1 = billigst).
 
 Den danske version:
 
@@ -14,11 +14,13 @@ Den danske version:
 | Deutsch | 43 | 1,26× | 1,50× |
 | **Dansk** | **46** | **1,35×** | **1,59×** |
 | 한국어 | 49 | 1,44× | 2,50× |
+| हिन्दी | 51 | 1,50× | 4,59× |
 | 日本語 | 61 | 1,79× | 2,21× |
 | Čeština | 68 | 2,00× | 2,59× |
 | Ελληνικά | 70 | 2,06× | 4,94× |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
 
-![Resultater](/blog-language-tax-chart-v3.png)
+![Resultater](/blog-language-tax-chart-v4.png)
 
 ## Hvorfor
 
@@ -48,4 +50,4 @@ Med en model til 2 $ pr. million input-tokens koster det 68 $ på engelsk og 92 
 - Claude og Gemini bruger andre tokenizere – tallene gælder kun OpenAI-modeller.
 - Oversættelsen bygger på en gennemgået maskinoversættelse.
 
-Alle resultater for 34 sprog (på engelsk): [sammenligning af 34 sprog](/blog/token-cost-by-language)
+Alle resultater for 41 sprog (på engelsk): [sammenligning af 41 sprog](/blog/token-cost-by-language)

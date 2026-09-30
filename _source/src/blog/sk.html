@@ -1,4 +1,4 @@
-<p>Ten istý prompt zákazníckej podpory som preložil do 34 jazykov a tokeny spočítal pomocou o200k_base, aktuálneho tokenizéra OpenAI (GPT-4o a novšie). Angličtina potrebuje 34 tokenov, slovenčina <strong>68 — teda 2,00×</strong>, miesto 33 z 34 (1 = najlacnejší). Drahšia je už len gréčtina.</p>
+<p>Ten istý prompt zákazníckej podpory som preložil do 41 jazykov a tokeny spočítal pomocou o200k_base, aktuálneho tokenizéra OpenAI (GPT-4o a novšie). Angličtina potrebuje 34 tokenov, slovenčina <strong>68 — teda 2,00×</strong>, miesto 38 z 41 (1 = najlacnejší). Drahšie sú už len telugčina, gréčtina a pandžábčina.</p>
 <p>Slovenská verzia:</p>
 <blockquote>
 <p>Zhrňte nižšie uvedený e-mail zákazníka do troch bodov a navrhnite zdvorilú odpoveď. Zákazník píše, že objednávka dorazila s dvojdňovým oneskorením a v krabici chýbala jedna položka.</p>
@@ -45,6 +45,12 @@
 <td style="text-align: right;">2,50×</td>
 </tr>
 <tr>
+<td>हिन्दी</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1,50×</td>
+<td style="text-align: right;">4,59×</td>
+</tr>
+<tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
 <td style="text-align: right;">1,79×</td>
@@ -68,9 +74,15 @@
 <td style="text-align: right;">2,06×</td>
 <td style="text-align: right;">4,94×</td>
 </tr>
+<tr>
+<td>ਪੰਜਾਬੀ</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">7,41×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1213" alt="Výsledky" src="/blog-language-tax-chart-v3.png" /></p>
+<p><img loading="lazy" width="960" height="1430" alt="Výsledky" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Prečo</h2>
 <p>Tokenizér sa učí hlavne z anglického textu: slová ako " polite" či " customer" sú jeden token, kým slovenské slová s koncovkami a mäkčeňmi sa rozpadajú na kúsky:</p>
 <ul>
@@ -94,4 +106,4 @@
 <li>Claude a Gemini používajú iné tokenizéry — čísla platia len pre modely OpenAI.</li>
 <li>Preklad vychádza z overeného strojového prekladu.</li>
 </ul>
-<p>Všetky výsledky pre 34 jazykov (po anglicky): <a href="/blog/token-cost-by-language">porovnanie 34 jazykov</a></p>
+<p>Všetky výsledky pre 41 jazykov (po anglicky): <a href="/blog/token-cost-by-language">porovnanie 41 jazykov</a></p>

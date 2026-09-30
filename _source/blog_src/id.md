@@ -1,4 +1,4 @@
-Saya menerjemahkan prompt layanan pelanggan yang sama ke 34 bahasa dan menghitung token dengan o200k_base, tokenizer OpenAI saat ini (GPT-4o dan setelahnya). Bahasa Inggris butuh 34 token, bahasa Indonesia **39 token — 1,15× bahasa Inggris**, peringkat 3 dari 34 (1 = paling murah).
+Saya menerjemahkan prompt layanan pelanggan yang sama ke 41 bahasa dan menghitung token dengan o200k_base, tokenizer OpenAI saat ini (GPT-4o dan setelahnya). Bahasa Inggris butuh 34 token, bahasa Indonesia **39 token — 1,15× bahasa Inggris**, peringkat 3 dari 41 (1 = paling murah).
 
 Versi bahasa Indonesia:
 
@@ -14,11 +14,13 @@ Versi bahasa Indonesia:
 | Español | 40 | 1,18× | 1,29× |
 | Deutsch | 43 | 1,26× | 1,50× |
 | 한국어 | 49 | 1,44× | 2,50× |
+| हिन्दी | 51 | 1,50× | 4,59× |
 | 日本語 | 61 | 1,79× | 2,21× |
 | Čeština | 68 | 2,00× | 2,59× |
 | Ελληνικά | 70 | 2,06× | 4,94× |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
 
-![Hasil](/blog-language-tax-chart-v3.png)
+![Hasil](/blog-language-tax-chart-v4.png)
 
 ## Mengapa
 
@@ -48,4 +50,4 @@ Dengan model seharga $2 per 1 juta token input, mengirim prompt ini 1 juta kali 
 - Claude dan Gemini memakai tokenizer lain; angka ini hanya berlaku untuk model OpenAI.
 - Terjemahan didasarkan pada terjemahan mesin yang sudah diperiksa.
 
-Hasil lengkap 34 bahasa (dalam bahasa Inggris): [perbandingan 34 bahasa](/blog/token-cost-by-language)
+Hasil lengkap 41 bahasa (dalam bahasa Inggris): [perbandingan 41 bahasa](/blog/token-cost-by-language)

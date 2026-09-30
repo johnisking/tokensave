@@ -1,4 +1,4 @@
-Aynı müşteri hizmetleri istemini 34 dile çevirdim ve tokenleri OpenAI'nin güncel tokenizer'ı o200k_base ile saydım (GPT-4o ve sonrası). İngilizce 34 token, Türkçe **50 token: İngilizcenin 1,47× katı**; 34 dil içinde en ucuzdan 20. sırada.
+Aynı müşteri hizmetleri istemini 41 dile çevirdim ve tokenleri OpenAI'nin güncel tokenizer'ı o200k_base ile saydım (GPT-4o ve sonrası). İngilizce 34 token, Türkçe **50 token: İngilizcenin 1,47× katı**; 41 dil içinde en ucuzdan 20. sırada.
 
 Türkçe sürümü:
 
@@ -14,11 +14,13 @@ Türkçe sürümü:
 | Deutsch | 43 | 1,26× | 1,50× |
 | 한국어 | 49 | 1,44× | 2,50× |
 | **Türkçe** | **50** | **1,47×** | **2,06×** |
+| हिन्दी | 51 | 1,50× | 4,59× |
 | 日本語 | 61 | 1,79× | 2,21× |
 | Čeština | 68 | 2,00× | 2,59× |
 | Ελληνικά | 70 | 2,06× | 4,94× |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
 
-![Sonuçlar](/blog-language-tax-chart-v3.png)
+![Sonuçlar](/blog-language-tax-chart-v4.png)
 
 ## Neden
 
@@ -48,4 +50,4 @@ Girdi için 1 milyon token başına 2 $ ücret alan bir modelde bu istemi 1 mily
 - Claude ve Gemini farklı tokenizer kullanır; bu sayılar yalnızca OpenAI modelleri için geçerlidir.
 - Çeviri, kontrol edilmiş makine çevirisine dayanır.
 
-34 dilin tüm sonuçları (İngilizce): [34 dil karşılaştırması](/blog/token-cost-by-language)
+41 dilin tüm sonuçları (İngilizce): [41 dil karşılaştırması](/blog/token-cost-by-language)

@@ -102,3 +102,5 @@ for _tag, _v in _MONTH.items():
 
 from i18n_eu7 import TR7 as _TR7
 TR.update(_TR7)
+from i18n_in7 import TR_IN as _TRI
+TR.update(_TRI)

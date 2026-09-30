@@ -1,4 +1,4 @@
-Käänsin saman asiakaspalvelupromptin 34 kielelle ja laskin tokenit o200k_basella, OpenAI:n nykyisellä tokenisoijalla (GPT-4o ja uudemmat). Englanniksi tarvitaan 34 tokenia, suomeksi **49 eli 1,44×**, sija 19/34 (1 = halvin).
+Käänsin saman asiakaspalvelupromptin 41 kielelle ja laskin tokenit o200k_basella, OpenAI:n nykyisellä tokenisoijalla (GPT-4o ja uudemmat). Englanniksi tarvitaan 34 tokenia, suomeksi **49 eli 1,44×**, sija 19/41 (1 = halvin).
 
 Suomenkielinen versio:
 
@@ -12,13 +12,15 @@ Suomenkielinen versio:
 | 简体中文 | 35 | 1,03× | 1,53× |
 | Español | 40 | 1,18× | 1,29× |
 | Deutsch | 43 | 1,26× | 1,50× |
-| **Suomi** | **49** | **1,44×** | **2,03×** |
 | 한국어 | 49 | 1,44× | 2,50× |
+| **Suomi** | **49** | **1,44×** | **2,03×** |
+| हिन्दी | 51 | 1,50× | 4,59× |
 | 日本語 | 61 | 1,79× | 2,21× |
 | Čeština | 68 | 2,00× | 2,59× |
 | Ελληνικά | 70 | 2,06× | 4,94× |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
 
-![Tulokset](/blog-language-tax-chart-v3.png)
+![Tulokset](/blog-language-tax-chart-v4.png)
 
 ## Miksi
 
@@ -48,4 +50,4 @@ Mallilla, jonka hinta on 2 $ miljoonaa syötetokenia kohden, tämän promptin l�
 - Claudella ja Geminillä on eri tokenisoijat – luvut pätevät vain OpenAI:n malleihin.
 - Käännös perustuu tarkistettuun konekäännökseen.
 
-Kaikkien 34 kielen tulokset (englanniksi): [34 kielen vertailu](/blog/token-cost-by-language)
+Kaikkien 41 kielen tulokset (englanniksi): [41 kielen vertailu](/blog/token-cost-by-language)

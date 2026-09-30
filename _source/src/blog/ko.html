@@ -1,5 +1,5 @@
 <p>"한국어로 프롬프트 쓰면 영어보다 토큰이 2~3배 든다"는 얘기, 한 번쯤 들어보셨을 겁니다. 저도 그렇게 알고 있었는데, 직접 재본 적은 없더라고요.</p>
-<p>그래서 재봤습니다. 같은 프롬프트를 34개 언어로 옮겨서 OpenAI 토크나이저로 토큰 수를 셌습니다. 결론부터 말하면 <strong>한국어는 영어의 1.44배</strong>입니다. "2~3배"는 이제 옛날 얘기였습니다.</p>
+<p>그래서 재봤습니다. 같은 프롬프트를 41개 언어로 옮겨서 OpenAI 토크나이저로 토큰 수를 셌습니다. 결론부터 말하면 <strong>한국어는 영어의 1.44배</strong>입니다. "2~3배"는 이제 옛날 얘기였습니다.</p>
 <h2>어떻게 쟀나</h2>
 <p>영어로 34토큰짜리 평범한 고객 응대 프롬프트를 썼습니다.</p>
 <blockquote>
@@ -9,7 +9,7 @@
 <blockquote>
 <p>아래 고객 이메일을 세 가지 요점으로 요약하고 정중한 답장을 제안해 주세요. 고객은 주문이 이틀 늦게 도착했고 상자에서 물건 하나가 빠져 있었다고 말합니다.</p>
 </blockquote>
-<p>이걸 34개 언어로 옮긴 뒤 두 가지 토크나이저로 셌습니다.</p>
+<p>이걸 41개 언어로 옮긴 뒤 두 가지 토크나이저로 셌습니다.</p>
 <ul>
 <li><strong>o200k_base</strong>: GPT-4o 이후 OpenAI 모델이 쓰는 현재 토크나이저</li>
 <li><strong>cl100k_base</strong>: GPT-4, GPT-3.5 시절의 예전 토크나이저 (비교용)</li>
@@ -28,7 +28,7 @@ enc = tiktoken.get_encoding(&quot;o200k_base&quot;)
 print(len(enc.encode(korean)))  # 49
 </code></pre>
 <h2>결과</h2>
-<p><img loading="lazy" width="960" height="1213" alt="언어별 추가 토큰 (영어 대비)" src="/blog-language-tax-chart-v3.png" /></p>
+<p><img loading="lazy" width="960" height="1430" alt="언어별 추가 토큰 (영어 대비)" src="/blog-language-tax-chart-v4.png" /></p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -118,22 +118,34 @@ print(len(enc.encode(korean)))  # 49
 <td style="text-align: right;">2.59배</td>
 </tr>
 <tr>
+<td>타밀어</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;"><strong>1.97배</strong></td>
+<td style="text-align: right;">8.47배</td>
+</tr>
+<tr>
 <td>그리스어</td>
 <td style="text-align: right;">70</td>
 <td style="text-align: right;"><strong>2.06배</strong></td>
 <td style="text-align: right;">4.94배</td>
 </tr>
+<tr>
+<td>펀자브어</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;"><strong>2.44배</strong></td>
+<td style="text-align: right;">7.41배</td>
+</tr>
 </tbody>
 </table></div>
-<p>34개 언어 전체 결과는 <a href="/blog/token-cost-by-language">영어로 정리한 글</a>에 있습니다.</p>
+<p>41개 언어 전체 결과는 <a href="/blog/token-cost-by-language">영어로 정리한 글</a>에 있습니다.</p>
 <h2>의외였던 점</h2>
 <h3>1. "한국어 2~3배"는 예전 토크나이저 기준이었다</h3>
 <p>GPT-4 시절 토크나이저로 재면 한국어는 <strong>2.50배</strong>입니다. 우리가 알던 숫자가 여기서 나온 거죠. 지금 토크나이저에서는 <strong>1.44배</strong>까지 내려왔습니다. 같은 프롬프트라면 예전보다 토큰이 40% 넘게 줄어든 셈입니다.</p>
 <p>한글 한 글자당으로 치면 예전에는 1.3토큰 정도였는데, 지금은 <strong>0.77토큰</strong> 정도입니다. 자주 쓰는 음절과 단어는 한 덩어리로 처리된다는 뜻입니다.</p>
 <h3>2. 이제 일본어가 한국어보다 비싸다</h3>
 <p>예전 토크나이저에서는 일본어(2.21배)가 한국어(2.50배)보다 쌌습니다. 지금은 뒤집혀서 일본어가 <strong>1.79배</strong>로 한국어보다 비쌉니다. 일본어는 토크나이저가 바뀌어도 가장 덜 줄어든 언어 중 하나였습니다.</p>
-<h3>3. 가장 비싼 언어는 아시아 언어가 아니었다</h3>
-<p>1위는 <strong>그리스어(2.06배)</strong>, 그다음이 <strong>체코어·슬로바키아어(2.00배)</strong>와 <strong>폴란드어·우크라이나어(1.88배)</strong>입니다. 알파벳을 쓰는 언어라도 어미 변화가 많으면 잘게 쪼개지는 것 같습니다. 반대로 중국어(간체)는 영어와 거의 같았습니다(1.03배).</p>
+<h3>3. 가장 비싼 언어는 펀자브어, 그다음은 유럽 언어</h3>
+<p>1위는 인도의 <strong>펀자브어(2.44배)</strong>입니다. 구르무키 문자는 아직 글자 단위로 잘게 쪼개집니다. 그다음이 <strong>그리스어(2.06배)</strong>, 텔루구어(2.03배), <strong>체코어·슬로바키아어(2.00배)</strong>, <strong>폴란드어·우크라이나어(1.88배)</strong>입니다. 알파벳을 쓰는 언어라도 어미 변화가 많으면 잘게 쪼개지는 것 같습니다. 반대로 중국어(간체)는 영어와 거의 같았습니다(1.03배).</p>
 <h2>돈으로 따지면</h2>
 <p>입력 100만 토큰당 2달러인 모델에 이 프롬프트를 100만 번 보낸다고 해보겠습니다.</p>
 <div class="overflow-x-auto"><table>

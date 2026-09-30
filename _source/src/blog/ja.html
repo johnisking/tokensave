@@ -1,5 +1,5 @@
-<p>同じプロンプトを34言語に翻訳して、OpenAIのトークナイザーでトークン数を測ってみました。「日本語は英語よりトークンを食う」とよく言われますが、実際どのくらいなのか、他の言語と比べてどうなのかを数字で確認したかったからです。</p>
-<p>結論から言うと、<strong>日本語は英語の1.79倍</strong>。34言語中6番目に高く、トークナイザーの世代交代でほとんど改善されなかった数少ない言語でした。</p>
+<p>同じプロンプトを41言語に翻訳して、OpenAIのトークナイザーでトークン数を測ってみました。「日本語は英語よりトークンを食う」とよく言われますが、実際どのくらいなのか、他の言語と比べてどうなのかを数字で確認したかったからです。</p>
+<p>結論から言うと、<strong>日本語は英語の1.79倍</strong>。41言語中で高いほうから11番目で、トークナイザーの世代交代でほとんど改善されなかった数少ない言語でした。</p>
 <h2>測定方法</h2>
 <p>英語で34トークンになる、ごく普通のカスタマーサポート用プロンプトを使いました。</p>
 <blockquote>
@@ -9,7 +9,7 @@
 <blockquote>
 <p>以下の顧客メールを3つの箇条書きで要約し、丁寧な返信を提案してください。顧客によると、注文品が2日遅れて届き、箱から商品が1つ欠けていたそうです。</p>
 </blockquote>
-<p>これを34言語に翻訳し、2つのエンコーディングで数えました。</p>
+<p>これを41言語に翻訳し、2つのエンコーディングで数えました。</p>
 <ul>
 <li><strong>o200k_base</strong>：GPT-4o以降のOpenAIモデルで使われている現行トークナイザー</li>
 <li><strong>cl100k_base</strong>：GPT-4 / GPT-3.5時代の旧トークナイザー（比較用）</li>
@@ -28,7 +28,7 @@ enc = tiktoken.get_encoding(&quot;o200k_base&quot;)
 print(len(enc.encode(japanese)))  # 61
 </code></pre>
 <h2>結果</h2>
-<p><img loading="lazy" width="960" height="1213" alt="言語ごとの追加トークン（英語比）" src="/blog-language-tax-chart-v3.png" /></p>
+<p><img loading="lazy" width="960" height="1430" alt="言語ごとの追加トークン（英語比）" src="/blog-language-tax-chart-v4.png" /></p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -142,14 +142,26 @@ print(len(enc.encode(japanese)))  # 61
 <td style="text-align: right;">2.59倍</td>
 </tr>
 <tr>
+<td>タミル語</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;"><strong>1.97倍</strong></td>
+<td style="text-align: right;">8.47倍</td>
+</tr>
+<tr>
 <td>ギリシャ語</td>
 <td style="text-align: right;">70</td>
 <td style="text-align: right;"><strong>2.06倍</strong></td>
 <td style="text-align: right;">4.94倍</td>
 </tr>
+<tr>
+<td>パンジャブ語</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;"><strong>2.44倍</strong></td>
+<td style="text-align: right;">7.41倍</td>
+</tr>
 </tbody>
 </table></div>
-<p>（34言語すべての結果は<a href="/blog/token-cost-by-language">こちらの英語記事</a>にあります）</p>
+<p>（41言語すべての結果は<a href="/blog/token-cost-by-language">こちらの英語記事</a>にあります）</p>
 <h2>意外だったこと</h2>
 <h3>1. 日本語は「改善が一番小さかった言語」のひとつ</h3>
 <p>旧トークナイザーから現行への変化を見ると、多くの言語が大幅に安くなっています。</p>
@@ -162,8 +174,8 @@ print(len(enc.encode(japanese)))  # 61
 <p>一方、日本語は <strong>2.21倍 → 1.79倍</strong> とあまり縮まりませんでした。旧トークナイザーの頃は韓国語より安かったのに、今は韓国語より高くなっています。</p>
 <h3>2. 同じ漢字でも中国語（簡体字）はほぼ英語と同じ</h3>
 <p>中国語（簡体字）は35トークンで、英語とほぼ同じです。同じ内容の繁体字は1.35倍でした。漢字の多さが原因なら中国語も高くなるはずなので、日本語の割高さは漢字そのものより、<strong>ひらがな・カタカナと漢字が混ざる書き方</strong>や学習データの量の影響が大きそうです。</p>
-<h3>3. 一番高いのはアジア言語ではなかった</h3>
-<p>最下位はギリシャ語（2.06倍）、次いでチェコ語とスロバキア語（2.00倍）、ポーランド語とウクライナ語（1.88倍）。語形変化が多い言語は、ラテン文字やキリル文字でも細かく分割されるようです。</p>
+<h3>3. 一番高いのはパンジャブ語、その次はヨーロッパの言語</h3>
+<p>最下位はインドのパンジャブ語（2.44倍）で、グルムキー文字はまだ細かく分割されます。次いでギリシャ語（2.06倍）、テルグ語（2.03倍）、チェコ語とスロバキア語（2.00倍）、ポーランド語とウクライナ語（1.88倍）。語形変化が多い言語は、ラテン文字やキリル文字でも細かく分割されるようです。</p>
 <h2>コストにするとどのくらいか</h2>
 <p>入力が100万トークンあたり2ドルのモデルで、このプロンプトを100万回送った場合です。</p>
 <div class="overflow-x-auto"><table>

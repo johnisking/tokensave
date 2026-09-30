@@ -1,4 +1,4 @@
-Ten istý prompt zákazníckej podpory som preložil do 34 jazykov a tokeny spočítal pomocou o200k_base, aktuálneho tokenizéra OpenAI (GPT-4o a novšie). Angličtina potrebuje 34 tokenov, slovenčina **68 — teda 2,00×**, miesto 33 z 34 (1 = najlacnejší). Drahšia je už len gréčtina.
+Ten istý prompt zákazníckej podpory som preložil do 41 jazykov a tokeny spočítal pomocou o200k_base, aktuálneho tokenizéra OpenAI (GPT-4o a novšie). Angličtina potrebuje 34 tokenov, slovenčina **68 — teda 2,00×**, miesto 38 z 41 (1 = najlacnejší). Drahšie sú už len telugčina, gréčtina a pandžábčina.
 
 Slovenská verzia:
 
@@ -13,12 +13,14 @@ Slovenská verzia:
 | Español | 40 | 1,18× | 1,29× |
 | Deutsch | 43 | 1,26× | 1,50× |
 | 한국어 | 49 | 1,44× | 2,50× |
+| हिन्दी | 51 | 1,50× | 4,59× |
 | 日本語 | 61 | 1,79× | 2,21× |
 | **Slovenčina** | **68** | **2,00×** | **2,53×** |
 | Čeština | 68 | 2,00× | 2,59× |
 | Ελληνικά | 70 | 2,06× | 4,94× |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
 
-![Výsledky](/blog-language-tax-chart-v3.png)
+![Výsledky](/blog-language-tax-chart-v4.png)
 
 ## Prečo
 
@@ -48,4 +50,4 @@ S modelom za 2 $ na milión vstupných tokenov stojí odoslanie tohto promptu mi
 - Claude a Gemini používajú iné tokenizéry — čísla platia len pre modely OpenAI.
 - Preklad vychádza z overeného strojového prekladu.
 
-Všetky výsledky pre 34 jazykov (po anglicky): [porovnanie 34 jazykov](/blog/token-cost-by-language)
+Všetky výsledky pre 41 jazykov (po anglicky): [porovnanie 41 jazykov](/blog/token-cost-by-language)

@@ -1,0 +1,109 @@
+<p>અમે એક જ કસ્ટમર-સપોર્ટ પ્રોમ્પ્ટનો 41 ભાષાઓમાં અનુવાદ કર્યો અને OpenAI ના હાલના o200k_base ટોકનાઇઝર (GPT-4o અને નવા મોડેલ) થી ટોકન ગણ્યા. અંગ્રેજીમાં 34 ટોકન લાગે છે, ગુજરાતીમાં <strong>54 ટોકન — એટલે કે અંગ્રેજીના 1.59×</strong>; 41 ભાષાઓમાં સૌથી સસ્તીથી ગણતાં 26મું સ્થાન.</p>
+<p>ગુજરાતી સંસ્કરણ:</p>
+<blockquote>
+<p>નીચેના ગ્રાહકના ઇમેઇલનો ત્રણ મુદ્દાઓમાં સારાંશ આપો અને નમ્ર જવાબ સૂચવો. ગ્રાહક કહે છે કે ઓર્ડર બે દિવસ મોડો આવ્યો અને બોક્સમાંથી એક વસ્તુ ખૂટતી હતી.</p>
+</blockquote>
+<h2>પરિણામો</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>ભાષા</th>
+<th style="text-align: right;">ટોકન</th>
+<th style="text-align: right;">અંગ્રેજીની સરખામણીએ</th>
+<th style="text-align: right;">જૂનું GPT-4 ટોકનાઇઝર</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">1.00×</td>
+<td style="text-align: right;">1.00×</td>
+</tr>
+<tr>
+<td>简体中文</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">1.03×</td>
+<td style="text-align: right;">1.53×</td>
+</tr>
+<tr>
+<td>Español</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">1.18×</td>
+<td style="text-align: right;">1.29×</td>
+</tr>
+<tr>
+<td>Deutsch</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">1.26×</td>
+<td style="text-align: right;">1.50×</td>
+</tr>
+<tr>
+<td>한국어</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">1.44×</td>
+<td style="text-align: right;">2.50×</td>
+</tr>
+<tr>
+<td>हिन्दी</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1.50×</td>
+<td style="text-align: right;">4.59×</td>
+</tr>
+<tr>
+<td><strong>ગુજરાતી</strong></td>
+<td style="text-align: right;"><strong>54</strong></td>
+<td style="text-align: right;"><strong>1.59×</strong></td>
+<td style="text-align: right;"><strong>7.18×</strong></td>
+</tr>
+<tr>
+<td>日本語</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">1.79×</td>
+<td style="text-align: right;">2.21×</td>
+</tr>
+<tr>
+<td>Čeština</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">2.00×</td>
+<td style="text-align: right;">2.59×</td>
+</tr>
+<tr>
+<td>Ελληνικά</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">2.06×</td>
+<td style="text-align: right;">4.94×</td>
+</tr>
+<tr>
+<td>ਪੰਜਾਬੀ</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">2.44×</td>
+<td style="text-align: right;">7.41×</td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" width="960" height="1430" alt="પરિણામો" src="/blog-language-tax-chart-v4.png" /></p>
+<h2>આવું કેમ</h2>
+<p>ટોકનાઇઝર મોટે ભાગે અંગ્રેજી લખાણમાંથી શીખે છે: " polite" કે " customer" જેવા શબ્દો એક જ ટોકન હોય છે, જ્યારે ગુજરાતી લિપિના ઘણા શબ્દો માત્રાઓ સહિત ટુકડાઓમાં વહેંચાઈ જાય છે:</p>
+<ul>
+<li>બોક્સમાંથી → <code>બ | ોક | ્સ | માંથી</code> · 4</li>
+<li>મુદ્દાઓમાં → <code>મુદ્દ | ાઓ | માં</code> · 3</li>
+<li>ગ્રાહકના → <code>ગ્રાહ | ક | ના</code> · 3</li>
+</ul>
+<h2>જૂના ટોકનાઇઝર સાથે સરખામણી</h2>
+<p>GPT-4 સમયના ટોકનાઇઝર (cl100k) પર આ જ પ્રોમ્પ્ટ <strong>7.18×</strong> હતો; હવે <strong>1.59×</strong> છે. એટલે કે ગુજરાતીનો ખર્ચ ચોથા ભાગથી પણ ઓછો થઈ ગયો છે.</p>
+<h2>પૈસામાં</h2>
+<p>10 લાખ ઇનપુટ ટોકન દીઠ $2 વાળા મોડેલ પર આ પ્રોમ્પ્ટ 10 લાખ વાર મોકલવાનો ખર્ચ અંગ્રેજીમાં 68 ડૉલર અને ગુજરાતીમાં 108 ડૉલર થાય છે. જવાબ પણ ગુજરાતીમાં હોય તો આ જ ગુણક આઉટપુટ ટોકન પર પણ લાગે છે, જે સામાન્ય રીતે 4–5× મોંઘા હોય છે.</p>
+<h2>કેવી રીતે બચાવવું</h2>
+<ul>
+<li>સિસ્ટમ પ્રોમ્પ્ટ અને કાયમી સૂચનાઓ અંગ્રેજીમાં લખો; ફક્ત યુઝરનું ઇનપુટ ગુજરાતીમાં રહેવા દો.</li>
+<li>વચ્ચેનાં પગલાં (ક્લાસિફિકેશન, એક્સટ્રેક્શન, ટૂલ કૉલ) અંગ્રેજી કે JSON માં મેળવો, ફક્ત અંતિમ જવાબ ગુજરાતીમાં.</li>
+<li>પ્રોમ્પ્ટના કાયમી ભાગ માટે પ્રોમ્પ્ટ કૅશિંગ વાપરો.</li>
+</ul>
+<h2>મર્યાદાઓ</h2>
+<ul>
+<li>ફક્ત એક પ્રોમ્પ્ટ માપ્યો છે; બીજા લખાણમાં ગુણોત્તર ±0.1–0.2 બદલાઈ શકે છે.</li>
+<li>Claude અને Gemini ના ટોકનાઇઝર અલગ છે; આ આંકડા ફક્ત OpenAI મોડેલ પર લાગુ પડે છે.</li>
+<li>અનુવાદ ચકાસેલા મશીન અનુવાદ પર આધારિત છે.</li>
+</ul>
+<p>બધી 41 ભાષાઓનાં પરિણામો (અંગ્રેજીમાં): <a href="/blog/token-cost-by-language">41 ભાષાઓની સરખામણી</a></p>

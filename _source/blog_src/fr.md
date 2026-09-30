@@ -1,4 +1,4 @@
-J’ai traduit le même prompt de service client dans 34 langues et compté les tokens avec o200k_base, le tokeniseur actuel d’OpenAI (GPT-4o et suivants). L’anglais demande 34 tokens ; le français **44, soit 1,29× l’anglais**, rang 9 sur 34 (1 = le moins cher).
+J’ai traduit le même prompt de service client dans 41 langues et compté les tokens avec o200k_base, le tokeniseur actuel d’OpenAI (GPT-4o et suivants). L’anglais demande 34 tokens ; le français **44, soit 1,29× l’anglais**, rang 9 sur 41 (1 = le moins cher).
 
 La version française :
 
@@ -14,11 +14,13 @@ La version française :
 | Deutsch | 43 | 1,26× | 1,50× |
 | **Français** | **44** | **1,29×** | **1,44×** |
 | 한국어 | 49 | 1,44× | 2,50× |
+| हिन्दी | 51 | 1,50× | 4,59× |
 | 日本語 | 61 | 1,79× | 2,21× |
 | Čeština | 68 | 2,00× | 2,59× |
 | Ελληνικά | 70 | 2,06× | 4,94× |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
 
-![Résultats](/blog-language-tax-chart-v3.png)
+![Résultats](/blog-language-tax-chart-v4.png)
 
 ## Pourquoi
 
@@ -48,4 +50,4 @@ Avec un modèle à 2 $ le million de tokens d’entrée, envoyer ce prompt un mi
 - Claude et Gemini utilisent d’autres tokeniseurs : ces chiffres ne valent que pour les modèles OpenAI.
 - La traduction repose sur une traduction automatique relue.
 
-Résultats complets des 34 langues (en anglais) : [comparaison de 34 langues](/blog/token-cost-by-language)
+Résultats complets des 41 langues (en anglais) : [comparaison de 41 langues](/blog/token-cost-by-language)

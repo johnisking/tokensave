@@ -1,4 +1,4 @@
-<p>我們把同一段客服提示詞翻成 34 種語言，用 OpenAI 目前的 o200k_base 分詞器（GPT-4o 以後的模型）計算 Token。英文需要 34 個 Token，繁體中文需要 <strong>46 個，是英文的 1.35×</strong>，在 34 種語言中排第 14 便宜。</p>
+<p>我們把同一段客服提示詞翻成 41 種語言，用 OpenAI 目前的 o200k_base 分詞器（GPT-4o 以後的模型）計算 Token。英文需要 34 個 Token，繁體中文需要 <strong>46 個，是英文的 1.35×</strong>，在 41 種語言中排第 14 便宜。</p>
 <p>繁體中文版本：</p>
 <blockquote>
 <p>請用三個重點總結下面的客戶郵件，並建議一封禮貌的回覆。客戶說訂單晚到了兩天，而且箱子裡少了一件商品。</p>
@@ -51,6 +51,12 @@
 <td style="text-align: right;">2.50×</td>
 </tr>
 <tr>
+<td>हिन्दी</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1.50×</td>
+<td style="text-align: right;">4.59×</td>
+</tr>
+<tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
 <td style="text-align: right;">1.79×</td>
@@ -68,9 +74,15 @@
 <td style="text-align: right;">2.06×</td>
 <td style="text-align: right;">4.94×</td>
 </tr>
+<tr>
+<td>ਪੰਜਾਬੀ</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">2.44×</td>
+<td style="text-align: right;">7.41×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1213" alt="結果" src="/blog-language-tax-chart-v3.png" /></p>
+<p><img loading="lazy" width="960" height="1430" alt="結果" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>為什麼</h2>
 <p>分詞器主要以英文資料訓練，常見英文單字通常是 1 個 Token（" polite"、" customer"）。繁體字的常用詞收錄得比簡體少，常被拆成單字：</p>
 <ul>
@@ -92,4 +104,4 @@
 <li>Claude 與 Gemini 的分詞器不同，這些數字只適用於 OpenAI 模型。</li>
 <li>譯文以機器翻譯為基礎並經過檢查。</li>
 </ul>
-<p>全部 34 種語言的結果（英文）：<a href="/blog/token-cost-by-language">34 種語言比較</a></p>
+<p>全部 41 種語言的結果（英文）：<a href="/blog/token-cost-by-language">41 種語言比較</a></p>

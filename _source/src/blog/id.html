@@ -1,4 +1,4 @@
-<p>Saya menerjemahkan prompt layanan pelanggan yang sama ke 34 bahasa dan menghitung token dengan o200k_base, tokenizer OpenAI saat ini (GPT-4o dan setelahnya). Bahasa Inggris butuh 34 token, bahasa Indonesia <strong>39 token — 1,15× bahasa Inggris</strong>, peringkat 3 dari 34 (1 = paling murah).</p>
+<p>Saya menerjemahkan prompt layanan pelanggan yang sama ke 41 bahasa dan menghitung token dengan o200k_base, tokenizer OpenAI saat ini (GPT-4o dan setelahnya). Bahasa Inggris butuh 34 token, bahasa Indonesia <strong>39 token — 1,15× bahasa Inggris</strong>, peringkat 3 dari 41 (1 = paling murah).</p>
 <p>Versi bahasa Indonesia:</p>
 <blockquote>
 <p>Ringkas email pelanggan di bawah ini dalam tiga poin dan sarankan balasan yang sopan. Pelanggan mengatakan pesanan tiba dua hari terlambat dan satu barang hilang dari kotak.</p>
@@ -51,6 +51,12 @@
 <td style="text-align: right;">2,50×</td>
 </tr>
 <tr>
+<td>हिन्दी</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1,50×</td>
+<td style="text-align: right;">4,59×</td>
+</tr>
+<tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
 <td style="text-align: right;">1,79×</td>
@@ -68,9 +74,15 @@
 <td style="text-align: right;">2,06×</td>
 <td style="text-align: right;">4,94×</td>
 </tr>
+<tr>
+<td>ਪੰਜਾਬੀ</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">7,41×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1213" alt="Hasil" src="/blog-language-tax-chart-v3.png" /></p>
+<p><img loading="lazy" width="960" height="1430" alt="Hasil" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Mengapa</h2>
 <p>Tokenizer terutama belajar dari teks bahasa Inggris: kata seperti " polite" atau " customer" hanya satu token, sedangkan kata berimbuhan dalam bahasa Indonesia dipecah:</p>
 <ul>
@@ -94,4 +106,4 @@
 <li>Claude dan Gemini memakai tokenizer lain; angka ini hanya berlaku untuk model OpenAI.</li>
 <li>Terjemahan didasarkan pada terjemahan mesin yang sudah diperiksa.</li>
 </ul>
-<p>Hasil lengkap 34 bahasa (dalam bahasa Inggris): <a href="/blog/token-cost-by-language">perbandingan 34 bahasa</a></p>
+<p>Hasil lengkap 41 bahasa (dalam bahasa Inggris): <a href="/blog/token-cost-by-language">perbandingan 41 bahasa</a></p>

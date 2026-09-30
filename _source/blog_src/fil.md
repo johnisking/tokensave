@@ -1,4 +1,4 @@
-Isinalin ko ang parehong customer-support prompt sa 34 wika at binilang ang token gamit ang o200k_base, ang kasalukuyang tokenizer ng OpenAI (GPT-4o at mas bago). Sa English, 34 token; sa Filipino, **52 token — 1.53× ng English**, ika-22 sa 34 (1 = pinakamura).
+Isinalin ko ang parehong customer-support prompt sa 41 wika at binilang ang token gamit ang o200k_base, ang kasalukuyang tokenizer ng OpenAI (GPT-4o at mas bago). Sa English, 34 token; sa Filipino, **52 token — 1.53× ng English**, ika-22 sa 41 (1 = pinakamura).
 
 Ang bersyong Filipino:
 
@@ -13,12 +13,14 @@ Ang bersyong Filipino:
 | Español | 40 | 1.18× | 1.29× |
 | Deutsch | 43 | 1.26× | 1.50× |
 | 한국어 | 49 | 1.44× | 2.50× |
+| हिन्दी | 51 | 1.50× | 4.59× |
 | **Filipino** | **52** | **1.53×** | **1.76×** |
 | 日本語 | 61 | 1.79× | 2.21× |
 | Čeština | 68 | 2.00× | 2.59× |
 | Ελληνικά | 70 | 2.06× | 4.94× |
+| ਪੰਜਾਬੀ | 83 | 2.44× | 7.41× |
 
-![Mga resulta](/blog-language-tax-chart-v3.png)
+![Mga resulta](/blog-language-tax-chart-v4.png)
 
 ## Bakit
 
@@ -48,4 +50,4 @@ Sa model na $2 bawat 1 milyong input token, ang pagpapadala ng prompt na ito nan
 - Iba ang tokenizer ng Claude at Gemini; para lang sa mga OpenAI model ang mga numerong ito.
 - Batay ang salin sa sinuring machine translation.
 
-Buong resulta ng 34 wika (sa English): [paghahambing ng 34 wika](/blog/token-cost-by-language)
+Buong resulta ng 41 wika (sa English): [paghahambing ng 41 wika](/blog/token-cost-by-language)

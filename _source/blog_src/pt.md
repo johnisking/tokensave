@@ -1,4 +1,4 @@
-Traduzi o mesmo prompt de atendimento ao cliente para 34 idiomas e contei os tokens com o o200k_base, o tokenizador atual da OpenAI (GPT-4o e posteriores). Em inglês são 34 tokens; em português, **41: 1,21× o inglês**, posição 5 de 34 (1 = o mais barato).
+Traduzi o mesmo prompt de atendimento ao cliente para 41 idiomas e contei os tokens com o o200k_base, o tokenizador atual da OpenAI (GPT-4o e posteriores). Em inglês são 34 tokens; em português, **41: 1,21× o inglês**, posição 5 de 41 (1 = o mais barato).
 
 A versão em português:
 
@@ -14,11 +14,13 @@ A versão em português:
 | **Português** | **41** | **1,21×** | **1,41×** |
 | Deutsch | 43 | 1,26× | 1,50× |
 | 한국어 | 49 | 1,44× | 2,50× |
+| हिन्दी | 51 | 1,50× | 4,59× |
 | 日本語 | 61 | 1,79× | 2,21× |
 | Čeština | 68 | 2,00× | 2,59× |
 | Ελληνικά | 70 | 2,06× | 4,94× |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
 
-![Resultados](/blog-language-tax-chart-v3.png)
+![Resultados](/blog-language-tax-chart-v4.png)
 
 ## Por quê
 
@@ -48,4 +50,4 @@ Com um modelo a US$ 2 por milhão de tokens de entrada, enviar este prompt um mi
 - Claude e Gemini usam outros tokenizadores: estes números valem só para modelos da OpenAI.
 - A tradução parte de uma tradução automática revisada.
 
-Resultados completos dos 34 idiomas (em inglês): [comparação de 34 idiomas](/blog/token-cost-by-language)
+Resultados completos dos 41 idiomas (em inglês): [comparação de 41 idiomas](/blog/token-cost-by-language)

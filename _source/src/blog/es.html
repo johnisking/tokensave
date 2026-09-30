@@ -1,4 +1,4 @@
-<p>Traduje el mismo prompt de atención al cliente a 34 idiomas y conté los tokens con o200k_base, el tokenizador actual de OpenAI (GPT-4o y posteriores). En inglés son 34 tokens; en español, <strong>40: 1,18× el inglés</strong>, puesto 4 de 34 (1 = el más barato).</p>
+<p>Traduje el mismo prompt de atención al cliente a 41 idiomas y conté los tokens con o200k_base, el tokenizador actual de OpenAI (GPT-4o y posteriores). En inglés son 34 tokens; en español, <strong>40: 1,18× el inglés</strong>, puesto 4 de 41 (1 = el más barato).</p>
 <p>La versión en español:</p>
 <blockquote>
 <p>Resume el siguiente correo del cliente en tres puntos y sugiere una respuesta amable. El cliente dice que el pedido llegó con dos días de retraso y que faltaba un artículo en la caja.</p>
@@ -45,6 +45,12 @@
 <td style="text-align: right;">2,50×</td>
 </tr>
 <tr>
+<td>हिन्दी</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1,50×</td>
+<td style="text-align: right;">4,59×</td>
+</tr>
+<tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
 <td style="text-align: right;">1,79×</td>
@@ -62,9 +68,15 @@
 <td style="text-align: right;">2,06×</td>
 <td style="text-align: right;">4,94×</td>
 </tr>
+<tr>
+<td>ਪੰਜਾਬੀ</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">7,41×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1213" alt="Resultados" src="/blog-language-tax-chart-v3.png" /></p>
+<p><img loading="lazy" width="960" height="1430" alt="Resultados" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Por qué</h2>
 <p>El tokenizador aprende sobre todo de texto en inglés: palabras como " polite" o " customer" son un solo token, mientras que muchas palabras en español se parten en trozos:</p>
 <ul>
@@ -88,4 +100,4 @@
 <li>Claude y Gemini usan otros tokenizadores: estas cifras valen solo para modelos de OpenAI.</li>
 <li>La traducción parte de una traducción automática revisada.</li>
 </ul>
-<p>Resultados completos de los 34 idiomas (en inglés): <a href="/blog/token-cost-by-language">comparativa de 34 idiomas</a></p>
+<p>Resultados completos de los 41 idiomas (en inglés): <a href="/blog/token-cost-by-language">comparativa de 41 idiomas</a></p>

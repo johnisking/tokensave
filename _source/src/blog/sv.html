@@ -1,4 +1,4 @@
-<p>Jag översatte samma kundtjänstprompt till 34 språk och räknade tokens med o200k_base, OpenAI:s nuvarande tokenizer (GPT-4o och senare). Engelska behöver 34 tokens, svenska <strong>45 — 1,32× så många</strong>, plats 12 av 34 (1 = billigast).</p>
+<p>Jag översatte samma kundtjänstprompt till 41 språk och räknade tokens med o200k_base, OpenAI:s nuvarande tokenizer (GPT-4o och senare). Engelska behöver 34 tokens, svenska <strong>45 — 1,32× så många</strong>, plats 12 av 41 (1 = billigast).</p>
 <p>Den svenska versionen:</p>
 <blockquote>
 <p>Sammanfatta kundens e-post nedan i tre punkter och föreslå ett artigt svar. Kunden säger att beställningen kom två dagar för sent och att en vara saknades i lådan.</p>
@@ -51,6 +51,12 @@
 <td style="text-align: right;">2,50×</td>
 </tr>
 <tr>
+<td>हिन्दी</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1,50×</td>
+<td style="text-align: right;">4,59×</td>
+</tr>
+<tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
 <td style="text-align: right;">1,79×</td>
@@ -68,9 +74,15 @@
 <td style="text-align: right;">2,06×</td>
 <td style="text-align: right;">4,94×</td>
 </tr>
+<tr>
+<td>ਪੰਜਾਬੀ</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">7,41×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1213" alt="Resultat" src="/blog-language-tax-chart-v3.png" /></p>
+<p><img loading="lazy" width="960" height="1430" alt="Resultat" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Varför</h2>
 <p>Tokenizern lär sig mest från engelsk text: ord som " polite" eller " customer" är en enda token, medan många svenska ord – särskilt sammansättningar – delas upp:</p>
 <ul>
@@ -94,4 +106,4 @@
 <li>Claude och Gemini har andra tokenizers – siffrorna gäller bara OpenAI-modeller.</li>
 <li>Översättningen bygger på en granskad maskinöversättning.</li>
 </ul>
-<p>Alla resultat för 34 språk (på engelska): <a href="/blog/token-cost-by-language">jämförelse av 34 språk</a></p>
+<p>Alla resultat för 41 språk (på engelska): <a href="/blog/token-cost-by-language">jämförelse av 41 språk</a></p>
