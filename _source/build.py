@@ -16,6 +16,7 @@ from i18n_video import NAV, V
 from i18n_image import I
 from i18n_site import SITE
 from seo_meta import META
+from blog_meta import BLOG, BLOG_DATE
 LLM = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "src", "llm_prices.json"), encoding="utf-8"))
 
 # ---------------------------------------------------------------- settings
@@ -34,6 +35,15 @@ VERIFY = {
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC, DIST, TW = os.path.join(ROOT, "src"), os.path.join(ROOT, "dist"), os.path.join(ROOT, "tw")
 JS_FILES = ["common.js", "token.js", "video.js", "image.js"]
+DEV_POST = "https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m"
+BLOG_BY_TAG = {b["tag"]: b for b in BLOG}
+MORE_CLS = "underline decoration-dotted hover:text-white"
+
+def more_link(tag, label):
+    b = BLOG_BY_TAG.get(tag)
+    if b:
+        return f'<a href="{b["path"]}" class="{MORE_CLS}">{esc(label)} →</a>'
+    return f'<a href="{DEV_POST}" target="_blank" rel="noopener" class="{MORE_CLS}">{esc(label)} ↗</a>'
 
 # Image page reuses shared labels from the video page strings
 SHARED = ["badge", "res", "model", "total", "na", "cheapest", "srcOfficial", "srcRunway", "f2"]
@@ -182,7 +192,7 @@ def build():
             values.update(
                 htmlLang=tag, dir=direction, url=url, ogLocale=og, ogImage=f"{BASE}/{tool['og']}",
                 homeUrl=path_for(slug, TOOLS[0]), hreflang=hreflang, langOptions=options, toolNav=nav,
-                ver=ver, adsHead=extras, faq=faq_html(s),
+                ver=ver, adsHead=extras, faq=faq_html(s), moreLink=more_link(tag, s.get("more", "")),
                 ldjson=js({"@context": "https://schema.org", "@graph": graph}),
                 tjson=js(runtime),
                 scriptTag=f'<script type="module" src="/{tool["script"]}?v={ver}"></script>',
@@ -214,6 +224,51 @@ def build():
             out = out.replace(f'  <link rel="canonical" href="{url}" />\n', '  <meta name="robots" content="noindex" />\n')
         open(os.path.join(DIST, pg["file"]), "w", encoding="utf-8").write(out)
 
+
+    # Language-specific articles (/<slug>/blog/...)
+    blog_alts = "\n".join(f'  <link rel="alternate" hreflang="{b["tag"]}" href="{BASE}{b["path"]}" />' for b in BLOG)
+    tag_slug = {tag: slug for slug, tag, *_ in LANGS}
+    tag_og = {tag: og for slug, tag, _, og, _ in LANGS}
+    for b in BLOG:
+        tag, slug = b["tag"], tag_slug[b["tag"]]
+        assert b["path"].startswith(f"/{slug}/blog/") and len(b["desc"]) <= 120, b["path"]
+        url = BASE + b["path"]
+        tool_home = path_for(slug, TOOLS[0])
+        article = open(os.path.join(SRC, "blog", tag + ".html"), encoding="utf-8").read()
+        body = f"""    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">{esc(b["title"])}</h1>
+      <p class="mt-2 text-xs text-zinc-500">{esc(b["byline"])}</p>
+{article}
+      <div class="not-prose mt-8 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 text-center">
+        <p class="text-zinc-200">{esc(b["cta"])}</p>
+        <a href="{tool_home}" class="mt-3 inline-block tab-active rounded-lg px-4 py-2 font-semibold no-underline" style="text-decoration:none">{esc(b["ctaBtn"])} →</a>
+      </div>
+    </article>"""
+        nav = "\n".join(f'          <a href="{path_for(slug, t)}" class="{NAV_OFF}">{esc(NAV[tag][t["nav"]])}</a>' for t in TOOLS)
+        opts = "\n".join(
+            f'          <option value="{path_for(sl, TOOLS[0])}" data-code="{sl or "en"}"{" selected" if sl == slug else ""}>{esc(nat)}</option>'
+            for sl, _, nat, _, _ in LANGS)
+        ld = {"@context": "https://schema.org", "@graph": [
+            {"@type": "BlogPosting", "headline": b["title"], "description": b["desc"], "inLanguage": tag,
+             "url": url, "mainEntityOfPage": url, "datePublished": BLOG_DATE, "dateModified": BLOG_DATE,
+             "image": f"{BASE}/blog-language-tax-chart-v2.png",
+             "author": {"@type": "Person", "name": "Jonhisking"},
+             "publisher": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"}},
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + tool_home},
+                {"@type": "ListItem", "position": 2, "name": b["title"], "item": url}]}]}
+        values = dict(
+            htmlLang=tag, dir="ltr", url=url, ogLocale=tag_og[tag], ogImage=f"{BASE}/blog-language-tax-chart-v2.png",
+            title=esc(b["title"] + " | TokenSave"), desc=esc(b["desc"]), lang=esc(S[tag]["lang"]),
+            homeUrl=tool_home, hreflang=blog_alts, langOptions=opts, toolNav=nav, ver=ver, adsHead=extras, faq="",
+            f1="", f2="", fAbout=esc(SITE[tag]["fAbout"]), fPrivacy=esc(SITE[tag]["fPrivacy"]),
+            ldjson=js(ld), tjson=js({"static": True}),
+            scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>',
+        )
+        folder = os.path.join(DIST, slug, "blog")
+        os.makedirs(folder, exist_ok=True)
+        open(os.path.join(folder, b["path"].rsplit("/", 1)[1] + ".html"), "w", encoding="utf-8").write(render(base, body, values))
+
     for f in JS_FILES:
         shutil.copy(os.path.join(SRC, f), os.path.join(DIST, f))
     for f in os.listdir(os.path.join(SRC, "static")):
@@ -235,12 +290,15 @@ def build():
     for pg in PAGES:
         if pg["path"]:
             entries.append(f"\n  <url>\n    <loc>{BASE}{pg['path']}</loc>\n    <lastmod>{LASTMOD}</lastmod>\n  </url>")
+    b_alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{b["tag"]}" href="{BASE}{b["path"]}"/>' for b in BLOG)
+    for b in BLOG:
+        entries.append(f"\n  <url>\n    <loc>{BASE}{b['path']}</loc>\n    <lastmod>{BLOG_DATE}</lastmod>{b_alts}\n  </url>")
     open(os.path.join(DIST, "sitemap.xml"), "w", encoding="utf-8").write(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'
         + "".join(entries) + "\n</urlset>\n"
     )
-    print("built", count, "tool pages +", len(PAGES), "site pages ->", DIST)
+    print("built", count, "tool pages +", len(PAGES), "site pages +", len(BLOG), "articles ->", DIST)
 
 if __name__ == "__main__":
     build()
