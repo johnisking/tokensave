@@ -66,18 +66,20 @@ const RE = {
   hebrew:   /[\u0590-\u05FF]/,
   emoji:    /\p{Extended_Pictographic}/u,
 };
-const WEIGHT = { hangul: 2.0, kana: 1.6, cjk: 1.8, cyrillic: 0.55, arabic: 0.6, thai: 0.9, devan: 1.1, bengali: 1.2, hebrew: 0.6, emoji: 2.5 };
+// Tokens per character, calibrated on o200k (2026-09-30, same 34-token English prompt in 27 languages)
+const WEIGHT = { hangul: 0.8, kana: 1.6, cjk: 0.9, cyrillic: 0.4, arabic: 0.42, thai: 0.45, devan: 0.4, bengali: 0.4, hebrew: 0.5, emoji: 2.5 };
 
 function analyze(text) {
   const counts = { hangul: 0, kana: 0, cjk: 0, cyrillic: 0, arabic: 0, thai: 0, devan: 0, bengali: 0, hebrew: 0, emoji: 0 };
   let latinBuf = '', latinTokens = 0, symbolTokens = 0;
   const flushLatin = () => {
     if (!latinBuf) return;
-    const words = latinBuf.match(/[A-Za-zÀ-ɏ']+/g) || [];
+    const words = latinBuf.match(/[A-Za-zÀ-ɏḀ-ỿ']+/g) || [];
     const nums  = latinBuf.match(/\d+/g) || [];
-    latinTokens += words.reduce((s, w) => s + Math.max(1, Math.round(w.length / 4.5 * 1.1 + 0.3)), 0);
+    // Calibrated on o200k: ~1 token per 5 letters, plus ~0.4 per accented letter (Czech, Polish, Turkish, Vietnamese...)
+    latinTokens += words.reduce((s, w) => s + Math.max(1, Math.round(w.length / 5 - 0.2)) + (w.match(/[À-ɏḀ-ỿ]/g) || []).length * 0.4, 0);
     latinTokens += nums.reduce((s, n) => s + Math.ceil(n.length / 3), 0);
-    symbolTokens += (latinBuf.match(/[^\sA-Za-zÀ-ɏ'\d]/g) || []).length * 0.8;
+    symbolTokens += (latinBuf.match(/[^\sA-Za-zÀ-ɏḀ-ỿ'\d]/g) || []).length * 0.8;
     // Whitespace: each line break run and each run of 2+ spaces/tabs is roughly one token
     symbolTokens += (latinBuf.match(/\n+/g) || []).length + (latinBuf.match(/[ \t 　]{2,}/g) || []).length;
     latinBuf = '';
@@ -97,7 +99,8 @@ function analyze(text) {
 // =========================================================
 // 4) Language efficiency — token waste vs. English for the same meaning
 // =========================================================
-const PENALTY = { hangul: 2.4, kana: 2.1, cjk: 1.9, cyrillic: 1.8, arabic: 1.9, thai: 2.6, devan: 2.8, bengali: 3.0, hebrew: 1.9, emoji: 1.0 };
+// Measured token overhead vs the same text in English (o200k): ko 1.44, ja 1.79, zh 1.03-1.35, ru 1.32 / uk 1.88, ar 1.26 / fa 1.24 / ur 1.59, th 1.74, hi 1.50, bn 1.68, he 1.56
+const PENALTY = { hangul: 1.45, kana: 1.8, cjk: 1.2, cyrillic: 1.6, arabic: 1.35, thai: 1.75, devan: 1.5, bengali: 1.7, hebrew: 1.55, emoji: 1.0 };
 function efficiency(a, text) {
   const nonSpace = (text.match(/\S/g) || []).length;
   if (!nonSpace || !a.nonLatinChars) return { waste: 1, pct: 100, share: 0 };
@@ -230,7 +233,7 @@ function render() {
     els.overhead.textContent = '⚠ ' + tr('overhead', { x });
     els.overhead.title = tr('overheadTip', { x });
     els.overhead.className = 'text-[11px] font-bold px-2 py-0.5 rounded-full ' +
-      (e.waste >= 2 ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40' : 'bg-amber-400/15 text-amber-300 border border-amber-400/40');
+      (e.waste >= 1.6 ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40' : 'bg-amber-400/15 text-amber-300 border border-amber-400/40');
   } else {
     els.overhead.className = 'hidden';
   }
