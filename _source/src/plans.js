@@ -3,7 +3,7 @@
 // Plan prices: official US monthly prices, checked 2026-10-01:
 //   ChatGPT  chatgpt.com/pricing           Go $8, Plus $20, Pro 100 $100, Pro 200 $200, Pro 500 $500
 //   Claude   claude.com/pricing            Pro $20, Max 5x $100, Max 20x $200
-//   Google   one.google.com/about/ai-premium  AI Plus $7.99, AI Pro $19.99, AI Ultra 5x $99.99, AI Ultra 20x $199.99
+//   Google   one.google.com/about/ai-premium  AI Plus $4.99, AI Pro $19.99, AI Ultra 5x $99.99, AI Ultra 20x $199.99
 // API prices come from src/llm_prices.json (updated daily), injected by build.py as T.prices.
 
 import { T, tr } from './common.js';
@@ -21,7 +21,7 @@ const PROVIDERS = [
   { name: 'Claude', models: [['claude-sonnet-5-5', 'Claude Sonnet 5.5', 1.3], ['claude-haiku-4-5', 'Claude Haiku 4.5', 1.05]],
     plans: [['Pro', 20], ['Max 5×', 100], ['Max 20×', 200]], main: 0 },
   { name: 'Gemini', models: [['gemini-3-1-pro', 'Gemini 3.1 Pro', 0.95], ['gemini-3-8-flash', 'Gemini 3.8 Flash', 0.95]],
-    plans: [['AI Plus', 7.99], ['AI Pro', 19.99], ['AI Ultra 5×', 99.99], ['AI Ultra 20×', 199.99]], main: 1, prefix: 'Google ' },
+    plans: [['AI Plus', 4.99], ['AI Pro', 19.99], ['AI Ultra 5×', 99.99], ['AI Ultra 20×', 199.99]], main: 1, prefix: 'Google ' },
 ];
 
 const $ = id => document.getElementById(id);
