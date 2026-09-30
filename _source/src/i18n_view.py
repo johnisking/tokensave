@@ -255,6 +255,11 @@ _V = {
 assert all(len(v) == len(_K) for v in _V.values())
 VIEW = {tag: dict(zip(_K, vals)) for tag, vals in _V.items()}
 
-KEYS = ("viewTok", "viewTokNote", "viewTokMore", "viewTokWait", "shareLink", "shareTip", "tShareCopied", "tShareLong")
+# Label of the 4th provider tab (DeepSeek, Grok, Mistral, Qwen, Kimi)
+OTHERS = {'en': 'Others', 'ko': '기타', 'ja': 'その他', 'zh-CN': '其他', 'zh-TW': '其他', 'es': 'Otros', 'pt': 'Outros', 'fr': 'Autres', 'de': 'Weitere', 'it': 'Altri', 'ru': 'Другие', 'uk': 'Інші', 'tr': 'Diğer', 'ar': 'أخرى', 'fa': 'سایر', 'hi': 'अन्य', 'id': 'Lainnya', 'vi': 'Khác', 'th': 'อื่นๆ', 'pl': 'Inne', 'nl': 'Overige', 'bn': 'অন্যান্য', 'ur': 'دیگر', 'fil': 'Iba pa', 'cs': 'Další', 'sv': 'Övriga', 'he': 'אחרים', 'el': 'Άλλα', 'ro': 'Altele', 'hu': 'Egyéb', 'da': 'Andre', 'fi': 'Muut', 'no': 'Andre', 'sk': 'Ďalšie', 'mr': 'इतर', 'gu': 'અન્ય', 'kn': 'ಇತರೆ', 'ml': 'മറ്റുള്ളവ', 'ta': 'மற்றவை', 'te': 'ఇతరాలు', 'pa': 'ਹੋਰ'}
+for _t, _v in OTHERS.items():
+    VIEW[_t]["others"] = _v
+
+KEYS = ("others", "viewTok", "viewTokNote", "viewTokMore", "viewTokWait", "shareLink", "shareTip", "tShareCopied", "tShareLong")
 assert all(set(v) == set(KEYS) for v in VIEW.values())
 assert all("{n}" in v["viewTokMore"] for v in VIEW.values())

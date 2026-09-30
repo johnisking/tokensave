@@ -12,21 +12,47 @@ import { tr } from './common.js';
 // =========================================================
 const PROVIDERS = {
   openai: [
-    { id: 'gpt-6-astra', name: 'GPT-6 Astra', in: 10.00, out: 50.00, ratio: 1.00, exact: false },
-    { id: 'gpt-6-1-sol', name: 'GPT-6.1 Sol', in: 2.00,  out: 10.00, ratio: 1.00, exact: false },
-    { id: 'gpt-6-sol',   name: 'GPT-6 Sol',   in: 2.00,  out: 10.00, ratio: 1.00, exact: false },
-    { id: 'gpt-6-luna',  name: 'GPT-6 Luna',  in: 0.10,  out: 0.50,  ratio: 1.00, exact: false },
-    { id: 'gpt-4o',      name: 'GPT-4o',      in: 2.50,  out: 10.00, ratio: 1.00, exact: true  },
+    { id: 'gpt-6-astra',  name: 'GPT-6 Astra',   in: 10.00, out: 50.00, ratio: 1.00, exact: false },
+    { id: 'gpt-6-1-sol',  name: 'GPT-6.1 Sol',   in: 2.00,  out: 10.00, ratio: 1.00, exact: false },
+    { id: 'gpt-6-sol',    name: 'GPT-6 Sol',     in: 2.00,  out: 10.00, ratio: 1.00, exact: false },
+    { id: 'gpt-6-luna',   name: 'GPT-6 Luna',    in: 0.10,  out: 0.50,  ratio: 1.00, exact: false },
+    { id: 'gpt-5-6',      name: 'GPT-5.6',       in: 4.00,  out: 20.00, ratio: 1.00, exact: false },
+    { id: 'gpt-5-5',      name: 'GPT-5.5',       in: 5.00,  out: 30.00, ratio: 1.00, exact: false },
+    { id: 'gpt-5-4-mini', name: 'GPT-5.4 mini',  in: 0.75,  out: 4.50,  ratio: 1.00, exact: false },
+    { id: 'gpt-5-mini',   name: 'GPT-5 mini',    in: 0.25,  out: 2.00,  ratio: 1.00, exact: true  },
+    { id: 'gpt-5-nano',   name: 'GPT-5 nano',    in: 0.05,  out: 0.40,  ratio: 1.00, exact: true  },
+    { id: 'gpt-4-1',      name: 'GPT-4.1',       in: 2.00,  out: 8.00,  ratio: 1.00, exact: true  },
+    { id: 'gpt-4-1-mini', name: 'GPT-4.1 mini',  in: 0.40,  out: 1.60,  ratio: 1.00, exact: true  },
+    { id: 'gpt-4o',       name: 'GPT-4o',        in: 2.50,  out: 10.00, ratio: 1.00, exact: true  },
+    { id: 'gpt-4o-mini',  name: 'GPT-4o mini',   in: 0.15,  out: 0.60,  ratio: 1.00, exact: true  },
   ],
   claude: [
     // Claude 4.7+ uses a newer tokenizer (~30% more tokens for the same text)
-    { id: 'claude-opus-5-5',   name: 'Claude Opus 5.5',   in: 4.00, out: 20.00, ratio: 1.30 },
-    { id: 'claude-sonnet-5-5', name: 'Claude Sonnet 5.5', in: 2.00, out: 10.00, ratio: 1.30 },
-    { id: 'claude-haiku-4-5',  name: 'Claude Haiku 4.5',  in: 1.00, out: 5.00,  ratio: 1.05 },
+    { id: 'claude-fable-5-1',  name: 'Claude Fable 5.1',  in: 10.00, out: 50.00, ratio: 1.30 },
+    { id: 'claude-opus-5-5',   name: 'Claude Opus 5.5',   in: 4.00,  out: 20.00, ratio: 1.30 },
+    { id: 'claude-sonnet-5-5', name: 'Claude Sonnet 5.5', in: 2.00,  out: 10.00, ratio: 1.30 },
+    { id: 'claude-haiku-4-5',  name: 'Claude Haiku 4.5',  in: 1.00,  out: 5.00,  ratio: 1.05 },
   ],
   gemini: [
-    { id: 'gemini-3-1-pro',   name: 'Gemini 3.1 Pro',   in: 2.00, out: 12.00, ratio: 0.95 },
-    { id: 'gemini-3-8-flash', name: 'Gemini 3.8 Flash', in: 0.75, out: 3.75,  ratio: 0.95 },
+    { id: 'gemini-3-1-pro',        name: 'Gemini 3.1 Pro',        in: 2.00, out: 12.00, ratio: 0.95 },
+    { id: 'gemini-3-8-flash',      name: 'Gemini 3.8 Flash',      in: 0.75, out: 3.75,  ratio: 0.95 },
+    { id: 'gemini-3-5-flash-lite', name: 'Gemini 3.5 Flash-Lite', in: 0.30, out: 2.50,  ratio: 0.95 },
+    { id: 'gemini-3-1-flash-lite', name: 'Gemini 3.1 Flash-Lite', in: 0.25, out: 1.50,  ratio: 0.95 },
+  ],
+  // Other providers: their tokenizers are not o200k, so counts are estimates
+  other: [
+    { id: 'deepseek-v4-pro',    group: 'DeepSeek', name: 'DeepSeek V4 Pro',    in: 1.32, out: 3.96,  ratio: 1.00 },
+    { id: 'deepseek-v4-flash',  group: 'DeepSeek', name: 'DeepSeek V4 Flash',  in: 0.30, out: 1.20,  ratio: 1.00 },
+    { id: 'grok-4-7',           group: 'xAI',      name: 'Grok 4.7',           in: 2.00, out: 6.00,  ratio: 1.00 },
+    { id: 'grok-4-20',          group: 'xAI',      name: 'Grok 4.20',          in: 1.25, out: 2.50,  ratio: 1.00 },
+    { id: 'grok-code-fast-1',   group: 'xAI',      name: 'Grok Code Fast 1',   in: 1.00, out: 2.00,  ratio: 1.00 },
+    { id: 'mistral-medium-3-5', group: 'Mistral',  name: 'Mistral Medium 3.5', in: 1.50, out: 7.50,  ratio: 1.05 },
+    { id: 'mistral-large-3',    group: 'Mistral',  name: 'Mistral Large 3',    in: 0.50, out: 1.50,  ratio: 1.05 },
+    { id: 'mistral-small',      group: 'Mistral',  name: 'Mistral Small',      in: 0.15, out: 0.60,  ratio: 1.05 },
+    { id: 'qwen3-8-max',        group: 'Qwen',     name: 'Qwen 3.8 Max',       in: 2.00, out: 6.00,  ratio: 1.00 },
+    { id: 'qwen3-8-flash',      group: 'Qwen',     name: 'Qwen 3.8 Flash',     in: 0.15, out: 0.47,  ratio: 1.00 },
+    { id: 'kimi-k3',            group: 'Moonshot', name: 'Kimi K3',            in: 3.00, out: 15.00, ratio: 1.00 },
+    { id: 'kimi-k2-6',          group: 'Moonshot', name: 'Kimi K2.6',          in: 0.95, out: 4.00,  ratio: 1.00 },
   ],
 };
 // Latest prices from src/llm_prices.json (refreshed daily by GitHub Actions), injected by build.py
@@ -349,7 +375,11 @@ function toast(msg, ms = 1800) {
 // 6) Events
 // =========================================================
 function fillModels() {
-  els.select.innerHTML = PROVIDERS[provider].map(m => `<option value="${m.id}">${m.name}</option>`).join('');
+  const list = PROVIDERS[provider], groups = [...new Set(list.map(m => m.group).filter(Boolean))];
+  const opt = m => `<option value="${m.id}">${m.name}</option>`;
+  els.select.innerHTML = groups.length
+    ? groups.map(g => `<optgroup label="${g}">${list.filter(m => m.group === g).map(opt).join('')}</optgroup>`).join('')
+    : list.map(opt).join('');
   model = PROVIDERS[provider][0];
 }
 

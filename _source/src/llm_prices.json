@@ -1,5 +1,5 @@
 {
-  "checked": "2026-09-30",
+  "checked": "2026-10-01",
   "source": "https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json",
   "models": {
     "gpt-6-astra": {
@@ -51,6 +51,121 @@
       "in": 0.75,
       "out": 3.75,
       "key": "gemini-3.8-flash"
+    },
+    "gpt-5-6": {
+      "in": 4.0,
+      "out": 20.0,
+      "key": "gpt-5.6"
+    },
+    "gpt-5-5": {
+      "in": 5.0,
+      "out": 30.0,
+      "key": "gpt-5.5"
+    },
+    "gpt-5-4-mini": {
+      "in": 0.75,
+      "out": 4.5,
+      "key": "gpt-5.4-mini"
+    },
+    "gpt-5-mini": {
+      "in": 0.25,
+      "out": 2.0,
+      "key": "gpt-5-mini"
+    },
+    "gpt-5-nano": {
+      "in": 0.05,
+      "out": 0.4,
+      "key": "gpt-5-nano"
+    },
+    "gpt-4-1": {
+      "in": 2.0,
+      "out": 8.0,
+      "key": "gpt-4.1"
+    },
+    "gpt-4-1-mini": {
+      "in": 0.4,
+      "out": 1.6,
+      "key": "gpt-4.1-mini"
+    },
+    "gpt-4o-mini": {
+      "in": 0.15,
+      "out": 0.6,
+      "key": "gpt-4o-mini"
+    },
+    "claude-fable-5-1": {
+      "in": 10.0,
+      "out": 50.0,
+      "key": "claude-fable-5-1"
+    },
+    "gemini-3-5-flash-lite": {
+      "in": 0.3,
+      "out": 2.5,
+      "key": "gemini/gemini-3.5-flash-lite"
+    },
+    "gemini-3-1-flash-lite": {
+      "in": 0.25,
+      "out": 1.5,
+      "key": "gemini/gemini-3.1-flash-lite"
+    },
+    "deepseek-v4-pro": {
+      "in": 1.32,
+      "out": 3.96,
+      "key": "deepseek/deepseek-v4-pro"
+    },
+    "deepseek-v4-flash": {
+      "in": 0.3,
+      "out": 1.2,
+      "key": "deepseek/deepseek-v4-flash"
+    },
+    "grok-4-7": {
+      "in": 2.0,
+      "out": 6.0,
+      "key": "xai/grok-4.7"
+    },
+    "grok-4-20": {
+      "in": 1.25,
+      "out": 2.5,
+      "key": "xai/grok-4.20"
+    },
+    "grok-code-fast-1": {
+      "in": 1.0,
+      "out": 2.0,
+      "key": "xai/grok-code-fast-1"
+    },
+    "mistral-medium-3-5": {
+      "in": 1.5,
+      "out": 7.5,
+      "key": "mistral/mistral-medium-3.5"
+    },
+    "mistral-large-3": {
+      "in": 0.5,
+      "out": 1.5,
+      "key": "mistral/mistral-large-3"
+    },
+    "mistral-small": {
+      "in": 0.15,
+      "out": 0.6,
+      "key": "mistral/mistral-small-latest"
+    },
+    "qwen3-8-max": {
+      "in": 2.0,
+      "out": 6.0,
+      "key": "dashscope/qwen3.8-max"
+    },
+    "qwen3-8-flash": {
+      "in": 0.15,
+      "out": 0.47,
+      "key": "dashscope/qwen3.8-flash"
+    },
+    "kimi-k3": {
+      "in": 3.0,
+      "out": 15.0,
+      "key": "moonshot/kimi-k3"
+    },
+    "kimi-k2-6": {
+      "in": 0.95,
+      "out": 4.0,
+      "key": "moonshot/kimi-k2.6"
     }
   },
   "seen": [
