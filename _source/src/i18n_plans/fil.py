@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+# Subscription vs API page — Filipino.
+P = dict(
+    h1="Subscription o API?",
+    sub="Sulit ba ang ChatGPT Plus, Claude Pro o Google AI Pro sa paraan ng paggamit mo ng AI, o mas mura ang API?",
+    badge="Presyo ng plan sinuri noong Oktubre 2026 · Presyo ng API ina-update araw-araw",
+    usage="Paano mo ginagamit ang AI",
+    msgs="Mensahe bawat araw",
+    size="Haba ng mensahe",
+    sizeShort="Maiikling tanong",
+    sizeChat="Karaniwang chat",
+    sizeLong="Mahahabang dokumento",
+    turns="Mensahe bawat usapan",
+    lang="Wikang ginagamit mo sa pagsulat",
+    tokMonth="Tokens bawat buwan",
+    inTok="Input",
+    outTok="Output",
+    apiLabel="API",
+    perMonth="/ buwan",
+    cheaperApi="Mas mura ang API nang {d} kada buwan",
+    cheaperPlan="Mas mura ang {plan} nang {d} kada buwan",
+    breakEven="Mas mahal ang API kaysa sa {plan} kapag lumampas sa mga {n} mensahe bawat araw.",
+    langNote="Ang {lang} ay nangangailangan ng mga {x}× na tokens kumpara sa English, kaya bawat presyo ng API dito ay {x}× na mas mataas.",
+    note="Binibilang ng gastos sa API ang buong usapan: bawat bagong mensahe ay muling ipinapadala ang mga nauna, kaya mas mahal ang mahahabang chat. Mapapababa ito ng prompt caching. May kasamang apps, image tools at memory ang subscriptions, pero may limitasyon sa paggamit.",
+    f1="Ang presyo ng plan ay opisyal na buwanang presyo sa US, sinuri noong Oktubre 1, 2026. Maaaring iba ang buwis at lokal na presyo.",
+    f2="Ang presyo ng API ay mula sa mga pampublikong listahan ng presyo at ina-update araw-araw. Laging tingnan ang page ng provider bago magdesisyon.",
+    q1="Mas mura ba ang ChatGPT Plus kaysa sa API?",
+    a1="Sa magaang paggamit, kadalasan hindi: ilang dosenang maiikling mensahe bawat araw ay ilang dolyar lang kada buwan sa API. Sa mabigat na araw-araw na paggamit na may mahahabang chat, madalas mas mura ang $20 na plan. Ilagay ang sarili mong paggamit sa itaas para makita kung saan ka.",
+    q2="Bakit mas mahal ang mahahabang usapan sa API?",
+    a2="Walang naaalala ang mga chat model. Bawat bagong mensahe ay ipinapadala muli ang buong usapan bilang input, kaya mas mahal nang malaki ang ika-10 mensahe ng chat kaysa sa una. Itinatago ng subscriptions ang gastos na ito sa likod ng mga limitasyon sa paggamit.",
+    q3="Nagbabago ba ang gastos depende sa wika ko?",
+    a3="Oo. Ang parehong teksto sa Korean, Hindi o Greek ay nangangailangan ng mas maraming tokens kaysa sa English, kaya tumataas ang gastos sa API sa parehong proporsyon. Pareho ang presyo ng subscriptions, pero mas mabilis mong maaabot ang limitasyon nila.",
+    more="Paano namin sinukat",
+)
+NAV = "Plan vs API"
+META = ("ChatGPT Plus o API? Cost calculator", "Sulit ba ang ChatGPT Plus, Claude Pro o Google AI Pro, o mas mura ang API?")

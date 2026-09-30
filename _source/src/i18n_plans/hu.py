@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+# Subscription vs API page — Hungarian.
+P = dict(
+    h1="Előfizetés vagy API?",
+    sub="Megéri a ChatGPT Plus, a Claude Pro vagy a Google AI Pro ahhoz, ahogyan az AI-t használod, vagy olcsóbb lenne az API?",
+    badge="Csomagárak ellenőrizve: 2026. október · API-árak naponta frissülnek",
+    usage="Hogyan használod az AI-t",
+    msgs="Üzenetek naponta",
+    size="Üzenet mérete",
+    sizeShort="Rövid kérdések",
+    sizeChat="Normál csevegés",
+    sizeLong="Hosszú dokumentumok",
+    turns="Üzenetek beszélgetésenként",
+    lang="A nyelv, amelyen írsz",
+    tokMonth="Token havonta",
+    inTok="Bemenet",
+    outTok="Kimenet",
+    apiLabel="API",
+    perMonth="/ hó",
+    cheaperApi="Az API havonta {d}-ral olcsóbb",
+    cheaperPlan="A(z) {plan} havonta {d}-ral olcsóbb",
+    breakEven="Napi kb. {n} üzenet felett az API többe kerül, mint a(z) {plan}.",
+    langNote="A(z) {lang} nyelv nagyjából {x}× annyi tokent igényel, mint az angol, ezért itt minden API-ár {x}× magasabb.",
+    note="Az API-költség a teljes beszélgetést számolja: minden új üzenet újraküldi a korábbiakat, így a hosszú csevegések többe kerülnek. A prompt caching ezt csökkentheti. Az előfizetések alkalmazásokat, képeszközöket és memóriát is adnak, de használati korlátaik vannak.",
+    f1="A csomagárak a hivatalos US havidíjak, 2026. október 1-jén ellenőrizve. Az adók és a helyi árak eltérhetnek.",
+    f2="Az API-árak nyilvános árlistákból származnak, és naponta frissülnek. Döntés előtt mindig nézd meg a szolgáltató oldalát.",
+    q1="Olcsóbb a ChatGPT Plus, mint az API?",
+    a1="Kis használatnál általában nem: napi néhány tucat rövid üzenet az API-n havonta csak pár dollár. Hosszú csevegésekkel járó, intenzív napi használatnál viszont a $20-os csomag gyakran olcsóbb. Add meg fent a saját használatodat, és meglátod, hol tartasz.",
+    q2="Miért drágábbak a hosszú beszélgetések az API-n?",
+    a2="A csevegőmodellek nem emlékeznek semmire a kérések között. Minden új üzenet a teljes beszélgetést újra elküldi bemenetként, így egy csevegés 10. üzenete sokkal többe kerül, mint az első. Az előfizetések ezt a költséget a használati korlátok mögé rejtik.",
+    q3="Befolyásolja a nyelvem a költséget?",
+    a3="Igen. Ugyanaz a szöveg koreaiul, hindiül vagy görögül több tokent igényel, mint angolul, így az API-költség is ugyanilyen arányban nő. Az előfizetés ára ugyanaz, de hamarabb eléred a használati korlátait.",
+    more="Így mértük",
+)
+NAV = "Csomag vs API"
+META = ("ChatGPT Plus vagy API? Költségkalkulátor", "Megéri a ChatGPT Plus, Claude Pro vagy Google AI Pro, vagy olcsóbb az API?")

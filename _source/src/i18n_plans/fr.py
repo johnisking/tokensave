@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+# Subscription vs API page — fr strings (translated from en.py).
+P = dict(
+    h1='Abonnement ou API ?',
+    sub='ChatGPT Plus, Claude Pro ou Google AI Pro valent-ils le coup pour votre usage de l’IA, ou l’API vous coûterait-elle moins cher ?',
+    badge='Prix des abonnements vérifiés en octobre 2026 · Prix de l’API mis à jour chaque jour',
+    usage='Votre usage de l’IA',
+    msgs='Messages par jour',
+    size='Taille des messages',
+    sizeShort='Questions courtes',
+    sizeChat='Discussion normale',
+    sizeLong='Documents longs',
+    turns='Messages par conversation',
+    lang='Langue dans laquelle vous écrivez',
+    tokMonth='Tokens par mois',
+    inTok='Entrée',
+    outTok='Sortie',
+    apiLabel='API',
+    perMonth='/ mois',
+    cheaperApi='L’API est moins chère de {d} par mois',
+    cheaperPlan='{plan} est moins cher de {d} par mois',
+    breakEven='L’API coûte plus cher que {plan} au-delà d’environ {n} messages par jour.',
+    langNote='Le {lang} demande environ {x}× plus de tokens que l’anglais : tous les prix de l’API affichés ici sont donc {x}× plus élevés.',
+    note='Le coût de l’API porte sur toute la conversation : chaque nouveau message renvoie les précédents, donc les longues discussions coûtent plus cher. La mise en cache des prompts peut réduire ce coût. Les abonnements incluent des applis, des outils d’image et la mémoire, mais ont des limites d’utilisation.',
+    f1='Les prix des abonnements sont les tarifs mensuels officiels aux États-Unis (US), vérifiés le 1er octobre 2026. Taxes et prix locaux variables.',
+    f2='Les prix de l’API proviennent de grilles tarifaires publiques et sont mis à jour chaque jour. Vérifiez toujours la page du fournisseur avant de décider.',
+    q1='ChatGPT Plus est-il moins cher que l’API ?',
+    a1='Pour un usage léger, généralement non : quelques dizaines de messages courts par jour coûtent quelques dollars par mois via l’API. Pour un usage quotidien intensif avec de longues discussions, l’abonnement à $20 est souvent moins cher. Indiquez votre usage ci-dessus pour savoir où vous en êtes.',
+    q2='Pourquoi les longues conversations coûtent-elles plus cher avec l’API ?',
+    a2='Les modèles de chat sont sans état. Chaque nouveau message renvoie toute la conversation en entrée : le 10e message d’une discussion coûte donc bien plus que le premier. Les abonnements masquent ce coût derrière leurs limites d’utilisation.',
+    q3='Ma langue change-t-elle le coût ?',
+    a3='Oui. Le même texte en coréen, en hindi ou en grec demande plus de tokens qu’en anglais, donc le coût de l’API augmente d’autant. Les abonnements coûtent le même prix, mais vous atteignez leurs limites plus vite.',
+    more='Notre méthode',
+)
+NAV = 'Abo vs API'
+META = ('ChatGPT Plus ou API ? Calculez le coût', 'ChatGPT Plus, Claude Pro ou Google AI Pro : rentable, ou l’API coûte moins ?')

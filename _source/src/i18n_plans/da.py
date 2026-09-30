@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+# Subscription vs API page — Danish.
+P = dict(
+    h1="Abonnement eller API?",
+    sub="Er ChatGPT Plus, Claude Pro eller Google AI Pro pengene værd til den måde, du bruger AI på, eller bliver API'et billigere?",
+    badge="Abonnementspriser tjekket oktober 2026 · API-priser opdateres dagligt",
+    usage="Sådan bruger du AI",
+    msgs="Beskeder pr. dag",
+    size="Beskedens længde",
+    sizeShort="Korte spørgsmål",
+    sizeChat="Almindelig chat",
+    sizeLong="Lange dokumenter",
+    turns="Beskeder pr. samtale",
+    lang="Sproget, du skriver på",
+    tokMonth="Tokens pr. måned",
+    inTok="Input",
+    outTok="Output",
+    apiLabel="API",
+    perMonth="/ måned",
+    cheaperApi="API'et er {d} billigere om måneden",
+    cheaperPlan="{plan} er {d} billigere om måneden",
+    breakEven="Over cirka {n} beskeder om dagen koster API'et mere end {plan}.",
+    langNote="{lang} kræver cirka {x}× så mange tokens som engelsk, så alle API-priser her er {x}× højere.",
+    note="API-prisen tæller hele samtalen med: hver ny besked sender de tidligere med igen, så lange chats koster mere. Prompt caching kan sænke prisen. Abonnementer giver apps, billedværktøjer og hukommelse, men har forbrugsgrænser.",
+    f1="Abonnementspriserne er officielle månedspriser i US, tjekket 1. oktober 2026. Skatter og lokale priser varierer.",
+    f2="API-priserne kommer fra offentlige prislister og opdateres dagligt. Tjek altid udbyderens side, før du beslutter dig.",
+    q1="Er ChatGPT Plus billigere end API'et?",
+    a1="Ved let brug som regel ikke: et par dusin korte beskeder om dagen koster få dollars om måneden via API'et. Ved tung daglig brug med lange chats er abonnementet til $20 ofte billigere. Indtast dit eget forbrug ovenfor for at se, hvor du ligger.",
+    q2="Hvorfor koster lange samtaler mere via API'et?",
+    a2="Chatmodeller husker ikke noget mellem kaldene. Hver ny besked sender hele samtalen igen som input, så den 10. besked i en chat koster langt mere end den første. Abonnementer skjuler denne omkostning bag forbrugsgrænser.",
+    q3="Påvirker mit sprog prisen?",
+    a3="Ja. Den samme tekst på koreansk, hindi eller græsk kræver flere tokens end på engelsk, så API-omkostningerne stiger med samme faktor. Abonnementer koster det samme, men du rammer deres forbrugsgrænser hurtigere.",
+    more="Sådan målte vi",
+)
+NAV = "Plan eller API"
+META = ("ChatGPT Plus eller API? Prisberegner", "Er ChatGPT Plus, Claude Pro eller Google AI Pro det værd, eller er API billigst?")

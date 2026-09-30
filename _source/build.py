@@ -18,6 +18,7 @@ from i18n_site import SITE
 from seo_meta import META
 from blog_meta import BLOG, BLOG_DATE
 from i18n_view import MORE_LANGS
+from i18n_plans_all import PL, PNAV, PMETA
 LLM = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "src", "llm_prices.json"), encoding="utf-8"))
 
 # ---------------------------------------------------------------- settings
@@ -35,7 +36,7 @@ VERIFY = {
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC, DIST, TW = os.path.join(ROOT, "src"), os.path.join(ROOT, "dist"), os.path.join(ROOT, "tw")
-JS_FILES = ["common.js", "token.js", "video.js", "image.js"]
+JS_FILES = ["common.js", "token.js", "video.js", "image.js", "plans.js"]
 DEV_POST = "https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m"
 BLOG_BY_TAG = {b["tag"]: b for b in BLOG}
 MORE_CLS = "inline-block whitespace-nowrap font-semibold text-amber-300 underline underline-offset-2 decoration-amber-400/40 hover:text-white"
@@ -51,6 +52,9 @@ SHARED = ["badge", "res", "model", "total", "na", "cheapest", "srcOfficial", "sr
 IMG = {tag: {**{k: V[tag][k] for k in SHARED}, **{k: v for k, v in I[tag].items() if k != "navImage"}} for tag in I}
 for tag in I:
     NAV[tag]["navImage"] = I[tag]["navImage"]
+for tag in PL:
+    NAV[tag]["navPlans"] = PNAV[tag]
+    META.setdefault("plans", {})[tag] = PMETA[tag]
 
 TOOLS = [
     dict(key="token", nav="navToken", body="token_body.html", strings=S, script="token.js",
@@ -66,6 +70,9 @@ TOOLS = [
     dict(key="image", nav="navImage", body="image_body.html", strings=IMG, script="image.js",
          file="image.html", page="image", og="og-image.jpg",
          runtime=["na", "cheapest", "srcOfficial", "srcRunway"]),
+    dict(key="plans", nav="navPlans", body="plans_body.html", strings=PL, script="plans.js",
+         file="plans.html", page="plans", og="og-token.jpg",
+         runtime=["apiLabel", "perMonth", "cheaperApi", "cheaperPlan", "breakEven", "langNote"]),
 ]
 
 # English-only site pages (not in the tool menu)
@@ -138,6 +145,9 @@ def languages_html():
             '      <p class="mt-3 text-sm text-zinc-400">Pick your language to open the token counter in it. The number is how many GPT tokens '
             'the same text needs compared with English (o200k tokenizer, GPT-4o and later). Tap “Details” to read how it was measured.</p>\n'
             + "\n".join(parts) + '\n    </section>')
+
+_LD = json.load(open(os.path.join(ROOT, "blog_data", "langdata.json"), encoding="utf-8"))
+LANG_RATIOS = sorted(([tag, nat, _LD[tag]["ro"]] for _, tag, nat, _, _ in LANGS), key=lambda x: x[2])
 
 def path_for(slug, tool):
     return (f"/{slug}/" if slug else "/") + tool["page"]
@@ -238,6 +248,10 @@ def build():
                     {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": url_for(slug, TOOLS[0])},
                     {"@type": "ListItem", "position": 2, "name": s["h1"], "item": url}]})
             runtime = {k: s[k] for k in tool["runtime"]}
+            if tool["key"] == "plans":
+                runtime["prices"] = {k: {"in": v["in"], "out": v["out"]} for k, v in LLM["models"].items()}
+                runtime["pageTag"] = tag
+                runtime["langs"] = LANG_RATIOS
             if tool["key"] == "token":
                 runtime["prices"] = {k: {"in": v["in"], "out": v["out"], "ctx": v.get("ctx")} for k, v in LLM["models"].items()}
             runtime["viewIn"] = VIEW_IN

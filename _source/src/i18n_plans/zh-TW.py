@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+# Subscription vs API page — zh-TW strings (translated from en.py).
+P = dict(
+    h1='訂閱還是 API？',
+    sub='依你使用 AI 的方式，ChatGPT Plus、Claude Pro 或 Google AI Pro 值得訂閱嗎？還是 API 更便宜？',
+    badge='方案價格查核於 2026 年 10 月 · API 價格每日更新',
+    usage='你如何使用 AI',
+    msgs='每天訊息數',
+    size='訊息長度',
+    sizeShort='簡短提問',
+    sizeChat='一般聊天',
+    sizeLong='長篇文件',
+    turns='每段對話的訊息數',
+    lang='你使用的語言',
+    tokMonth='每月 Token 數',
+    inTok='輸入',
+    outTok='輸出',
+    apiLabel='API',
+    perMonth='/ 月',
+    cheaperApi='API 每月便宜 {d}',
+    cheaperPlan='{plan} 每月便宜 {d}',
+    breakEven='每天超過約 {n} 則訊息時，API 的費用會高於 {plan}。',
+    langNote='{lang}所需的 Token 約為英文的 {x} 倍，因此這裡所有 API 價格都要高 {x} 倍。',
+    note='API 費用以整段對話計算：每則新訊息都會重新傳送先前的內容，所以對話越長越貴。提示快取可以降低這部分費用。訂閱包含應用程式、圖像工具和記憶功能，但有使用上限。',
+    f1='方案價格為美國官方月費，查核於 2026 年 10 月 1 日。稅費與各地價格可能不同。',
+    f2='API 價格來自公開價目表，每日更新。做決定前請務必查看服務商的官方頁面。',
+    q1='ChatGPT Plus 比 API 便宜嗎？',
+    a1='輕度使用時通常不會：每天幾十則簡短訊息，用 API 每月只要幾美元。如果每天大量使用且對話很長，$20 的方案往往更划算。在上方輸入你的用量，看看自己屬於哪種情況。',
+    q2='為什麼長對話在 API 上比較貴？',
+    a2='聊天模型是無狀態的。每傳送一則新訊息，整段對話都會作為輸入重新傳送，所以對話中的第 10 則訊息比第 1 則貴得多。訂閱則把這部分成本藏在使用上限背後。',
+    q3='我使用的語言會影響費用嗎？',
+    a3='會。同樣的內容，用韓文、印地文或希臘文寫需要比英文更多的 Token，API 費用也會按同樣的倍數上漲。訂閱價格不變，但你會更快用完使用上限。',
+    more='測量方法',
+)
+NAV = '訂閱 vs API'
+META = ('ChatGPT Plus 還是 API？費用計算機', 'ChatGPT Plus、Claude Pro、Google AI Pro 值得訂閱，還是 API 更便宜？')

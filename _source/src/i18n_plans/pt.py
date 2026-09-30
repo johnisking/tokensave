@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+# Subscription vs API page — pt strings (translated from en.py).
+P = dict(
+    h1='Assinatura ou API?',
+    sub='Vale a pena assinar ChatGPT Plus, Claude Pro ou Google AI Pro para o seu uso de IA, ou a API sairia mais barata?',
+    badge='Preços dos planos verificados em outubro de 2026 · Preços da API atualizados diariamente',
+    usage='Como você usa a IA',
+    msgs='Mensagens por dia',
+    size='Tamanho da mensagem',
+    sizeShort='Perguntas curtas',
+    sizeChat='Conversa normal',
+    sizeLong='Documentos longos',
+    turns='Mensagens por conversa',
+    lang='Idioma em que você escreve',
+    tokMonth='Tokens por mês',
+    inTok='Entrada',
+    outTok='Saída',
+    apiLabel='API',
+    perMonth='/ mês',
+    cheaperApi='A API é {d} mais barata por mês',
+    cheaperPlan='{plan} é {d} mais barato por mês',
+    breakEven='A API custa mais que o {plan} acima de cerca de {n} mensagens por dia.',
+    langNote='O {lang} precisa de cerca de {x}× os tokens do inglês, então todos os preços da API aqui ficam {x}× mais altos.',
+    note='O custo da API considera a conversa inteira: cada nova mensagem reenvia as anteriores, então conversas longas custam mais. O cache de prompts pode reduzir isso. As assinaturas incluem apps, ferramentas de imagem e memória, mas têm limites de uso.',
+    f1='Os preços dos planos são os preços mensais oficiais nos EUA, verificados em 1º de outubro de 2026. Impostos e preços locais variam.',
+    f2='Os preços da API vêm de tabelas de preços públicas e são atualizados diariamente. Sempre confira a página do provedor antes de decidir.',
+    q1='O ChatGPT Plus é mais barato que a API?',
+    a1='Para uso leve, geralmente não: algumas dezenas de mensagens curtas por dia custam poucos dólares por mês na API. Para uso intenso diário com conversas longas, o plano de $20 costuma sair mais barato. Informe seu uso acima para ver onde você se encaixa.',
+    q2='Por que conversas longas custam mais na API?',
+    a2='Os modelos de chat não guardam estado. Cada nova mensagem envia a conversa inteira de novo como entrada, então a 10ª mensagem de um chat custa muito mais que a primeira. As assinaturas escondem esse custo atrás dos limites de uso.',
+    q3='O idioma muda o custo?',
+    a3='Sim. O mesmo texto em coreano, hindi ou grego precisa de mais tokens do que em inglês, então o custo da API sobe na mesma proporção. As assinaturas custam o mesmo, mas você atinge os limites de uso mais cedo.',
+    more='Como medimos',
+)
+NAV = 'Plano vs API'
+META = ('ChatGPT Plus ou API? Calcule o custo', 'Vale a pena ChatGPT Plus, Claude Pro ou Google AI Pro, ou a API é mais barata?')

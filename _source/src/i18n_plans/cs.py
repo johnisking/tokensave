@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+# Subscription vs API page — Czech.
+P = dict(
+    h1="Předplatné, nebo API?",
+    sub="Vyplatí se vám ChatGPT Plus, Claude Pro nebo Google AI Pro při vašem způsobu práce s AI, nebo vyjde levněji API?",
+    badge="Ceny tarifů ověřeny v říjnu 2026 · Ceny API se aktualizují denně",
+    usage="Jak používáte AI",
+    msgs="Zpráv denně",
+    size="Délka zprávy",
+    sizeShort="Krátké dotazy",
+    sizeChat="Běžný chat",
+    sizeLong="Dlouhé dokumenty",
+    turns="Zpráv v jedné konverzaci",
+    lang="Jazyk, ve kterém píšete",
+    tokMonth="Tokeny za měsíc",
+    inTok="Vstup",
+    outTok="Výstup",
+    apiLabel="API",
+    perMonth="/ měsíc",
+    cheaperApi="API je levnější o {d} měsíčně",
+    cheaperPlan="{plan} je levnější o {d} měsíčně",
+    breakEven="Nad zhruba {n} zpráv denně vyjde API dráž než {plan}.",
+    langNote="{lang} potřebuje zhruba {x}× tolik tokenů co angličtina, takže každá cena API je zde {x}× vyšší.",
+    note="Cena API zahrnuje celou konverzaci: každá nová zpráva znovu posílá i ty předchozí, takže dlouhé chaty stojí víc. Snížit to může prompt caching. Předplatné nabízí aplikace, nástroje na obrázky a paměť, ale má limity používání.",
+    f1="Ceny tarifů jsou oficiální měsíční ceny v US, ověřené 1. října 2026. Daně a místní ceny se liší.",
+    f2="Ceny API pocházejí z veřejných ceníků a aktualizují se denně. Než se rozhodnete, vždy si ověřte stránku poskytovatele.",
+    q1="Je ChatGPT Plus levnější než API?",
+    a1="Při občasném používání většinou ne: pár desítek krátkých zpráv denně vás na API vyjde na několik dolarů měsíčně. Při intenzivním každodenním používání s dlouhými chaty bývá tarif za $20 často levnější. Zadejte nahoře své vlastní používání a uvidíte, kde jste.",
+    q2="Proč jsou dlouhé konverzace na API dražší?",
+    a2="Chatovací modely si nic nepamatují. Každá nová zpráva posílá celou konverzaci znovu jako vstup, takže 10. zpráva v chatu stojí mnohem víc než první. Předplatné tyto náklady skrývá za limity používání.",
+    q3="Mění můj jazyk cenu?",
+    a3="Ano. Stejný text v korejštině, hindštině nebo řečtině potřebuje víc tokenů než v angličtině, takže náklady na API rostou ve stejném poměru. Předplatné stojí stejně, ale jeho limity vyčerpáte dřív.",
+    more="Jak jsme měřili",
+)
+NAV = "Tarif vs API"
+META = ("ChatGPT Plus, nebo API? Kalkulačka cen", "Vyplatí se ChatGPT Plus, Claude Pro či Google AI Pro, nebo je levnější API?")

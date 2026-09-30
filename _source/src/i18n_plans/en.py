@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+# Subscription vs API page — English source strings. Other languages: i18n_plans/<tag>.py with the same keys.
+P = dict(
+    h1="Subscription or API?",
+    sub="Is ChatGPT Plus, Claude Pro or Google AI Pro worth it for how you use AI, or would the API cost less?",
+    badge="Plan prices checked October 2026 · API prices updated daily",
+    usage="How you use AI",
+    msgs="Messages per day",
+    size="Message size",
+    sizeShort="Short questions",
+    sizeChat="Normal chat",
+    sizeLong="Long documents",
+    turns="Messages per conversation",
+    lang="Language you write in",
+    tokMonth="Tokens per month",
+    inTok="Input",
+    outTok="Output",
+    apiLabel="API",
+    perMonth="/ month",
+    cheaperApi="API is cheaper by {d} a month",
+    cheaperPlan="{plan} is cheaper by {d} a month",
+    breakEven="The API costs more than {plan} above about {n} messages a day.",
+    langNote="{lang} needs about {x}× the tokens of English, so every API price here is {x}× higher.",
+    note="API cost counts the whole conversation: every new message resends the earlier ones, so long chats cost more. Prompt caching can lower this. Subscriptions add apps, image tools and memory, but have usage limits.",
+    f1="Plan prices are official US monthly prices, checked October 1, 2026. Taxes and local prices differ.",
+    f2="API prices come from public price lists and update daily. Always check the provider's page before you decide.",
+    q1="Is ChatGPT Plus cheaper than the API?",
+    a1="For light use, usually not: a few dozen short messages a day cost a few dollars a month on the API. For heavy daily use with long chats, the $20 plan is often cheaper. Enter your own usage above to see where you are.",
+    q2="Why do long conversations cost more on the API?",
+    a2="Chat models are stateless. Each new message sends the whole conversation again as input, so the 10th message of a chat costs far more than the first. Subscriptions hide this cost behind usage limits.",
+    q3="Does my language change the cost?",
+    a3="Yes. The same text in Korean, Hindi or Greek needs more tokens than in English, so API costs rise by the same factor. Subscriptions cost the same, but you reach their usage limits sooner.",
+    more="How we measured languages",
+)
+NAV = "Plan vs API"
+META = ("ChatGPT Plus or API? Cost calculator", "Is ChatGPT Plus, Claude Pro or Google AI Pro worth it, or is the API cheaper?")

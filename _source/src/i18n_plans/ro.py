@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+# Subscription vs API page — Romanian.
+P = dict(
+    h1="Abonament sau API?",
+    sub="Merită ChatGPT Plus, Claude Pro sau Google AI Pro pentru felul în care folosești AI, sau te-ar costa mai puțin API-ul?",
+    badge="Prețuri abonamente verificate în octombrie 2026 · Prețuri API actualizate zilnic",
+    usage="Cum folosești AI",
+    msgs="Mesaje pe zi",
+    size="Lungimea mesajului",
+    sizeShort="Întrebări scurte",
+    sizeChat="Chat obișnuit",
+    sizeLong="Documente lungi",
+    turns="Mesaje pe conversație",
+    lang="Limba în care scrii",
+    tokMonth="Tokeni pe lună",
+    inTok="Intrare",
+    outTok="Ieșire",
+    apiLabel="API",
+    perMonth="/ lună",
+    cheaperApi="API-ul e mai ieftin cu {d} pe lună",
+    cheaperPlan="{plan} e mai ieftin cu {d} pe lună",
+    breakEven="Peste aproximativ {n} mesaje pe zi, API-ul costă mai mult decât {plan}.",
+    langNote="{lang} are nevoie de aproximativ {x}× tokenii din engleză, așa că fiecare preț API de aici e de {x}× mai mare.",
+    note="Costul API include toată conversația: fiecare mesaj nou retrimite mesajele anterioare, așa că discuțiile lungi costă mai mult. Prompt caching poate reduce costul. Abonamentele includ aplicații, instrumente pentru imagini și memorie, dar au limite de utilizare.",
+    f1="Prețurile abonamentelor sunt prețurile lunare oficiale din US, verificate pe 1 octombrie 2026. Taxele și prețurile locale diferă.",
+    f2="Prețurile API provin din liste de prețuri publice și se actualizează zilnic. Verifică întotdeauna pagina furnizorului înainte să decizi.",
+    q1="Este ChatGPT Plus mai ieftin decât API-ul?",
+    a1="La utilizare redusă, de obicei nu: câteva zeci de mesaje scurte pe zi costă câțiva dolari pe lună prin API. La utilizare intensă zilnică, cu discuții lungi, abonamentul de $20 e adesea mai ieftin. Introdu mai sus propria utilizare ca să vezi unde te situezi.",
+    q2="De ce costă mai mult conversațiile lungi prin API?",
+    a2="Modelele de chat nu rețin nimic între cereri. Fiecare mesaj nou trimite din nou toată conversația ca intrare, așa că al 10-lea mesaj dintr-un chat costă mult mai mult decât primul. Abonamentele ascund acest cost în spatele limitelor de utilizare.",
+    q3="Limba mea schimbă costul?",
+    a3="Da. Același text în coreeană, hindi sau greacă are nevoie de mai mulți tokeni decât în engleză, așa că costurile API cresc în aceeași proporție. Abonamentele costă la fel, dar atingi mai repede limitele de utilizare.",
+    more="Cum am măsurat",
+)
+NAV = "Abonament vs API"
+META = ("ChatGPT Plus sau API? Calculator costuri", "Merită ChatGPT Plus, Claude Pro sau Google AI Pro, ori e mai ieftin API-ul?")
