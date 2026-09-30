@@ -57,7 +57,7 @@ TOOLS = [
          runtime=["note", "exact", "based", "est", "waste", "efficient", "great", "moderate", "high",
                   "share", "tSaved", "tAlready", "tNothing", "tCopied", "tCleared",
                   "overhead", "overheadTip", "chatErr", "chatInfo",
-                  "toEn", "undo", "tDownloading", "tTranslating", "tTranslated", "tNoSupport", "tLangNA", "tFail", "tRestored", "toEnTip", "shorten", "shortenTip", "tShortened"]),
+                  "toEn", "undo", "tDownloading", "tTranslating", "tTranslated", "tNoSupport", "tLangNA", "tFail", "tRestored", "saveTok", "stepSpaces", "stepEn", "stepShort", "tSavedAll"]),
     dict(key="video", nav="navVideo", body="video_body.html", strings=V, script="video.js",
          file="video.html", page="video", og="og-video.jpg",
          runtime=["na", "noAudio", "cheapest", "srcOfficial", "srcRunway", "audioIncl", "clipNote"]),

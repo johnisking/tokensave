@@ -382,43 +382,38 @@ els.reqs.addEventListener('input', update);
 // Translate to English on the user's device (Chrome's built-in Translator API).
 // No server and no third-party service: the text never leaves the browser.
 
-// One smart button: non-English text -> "To English", English text -> "Shorten", after either -> "Original"
-let shortCache = { src: null, out: null, saved: 0, pct: 0 };
-function shortenPreview(text) {
+// "Save tokens": clean spaces -> translate to English (non-English, on-device) -> trim English filler. One undo.
+const canTranslate = 'Translator' in self;
+let saveCache = { key: null };
+function savePreview(text, e) {
   const key = model.id + '\u0000' + text;
-  if (shortCache.src !== key) {
-    const out = shortenEnglish(text);
-    const before = countTokens(text).tokens, after = countTokens(out).tokens;
-    shortCache = { src: key, out, saved: before - after, pct: before ? Math.round((before - after) / before * 100) : 0 };
+  if (saveCache.key !== key) {
+    const before = countTokens(text).tokens;
+    const clean = cleanText(text);
+    let after, foreign = e.waste >= 1.15;
+    if (foreign) after = countTokens(clean).tokens / (canTranslate ? e.waste : 1);   // translation estimated from measured overhead
+    else after = countTokens(shortenEnglish(clean)).tokens;                          // exact for English
+    const saved = Math.max(0, Math.round(before - after));
+    saveCache = { key, saved, pct: before ? Math.round(saved / before * 100) : 0 };
   }
-  return shortCache;
+  return saveCache;
 }
 
 function updateTranslateBtn(e) {
-  trBtn.dataset.act = '';
   if (original !== null) {
     trBtn.classList.remove('hidden');
     trLabel.textContent = '↩ ' + tr('undo');
     trSave.textContent = '';
-    trBtn.title = '';
     return;
   }
   const text = els.input.value;
-  if (mode === 'text' && e.waste >= 1.15) {
-    trBtn.dataset.act = 'translate';
-    trLabel.textContent = '🌐 ' + tr('toEn');
-    trSave.textContent = '−' + Math.round((1 - 1 / e.waste) * 100) + '%';
-    trBtn.title = tr('toEnTip');
-  } else if (mode === 'text' && text.trim() && text.length < 30000) {
-    const sp = shortenPreview(text);
-    if (sp.saved >= 2) {
-      trBtn.dataset.act = 'shorten';
-      trLabel.textContent = '✂ ' + tr('shorten');
-      trSave.textContent = '−' + sp.pct + '%';
-      trBtn.title = tr('shortenTip');
-    }
+  const sp = mode === 'text' && text.trim() && text.length < 30000 ? savePreview(text, e) : null;
+  const show = sp && sp.saved >= 2 && sp.pct >= 1;
+  trBtn.classList.toggle('hidden', !show);
+  if (show) {
+    trLabel.textContent = '💸 ' + tr('saveTok');
+    trSave.textContent = '−' + sp.pct + '%';
   }
-  trBtn.classList.toggle('hidden', !trBtn.dataset.act);
 }
 
 // Script-based guess, used when the browser's language detector isn't ready
@@ -444,6 +439,22 @@ async function detectLang(text) {
   return guessLang(text);
 }
 
+// On-device translation (Chrome Translator API). Returns null when not possible on this browser/language.
+async function translateToEnglish(text) {
+  if (!canTranslate) return { text: null, why: tr('tNoSupport') };
+  const sourceLanguage = await detectLang(text);
+  const opts = { sourceLanguage, targetLanguage: 'en' };
+  const avail = sourceLanguage === 'en' ? 'unavailable' : await Translator.availability(opts);
+  if (avail === 'unavailable') return { text: null, why: tr('tLangNA') };
+  const t = await withTimeout(Translator.create({
+    ...opts,
+    monitor(m) { m.addEventListener('downloadprogress', ev => toast(tr('tDownloading', { p: Math.round(ev.loaded * 100) }), 60000)); },
+  }), avail === 'available' ? 15000 : 300000);
+  const out = [];
+  for (const line of text.split('\n')) out.push(line.trim() ? await t.translate(line) : line);
+  return { text: out.join('\n') };
+}
+
 trBtn.addEventListener('click', async () => {
   if (original !== null) {
     els.input.value = original;
@@ -451,40 +462,35 @@ trBtn.addEventListener('click', async () => {
     render();
     return toast(tr('tRestored'));
   }
-  if (trBtn.dataset.act === 'shorten') {
-    const text = els.input.value, sp = shortenPreview(text);
-    original = text;
-    els.input.value = sp.out;
-    render();
-    return toast('✂ ' + tr('tShortened', { n: fmt(sp.saved), p: sp.pct }), 5000);
-  }
-  if (!('Translator' in self)) return toast(tr('tNoSupport'), 3500);
-  const text = els.input.value;
-  if (!text.trim()) return;
+  const src = els.input.value;
+  if (!src.trim()) return;
+  const before = measure().tokens;
+  const foreign = efficiency(analyze(src), src).waste >= 1.15;
+  const steps = [];
+  let t = cleanText(src), note = '';
+  if (t !== src) steps.push(tr('stepSpaces'));
   trBtn.disabled = true;
-  toast(tr('tTranslating'), 60000);
   try {
-    const sourceLanguage = await detectLang(text);
-    const opts = { sourceLanguage, targetLanguage: 'en' };
-    const avail = sourceLanguage === 'en' ? 'unavailable' : await Translator.availability(opts);
-    if (avail === 'unavailable') return toast(tr('tLangNA'), 3500);
-    const t = await withTimeout(Translator.create({
-      ...opts,
-      monitor(m) { m.addEventListener('downloadprogress', ev => toast(tr('tDownloading', { p: Math.round(ev.loaded * 100) }), 60000)); },
-    }), avail === 'available' ? 15000 : 300000);
-    const before = measure().tokens;
-    const out = [];
-    for (const line of text.split('\n')) out.push(line.trim() ? await t.translate(line) : line);
-    original = text;
-    els.input.value = out.join('\n');
-    render();
-    const saved = Math.max(0, before - measure().tokens);
-    toast('💸 ' + tr('tTranslated', { n: fmt(saved), p: before ? Math.round(saved / before * 100) : 0 }), 5000);
-  } catch (_) {
-    toast(tr('tFail'), 3500);
+    if (foreign) {
+      toast(tr('tTranslating'), 60000);
+      try {
+        const r = await translateToEnglish(t);
+        if (r.text) { t = r.text; steps.push(tr('stepEn')); } else note = r.why;
+      } catch (_) { note = tr('tFail'); }
+    }
+    if (!foreign || steps.includes(tr('stepEn'))) {
+      const s2 = cleanText(shortenEnglish(t));
+      if (s2 !== t) { t = s2; steps.push(tr('stepShort')); }
+    }
   } finally {
     trBtn.disabled = false;
   }
+  if (t === src || !steps.length) return toast(note || tr('tAlready'), 3500);
+  original = src;
+  els.input.value = t;
+  render();
+  const saved = Math.max(0, before - measure().tokens);
+  toast('💸 ' + tr('tSavedAll', { n: fmt(saved), p: before ? Math.round(saved / before * 100) : 0, steps: steps.join(' + ') }) + (note ? ' · ' + note : ''), 6000);
 });
 
 $('btnCopy').addEventListener('click', async () => {
