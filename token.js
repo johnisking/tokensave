@@ -106,8 +106,17 @@ const PENALTY = { hangul: 1.45, kana: 1.8, cjk: 1.2, cyrillic: 1.6, arabic: 1.35
 // Applied to Latin letters only when the text doesn't look like English.
 const LATIN_TAX = { id: 1.15, es: 1.18, pt: 1.21, de: 1.26, fr: 1.29, nl: 1.29, sv: 1.32, vi: 1.35, it: 1.38, tr: 1.47, fil: 1.53, pl: 1.88, cs: 2.0 };
 const EN_WORDS = /\b(the|and|to|of|is|in|that|for|you|with|are|this|it|be|on|please)\b/gi;
+// Telltale letters of Latin-script languages, used when the page language doesn't say (e.g. Polish pasted on the English page)
+const LATIN_MARKS = [['pl', /[ąęłńśźż]/gi], ['cs', /[řěůťďň]/gi], ['tr', /[ğış]/gi], ['de', /[äöüß]/gi], ['es', /[ñ¿¡]/gi],
+  ['pt', /[ãõ]/gi], ['fr', /[èêëàâîïôûœ]/gi], ['sv', /[å]/gi], ['it', /[ìò]/gi],
+  ['vi', /[ơưđạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/gi]];
+function guessLatin(text) {
+  let best = null, n = 1;
+  for (const [tag, re] of LATIN_MARKS) { const c = (text.match(re) || []).length; if (c > n) { best = tag; n = c; } }
+  return best;
+}
 function latinTax(text) {
-  const L = LATIN_TAX[PAGE_LANG];
+  const L = LATIN_TAX[PAGE_LANG] || LATIN_TAX[guessLatin(text)];
   if (!L) return { L: 1, latin: 0 };
   const latin = (text.match(/\p{Script=Latin}/gu) || []).length;
   const words = (text.match(/\p{L}+/gu) || []).length;
@@ -416,7 +425,7 @@ function updateTranslateBtn(e) {
 function guessLang(text) {
   const c = analyze(text).counts;
   const top = Object.keys(c).filter(k => k !== 'emoji').sort((a, b) => c[b] - c[a])[0];
-  if (!top || !c[top]) return PAGE_LANG;
+  if (!top || !c[top]) return LATIN_TAX[PAGE_LANG] ? PAGE_LANG : guessLatin(text) || PAGE_LANG;
   const bySite = (list, dflt) => (list.includes(PAGE_LANG) ? PAGE_LANG : dflt);
   return { hangul: 'ko', kana: 'ja', cjk: bySite(['zh', 'zh-Hant', 'ja'], 'zh'), thai: 'th', devan: 'hi', bengali: 'bn',
            hebrew: 'he', arabic: bySite(['ar', 'fa', 'ur'], 'ar'), cyrillic: bySite(['ru', 'uk'], 'ru') }[top] || PAGE_LANG;
