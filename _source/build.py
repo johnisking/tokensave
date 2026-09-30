@@ -59,7 +59,7 @@ TOOLS = [
                   "share", "tSaved", "tAlready", "tNothing", "tCopied", "tCleared",
                   "overhead", "overheadTip", "chatErr", "chatInfo",
                   "toEn", "undo", "tDownloading", "tTranslating", "tTranslated", "tNoSupport", "tLangNA", "tFail", "tRestored", "saveTok", "stepSpaces", "stepEn", "stepShort", "tSavedAll", "monthSaved",
-                  "viewTokMore", "viewTokWait", "tShareCopied", "tShareLong"]),
+                  "viewTokMore", "viewTokWait", "tShareCopied", "tShareLong", "ctxFits", "ctxOver"]),
     dict(key="video", nav="navVideo", body="video_body.html", strings=V, script="video.js",
          file="video.html", page="video", og="og-video.jpg",
          runtime=["na", "noAudio", "cheapest", "srcOfficial", "srcRunway", "audioIncl", "clipNote"]),
@@ -239,7 +239,7 @@ def build():
                     {"@type": "ListItem", "position": 2, "name": s["h1"], "item": url}]})
             runtime = {k: s[k] for k in tool["runtime"]}
             if tool["key"] == "token":
-                runtime["prices"] = {k: {"in": v["in"], "out": v["out"]} for k, v in LLM["models"].items()}
+                runtime["prices"] = {k: {"in": v["in"], "out": v["out"], "ctx": v.get("ctx")} for k, v in LLM["models"].items()}
             runtime["viewIn"] = VIEW_IN
             values = {k: esc(v) for k, v in s.items()}
             values.update({k: esc(v) for k, v in SITE[tag].items()})

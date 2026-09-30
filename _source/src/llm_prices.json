@@ -5,167 +5,200 @@
     "gpt-6-astra": {
       "in": 10.0,
       "out": 50.0,
-      "key": "gpt-6-astra"
+      "key": "gpt-6-astra",
+      "ctx": 922000
     },
     "gpt-6-1-sol": {
       "in": 2.0,
       "out": 10.0,
-      "key": "gpt-6.1-sol"
+      "key": "gpt-6.1-sol",
+      "ctx": 922000
     },
     "gpt-6-sol": {
       "in": 2.0,
       "out": 10.0,
-      "key": "gpt-6-sol"
+      "key": "gpt-6-sol",
+      "ctx": 922000
     },
     "gpt-6-luna": {
       "in": 0.1,
       "out": 0.5,
-      "key": "gpt-6-luna"
+      "key": "gpt-6-luna",
+      "ctx": 922000
     },
     "gpt-4o": {
       "in": 2.5,
       "out": 10.0,
-      "key": "gpt-4o"
+      "key": "gpt-4o",
+      "ctx": 128000
     },
     "claude-opus-5-5": {
       "in": 4.0,
       "out": 20.0,
-      "key": "claude-opus-5-5"
+      "key": "claude-opus-5-5",
+      "ctx": 1000000
     },
     "claude-sonnet-5-5": {
       "in": 2.0,
       "out": 10.0,
-      "key": "claude-sonnet-5-5"
+      "key": "claude-sonnet-5-5",
+      "ctx": 1000000
     },
     "claude-haiku-4-5": {
       "in": 1.0,
       "out": 5.0,
-      "key": "claude-haiku-4-5"
+      "key": "claude-haiku-4-5",
+      "ctx": 200000
     },
     "gemini-3-1-pro": {
       "in": 2.0,
       "out": 12.0,
-      "key": "gemini-3.1-pro-preview"
+      "key": "gemini-3.1-pro-preview",
+      "ctx": 1048576
     },
     "gemini-3-8-flash": {
       "in": 0.75,
       "out": 3.75,
-      "key": "gemini-3.8-flash"
+      "key": "gemini-3.8-flash",
+      "ctx": 1048576
     },
     "gpt-5-6": {
       "in": 4.0,
       "out": 20.0,
-      "key": "gpt-5.6"
+      "key": "gpt-5.6",
+      "ctx": 922000
     },
     "gpt-5-5": {
       "in": 5.0,
       "out": 30.0,
-      "key": "gpt-5.5"
+      "key": "gpt-5.5",
+      "ctx": 1050000
     },
     "gpt-5-4-mini": {
       "in": 0.75,
       "out": 4.5,
-      "key": "gpt-5.4-mini"
+      "key": "gpt-5.4-mini",
+      "ctx": 272000
     },
     "gpt-5-mini": {
       "in": 0.25,
       "out": 2.0,
-      "key": "gpt-5-mini"
+      "key": "gpt-5-mini",
+      "ctx": 272000
     },
     "gpt-5-nano": {
       "in": 0.05,
       "out": 0.4,
-      "key": "gpt-5-nano"
+      "key": "gpt-5-nano",
+      "ctx": 272000
     },
     "gpt-4-1": {
       "in": 2.0,
       "out": 8.0,
-      "key": "gpt-4.1"
+      "key": "gpt-4.1",
+      "ctx": 1047576
     },
     "gpt-4-1-mini": {
       "in": 0.4,
       "out": 1.6,
-      "key": "gpt-4.1-mini"
+      "key": "gpt-4.1-mini",
+      "ctx": 1047576
     },
     "gpt-4o-mini": {
       "in": 0.15,
       "out": 0.6,
-      "key": "gpt-4o-mini"
+      "key": "gpt-4o-mini",
+      "ctx": 128000
     },
     "claude-fable-5-1": {
       "in": 10.0,
       "out": 50.0,
-      "key": "claude-fable-5-1"
+      "key": "claude-fable-5-1",
+      "ctx": 1000000
     },
     "gemini-3-5-flash-lite": {
       "in": 0.3,
       "out": 2.5,
-      "key": "gemini/gemini-3.5-flash-lite"
+      "key": "gemini/gemini-3.5-flash-lite",
+      "ctx": 1048576
     },
     "gemini-3-1-flash-lite": {
       "in": 0.25,
       "out": 1.5,
-      "key": "gemini/gemini-3.1-flash-lite"
+      "key": "gemini/gemini-3.1-flash-lite",
+      "ctx": 1048576
     },
     "deepseek-v4-pro": {
       "in": 1.32,
       "out": 3.96,
-      "key": "deepseek/deepseek-v4-pro"
+      "key": "deepseek/deepseek-v4-pro",
+      "ctx": 1000000
     },
     "deepseek-v4-flash": {
       "in": 0.3,
       "out": 1.2,
-      "key": "deepseek/deepseek-v4-flash"
+      "key": "deepseek/deepseek-v4-flash",
+      "ctx": 1000000
     },
     "grok-4-7": {
       "in": 2.0,
       "out": 6.0,
-      "key": "xai/grok-4.7"
+      "key": "xai/grok-4.7",
+      "ctx": 500000
     },
     "grok-4-20": {
       "in": 1.25,
       "out": 2.5,
-      "key": "xai/grok-4.20"
+      "key": "xai/grok-4.20",
+      "ctx": 1000000
     },
     "grok-code-fast-1": {
       "in": 1.0,
       "out": 2.0,
-      "key": "xai/grok-code-fast-1"
+      "key": "xai/grok-code-fast-1",
+      "ctx": 256000
     },
     "mistral-medium-3-5": {
       "in": 1.5,
       "out": 7.5,
-      "key": "mistral/mistral-medium-3.5"
+      "key": "mistral/mistral-medium-3.5",
+      "ctx": 262144
     },
     "mistral-large-3": {
       "in": 0.5,
       "out": 1.5,
-      "key": "mistral/mistral-large-3"
+      "key": "mistral/mistral-large-3",
+      "ctx": 262144
     },
     "mistral-small": {
       "in": 0.15,
       "out": 0.6,
-      "key": "mistral/mistral-small-latest"
+      "key": "mistral/mistral-small-latest",
+      "ctx": 262144
     },
     "qwen3-8-max": {
       "in": 2.0,
       "out": 6.0,
-      "key": "dashscope/qwen3.8-max"
+      "key": "dashscope/qwen3.8-max",
+      "ctx": 991808
     },
     "qwen3-8-flash": {
       "in": 0.15,
       "out": 0.47,
-      "key": "dashscope/qwen3.8-flash"
+      "key": "dashscope/qwen3.8-flash",
+      "ctx": 991808
     },
     "kimi-k3": {
       "in": 3.0,
       "out": 15.0,
-      "key": "moonshot/kimi-k3"
+      "key": "moonshot/kimi-k3",
+      "ctx": 1048576
     },
     "kimi-k2-6": {
       "in": 0.95,
       "out": 4.0,
-      "key": "moonshot/kimi-k2.6"
+      "key": "moonshot/kimi-k2.6",
+      "ctx": 262144
     }
   },
   "seen": [

@@ -16,10 +16,13 @@ def main():
     data = json.load(open(PATH, encoding="utf-8"))
     remote = json.load(urllib.request.urlopen(URL, timeout=60))
     changed, skipped, missing = [], [], []
+    ctx_changed = False
     for mid, m in data["models"].items():
         r = remote.get(m["key"])
         if not r or not r.get("input_cost_per_token"):
             missing.append(mid); continue
+        if r.get("max_input_tokens") and r["max_input_tokens"] != m.get("ctx"):
+            m["ctx"] = r["max_input_tokens"]; ctx_changed = True
         new_in = round(r["input_cost_per_token"] * 1e6, 4)
         new_out = round((r.get("output_cost_per_token") or 0) * 1e6, 4)
         if (new_in, new_out) == (m["in"], m["out"]):
@@ -41,7 +44,7 @@ def main():
         data["seen"] = sorted(set(data.get("seen", [])) | set(new_models))
     if changed:
         data["checked"] = datetime.date.today().isoformat()
-    if changed or new_models:
+    if changed or new_models or ctx_changed:
         json.dump(data, open(PATH, "w", encoding="utf-8"), indent=2)
         open(PATH, "a").write("\n")
 
@@ -54,7 +57,7 @@ def main():
     print(report)
     if os.environ.get("GITHUB_STEP_SUMMARY"):
         open(os.environ["GITHUB_STEP_SUMMARY"], "a").write(report + "\n")
-    sys.exit(10 if changed else 0)
+    sys.exit(10 if changed or ctx_changed else 0)
 
 if __name__ == "__main__":
     main()

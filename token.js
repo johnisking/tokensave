@@ -59,7 +59,7 @@ const PROVIDERS = {
 const LIVE = (window.T && window.T.prices) || {};
 const PAGE_LANG = { 'zh-CN': 'zh', 'zh-TW': 'zh-Hant' }[document.documentElement.lang] || document.documentElement.lang;
 for (const list of Object.values(PROVIDERS)) for (const m of list) {
-  if (LIVE[m.id]) { m.in = LIVE[m.id].in; m.out = LIVE[m.id].out; }
+  if (LIVE[m.id]) { m.in = LIVE[m.id].in; m.out = LIVE[m.id].out; m.ctx = LIVE[m.id].ctx || m.ctx; }
 }
 let provider = 'openai';
 let model = PROVIDERS.openai[0];
@@ -232,6 +232,7 @@ const els = {
   costReq: $('costReq'), costMonth: $('costMonth'), overhead: $('overheadBadge'), inTokNote: $('inTokNote'),
   outRange: $('outTokens'), outNum: $('outTokensNum'), reqs: $('reqs'), chatInfo: $('chatInfo'),
   tokSaved: $('tokSaved'), monthSaved: $('monthSaved'),
+  ctxPct: $('ctxPct'), ctxBar: $('ctxBar'), ctxText: $('ctxText'),
 };
 let mode = 'text';
 let original = null; // text before "To English", so the user can go back
@@ -321,6 +322,19 @@ function render() {
   els.costReq.textContent = moneyBig(cReq);
   els.costMonth.textContent = moneyBig(cReq * reqs);
   els.priceNote.textContent = tr('note', { name: model.name, in: model.in, out: model.out });
+
+  // Context window: how much of the model's maximum input this text uses
+  const ctx = model.ctx || 128000;
+  const ctxShort = n => n >= 1e6 ? +(n / 1e6).toFixed(n % 1e6 ? 2 : 0) + 'M' : Math.round(n / 1000) + 'K';
+  const used = tokens / ctx * 100;
+  const tone2 = used > 100 ? 'rose' : used > 75 ? 'amber' : 'emerald';
+  els.ctxPct.textContent = (used > 0 && used < 1 ? '<1' : fmt(Math.round(used))) + '%';
+  els.ctxPct.className = 'ltr text-xs font-bold tabular-nums ' + { emerald: 'text-emerald-400', amber: 'text-amber-400', rose: 'text-rose-400' }[tone2];
+  els.ctxBar.style.width = Math.min(100, used) + '%';
+  els.ctxBar.className = 'h-full rounded-full transition-all ' + { emerald: 'bg-emerald-400', amber: 'bg-amber-400', rose: 'bg-rose-500' }[tone2];
+  els.ctxText.textContent = used > 100
+    ? tr('ctxOver', { name: model.name, max: ctxShort(ctx), n: fmt(tokens - ctx) })
+    : tr('ctxFits', { p: used > 0 && used < 1 ? '<1' : Math.round(used), name: model.name, max: ctxShort(ctx) });
 
   // After "Save tokens": keep showing what was saved until the text is edited or restored
   const o = original !== null && mode === 'text' ? countTokens(original).tokens : 0;
