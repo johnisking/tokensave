@@ -589,3 +589,8 @@ for _tag in S:
 from i18n_fact import FACT as _F
 for _tag in S:
     S[_tag].update(_F[_tag])
+
+# On-device "Translate to English" button (Chrome Translator API)
+from i18n_translate import TR as _TR
+for _tag in S:
+    S[_tag].update(_TR[_tag])

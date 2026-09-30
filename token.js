@@ -124,6 +124,8 @@ const els = {
   outRange: $('outTokens'), outNum: $('outTokensNum'), reqs: $('reqs'), chatInfo: $('chatInfo'),
 };
 let mode = 'text';
+let original = null; // text before "To English", so the user can go back
+const trBtn = $('btnTranslate'), trLabel = $('trLabel'), trSave = $('trSave');
 const TEXT_PLACEHOLDER = els.input.placeholder;
 const CHAT_PLACEHOLDER = '[\n  {"role": "system", "content": "You are a helpful assistant."},\n  {"role": "user", "content": "..."}\n]';
 
@@ -236,14 +238,14 @@ function render() {
       (e.waste >= 1.6 ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40' : 'bg-amber-400/15 text-amber-300 border border-amber-400/40');
   } else {
     els.overhead.className = 'hidden';
-  }
+  }  updateTranslateBtn(e);
 }
 
-function toast(msg) {
+function toast(msg, ms = 1800) {
   els.toast.textContent = msg;
   els.toast.style.opacity = 1;
   clearTimeout(toast.t);
-  toast.t = setTimeout(() => (els.toast.style.opacity = 0), 1800);
+  toast.t = setTimeout(() => (els.toast.style.opacity = 0), ms);
 }
 
 // =========================================================
@@ -254,7 +256,7 @@ function fillModels() {
   model = PROVIDERS[provider][0];
 }
 
-els.input.addEventListener('input', update);
+els.input.addEventListener('input', () => { original = null; update(); });
 
 const tabs = document.querySelectorAll('#providerTabs .tab');
 tabs.forEach(btn => btn.addEventListener('click', () => {
@@ -297,6 +299,7 @@ $('btnOptimize').addEventListener('click', () => {
 const modeTabs = document.querySelectorAll('#modeTabs .tab');
 modeTabs.forEach(btn => btn.addEventListener('click', () => {
   mode = btn.dataset.mode;
+  original = null;
   modeTabs.forEach(b => b.classList.toggle('tab-active', b === btn));
   els.input.placeholder = mode === 'chat' ? CHAT_PLACEHOLDER : TEXT_PLACEHOLDER;
   els.input.dir = mode === 'chat' ? 'ltr' : 'auto';
@@ -309,6 +312,84 @@ els.outRange.addEventListener('input', () => { els.outNum.value = els.outRange.v
 els.outNum.addEventListener('input', () => { els.outRange.value = Math.min(8000, +els.outNum.value || 0); update(); });
 els.reqs.addEventListener('input', update);
 
+// Translate to English on the user's device (Chrome's built-in Translator API).
+// No server and no third-party service: the text never leaves the browser.
+const PAGE_LANG = { 'zh-CN': 'zh', 'zh-TW': 'zh-Hant' }[document.documentElement.lang] || document.documentElement.lang;
+
+function updateTranslateBtn(e) {
+  if (original !== null) {
+    trBtn.classList.remove('hidden');
+    trLabel.textContent = '↩ ' + tr('undo');
+    trSave.textContent = '';
+    return;
+  }
+  const show = mode === 'text' && e.waste >= 1.15;
+  trBtn.classList.toggle('hidden', !show);
+  if (show) {
+    trLabel.textContent = '🌐 ' + tr('toEn');
+    trSave.textContent = '−' + Math.round((1 - 1 / e.waste) * 100) + '%';
+  }
+}
+
+// Script-based guess, used when the browser's language detector isn't ready
+function guessLang(text) {
+  const c = analyze(text).counts;
+  const top = Object.keys(c).filter(k => k !== 'emoji').sort((a, b) => c[b] - c[a])[0];
+  if (!top || !c[top]) return PAGE_LANG;
+  const bySite = (list, dflt) => (list.includes(PAGE_LANG) ? PAGE_LANG : dflt);
+  return { hangul: 'ko', kana: 'ja', cjk: bySite(['zh', 'zh-Hant', 'ja'], 'zh'), thai: 'th', devan: 'hi', bengali: 'bn',
+           hebrew: 'he', arabic: bySite(['ar', 'fa', 'ur'], 'ar'), cyrillic: bySite(['ru', 'uk'], 'ru') }[top] || PAGE_LANG;
+}
+
+const withTimeout = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);
+
+async function detectLang(text) {
+  try {
+    if ('LanguageDetector' in self && (await LanguageDetector.availability()) === 'available') {
+      const d = await withTimeout(LanguageDetector.create(), 3000);
+      const [top] = await d.detect(text);
+      if (top && top.detectedLanguage !== 'und' && top.confidence >= 0.5) return top.detectedLanguage;
+    }
+  } catch (_) {}
+  return guessLang(text);
+}
+
+trBtn.addEventListener('click', async () => {
+  if (original !== null) {
+    els.input.value = original;
+    original = null;
+    render();
+    return toast(tr('tRestored'));
+  }
+  if (!('Translator' in self)) return toast(tr('tNoSupport'), 3500);
+  const text = els.input.value;
+  if (!text.trim()) return;
+  trBtn.disabled = true;
+  toast(tr('tTranslating'), 60000);
+  try {
+    const sourceLanguage = await detectLang(text);
+    const opts = { sourceLanguage, targetLanguage: 'en' };
+    const avail = sourceLanguage === 'en' ? 'unavailable' : await Translator.availability(opts);
+    if (avail === 'unavailable') return toast(tr('tLangNA'), 3500);
+    const t = await withTimeout(Translator.create({
+      ...opts,
+      monitor(m) { m.addEventListener('downloadprogress', ev => toast(tr('tDownloading', { p: Math.round(ev.loaded * 100) }), 60000)); },
+    }), avail === 'available' ? 15000 : 300000);
+    const before = measure().tokens;
+    const out = [];
+    for (const line of text.split('\n')) out.push(line.trim() ? await t.translate(line) : line);
+    original = text;
+    els.input.value = out.join('\n');
+    render();
+    const saved = Math.max(0, before - measure().tokens);
+    toast('💸 ' + tr('tTranslated', { n: fmt(saved), p: before ? Math.round(saved / before * 100) : 0 }), 5000);
+  } catch (_) {
+    toast(tr('tFail'), 3500);
+  } finally {
+    trBtn.disabled = false;
+  }
+});
+
 $('btnCopy').addEventListener('click', async () => {
   if (!els.input.value) return toast(tr('tNothing'));
   try { await navigator.clipboard.writeText(els.input.value); }
@@ -318,6 +399,7 @@ $('btnCopy').addEventListener('click', async () => {
 
 $('btnClear').addEventListener('click', () => {
   els.input.value = '';
+  original = null;
   render();
   els.input.focus();
   toast(tr('tCleared'));
