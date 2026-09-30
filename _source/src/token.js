@@ -415,7 +415,7 @@ function updateTranslateBtn(e) {
   }
   const text = els.input.value;
   const sp = mode === 'text' && text.trim() && text.length < 30000 ? savePreview(text, e) : null;
-  const show = sp && sp.saved >= 2 && sp.pct >= 1;
+  const show = sp && sp.saved >= 1 && sp.pct >= 3;
   trBtn.classList.toggle('hidden', !show);
   if (show) {
     trLabel.textContent = '💸 ' + tr('saveTok');
