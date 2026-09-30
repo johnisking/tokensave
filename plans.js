@@ -1,9 +1,9 @@
 // TokenSave — Subscription vs API page (tokensave.app/plans)
 // Estimates what your chat usage would cost on the API and compares it with the monthly plans.
 // Plan prices: official US monthly prices, checked 2026-10-01:
-//   ChatGPT  chatgpt.com/pricing           Go $8, Plus $20, Pro $200
+//   ChatGPT  chatgpt.com/pricing           Go $8, Plus $20, Pro 100 $100, Pro 200 $200, Pro 500 $500
 //   Claude   claude.com/pricing            Pro $20, Max 5x $100, Max 20x $200
-//   Google   one.google.com/about/ai-premium  AI Plus $7.99, AI Pro $19.99, AI Ultra $99.99
+//   Google   one.google.com/about/ai-premium  AI Plus $7.99, AI Pro $19.99, AI Ultra 5x $99.99, AI Ultra 20x $199.99
 // API prices come from src/llm_prices.json (updated daily), injected by build.py as T.prices.
 
 import { T, tr } from './common.js';
@@ -17,11 +17,11 @@ const SIZES = { short: [60, 300], chat: [150, 500], long: [2000, 700] };
 
 const PROVIDERS = [
   { name: 'ChatGPT', models: [['gpt-6-sol', 'GPT-6 Sol', 1.0], ['gpt-6-luna', 'GPT-6 Luna', 1.0]],
-    plans: [['Go', 8], ['Plus', 20], ['Pro', 200]], main: 1 },
+    plans: [['Go', 8], ['Plus', 20], ['Pro 100', 100], ['Pro 200', 200], ['Pro 500', 500]], main: 1 },
   { name: 'Claude', models: [['claude-sonnet-5-5', 'Claude Sonnet 5.5', 1.3], ['claude-haiku-4-5', 'Claude Haiku 4.5', 1.05]],
     plans: [['Pro', 20], ['Max 5×', 100], ['Max 20×', 200]], main: 0 },
   { name: 'Gemini', models: [['gemini-3-1-pro', 'Gemini 3.1 Pro', 0.95], ['gemini-3-8-flash', 'Gemini 3.8 Flash', 0.95]],
-    plans: [['AI Plus', 7.99], ['AI Pro', 19.99], ['AI Ultra', 99.99]], main: 1, prefix: 'Google ' },
+    plans: [['AI Plus', 7.99], ['AI Pro', 19.99], ['AI Ultra 5×', 99.99], ['AI Ultra 20×', 199.99]], main: 1, prefix: 'Google ' },
 ];
 
 const $ = id => document.getElementById(id);
@@ -31,6 +31,7 @@ const state = { size: 'chat' };
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const money = n => '$' + (n >= 100 ? Math.round(n).toLocaleString('en-US') : n >= 1 ? n.toFixed(2) : n.toFixed(3));
+const planMoney = n => Number.isInteger(n) ? money(n) : '$' + n.toFixed(2);
 const big = n => n >= 1e9 ? (n / 1e9).toFixed(2) + 'B' : n >= 1e6 ? (n / 1e6).toFixed(1) + 'M' : n >= 1e3 ? Math.round(n / 1e3) + 'K' : String(Math.round(n));
 
 // Language menu: every site language with its measured ratio
@@ -74,7 +75,7 @@ function render() {
       <h2 class="text-lg font-bold">${esc(pv.name)}</h2>
       <ul class="mt-2 divide-y divide-zinc-800/80">
         ${api.map((a, i) => row(`<span class="text-[11px] font-bold px-1.5 py-0.5 rounded bg-sky-500/15 text-sky-300 me-1.5">${esc(tr('apiLabel'))}</span><span class="ltr inline-block">${esc(a.name)}</span>`, money(a.cost), i === 0)).join('')}
-        ${pv.plans.map(([n, price], i) => row(`<span class="ltr inline-block">${esc((pv.prefix || pv.name + ' ') + n)}</span>`, money(price), i === pv.main, i !== pv.main)).join('')}
+        ${pv.plans.map(([n, price], i) => row(`<span class="ltr inline-block">${esc((pv.prefix || pv.name + ' ') + n)}</span>`, planMoney(price), i === pv.main, i !== pv.main)).join('')}
       </ul>
       <p class="mt-4 rounded-xl px-3 py-2.5 text-sm font-semibold ${apiWins ? 'bg-sky-500/10 text-sky-200 border border-sky-500/30' : 'bg-emerald-500/10 text-emerald-200 border border-emerald-500/30'}">
         ${esc(apiWins ? tr('cheaperApi', { d: money(diff) }) : tr('cheaperPlan', { plan: fullPlan, d: money(diff) }))}
