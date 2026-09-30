@@ -31,6 +31,7 @@ const PROVIDERS = {
 };
 // Latest prices from src/llm_prices.json (refreshed daily by GitHub Actions), injected by build.py
 const LIVE = (window.T && window.T.prices) || {};
+const PAGE_LANG = { 'zh-CN': 'zh', 'zh-TW': 'zh-Hant' }[document.documentElement.lang] || document.documentElement.lang;
 for (const list of Object.values(PROVIDERS)) for (const m of list) {
   if (LIVE[m.id]) { m.in = LIVE[m.id].in; m.out = LIVE[m.id].out; }
 }
@@ -101,13 +102,28 @@ function analyze(text) {
 // =========================================================
 // Measured token overhead vs the same text in English (o200k): ko 1.44, ja 1.79, zh 1.03-1.35, ru 1.32 / uk 1.88, ar 1.26 / fa 1.24 / ur 1.59, th 1.74, hi 1.50, bn 1.68, he 1.56
 const PENALTY = { hangul: 1.45, kana: 1.8, cjk: 1.2, cyrillic: 1.6, arabic: 1.35, thai: 1.75, devan: 1.5, bengali: 1.7, hebrew: 1.55, emoji: 1.0 };
+// Latin-script languages: measured overhead of the page language (o200k, same prompt as English).
+// Applied to Latin letters only when the text doesn't look like English.
+const LATIN_TAX = { id: 1.15, es: 1.18, pt: 1.21, de: 1.26, fr: 1.29, nl: 1.29, sv: 1.32, vi: 1.35, it: 1.38, tr: 1.47, fil: 1.53, pl: 1.88, cs: 2.0 };
+const EN_WORDS = /\b(the|and|to|of|is|in|that|for|you|with|are|this|it|be|on|please)\b/gi;
+function latinTax(text) {
+  const L = LATIN_TAX[PAGE_LANG];
+  if (!L) return { L: 1, latin: 0 };
+  const latin = (text.match(/\p{Script=Latin}/gu) || []).length;
+  const words = (text.match(/\p{L}+/gu) || []).length;
+  const english = words && (text.match(EN_WORDS) || []).length / words > 0.12;
+  return english ? { L: 1, latin: 0 } : { L, latin };
+}
+
 function efficiency(a, text) {
   const nonSpace = (text.match(/\S/g) || []).length;
-  if (!nonSpace || !a.nonLatinChars) return { waste: 1, pct: 100, share: 0 };
-  let weighted = 0;
+  const { L, latin } = latinTax(text);
+  const marked = a.nonLatinChars + latin;
+  if (!nonSpace || !marked) return { waste: 1, pct: 100, share: 0 };
+  let weighted = latin * (L - 1);
   for (const k in PENALTY) weighted += a.counts[k] * (PENALTY[k] - 1);
-  const share = Math.min(1, a.nonLatinChars / nonSpace);
-  const waste = 1 + (weighted / a.nonLatinChars) * share;
+  const share = Math.min(1, marked / nonSpace);
+  const waste = 1 + (weighted / marked) * share;
   return { waste, pct: Math.round(100 / waste), share };
 }
 
@@ -314,7 +330,6 @@ els.reqs.addEventListener('input', update);
 
 // Translate to English on the user's device (Chrome's built-in Translator API).
 // No server and no third-party service: the text never leaves the browser.
-const PAGE_LANG = { 'zh-CN': 'zh', 'zh-TW': 'zh-Hant' }[document.documentElement.lang] || document.documentElement.lang;
 
 function updateTranslateBtn(e) {
   if (original !== null) {
