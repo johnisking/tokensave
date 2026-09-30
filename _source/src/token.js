@@ -67,7 +67,7 @@ const RE = {
   emoji:    /\p{Extended_Pictographic}/u,
 };
 // Tokens per character, calibrated on o200k (2026-09-30, same 34-token English prompt in 27 languages)
-const WEIGHT = { hangul: 0.8, kana: 1.6, cjk: 0.9, cyrillic: 0.4, arabic: 0.42, thai: 0.45, devan: 0.4, bengali: 0.4, hebrew: 0.5, emoji: 2.5 };
+const WEIGHT = { hangul: 0.8, kana: 0.9, cjk: 0.9, cyrillic: 0.4, arabic: 0.42, thai: 0.45, devan: 0.4, bengali: 0.4, hebrew: 0.5, emoji: 2.5 };
 
 function analyze(text) {
   const counts = { hangul: 0, kana: 0, cjk: 0, cyrillic: 0, arabic: 0, thai: 0, devan: 0, bengali: 0, hebrew: 0, emoji: 0 };
