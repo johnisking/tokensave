@@ -124,13 +124,19 @@ function latinTax(text) {
   return english ? { L: 1, latin: 0 } : { L, latin };
 }
 
+// Scripts shared by several languages: use the page language's measured ratio when we know it
+const PAGE_PENALTY = { zh: { cjk: 1.03 }, 'zh-Hant': { cjk: 1.35 }, ru: { cyrillic: 1.32 }, uk: { cyrillic: 1.88 },
+  ar: { arabic: 1.26 }, fa: { arabic: 1.24 }, ur: { arabic: 1.59 } };
+
 function efficiency(a, text) {
   const nonSpace = (text.match(/\S/g) || []).length;
   const { L, latin } = latinTax(text);
   const marked = a.nonLatinChars + latin;
   if (!nonSpace || !marked) return { waste: 1, pct: 100, share: 0 };
   let weighted = latin * (L - 1);
-  for (const k in PENALTY) weighted += a.counts[k] * (PENALTY[k] - 1);
+  const pen = { ...PENALTY, ...(PAGE_PENALTY[PAGE_LANG] || {}) };
+  if (a.counts.kana) pen.cjk = PENALTY.cjk; // kanji inside Japanese text
+  for (const k in pen) weighted += a.counts[k] * (pen[k] - 1);
   const share = Math.min(1, marked / nonSpace);
   const waste = 1 + (weighted / marked) * share;
   return { waste, pct: Math.round(100 / waste), share };
@@ -384,13 +390,14 @@ els.reqs.addEventListener('input', update);
 
 // "Save tokens": clean spaces -> translate to English (non-English, on-device) -> trim English filler. One undo.
 const canTranslate = 'Translator' in self;
+const FOREIGN = 1.1; // overhead above which text is treated as non-English (Indonesian is ~1.15x)
 let saveCache = { key: null };
 function savePreview(text, e) {
   const key = model.id + '\u0000' + text;
   if (saveCache.key !== key) {
     const before = countTokens(text).tokens;
     const clean = cleanText(text);
-    let after, foreign = e.waste >= 1.15;
+    let after, foreign = e.waste >= FOREIGN;
     if (foreign) after = countTokens(clean).tokens / (canTranslate ? e.waste : 1);   // translation estimated from measured overhead
     else after = countTokens(shortenEnglish(clean)).tokens;                          // exact for English
     const saved = Math.max(0, Math.round(before - after));
@@ -465,7 +472,7 @@ trBtn.addEventListener('click', async () => {
   const src = els.input.value;
   if (!src.trim()) return;
   const before = measure().tokens;
-  const foreign = efficiency(analyze(src), src).waste >= 1.15;
+  const foreign = efficiency(analyze(src), src).waste >= FOREIGN;
   const steps = [];
   let t = cleanText(src), note = '';
   if (t !== src) steps.push(tr('stepSpaces'));
@@ -475,7 +482,8 @@ trBtn.addEventListener('click', async () => {
       toast(tr('tTranslating'), 60000);
       try {
         const r = await translateToEnglish(t);
-        if (r.text) { t = r.text; steps.push(tr('stepEn')); } else note = r.why;
+        if (r.text && countTokens(r.text).tokens < countTokens(t).tokens) { t = r.text; steps.push(tr('stepEn')); }
+        else if (!r.text) note = r.why;
       } catch (_) { note = tr('tFail'); }
     }
     if (!foreign || steps.includes(tr('stepEn'))) {
