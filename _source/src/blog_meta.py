@@ -32,3 +32,8 @@ BLOG = [
          cta="내 프롬프트로 직접 재보세요. 한국어가 영어보다 토큰과 비용이 몇 배 드는지 바로 보여드립니다.",
          ctaBtn="토큰 계산기 열기"),
 ]
+
+# Generated articles (blog_gen.py): English overview + 22 more languages
+import json as _json, os as _os
+_auto = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "blog_data", "auto.json")
+BLOG += _json.load(open(_auto, encoding="utf-8"))

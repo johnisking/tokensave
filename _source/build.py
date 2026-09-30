@@ -227,12 +227,17 @@ def build():
 
 
     # Language-specific articles (/<slug>/blog/...)
-    blog_alts = "\n".join(f'  <link rel="alternate" hreflang="{b["tag"]}" href="{BASE}{b["path"]}" />' for b in BLOG)
+    blog_en = next((b for b in BLOG if b["tag"] == "en"), None)
+    blog_alts = "\n".join(f'  <link rel="alternate" hreflang="{b["tag"]}" href="{BASE}{b["path"]}" />' for b in BLOG) + (
+        f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{blog_en["path"]}" />' if blog_en else "")
     tag_slug = {tag: slug for slug, tag, *_ in LANGS}
     tag_og = {tag: og for slug, tag, _, og, _ in LANGS}
+    tag_dir = {tag: d for slug, tag, _, _, d in LANGS}
     for b in BLOG:
         tag, slug = b["tag"], tag_slug[b["tag"]]
-        assert b["path"].startswith(f"/{slug}/blog/") and len(b["desc"]) <= 120, b["path"]
+        prefix = f"/{slug}/blog/" if slug else "/blog/"
+        assert b["path"].startswith(prefix) and len(b["desc"]) <= 130, (b["path"], len(b["desc"]))
+        bdate = b.get("date", BLOG_DATE)
         url = BASE + b["path"]
         tool_home = path_for(slug, TOOLS[0])
         article = open(os.path.join(SRC, "blog", tag + ".html"), encoding="utf-8").read()
@@ -251,7 +256,7 @@ def build():
             for sl, _, nat, _, _ in LANGS)
         ld = {"@context": "https://schema.org", "@graph": [
             {"@type": "BlogPosting", "headline": b["title"], "description": b["desc"], "inLanguage": tag,
-             "url": url, "mainEntityOfPage": url, "datePublished": BLOG_DATE, "dateModified": BLOG_DATE,
+             "url": url, "mainEntityOfPage": url, "datePublished": bdate, "dateModified": bdate,
              "image": f"{BASE}/blog-language-tax-chart-v2.png",
              "author": {"@type": "Person", "name": "Jonhisking"},
              "publisher": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"}},
@@ -259,14 +264,14 @@ def build():
                 {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + tool_home},
                 {"@type": "ListItem", "position": 2, "name": b["title"], "item": url}]}]}
         values = dict(
-            htmlLang=tag, dir="ltr", url=url, ogLocale=tag_og[tag], ogImage=f"{BASE}/blog-language-tax-chart-v2.png",
+            htmlLang=tag, dir=tag_dir[tag], url=url, ogLocale=tag_og[tag], ogImage=f"{BASE}/blog-language-tax-chart-v2.png",
             title=esc(b["title"] + " | TokenSave"), desc=esc(b["desc"]), lang=esc(S[tag]["lang"]),
             homeUrl=tool_home, hreflang=blog_alts, langOptions=opts, toolNav=nav, ver=ver, adsHead=extras, faq="",
             f1="", f2="", fAbout=esc(SITE[tag]["fAbout"]), fPrivacy=esc(SITE[tag]["fPrivacy"]),
             ldjson=js(ld), tjson=js({"static": True}),
             scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>',
         )
-        folder = os.path.join(DIST, slug, "blog")
+        folder = os.path.join(DIST, slug, "blog") if slug else os.path.join(DIST, "blog")
         os.makedirs(folder, exist_ok=True)
         open(os.path.join(folder, b["path"].rsplit("/", 1)[1] + ".html"), "w", encoding="utf-8").write(render(base, body, values))
 
@@ -292,8 +297,11 @@ def build():
         if pg["path"]:
             entries.append(f"\n  <url>\n    <loc>{BASE}{pg['path']}</loc>\n    <lastmod>{LASTMOD}</lastmod>\n  </url>")
     b_alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{b["tag"]}" href="{BASE}{b["path"]}"/>' for b in BLOG)
+    b_en = next((b for b in BLOG if b["tag"] == "en"), None)
+    if b_en:
+        b_alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}{b_en["path"]}"/>'
     for b in BLOG:
-        entries.append(f"\n  <url>\n    <loc>{BASE}{b['path']}</loc>\n    <lastmod>{BLOG_DATE}</lastmod>{b_alts}\n  </url>")
+        entries.append(f"\n  <url>\n    <loc>{BASE}{b['path']}</loc>\n    <lastmod>{b.get('date', BLOG_DATE)}</lastmod>{b_alts}\n  </url>")
     open(os.path.join(DIST, "sitemap.xml"), "w", encoding="utf-8").write(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'

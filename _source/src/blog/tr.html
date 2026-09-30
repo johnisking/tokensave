@@ -1,0 +1,91 @@
+<p>Aynı müşteri hizmetleri istemini 27 dile çevirdim ve tokenleri OpenAI'nin güncel tokenizer'ı o200k_base ile saydım (GPT-4o ve sonrası). İngilizce 34 token, Türkçe <strong>50 token: İngilizcenin 1,47× katı</strong>; 27 dil içinde en ucuzdan 17. sırada.</p>
+<p>Türkçe sürümü:</p>
+<blockquote>
+<p>Aşağıdaki müşteri e-postasını üç madde halinde özetleyin ve kibar bir yanıt önerin. Müşteri, siparişin iki gün geç geldiğini ve kutuda bir ürünün eksik olduğunu söylüyor.</p>
+</blockquote>
+<h2>Sonuçlar</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Dil</th>
+<th style="text-align: right;">Token</th>
+<th style="text-align: right;">İngilizceye göre</th>
+<th style="text-align: right;">Eski GPT-4 tokenizer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">1,00×</td>
+<td style="text-align: right;">1,00×</td>
+</tr>
+<tr>
+<td>简体中文</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">1,03×</td>
+<td style="text-align: right;">1,53×</td>
+</tr>
+<tr>
+<td>Español</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">1,18×</td>
+<td style="text-align: right;">1,29×</td>
+</tr>
+<tr>
+<td>Deutsch</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">1,26×</td>
+<td style="text-align: right;">1,50×</td>
+</tr>
+<tr>
+<td>한국어</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">2,50×</td>
+</tr>
+<tr>
+<td><strong>Türkçe</strong></td>
+<td style="text-align: right;"><strong>50</strong></td>
+<td style="text-align: right;"><strong>1,47×</strong></td>
+<td style="text-align: right;"><strong>2,06×</strong></td>
+</tr>
+<tr>
+<td>日本語</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">1,79×</td>
+<td style="text-align: right;">2,21×</td>
+</tr>
+<tr>
+<td>Čeština</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">2,00×</td>
+<td style="text-align: right;">2,59×</td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" width="960" height="995" alt="Sonuçlar" src="/blog-language-tax-chart-v2.png" /></p>
+<h2>Neden</h2>
+<p>Tokenizer çoğunlukla İngilizce metinle eğitilir: " polite" veya " customer" gibi kelimeler tek token iken eklerle uzayan Türkçe kelimeler parçalara bölünür:</p>
+<ul>
+<li>Aşağıdaki → <code>A | şa | ğı | daki</code> · 4</li>
+<li>özetleyin → <code>ö | zet | ley | in</code> · 4</li>
+<li>e-postasını → <code>e | -post | asını</code> · 3</li>
+</ul>
+<h2>Eski tokenizer'a göre</h2>
+<p>GPT-4 dönemi tokenizer'ında (cl100k) aynı istem <strong>2,06×</strong> tutuyordu; bugün <strong>1,47×</strong>.</p>
+<h2>Parayla</h2>
+<p>Girdi için 1 milyon token başına 2 $ ücret alan bir modelde bu istemi 1 milyon kez göndermek İngilizcede 68 $, Türkçede 100 $ tutar. Yanıt da Türkçe olursa aynı çarpan, genellikle 4–5× daha pahalı olan çıktı tokenlerine de uygulanır.</p>
+<h2>Nasıl tasarruf edilir</h2>
+<ul>
+<li>Sistem istemini ve sabit talimatları İngilizce yazın; yalnızca kullanıcı girdisi Türkçe kalsın.</li>
+<li>Ara adımları (sınıflandırma, çıkarma, araç çağrıları) İngilizce ya da JSON olarak alın, yalnızca son yanıt Türkçe olsun.</li>
+<li>İstemin sabit kısmı için prompt caching kullanın.</li>
+</ul>
+<h2>Sınırlamalar</h2>
+<ul>
+<li>Tek bir istem ölçüldü; başka metinlerde oran ±0,1–0,2 değişebilir.</li>
+<li>Claude ve Gemini farklı tokenizer kullanır; bu sayılar yalnızca OpenAI modelleri için geçerlidir.</li>
+<li>Çeviri, kontrol edilmiş makine çevirisine dayanır.</li>
+</ul>
+<p>27 dilin tüm sonuçları (İngilizce): <a href="/blog/token-cost-27-languages">27 dil karşılaştırması</a></p>

@@ -1,0 +1,922 @@
+{
+ "en": {
+  "name": "English",
+  "o": 34,
+  "c": 34,
+  "ro": 1,
+  "rc": 1,
+  "rank": 1,
+  "prompt": "Please summarize the customer email below in three bullet points and suggest a polite reply. The customer says the order arrived two days late and one item was missing from the box.",
+  "splits": [
+   {
+    "w": "summarize",
+    "parts": [
+     "summarize"
+    ]
+   },
+   {
+    "w": "customer",
+    "parts": [
+     "customer"
+    ]
+   },
+   {
+    "w": "suggest",
+    "parts": [
+     "suggest"
+    ]
+   }
+  ]
+ },
+ "zh-CN": {
+  "name": "Chinese (Simplified)",
+  "o": 35,
+  "c": 52,
+  "ro": 1.03,
+  "rc": 1.53,
+  "rank": 2,
+  "prompt": "请用三个要点总结下面的客户邮件，并建议一封礼貌的回复。客户说订单晚到了两天，而且箱子里少了一件商品。",
+  "splits": [
+   {
+    "w": "请用三个要点总结下面的客户邮",
+    "parts": [
+     "请",
+     "用",
+     "三个",
+     "要",
+     "点",
+     "总结",
+     "下面",
+     "的",
+     "客户",
+     "邮"
+    ]
+   }
+  ]
+ },
+ "id": {
+  "name": "Indonesian",
+  "o": 39,
+  "c": 47,
+  "ro": 1.15,
+  "rc": 1.38,
+  "rank": 3,
+  "prompt": "Ringkas email pelanggan di bawah ini dalam tiga poin dan sarankan balasan yang sopan. Pelanggan mengatakan pesanan tiba dua hari terlambat dan satu barang hilang dari kotak.",
+  "splits": [
+   {
+    "w": "terlambat",
+    "parts": [
+     "terl",
+     "amb",
+     "at"
+    ]
+   },
+   {
+    "w": "Pelanggan",
+    "parts": [
+     "Pel",
+     "anggan"
+    ]
+   },
+   {
+    "w": "sarankan",
+    "parts": [
+     "sar",
+     "ankan"
+    ]
+   }
+  ]
+ },
+ "es": {
+  "name": "Spanish",
+  "o": 40,
+  "c": 44,
+  "ro": 1.18,
+  "rc": 1.29,
+  "rank": 4,
+  "prompt": "Resume el siguiente correo del cliente en tres puntos y sugiere una respuesta amable. El cliente dice que el pedido llegó con dos días de retraso y que faltaba un artículo en la caja.",
+  "splits": [
+   {
+    "w": "sugiere",
+    "parts": [
+     "su",
+     "gi",
+     "ere"
+    ]
+   },
+   {
+    "w": "retraso",
+    "parts": [
+     "retras",
+     "o"
+    ]
+   },
+   {
+    "w": "faltaba",
+    "parts": [
+     "falt",
+     "aba"
+    ]
+   }
+  ]
+ },
+ "pt": {
+  "name": "Portuguese",
+  "o": 41,
+  "c": 48,
+  "ro": 1.21,
+  "rc": 1.41,
+  "rank": 5,
+  "prompt": "Resuma o e-mail do cliente abaixo em três tópicos e sugira uma resposta educada. O cliente diz que o pedido chegou com dois dias de atraso e que faltava um item na caixa.",
+  "splits": [
+   {
+    "w": "tópicos",
+    "parts": [
+     "tóp",
+     "icos"
+    ]
+   },
+   {
+    "w": "educada",
+    "parts": [
+     "educ",
+     "ada"
+    ]
+   },
+   {
+    "w": "faltava",
+    "parts": [
+     "falt",
+     "ava"
+    ]
+   }
+  ]
+ },
+ "fa": {
+  "name": "Persian",
+  "o": 42,
+  "c": 95,
+  "ro": 1.24,
+  "rc": 2.79,
+  "rank": 6,
+  "prompt": "ایمیل مشتری زیر را در سه نکته خلاصه کنید و یک پاسخ مودبانه پیشنهاد دهید. مشتری می‌گوید سفارش دو روز دیر رسید و یکی از اقلام در جعبه نبود.",
+  "splits": [
+   {
+    "w": "مودبانه",
+    "parts": [
+     "مود",
+     "ب",
+     "انه"
+    ]
+   },
+   {
+    "w": "جعبه",
+    "parts": [
+     "ج",
+     "عب",
+     "ه"
+    ]
+   },
+   {
+    "w": "ایمیل",
+    "parts": [
+     "ایم",
+     "یل"
+    ]
+   }
+  ]
+ },
+ "de": {
+  "name": "German",
+  "o": 43,
+  "c": 51,
+  "ro": 1.26,
+  "rc": 1.5,
+  "rank": 7,
+  "prompt": "Fasse die folgende Kunden-E-Mail in drei Stichpunkten zusammen und schlage eine höfliche Antwort vor. Der Kunde sagt, dass die Bestellung zwei Tage zu spät ankam und ein Artikel im Paket fehlte.",
+  "splits": [
+   {
+    "w": "Kunden-E-Mail",
+    "parts": [
+     "Kunden",
+     "-E",
+     "-Mail"
+    ]
+   },
+   {
+    "w": "Stichpunkten",
+    "parts": [
+     "Stich",
+     "punk",
+     "ten"
+    ]
+   },
+   {
+    "w": "höfliche",
+    "parts": [
+     "höf",
+     "liche"
+    ]
+   }
+  ]
+ },
+ "ar": {
+  "name": "Arabic",
+  "o": 43,
+  "c": 103,
+  "ro": 1.26,
+  "rc": 3.03,
+  "rank": 8,
+  "prompt": "لخّص رسالة العميل أدناه في ثلاث نقاط واقترح ردًا مهذبًا. يقول العميل إن الطلب وصل متأخرًا يومين وإن أحد المنتجات كان مفقودًا من الصندوق.",
+  "splits": [
+   {
+    "w": "متأخرًا",
+    "parts": [
+     "مت",
+     "أ",
+     "خر",
+     "ًا"
+    ]
+   },
+   {
+    "w": "مفقودًا",
+    "parts": [
+     "م",
+     "فق",
+     "ود",
+     "ًا"
+    ]
+   },
+   {
+    "w": "واقترح",
+    "parts": [
+     "واق",
+     "تر",
+     "ح"
+    ]
+   }
+  ]
+ },
+ "fr": {
+  "name": "French",
+  "o": 44,
+  "c": 49,
+  "ro": 1.29,
+  "rc": 1.44,
+  "rank": 9,
+  "prompt": "Résumez l'e-mail du client ci-dessous en trois points et proposez une réponse polie. Le client indique que la commande est arrivée avec deux jours de retard et qu'un article manquait dans le colis.",
+  "splits": [
+   {
+    "w": "Résumez",
+    "parts": [
+     "Rés",
+     "ume",
+     "z"
+    ]
+   },
+   {
+    "w": "ci-dessous",
+    "parts": [
+     "ci",
+     "-dessous"
+    ]
+   },
+   {
+    "w": "proposez",
+    "parts": [
+     "propose",
+     "z"
+    ]
+   }
+  ]
+ },
+ "nl": {
+  "name": "Dutch",
+  "o": 44,
+  "c": 59,
+  "ro": 1.29,
+  "rc": 1.74,
+  "rank": 10,
+  "prompt": "Vat de onderstaande e-mail van de klant samen in drie punten en stel een beleefd antwoord voor. De klant zegt dat de bestelling twee dagen te laat aankwam en dat er één artikel in de doos ontbrak.",
+  "splits": [
+   {
+    "w": "ontbrak",
+    "parts": [
+     "ont",
+     "br",
+     "ak"
+    ]
+   },
+   {
+    "w": "beleefd",
+    "parts": [
+     "bele",
+     "efd"
+    ]
+   },
+   {
+    "w": "aankwam",
+    "parts": [
+     "aank",
+     "wam"
+    ]
+   }
+  ]
+ },
+ "ru": {
+  "name": "Russian",
+  "o": 45,
+  "c": 73,
+  "ro": 1.32,
+  "rc": 2.15,
+  "rank": 11,
+  "prompt": "Кратко изложите письмо клиента ниже в трёх пунктах и предложите вежливый ответ. Клиент пишет, что заказ пришёл на два дня позже и в коробке не хватало одного товара.",
+  "splits": [
+   {
+    "w": "вежливый",
+    "parts": [
+     "в",
+     "еж",
+     "лив",
+     "ый"
+    ]
+   },
+   {
+    "w": "Кратко",
+    "parts": [
+     "К",
+     "рат",
+     "ко"
+    ]
+   },
+   {
+    "w": "трёх",
+    "parts": [
+     "тр",
+     "ё",
+     "х"
+    ]
+   }
+  ]
+ },
+ "sv": {
+  "name": "Swedish",
+  "o": 45,
+  "c": 51,
+  "ro": 1.32,
+  "rc": 1.5,
+  "rank": 12,
+  "prompt": "Sammanfatta kundens e-post nedan i tre punkter och föreslå ett artigt svar. Kunden säger att beställningen kom två dagar för sent och att en vara saknades i lådan.",
+  "splits": [
+   {
+    "w": "Sammanfatta",
+    "parts": [
+     "Sam",
+     "man",
+     "f",
+     "atta"
+    ]
+   },
+   {
+    "w": "beställningen",
+    "parts": [
+     "best",
+     "äll",
+     "ningen"
+    ]
+   },
+   {
+    "w": "saknades",
+    "parts": [
+     "sak",
+     "n",
+     "ades"
+    ]
+   }
+  ]
+ },
+ "zh-TW": {
+  "name": "Chinese (Traditional)",
+  "o": 46,
+  "c": 72,
+  "ro": 1.35,
+  "rc": 2.12,
+  "rank": 13,
+  "prompt": "請用三個重點總結下面的客戶郵件，並建議一封禮貌的回覆。客戶說訂單晚到了兩天，而且箱子裡少了一件商品。",
+  "splits": [
+   {
+    "w": "請用三個重點總結下面的客戶郵",
+    "parts": [
+     "請",
+     "用",
+     "三",
+     "個",
+     "重",
+     "點",
+     "總",
+     "結",
+     "下面",
+     "的",
+     "客",
+     "戶",
+     "郵"
+    ]
+   }
+  ]
+ },
+ "vi": {
+  "name": "Vietnamese",
+  "o": 46,
+  "c": 79,
+  "ro": 1.35,
+  "rc": 2.32,
+  "rank": 14,
+  "prompt": "Hãy tóm tắt email của khách hàng dưới đây thành ba ý chính và đề xuất một câu trả lời lịch sự. Khách hàng nói rằng đơn hàng đến trễ hai ngày và thiếu một món trong hộp.",
+  "splits": [
+   {
+    "w": "Khách",
+    "parts": [
+     "Kh",
+     "ách"
+    ]
+   },
+   {
+    "w": "Hãy",
+    "parts": [
+     "H",
+     "ãy"
+    ]
+   },
+   {
+    "w": "tóm",
+    "parts": [
+     "t",
+     "óm"
+    ]
+   }
+  ]
+ },
+ "it": {
+  "name": "Italian",
+  "o": 47,
+  "c": 54,
+  "ro": 1.38,
+  "rc": 1.59,
+  "rank": 15,
+  "prompt": "Riassumi l'email del cliente qui sotto in tre punti e suggerisci una risposta cortese. Il cliente dice che l'ordine è arrivato con due giorni di ritardo e che mancava un articolo nella scatola.",
+  "splits": [
+   {
+    "w": "Riassumi",
+    "parts": [
+     "Ri",
+     "ass",
+     "umi"
+    ]
+   },
+   {
+    "w": "suggerisci",
+    "parts": [
+     "sugger",
+     "isci"
+    ]
+   },
+   {
+    "w": "arrivato",
+    "parts": [
+     "arriv",
+     "ato"
+    ]
+   }
+  ]
+ },
+ "ko": {
+  "name": "Korean",
+  "o": 49,
+  "c": 85,
+  "ro": 1.44,
+  "rc": 2.5,
+  "rank": 16,
+  "prompt": "아래 고객 이메일을 세 가지 요점으로 요약하고 정중한 답장을 제안해 주세요. 고객은 주문이 이틀 늦게 도착했고 상자에서 물건 하나가 빠져 있었다고 말합니다.",
+  "splits": [
+   {
+    "w": "요점으로",
+    "parts": [
+     "요",
+     "점",
+     "으로"
+    ]
+   },
+   {
+    "w": "요약하고",
+    "parts": [
+     "요",
+     "약",
+     "하고"
+    ]
+   },
+   {
+    "w": "도착했고",
+    "parts": [
+     "도",
+     "착",
+     "했고"
+    ]
+   }
+  ]
+ },
+ "tr": {
+  "name": "Turkish",
+  "o": 50,
+  "c": 70,
+  "ro": 1.47,
+  "rc": 2.06,
+  "rank": 17,
+  "prompt": "Aşağıdaki müşteri e-postasını üç madde halinde özetleyin ve kibar bir yanıt önerin. Müşteri, siparişin iki gün geç geldiğini ve kutuda bir ürünün eksik olduğunu söylüyor.",
+  "splits": [
+   {
+    "w": "Aşağıdaki",
+    "parts": [
+     "A",
+     "şa",
+     "ğı",
+     "daki"
+    ]
+   },
+   {
+    "w": "özetleyin",
+    "parts": [
+     "ö",
+     "zet",
+     "ley",
+     "in"
+    ]
+   },
+   {
+    "w": "e-postasını",
+    "parts": [
+     "e",
+     "-post",
+     "asını"
+    ]
+   }
+  ]
+ },
+ "hi": {
+  "name": "Hindi",
+  "o": 51,
+  "c": 156,
+  "ro": 1.5,
+  "rc": 4.59,
+  "rank": 18,
+  "prompt": "नीचे दिए गए ग्राहक ईमेल को तीन बिंदुओं में सारांशित करें और एक विनम्र उत्तर सुझाएँ। ग्राहक का कहना है कि ऑर्डर दो दिन देर से पहुँचा और डिब्बे में एक सामान कम था।",
+  "splits": [
+   {
+    "w": "डिब्बे",
+    "parts": [
+     "ड",
+     "िब",
+     "्ब",
+     "े"
+    ]
+   },
+   {
+    "w": "सारांशित",
+    "parts": [
+     "सार",
+     "ांश",
+     "ित"
+    ]
+   },
+   {
+    "w": "बिंदुओं",
+    "parts": [
+     "ब",
+     "िंद",
+     "ुओं"
+    ]
+   }
+  ]
+ },
+ "fil": {
+  "name": "Filipino",
+  "o": 52,
+  "c": 60,
+  "ro": 1.53,
+  "rc": 1.76,
+  "rank": 19,
+  "prompt": "Ibuod ang email ng customer sa ibaba sa tatlong punto at magmungkahi ng magalang na sagot. Sinabi ng customer na dumating ang order nang dalawang araw na huli at may isang item na kulang sa kahon.",
+  "splits": [
+   {
+    "w": "magmungkahi",
+    "parts": [
+     "mag",
+     "m",
+     "ungk",
+     "ahi"
+    ]
+   },
+   {
+    "w": "Ibuod",
+    "parts": [
+     "I",
+     "bu",
+     "od"
+    ]
+   },
+   {
+    "w": "magalang",
+    "parts": [
+     "mag",
+     "alang"
+    ]
+   }
+  ]
+ },
+ "he": {
+  "name": "Hebrew",
+  "o": 53,
+  "c": 128,
+  "ro": 1.56,
+  "rc": 3.76,
+  "rank": 20,
+  "prompt": "סכמו את המייל של הלקוח למטה בשלוש נקודות והציעו תשובה מנומסת. הלקוח אומר שההזמנה הגיעה באיחור של יומיים ושפריט אחד היה חסר בקופסה.",
+  "splits": [
+   {
+    "w": "שההזמנה",
+    "parts": [
+     "שה",
+     "ה",
+     "ז",
+     "מנה"
+    ]
+   },
+   {
+    "w": "והציעו",
+    "parts": [
+     "וה",
+     "ציע",
+     "ו"
+    ]
+   },
+   {
+    "w": "מנומסת",
+    "parts": [
+     "מנ",
+     "ומ",
+     "סת"
+    ]
+   }
+  ]
+ },
+ "ur": {
+  "name": "Urdu",
+  "o": 54,
+  "c": 144,
+  "ro": 1.59,
+  "rc": 4.24,
+  "rank": 21,
+  "prompt": "نیچے دی گئی گاہک کی ای میل کا تین نکات میں خلاصہ کریں اور ایک شائستہ جواب تجویز کریں۔ گاہک کا کہنا ہے کہ آرڈر دو دن دیر سے پہنچا اور ڈبے میں ایک چیز کم تھی۔",
+  "splits": [
+   {
+    "w": "شائستہ",
+    "parts": [
+     "ش",
+     "ائ",
+     "ست",
+     "ہ"
+    ]
+   },
+   {
+    "w": "گاہک",
+    "parts": [
+     "گ",
+     "اہ",
+     "ک"
+    ]
+   },
+   {
+    "w": "ڈبے",
+    "parts": [
+     "ڈ",
+     "ب",
+     "ے"
+    ]
+   }
+  ]
+ },
+ "bn": {
+  "name": "Bengali",
+  "o": 57,
+  "c": 207,
+  "ro": 1.68,
+  "rc": 6.09,
+  "rank": 22,
+  "prompt": "নিচের গ্রাহকের ইমেলটি তিনটি পয়েন্টে সংক্ষেপ করুন এবং একটি বিনীত উত্তর প্রস্তাব করুন। গ্রাহক বলছেন অর্ডারটি দুই দিন দেরিতে এসেছে এবং বাক্স থেকে একটি জিনিস অনুপস্থিত ছিল।",
+  "splits": [
+   {
+    "w": "পয়েন্টে",
+    "parts": [
+     "প",
+     "য়",
+     "েন্ট",
+     "ে"
+    ]
+   },
+   {
+    "w": "অর্ডারটি",
+    "parts": [
+     "অ",
+     "র্ড",
+     "ার",
+     "টি"
+    ]
+   },
+   {
+    "w": "ইমেলটি",
+    "parts": [
+     "ই",
+     "ম",
+     "েল",
+     "টি"
+    ]
+   }
+  ]
+ },
+ "th": {
+  "name": "Thai",
+  "o": 59,
+  "c": 126,
+  "ro": 1.74,
+  "rc": 3.71,
+  "rank": 23,
+  "prompt": "โปรดสรุปอีเมลของลูกค้าด้านล่างเป็นสามข้อและเสนอคำตอบที่สุภาพ ลูกค้าบอกว่าคำสั่งซื้อมาถึงช้าไปสองวันและมีสินค้าหายไปหนึ่งชิ้นจากกล่อง",
+  "splits": [
+   {
+    "w": "โปรดสรุปอีเมลของลูกค้า",
+    "parts": [
+     "โปร",
+     "ด",
+     "ส",
+     "รุ",
+     "ป",
+     "อ",
+     "ี",
+     "เม",
+     "ล",
+     "ของ",
+     "ลูก",
+     "ค้า"
+    ]
+   }
+  ]
+ },
+ "ja": {
+  "name": "Japanese",
+  "o": 61,
+  "c": 75,
+  "ro": 1.79,
+  "rc": 2.21,
+  "rank": 24,
+  "prompt": "以下の顧客メールを3つの箇条書きで要約し、丁寧な返信を提案してください。顧客によると、注文品が2日遅れて届き、箱から商品が1つ欠けていたそうです。",
+  "splits": [
+   {
+    "w": "以下の顧客メールを3つの箇条",
+    "parts": [
+     "以下",
+     "の",
+     "�",
+     "�",
+     "客",
+     "メール",
+     "を",
+     "3",
+     "つ",
+     "の",
+     "�",
+     "�",
+     "条"
+    ]
+   }
+  ]
+ },
+ "uk": {
+  "name": "Ukrainian",
+  "o": 64,
+  "c": 107,
+  "ro": 1.88,
+  "rc": 3.15,
+  "rank": 25,
+  "prompt": "Коротко викладіть лист клієнта нижче у трьох пунктах і запропонуйте ввічливу відповідь. Клієнт пише, що замовлення прийшло на два дні пізніше і в коробці бракувало одного товару.",
+  "splits": [
+   {
+    "w": "запропонуйте",
+    "parts": [
+     "запр",
+     "оп",
+     "ону",
+     "йте"
+    ]
+   },
+   {
+    "w": "викладіть",
+    "parts": [
+     "вик",
+     "ла",
+     "ді",
+     "ть"
+    ]
+   },
+   {
+    "w": "бракувало",
+    "parts": [
+     "бра",
+     "ку",
+     "в",
+     "ало"
+    ]
+   }
+  ]
+ },
+ "pl": {
+  "name": "Polish",
+  "o": 64,
+  "c": 72,
+  "ro": 1.88,
+  "rc": 2.12,
+  "rank": 26,
+  "prompt": "Podsumuj poniższy e-mail od klienta w trzech punktach i zaproponuj uprzejmą odpowiedź. Klient twierdzi, że zamówienie dotarło z dwudniowym opóźnieniem, a w paczce brakowało jednego produktu.",
+  "splits": [
+   {
+    "w": "opóźnieniem",
+    "parts": [
+     "op",
+     "ó",
+     "ź",
+     "n",
+     "ieniem"
+    ]
+   },
+   {
+    "w": "zaproponuj",
+    "parts": [
+     "zap",
+     "ro",
+     "pon",
+     "uj"
+    ]
+   },
+   {
+    "w": "dwudniowym",
+    "parts": [
+     "dw",
+     "ud",
+     "ni",
+     "owym"
+    ]
+   }
+  ]
+ },
+ "cs": {
+  "name": "Czech",
+  "o": 68,
+  "c": 88,
+  "ro": 2,
+  "rc": 2.59,
+  "rank": 27,
+  "prompt": "Shrňte níže uvedený e-mail zákazníka do tří bodů a navrhněte zdvořilou odpověď. Zákazník píše, že objednávka dorazila se dvoudenním zpožděním a v krabici chyběla jedna položka.",
+  "splits": [
+   {
+    "w": "navrhněte",
+    "parts": [
+     "nav",
+     "r",
+     "hn",
+     "ě",
+     "te"
+    ]
+   },
+   {
+    "w": "zdvořilou",
+    "parts": [
+     "zd",
+     "vo",
+     "ř",
+     "il",
+     "ou"
+    ]
+   },
+   {
+    "w": "zpožděním",
+    "parts": [
+     "z",
+     "po",
+     "žd",
+     "ě",
+     "ním"
+    ]
+   }
+  ]
+ },
+ "_en": 34,
+ "_total": 27
+}

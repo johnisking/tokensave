@@ -1,0 +1,91 @@
+<p>Saya menerjemahkan prompt layanan pelanggan yang sama ke 27 bahasa dan menghitung token dengan o200k_base, tokenizer OpenAI saat ini (GPT-4o dan setelahnya). Bahasa Inggris butuh 34 token, bahasa Indonesia <strong>39 token — 1,15× bahasa Inggris</strong>, peringkat 3 dari 27 (1 = paling murah).</p>
+<p>Versi bahasa Indonesia:</p>
+<blockquote>
+<p>Ringkas email pelanggan di bawah ini dalam tiga poin dan sarankan balasan yang sopan. Pelanggan mengatakan pesanan tiba dua hari terlambat dan satu barang hilang dari kotak.</p>
+</blockquote>
+<h2>Hasil</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Bahasa</th>
+<th style="text-align: right;">Token</th>
+<th style="text-align: right;">Dibanding bahasa Inggris</th>
+<th style="text-align: right;">Tokenizer GPT-4 lama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">1,00×</td>
+<td style="text-align: right;">1,00×</td>
+</tr>
+<tr>
+<td>简体中文</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">1,03×</td>
+<td style="text-align: right;">1,53×</td>
+</tr>
+<tr>
+<td><strong>Bahasa Indonesia</strong></td>
+<td style="text-align: right;"><strong>39</strong></td>
+<td style="text-align: right;"><strong>1,15×</strong></td>
+<td style="text-align: right;"><strong>1,38×</strong></td>
+</tr>
+<tr>
+<td>Español</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">1,18×</td>
+<td style="text-align: right;">1,29×</td>
+</tr>
+<tr>
+<td>Deutsch</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">1,26×</td>
+<td style="text-align: right;">1,50×</td>
+</tr>
+<tr>
+<td>한국어</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">2,50×</td>
+</tr>
+<tr>
+<td>日本語</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">1,79×</td>
+<td style="text-align: right;">2,21×</td>
+</tr>
+<tr>
+<td>Čeština</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">2,00×</td>
+<td style="text-align: right;">2,59×</td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" width="960" height="995" alt="Hasil" src="/blog-language-tax-chart-v2.png" /></p>
+<h2>Mengapa</h2>
+<p>Tokenizer terutama belajar dari teks bahasa Inggris: kata seperti " polite" atau " customer" hanya satu token, sedangkan kata berimbuhan dalam bahasa Indonesia dipecah:</p>
+<ul>
+<li>terlambat → <code>terl | amb | at</code> · 3</li>
+<li>Pelanggan → <code>Pel | anggan</code> · 2</li>
+<li>sarankan → <code>sar | ankan</code> · 2</li>
+</ul>
+<h2>Dibanding tokenizer lama</h2>
+<p>Di tokenizer era GPT-4 (cl100k), prompt yang sama <strong>1,38×</strong>; sekarang <strong>1,15×</strong>. Bahasa Indonesia termasuk yang paling hemat setelah bahasa Inggris dan Mandarin.</p>
+<h2>Dalam uang</h2>
+<p>Dengan model seharga $2 per 1 juta token input, mengirim prompt ini 1 juta kali menghabiskan $68 dalam bahasa Inggris dan $78 dalam bahasa Indonesia. Jika jawabannya juga berbahasa Indonesia, pengali yang sama berlaku untuk token output yang biasanya 4–5× lebih mahal.</p>
+<h2>Cara berhemat</h2>
+<ul>
+<li>Tulis system prompt dan instruksi tetap dalam bahasa Inggris; biarkan hanya input pengguna dalam bahasa Indonesia.</li>
+<li>Minta langkah perantara (klasifikasi, ekstraksi, pemanggilan tool) dalam bahasa Inggris atau JSON, dan hanya jawaban akhir dalam bahasa Indonesia.</li>
+<li>Gunakan prompt caching untuk bagian prompt yang tetap.</li>
+</ul>
+<h2>Batasan</h2>
+<ul>
+<li>Hanya satu prompt yang diukur; pada teks lain rasionya bisa berbeda ±0,1–0,2.</li>
+<li>Claude dan Gemini memakai tokenizer lain; angka ini hanya berlaku untuk model OpenAI.</li>
+<li>Terjemahan didasarkan pada terjemahan mesin yang sudah diperiksa.</li>
+</ul>
+<p>Hasil lengkap 27 bahasa (dalam bahasa Inggris): <a href="/blog/token-cost-27-languages">perbandingan 27 bahasa</a></p>

@@ -1,0 +1,89 @@
+<p>我們把同一段客服提示詞翻成 27 種語言，用 OpenAI 目前的 o200k_base 分詞器（GPT-4o 以後的模型）計算 Token。英文需要 34 個 Token，繁體中文需要 <strong>46 個，是英文的 1.35×</strong>，在 27 種語言中排第 13 便宜。</p>
+<p>繁體中文版本：</p>
+<blockquote>
+<p>請用三個重點總結下面的客戶郵件，並建議一封禮貌的回覆。客戶說訂單晚到了兩天，而且箱子裡少了一件商品。</p>
+</blockquote>
+<h2>結果</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>語言</th>
+<th style="text-align: right;">Token</th>
+<th style="text-align: right;">相對英文</th>
+<th style="text-align: right;">舊 GPT-4 分詞器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">1.00×</td>
+<td style="text-align: right;">1.00×</td>
+</tr>
+<tr>
+<td>简体中文</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">1.03×</td>
+<td style="text-align: right;">1.53×</td>
+</tr>
+<tr>
+<td>Español</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">1.18×</td>
+<td style="text-align: right;">1.29×</td>
+</tr>
+<tr>
+<td>Deutsch</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">1.26×</td>
+<td style="text-align: right;">1.50×</td>
+</tr>
+<tr>
+<td><strong>繁體中文</strong></td>
+<td style="text-align: right;"><strong>46</strong></td>
+<td style="text-align: right;"><strong>1.35×</strong></td>
+<td style="text-align: right;"><strong>2.12×</strong></td>
+</tr>
+<tr>
+<td>한국어</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">1.44×</td>
+<td style="text-align: right;">2.50×</td>
+</tr>
+<tr>
+<td>日本語</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">1.79×</td>
+<td style="text-align: right;">2.21×</td>
+</tr>
+<tr>
+<td>Čeština</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">2.00×</td>
+<td style="text-align: right;">2.59×</td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" width="960" height="995" alt="結果" src="/blog-language-tax-chart-v2.png" /></p>
+<h2>為什麼</h2>
+<p>分詞器主要以英文資料訓練，常見英文單字通常是 1 個 Token（" polite"、" customer"）。繁體字的常用詞收錄得比簡體少，常被拆成單字：</p>
+<ul>
+<li>請用三個重點總結下面的客戶郵 → <code>請 | 用 | 三 | 個 | 重 | 點 | 總 | 結 | 下面 | 的 | 客 | 戶 | 郵</code> · 13</li>
+</ul>
+<h2>與舊分詞器相比</h2>
+<p>在 GPT-4 時代的 cl100k 分詞器上，同一提示詞是英文的 <strong>2.12×</strong>，現在降到 <strong>1.35×</strong>。不過同樣內容的簡體中文只要 1.03×。</p>
+<h2>換算成費用</h2>
+<p>以輸入每 100 萬 Token 2 美元計，把這段提示詞送出 100 萬次：英文 $68，繁體中文 $92。若回答也用繁體中文，單價通常高 4–5 倍的輸出 Token 也會乘上同樣倍數。</p>
+<h2>省 Token 的方法</h2>
+<ul>
+<li>固定的系統提示詞改用英文撰寫，只讓使用者輸入保持中文。</li>
+<li>分類、擷取、工具呼叫等中間步驟輸出英文或 JSON，只有最後回答用繁體中文。</li>
+<li>對固定前綴使用提示詞快取（Prompt Caching），輸入單價會大幅下降。</li>
+</ul>
+<h2>限制</h2>
+<ul>
+<li>只測了一段提示詞，不同文字的倍數可能差 0.1–0.2。</li>
+<li>Claude 與 Gemini 的分詞器不同，這些數字只適用於 OpenAI 模型。</li>
+<li>譯文以機器翻譯為基礎並經過檢查。</li>
+</ul>
+<p>全部 27 種語言的結果（英文）：<a href="/blog/token-cost-27-languages">27 種語言比較</a></p>

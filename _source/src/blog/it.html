@@ -1,0 +1,91 @@
+<p>Ho tradotto lo stesso prompt di assistenza clienti in 27 lingue e contato i token con o200k_base, il tokenizer attuale di OpenAI (GPT-4o e successivi). In inglese servono 34 token; in italiano <strong>47, cioè 1,38× l’inglese</strong>, posizione 15 su 27 (1 = il più economico).</p>
+<p>La versione italiana:</p>
+<blockquote>
+<p>Riassumi l'email del cliente qui sotto in tre punti e suggerisci una risposta cortese. Il cliente dice che l'ordine è arrivato con due giorni di ritardo e che mancava un articolo nella scatola.</p>
+</blockquote>
+<h2>Risultati</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Lingua</th>
+<th style="text-align: right;">Token</th>
+<th style="text-align: right;">Rispetto all’inglese</th>
+<th style="text-align: right;">Vecchio tokenizer GPT-4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">1,00×</td>
+<td style="text-align: right;">1,00×</td>
+</tr>
+<tr>
+<td>简体中文</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">1,03×</td>
+<td style="text-align: right;">1,53×</td>
+</tr>
+<tr>
+<td>Español</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">1,18×</td>
+<td style="text-align: right;">1,29×</td>
+</tr>
+<tr>
+<td>Deutsch</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">1,26×</td>
+<td style="text-align: right;">1,50×</td>
+</tr>
+<tr>
+<td><strong>Italiano</strong></td>
+<td style="text-align: right;"><strong>47</strong></td>
+<td style="text-align: right;"><strong>1,38×</strong></td>
+<td style="text-align: right;"><strong>1,59×</strong></td>
+</tr>
+<tr>
+<td>한국어</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">2,50×</td>
+</tr>
+<tr>
+<td>日本語</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">1,79×</td>
+<td style="text-align: right;">2,21×</td>
+</tr>
+<tr>
+<td>Čeština</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">2,00×</td>
+<td style="text-align: right;">2,59×</td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" width="960" height="995" alt="Risultati" src="/blog-language-tax-chart-v2.png" /></p>
+<h2>Perché</h2>
+<p>Il tokenizer impara soprattutto da testo inglese: parole come " polite" o " customer" sono un solo token, mentre molte parole italiane vengono spezzate:</p>
+<ul>
+<li>Riassumi → <code>Ri | ass | umi</code> · 3</li>
+<li>suggerisci → <code>sugger | isci</code> · 2</li>
+<li>arrivato → <code>arriv | ato</code> · 2</li>
+</ul>
+<h2>Rispetto al vecchio tokenizer</h2>
+<p>Con il tokenizer dell’epoca GPT-4 (cl100k) lo stesso prompt costava <strong>1,59×</strong>; oggi <strong>1,38×</strong>.</p>
+<h2>In denaro</h2>
+<p>Con un modello a 2 $ per milione di token in input, inviare questo prompt un milione di volte costa 68 $ in inglese e 94 $ in italiano. Se anche la risposta è in italiano, lo stesso moltiplicatore vale per i token in output, che di solito costano 4–5× di più.</p>
+<h2>Come risparmiare</h2>
+<ul>
+<li>Scrivi il prompt di sistema e le istruzioni fisse in inglese; lascia in italiano solo l’input dell’utente.</li>
+<li>Chiedi i passaggi intermedi (classificazione, estrazione, chiamate a strumenti) in inglese o JSON e solo la risposta finale in italiano.</li>
+<li>Usa il prompt caching per la parte fissa del prompt.</li>
+</ul>
+<h2>Limiti</h2>
+<ul>
+<li>È un solo prompt: con altri testi il rapporto può variare di ±0,1–0,2.</li>
+<li>Claude e Gemini usano altri tokenizer: questi numeri valgono solo per i modelli OpenAI.</li>
+<li>La traduzione parte da una traduzione automatica revisionata.</li>
+</ul>
+<p>Risultati completi delle 27 lingue (in inglese): <a href="/blog/token-cost-27-languages">confronto tra 27 lingue</a></p>

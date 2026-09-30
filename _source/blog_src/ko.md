@@ -55,7 +55,7 @@ print(len(enc.encode(korean)))  # 49
 | 폴란드어 | 64 | **1.88배** | 2.12배 |
 | 체코어 | 68 | **2.00배** | 2.59배 |
 
-27개 언어 전체 결과는 [영어로 정리한 글](https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m)에 있습니다.
+27개 언어 전체 결과는 [영어로 정리한 글](/blog/token-cost-27-languages)에 있습니다.
 
 ## 의외였던 점
 

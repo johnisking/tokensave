@@ -36,4 +36,4 @@ Ciekawostka: przy zmianie tokenizera ukraiński mocno potaniał (3,15× → 1,88
 
 Ograniczenia: to jeden prompt, dla innych tekstów wynik może się różnić o ±0,1–0,2. Claude i Gemini mają inne tokenizery, liczby dotyczą tylko modeli OpenAI. Tłumaczenie jest maszynowe, jeśli coś brzmi nienaturalnie, dajcie znać, zmierzę ponownie.
 
-Pełne wyniki dla 27 języków (po angielsku): [dev.to](https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m)
+Pełne wyniki dla 27 języków (po angielsku): [porównanie 27 języków](/blog/token-cost-27-languages)

@@ -1,0 +1,91 @@
+<p>Isinalin ko ang parehong customer-support prompt sa 27 wika at binilang ang token gamit ang o200k_base, ang kasalukuyang tokenizer ng OpenAI (GPT-4o at mas bago). Sa English, 34 token; sa Filipino, <strong>52 token — 1.53× ng English</strong>, ika-19 sa 27 (1 = pinakamura).</p>
+<p>Ang bersyong Filipino:</p>
+<blockquote>
+<p>Ibuod ang email ng customer sa ibaba sa tatlong punto at magmungkahi ng magalang na sagot. Sinabi ng customer na dumating ang order nang dalawang araw na huli at may isang item na kulang sa kahon.</p>
+</blockquote>
+<h2>Mga resulta</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Wika</th>
+<th style="text-align: right;">Token</th>
+<th style="text-align: right;">Kumpara sa English</th>
+<th style="text-align: right;">Lumang GPT-4 tokenizer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">1.00×</td>
+<td style="text-align: right;">1.00×</td>
+</tr>
+<tr>
+<td>简体中文</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">1.03×</td>
+<td style="text-align: right;">1.53×</td>
+</tr>
+<tr>
+<td>Español</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">1.18×</td>
+<td style="text-align: right;">1.29×</td>
+</tr>
+<tr>
+<td>Deutsch</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">1.26×</td>
+<td style="text-align: right;">1.50×</td>
+</tr>
+<tr>
+<td>한국어</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">1.44×</td>
+<td style="text-align: right;">2.50×</td>
+</tr>
+<tr>
+<td><strong>Filipino</strong></td>
+<td style="text-align: right;"><strong>52</strong></td>
+<td style="text-align: right;"><strong>1.53×</strong></td>
+<td style="text-align: right;"><strong>1.76×</strong></td>
+</tr>
+<tr>
+<td>日本語</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">1.79×</td>
+<td style="text-align: right;">2.21×</td>
+</tr>
+<tr>
+<td>Čeština</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">2.00×</td>
+<td style="text-align: right;">2.59×</td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" width="960" height="995" alt="Mga resulta" src="/blog-language-tax-chart-v2.png" /></p>
+<h2>Bakit</h2>
+<p>Karamihang natututo ang tokenizer mula sa English na text: isang token lang ang mga salitang tulad ng " polite" o " customer", pero hinahati-hati ang maraming salitang Filipino na may panlapi:</p>
+<ul>
+<li>magmungkahi → <code>mag | m | ungk | ahi</code> · 4</li>
+<li>Ibuod → <code>I | bu | od</code> · 3</li>
+<li>magalang → <code>mag | alang</code> · 2</li>
+</ul>
+<h2>Kumpara sa lumang tokenizer</h2>
+<p>Sa tokenizer ng panahon ng GPT-4 (cl100k), <strong>1.76×</strong> ang parehong prompt; ngayon <strong>1.53×</strong>.</p>
+<h2>Sa pera</h2>
+<p>Sa model na $2 bawat 1 milyong input token, ang pagpapadala ng prompt na ito nang 1 milyong beses ay $68 sa English at $104 sa Filipino. Kung Filipino rin ang sagot, parehong multiplier ang tatama sa output token, na kadalasang 4–5× na mas mahal.</p>
+<h2>Paano makatipid</h2>
+<ul>
+<li>Isulat sa English ang system prompt at mga nakapirming tagubilin; Filipino lang ang input ng user.</li>
+<li>Hilingin sa English o JSON ang mga pansamantalang hakbang (classification, extraction, tool call), at Filipino lang ang huling sagot.</li>
+<li>Gumamit ng prompt caching para sa nakapirming bahagi ng prompt.</li>
+</ul>
+<h2>Mga limitasyon</h2>
+<ul>
+<li>Isang prompt lang ang sinukat; sa ibang text, maaaring mag-iba ang ratio ng ±0.1–0.2.</li>
+<li>Iba ang tokenizer ng Claude at Gemini; para lang sa mga OpenAI model ang mga numerong ito.</li>
+<li>Batay ang salin sa sinuring machine translation.</li>
+</ul>
+<p>Buong resulta ng 27 wika (sa English): <a href="/blog/token-cost-27-languages">paghahambing ng 27 wika</a></p>

@@ -36,4 +36,4 @@ Zajímavost: stejný text **bez diakritiky** má 60 tokenů místo 68 (o 12 % m�
 
 Omezení: je to jeden prompt, u jiných textů se poměr může lišit o ±0,1–0,2. Claude a Gemini mají jiné tokenizéry, čísla platí jen pro modely OpenAI. Překlad je strojový, pokud v něm najdete chybu, přeměřím to.
 
-Celé výsledky všech 27 jazyků (anglicky): [dev.to](https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m)
+Celé výsledky všech 27 jazyků (anglicky): [srovnání 27 jazyků](/blog/token-cost-27-languages)

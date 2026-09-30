@@ -1,0 +1,91 @@
+<p>یک پرامپت پشتیبانی مشتری را به ۲۷ زبان ترجمه کردیم و توکن‌ها را با o200k_base، توکنایزر فعلی OpenAI (‏GPT-4o و بعد از آن) شمردیم. انگلیسی 34 توکن لازم دارد و فارسی <strong>42 توکن، یعنی 1.24× انگلیسی</strong>؛ رتبه 6 از 27 (۱ = ارزان‌ترین).</p>
+<p>نسخه فارسی:</p>
+<blockquote>
+<p>ایمیل مشتری زیر را در سه نکته خلاصه کنید و یک پاسخ مودبانه پیشنهاد دهید. مشتری می‌گوید سفارش دو روز دیر رسید و یکی از اقلام در جعبه نبود.</p>
+</blockquote>
+<h2>نتایج</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>زبان</th>
+<th style="text-align: right;">توکن</th>
+<th style="text-align: right;">نسبت به انگلیسی</th>
+<th style="text-align: right;">توکنایزر قدیمی GPT-4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">1.00×</td>
+<td style="text-align: right;">1.00×</td>
+</tr>
+<tr>
+<td>简体中文</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">1.03×</td>
+<td style="text-align: right;">1.53×</td>
+</tr>
+<tr>
+<td>Español</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">1.18×</td>
+<td style="text-align: right;">1.29×</td>
+</tr>
+<tr>
+<td><strong>فارسی</strong></td>
+<td style="text-align: right;"><strong>42</strong></td>
+<td style="text-align: right;"><strong>1.24×</strong></td>
+<td style="text-align: right;"><strong>2.79×</strong></td>
+</tr>
+<tr>
+<td>Deutsch</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">1.26×</td>
+<td style="text-align: right;">1.50×</td>
+</tr>
+<tr>
+<td>한국어</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">1.44×</td>
+<td style="text-align: right;">2.50×</td>
+</tr>
+<tr>
+<td>日本語</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">1.79×</td>
+<td style="text-align: right;">2.21×</td>
+</tr>
+<tr>
+<td>Čeština</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">2.00×</td>
+<td style="text-align: right;">2.59×</td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" width="960" height="995" alt="نتایج" src="/blog-language-tax-chart-v2.png" /></p>
+<h2>چرا</h2>
+<p>توکنایزر بیشتر با متن انگلیسی آموزش دیده است؛ واژه‌هایی مثل " polite" و " customer" یک توکن‌اند، اما بسیاری از واژه‌های فارسی تکه‌تکه می‌شوند:</p>
+<ul>
+<li>مودبانه → <code>مود | ب | انه</code> · 3</li>
+<li>جعبه → <code>ج | عب | ه</code> · 3</li>
+<li>ایمیل → <code>ایم | یل</code> · 2</li>
+</ul>
+<h2>در مقایسه با توکنایزر قدیمی</h2>
+<p>در توکنایزر دوره GPT-4 ‏(cl100k) همین پرامپت <strong>2.79×</strong> بود و حالا <strong>1.24×</strong> است؛ یعنی هزینه فارسی به کمتر از نصف رسیده.</p>
+<h2>به پول</h2>
+<p>با مدلی که برای هر یک میلیون توکن ورودی ۲ دلار می‌گیرد، یک میلیون بار ارسال این پرامپت به انگلیسی 68 دلار و به فارسی 84 دلار هزینه دارد. اگر پاسخ هم فارسی باشد، همین ضریب روی توکن‌های خروجی هم اعمال می‌شود که معمولاً ۴ تا ۵ برابر گران‌ترند.</p>
+<h2>راه‌های صرفه‌جویی</h2>
+<ul>
+<li>پرامپت سیستم و دستورهای ثابت را انگلیسی بنویسید و فقط ورودی کاربر را فارسی نگه دارید.</li>
+<li>مراحل میانی (دسته‌بندی، استخراج، فراخوانی ابزار) را انگلیسی یا JSON بخواهید و فقط پاسخ نهایی را فارسی.</li>
+<li>برای بخش ثابت پرامپت از کش پرامپت (Prompt Caching) استفاده کنید.</li>
+</ul>
+<h2>محدودیت‌ها</h2>
+<ul>
+<li>فقط یک پرامپت سنجیده شد؛ در متن‌های دیگر نسبت ممکن است ±0.1 تا 0.2 تغییر کند.</li>
+<li>Claude و Gemini توکنایزر دیگری دارند؛ این اعداد فقط برای مدل‌های OpenAI است.</li>
+<li>ترجمه بر پایه ترجمه ماشینی بازبینی‌شده است.</li>
+</ul>
+<p>نتایج کامل ۲۷ زبان (به انگلیسی): <a href="/blog/token-cost-27-languages">مقایسه ۲۷ زبان</a></p>

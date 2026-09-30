@@ -59,7 +59,7 @@ print(len(enc.encode(japanese)))  # 61
 | ポーランド語 | 64 | **1.88倍** | 2.12倍 |
 | チェコ語 | 68 | **2.00倍** | 2.59倍 |
 
-（27言語すべての結果は[こちらの英語記事](https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m)にあります）
+（27言語すべての結果は[こちらの英語記事](/blog/token-cost-27-languages)にあります）
 
 ## 意外だったこと
 
