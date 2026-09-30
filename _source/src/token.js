@@ -128,6 +128,48 @@ function efficiency(a, text) {
 }
 
 // =========================================================
+// 4b) English shortener — filler/politeness removal and verbose-phrase swaps (deterministic, offline)
+// =========================================================
+const SWAPS = [
+  ['in order to', 'to'], ['so as to', 'to'], ['due to the fact that', 'because'], ['owing to the fact that', 'because'],
+  ['in spite of the fact that', 'although'], ['despite the fact that', 'although'], ['for the purpose of', 'for'],
+  ['at this point in time', 'now'], ['at the present time', 'now'], ['at this moment in time', 'now'],
+  ['in the near future', 'soon'], ['in the event that', 'if'], ['in a timely manner', 'promptly'],
+  ['a large number of', 'many'], ['a great number of', 'many'], ['a majority of', 'most'], ['the majority of', 'most'],
+  ['a small number of', 'a few'], ['with regard to', 'about'], ['with regards to', 'about'], ['in regard to', 'about'],
+  ['with respect to', 'about'], ['in relation to', 'about'], ['prior to', 'before'], ['subsequent to', 'after'],
+  ['is able to', 'can'], ['are able to', 'can'], ['has the ability to', 'can'], ['have the ability to', 'can'],
+  ['each and every', 'every'], ['whether or not', 'whether'], ['in the process of', ''],
+  ['it is important to', ''], ['make sure that you', ''], ['make sure to', ''],
+  ['i would like you to', ''], ["i'd like you to", ''], ['i want you to', ''], ['i need you to', ''],
+  ['would you mind', ''], ['could you please', ''], ['can you please', ''], ['would you please', ''],
+  ['please kindly', ''], ['kindly', ''], ['please', ''], ['feel free to', ''],
+];
+const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s+');
+const RULES = SWAPS.map(([a, b]) => [new RegExp('\\b' + esc(a) + '\\b', 'gi'), b]);
+const LEAD = /(^|[\n.!?]\s*)(could|can|would|will) you\s+(?=[a-z])/gi;      // "Could you summarize" -> "Summarize"
+const LEADQ = /(^|[\n.!?]\s*)(could|can|would|will) you\s+([a-z][^?\n]*)\?/gi;  // ...and its "?" becomes "."
+const TAIL = /\s*(?:,\s*)?(?:thank you(?: very much)?(?: in advance)?|thanks(?: a lot| in advance)?)\s*[.!]*\s*(?=$|\n)/gi;
+const IFPOS = /,?\s*if possible\b/gi;
+
+function shortenPart(text) {
+  let t = text.replace(TAIL, '').replace(IFPOS, '').replace(LEADQ, '$1$3.').replace(LEAD, '$1');
+  for (const [re, to] of RULES) {
+    t = t.replace(re, (m) => (to && /^[A-Z]/.test(m) ? to[0].toUpperCase() + to.slice(1) : to));
+  }
+  t = t.replace(/[ \t]{2,}/g, ' ').replace(/ +([,.!?;:])/g, '$1').replace(/^[ \t]+|[ \t]+$/gm, '')
+       .replace(/(^|[\n.!?]\s*)([,;]\s*)/g, '$1');
+  // capitalize sentence starts that lost their first word; drop a trailing "?" left by "Could you ...?"
+  t = t.replace(/(^|[\n.!?]\s+)([a-z])/g, (m, p, c) => p + c.toUpperCase());
+  return t;
+}
+
+// Code blocks are left untouched
+function shortenEnglish(text) {
+  return text.split(/(```[\s\S]*?```)/).map((p, i) => (i % 2 ? p : shortenPart(p))).join('');
+}
+
+// =========================================================
 // 5) DOM + rendering
 // =========================================================
 const $ = id => document.getElementById(id);
@@ -331,19 +373,43 @@ els.reqs.addEventListener('input', update);
 // Translate to English on the user's device (Chrome's built-in Translator API).
 // No server and no third-party service: the text never leaves the browser.
 
+// One smart button: non-English text -> "To English", English text -> "Shorten", after either -> "Original"
+let shortCache = { src: null, out: null, saved: 0, pct: 0 };
+function shortenPreview(text) {
+  const key = model.id + '\u0000' + text;
+  if (shortCache.src !== key) {
+    const out = shortenEnglish(text);
+    const before = countTokens(text).tokens, after = countTokens(out).tokens;
+    shortCache = { src: key, out, saved: before - after, pct: before ? Math.round((before - after) / before * 100) : 0 };
+  }
+  return shortCache;
+}
+
 function updateTranslateBtn(e) {
+  trBtn.dataset.act = '';
   if (original !== null) {
     trBtn.classList.remove('hidden');
     trLabel.textContent = '↩ ' + tr('undo');
     trSave.textContent = '';
+    trBtn.title = '';
     return;
   }
-  const show = mode === 'text' && e.waste >= 1.15;
-  trBtn.classList.toggle('hidden', !show);
-  if (show) {
+  const text = els.input.value;
+  if (mode === 'text' && e.waste >= 1.15) {
+    trBtn.dataset.act = 'translate';
     trLabel.textContent = '🌐 ' + tr('toEn');
     trSave.textContent = '−' + Math.round((1 - 1 / e.waste) * 100) + '%';
+    trBtn.title = tr('toEnTip');
+  } else if (mode === 'text' && text.trim() && text.length < 30000) {
+    const sp = shortenPreview(text);
+    if (sp.saved >= 2) {
+      trBtn.dataset.act = 'shorten';
+      trLabel.textContent = '✂ ' + tr('shorten');
+      trSave.textContent = '−' + sp.pct + '%';
+      trBtn.title = tr('shortenTip');
+    }
   }
+  trBtn.classList.toggle('hidden', !trBtn.dataset.act);
 }
 
 // Script-based guess, used when the browser's language detector isn't ready
@@ -375,6 +441,13 @@ trBtn.addEventListener('click', async () => {
     original = null;
     render();
     return toast(tr('tRestored'));
+  }
+  if (trBtn.dataset.act === 'shorten') {
+    const text = els.input.value, sp = shortenPreview(text);
+    original = text;
+    els.input.value = sp.out;
+    render();
+    return toast('✂ ' + tr('tShortened', { n: fmt(sp.saved), p: sp.pct }), 5000);
   }
   if (!('Translator' in self)) return toast(tr('tNoSupport'), 3500);
   const text = els.input.value;
