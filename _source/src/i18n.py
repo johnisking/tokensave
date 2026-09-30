@@ -594,3 +594,8 @@ for _tag in S:
 from i18n_translate import TR as _TR
 for _tag in S:
     S[_tag].update(_TR[_tag])
+
+# Token split view + share link
+from i18n_view import VIEW as _VIEW
+for _tag in S:
+    S[_tag].update(_VIEW[_tag])

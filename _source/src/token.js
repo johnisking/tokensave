@@ -333,7 +333,9 @@ function render() {
       (e.waste >= 1.6 ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40' : 'bg-amber-400/15 text-amber-300 border border-amber-400/40');
   } else {
     els.overhead.className = 'hidden';
-  }  updateTranslateBtn(e);
+  }
+  updateTranslateBtn(e);
+  renderTokView(text);
 }
 
 function toast(msg, ms = 1800) {
@@ -537,5 +539,83 @@ $('btnClear').addEventListener('click', () => {
   els.input.focus();
   toast(tr('tCleared'));
 });
+
+// =========================================================
+// 7) Token split view — every o200k token as a coloured box
+// =========================================================
+const tv = { det: $('tokView'), box: $('tokViewBox'), more: $('tokViewMore') };
+const TV_MAX = 1500;
+function renderTokView(text) {
+  if (!tv.det.open) return;
+  if (!enc) { tv.box.textContent = tr('viewTokWait'); tv.more.textContent = ''; return; }
+  let ids;
+  try { ids = enc.encode(text); } catch (_) { return; }
+  const shown = ids.slice(0, TV_MAX), frag = document.createDocumentFragment();
+  for (let i = 0, k = 0; i < shown.length; k++) {
+    // A character can span several tokens (bytes): merge until it decodes cleanly
+    let n = 1, piece = enc.decode([shown[i]]);
+    while (piece.includes('�') && n < 4 && i + n < shown.length) { n++; piece = enc.decode(shown.slice(i, i + n)); }
+    const sp = document.createElement('span');
+    sp.className = 't' + (k % 5) + (n > 1 ? ' tm' : '');
+    if (n > 1) sp.title = n + ' tokens';
+    sp.textContent = piece.replace(/\n/g, '↵\n');
+    frag.appendChild(sp);
+    i += n;
+  }
+  tv.box.replaceChildren(frag);
+  tv.more.textContent = ids.length > TV_MAX ? tr('viewTokMore', { n: fmt(TV_MAX) }) : '';
+}
+tv.det.addEventListener('toggle', () => { if (tv.det.open) render(); });
+
+// =========================================================
+// 8) Share link — the text is compressed into the URL fragment (#...), which browsers never send to a server
+// =========================================================
+const toB64 = u8 => { let s = ''; for (let i = 0; i < u8.length; i += 8192) s += String.fromCharCode(...u8.subarray(i, i + 8192));
+  return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); };
+const fromB64 = s => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
+const pipe = async (u8, stream) => new Uint8Array(await new Response(new Blob([u8]).stream().pipeThrough(stream)).arrayBuffer());
+async function pack(text) {
+  const u8 = new TextEncoder().encode(text);
+  if ('CompressionStream' in self) { try { return 'z' + toB64(await pipe(u8, new CompressionStream('deflate-raw'))); } catch (_) {} }
+  return 'u' + toB64(u8);
+}
+async function unpack(s) {
+  const u8 = fromB64(s.slice(1));
+  return new TextDecoder().decode(s[0] === 'z' ? await pipe(u8, new DecompressionStream('deflate-raw')) : u8);
+}
+const SHARE_MAX = 16000; // URL length that chat apps and browsers handle reliably
+$('btnShare').addEventListener('click', async () => {
+  if (!els.input.value) return toast(tr('tNothing'));
+  const q = new URLSearchParams({ t: await pack(els.input.value) });
+  if (mode !== 'text') q.set('m', mode);
+  if (provider !== 'openai' || model !== PROVIDERS.openai[0]) { q.set('p', provider); q.set('id', model.id); }
+  const url = location.origin + location.pathname + '#' + q.toString();
+  if (url.length > SHARE_MAX) return toast(tr('tShareLong'), 3500);
+  try { await navigator.clipboard.writeText(url); } catch (_) {}
+  toast('🔗 ' + tr('tShareCopied'), 4000);
+});
+async function openShared() {
+  const raw = window.__share || location.hash.slice(1);
+  window.__share = null;
+  if (/(^|&)t=/.test(raw) && location.hash) history.replaceState(null, '', location.pathname + location.search);
+  const q = new URLSearchParams(raw);
+  const t = q.get('t');
+  if (!t) return;
+  try {
+    const text = await unpack(t);
+    const m = [...modeTabs].find(b => b.dataset.mode === q.get('m'));
+    if (m) m.click();
+    const p = [...tabs].find(b => b.dataset.provider === q.get('p'));
+    if (p) {
+      p.click();
+      const found = PROVIDERS[provider].find(x => x.id === q.get('id'));
+      if (found) { model = found; els.select.value = found.id; }
+    }
+    els.input.value = text;
+    render();
+  } catch (e) { console.warn('Could not open shared text', e); }
+}
+openShared();
+window.addEventListener('hashchange', openShared);
 
 render();
