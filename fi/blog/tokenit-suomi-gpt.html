@@ -68,7 +68,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=308d1d6e" />
+  <link rel="stylesheet" href="/styles.css?v=2db97ce3" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -98,48 +98,22 @@
       <label class="inline-flex items-center gap-1.5 text-xs text-zinc-400">
         <span aria-hidden="true">🌐</span>
         <span class="sr-only">Kieli</span>
-        <select id="langSelect" aria-label="Kieli" class="bg-zinc-900 border border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-zinc-200 focus:outline-none focus:ring-2 focus:ring-violet-500/50">
+        <select id="langSelect" data-all="{&quot;en&quot;: &quot;/&quot;, &quot;ko&quot;: &quot;/ko/&quot;, &quot;ja&quot;: &quot;/ja/&quot;, &quot;zh-cn&quot;: &quot;/zh-cn/&quot;, &quot;zh-tw&quot;: &quot;/zh-tw/&quot;, &quot;es&quot;: &quot;/es/&quot;, &quot;pt&quot;: &quot;/pt/&quot;, &quot;fr&quot;: &quot;/fr/&quot;, &quot;de&quot;: &quot;/de/&quot;, &quot;it&quot;: &quot;/it/&quot;, &quot;ru&quot;: &quot;/ru/&quot;, &quot;uk&quot;: &quot;/uk/&quot;, &quot;tr&quot;: &quot;/tr/&quot;, &quot;ar&quot;: &quot;/ar/&quot;, &quot;fa&quot;: &quot;/fa/&quot;, &quot;hi&quot;: &quot;/hi/&quot;, &quot;id&quot;: &quot;/id/&quot;, &quot;vi&quot;: &quot;/vi/&quot;, &quot;th&quot;: &quot;/th/&quot;, &quot;pl&quot;: &quot;/pl/&quot;, &quot;nl&quot;: &quot;/nl/&quot;, &quot;bn&quot;: &quot;/bn/&quot;, &quot;ur&quot;: &quot;/ur/&quot;, &quot;fil&quot;: &quot;/fil/&quot;, &quot;cs&quot;: &quot;/cs/&quot;, &quot;sv&quot;: &quot;/sv/&quot;, &quot;he&quot;: &quot;/he/&quot;, &quot;el&quot;: &quot;/el/&quot;, &quot;ro&quot;: &quot;/ro/&quot;, &quot;hu&quot;: &quot;/hu/&quot;, &quot;da&quot;: &quot;/da/&quot;, &quot;fi&quot;: &quot;/fi/&quot;, &quot;no&quot;: &quot;/no/&quot;, &quot;sk&quot;: &quot;/sk/&quot;, &quot;mr&quot;: &quot;/mr/&quot;, &quot;gu&quot;: &quot;/gu/&quot;, &quot;kn&quot;: &quot;/kn/&quot;, &quot;ml&quot;: &quot;/ml/&quot;, &quot;ta&quot;: &quot;/ta/&quot;, &quot;te&quot;: &quot;/te/&quot;, &quot;pa&quot;: &quot;/pa/&quot;}" aria-label="Kieli" class="bg-zinc-900 border border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-zinc-200 focus:outline-none focus:ring-2 focus:ring-violet-500/50">
+          <option value="/fi/" data-code="fi" selected>Suomi</option>
           <option value="/" data-code="en">English</option>
-          <option value="/ko/" data-code="ko">한국어</option>
-          <option value="/ja/" data-code="ja">日本語</option>
           <option value="/zh-cn/" data-code="zh-cn">简体中文</option>
-          <option value="/zh-tw/" data-code="zh-tw">繁體中文</option>
           <option value="/es/" data-code="es">Español</option>
+          <option value="/hi/" data-code="hi">हिन्दी</option>
+          <option value="/ar/" data-code="ar">العربية</option>
           <option value="/pt/" data-code="pt">Português</option>
           <option value="/fr/" data-code="fr">Français</option>
           <option value="/de/" data-code="de">Deutsch</option>
-          <option value="/it/" data-code="it">Italiano</option>
+          <option value="/ja/" data-code="ja">日本語</option>
           <option value="/ru/" data-code="ru">Русский</option>
-          <option value="/uk/" data-code="uk">Українська</option>
-          <option value="/tr/" data-code="tr">Türkçe</option>
-          <option value="/ar/" data-code="ar">العربية</option>
-          <option value="/fa/" data-code="fa">فارسی</option>
-          <option value="/hi/" data-code="hi">हिन्दी</option>
+          <option value="/ko/" data-code="ko">한국어</option>
           <option value="/id/" data-code="id">Bahasa Indonesia</option>
-          <option value="/vi/" data-code="vi">Tiếng Việt</option>
-          <option value="/th/" data-code="th">ไทย</option>
-          <option value="/pl/" data-code="pl">Polski</option>
-          <option value="/nl/" data-code="nl">Nederlands</option>
-          <option value="/bn/" data-code="bn">বাংলা</option>
-          <option value="/ur/" data-code="ur">اردو</option>
-          <option value="/fil/" data-code="fil">Filipino</option>
-          <option value="/cs/" data-code="cs">Čeština</option>
-          <option value="/sv/" data-code="sv">Svenska</option>
-          <option value="/he/" data-code="he">עברית</option>
-          <option value="/el/" data-code="el">Ελληνικά</option>
-          <option value="/ro/" data-code="ro">Română</option>
-          <option value="/hu/" data-code="hu">Magyar</option>
-          <option value="/da/" data-code="da">Dansk</option>
-          <option value="/fi/" data-code="fi" selected>Suomi</option>
-          <option value="/no/" data-code="no">Norsk</option>
-          <option value="/sk/" data-code="sk">Slovenčina</option>
-          <option value="/mr/" data-code="mr">मराठी</option>
-          <option value="/gu/" data-code="gu">ગુજરાતી</option>
-          <option value="/kn/" data-code="kn">ಕನ್ನಡ</option>
-          <option value="/ml/" data-code="ml">മലയാളം</option>
-          <option value="/ta/" data-code="ta">தமிழ்</option>
-          <option value="/te/" data-code="te">తెలుగు</option>
-          <option value="/pa/" data-code="pa">ਪੰਜਾਬੀ</option>
+          <option disabled>──────────</option>
+          <option value="/languages">🌐 Lisää kieliä…</option>
         </select>
       </label>
     </div>
@@ -277,6 +251,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=308d1d6e"></script>
+  <script type="module" src="/common.js?v=2db97ce3"></script>
 </body>
 </html>

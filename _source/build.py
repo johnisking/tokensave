@@ -17,6 +17,7 @@ from i18n_image import I
 from i18n_site import SITE
 from seo_meta import META
 from blog_meta import BLOG, BLOG_DATE
+from i18n_view import MORE_LANGS
 LLM = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "src", "llm_prices.json"), encoding="utf-8"))
 
 # ---------------------------------------------------------------- settings
@@ -71,7 +72,10 @@ TOOLS = [
 PAGES = [
     dict(file="about.html", path="/about", body="about_body.html",
          title="About TokenSave",
-         desc="Free, private AI calculators for tokens, video and image costs in 27 languages."),
+         desc="Free, private AI calculators for tokens, video and image costs in 41 languages."),
+    dict(file="languages.html", path="/languages", body=None,
+         title="All 41 languages | TokenSave",
+         desc="TokenSave in 41 languages, grouped by region, with how many GPT tokens each needs vs English."),
     dict(file="privacy.html", path="/privacy", body="privacy_body.html",
          title="Privacy Policy | TokenSave",
          desc="How TokenSave handles data: text stays in your browser, cookieless analytics, ads."),
@@ -83,6 +87,57 @@ NAV_ON = "px-2.5 py-1 rounded-md font-semibold tab-active"
 NAV_OFF = "px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800"
 ARIA = ' aria-current="page"'
 VIEW_IN = {(slug or "en"): SITE[tag]["viewIn"] for slug, tag, *_ in LANGS}
+
+# Language menu: the 12 biggest languages, the current one if it is not among them, then "More languages…" (/languages).
+# data-all keeps every language's URL so the browser-language suggestion still works for all 41.
+TOP_LANGS = ["", "zh-cn", "es", "hi", "ar", "pt", "fr", "de", "ja", "ru", "ko", "id"]
+
+def lang_menu(cur_slug, tag, url_of):
+    native = {sl: nat for sl, _, nat, _, _ in LANGS}
+    order = ([cur_slug] if cur_slug not in TOP_LANGS else []) + TOP_LANGS
+    opt = lambda sl: (f'          <option value="{url_of(sl)}" data-code="{sl or "en"}"'
+                      f'{" selected" if sl == cur_slug else ""}>{esc(native[sl])}</option>')
+    all_urls = {(sl or "en"): url_of(sl) for sl, *_ in LANGS}
+    return "\n".join([*(opt(sl) for sl in order),
+                      '          <option disabled>──────────</option>',
+                      f'          <option value="/languages">🌐 {esc(MORE_LANGS[tag])}</option>']), esc(json.dumps(all_urls))
+
+# /languages: every language, grouped by region, with its measured token ratio vs English
+REGIONS = [
+    ("🌏", "East Asia", ["ko", "ja", "zh-CN", "zh-TW"]),
+    ("🌏", "Southeast Asia", ["id", "vi", "th", "fil"]),
+    ("🌏", "South Asia", ["hi", "bn", "ur", "mr", "gu", "kn", "ml", "ta", "te", "pa"]),
+    ("🌍", "Middle East", ["ar", "fa", "he", "tr"]),
+    ("🌎", "Western Europe & the Americas", ["en", "es", "pt", "fr", "de", "it", "nl"]),
+    ("🌍", "Northern Europe", ["sv", "da", "no", "fi"]),
+    ("🌍", "Central & Eastern Europe", ["ru", "uk", "pl", "cs", "sk", "hu", "ro", "el"]),
+]
+
+def languages_html():
+    data = json.load(open(os.path.join(ROOT, "blog_data", "langdata.json"), encoding="utf-8"))
+    info = {tag: (slug, nat, d) for slug, tag, nat, _, d in LANGS}
+    blog = {b["tag"]: b["path"] for b in BLOG}
+    assert sorted(t for *_, ts in REGIONS for t in ts) == sorted(info), "REGIONS must list every language once"
+    tone = lambda r: "text-emerald-300" if r < 1.2 else "text-amber-300" if r < 1.6 else "text-rose-300"
+    parts = []
+    for icon, name, tags in REGIONS:
+        cards = []
+        for t in tags:
+            slug, nat, d = info[t]
+            r = data[t]["ro"]
+            art = f'<a href="{blog[t]}" class="text-[11px] text-zinc-500 hover:text-violet-300">Details →</a>' if t in blog else ""
+            cards.append(
+                f'<li class="flex items-center justify-between gap-3 bg-zinc-950/60 border border-zinc-800 rounded-xl px-3 py-2.5 hover:border-violet-500/50">'
+                f'<a href="{path_for(slug, TOOLS[0])}" class="min-w-0" lang="{t}" dir="{d}"><span class="block font-semibold text-zinc-100 truncate">{esc(nat)}</span>'
+                f'<span class="block text-[11px] text-zinc-500" dir="ltr" lang="en">{esc(data[t]["name"])}</span></a>'
+                f'<span class="ltr text-end shrink-0"><span class="block text-sm font-bold tabular-nums {tone(r)}">{r:.2f}×</span>{art}</span></li>')
+        parts.append(f'      <h2 class="mt-8 text-sm font-bold uppercase tracking-wider text-zinc-400">{icon} {name}</h2>\n'
+                     f'      <ul class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">\n        ' + "\n        ".join(cards) + "\n      </ul>")
+    return ('    <section class="max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-5 sm:p-8">\n'
+            '      <h1 class="text-2xl sm:text-3xl font-extrabold text-white">All 41 languages</h1>\n'
+            '      <p class="mt-3 text-sm text-zinc-400">Pick your language to open the token counter in it. The number is how many GPT tokens '
+            'the same text needs compared with English (o200k tokenizer, GPT-4o and later). Tap “Details” to read how it was measured.</p>\n'
+            + "\n".join(parts) + '\n    </section>')
 
 def path_for(slug, tool):
     return (f"/{slug}/" if slug else "/") + tool["page"]
@@ -161,10 +216,7 @@ def build():
             s.setdefault("lang", S[tag]["lang"])
             s["title"], s["desc"] = META[tool["key"]][tag]
             assert len(s["title"]) <= 40 and len(s["desc"]) <= 80, f"meta too long: {tool['key']} {tag}"
-            options = "\n".join(
-                f'          <option value="{path_for(sl, tool)}" data-code="{sl or "en"}"{" selected" if sl == slug else ""}>{esc(nat)}</option>'
-                for sl, _, nat, _, _ in LANGS
-            )
+            options, lang_all = lang_menu(slug, tag, lambda sl: path_for(sl, tool))
             nav = "\n".join(
                 f'          <a href="{path_for(slug, t)}" class="{NAV_ON if t is tool else NAV_OFF}"'
                 f'{ARIA if t is tool else ""}>{esc(NAV[tag][t["nav"]])}</a>'
@@ -193,7 +245,7 @@ def build():
             values.update({k: esc(v) for k, v in SITE[tag].items()})
             values.update(
                 htmlLang=tag, dir=direction, url=url, ogLocale=og, ogImage=f"{BASE}/{tool['og']}",
-                homeUrl=path_for(slug, TOOLS[0]), hreflang=hreflang, langOptions=options, toolNav=nav,
+                homeUrl=path_for(slug, TOOLS[0]), hreflang=hreflang, langOptions=options, langAll=lang_all, toolNav=nav,
                 ver=ver, adsHead=extras, faq=faq_html(s), moreLink=more_link(tag, s.get("more", "")),
                 ldjson=js({"@context": "https://schema.org", "@graph": graph}),
                 tjson=js(runtime),
@@ -206,16 +258,14 @@ def build():
 
     # English site pages
     en_nav = "\n".join(f'          <a href="{path_for("", t)}" class="{NAV_OFF}">{esc(NAV["en"][t["nav"]])}</a>' for t in TOOLS)
-    en_opts = "\n".join(
-        f'          <option value="{path_for(sl, TOOLS[0])}" data-code="{sl or "en"}"{" selected" if not sl else ""}>{esc(nat)}</option>'
-        for sl, _, nat, _, _ in LANGS)
+    en_opts, en_all = lang_menu("", "en", lambda sl: path_for(sl, TOOLS[0]))
     for pg in PAGES:
-        body = open(os.path.join(SRC, pg["body"]), encoding="utf-8").read()
+        body = languages_html() if pg["path"] == "/languages" else open(os.path.join(SRC, pg["body"]), encoding="utf-8").read()
         url = BASE + (pg["path"] or "/404")
         values = dict(
             htmlLang="en", dir="ltr", url=url, ogLocale="en_US", ogImage=f"{BASE}/og-token.jpg",
             title=esc(pg["title"]), desc=esc(pg["desc"]), lang=esc(S["en"]["lang"]),
-            homeUrl="/", hreflang="", langOptions=en_opts, toolNav=en_nav, ver=ver, adsHead=extras, faq="",
+            homeUrl="/", hreflang="", langOptions=en_opts, langAll=en_all, toolNav=en_nav, ver=ver, adsHead=extras, faq="",
             f1="", f2="", fAbout=esc(SITE["en"]["fAbout"]), fPrivacy=esc(SITE["en"]["fPrivacy"]),
             ldjson=js({"@context": "https://schema.org", "@type": "WebPage", "name": pg["title"], "url": url}),
             tjson=js({"static": True}),
@@ -252,9 +302,7 @@ def build():
       </div>
     </article>"""
         nav = "\n".join(f'          <a href="{path_for(slug, t)}" class="{NAV_OFF}">{esc(NAV[tag][t["nav"]])}</a>' for t in TOOLS)
-        opts = "\n".join(
-            f'          <option value="{path_for(sl, TOOLS[0])}" data-code="{sl or "en"}"{" selected" if sl == slug else ""}>{esc(nat)}</option>'
-            for sl, _, nat, _, _ in LANGS)
+        opts, opts_all = lang_menu(slug, tag, lambda sl: path_for(sl, TOOLS[0]))
         ld = {"@context": "https://schema.org", "@graph": [
             {"@type": "BlogPosting", "headline": b["title"], "description": b["desc"], "inLanguage": tag,
              "url": url, "mainEntityOfPage": url, "datePublished": bdate, "dateModified": bdate,
@@ -267,7 +315,7 @@ def build():
         values = dict(
             htmlLang=tag, dir=tag_dir[tag], url=url, ogLocale=tag_og[tag], ogImage=f"{BASE}/blog-language-tax-chart-v4.png",
             title=esc(b["title"] + " | TokenSave"), desc=esc(b["desc"]), lang=esc(S[tag]["lang"]),
-            homeUrl=tool_home, hreflang=blog_alts, langOptions=opts, toolNav=nav, ver=ver, adsHead=extras, faq="",
+            homeUrl=tool_home, hreflang=blog_alts, langOptions=opts, langAll=opts_all, toolNav=nav, ver=ver, adsHead=extras, faq="",
             f1="", f2="", fAbout=esc(SITE[tag]["fAbout"]), fPrivacy=esc(SITE[tag]["fPrivacy"]),
             ldjson=js(ld), tjson=js({"static": True}),
             scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>',

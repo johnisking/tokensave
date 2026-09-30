@@ -15,16 +15,18 @@ if (langSelect) {
   // Language switcher — remembers the choice
   langSelect.addEventListener('change', e => {
     const opt = e.target.selectedOptions[0];
-    store.set(opt.dataset.code);
+    if (opt.dataset.code) store.set(opt.dataset.code);
     location.href = opt.value;
   });
 
 }
 
 if (langSelect && !T.static) {
-  const options = [...langSelect.options];
+  // The menu shows only the main languages; data-all has the URL of every language page
+  let all = {};
+  try { all = JSON.parse(langSelect.dataset.all || '{}'); } catch (_) {}
   const here = (langSelect.selectedOptions[0] || {}).dataset?.code || 'en';
-  const optFor = code => options.find(o => o.dataset.code === code);
+  const optFor = code => all[code] && { value: all[code] };
   const saved = store.get();
 
   if (saved) {

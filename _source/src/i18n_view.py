@@ -260,6 +260,9 @@ OTHERS = {'en': 'Others', 'ko': '기타', 'ja': 'その他', 'zh-CN': '其他', 
 for _t, _v in OTHERS.items():
     VIEW[_t]["others"] = _v
 
+# Last entry of the language menu, leading to /languages
+MORE_LANGS = {'en': 'More languages…', 'ko': '다른 언어…', 'ja': 'その他の言語…', 'zh-CN': '更多语言…', 'zh-TW': '更多語言…', 'es': 'Más idiomas…', 'pt': 'Mais idiomas…', 'fr': 'Plus de langues…', 'de': 'Weitere Sprachen…', 'it': 'Altre lingue…', 'ru': 'Другие языки…', 'uk': 'Інші мови…', 'tr': 'Diğer diller…', 'ar': 'لغات أخرى…', 'fa': 'زبان\u200cهای دیگر…', 'hi': 'अन्य भाषाएँ…', 'id': 'Bahasa lainnya…', 'vi': 'Ngôn ngữ khác…', 'th': 'ภาษาอื่นๆ…', 'pl': 'Więcej języków…', 'nl': 'Meer talen…', 'bn': 'অন্যান্য ভাষা…', 'ur': 'دیگر زبانیں…', 'fil': 'Iba pang wika…', 'cs': 'Další jazyky…', 'sv': 'Fler språk…', 'he': 'שפות נוספות…', 'el': 'Περισσότερες γλώσσες…', 'ro': 'Alte limbi…', 'hu': 'További nyelvek…', 'da': 'Flere sprog…', 'fi': 'Lisää kieliä…', 'no': 'Flere språk…', 'sk': 'Ďalšie jazyky…', 'mr': 'इतर भाषा…', 'gu': 'અન્ય ભાષાઓ…', 'kn': 'ಇತರ ಭಾಷೆಗಳು…', 'ml': 'മറ്റ് ഭാഷകൾ…', 'ta': 'மற்ற மொழிகள்…', 'te': 'ఇతర భాషలు…', 'pa': 'ਹੋਰ ਭਾਸ਼ਾਵਾਂ…'}
+
 KEYS = ("others", "viewTok", "viewTokNote", "viewTokMore", "viewTokWait", "shareLink", "shareTip", "tShareCopied", "tShareLong")
 assert all(set(v) == set(KEYS) for v in VIEW.values())
 assert all("{n}" in v["viewTokMore"] for v in VIEW.values())
