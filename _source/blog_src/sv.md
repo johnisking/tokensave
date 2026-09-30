@@ -1,4 +1,4 @@
-Jag översatte samma kundtjänstprompt till 27 språk och räknade tokens med o200k_base, OpenAI:s nuvarande tokenizer (GPT-4o och senare). Engelska behöver 34 tokens, svenska **45 — 1,32× så många**, plats 12 av 27 (1 = billigast).
+Jag översatte samma kundtjänstprompt till 34 språk och räknade tokens med o200k_base, OpenAI:s nuvarande tokenizer (GPT-4o och senare). Engelska behöver 34 tokens, svenska **45 — 1,32× så många**, plats 12 av 34 (1 = billigast).
 
 Den svenska versionen:
 
@@ -16,8 +16,9 @@ Den svenska versionen:
 | 한국어 | 49 | 1,44× | 2,50× |
 | 日本語 | 61 | 1,79× | 2,21× |
 | Čeština | 68 | 2,00× | 2,59× |
+| Ελληνικά | 70 | 2,06× | 4,94× |
 
-![Resultat](/blog-language-tax-chart-v2.png)
+![Resultat](/blog-language-tax-chart-v3.png)
 
 ## Varför
 
@@ -47,4 +48,4 @@ Med en modell för 2 $ per miljon input-tokens kostar det 68 $ på engelska och 
 - Claude och Gemini har andra tokenizers – siffrorna gäller bara OpenAI-modeller.
 - Översättningen bygger på en granskad maskinöversättning.
 
-Alla resultat för 27 språk (på engelska): [jämförelse av 27 språk](/blog/token-cost-27-languages)
+Alla resultat för 34 språk (på engelska): [jämförelse av 34 språk](/blog/token-cost-by-language)

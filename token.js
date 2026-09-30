@@ -65,13 +65,14 @@ const RE = {
   devan:    /[ऀ-ॿ]/,
   bengali:  /[\u0980-\u09FF]/,
   hebrew:   /[\u0590-\u05FF]/,
+  greek:    /[\u0370-\u03FF\u1F00-\u1FFF]/,
   emoji:    /\p{Extended_Pictographic}/u,
 };
-// Tokens per character, calibrated on o200k (2026-09-30, same 34-token English prompt in 27 languages)
-const WEIGHT = { hangul: 0.8, kana: 0.9, cjk: 0.9, cyrillic: 0.4, arabic: 0.42, thai: 0.45, devan: 0.4, bengali: 0.4, hebrew: 0.5, emoji: 2.5 };
+// Tokens per character, calibrated on o200k (2026-09-30, same 34-token English prompt in 34 languages)
+const WEIGHT = { hangul: 0.8, kana: 0.9, cjk: 0.9, cyrillic: 0.4, arabic: 0.42, thai: 0.45, devan: 0.4, bengali: 0.4, hebrew: 0.5, greek: 0.42, emoji: 2.5 };
 
 function analyze(text) {
-  const counts = { hangul: 0, kana: 0, cjk: 0, cyrillic: 0, arabic: 0, thai: 0, devan: 0, bengali: 0, hebrew: 0, emoji: 0 };
+  const counts = { hangul: 0, kana: 0, cjk: 0, cyrillic: 0, arabic: 0, thai: 0, devan: 0, bengali: 0, hebrew: 0, greek: 0, emoji: 0 };
   let latinBuf = '', latinTokens = 0, symbolTokens = 0;
   const flushLatin = () => {
     if (!latinBuf) return;
@@ -101,13 +102,13 @@ function analyze(text) {
 // 4) Language efficiency — token waste vs. English for the same meaning
 // =========================================================
 // Measured token overhead vs the same text in English (o200k): ko 1.44, ja 1.79, zh 1.03-1.35, ru 1.32 / uk 1.88, ar 1.26 / fa 1.24 / ur 1.59, th 1.74, hi 1.50, bn 1.68, he 1.56
-const PENALTY = { hangul: 1.45, kana: 1.8, cjk: 1.2, cyrillic: 1.6, arabic: 1.35, thai: 1.75, devan: 1.5, bengali: 1.7, hebrew: 1.55, emoji: 1.0 };
+const PENALTY = { hangul: 1.45, kana: 1.8, cjk: 1.2, cyrillic: 1.6, arabic: 1.35, thai: 1.75, devan: 1.5, bengali: 1.7, hebrew: 1.55, greek: 2.06, emoji: 1.0 };
 // Latin-script languages: measured overhead of the page language (o200k, same prompt as English).
 // Applied to Latin letters only when the text doesn't look like English.
-const LATIN_TAX = { id: 1.15, es: 1.18, pt: 1.21, de: 1.26, fr: 1.29, nl: 1.29, sv: 1.32, vi: 1.35, it: 1.38, tr: 1.47, fil: 1.53, pl: 1.88, cs: 2.0 };
+const LATIN_TAX = { no: 1.32, da: 1.35, fi: 1.44, ro: 1.53, hu: 1.74, sk: 2.0, id: 1.15, es: 1.18, pt: 1.21, de: 1.26, fr: 1.29, nl: 1.29, sv: 1.32, vi: 1.35, it: 1.38, tr: 1.47, fil: 1.53, pl: 1.88, cs: 2.0 };
 const EN_WORDS = /\b(the|and|to|of|is|in|that|for|you|with|are|this|it|be|on|please)\b/gi;
 // Telltale letters of Latin-script languages, used when the page language doesn't say (e.g. Polish pasted on the English page)
-const LATIN_MARKS = [['pl', /[ąęłńśźż]/gi], ['cs', /[řěůťďň]/gi], ['tr', /[ğış]/gi], ['de', /[äöüß]/gi], ['es', /[ñ¿¡]/gi],
+const LATIN_MARKS = [['ro', /[ăâîșțşţ]/gi], ['hu', /[őű]/gi], ['sk', /[ľĺŕ]/gi], ['da', /[æø]/gi], ['pl', /[ąęłńśźż]/gi], ['cs', /[řěůťďň]/gi], ['tr', /[ğış]/gi], ['de', /[äöüß]/gi], ['es', /[ñ¿¡]/gi],
   ['pt', /[ãõ]/gi], ['fr', /[èêëàâîïôûœ]/gi], ['sv', /[å]/gi], ['it', /[ìò]/gi],
   ['vi', /[ơưđạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/gi]];
 function guessLatin(text) {
@@ -442,7 +443,7 @@ function guessLang(text) {
   if (!top || !c[top]) return LATIN_TAX[PAGE_LANG] ? PAGE_LANG : guessLatin(text) || PAGE_LANG;
   const bySite = (list, dflt) => (list.includes(PAGE_LANG) ? PAGE_LANG : dflt);
   return { hangul: 'ko', kana: 'ja', cjk: bySite(['zh', 'zh-Hant', 'ja'], 'zh'), thai: 'th', devan: 'hi', bengali: 'bn',
-           hebrew: 'he', arabic: bySite(['ar', 'fa', 'ur'], 'ar'), cyrillic: bySite(['ru', 'uk'], 'ru') }[top] || PAGE_LANG;
+           hebrew: 'he', greek: 'el', arabic: bySite(['ar', 'fa', 'ur'], 'ar'), cyrillic: bySite(['ru', 'uk'], 'ru') }[top] || PAGE_LANG;
 }
 
 const withTimeout = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);

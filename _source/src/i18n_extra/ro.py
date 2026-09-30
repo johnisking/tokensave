@@ -1,0 +1,114 @@
+# -*- coding: utf-8 -*-
+SLUG = "ro"
+TAG = "ro"
+NATIVE = "Română"
+OG = "ro_RO"
+DIR = "ltr"
+
+S = dict(
+    a1="Un token este o bucată de text pe care o citește un model AI. În engleză, 1 token înseamnă aproximativ 4 caractere sau ¾ dintr-un cuvânt.",
+    a2="Tokenizatoarele sunt antrenate mai ales pe engleză, așa că româna, coreeana, japoneza și multe alte limbi se împart în mai mulți tokeni pentru același sens.",
+    a3="Da. Totul rulează local, în browserul tău. Textul nu este trimis niciodată către vreun server.",
+    asIn="Ca intrare",
+    asOut="Ca ieșire",
+    badge="100% în browser · Nimic nu se încarcă",
+    based="Bazat pe o200k",
+    chars="Caractere",
+    clear="Șterge",
+    copy="Copiază",
+    cost="Cost estimat",
+    desc="Numărător gratuit de tokeni AI pentru GPT, Claude și Gemini. Numără tokenii, caracterele și costul API estimat direct în browser, în orice limbă. Nimic nu se încarcă.",
+    eff="Eficiența limbii",
+    efficient="{p}% eficient",
+    est="Estimare",
+    exact="Exact (o200k)",
+    f1="Modelele OpenAI sunt numărate cu tokenizatorul o200k. Cifrele pentru Claude și Gemini sunt estimări.",
+    f2="Prețurile sunt de listă, per 1M tokeni, verificate ultima dată în septembrie 2026. Verifică mereu pagina de prețuri a furnizorului.",
+    great="Excelent",
+    h1="Numărător de tokeni AI",
+    high="Risipă mare de tokeni",
+    lang="Limbă",
+    moderate="Risipă moderată",
+    note="{name}: ${in} intrare / ${out} ieșire per 1M tokeni",
+    optimize="Curăță spațiile",
+    optimizeTip="Elimină spațiile și rândurile goale inutile",
+    ph1="Lipește sau scrie promptul aici...",
+    ph2="Tokenii, caracterele și costul estimat se actualizează pe loc în timp ce scrii. Funcționează în orice limbă.",
+    prompt="Promptul tău",
+    q1="Ce este un token?",
+    q2="De ce costă mai mult alte limbi?",
+    q3="Textul meu rămâne privat?",
+    share="Pondere non-engleză: {p}%",
+    sub="Numără tokenii, caracterele și costul API în timp real — în orice limbă.",
+    tAlready="Deja optimizat",
+    tCleared="Șters",
+    tCopied="Copiat în clipboard",
+    tNothing="Nimic de copiat",
+    tSaved="Optimizat — ai economisit {n} tokeni",
+    tip="Sfat: scrierile non-latine costă de obicei mai mulți tokeni pentru același sens. Promptul de sistem în engleză poate reduce costul.",
+    title="Numărător de tokeni AI pentru GPT, Claude și Gemini – TokenSave",
+    tokens="Tokeni",
+    waste="{x}x risipă de tokeni",
+    words="Cuvinte",
+)
+
+V = dict(
+    a1="Majoritatea API-urilor video taxează fiecare secundă de video generat. Rezoluțiile mai mari și sunetul nativ costă mai mult, așa că un clip 1080p sau 4K poate costa de câteva ori cât unul 720p.",
+    a2="Depinde de rezoluție. Modelele ușoare precum Veo 3.1 Lite, Grok Imagine și Wan pornesc de la circa $0.05 pe secundă, iar modelele premium în 4K pot costa $0.40 pe secundă sau mai mult.",
+    a3="Nu. OpenAI a retras modelele video Sora 2 din API pe 24 septembrie 2026, așa că Sora nu mai este disponibil pentru dezvoltatori.",
+    audio="Sunet",
+    audioIncl="Sunet inclus",
+    audioOff="Fără sunet",
+    audioOn="Cu sunet",
+    badge="Prețuri API oficiale · Actualizat septembrie 2026",
+    cheapest="Cel mai ieftin",
+    clipNote="Taxat per clip de 5/10 s",
+    clips="Număr de clipuri",
+    desc="Compară costul API al modelelor video AI: Veo 3.1, Kling 3.0, Runway Gen-4.5, Luma Ray, Grok Imagine, Seedance și altele. Alege durata, rezoluția și sunetul și vezi imediat prețul pe clip.",
+    f1="Prețuri oficiale de pe pagina de prețuri API a fiecărui furnizor, verificate pe 30 septembrie 2026. Modelele fără preț API public pe secundă apar cu tarifele Runway API.",
+    f2="Prețurile se schimbă des — verifică pe pagina furnizorului înainte de lucrări mari.",
+    h1="Calculator de cost pentru video AI",
+    len="Durata clipului (secunde)",
+    model="Model",
+    na="Nu este disponibil la această rezoluție",
+    noAudio="Fără sunet nativ",
+    notes="Prețurile sunt pe secundă de video generat. Nu includ taxe, reduceri de volum sau generări eșuate.",
+    perClip="Pe clip",
+    perSec="Pe secundă",
+    q1="Cum se tarifează video AI?",
+    q2="Care este cel mai ieftin model video AI?",
+    q3="Este inclus Sora?",
+    res="Rezoluție",
+    srcOfficial="Preț oficial",
+    srcRunway="Prin Runway API",
+    sub="Vezi cât costă același video în toate marile modele video AI.",
+    title="Calculator de cost video AI – prețuri Veo 3.1, Kling, Runway, Luma | TokenSave",
+    total="Total",
+)
+
+I = dict(
+    a1="Majoritatea API-urilor de imagini cer un preț fix pe imagine, care crește cu rezoluția. Modelele OpenAI costă mai mult și la calitate mai mare, iar FLUX taxează pe megapixel.",
+    a2="Modelele mici precum FLUX.2 [klein], Grok Imagine și GPT Image la calitate scăzută costă circa $0.01–0.02 pe imagine. Modelele premium în 4K pot costa $0.15–0.40 pe imagine.",
+    a3="Nano Banana este porecla modelelor de imagini Gemini de la Google. Nano Banana 2 este Gemini 3.1 Flash Image, iar Nano Banana Pro este Gemini 3 Pro Image.",
+    count="Număr de imagini",
+    desc="Compară costul API pe imagine pentru Nano Banana 2, Nano Banana Pro, GPT Image 2.5, FLUX.2, Grok Imagine, Seedream și Runway. Alege rezoluția și numărul și vezi totalul imediat.",
+    f1="Prețuri oficiale de pe pagina de prețuri API a fiecărui furnizor, verificate pe 30 septembrie 2026. OpenAI și Nano Banana Pro apar cu tarifele Runway API.",
+    h1="Calculator de cost pentru imagini AI",
+    notes="Prețurile sunt pe imagine generată. Nu includ taxe pentru imagini de referință, taxe fiscale sau reduceri de volum.",
+    perImg="Pe imagine",
+    q1="Cum se tarifează generarea de imagini AI?",
+    q2="Care este cel mai ieftin model de imagini AI?",
+    q3="Ce este Nano Banana?",
+    sub="Vezi cât costă aceleași imagini în toate marile modele de imagini AI.",
+    title="Calculator de cost imagini AI – prețuri Nano Banana, GPT Image, FLUX, Grok | TokenSave",
+)
+
+NAV = dict(navToken="Numărător tokeni", navVideo="Cost video", navImage="Cost imagini")
+
+SITE = dict(fAbout="Despre", fPrivacy="Confidențialitate", viewIn="Vezi pagina în română")
+
+META = {
+    "token": ("Numărător tokeni – GPT, Claude, Gemini", "Numără tokenii, caracterele și costul API pentru GPT, Claude, Gemini. Gratuit."),
+    "video": ("Cost video AI – Veo, Kling, Runway", "Compară prețurile API Veo 3.1, Kling, Runway, Luma și altele pe secundă și clip."),
+    "image": ("Cost imagini AI – Nano Banana, GPT Image", "Compară prețul API pe imagine: Nano Banana, GPT Image, FLUX, Grok și altele."),
+}

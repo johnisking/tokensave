@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Budget / chat-mode UI strings for the token counter (27 languages)."""
+"""Budget / chat-mode UI strings for the token counter (34 languages)."""
 
 B = {
     "en": dict(
@@ -381,3 +381,6 @@ B = {
         chatInfo="{n} הודעות · כולל ~{o} טוקנים של עיצוב צ'אט",
     ),
 }
+
+from i18n_eu7 import B7 as _B7
+B.update(_B7)

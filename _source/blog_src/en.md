@@ -1,10 +1,10 @@
-I translated one ordinary customer-support prompt into 27 languages and counted tokens with **o200k_base**, the tokenizer behind GPT-4o and every newer OpenAI model (the last column uses cl100k, the GPT-4-era tokenizer). English needs 34 tokens. The same request costs anywhere from **1.03×** (Simplified Chinese) to **2.00×** (Czech).
+I translated one ordinary customer-support prompt into 34 languages and counted tokens with **o200k_base**, the tokenizer behind GPT-4o and every newer OpenAI model (the last column uses cl100k, the GPT-4-era tokenizer). English needs 34 tokens. The same request costs anywhere from **1.03×** (Simplified Chinese) to **2.06×** (Greek).
 
 The English prompt:
 
 > Please summarize the customer email below in three bullet points and suggest a polite reply. The customer says the order arrived two days late and one item was missing from the box.
 
-## All 27 languages
+## All 34 languages
 
 | Language | Tokens | vs English | Old GPT-4 |
 |---|---:|---:|---:|
@@ -20,23 +20,30 @@ The English prompt:
 | Dutch | 44 | 1.29× | 1.74× |
 | Russian | 45 | 1.32× | 2.15× |
 | Swedish | 45 | 1.32× | 1.50× |
+| Norwegian | 45 | 1.32× | 1.56× |
 | Chinese (Traditional) | 46 | 1.35× | 2.12× |
 | Vietnamese | 46 | 1.35× | 2.32× |
+| Danish | 46 | 1.35× | 1.59× |
 | Italian | 47 | 1.38× | 1.59× |
 | Korean | 49 | 1.44× | 2.50× |
+| Finnish | 49 | 1.44× | 2.03× |
 | Turkish | 50 | 1.47× | 2.06× |
 | Hindi | 51 | 1.50× | 4.59× |
 | Filipino | 52 | 1.53× | 1.76× |
+| Romanian | 52 | 1.53× | 1.76× |
 | Hebrew | 53 | 1.56× | 3.76× |
 | Urdu | 54 | 1.59× | 4.24× |
 | Bengali | 57 | 1.68× | 6.09× |
 | Thai | 59 | 1.74× | 3.71× |
+| Hungarian | 59 | 1.74× | 2.26× |
 | Japanese | 61 | 1.79× | 2.21× |
 | Ukrainian | 64 | 1.88× | 3.15× |
 | Polish | 64 | 1.88× | 2.12× |
 | Czech | 68 | 2.00× | 2.59× |
+| Slovak | 68 | 2.00× | 2.53× |
+| Greek | 70 | 2.06× | 4.94× |
 
-![Extra tokens per language vs English](/blog-language-tax-chart-v2.png)
+![Extra tokens per language vs English](/blog-language-tax-chart-v3.png)
 
 ## Why some languages cost more
 
@@ -76,6 +83,6 @@ With a model at $2 per million input tokens, sending this prompt one million tim
 
 ## Read it in your language
 
-[Čeština](/cs/blog/cestina-tokeny-gpt) · [Polski](/pl/blog/polski-tokeny-gpt) · [日本語](/ja/blog/nihongo-tokens-gpt) · [한국어](/ko/blog/korean-tokens-gpt) · [简体中文](/zh-cn/blog/zhongwen-token-gpt) · [繁體中文](/zh-tw/blog/zhongwen-fanti-token-gpt) · [Español](/es/blog/tokens-espanol-gpt) · [Português](/pt/blog/tokens-portugues-gpt) · [Français](/fr/blog/tokens-francais-gpt) · [Deutsch](/de/blog/tokens-deutsch-gpt) · [Italiano](/it/blog/token-italiano-gpt) · [Русский](/ru/blog/tokeny-russkiy-gpt) · [Українська](/uk/blog/tokeny-ukrainska-gpt) · [Türkçe](/tr/blog/token-turkce-gpt) · [العربية](/ar/blog/tokens-arabic-gpt) · [فارسی](/fa/blog/token-farsi-gpt) · [हिन्दी](/hi/blog/tokens-hindi-gpt) · [Bahasa Indonesia](/id/blog/token-bahasa-indonesia-gpt) · [Tiếng Việt](/vi/blog/token-tieng-viet-gpt) · [ไทย](/th/blog/token-phasa-thai-gpt) · [Nederlands](/nl/blog/tokens-nederlands-gpt) · [বাংলা](/bn/blog/token-bangla-gpt) · [اردو](/ur/blog/token-urdu-gpt) · [Filipino](/fil/blog/token-filipino-gpt) · [Svenska](/sv/blog/tokens-svenska-gpt) · [עברית](/he/blog/tokens-ivrit-gpt)
+[Čeština](/cs/blog/cestina-tokeny-gpt) · [Polski](/pl/blog/polski-tokeny-gpt) · [日本語](/ja/blog/nihongo-tokens-gpt) · [한국어](/ko/blog/korean-tokens-gpt) · [简体中文](/zh-cn/blog/zhongwen-token-gpt) · [繁體中文](/zh-tw/blog/zhongwen-fanti-token-gpt) · [Español](/es/blog/tokens-espanol-gpt) · [Português](/pt/blog/tokens-portugues-gpt) · [Français](/fr/blog/tokens-francais-gpt) · [Deutsch](/de/blog/tokens-deutsch-gpt) · [Italiano](/it/blog/token-italiano-gpt) · [Русский](/ru/blog/tokeny-russkiy-gpt) · [Українська](/uk/blog/tokeny-ukrainska-gpt) · [Türkçe](/tr/blog/token-turkce-gpt) · [العربية](/ar/blog/tokens-arabic-gpt) · [فارسی](/fa/blog/token-farsi-gpt) · [हिन्दी](/hi/blog/tokens-hindi-gpt) · [Bahasa Indonesia](/id/blog/token-bahasa-indonesia-gpt) · [Tiếng Việt](/vi/blog/token-tieng-viet-gpt) · [ไทย](/th/blog/token-phasa-thai-gpt) · [Nederlands](/nl/blog/tokens-nederlands-gpt) · [বাংলা](/bn/blog/token-bangla-gpt) · [اردو](/ur/blog/token-urdu-gpt) · [Filipino](/fil/blog/token-filipino-gpt) · [Svenska](/sv/blog/tokens-svenska-gpt) · [עברית](/he/blog/tokens-ivrit-gpt) · [Ελληνικά](/el/blog/tokens-ellinika-gpt) · [Română](/ro/blog/tokeni-romana-gpt) · [Magyar](/hu/blog/tokenek-magyar-gpt) · [Dansk](/da/blog/tokens-dansk-gpt) · [Suomi](/fi/blog/tokenit-suomi-gpt) · [Norsk](/no/blog/tokens-norsk-gpt) · [Slovenčina](/sk/blog/tokeny-slovencina-gpt)
 
 The original write-up and discussion are on [DEV](https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m).

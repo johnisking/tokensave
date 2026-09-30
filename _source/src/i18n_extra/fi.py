@@ -1,0 +1,114 @@
+# -*- coding: utf-8 -*-
+SLUG = "fi"
+TAG = "fi"
+NATIVE = "Suomi"
+OG = "fi_FI"
+DIR = "ltr"
+
+S = dict(
+    a1="Token on tekstin pala, jonka AI-malli lukee. Englannissa 1 token on noin 4 merkkiä tai ¾ sanasta.",
+    a2="Tokenisoijat opetetaan enimmäkseen englanniksi, joten suomi, korea, japani ja monet muut kielet pilkkoutuvat useampaan tokeniin samalla merkityksellä.",
+    a3="Kyllä. Kaikki toimii paikallisesti selaimessasi. Tekstiäsi ei koskaan lähetetä millekään palvelimelle.",
+    asIn="Syötteenä",
+    asOut="Tulosteena",
+    badge="100 % selaimessa · Mitään ei ladata palvelimelle",
+    based="o200k-pohjainen",
+    chars="Merkit",
+    clear="Tyhjennä",
+    copy="Kopioi",
+    cost="Arvioitu hinta",
+    desc="Ilmainen AI-tokenlaskuri GPT:lle, Claudelle ja Geminille. Laske tokenit, merkit ja arvioitu API-hinta suoraan selaimessa, millä tahansa kielellä. Mitään ei ladata palvelimelle.",
+    eff="Kielen tehokkuus",
+    efficient="{p} % tehokas",
+    est="Arvio",
+    exact="Tarkka (o200k)",
+    f1="OpenAI-mallit lasketaan o200k-tokenisoijalla. Clauden ja Geminin luvut ovat arvioita.",
+    f2="Hinnat ovat listahintoja 1M tokenia kohden, tarkistettu viimeksi syyskuussa 2026. Tarkista aina palveluntarjoajan hintasivu.",
+    great="Erinomainen",
+    h1="AI-tokenlaskuri",
+    high="Suuri tokenhukka",
+    lang="Kieli",
+    moderate="Kohtalainen hukka",
+    note="{name}: ${in} syöte / ${out} tuloste 1M tokenia kohden",
+    optimize="Siivoa välilyönnit",
+    optimizeTip="Poista ylimääräiset välilyönnit ja tyhjät rivit",
+    ph1="Liitä tai kirjoita promptisi tähän...",
+    ph2="Tokenit, merkit ja arvioitu hinta päivittyvät heti kirjoittaessasi. Toimii kaikilla kielillä.",
+    prompt="Promptisi",
+    q1="Mikä on token?",
+    q2="Miksi muut kielet maksavat enemmän?",
+    q3="Pysyykö tekstini yksityisenä?",
+    share="Muun kuin englannin osuus: {p} %",
+    sub="Laske tokenit, merkit ja API-hinta reaaliajassa – millä tahansa kielellä.",
+    tAlready="Jo optimoitu",
+    tCleared="Tyhjennetty",
+    tCopied="Kopioitu leikepöydälle",
+    tNothing="Ei mitään kopioitavaa",
+    tSaved="Optimoitu – säästit {n} tokenia",
+    tip="Vinkki: muut kuin latinalaiset kirjoitusjärjestelmät vievät yleensä enemmän tokeneita samalla merkityksellä. Englanninkielinen järjestelmäprompti voi laskea hintaa.",
+    title="AI-tokenlaskuri GPT:lle, Claudelle ja Geminille – TokenSave",
+    tokens="Tokenit",
+    waste="{x}x tokenhukka",
+    words="Sanat",
+)
+
+V = dict(
+    a1="Useimmat video-API:t veloittavat jokaisesta luodun videon sekunnista. Korkeampi resoluutio ja sisäänrakennettu ääni maksavat enemmän, joten 1080p- tai 4K-leike voi maksaa monta kertaa enemmän kuin 720p-leike.",
+    a2="Se riippuu resoluutiosta. Kevyet mallit, kuten Veo 3.1 Lite, Grok Imagine ja Wan, alkavat noin $0.05 sekunnilta, kun taas premium-mallit 4K:na voivat maksaa $0.40 sekunnilta tai enemmän.",
+    a3="Ei. OpenAI poisti Sora 2 -videomallit API:staan 24. syyskuuta 2026, joten Sora ei ole enää kehittäjien saatavilla.",
+    audio="Ääni",
+    audioIncl="Ääni sisältyy",
+    audioOff="Ilman ääntä",
+    audioOn="Äänen kanssa",
+    badge="Viralliset API-hinnat · Päivitetty syyskuu 2026",
+    cheapest="Halvin",
+    clipNote="Veloitus 5/10 s leikkeittäin",
+    clips="Leikkeiden määrä",
+    desc="Vertaa AI-videomallien API-hintoja: Veo 3.1, Kling 3.0, Runway Gen-4.5, Luma Ray, Grok Imagine, Seedance ja muut. Valitse pituus, resoluutio ja ääni ja näe leikkeen hinta heti.",
+    f1="Viralliset listahinnat kunkin palveluntarjoajan API-hintasivulta, tarkistettu 30. syyskuuta 2026. Mallit ilman julkista sekuntihintaa näytetään Runway API:n hinnoilla.",
+    f2="Hinnat muuttuvat usein – tarkista palveluntarjoajan sivulta ennen isoja töitä.",
+    h1="AI-videon hintalaskuri",
+    len="Leikkeen pituus (sekuntia)",
+    model="Malli",
+    na="Ei saatavilla tällä resoluutiolla",
+    noAudio="Ei sisäänrakennettua ääntä",
+    notes="Hinnat ovat luodun videon sekuntia kohden. Verot, määräalennukset ja epäonnistuneet luonnit eivät sisälly.",
+    perClip="Leikettä kohden",
+    perSec="Sekuntia kohden",
+    q1="Miten AI-videon hinnoittelu toimii?",
+    q2="Mikä on halvin AI-videomalli?",
+    q3="Onko Sora mukana?",
+    res="Resoluutio",
+    srcOfficial="Virallinen hinta",
+    srcRunway="Runway API:n kautta",
+    sub="Katso, mitä sama video maksaa kaikissa suurissa AI-videomalleissa.",
+    title="AI-videon hintalaskuri – Veo 3.1, Kling, Runway, Luma -hinnat | TokenSave",
+    total="Yhteensä",
+)
+
+I = dict(
+    a1="Useimmat kuva-API:t veloittavat kiinteän hinnan kuvaa kohden, ja hinta nousee resoluution mukana. OpenAI:n mallit maksavat myös enemmän korkeammalla laadulla, ja FLUX veloittaa megapikseleittäin.",
+    a2="Pienet mallit, kuten FLUX.2 [klein], Grok Imagine ja GPT Image matalalla laadulla, maksavat noin $0.01–0.02 kuvalta. Premium-mallit 4K:na voivat maksaa $0.15–0.40 kuvalta.",
+    a3="Nano Banana on Googlen Gemini-kuvamallien lempinimi. Nano Banana 2 on Gemini 3.1 Flash Image ja Nano Banana Pro on Gemini 3 Pro Image.",
+    count="Kuvien määrä",
+    desc="Vertaa kuvakohtaista API-hintaa: Nano Banana 2, Nano Banana Pro, GPT Image 2.5, FLUX.2, Grok Imagine, Seedream ja Runway. Valitse resoluutio ja määrä ja näe kokonaishinta heti.",
+    f1="Viralliset listahinnat kunkin palveluntarjoajan API-hintasivulta, tarkistettu 30. syyskuuta 2026. OpenAI ja Nano Banana Pro näytetään Runway API:n hinnoilla.",
+    h1="AI-kuvien hintalaskuri",
+    notes="Hinnat ovat luotua kuvaa kohden. Viitekuvien maksut, verot ja määräalennukset eivät sisälly.",
+    perImg="Kuvaa kohden",
+    q1="Miten AI-kuvien luonnin hinnoittelu toimii?",
+    q2="Mikä on halvin AI-kuvamalli?",
+    q3="Mikä on Nano Banana?",
+    sub="Katso, mitä samat kuvat maksavat kaikissa suurissa AI-kuvamalleissa.",
+    title="AI-kuvien hintalaskuri – Nano Banana, GPT Image, FLUX, Grok -hinnat | TokenSave",
+)
+
+NAV = dict(navToken="Tokenlaskuri", navVideo="Videon hinta", navImage="Kuvien hinta")
+
+SITE = dict(fAbout="Tietoa", fPrivacy="Tietosuoja", viewIn="Näytä sivu suomeksi")
+
+META = {
+    "token": ("AI-tokenlaskuri – GPT, Claude, Gemini", "Laske tokenit, merkit ja API-hinta GPT:lle, Claudelle ja Geminille. Ilmainen."),
+    "video": ("AI-videon hinta – Veo, Kling, Runway", "Vertaa Veo 3.1:n, Klingin, Runwayn, Luman ym. API-hintoja sekunneittain."),
+    "image": ("AI-kuvien hinta – Nano Banana, GPT Image", "Vertaa kuvakohtaisia API-hintoja: Nano Banana, GPT Image, FLUX, Grok ja muut."),
+}

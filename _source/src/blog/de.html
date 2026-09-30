@@ -1,4 +1,4 @@
-<p>Ich habe denselben Kundenservice-Prompt in 27 Sprachen übersetzt und die Tokens mit o200k_base gezählt, dem aktuellen Tokenizer von OpenAI (GPT-4o und neuer). Englisch braucht 34 Tokens, Deutsch <strong>43 – also 1,26× so viele</strong>, Platz 7 von 27 (1 = am günstigsten).</p>
+<p>Ich habe denselben Kundenservice-Prompt in 34 Sprachen übersetzt und die Tokens mit o200k_base gezählt, dem aktuellen Tokenizer von OpenAI (GPT-4o und neuer). Englisch braucht 34 Tokens, Deutsch <strong>43 – also 1,26× so viele</strong>, Platz 7 von 34 (1 = am günstigsten).</p>
 <p>Die deutsche Fassung:</p>
 <blockquote>
 <p>Fasse die folgende Kunden-E-Mail in drei Stichpunkten zusammen und schlage eine höfliche Antwort vor. Der Kunde sagt, dass die Bestellung zwei Tage zu spät ankam und ein Artikel im Paket fehlte.</p>
@@ -56,9 +56,15 @@
 <td style="text-align: right;">2,00×</td>
 <td style="text-align: right;">2,59×</td>
 </tr>
+<tr>
+<td>Ελληνικά</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">4,94×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="995" alt="Ergebnisse" src="/blog-language-tax-chart-v2.png" /></p>
+<p><img loading="lazy" width="960" height="1213" alt="Ergebnisse" src="/blog-language-tax-chart-v3.png" /></p>
 <h2>Warum</h2>
 <p>Der Tokenizer lernt vor allem aus englischem Text: Wörter wie „ polite“ oder „ customer“ sind ein einziger Token, deutsche Wörter – besonders Komposita – werden dagegen zerlegt:</p>
 <ul>
@@ -82,4 +88,4 @@
 <li>Claude und Gemini haben andere Tokenizer – die Zahlen gelten nur für OpenAI-Modelle.</li>
 <li>Die Übersetzung basiert auf einer geprüften maschinellen Übersetzung.</li>
 </ul>
-<p>Alle Ergebnisse für 27 Sprachen (auf Englisch): <a href="/blog/token-cost-27-languages">Vergleich von 27 Sprachen</a></p>
+<p>Alle Ergebnisse für 34 Sprachen (auf Englisch): <a href="/blog/token-cost-by-language">Vergleich von 34 Sprachen</a></p>

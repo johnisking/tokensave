@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate the per-language token-study articles from measured data + localized strings.
 
-  blog_data/langdata.json  measured tokens (o200k + cl100k) for one prompt in 27 languages
+  blog_data/langdata.json  measured tokens (o200k + cl100k) for one prompt in every site language
   blog_data/strings.py     localized sentences (23 languages)
   -> blog_src/<tag>.md     article bodies (then run make_blog.py to render HTML)
   -> blog_data/auto.json   page metadata read by src/blog_meta.py
@@ -20,9 +20,9 @@ D = json.load(open(os.path.join(ROOT, "blog_data", "langdata.json"), encoding="u
 EN, TOTAL = D["_en"], D["_total"]
 NATIVE = {tag: nat for _, tag, nat, *_ in LANGS}
 SLUG = {tag: slug for slug, tag, *_ in LANGS}
-EN_PATH = "/blog/token-cost-27-languages"
+EN_PATH = "/blog/token-cost-by-language"
 DATE = "2026-10-01"
-COMPARE = ["en", "zh-CN", "es", "de", "ko", "ja", "cs"]
+COMPARE = ["en", "zh-CN", "es", "de", "ko", "ja", "cs", "el"]
 ENGLISH_NAME = {v["name"]: k for k, v in D.items() if not k.startswith("_")}
 
 
@@ -60,7 +60,7 @@ def article(tag):
     md = [
         f("intro"), "", s["plabel"], "", "> " + d["prompt"], "",
         "## " + s["h2"], "", table(tag, dec, s["th"], set(COMPARE + [tag]), tag), "",
-        f"![{s['h2']}](/blog-language-tax-chart-v2.png)", "",
+        f"![{s['h2']}](/blog-language-tax-chart-v3.png)", "",
         "## " + s["h3"], "", s["why"], "", splits_md(tag), "",
         "## " + s["h4"], "", f("old"), "",
         "## " + s["h5"], "", f("cost"), "",
@@ -78,17 +78,18 @@ def english():
         tbl.append(f"| {D[t]['name']} | {D[t]['o']} | {D[t]['ro']:.2f}× | {D[t]['rc']:.2f}× |")
     drops = sorted((t for t in rows if t != "en"), key=lambda t: D[t]["rc"] / D[t]["ro"], reverse=True)[:5]
     reads = [f"[{NATIVE[t]}]({p})" for t, p in PATHS.items() if t != "en"]
-    md = f"""I translated one ordinary customer-support prompt into 27 languages and counted tokens with **o200k_base**, the tokenizer behind GPT-4o and every newer OpenAI model (the last column uses cl100k, the GPT-4-era tokenizer). English needs {EN} tokens. The same request costs anywhere from **1.03×** (Simplified Chinese) to **2.00×** (Czech).
+    top = rows[-1]
+    md = f"""I translated one ordinary customer-support prompt into {TOTAL} languages and counted tokens with **o200k_base**, the tokenizer behind GPT-4o and every newer OpenAI model (the last column uses cl100k, the GPT-4-era tokenizer). English needs {EN} tokens. The same request costs anywhere from **1.03×** (Simplified Chinese) to **{D[top]['ro']:.2f}×** ({D[top]['name']}).
 
 The English prompt:
 
 > {D['en']['prompt']}
 
-## All 27 languages
+## All {TOTAL} languages
 
 {chr(10).join(tbl)}
 
-![Extra tokens per language vs English](/blog-language-tax-chart-v2.png)
+![Extra tokens per language vs English](/blog-language-tax-chart-v3.png)
 
 ## Why some languages cost more
 
@@ -139,8 +140,8 @@ PATHS = {"en": EN_PATH, **MANUAL, **{t: f"/{SLUG[t]}/blog/{T[t]['slug']}" for t 
 if __name__ == "__main__":
     out_dir = os.path.join(ROOT, "blog_src")
     meta = [dict(tag="en", path=EN_PATH, date=DATE,
-                 title="Same prompt, 27 languages: GPT token cost compared",
-                 desc="One prompt measured in 27 languages with GPT's o200k tokenizer: from 1.03× (Chinese) to 2.00× (Czech) the tokens of English.",
+                 title=f"Same prompt, {TOTAL} languages: GPT token cost compared",
+                 desc=f"One prompt in {TOTAL} languages on GPT's o200k tokenizer: from 1.03× (Chinese) to {max(v['ro'] for k, v in D.items() if not k.startswith('_')):.2f}× the tokens of English.",
                  byline="Jonhisking · Oct 1, 2026",
                  cta="Measure your own text: see how many tokens and dollars your prompt costs, in any language.",
                  ctaBtn="Open the token counter")]
@@ -156,6 +157,6 @@ if __name__ == "__main__":
         p = os.path.join(out_dir, tag + ".md")
         md = open(p, encoding="utf-8").read()
         md = re.sub(r"\(https://dev\.to/[^)]+\)", f"({EN_PATH})", md)
-        md = md.replace("[dev.to](" + EN_PATH, "[" + {"cs": "srovnání 27 jazyků", "pl": "porównanie 27 języków"}.get(tag, "dev.to") + "](" + EN_PATH)
+        md = md.replace("[dev.to](" + EN_PATH, "[" + {"cs": "srovnání 34 jazyků", "pl": "porównanie 34 języków"}.get(tag, "dev.to") + "](" + EN_PATH)
         open(p, "w", encoding="utf-8").write(md)
     print("wrote", len(meta), "generated articles")

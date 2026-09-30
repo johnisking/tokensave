@@ -1,0 +1,114 @@
+# -*- coding: utf-8 -*-
+SLUG = "sk"
+TAG = "sk"
+NATIVE = "Slovenčina"
+OG = "sk_SK"
+DIR = "ltr"
+
+S = dict(
+    a1="Token je kúsok textu, ktorý číta AI model. V angličtine zodpovedá 1 token približne 4 znakom alebo ¾ slova.",
+    a2="Tokenizéry sa trénujú najmä na angličtine, preto sa slovenčina, kórejčina, japončina a mnohé ďalšie jazyky rozdelia na viac tokenov pre rovnaký obsah.",
+    a3="Áno. Všetko beží lokálne vo vašom prehliadači. Text sa nikdy neodosiela na žiadny server.",
+    asIn="Ako vstup",
+    asOut="Ako výstup",
+    badge="100 % v prehliadači · Nič sa nenahráva",
+    based="Na báze o200k",
+    chars="Znaky",
+    clear="Vymazať",
+    copy="Kopírovať",
+    cost="Odhadovaná cena",
+    desc="Bezplatné počítadlo AI tokenov pre GPT, Claude a Gemini. Spočítajte tokeny, znaky a odhadovanú cenu API priamo v prehliadači, v akomkoľvek jazyku. Nič sa nenahráva.",
+    eff="Efektivita jazyka",
+    efficient="{p} % efektívne",
+    est="Odhad",
+    exact="Presné (o200k)",
+    f1="Modely OpenAI sa počítajú tokenizérom o200k. Čísla pre Claude a Gemini sú odhady.",
+    f2="Ceny sú cenníkové za 1M tokenov, naposledy overené v septembri 2026. Vždy si overte cenník poskytovateľa.",
+    great="Výborné",
+    h1="Počítadlo AI tokenov",
+    high="Vysoké plytvanie tokenmi",
+    lang="Jazyk",
+    moderate="Mierne plytvanie",
+    note="{name}: ${in} vstup / ${out} výstup za 1M tokenov",
+    optimize="Vyčistiť medzery",
+    optimizeTip="Odstrániť nadbytočné medzery a prázdne riadky",
+    ph1="Vložte alebo napíšte sem svoj prompt...",
+    ph2="Tokeny, znaky a odhadovaná cena sa aktualizujú okamžite počas písania. Funguje v každom jazyku.",
+    prompt="Váš prompt",
+    q1="Čo je token?",
+    q2="Prečo sú iné jazyky drahšie?",
+    q3="Je môj text súkromný?",
+    share="Podiel neanglického textu: {p} %",
+    sub="Počítajte tokeny, znaky a cenu API v reálnom čase — v akomkoľvek jazyku.",
+    tAlready="Už optimalizované",
+    tCleared="Vymazané",
+    tCopied="Skopírované do schránky",
+    tNothing="Nie je čo kopírovať",
+    tSaved="Optimalizované — ušetrených {n} tokenov",
+    tip="Tip: nelatinské písma zvyčajne stoja viac tokenov pri rovnakom význame. Systémový prompt v angličtine môže znížiť cenu.",
+    title="Počítadlo AI tokenov pre GPT, Claude a Gemini – TokenSave",
+    tokens="Tokeny",
+    waste="{x}x plytvanie tokenmi",
+    words="Slová",
+)
+
+V = dict(
+    a1="Väčšina video API účtuje za každú sekundu vygenerovaného videa. Vyššie rozlíšenie a vstavaný zvuk stoja viac, takže klip v 1080p alebo 4K môže stáť niekoľkonásobne viac než klip v 720p.",
+    a2="Závisí to od rozlíšenia. Ľahké modely ako Veo 3.1 Lite, Grok Imagine a Wan začínajú okolo $0.05 za sekundu, prémiové modely v 4K môžu stáť $0.40 za sekundu aj viac.",
+    a3="Nie. OpenAI 24. septembra 2026 odstránila videomodely Sora 2 zo svojho API, takže Sora už vývojárom nie je dostupná.",
+    audio="Zvuk",
+    audioIncl="Zvuk v cene",
+    audioOff="Bez zvuku",
+    audioOn="So zvukom",
+    badge="Oficiálne ceny API · Aktualizované september 2026",
+    cheapest="Najlacnejšie",
+    clipNote="Účtuje sa po klipoch 5/10 s",
+    clips="Počet klipov",
+    desc="Porovnajte cenu API AI videomodelov: Veo 3.1, Kling 3.0, Runway Gen-4.5, Luma Ray, Grok Imagine, Seedance a ďalších. Zvoľte dĺžku, rozlíšenie a zvuk a hneď uvidíte cenu za klip.",
+    f1="Oficiálne cenníkové ceny z API cenníka každého poskytovateľa, overené 30. septembra 2026. Modely bez verejnej ceny API za sekundu sú uvedené s cenami Runway API.",
+    f2="Ceny sa často menia — pred veľkými úlohami si ich overte u poskytovateľa.",
+    h1="Kalkulačka ceny AI videa",
+    len="Dĺžka klipu (sekundy)",
+    model="Model",
+    na="V tomto rozlíšení nie je dostupné",
+    noAudio="Bez vstavaného zvuku",
+    notes="Ceny sú za sekundu vygenerovaného videa. Nezahŕňajú dane, množstevné zľavy ani neúspešné generovania.",
+    perClip="Za klip",
+    perSec="Za sekundu",
+    q1="Ako sa oceňuje AI video?",
+    q2="Ktorý AI videomodel je najlacnejší?",
+    q3="Je zahrnutá Sora?",
+    res="Rozlíšenie",
+    srcOfficial="Oficiálna cena",
+    srcRunway="Cez Runway API",
+    sub="Pozrite sa, koľko stojí to isté video vo všetkých veľkých AI videomodeloch.",
+    title="Kalkulačka ceny AI videa – ceny Veo 3.1, Kling, Runway, Luma | TokenSave",
+    total="Spolu",
+)
+
+I = dict(
+    a1="Väčšina obrazových API účtuje pevnú cenu za obrázok, ktorá rastie s rozlíšením. Modely OpenAI stoja viac aj pri vyššej kvalite a FLUX účtuje za megapixel.",
+    a2="Malé modely ako FLUX.2 [klein], Grok Imagine a GPT Image v nízkej kvalite stoja okolo $0.01–0.02 za obrázok. Prémiové modely v 4K môžu stáť $0.15–0.40 za obrázok.",
+    a3="Nano Banana je prezývka obrazových modelov Gemini od Googlu. Nano Banana 2 je Gemini 3.1 Flash Image a Nano Banana Pro je Gemini 3 Pro Image.",
+    count="Počet obrázkov",
+    desc="Porovnajte cenu API za obrázok pre Nano Banana 2, Nano Banana Pro, GPT Image 2.5, FLUX.2, Grok Imagine, Seedream a Runway. Zvoľte rozlíšenie a počet a hneď uvidíte súčet.",
+    f1="Oficiálne cenníkové ceny z API cenníka každého poskytovateľa, overené 30. septembra 2026. OpenAI a Nano Banana Pro sú uvedené s cenami Runway API.",
+    h1="Kalkulačka ceny AI obrázkov",
+    notes="Ceny sú za vygenerovaný obrázok. Nezahŕňajú poplatky za referenčné obrázky, dane ani množstevné zľavy.",
+    perImg="Za obrázok",
+    q1="Ako sa oceňuje generovanie AI obrázkov?",
+    q2="Ktorý AI model obrázkov je najlacnejší?",
+    q3="Čo je Nano Banana?",
+    sub="Pozrite sa, koľko stoja tie isté obrázky vo všetkých veľkých AI modeloch obrázkov.",
+    title="Kalkulačka ceny AI obrázkov – ceny Nano Banana, GPT Image, FLUX, Grok | TokenSave",
+)
+
+NAV = dict(navToken="Počítadlo tokenov", navVideo="Cena videa", navImage="Cena obrázkov")
+
+SITE = dict(fAbout="O nás", fPrivacy="Súkromie", viewIn="Zobraziť stránku po slovensky")
+
+META = {
+    "token": ("Počítadlo tokenov – GPT, Claude, Gemini", "Spočítajte tokeny, znaky a cenu API pre GPT, Claude a Gemini. Zadarmo."),
+    "video": ("Cena AI videa – Veo, Kling, Runway", "Porovnajte ceny API Veo 3.1, Kling, Runway, Luma a ďalších za sekundu a klip."),
+    "image": ("Cena AI obrázkov – Nano Banana, GPT", "Porovnajte ceny API za obrázok: Nano Banana, GPT Image, FLUX, Grok a ďalšie."),
+}

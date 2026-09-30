@@ -1,0 +1,91 @@
+<p>Μεταφράσαμε το ίδιο prompt εξυπηρέτησης πελατών σε 34 γλώσσες και μετρήσαμε τα tokens με τον o200k_base, τον τρέχοντα tokenizer της OpenAI (GPT-4o και νεότερα). Τα αγγλικά θέλουν 34 tokens, τα ελληνικά <strong>70 — δηλαδή 2,06×</strong>, θέση 34 από 34 (1 = το φθηνότερο). Τα ελληνικά βγήκαν η ακριβότερη γλώσσα της μέτρησης.</p>
+<p>Η ελληνική εκδοχή:</p>
+<blockquote>
+<p>Συνοψίστε το παρακάτω email του πελάτη σε τρία σημεία και προτείνετε μια ευγενική απάντηση. Ο πελάτης λέει ότι η παραγγελία έφτασε με δύο ημέρες καθυστέρηση και ότι έλειπε ένα προϊόν από το κουτί.</p>
+</blockquote>
+<h2>Αποτελέσματα</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Γλώσσα</th>
+<th style="text-align: right;">Tokens</th>
+<th style="text-align: right;">Σε σχέση με τα αγγλικά</th>
+<th style="text-align: right;">Παλιός tokenizer GPT-4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">1,00×</td>
+<td style="text-align: right;">1,00×</td>
+</tr>
+<tr>
+<td>简体中文</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">1,03×</td>
+<td style="text-align: right;">1,53×</td>
+</tr>
+<tr>
+<td>Español</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">1,18×</td>
+<td style="text-align: right;">1,29×</td>
+</tr>
+<tr>
+<td>Deutsch</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">1,26×</td>
+<td style="text-align: right;">1,50×</td>
+</tr>
+<tr>
+<td>한국어</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">2,50×</td>
+</tr>
+<tr>
+<td>日本語</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">1,79×</td>
+<td style="text-align: right;">2,21×</td>
+</tr>
+<tr>
+<td>Čeština</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">2,00×</td>
+<td style="text-align: right;">2,59×</td>
+</tr>
+<tr>
+<td><strong>Ελληνικά</strong></td>
+<td style="text-align: right;"><strong>70</strong></td>
+<td style="text-align: right;"><strong>2,06×</strong></td>
+<td style="text-align: right;"><strong>4,94×</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" width="960" height="1213" alt="Αποτελέσματα" src="/blog-language-tax-chart-v3.png" /></p>
+<h2>Γιατί</h2>
+<p>Ο tokenizer μαθαίνει κυρίως από αγγλικό κείμενο: λέξεις όπως " polite" ή " customer" είναι ένα μόνο token, ενώ οι ελληνικές λέξεις — με άλλο αλφάβητο και τόνους — σπάνε σε πολλά κομμάτια:</p>
+<ul>
+<li>Συνοψίστε → <code>Συ | νο | ψ | ί | στε</code> · 5</li>
+<li>καθυστέρηση → <code>καθ | υσ | τέ | ρηση</code> · 4</li>
+<li>προτείνετε → <code>προ | τε | ίν | ετε</code> · 4</li>
+</ul>
+<h2>Σε σχέση με τον παλιό tokenizer</h2>
+<p>Στον tokenizer της εποχής GPT-4 (cl100k) το ίδιο prompt κόστιζε <strong>4,94×</strong>· σήμερα <strong>2,06×</strong>. Το κόστος έπεσε κάτω από το μισό, αλλά τα ελληνικά παραμένουν στην τελευταία θέση.</p>
+<h2>Σε χρήματα</h2>
+<p>Με μοντέλο που χρεώνει 2 $ ανά εκατομμύριο tokens εισόδου, η αποστολή αυτού του prompt ένα εκατομμύριο φορές κοστίζει 68 $ στα αγγλικά και 140 $ στα ελληνικά. Αν και η απάντηση είναι στα ελληνικά, ο ίδιος πολλαπλασιαστής ισχύει και για τα tokens εξόδου, που συνήθως κοστίζουν 4–5× περισσότερο.</p>
+<h2>Πώς να γλιτώσετε</h2>
+<ul>
+<li>Γράψτε το system prompt και τις σταθερές οδηγίες στα αγγλικά· κρατήστε στα ελληνικά μόνο ό,τι γράφει ο χρήστης.</li>
+<li>Ζητήστε τα ενδιάμεσα βήματα (ταξινόμηση, εξαγωγή, κλήσεις εργαλείων) στα αγγλικά ή σε JSON και μόνο την τελική απάντηση στα ελληνικά.</li>
+<li>Χρησιμοποιήστε prompt caching για το σταθερό μέρος του prompt.</li>
+</ul>
+<h2>Περιορισμοί</h2>
+<ul>
+<li>Μετρήθηκε ένα μόνο prompt· σε άλλα κείμενα ο λόγος μπορεί να διαφέρει κατά ±0,1–0,2.</li>
+<li>Τα Claude και Gemini έχουν άλλους tokenizers — τα νούμερα ισχύουν μόνο για μοντέλα της OpenAI.</li>
+<li>Η μετάφραση βασίζεται σε ελεγμένη μηχανική μετάφραση.</li>
+</ul>
+<p>Όλα τα αποτελέσματα για 34 γλώσσες (στα αγγλικά): <a href="/blog/token-cost-by-language">σύγκριση 34 γλωσσών</a></p>

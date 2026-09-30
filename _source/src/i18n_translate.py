@@ -99,3 +99,6 @@ for _tag, _v in _SAVE.items():
 _MONTH = {'en': '{a} → {b} · {s} saved per month', 'ko': '{a} → {b} · 월 {s} 절약', 'ja': '{a} → {b} · 月{s}の節約', 'zh-CN': '{a} → {b} · 每月节省 {s}', 'zh-TW': '{a} → {b} · 每月節省 {s}', 'es': '{a} → {b} · ahorras {s} al mes', 'pt': '{a} → {b} · economia de {s} por mês', 'fr': '{a} → {b} · {s} économisés par mois', 'de': '{a} → {b} · {s} pro Monat gespart', 'it': '{a} → {b} · {s} risparmiati al mese', 'ru': '{a} → {b} · экономия {s} в месяц', 'uk': '{a} → {b} · економія {s} на місяць', 'tr': '{a} → {b} · ayda {s} tasarruf', 'ar': '{a} → {b} · توفير {s} شهريًا', 'fa': '{a} → {b} · صرفه\u200cجویی {s} در ماه', 'hi': '{a} → {b} · हर महीने {s} की बचत', 'id': '{a} → {b} · hemat {s} per bulan', 'vi': '{a} → {b} · tiết kiệm {s} mỗi tháng', 'th': '{a} → {b} · ประหยัด {s} ต่อเดือน', 'pl': '{a} → {b} · oszczędność {s} miesięcznie', 'nl': '{a} → {b} · {s} per maand bespaard', 'bn': '{a} → {b} · মাসে {s} সাশ্রয়', 'ur': '{a} → {b} · ماہانہ {s} کی بچت', 'fil': '{a} → {b} · tipid na {s} kada buwan', 'cs': '{a} → {b} · úspora {s} měsíčně', 'sv': '{a} → {b} · {s} sparat per månad', 'he': '{a} → {b} · חיסכון של {s} בחודש'}
 for _tag, _v in _MONTH.items():
     TR[_tag]["monthSaved"] = _v
+
+from i18n_eu7 import TR7 as _TR7
+TR.update(_TR7)

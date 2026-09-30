@@ -34,7 +34,7 @@ if (langSelect && !T.static) {
     // First visit: suggest (never force) the browser's language. Search engines always see the page as is.
     const l = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
     const base = l.split('-')[0];
-    const ALIAS = { tl: 'fil', iw: 'he' };
+    const ALIAS = { tl: 'fil', iw: 'he', nb: 'no', nn: 'no' };
     const key = base === 'zh' ? (/-(tw|hk|mo|hant)/.test(l) ? 'zh-tw' : 'zh-cn') : (ALIAS[base] || base);
     const target = key !== here && optFor(key);
     const label = target && (T.viewIn || {})[key];

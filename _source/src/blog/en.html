@@ -1,9 +1,9 @@
-<p>I translated one ordinary customer-support prompt into 27 languages and counted tokens with <strong>o200k_base</strong>, the tokenizer behind GPT-4o and every newer OpenAI model (the last column uses cl100k, the GPT-4-era tokenizer). English needs 34 tokens. The same request costs anywhere from <strong>1.03×</strong> (Simplified Chinese) to <strong>2.00×</strong> (Czech).</p>
+<p>I translated one ordinary customer-support prompt into 34 languages and counted tokens with <strong>o200k_base</strong>, the tokenizer behind GPT-4o and every newer OpenAI model (the last column uses cl100k, the GPT-4-era tokenizer). English needs 34 tokens. The same request costs anywhere from <strong>1.03×</strong> (Simplified Chinese) to <strong>2.06×</strong> (Greek).</p>
 <p>The English prompt:</p>
 <blockquote>
 <p>Please summarize the customer email below in three bullet points and suggest a polite reply. The customer says the order arrived two days late and one item was missing from the box.</p>
 </blockquote>
-<h2>All 27 languages</h2>
+<h2>All 34 languages</h2>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -87,6 +87,12 @@
 <td style="text-align: right;">1.50×</td>
 </tr>
 <tr>
+<td>Norwegian</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">1.32×</td>
+<td style="text-align: right;">1.56×</td>
+</tr>
+<tr>
 <td>Chinese (Traditional)</td>
 <td style="text-align: right;">46</td>
 <td style="text-align: right;">1.35×</td>
@@ -99,6 +105,12 @@
 <td style="text-align: right;">2.32×</td>
 </tr>
 <tr>
+<td>Danish</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">1.35×</td>
+<td style="text-align: right;">1.59×</td>
+</tr>
+<tr>
 <td>Italian</td>
 <td style="text-align: right;">47</td>
 <td style="text-align: right;">1.38×</td>
@@ -109,6 +121,12 @@
 <td style="text-align: right;">49</td>
 <td style="text-align: right;">1.44×</td>
 <td style="text-align: right;">2.50×</td>
+</tr>
+<tr>
+<td>Finnish</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">1.44×</td>
+<td style="text-align: right;">2.03×</td>
 </tr>
 <tr>
 <td>Turkish</td>
@@ -124,6 +142,12 @@
 </tr>
 <tr>
 <td>Filipino</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">1.53×</td>
+<td style="text-align: right;">1.76×</td>
+</tr>
+<tr>
+<td>Romanian</td>
 <td style="text-align: right;">52</td>
 <td style="text-align: right;">1.53×</td>
 <td style="text-align: right;">1.76×</td>
@@ -153,6 +177,12 @@
 <td style="text-align: right;">3.71×</td>
 </tr>
 <tr>
+<td>Hungarian</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">1.74×</td>
+<td style="text-align: right;">2.26×</td>
+</tr>
+<tr>
 <td>Japanese</td>
 <td style="text-align: right;">61</td>
 <td style="text-align: right;">1.79×</td>
@@ -176,9 +206,21 @@
 <td style="text-align: right;">2.00×</td>
 <td style="text-align: right;">2.59×</td>
 </tr>
+<tr>
+<td>Slovak</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">2.00×</td>
+<td style="text-align: right;">2.53×</td>
+</tr>
+<tr>
+<td>Greek</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">2.06×</td>
+<td style="text-align: right;">4.94×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="995" alt="Extra tokens per language vs English" src="/blog-language-tax-chart-v2.png" /></p>
+<p><img loading="lazy" width="960" height="1213" alt="Extra tokens per language vs English" src="/blog-language-tax-chart-v3.png" /></p>
 <h2>Why some languages cost more</h2>
 <p>Tokenizers are trained mostly on English, so common English words are a single token (" polite", " customer"). Words in other languages are split into pieces, and endings or diacritics often become tokens of their own:</p>
 <ul>
@@ -211,5 +253,5 @@
 <li>Translations started from machine translation and were checked.</li>
 </ul>
 <h2>Read it in your language</h2>
-<p><a href="/cs/blog/cestina-tokeny-gpt">Čeština</a> · <a href="/pl/blog/polski-tokeny-gpt">Polski</a> · <a href="/ja/blog/nihongo-tokens-gpt">日本語</a> · <a href="/ko/blog/korean-tokens-gpt">한국어</a> · <a href="/zh-cn/blog/zhongwen-token-gpt">简体中文</a> · <a href="/zh-tw/blog/zhongwen-fanti-token-gpt">繁體中文</a> · <a href="/es/blog/tokens-espanol-gpt">Español</a> · <a href="/pt/blog/tokens-portugues-gpt">Português</a> · <a href="/fr/blog/tokens-francais-gpt">Français</a> · <a href="/de/blog/tokens-deutsch-gpt">Deutsch</a> · <a href="/it/blog/token-italiano-gpt">Italiano</a> · <a href="/ru/blog/tokeny-russkiy-gpt">Русский</a> · <a href="/uk/blog/tokeny-ukrainska-gpt">Українська</a> · <a href="/tr/blog/token-turkce-gpt">Türkçe</a> · <a href="/ar/blog/tokens-arabic-gpt">العربية</a> · <a href="/fa/blog/token-farsi-gpt">فارسی</a> · <a href="/hi/blog/tokens-hindi-gpt">हिन्दी</a> · <a href="/id/blog/token-bahasa-indonesia-gpt">Bahasa Indonesia</a> · <a href="/vi/blog/token-tieng-viet-gpt">Tiếng Việt</a> · <a href="/th/blog/token-phasa-thai-gpt">ไทย</a> · <a href="/nl/blog/tokens-nederlands-gpt">Nederlands</a> · <a href="/bn/blog/token-bangla-gpt">বাংলা</a> · <a href="/ur/blog/token-urdu-gpt">اردو</a> · <a href="/fil/blog/token-filipino-gpt">Filipino</a> · <a href="/sv/blog/tokens-svenska-gpt">Svenska</a> · <a href="/he/blog/tokens-ivrit-gpt">עברית</a></p>
+<p><a href="/cs/blog/cestina-tokeny-gpt">Čeština</a> · <a href="/pl/blog/polski-tokeny-gpt">Polski</a> · <a href="/ja/blog/nihongo-tokens-gpt">日本語</a> · <a href="/ko/blog/korean-tokens-gpt">한국어</a> · <a href="/zh-cn/blog/zhongwen-token-gpt">简体中文</a> · <a href="/zh-tw/blog/zhongwen-fanti-token-gpt">繁體中文</a> · <a href="/es/blog/tokens-espanol-gpt">Español</a> · <a href="/pt/blog/tokens-portugues-gpt">Português</a> · <a href="/fr/blog/tokens-francais-gpt">Français</a> · <a href="/de/blog/tokens-deutsch-gpt">Deutsch</a> · <a href="/it/blog/token-italiano-gpt">Italiano</a> · <a href="/ru/blog/tokeny-russkiy-gpt">Русский</a> · <a href="/uk/blog/tokeny-ukrainska-gpt">Українська</a> · <a href="/tr/blog/token-turkce-gpt">Türkçe</a> · <a href="/ar/blog/tokens-arabic-gpt">العربية</a> · <a href="/fa/blog/token-farsi-gpt">فارسی</a> · <a href="/hi/blog/tokens-hindi-gpt">हिन्दी</a> · <a href="/id/blog/token-bahasa-indonesia-gpt">Bahasa Indonesia</a> · <a href="/vi/blog/token-tieng-viet-gpt">Tiếng Việt</a> · <a href="/th/blog/token-phasa-thai-gpt">ไทย</a> · <a href="/nl/blog/tokens-nederlands-gpt">Nederlands</a> · <a href="/bn/blog/token-bangla-gpt">বাংলা</a> · <a href="/ur/blog/token-urdu-gpt">اردو</a> · <a href="/fil/blog/token-filipino-gpt">Filipino</a> · <a href="/sv/blog/tokens-svenska-gpt">Svenska</a> · <a href="/he/blog/tokens-ivrit-gpt">עברית</a> · <a href="/el/blog/tokens-ellinika-gpt">Ελληνικά</a> · <a href="/ro/blog/tokeni-romana-gpt">Română</a> · <a href="/hu/blog/tokenek-magyar-gpt">Magyar</a> · <a href="/da/blog/tokens-dansk-gpt">Dansk</a> · <a href="/fi/blog/tokenit-suomi-gpt">Suomi</a> · <a href="/no/blog/tokens-norsk-gpt">Norsk</a> · <a href="/sk/blog/tokeny-slovencina-gpt">Slovenčina</a></p>
 <p>The original write-up and discussion are on <a href="https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m" target="_blank" rel="noopener">DEV</a>.</p>

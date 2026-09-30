@@ -1,4 +1,4 @@
-<p>Aynı müşteri hizmetleri istemini 27 dile çevirdim ve tokenleri OpenAI'nin güncel tokenizer'ı o200k_base ile saydım (GPT-4o ve sonrası). İngilizce 34 token, Türkçe <strong>50 token: İngilizcenin 1,47× katı</strong>; 27 dil içinde en ucuzdan 17. sırada.</p>
+<p>Aynı müşteri hizmetleri istemini 34 dile çevirdim ve tokenleri OpenAI'nin güncel tokenizer'ı o200k_base ile saydım (GPT-4o ve sonrası). İngilizce 34 token, Türkçe <strong>50 token: İngilizcenin 1,47× katı</strong>; 34 dil içinde en ucuzdan 20. sırada.</p>
 <p>Türkçe sürümü:</p>
 <blockquote>
 <p>Aşağıdaki müşteri e-postasını üç madde halinde özetleyin ve kibar bir yanıt önerin. Müşteri, siparişin iki gün geç geldiğini ve kutuda bir ürünün eksik olduğunu söylüyor.</p>
@@ -62,9 +62,15 @@
 <td style="text-align: right;">2,00×</td>
 <td style="text-align: right;">2,59×</td>
 </tr>
+<tr>
+<td>Ελληνικά</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">4,94×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="995" alt="Sonuçlar" src="/blog-language-tax-chart-v2.png" /></p>
+<p><img loading="lazy" width="960" height="1213" alt="Sonuçlar" src="/blog-language-tax-chart-v3.png" /></p>
 <h2>Neden</h2>
 <p>Tokenizer çoğunlukla İngilizce metinle eğitilir: " polite" veya " customer" gibi kelimeler tek token iken eklerle uzayan Türkçe kelimeler parçalara bölünür:</p>
 <ul>
@@ -88,4 +94,4 @@
 <li>Claude ve Gemini farklı tokenizer kullanır; bu sayılar yalnızca OpenAI modelleri için geçerlidir.</li>
 <li>Çeviri, kontrol edilmiş makine çevirisine dayanır.</li>
 </ul>
-<p>27 dilin tüm sonuçları (İngilizce): <a href="/blog/token-cost-27-languages">27 dil karşılaştırması</a></p>
+<p>34 dilin tüm sonuçları (İngilizce): <a href="/blog/token-cost-by-language">34 dil karşılaştırması</a></p>

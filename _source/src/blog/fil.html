@@ -1,4 +1,4 @@
-<p>Isinalin ko ang parehong customer-support prompt sa 27 wika at binilang ang token gamit ang o200k_base, ang kasalukuyang tokenizer ng OpenAI (GPT-4o at mas bago). Sa English, 34 token; sa Filipino, <strong>52 token — 1.53× ng English</strong>, ika-19 sa 27 (1 = pinakamura).</p>
+<p>Isinalin ko ang parehong customer-support prompt sa 34 wika at binilang ang token gamit ang o200k_base, ang kasalukuyang tokenizer ng OpenAI (GPT-4o at mas bago). Sa English, 34 token; sa Filipino, <strong>52 token — 1.53× ng English</strong>, ika-22 sa 34 (1 = pinakamura).</p>
 <p>Ang bersyong Filipino:</p>
 <blockquote>
 <p>Ibuod ang email ng customer sa ibaba sa tatlong punto at magmungkahi ng magalang na sagot. Sinabi ng customer na dumating ang order nang dalawang araw na huli at may isang item na kulang sa kahon.</p>
@@ -62,9 +62,15 @@
 <td style="text-align: right;">2.00×</td>
 <td style="text-align: right;">2.59×</td>
 </tr>
+<tr>
+<td>Ελληνικά</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">2.06×</td>
+<td style="text-align: right;">4.94×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="995" alt="Mga resulta" src="/blog-language-tax-chart-v2.png" /></p>
+<p><img loading="lazy" width="960" height="1213" alt="Mga resulta" src="/blog-language-tax-chart-v3.png" /></p>
 <h2>Bakit</h2>
 <p>Karamihang natututo ang tokenizer mula sa English na text: isang token lang ang mga salitang tulad ng " polite" o " customer", pero hinahati-hati ang maraming salitang Filipino na may panlapi:</p>
 <ul>
@@ -88,4 +94,4 @@
 <li>Iba ang tokenizer ng Claude at Gemini; para lang sa mga OpenAI model ang mga numerong ito.</li>
 <li>Batay ang salin sa sinuring machine translation.</li>
 </ul>
-<p>Buong resulta ng 27 wika (sa English): <a href="/blog/token-cost-27-languages">paghahambing ng 27 wika</a></p>
+<p>Buong resulta ng 34 wika (sa English): <a href="/blog/token-cost-by-language">paghahambing ng 34 wika</a></p>

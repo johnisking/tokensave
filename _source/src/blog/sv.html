@@ -1,4 +1,4 @@
-<p>Jag översatte samma kundtjänstprompt till 27 språk och räknade tokens med o200k_base, OpenAI:s nuvarande tokenizer (GPT-4o och senare). Engelska behöver 34 tokens, svenska <strong>45 — 1,32× så många</strong>, plats 12 av 27 (1 = billigast).</p>
+<p>Jag översatte samma kundtjänstprompt till 34 språk och räknade tokens med o200k_base, OpenAI:s nuvarande tokenizer (GPT-4o och senare). Engelska behöver 34 tokens, svenska <strong>45 — 1,32× så många</strong>, plats 12 av 34 (1 = billigast).</p>
 <p>Den svenska versionen:</p>
 <blockquote>
 <p>Sammanfatta kundens e-post nedan i tre punkter och föreslå ett artigt svar. Kunden säger att beställningen kom två dagar för sent och att en vara saknades i lådan.</p>
@@ -62,9 +62,15 @@
 <td style="text-align: right;">2,00×</td>
 <td style="text-align: right;">2,59×</td>
 </tr>
+<tr>
+<td>Ελληνικά</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">4,94×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="995" alt="Resultat" src="/blog-language-tax-chart-v2.png" /></p>
+<p><img loading="lazy" width="960" height="1213" alt="Resultat" src="/blog-language-tax-chart-v3.png" /></p>
 <h2>Varför</h2>
 <p>Tokenizern lär sig mest från engelsk text: ord som " polite" eller " customer" är en enda token, medan många svenska ord – särskilt sammansättningar – delas upp:</p>
 <ul>
@@ -88,4 +94,4 @@
 <li>Claude och Gemini har andra tokenizers – siffrorna gäller bara OpenAI-modeller.</li>
 <li>Översättningen bygger på en granskad maskinöversättning.</li>
 </ul>
-<p>Alla resultat för 27 språk (på engelska): <a href="/blog/token-cost-27-languages">jämförelse av 27 språk</a></p>
+<p>Alla resultat för 34 språk (på engelska): <a href="/blog/token-cost-by-language">jämförelse av 34 språk</a></p>

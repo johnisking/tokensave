@@ -1,0 +1,97 @@
+<p>Ten istý prompt zákazníckej podpory som preložil do 34 jazykov a tokeny spočítal pomocou o200k_base, aktuálneho tokenizéra OpenAI (GPT-4o a novšie). Angličtina potrebuje 34 tokenov, slovenčina <strong>68 — teda 2,00×</strong>, miesto 33 z 34 (1 = najlacnejší). Drahšia je už len gréčtina.</p>
+<p>Slovenská verzia:</p>
+<blockquote>
+<p>Zhrňte nižšie uvedený e-mail zákazníka do troch bodov a navrhnite zdvorilú odpoveď. Zákazník píše, že objednávka dorazila s dvojdňovým oneskorením a v krabici chýbala jedna položka.</p>
+</blockquote>
+<h2>Výsledky</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Jazyk</th>
+<th style="text-align: right;">Tokeny</th>
+<th style="text-align: right;">Oproti angličtine</th>
+<th style="text-align: right;">Starý tokenizér GPT-4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">1,00×</td>
+<td style="text-align: right;">1,00×</td>
+</tr>
+<tr>
+<td>简体中文</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">1,03×</td>
+<td style="text-align: right;">1,53×</td>
+</tr>
+<tr>
+<td>Español</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">1,18×</td>
+<td style="text-align: right;">1,29×</td>
+</tr>
+<tr>
+<td>Deutsch</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">1,26×</td>
+<td style="text-align: right;">1,50×</td>
+</tr>
+<tr>
+<td>한국어</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">2,50×</td>
+</tr>
+<tr>
+<td>日本語</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">1,79×</td>
+<td style="text-align: right;">2,21×</td>
+</tr>
+<tr>
+<td><strong>Slovenčina</strong></td>
+<td style="text-align: right;"><strong>68</strong></td>
+<td style="text-align: right;"><strong>2,00×</strong></td>
+<td style="text-align: right;"><strong>2,53×</strong></td>
+</tr>
+<tr>
+<td>Čeština</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">2,00×</td>
+<td style="text-align: right;">2,59×</td>
+</tr>
+<tr>
+<td>Ελληνικά</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">4,94×</td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" width="960" height="1213" alt="Výsledky" src="/blog-language-tax-chart-v3.png" /></p>
+<h2>Prečo</h2>
+<p>Tokenizér sa učí hlavne z anglického textu: slová ako " polite" či " customer" sú jeden token, kým slovenské slová s koncovkami a mäkčeňmi sa rozpadajú na kúsky:</p>
+<ul>
+<li>oneskorením → <code>ones | k | oren | ím</code> · 4</li>
+<li>dvojdňovým → <code>dvoj | d | ň | ovým</code> · 4</li>
+<li>navrhnite → <code>nav | r | hn | ite</code> · 4</li>
+</ul>
+<h2>Oproti starému tokenizéru</h2>
+<p>Na tokenizéri z éry GPT-4 (cl100k) stál ten istý prompt <strong>2,53×</strong>, dnes <strong>2,00×</strong>.</p>
+<h2>V peniazoch</h2>
+<p>S modelom za 2 $ na milión vstupných tokenov stojí odoslanie tohto promptu miliónkrát 68 $ v angličtine a 136 $ v slovenčine. Ak model odpovedá tiež po slovensky, rovnaký násobok platí aj pre výstupné tokeny, ktoré bývajú 4–5× drahšie.</p>
+<h2>Ako ušetriť</h2>
+<ul>
+<li>Systémový prompt a pevné inštrukcie píšte po anglicky; po slovensky nechajte len vstup od používateľa.</li>
+<li>Medzikroky (klasifikácia, extrakcia, volania nástrojov) si pýtajte po anglicky alebo v JSON, po slovensky len finálnu odpoveď.</li>
+<li>Pre pevnú časť promptu použite prompt caching.</li>
+</ul>
+<h2>Obmedzenia</h2>
+<ul>
+<li>Meraný bol jeden prompt; pri iných textoch sa pomer môže líšiť o ±0,1–0,2.</li>
+<li>Claude a Gemini používajú iné tokenizéry — čísla platia len pre modely OpenAI.</li>
+<li>Preklad vychádza z overeného strojového prekladu.</li>
+</ul>
+<p>Všetky výsledky pre 34 jazykov (po anglicky): <a href="/blog/token-cost-by-language">porovnanie 34 jazykov</a></p>

@@ -1,0 +1,114 @@
+# -*- coding: utf-8 -*-
+SLUG = "hu"
+TAG = "hu"
+NATIVE = "Magyar"
+OG = "hu_HU"
+DIR = "ltr"
+
+S = dict(
+    a1="A token egy szövegdarab, amelyet egy AI-modell olvas. Angolul 1 token nagyjából 4 karakter vagy egy szó ¾ része.",
+    a2="A tokenizálókat főleg angol szövegen tanítják, ezért a magyar, a koreai, a japán és sok más nyelv ugyanarra a jelentésre több tokenre bomlik.",
+    a3="Igen. Minden helyben, a böngésződben fut. A szöveged soha nem kerül fel semmilyen szerverre.",
+    asIn="Bemenetként",
+    asOut="Kimenetként",
+    badge="100% a böngészőben · Semmi sem töltődik fel",
+    based="o200k alapú",
+    chars="Karakterek",
+    clear="Törlés",
+    copy="Másolás",
+    cost="Becsült költség",
+    desc="Ingyenes AI-tokenszámláló GPT-hez, Claude-hoz és Geminihez. Számold meg a tokeneket, a karaktereket és a becsült API-költséget közvetlenül a böngészőben, bármilyen nyelven. Semmi sem töltődik fel.",
+    eff="Nyelvi hatékonyság",
+    efficient="{p}% hatékony",
+    est="Becslés",
+    exact="Pontos (o200k)",
+    f1="Az OpenAI-modelleket az o200k tokenizálóval számoljuk. A Claude és a Gemini számai becslések.",
+    f2="Az árak listaárak 1M tokenenként, utoljára 2026 szeptemberében ellenőrizve. Mindig nézd meg a szolgáltató árazási oldalát.",
+    great="Kiváló",
+    h1="AI-tokenszámláló",
+    high="Nagy tokenpazarlás",
+    lang="Nyelv",
+    moderate="Mérsékelt pazarlás",
+    note="{name}: ${in} bemenet / ${out} kimenet 1M tokenenként",
+    optimize="Szóközök tisztítása",
+    optimizeTip="Felesleges szóközök és üres sorok eltávolítása",
+    ph1="Illeszd be vagy írd ide a promptot...",
+    ph2="A tokenek, karakterek és a becsült költség gépelés közben azonnal frissülnek. Bármilyen nyelven működik.",
+    prompt="A promptod",
+    q1="Mi az a token?",
+    q2="Miért drágábbak más nyelvek?",
+    q3="Privát marad a szövegem?",
+    share="Nem angol arány: {p}%",
+    sub="Tokenek, karakterek és API-költség valós időben — bármilyen nyelven.",
+    tAlready="Már optimalizálva",
+    tCleared="Törölve",
+    tCopied="Vágólapra másolva",
+    tNothing="Nincs mit másolni",
+    tSaved="Optimalizálva — {n} token megtakarítva",
+    tip="Tipp: a nem latin írásrendszerek ugyanarra a jelentésre általában több tokent igényelnek. Az angol rendszerprompt csökkentheti a költséget.",
+    title="AI-tokenszámláló GPT-hez, Claude-hoz és Geminihez – TokenSave",
+    tokens="Tokenek",
+    waste="{x}x tokenpazarlás",
+    words="Szavak",
+)
+
+V = dict(
+    a1="A legtöbb videó-API a generált videó másodpercei után számláz. A nagyobb felbontás és a beépített hang drágább, így egy 1080p-s vagy 4K-s klip többszörösébe kerülhet egy 720p-snek.",
+    a2="A felbontástól függ. A könnyű modellek, mint a Veo 3.1 Lite, a Grok Imagine és a Wan, nagyjából $0.05/másodperctől indulnak, a prémium modellek 4K-ban $0.40/másodpercbe vagy többe is kerülhetnek.",
+    a3="Nem. Az OpenAI 2026. szeptember 24-én kivette a Sora 2 videómodelleket az API-ból, így a Sora már nem érhető el fejlesztőknek.",
+    audio="Hang",
+    audioIncl="Hanggal együtt",
+    audioOff="Hang nélkül",
+    audioOn="Hanggal",
+    badge="Hivatalos API-árak · Frissítve: 2026. szeptember",
+    cheapest="Legolcsóbb",
+    clipNote="5/10 mp-es klipenként számlázva",
+    clips="Klipek száma",
+    desc="Hasonlítsd össze az AI-videómodellek API-költségét: Veo 3.1, Kling 3.0, Runway Gen-4.5, Luma Ray, Grok Imagine, Seedance és mások. Állítsd be a hosszt, a felbontást és a hangot, és azonnal látod a klipenkénti árat.",
+    f1="Hivatalos listaárak a szolgáltatók API-árazási oldaláról, 2026. szeptember 30-án ellenőrizve. A nyilvános másodpercenkénti API-ár nélküli modelleket a Runway API áraival mutatjuk.",
+    f2="Az árak gyakran változnak — nagyobb munka előtt ellenőrizd a szolgáltató oldalán.",
+    h1="AI-videó költségkalkulátor",
+    len="Klip hossza (másodperc)",
+    model="Modell",
+    na="Ebben a felbontásban nem elérhető",
+    noAudio="Nincs beépített hang",
+    notes="Az árak a generált videó másodpercére vonatkoznak. Az adók, mennyiségi kedvezmények és sikertelen generálások nincsenek benne.",
+    perClip="Klipenként",
+    perSec="Másodpercenként",
+    q1="Hogyan árazzák az AI-videót?",
+    q2="Melyik a legolcsóbb AI-videómodell?",
+    q3="Benne van a Sora?",
+    res="Felbontás",
+    srcOfficial="Hivatalos ár",
+    srcRunway="Runway API-n keresztül",
+    sub="Nézd meg, mennyibe kerül ugyanaz a videó a nagy AI-videómodellekben.",
+    title="AI-videó költségkalkulátor – Veo 3.1, Kling, Runway, Luma árak | TokenSave",
+    total="Összesen",
+)
+
+I = dict(
+    a1="A legtöbb kép-API képenként fix árat kér, amely a felbontással nő. Az OpenAI modelljei magasabb minőségen is drágábbak, a FLUX pedig megapixelenként számláz.",
+    a2="A kis modellek, mint a FLUX.2 [klein], a Grok Imagine és az alacsony minőségű GPT Image, képenként nagyjából $0.01–0.02-be kerülnek. A prémium modellek 4K-ban $0.15–0.40-be is kerülhetnek képenként.",
+    a3="A Nano Banana a Google Gemini képmodelljeinek beceneve. A Nano Banana 2 a Gemini 3.1 Flash Image, a Nano Banana Pro pedig a Gemini 3 Pro Image.",
+    count="Képek száma",
+    desc="Hasonlítsd össze a képenkénti API-költséget: Nano Banana 2, Nano Banana Pro, GPT Image 2.5, FLUX.2, Grok Imagine, Seedream és Runway. Válassz felbontást és darabszámot, és azonnal látod a végösszeget.",
+    f1="Hivatalos listaárak a szolgáltatók API-árazási oldaláról, 2026. szeptember 30-án ellenőrizve. Az OpenAI és a Nano Banana Pro a Runway API áraival szerepel.",
+    h1="AI-kép költségkalkulátor",
+    notes="Az árak generált képenként értendők. A referenciaképek díja, az adók és a mennyiségi kedvezmények nincsenek benne.",
+    perImg="Képenként",
+    q1="Hogyan árazzák az AI-képgenerálást?",
+    q2="Melyik a legolcsóbb AI-képmodell?",
+    q3="Mi az a Nano Banana?",
+    sub="Nézd meg, mennyibe kerülnek ugyanazok a képek a nagy AI-képmodellekben.",
+    title="AI-kép költségkalkulátor – Nano Banana, GPT Image, FLUX, Grok árak | TokenSave",
+)
+
+NAV = dict(navToken="Tokenszámláló", navVideo="Videóköltség", navImage="Képköltség")
+
+SITE = dict(fAbout="Rólunk", fPrivacy="Adatvédelem", viewIn="Az oldal megtekintése magyarul")
+
+META = {
+    "token": ("AI-tokenszámláló – GPT, Claude, Gemini", "Tokenek, karakterek és API-költség GPT-hez, Claude-hoz, Geminihez. Ingyen."),
+    "video": ("AI-videó költség – Veo, Kling, Runway", "Veo 3.1, Kling, Runway, Luma és mások API-árai másodpercenként és klipenként."),
+    "image": ("AI-kép költség – Nano Banana, GPT Image", "Képenkénti API-árak: Nano Banana, GPT Image, FLUX, Grok és mások összevetve."),
+}

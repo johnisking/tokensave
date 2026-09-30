@@ -1,4 +1,4 @@
-Przetłumaczyłem jeden zwykły prompt na 27 języków i policzyłem tokeny tokenizerem, którego używają obecne modele OpenAI (o200k_base, GPT-4o i nowsze). Spodziewałem się, że najdrożej wyjdą japoński albo tajski. Tymczasem **polski (razem z ukraińskim) jest tuż za czeskim na samym końcu**: 1,88× angielskiego.
+Przetłumaczyłem jeden zwykły prompt na 34 języki i policzyłem tokeny tokenizerem, którego używają obecne modele OpenAI (o200k_base, GPT-4o i nowsze). Spodziewałem się, że najdrożej wyjdą japoński albo tajski. Tymczasem na samym końcu znalazły się języki europejskie: **polski (razem z ukraińskim) ma 1,88×**, a drożej wypadają tylko czeski i słowacki (2,00×) oraz grecki (2,06×).
 
 Prompt (po angielsku 34 tokeny):
 
@@ -15,8 +15,10 @@ Prompt (po angielsku 34 tokeny):
 | **Polski** | **64** | **1,88×** | **2,12×** |
 | Ukraiński | 64 | 1,88× | 3,15× |
 | Czeski | 68 | 2,00× | 2,59× |
+| Słowacki | 68 | 2,00× | 2,53× |
+| Grecki | 70 | 2,06× | 4,94× |
 
-![Wykres](/blog-language-tax-chart-v2.png)
+![Wykres](/blog-language-tax-chart-v3.png)
 
 **Dlaczego?** Tokenizer zna całe angielskie słowa (" polite", " customer" = 1 token), a polskie skleja z kawałków. Odmiana przez przypadki i znaki diakrytyczne robią swoje:
 
@@ -36,4 +38,4 @@ Ciekawostka: przy zmianie tokenizera ukraiński mocno potaniał (3,15× → 1,88
 
 Ograniczenia: to jeden prompt, dla innych tekstów wynik może się różnić o ±0,1–0,2. Claude i Gemini mają inne tokenizery, liczby dotyczą tylko modeli OpenAI. Tłumaczenie jest maszynowe, jeśli coś brzmi nienaturalnie, dajcie znać, zmierzę ponownie.
 
-Pełne wyniki dla 27 języków (po angielsku): [porównanie 27 języków](/blog/token-cost-27-languages)
+Pełne wyniki dla 34 języków (po angielsku): [porównanie 34 języków](/blog/token-cost-by-language)

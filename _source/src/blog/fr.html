@@ -1,4 +1,4 @@
-<p>J’ai traduit le même prompt de service client dans 27 langues et compté les tokens avec o200k_base, le tokeniseur actuel d’OpenAI (GPT-4o et suivants). L’anglais demande 34 tokens ; le français <strong>44, soit 1,29× l’anglais</strong>, rang 9 sur 27 (1 = le moins cher).</p>
+<p>J’ai traduit le même prompt de service client dans 34 langues et compté les tokens avec o200k_base, le tokeniseur actuel d’OpenAI (GPT-4o et suivants). L’anglais demande 34 tokens ; le français <strong>44, soit 1,29× l’anglais</strong>, rang 9 sur 34 (1 = le moins cher).</p>
 <p>La version française :</p>
 <blockquote>
 <p>Résumez l'e-mail du client ci-dessous en trois points et proposez une réponse polie. Le client indique que la commande est arrivée avec deux jours de retard et qu'un article manquait dans le colis.</p>
@@ -62,9 +62,15 @@
 <td style="text-align: right;">2,00×</td>
 <td style="text-align: right;">2,59×</td>
 </tr>
+<tr>
+<td>Ελληνικά</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">4,94×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="995" alt="Résultats" src="/blog-language-tax-chart-v2.png" /></p>
+<p><img loading="lazy" width="960" height="1213" alt="Résultats" src="/blog-language-tax-chart-v3.png" /></p>
 <h2>Pourquoi</h2>
 <p>Le tokeniseur apprend surtout sur du texte anglais : des mots comme « polite » ou « customer » tiennent en un seul token, alors que beaucoup de mots français sont découpés en morceaux :</p>
 <ul>
@@ -88,4 +94,4 @@
 <li>Claude et Gemini utilisent d’autres tokeniseurs : ces chiffres ne valent que pour les modèles OpenAI.</li>
 <li>La traduction repose sur une traduction automatique relue.</li>
 </ul>
-<p>Résultats complets des 27 langues (en anglais) : <a href="/blog/token-cost-27-languages">comparaison de 27 langues</a></p>
+<p>Résultats complets des 34 langues (en anglais) : <a href="/blog/token-cost-by-language">comparaison de 34 langues</a></p>

@@ -1,4 +1,4 @@
-<p>Ik vertaalde dezelfde klantenservice-prompt naar 27 talen en telde de tokens met o200k_base, de huidige tokenizer van OpenAI (GPT-4o en nieuwer). Engels heeft 34 tokens nodig, Nederlands <strong>44 — 1,29× zoveel</strong>, plaats 10 van 27 (1 = goedkoopst).</p>
+<p>Ik vertaalde dezelfde klantenservice-prompt naar 34 talen en telde de tokens met o200k_base, de huidige tokenizer van OpenAI (GPT-4o en nieuwer). Engels heeft 34 tokens nodig, Nederlands <strong>44 — 1,29× zoveel</strong>, plaats 10 van 34 (1 = goedkoopst).</p>
 <p>De Nederlandse versie:</p>
 <blockquote>
 <p>Vat de onderstaande e-mail van de klant samen in drie punten en stel een beleefd antwoord voor. De klant zegt dat de bestelling twee dagen te laat aankwam en dat er één artikel in de doos ontbrak.</p>
@@ -62,9 +62,15 @@
 <td style="text-align: right;">2,00×</td>
 <td style="text-align: right;">2,59×</td>
 </tr>
+<tr>
+<td>Ελληνικά</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">4,94×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="995" alt="Resultaten" src="/blog-language-tax-chart-v2.png" /></p>
+<p><img loading="lazy" width="960" height="1213" alt="Resultaten" src="/blog-language-tax-chart-v3.png" /></p>
 <h2>Waarom</h2>
 <p>De tokenizer leert vooral van Engelse tekst: woorden als " polite" of " customer" zijn één token, terwijl veel Nederlandse woorden in stukken worden gehakt:</p>
 <ul>
@@ -88,4 +94,4 @@
 <li>Claude en Gemini gebruiken andere tokenizers; deze cijfers gelden alleen voor OpenAI-modellen.</li>
 <li>De vertaling is gebaseerd op een gecontroleerde machinevertaling.</li>
 </ul>
-<p>Alle resultaten voor 27 talen (in het Engels): <a href="/blog/token-cost-27-languages">vergelijking van 27 talen</a></p>
+<p>Alle resultaten voor 34 talen (in het Engels): <a href="/blog/token-cost-by-language">vergelijking van 34 talen</a></p>

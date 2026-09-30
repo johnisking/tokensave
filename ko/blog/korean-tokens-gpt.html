@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>한국어 프롬프트는 영어보다 토큰이 몇 배 들까? 27개 언어 실측 | TokenSave</title>
-  <meta name="description" content="같은 프롬프트를 27개 언어로 측정. 한국어는 영어의 1.44배, 예전 2.5배에서 크게 줄었습니다." />
+  <title>한국어 프롬프트는 영어보다 토큰이 몇 배 들까? 34개 언어 실측 | TokenSave</title>
+  <meta name="description" content="같은 프롬프트를 34개 언어로 측정. 한국어는 영어의 1.44배, 예전 2.5배에서 크게 줄었습니다." />
   <link rel="canonical" href="https://tokensave.app/ko/blog/korean-tokens-gpt" />
   <link rel="alternate" hreflang="cs" href="https://tokensave.app/cs/blog/cestina-tokeny-gpt" />
   <link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/polski-tokeny-gpt" />
   <link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/nihongo-tokens-gpt" />
   <link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/korean-tokens-gpt" />
-  <link rel="alternate" hreflang="en" href="https://tokensave.app/blog/token-cost-27-languages" />
+  <link rel="alternate" hreflang="en" href="https://tokensave.app/blog/token-cost-by-language" />
   <link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/blog/zhongwen-token-gpt" />
   <link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/zhongwen-fanti-token-gpt" />
   <link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/tokens-espanol-gpt" />
@@ -34,26 +34,33 @@
   <link rel="alternate" hreflang="fil" href="https://tokensave.app/fil/blog/token-filipino-gpt" />
   <link rel="alternate" hreflang="sv" href="https://tokensave.app/sv/blog/tokens-svenska-gpt" />
   <link rel="alternate" hreflang="he" href="https://tokensave.app/he/blog/tokens-ivrit-gpt" />
-  <link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-27-languages" />
+  <link rel="alternate" hreflang="el" href="https://tokensave.app/el/blog/tokens-ellinika-gpt" />
+  <link rel="alternate" hreflang="ro" href="https://tokensave.app/ro/blog/tokeni-romana-gpt" />
+  <link rel="alternate" hreflang="hu" href="https://tokensave.app/hu/blog/tokenek-magyar-gpt" />
+  <link rel="alternate" hreflang="da" href="https://tokensave.app/da/blog/tokens-dansk-gpt" />
+  <link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/blog/tokenit-suomi-gpt" />
+  <link rel="alternate" hreflang="no" href="https://tokensave.app/no/blog/tokens-norsk-gpt" />
+  <link rel="alternate" hreflang="sk" href="https://tokensave.app/sk/blog/tokeny-slovencina-gpt" />
+  <link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tokensave.app/ko/blog/korean-tokens-gpt" />
-  <meta property="og:title" content="한국어 프롬프트는 영어보다 토큰이 몇 배 들까? 27개 언어 실측 | TokenSave" />
-  <meta property="og:description" content="같은 프롬프트를 27개 언어로 측정. 한국어는 영어의 1.44배, 예전 2.5배에서 크게 줄었습니다." />
+  <meta property="og:title" content="한국어 프롬프트는 영어보다 토큰이 몇 배 들까? 34개 언어 실측 | TokenSave" />
+  <meta property="og:description" content="같은 프롬프트를 34개 언어로 측정. 한국어는 영어의 1.44배, 예전 2.5배에서 크게 줄었습니다." />
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/blog-language-tax-chart-v2.png" />
+  <meta property="og:image" content="https://tokensave.app/blog-language-tax-chart-v3.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/blog-language-tax-chart-v2.png" />
+  <meta name="twitter:image" content="https://tokensave.app/blog-language-tax-chart-v3.png" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "한국어 프롬프트는 영어보다 토큰이 몇 배 들까? 27개 언어 실측", "description": "같은 프롬프트를 27개 언어로 측정. 한국어는 영어의 1.44배, 예전 2.5배에서 크게 줄었습니다.", "inLanguage": "ko", "url": "https://tokensave.app/ko/blog/korean-tokens-gpt", "mainEntityOfPage": "https://tokensave.app/ko/blog/korean-tokens-gpt", "datePublished": "2026-09-30", "dateModified": "2026-09-30", "image": "https://tokensave.app/blog-language-tax-chart-v2.png", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ko/"}, {"@type": "ListItem", "position": 2, "name": "한국어 프롬프트는 영어보다 토큰이 몇 배 들까? 27개 언어 실측", "item": "https://tokensave.app/ko/blog/korean-tokens-gpt"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "한국어 프롬프트는 영어보다 토큰이 몇 배 들까? 34개 언어 실측", "description": "같은 프롬프트를 34개 언어로 측정. 한국어는 영어의 1.44배, 예전 2.5배에서 크게 줄었습니다.", "inLanguage": "ko", "url": "https://tokensave.app/ko/blog/korean-tokens-gpt", "mainEntityOfPage": "https://tokensave.app/ko/blog/korean-tokens-gpt", "datePublished": "2026-09-30", "dateModified": "2026-09-30", "image": "https://tokensave.app/blog-language-tax-chart-v3.png", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ko/"}, {"@type": "ListItem", "position": 2, "name": "한국어 프롬프트는 영어보다 토큰이 몇 배 들까? 34개 언어 실측", "item": "https://tokensave.app/ko/blog/korean-tokens-gpt"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=ab0d5abd" />
+  <link rel="stylesheet" href="/styles.css?v=a258fcb5" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -111,15 +118,22 @@
           <option value="/cs/" data-code="cs">Čeština</option>
           <option value="/sv/" data-code="sv">Svenska</option>
           <option value="/he/" data-code="he">עברית</option>
+          <option value="/el/" data-code="el">Ελληνικά</option>
+          <option value="/ro/" data-code="ro">Română</option>
+          <option value="/hu/" data-code="hu">Magyar</option>
+          <option value="/da/" data-code="da">Dansk</option>
+          <option value="/fi/" data-code="fi">Suomi</option>
+          <option value="/no/" data-code="no">Norsk</option>
+          <option value="/sk/" data-code="sk">Slovenčina</option>
         </select>
       </label>
     </div>
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
-      <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">한국어 프롬프트는 영어보다 토큰이 몇 배 들까? 27개 언어 실측</h1>
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">한국어 프롬프트는 영어보다 토큰이 몇 배 들까? 34개 언어 실측</h1>
       <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026년 9월 30일</p>
 <p>"한국어로 프롬프트 쓰면 영어보다 토큰이 2~3배 든다"는 얘기, 한 번쯤 들어보셨을 겁니다. 저도 그렇게 알고 있었는데, 직접 재본 적은 없더라고요.</p>
-<p>그래서 재봤습니다. 같은 프롬프트를 27개 언어로 옮겨서 OpenAI 토크나이저로 토큰 수를 셌습니다. 결론부터 말하면 <strong>한국어는 영어의 1.44배</strong>입니다. "2~3배"는 이제 옛날 얘기였습니다.</p>
+<p>그래서 재봤습니다. 같은 프롬프트를 34개 언어로 옮겨서 OpenAI 토크나이저로 토큰 수를 셌습니다. 결론부터 말하면 <strong>한국어는 영어의 1.44배</strong>입니다. "2~3배"는 이제 옛날 얘기였습니다.</p>
 <h2>어떻게 쟀나</h2>
 <p>영어로 34토큰짜리 평범한 고객 응대 프롬프트를 썼습니다.</p>
 <blockquote>
@@ -129,7 +143,7 @@
 <blockquote>
 <p>아래 고객 이메일을 세 가지 요점으로 요약하고 정중한 답장을 제안해 주세요. 고객은 주문이 이틀 늦게 도착했고 상자에서 물건 하나가 빠져 있었다고 말합니다.</p>
 </blockquote>
-<p>이걸 27개 언어로 옮긴 뒤 두 가지 토크나이저로 셌습니다.</p>
+<p>이걸 34개 언어로 옮긴 뒤 두 가지 토크나이저로 셌습니다.</p>
 <ul>
 <li><strong>o200k_base</strong>: GPT-4o 이후 OpenAI 모델이 쓰는 현재 토크나이저</li>
 <li><strong>cl100k_base</strong>: GPT-4, GPT-3.5 시절의 예전 토크나이저 (비교용)</li>
@@ -148,7 +162,7 @@ enc = tiktoken.get_encoding(&quot;o200k_base&quot;)
 print(len(enc.encode(korean)))  # 49
 </code></pre>
 <h2>결과</h2>
-<p><img loading="lazy" width="960" height="995" alt="언어별 추가 토큰 (영어 대비)" src="/blog-language-tax-chart-v2.png" /></p>
+<p><img loading="lazy" width="960" height="1213" alt="언어별 추가 토큰 (영어 대비)" src="/blog-language-tax-chart-v3.png" /></p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -237,9 +251,15 @@ print(len(enc.encode(korean)))  # 49
 <td style="text-align: right;"><strong>2.00배</strong></td>
 <td style="text-align: right;">2.59배</td>
 </tr>
+<tr>
+<td>그리스어</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;"><strong>2.06배</strong></td>
+<td style="text-align: right;">4.94배</td>
+</tr>
 </tbody>
 </table></div>
-<p>27개 언어 전체 결과는 <a href="/blog/token-cost-27-languages">영어로 정리한 글</a>에 있습니다.</p>
+<p>34개 언어 전체 결과는 <a href="/blog/token-cost-by-language">영어로 정리한 글</a>에 있습니다.</p>
 <h2>의외였던 점</h2>
 <h3>1. "한국어 2~3배"는 예전 토크나이저 기준이었다</h3>
 <p>GPT-4 시절 토크나이저로 재면 한국어는 <strong>2.50배</strong>입니다. 우리가 알던 숫자가 여기서 나온 거죠. 지금 토크나이저에서는 <strong>1.44배</strong>까지 내려왔습니다. 같은 프롬프트라면 예전보다 토큰이 40% 넘게 줄어든 셈입니다.</p>
@@ -247,7 +267,7 @@ print(len(enc.encode(korean)))  # 49
 <h3>2. 이제 일본어가 한국어보다 비싸다</h3>
 <p>예전 토크나이저에서는 일본어(2.21배)가 한국어(2.50배)보다 쌌습니다. 지금은 뒤집혀서 일본어가 <strong>1.79배</strong>로 한국어보다 비쌉니다. 일본어는 토크나이저가 바뀌어도 가장 덜 줄어든 언어 중 하나였습니다.</p>
 <h3>3. 가장 비싼 언어는 아시아 언어가 아니었다</h3>
-<p>1위는 <strong>체코어(2.00배)</strong>, 그다음이 <strong>폴란드어·우크라이나어(1.88배)</strong>입니다. 알파벳을 쓰는 언어라도 어미 변화가 많으면 잘게 쪼개지는 것 같습니다. 반대로 중국어(간체)는 영어와 거의 같았습니다(1.03배).</p>
+<p>1위는 <strong>그리스어(2.06배)</strong>, 그다음이 <strong>체코어·슬로바키아어(2.00배)</strong>와 <strong>폴란드어·우크라이나어(1.88배)</strong>입니다. 알파벳을 쓰는 언어라도 어미 변화가 많으면 잘게 쪼개지는 것 같습니다. 반대로 중국어(간체)는 영어와 거의 같았습니다(1.03배).</p>
 <h2>돈으로 따지면</h2>
 <p>입력 100만 토큰당 2달러인 모델에 이 프롬프트를 100만 번 보낸다고 해보겠습니다.</p>
 <div class="overflow-x-auto"><table>
@@ -317,6 +337,6 @@ print(len(enc.encode(korean)))  # 49
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=ab0d5abd"></script>
+  <script type="module" src="/common.js?v=a258fcb5"></script>
 </body>
 </html>

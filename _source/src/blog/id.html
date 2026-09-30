@@ -1,4 +1,4 @@
-<p>Saya menerjemahkan prompt layanan pelanggan yang sama ke 27 bahasa dan menghitung token dengan o200k_base, tokenizer OpenAI saat ini (GPT-4o dan setelahnya). Bahasa Inggris butuh 34 token, bahasa Indonesia <strong>39 token — 1,15× bahasa Inggris</strong>, peringkat 3 dari 27 (1 = paling murah).</p>
+<p>Saya menerjemahkan prompt layanan pelanggan yang sama ke 34 bahasa dan menghitung token dengan o200k_base, tokenizer OpenAI saat ini (GPT-4o dan setelahnya). Bahasa Inggris butuh 34 token, bahasa Indonesia <strong>39 token — 1,15× bahasa Inggris</strong>, peringkat 3 dari 34 (1 = paling murah).</p>
 <p>Versi bahasa Indonesia:</p>
 <blockquote>
 <p>Ringkas email pelanggan di bawah ini dalam tiga poin dan sarankan balasan yang sopan. Pelanggan mengatakan pesanan tiba dua hari terlambat dan satu barang hilang dari kotak.</p>
@@ -62,9 +62,15 @@
 <td style="text-align: right;">2,00×</td>
 <td style="text-align: right;">2,59×</td>
 </tr>
+<tr>
+<td>Ελληνικά</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">4,94×</td>
+</tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="995" alt="Hasil" src="/blog-language-tax-chart-v2.png" /></p>
+<p><img loading="lazy" width="960" height="1213" alt="Hasil" src="/blog-language-tax-chart-v3.png" /></p>
 <h2>Mengapa</h2>
 <p>Tokenizer terutama belajar dari teks bahasa Inggris: kata seperti " polite" atau " customer" hanya satu token, sedangkan kata berimbuhan dalam bahasa Indonesia dipecah:</p>
 <ul>
@@ -88,4 +94,4 @@
 <li>Claude dan Gemini memakai tokenizer lain; angka ini hanya berlaku untuk model OpenAI.</li>
 <li>Terjemahan didasarkan pada terjemahan mesin yang sudah diperiksa.</li>
 </ul>
-<p>Hasil lengkap 27 bahasa (dalam bahasa Inggris): <a href="/blog/token-cost-27-languages">perbandingan 27 bahasa</a></p>
+<p>Hasil lengkap 34 bahasa (dalam bahasa Inggris): <a href="/blog/token-cost-by-language">perbandingan 34 bahasa</a></p>
