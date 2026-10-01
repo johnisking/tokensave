@@ -5,6 +5,7 @@ from i18n_agents_a import A
 from i18n_agents_b import B
 from i18n_agents_c import C
 from i18n_plans_all import PL
+from i18n_crosslink import X
 
 AG, AGNAV, AGMETA = {}, {}, {}
 for _src in (A, B, C):
@@ -15,3 +16,7 @@ for _src in (A, B, C):
         for _k in ("tokMonth", "inTok", "outTok", "apiLabel", "perMonth"):
             _d[_k] = PL[_t][_k]
         AG[_t] = _d
+
+for _t in AG:
+    AG[_t]["toPlans"] = X[_t][1]
+    PL[_t]["toAgents"] = X[_t][0]
