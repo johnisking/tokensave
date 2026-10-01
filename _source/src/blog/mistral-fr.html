@@ -1,0 +1,83 @@
+<p>Écrire à une IA en français coûte plus cher qu'en anglais : le même texte est découpé en plus de <em>tokens</em>, et ce sont les tokens que l'on paie à l'API ou qui épuisent les limites d'un abonnement. Mais de combien, exactement ? Et Mistral, le modèle français, fait-il mieux que ChatGPT sur ce point ? J'ai mesuré.</p>
+<p><img loading="lazy" width="1200" height="630" alt="Le français coûte plus de tokens que l'anglais, chez OpenAI comme chez Mistral" src="/blog-mistral-francais.png" /></p>
+<h2>Le test</h2>
+<p>Deux textes, chacun en anglais et en français, avec exactement le même sens :</p>
+<ul>
+<li><strong>Un prompt court</strong> (une demande de résumé d'e-mail client, 2 phrases).</li>
+<li><strong>Un prompt long</strong> (des instructions pour vérifier une facture et rédiger un e-mail, environ 100 mots).</li>
+</ul>
+<p>Je les ai passés dans deux tokeniseurs : <strong>o200k_base</strong>, celui de GPT-4o et des modèles OpenAI récents, et <strong>Tekken</strong>, le tokeniseur publié par Mistral (version de septembre 2024, utilisée par Mistral NeMo et les modèles suivants).</p>
+<h2>Résultats</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Texte</th>
+<th style="text-align: right;">Anglais</th>
+<th style="text-align: right;">Français</th>
+<th style="text-align: right;">Surcoût</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prompt court, OpenAI (o200k)</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;"><strong>+29 %</strong></td>
+</tr>
+<tr>
+<td>Prompt court, Mistral (Tekken)</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;"><strong>+32 %</strong></td>
+</tr>
+<tr>
+<td>Prompt long, OpenAI (o200k)</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;"><strong>+12 %</strong></td>
+</tr>
+<tr>
+<td>Prompt long, Mistral (Tekken)</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;"><strong>+16 %</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Deux enseignements :</p>
+<ol>
+<li><strong>Le français coûte entre 12 % et 30 % de tokens en plus</strong> que l'anglais. Plus le texte est court et « technique », plus l'écart est grand.</li>
+<li><strong>Mistral n'est pas plus économe en français que ChatGPT.</strong> Sur ces deux textes, Tekken produit même un peu plus de tokens que o200k. Être une entreprise française ne change rien à la façon dont le tokeniseur découpe la langue.</li>
+</ol>
+<p>Pour comparer : sur le même prompt court, l'allemand coûte 1,26× l'anglais chez OpenAI, l'italien 1,38×, le polonais 1,88×. Le français fait partie des langues les moins pénalisées, mais il reste pénalisé.</p>
+<h2>Pourquoi le français coûte plus</h2>
+<p>Les tokeniseurs sont entraînés surtout sur de l'anglais. Les mots anglais courants deviennent un seul token, alors que beaucoup de mots français sont coupés en morceaux :</p>
+<ul>
+<li>« facturation » → <code>fact | uration</code> (2 tokens, chez OpenAI comme chez Mistral)</li>
+<li>« vérifie » → <code>vér | ifie</code> (2 tokens)</li>
+<li>« rédige » → <code>réd | ige</code> (2 tokens)</li>
+<li>« chaleureux » → 1 token chez OpenAI, mais <code>chale | ure | ux</code> (3 tokens) chez Mistral</li>
+</ul>
+<p>En face, « invoice », « billing » ou « polite » font un seul token. Les élisions (« l'adresse », « n'utilise ») et les accents ajoutent encore quelques tokens.</p>
+<h2>Ce que ça change concrètement</h2>
+<ul>
+<li><strong>À l'API</strong>, vous payez à peu près 12 à 30 % de plus pour le même contenu.</li>
+<li><strong>Dans un abonnement</strong> (ChatGPT Plus, Claude Pro, Le Chat Pro), les limites d'utilisation sont calculées en tokens : elles s'épuisent plus vite quand on écrit en français.</li>
+<li><strong>Si la réponse est aussi en français</strong>, le même surcoût s'applique aux tokens de sortie, qui coûtent en général 4 à 5 fois plus cher que ceux d'entrée.</li>
+</ul>
+<h2>L'astuce : écrire en anglais, recevoir en français</h2>
+<p>Le plus simple est d'écrire le prompt en anglais et d'ajouter à la fin : <strong>« Reply in French. »</strong> Le modèle comprend aussi bien, la réponse arrive en français, et le prompt coûte moins cher.</p>
+<p>Ça vaut surtout le coup pour :</p>
+<ul>
+<li>les <strong>prompts système</strong> et les instructions réutilisées des milliers de fois via l'API ;</li>
+<li>les <strong>longs documents de contexte</strong> collés dans la conversation ;</li>
+<li>les utilisateurs d'abonnement qui <strong>atteignent souvent la limite</strong>.</li>
+</ul>
+<p>Pour une question courte posée une fois, le gain est négligeable : écrivez comme vous voulez.</p>
+<h2>Et le prix des abonnements ?</h2>
+<p>Le Chat Pro de Mistral est affiché à 14,99 $ par mois, contre 20 $ pour ChatGPT Plus et Claude Pro et 19,99 $ pour Google AI Pro (prix américains, octobre 2026). Le tokeniseur ne rend pas Mistral plus avantageux en français, mais l'abonnement reste le moins cher des quatre.</p>
+<p>Pour savoir si un abonnement ou l'API revient moins cher selon votre usage réel (nombre de messages, longueur, langue), utilisez le <a href="/fr/plans">comparateur Abonnement vs API</a>.</p>
+<h2>Vérifiez avec vos propres textes</h2>
+<p>Chaque texte est différent. <a href="/fr/">TokenSave</a> compte les tokens et le coût de votre prompt pour GPT, Claude et Gemini, puis le traduit en anglais en un clic, directement dans votre navigateur, en ajoutant « Reply in French ». Le code n'est pas touché, seuls les commentaires sont traduits. Gratuit, sans inscription, rien n'est envoyé.</p>
+<p>Le classement complet des 41 langues est ici : <a href="/fr/blog/tokens-francais-gpt">Combien de tokens coûte le français ?</a></p>
+<p><em>Mesures effectuées en octobre 2026 avec o200k_base (OpenAI) et Tekken 2024-09 (Mistral). Les modèles Mistral les plus récents peuvent utiliser une version mise à jour de Tekken.</em></p>

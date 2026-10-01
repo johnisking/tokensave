@@ -51,3 +51,5 @@ Avec un modèle à 2 $ le million de tokens d’entrée, envoyer ce prompt un mi
 - La traduction repose sur une traduction automatique relue.
 
 Résultats complets des 41 langues (en anglais) : [comparaison de 41 langues](/blog/token-cost-by-language)
+
+Et chez Mistral ? [Mistral ou ChatGPT : combien coûte vraiment un prompt en français ?](/fr/blog/mistral-chatgpt-cout-prompt-francais)

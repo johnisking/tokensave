@@ -16,7 +16,7 @@ from i18n_video import NAV, V
 from i18n_image import I
 from i18n_site import SITE
 from seo_meta import META
-from blog_meta import BLOG, BLOG_DATE, PRO
+from blog_meta import BLOG, BLOG_DATE, PRO, MISTRAL_FR
 PRO_BY_TAG = {b["tag"]: b for b in PRO}
 from i18n_view import MORE_LANGS
 from i18n_plans_all import PL, PNAV, PMETA
@@ -295,7 +295,7 @@ def build():
 
     # Articles (/<slug>/blog/...): each group is one article in several languages, linked with hreflang
     plans_tool = next(t for t in TOOLS if t["key"] == "plans")
-    for GROUP, gimg, gtool in [(BLOG, "blog-language-tax-chart-v4.png", TOOLS[0]), (PRO, "blog-chatgpt-pro-tiers.png", plans_tool)]:
+    for GROUP, gimg, gtool in [(BLOG, "blog-language-tax-chart-v4.png", TOOLS[0]), (PRO, "blog-chatgpt-pro-tiers.png", plans_tool), (MISTRAL_FR, "blog-mistral-francais.png", TOOLS[0])]:
       blog_en = next((b for b in GROUP if b["tag"] == "en"), None)
       blog_alts = "\n".join(f'  <link rel="alternate" hreflang="{b["tag"]}" href="{BASE}{b["path"]}" />' for b in GROUP) + (
           f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{blog_en["path"]}" />' if blog_en else "")
@@ -364,7 +364,7 @@ def build():
     for pg in PAGES:
         if pg["path"]:
             entries.append(f"\n  <url>\n    <loc>{BASE}{pg['path']}</loc>\n    <lastmod>{LASTMOD}</lastmod>\n  </url>")
-    for GROUP in (BLOG, PRO):
+    for GROUP in (BLOG, PRO, MISTRAL_FR):
       b_alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{b["tag"]}" href="{BASE}{b["path"]}"/>' for b in GROUP)
       b_en = next((b for b in GROUP if b["tag"] == "en"), None)
       if b_en:
@@ -376,7 +376,7 @@ def build():
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'
         + "".join(entries) + "\n</urlset>\n"
     )
-    print("built", count, "tool pages +", len(PAGES), "site pages +", len(BLOG) + len(PRO), "articles ->", DIST)
+    print("built", count, "tool pages +", len(PAGES), "site pages +", len(BLOG) + len(PRO) + len(MISTRAL_FR), "articles ->", DIST)
 
 if __name__ == "__main__":
     build()

@@ -97,3 +97,18 @@ PRO = [
   "date": "2026-10-01"
  }
 ]
+
+
+MISTRAL_FR = [
+ {
+  "tag": "fr",
+  "path": "/fr/blog/mistral-chatgpt-cout-prompt-francais",
+  "src": "mistral-fr",
+  "title": "Mistral ou ChatGPT : combien coûte vraiment un prompt en français ?",
+  "desc": "Le français coûte 12 à 30 % de tokens en plus que l'anglais, chez OpenAI comme chez Mistral. Mesures, explications et astuce.",
+  "byline": "Jonhisking · 2 octobre 2026",
+  "cta": "Collez votre prompt pour voir ses tokens et son coût, puis traduisez-le en anglais en un clic.",
+  "ctaBtn": "Ouvrir le compteur de tokens",
+  "date": "2026-10-02"
+ },
+]
