@@ -483,10 +483,18 @@ function savePreview(text, e) {
   const key = model.id + '\u0000' + text;
   if (saveCache.key !== key) {
     const before = countTokens(text).tokens;
-    const clean = cleanText(text);
     let after, foreign = e.waste >= FOREIGN;
-    if (foreign) after = countTokens(clean).tokens / e.waste;   // translation estimated from measured overhead
-    else after = countTokens(shortenEnglish(clean)).tokens;                          // exact for English
+    if (looksLikeCode(text)) {                                   // code: only comments are translated, layout kept
+      const com = commentParts(text).map(p => p.body).filter(b => FOREIGN_RE.test(b)).join('\n');
+      const ce = com ? efficiency(analyze(com), com) : { waste: 1 };
+      foreign = ce.waste >= FOREIGN;
+      const ct = com ? countTokens(com).tokens : 0;
+      after = countTokens(cleanCode(text)).tokens - (foreign ? ct - ct / ce.waste : 0);
+    } else {
+      const clean = cleanText(text);
+      if (foreign) after = countTokens(clean).tokens / e.waste;   // translation estimated from measured overhead
+      else after = countTokens(shortenEnglish(clean)).tokens;                          // exact for English
+    }
     const saved = Math.max(0, Math.round(before - after));
     saveCache = { key, saved, pct: before ? Math.round(saved / before * 100) : 0, needsChrome: foreign && !canTranslate };
   }
@@ -544,9 +552,44 @@ function langName(code) {
   } catch (_) { return null; }
 }
 
-async function translateToEnglish(text) {
+// Code mode: which parts of each line are comments. Returns [{ line, pre, body }] where only body may be translated.
+const FOREIGN_RE = /[^\u0000-\u024f\u1e00-\u1eff\s\p{P}\p{S}\d]/u;
+function commentParts(text) {
+  let inBlock = null; // '*/' or '"""' while inside a block comment / docstring
+  return text.split('\n').map(line => {
+    let pre = line, body = '';
+    if (inBlock) {
+      const end = line.indexOf(inBlock);
+      if (end < 0) { const m = line.match(/^(\s*\*?\s*)(.*)$/); return { line, pre: m[1], body: m[2] }; }
+      inBlock = null; return { line, pre: line, body: '' };
+    }
+    const m = line.match(/^(\s*(?:\/\/+|#+|--|\*|\/\*+|<!--|"""|''')\s?)(.*)$/);
+    if (m) {
+      if (/^\s*\/\*/.test(line) && !line.includes('*/')) inBlock = '*/';
+      if (/^\s*("""|''')/.test(line) && (line.match(/"""|'''/g) || []).length === 1) inBlock = line.trim().slice(0, 3);
+      return { line, pre: m[1], body: m[2] };
+    }
+    const c = line.search(/(?<![:\w])\/\/|\s#\s/);           // trailing comment after code (not "https://")
+    if (c > 0 && !FOREIGN_RE.test(line.slice(0, c))) { pre = line.slice(0, c); body = line.slice(c); const mm = body.match(/^(\s*(?:\/\/+|#)\s?)(.*)$/); if (mm) { pre += mm[1]; body = mm[2]; } }
+    return { line, pre: body ? pre : line, body };
+  });
+}
+// Looks like source code rather than prose: many lines with code punctuation / keywords
+function looksLikeCode(text) {
+  const lines = text.split('\n').filter(l => l.trim());
+  if (lines.length < 4) return false;
+  const code = lines.filter(l => /[;{}=]\s*$|^\s*(import|package|class|def|fun|val|var|const|let|function|return|if|for|while|public|private|override|#include|from)\b|\)\s*\{|=>/.test(l)).length;
+  return code / lines.length >= 0.25;
+}
+// Code-safe cleanup: keep indentation, only trim line ends and squeeze long blank runs
+const cleanCode = t => t.replace(/\r\n/g, '\n').replace(/[ \t]+$/gm, '').replace(/\n{3,}/g, '\n\n').trim();
+
+async function translateToEnglish(text, onlyComments = false) {
   if (!canTranslate) return { text: null, why: tr('tNoSupport') };
-  const sourceLanguage = await detectLang(text);
+  const parts = onlyComments ? commentParts(text) : null;
+  const sample = parts ? parts.filter(p => FOREIGN_RE.test(p.body)).map(p => p.body).join('\n') : text;
+  if (!sample.trim()) return { text: null, why: tr('tAlready') };
+  const sourceLanguage = await detectLang(sample);
   const opts = { sourceLanguage, targetLanguage: 'en' };
   const avail = sourceLanguage === 'en' ? 'unavailable' : await Translator.availability(opts);
   if (avail === 'unavailable') return { text: null, why: tr('tLangNA') };
@@ -555,7 +598,11 @@ async function translateToEnglish(text) {
     monitor(m) { m.addEventListener('downloadprogress', ev => toast(tr('tDownloading', { p: Math.round(ev.loaded * 100) }), 60000)); },
   }), avail === 'available' ? 15000 : 300000);
   const out = [];
-  for (const line of text.split('\n')) out.push(line.trim() ? await t.translate(line) : line);
+  if (parts) {
+    for (const p of parts) out.push(p.body.trim() && FOREIGN_RE.test(p.body) ? p.pre + (await t.translate(p.body)) : p.line);
+  } else {
+    for (const line of text.split('\n')) out.push(line.trim() ? await t.translate(line) : line);
+  }
   return { text: out.join('\n'), lang: sourceLanguage };
 }
 
@@ -569,21 +616,23 @@ trBtn.addEventListener('click', async () => {
   const src = els.input.value;
   if (!src.trim()) return;
   const before = measure().tokens;
-  const foreign = efficiency(analyze(src), src).waste >= FOREIGN;
+  const code = looksLikeCode(src);
+  const scope = code ? commentParts(src).map(p => p.body).join('\n') : src;   // code: only comments get translated
+  const foreign = efficiency(analyze(scope), scope).waste >= FOREIGN;
   const steps = [];
-  let t = cleanText(src), note = '', replyLang = null;
+  let t = code ? cleanCode(src) : cleanText(src), note = '', replyLang = null;
   if (t !== src) steps.push(tr('stepSpaces'));
   trBtn.disabled = true;
   try {
     if (foreign) {
       toast(tr('tTranslating'), 60000);
       try {
-        const r = await translateToEnglish(t);
+        const r = await translateToEnglish(t, code);
         if (r.text && countTokens(r.text).tokens < countTokens(t).tokens) { t = r.text; steps.push(tr('stepEn')); replyLang = r.lang; }
         else if (!r.text) note = r.why;
       } catch (_) { note = tr('tFail'); }
     }
-    if (!foreign || steps.includes(tr('stepEn'))) {
+    if (!code && (!foreign || steps.includes(tr('stepEn')))) {
       const s2 = cleanText(shortenEnglish(t));
       if (s2 !== t) { t = s2; steps.push(tr('stepShort')); }
     }
