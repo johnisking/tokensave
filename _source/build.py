@@ -20,6 +20,7 @@ from blog_meta import BLOG, BLOG_DATE, PRO, MISTRAL_FR, PROMPT_PL
 PRO_BY_TAG = {b["tag"]: b for b in PRO}
 from i18n_view import MORE_LANGS
 from i18n_plans_all import PL, PNAV, PMETA
+from i18n_agents_all import AG, AGNAV, AGMETA
 LLM = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "src", "llm_prices.json"), encoding="utf-8"))
 
 # ---------------------------------------------------------------- settings
@@ -37,7 +38,7 @@ VERIFY = {
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC, DIST, TW = os.path.join(ROOT, "src"), os.path.join(ROOT, "dist"), os.path.join(ROOT, "tw")
-JS_FILES = ["common.js", "token.js", "video.js", "image.js", "plans.js"]
+JS_FILES = ["common.js", "token.js", "video.js", "image.js", "plans.js", "agents.js"]
 DEV_POST = "https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m"
 BLOG_BY_TAG = {b["tag"]: b for b in BLOG}
 MORE_CLS = "inline-block whitespace-nowrap font-semibold text-amber-300 underline underline-offset-2 decoration-amber-400/40 hover:text-white"
@@ -56,6 +57,9 @@ for tag in I:
 for tag in PL:
     NAV[tag]["navPlans"] = PNAV[tag]
     META.setdefault("plans", {})[tag] = PMETA[tag]
+for tag in AG:
+    NAV[tag]["navAgents"] = AGNAV[tag]
+    META.setdefault("agents", {})[tag] = AGMETA[tag]
 
 TOOLS = [
     dict(key="token", nav="navToken", body="token_body.html", strings=S, script="token.js",
@@ -74,6 +78,9 @@ TOOLS = [
     dict(key="plans", nav="navPlans", body="plans_body.html", strings=PL, script="plans.js",
          file="plans.html", page="plans", og="og-token.jpg",
          runtime=["apiLabel", "perMonth", "cheaperApi", "cheaperPlan", "breakEven", "langNote"]),
+    dict(key="agents", nav="navAgents", body="agents_body.html", strings=AG, script="agents.js",
+         file="agents.html", page="agents", og="og-token.jpg",
+         runtime=["apiLabel", "perMonth", "perTask", "apiCheaper", "planCheaper"]),
 ]
 
 # English-only site pages (not in the tool menu)
@@ -249,6 +256,8 @@ def build():
                     {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": url_for(slug, TOOLS[0])},
                     {"@type": "ListItem", "position": 2, "name": s["h1"], "item": url}]})
             runtime = {k: s[k] for k in tool["runtime"]}
+            if tool["key"] == "agents":
+                runtime["prices"] = {k: {"in": v["in"], "out": v["out"]} for k, v in LLM["models"].items()}
             if tool["key"] == "plans":
                 runtime["prices"] = {k: {"in": v["in"], "out": v["out"]} for k, v in LLM["models"].items()}
                 runtime["pageTag"] = tag
