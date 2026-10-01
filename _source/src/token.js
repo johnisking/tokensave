@@ -514,7 +514,7 @@ function updateTranslateBtn(e) {
   trBtn.classList.toggle('hidden', !show);
   if (show) {
     trLabel.textContent = '💸 ' + tr('saveTok');
-    trSave.textContent = '−' + sp.pct + '%' + (sp.needsChrome ? ' · Chrome' : '');
+    trSave.textContent = '−' + sp.pct + '%' + (sp.needsChrome ? ' · Chrome/Edge' : '');
   }
 }
 
