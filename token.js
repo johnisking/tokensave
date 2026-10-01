@@ -128,7 +128,7 @@ function analyze(text) {
   let scriptTokens = 0;
   for (const k in WEIGHT) scriptTokens += counts[k] * WEIGHT[k];
   const nonLatinChars = Object.keys(WEIGHT).reduce((s, k) => s + counts[k], 0);
-  return { tokens: Math.round(latinTokens + symbolTokens + scriptTokens), counts, nonLatinChars };
+  return { tokens: Math.round(latinTokens + symbolTokens + scriptTokens), counts, nonLatinChars, latinTokens };
 }
 
 // =========================================================
@@ -146,10 +146,23 @@ const EN_WORDS = /\b(the|and|to|of|is|in|that|for|you|with|are|this|it|be|on|ple
 const LATIN_MARKS = [['ro', /[ăâîșțşţ]/gi], ['hu', /[őű]/gi], ['sk', /[ľĺŕ]/gi], ['da', /[æø]/gi], ['pl', /[ąęłńśźż]/gi], ['cs', /[řěůťďň]/gi], ['tr', /[ğış]/gi], ['de', /[äöüß]/gi], ['es', /[ñ¿¡]/gi],
   ['pt', /[ãõ]/gi], ['fr', /[èêëàâîïôûœ]/gi], ['sv', /[å]/gi], ['it', /[ìò]/gi],
   ['vi', /[ơưđạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/gi]];
+// Very common function words, for Latin-script text without telltale letters (e.g. Spanish on the English page)
+const LATIN_WORDS = [['es', /\b(el|los|las|que|y|del|para|con|por|una|como|pero|muy|est[aá]|son)\b/gi],
+  ['pt', /\b(os|que|e|em|um|uma|para|com|n[aã]o|do|da|dos|das|voc[eê]|como)\b/gi],
+  ['fr', /\b(le|les|des|et|est|une|pour|dans|que|avec|pas|vous|sur|du|au)\b/gi],
+  ['de', /\b(der|die|das|und|ist|nicht|ein|eine|mit|f[uü]r|zu|auf|sie|den|dem)\b/gi],
+  ['it', /\b(il|gli|che|di|per|una|con|non|del|della|sono|come|questo)\b/gi],
+  ['nl', /\b(het|een|en|van|niet|met|voor|dat|zijn|ook|je|wat|naar)\b/gi]];
 function guessLatin(text) {
   let best = null, n = 1;
   for (const [tag, re] of LATIN_MARKS) { const c = (text.match(re) || []).length; if (c > n) { best = tag; n = c; } }
-  return best;
+  if (best) return best;
+  const words = (text.match(/\p{Script=Latin}+/gu) || []).length;
+  if (words < 4) return null;
+  const en = (text.match(EN_WORDS) || []).length;
+  let top = null, m = 0;
+  for (const [tag, re] of LATIN_WORDS) { const c = (text.match(re) || []).length; if (c > m) { top = tag; m = c; } }
+  return top && m / words >= 0.15 && m > en * 1.5 ? top : null;
 }
 function latinTax(text) {
   const L = LATIN_TAX[PAGE_LANG] || LATIN_TAX[guessLatin(text)];
@@ -165,17 +178,23 @@ const PAGE_PENALTY = { zh: { cjk: 1.03 }, 'zh-Hant': { cjk: 1.35 }, ru: { cyrill
   ar: { arabic: 1.26 }, fa: { arabic: 1.24 }, ur: { arabic: 1.59 }, mr: { devan: 1.65 } };
 
 function efficiency(a, text) {
-  const nonSpace = (text.match(/\S/g) || []).length;
-  const { L, latin } = latinTax(text);
-  const marked = a.nonLatinChars + latin;
-  if (!nonSpace || !marked) return { waste: 1, pct: 100, share: 0 };
-  let weighted = latin * (L - 1);
+  // Waste = tokens now ÷ tokens the same text would need in English.
+  // Measured by tokens, not characters: one Hangul/Kana/Greek… character carries more meaning (and tokens)
+  // than one Latin letter, so a character share undercounts the non-English part of mixed text.
+  const { L } = latinTax(text);
   const pen = { ...PENALTY, ...(PAGE_PENALTY[PAGE_LANG] || {}) };
   if (a.counts.kana) pen.cjk = PENALTY.cjk; // kanji inside Japanese text
-  for (const k in pen) weighted += a.counts[k] * (pen[k] - 1);
-  const share = Math.min(1, marked / nonSpace);
-  const waste = 1 + (weighted / marked) * share;
-  return { waste, pct: Math.round(100 / waste), share };
+  let foreignTok = 0, extra = 0;
+  for (const k in WEIGHT) {
+    const t = a.counts[k] * WEIGHT[k];
+    if (!t || pen[k] <= 1) continue;
+    foreignTok += t; extra += t * (1 - 1 / pen[k]);
+  }
+  if (L > 1 && a.latinTokens) { foreignTok += a.latinTokens; extra += a.latinTokens * (1 - 1 / L); }
+  const total = Math.max(a.tokens, foreignTok, 1);
+  if (!foreignTok || total - extra <= 0) return { waste: 1, pct: 100, share: 0 };
+  const waste = total / (total - extra);
+  return { waste, pct: Math.round(100 / waste), share: Math.min(1, foreignTok / total) };
 }
 
 // =========================================================
