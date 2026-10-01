@@ -515,6 +515,16 @@ async function detectLang(text) {
 }
 
 // On-device translation (Chrome Translator API). Returns null when not possible on this browser/language.
+// English name of a language code for the "Reply in …" line ('ko' -> 'Korean'); null if unknown or English
+function langName(code) {
+  try {
+    const base = String(code).split('-')[0];
+    if (base === 'en') return null;
+    const n = new Intl.DisplayNames(['en'], { type: 'language' }).of(code);
+    return n && n.toLowerCase() !== String(code).toLowerCase() ? n : null;
+  } catch (_) { return null; }
+}
+
 async function translateToEnglish(text) {
   if (!canTranslate) return { text: null, why: tr('tNoSupport') };
   const sourceLanguage = await detectLang(text);
@@ -527,7 +537,7 @@ async function translateToEnglish(text) {
   }), avail === 'available' ? 15000 : 300000);
   const out = [];
   for (const line of text.split('\n')) out.push(line.trim() ? await t.translate(line) : line);
-  return { text: out.join('\n') };
+  return { text: out.join('\n'), lang: sourceLanguage };
 }
 
 trBtn.addEventListener('click', async () => {
@@ -542,7 +552,7 @@ trBtn.addEventListener('click', async () => {
   const before = measure().tokens;
   const foreign = efficiency(analyze(src), src).waste >= FOREIGN;
   const steps = [];
-  let t = cleanText(src), note = '';
+  let t = cleanText(src), note = '', replyLang = null;
   if (t !== src) steps.push(tr('stepSpaces'));
   trBtn.disabled = true;
   try {
@@ -550,7 +560,7 @@ trBtn.addEventListener('click', async () => {
       toast(tr('tTranslating'), 60000);
       try {
         const r = await translateToEnglish(t);
-        if (r.text && countTokens(r.text).tokens < countTokens(t).tokens) { t = r.text; steps.push(tr('stepEn')); }
+        if (r.text && countTokens(r.text).tokens < countTokens(t).tokens) { t = r.text; steps.push(tr('stepEn')); replyLang = r.lang; }
         else if (!r.text) note = r.why;
       } catch (_) { note = tr('tFail'); }
     }
@@ -561,7 +571,10 @@ trBtn.addEventListener('click', async () => {
   } finally {
     trBtn.disabled = false;
   }
-  if (t === src || !steps.length) return toast(note || tr('tAlready'), 3500);
+  // Keep the answer in the user's language: the prompt is now English, so ask for the reply in the original one
+  const replyName = replyLang && langName(replyLang);
+  if (replyName && !/\breply in\b|\brespond in\b|\banswer in\b/i.test(t)) t = t.replace(/\s+$/, '') + '\n\nReply in ' + replyName + '.';
+  if (t === src || !steps.length || countTokens(t).tokens >= before) return toast(note || tr('tAlready'), 3500);
   original = src;
   els.input.value = t;
   render();
