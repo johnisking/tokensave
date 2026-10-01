@@ -40,3 +40,5 @@ input[type=number]::-webkit-inner-spin-button { opacity: .4; }
 .tokview .t4{background:rgba(14,165,233,.45)}
 .tokview .tm{outline:1px dashed rgba(244,244,245,.75);outline-offset:-1px}
 .tokview .nl{opacity:.35}
+.toklegend i{display:inline-block;width:10px;height:10px;border-radius:2px}
+.toklegend .t0{background:rgba(139,92,246,.50)}.toklegend .t1{background:rgba(16,185,129,.42)}.toklegend .t2{background:rgba(245,158,11,.42)}.toklegend .t3{background:rgba(236,72,153,.42)}.toklegend .t4{background:rgba(14,165,233,.45)}

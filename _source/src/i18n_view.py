@@ -434,8 +434,52 @@ assert set(CTX) == set(VIEW)
 for _t, _v in CTX.items():
     VIEW[_t].update(_v)
 
+LEGEND = {'en': 'Colours only show where one token ends and the next begins. Every token costs the same, so more boxes means a higher cost.',
+    'ko': '색은 토큰이 어디서 끊기는지 구분하는 용도일 뿐입니다. 토큰 하나의 가격은 모두 같아서, 상자가 많을수록 비용이 늘어납니다.',
+    'ja': '色はトークンの区切りを示しているだけです。1トークンの料金はすべて同じなので、枠が多いほどコストが上がります。',
+    'zh-CN': '颜色只用于区分 Token 的边界。每个 Token 的价格都一样，所以方块越多，费用越高。',
+    'zh-TW': '顏色只用來區分 Token 的邊界。每個 Token 的價格都一樣，所以方塊越多，費用越高。',
+    'es': 'Los colores solo marcan dónde termina un token y empieza el siguiente. Todos los tokens cuestan lo mismo: más cajas, mayor coste.',
+    'pt': 'As cores só mostram onde um token termina e o próximo começa. Todos os tokens custam o mesmo: mais caixas, maior custo.',
+    'fr': 'Les couleurs indiquent seulement où un token se termine et où le suivant commence. Tous les tokens coûtent pareil : plus de cases, plus de coût.',
+    'de': 'Die Farben zeigen nur, wo ein Token endet und das nächste beginnt. Jedes Token kostet gleich viel – mehr Kästchen bedeuten höhere Kosten.',
+    'it': 'I colori indicano solo dove finisce un token e inizia il successivo. Ogni token costa uguale: più riquadri, costo più alto.',
+    'ru': 'Цвета лишь показывают, где заканчивается один токен и начинается следующий. Все токены стоят одинаково, поэтому больше блоков — выше стоимость.',
+    'uk': 'Кольори лише показують, де закінчується один токен і починається наступний. Усі токени коштують однаково, тож більше блоків — вища вартість.',
+    'tr': "Renkler yalnızca bir token'ın nerede bitip sonrakinin nerede başladığını gösterir. Her token aynı fiyattadır; kutu sayısı arttıkça maliyet artar.", 'ar': 'الألوان تُظهر فقط أين ينتهي رمز وأين يبدأ التالي. كل الرموز بالسعر نفسه، فكلما زادت المربعات زادت التكلفة.',
+    'fa': 'رنگ\u200cها فقط نشان می\u200cدهند یک توکن کجا تمام می\u200cشود و بعدی کجا شروع می\u200cشود. همهٔ توکن\u200cها هم\u200cقیمت\u200cاند؛ هرچه خانه\u200cها بیشتر، هزینه بیشتر.',
+    'hi': 'रंग सिर्फ़ यह दिखाते हैं कि एक टोकन कहाँ खत्म होकर अगला कहाँ शुरू होता है। हर टोकन की कीमत एक जैसी है, इसलिए ज़्यादा बॉक्स मतलब ज़्यादा खर्च।',
+    'id': 'Warna hanya menunjukkan di mana satu token berakhir dan token berikutnya dimulai. Semua token harganya sama, jadi makin banyak kotak, makin mahal.',
+    'vi': 'Màu chỉ cho biết một token kết thúc và token tiếp theo bắt đầu ở đâu. Mọi token đều cùng giá, nên càng nhiều ô thì chi phí càng cao.',
+    'th': 'สีใช้แค่แบ่งว่าโทเค็นหนึ่งจบตรงไหนและโทเค็นถัดไปเริ่มตรงไหน ทุกโทเค็นราคาเท่ากัน ยิ่งมีกล่องมาก ค่าใช้จ่ายก็ยิ่งสูง',
+    'pl': 'Kolory pokazują tylko, gdzie kończy się jeden token, a zaczyna następny. Każdy token kosztuje tyle samo, więc więcej pól oznacza wyższy koszt.',
+    'nl': 'De kleuren laten alleen zien waar een token eindigt en het volgende begint. Elk token kost evenveel, dus meer vakjes betekent hogere kosten.',
+    'bn': 'রংগুলো শুধু দেখায় একটি টোকেন কোথায় শেষ হয়ে পরেরটি শুরু হয়। প্রতিটি টোকেনের দাম একই, তাই বক্স যত বেশি, খরচ তত বেশি।',
+    'ur': 'رنگ صرف یہ دکھاتے ہیں کہ ایک ٹوکن کہاں ختم اور اگلا کہاں شروع ہوتا ہے۔ ہر ٹوکن کی قیمت ایک جیسی ہے، اس لیے زیادہ خانے یعنی زیادہ خرچ۔',
+    'fil': 'Ipinapakita lang ng mga kulay kung saan nagtatapos ang isang token at nagsisimula ang susunod. Pare-pareho ang presyo ng bawat token, kaya mas maraming kahon, mas mataas ang gastos.',
+    'cs': 'Barvy jen ukazují, kde jeden token končí a další začíná. Každý token stojí stejně, takže víc políček znamená vyšší cenu.',
+    'sv': 'Färgerna visar bara var en token slutar och nästa börjar. Alla tokens kostar lika mycket, så fler rutor betyder högre kostnad.',
+    'he': 'הצבעים רק מראים איפה טוקן אחד נגמר והבא מתחיל. כל הטוקנים עולים אותו דבר, כך שיותר תיבות פירושן עלות גבוהה יותר.',
+    'el': 'Τα χρώματα δείχνουν μόνο πού τελειώνει ένα token και πού αρχίζει το επόμενο. Όλα τα tokens κοστίζουν το ίδιο, άρα περισσότερα κουτιά σημαίνουν μεγαλύτερο κόστος.',
+    'ro': 'Culorile arată doar unde se termină un token și unde începe următorul. Toate tokenurile costă la fel, deci mai multe căsuțe înseamnă cost mai mare.',
+    'hu': 'A színek csak azt mutatják, hol ér véget egy token és hol kezdődik a következő. Minden token ugyanannyiba kerül, így több doboz magasabb költséget jelent.',
+    'da': 'Farverne viser kun, hvor et token slutter, og det næste begynder. Alle tokens koster det samme, så flere felter betyder højere pris.',
+    'fi': 'Värit näyttävät vain, missä yksi token päättyy ja seuraava alkaa. Jokainen token maksaa saman verran, joten useampi laatikko tarkoittaa suurempaa hintaa.',
+    'no': 'Fargene viser bare hvor ett token slutter og det neste begynner. Alle tokens koster det samme, så flere bokser betyr høyere kostnad.',
+    'sk': 'Farby len ukazujú, kde jeden token končí a ďalší začína. Každý token stojí rovnako, takže viac políčok znamená vyššiu cenu.',
+    'mr': 'रंग फक्त एक टोकन कुठे संपतो आणि पुढचा कुठे सुरू होतो हे दाखवतात. प्रत्येक टोकनची किंमत सारखीच आहे, त्यामुळे जास्त चौकटी म्हणजे जास्त खर्च.',
+    'gu': 'રંગો ફક્ત એ બતાવે છે કે એક ટોકન ક્યાં પૂરો થાય છે અને બીજો ક્યાં શરૂ થાય છે. દરેક ટોકનની કિંમત સરખી છે, એટલે વધુ ખાનાં એટલે વધુ ખર્ચ.',
+    'kn': 'ಬಣ್ಣಗಳು ಒಂದು ಟೋಕನ್ ಎಲ್ಲಿ ಮುಗಿದು ಮುಂದಿನದು ಎಲ್ಲಿ ಶುರುವಾಗುತ್ತದೆ ಎಂಬುದನ್ನು ಮಾತ್ರ ತೋರಿಸುತ್ತವೆ. ಪ್ರತಿ ಟೋಕನ್\u200cನ ಬೆಲೆ ಒಂದೇ, ಆದ್ದರಿಂದ ಹೆಚ್ಚು ಪೆಟ್ಟಿಗೆಗಳು ಎಂದರೆ ಹೆಚ್ಚು ವೆಚ್ಚ.',
+    'ml': 'ഒരു ടോക്കൺ എവിടെ അവസാനിച്ച് അടുത്തത് എവിടെ തുടങ്ങുന്നു എന്ന് മാത്രമാണ് നിറങ്ങൾ കാണിക്കുന്നത്. എല്ലാ ടോക്കണിനും ഒരേ വിലയാണ്, അതിനാൽ കൂടുതൽ കള്ളികൾ എന്നാൽ കൂടുതൽ ചെലവ്.',
+    'ta': 'ஒரு டோக்கன் எங்கே முடிந்து அடுத்தது எங்கே தொடங்குகிறது என்பதை மட்டுமே நிறங்கள் காட்டுகின்றன. எல்லா டோக்கன்களுக்கும் ஒரே விலை, எனவே பெட்டிகள் அதிகமானால் செலவும் அதிகம்.',
+    'te': 'రంగులు ఒక టోకెన్ ఎక్కడ ముగిసి తర్వాతిది ఎక్కడ మొదలవుతుందో మాత్రమే చూపిస్తాయి. ప్రతి టోకెన్ ధర ఒకటే, కాబట్టి ఎక్కువ పెట్టెలు అంటే ఎక్కువ ఖర్చు.',
+    'pa': 'ਰੰਗ ਸਿਰਫ਼ ਇਹ ਦਿਖਾਉਂਦੇ ਹਨ ਕਿ ਇੱਕ ਟੋਕਨ ਕਿੱਥੇ ਖ਼ਤਮ ਹੁੰਦਾ ਹੈ ਅਤੇ ਅਗਲਾ ਕਿੱਥੇ ਸ਼ੁਰੂ ਹੁੰਦਾ ਹੈ। ਹਰ ਟੋਕਨ ਦੀ ਕੀਮਤ ਇੱਕੋ ਜਿਹੀ ਹੈ, ਇਸ ਲਈ ਵੱਧ ਖਾਨੇ ਮਤਲਬ ਵੱਧ ਖ਼ਰਚ।'}
+assert set(LEGEND) == set(VIEW)
+for _t, _v in LEGEND.items():
+    VIEW[_t]["viewTokLegend"] = _v
+
 KEYS = ("others", "viewTok", "viewTokNote", "viewTokMore", "viewTokWait", "shareLink", "shareTip", "tShareCopied", "tShareLong",
-        "ctxLabel", "ctxFits", "ctxOver", "ctxTip")
+        "ctxLabel", "ctxFits", "ctxOver", "ctxTip", "viewTokLegend")
 assert all(set(v) == set(KEYS) for v in VIEW.values())
 assert all("{n}" in v["viewTokMore"] for v in VIEW.values())
 assert all(all(ph in v["ctxFits"] for ph in ("{p}", "{name}", "{max}")) for v in VIEW.values())
