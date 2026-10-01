@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>relay</title></head><body>
+<script>
+// Hands a press asset to the window that opened this page (used to attach media in social composers).
+(async()=>{const f=new URLSearchParams(location.search).get('f')||'tokensave_demo.gif';
+const b=await (await fetch('/press/'+encodeURIComponent(f),{cache:'no-store'})).arrayBuffer();
+if(window.opener){window.opener.postMessage({relay:f,buf:b},'*');document.body.textContent='sent '+b.byteLength;setTimeout(()=>window.close(),1500);}
+else document.body.textContent='no opener';})();
+</script></body></html>
