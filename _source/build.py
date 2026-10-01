@@ -93,7 +93,7 @@ PAGES = [
          desc="TokenSave in 41 languages, grouped by region, with how many GPT tokens each needs vs English."),
     dict(file="privacy.html", path="/privacy", body="privacy_body.html",
          title="Privacy Policy | TokenSave",
-         desc="How TokenSave handles data: text stays in your browser, cookieless analytics, ads."),
+         desc="How TokenSave handles data: text stays in your browser, analytics and ads."),
     dict(file="404.html", path=None, body="404_body.html",
          title="Page not found | TokenSave", desc="This page does not exist."),
 ]
