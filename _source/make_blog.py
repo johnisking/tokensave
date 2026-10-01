@@ -15,7 +15,7 @@ for f in sorted(os.listdir(SRC_DIR)):
         continue
     md = open(os.path.join(SRC_DIR, f), encoding="utf-8").read()
     out = markdown.markdown(md, extensions=["tables", "fenced_code"])
-    size = ("1200", "630") if ("blog-chatgpt-pro-tiers" in out or "blog-mistral-francais" in out) else ("960", "1430")
+    size = ("1200", "630") if ("blog-chatgpt-pro-tiers" in out or "blog-mistral-francais" in out or "blog-prompt-polski" in out) else ("960", "1430")
     out = out.replace("<img ", f'<img loading="lazy" width="{size[0]}" height="{size[1]}" ')
     out = re.sub(r'<a href="(https?://(?!tokensave\.app)[^"]+)"', r'<a href="\1" target="_blank" rel="noopener"', out)
     out = out.replace("<table>", '<div class="overflow-x-auto"><table>').replace("</table>", "</table></div>")

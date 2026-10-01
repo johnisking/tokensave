@@ -40,3 +40,5 @@ Ciekawostka: przy zmianie tokenizera ukraiński mocno potaniał (3,15× → 1,88
 Ograniczenia: to jeden prompt, dla innych tekstów wynik może się różnić o ±0,1–0,2. Claude i Gemini mają inne tokenizery, liczby dotyczą tylko modeli OpenAI. Tłumaczenie jest maszynowe, jeśli coś brzmi nienaturalnie, dajcie znać, zmierzę ponownie.
 
 Pełne wyniki dla 41 języków (po angielsku): [porównanie 41 języków](/blog/token-cost-by-language)
+
+Ile to kosztuje w praktyce i jak płacić mniej: [Ile naprawdę kosztuje prompt po polsku?](/pl/blog/ile-kosztuje-prompt-po-polsku)

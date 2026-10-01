@@ -1,0 +1,79 @@
+<p>Płacąc za AI, płacisz za <em>tokeny</em>, a nie za słowa. Ten sam tekst po polsku dzieli się na znacznie więcej tokenów niż po angielsku, więc kosztuje więcej w API i szybciej wyczerpuje limity w ChatGPT Plus czy Claude Pro. Zmierzyłem, o ile.</p>
+<p><img loading="lazy" width="1200" height="630" alt="Polski prompt zużywa o 50–88% więcej tokenów niż angielski" src="/blog-prompt-polski.png" /></p>
+<h2>Test</h2>
+<p>Dwa teksty o identycznym znaczeniu, po angielsku i po polsku:</p>
+<ul>
+<li><strong>Krótki prompt</strong>: prośba o streszczenie e-maila od klienta w trzech punktach (2 zdania).</li>
+<li><strong>Długi prompt</strong>: instrukcje sprawdzenia faktury i napisania e-maila do klienta (ok. 100 słów).</li>
+</ul>
+<p>Policzyłem tokeny dwoma tokenizerami: <strong>o200k_base</strong> (GPT-4o i nowsze modele OpenAI) oraz <strong>Tekken</strong> (tokenizer udostępniony przez Mistral).</p>
+<h2>Wyniki</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Tekst</th>
+<th style="text-align: right;">Angielski</th>
+<th style="text-align: right;">Polski</th>
+<th style="text-align: right;">Ile więcej</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Krótki, OpenAI</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;"><strong>+88%</strong></td>
+</tr>
+<tr>
+<td>Krótki, Mistral</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;"><strong>+71%</strong></td>
+</tr>
+<tr>
+<td>Długi, OpenAI</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">166</td>
+<td style="text-align: right;"><strong>+51%</strong></td>
+</tr>
+<tr>
+<td>Długi, Mistral</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">165</td>
+<td style="text-align: right;"><strong>+50%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Polski zużywa <strong>od 1,5 do prawie 1,9 raza więcej tokenów</strong> niż angielski. W rankingu 41 języków na tokenizerze GPT-4o polski (1,88×, razem z ukraińskim) jest w ścisłej czołówce najdroższych: z Europy drożej wypadają tylko czeski, słowacki i grecki. Dla porównania niemiecki to 1,26×, francuski 1,29×, a hiszpański 1,18×.</p>
+<h2>Dlaczego tak drogo</h2>
+<p>Tokenizery uczono głównie na angielskim tekście. Słowa takie jak „invoice” czy „polite” to jeden token, a polskie słowa z końcówkami fleksyjnymi są cięte na kawałki:</p>
+<ul>
+<li>„zaproponuj” → <code>zap | ro | pon | uj</code> (4 tokeny)</li>
+<li>„potwierdzenie” → <code>pot | wier | d | zenie</code> (4 tokeny)</li>
+<li>„rachunkowego” → <code>rach | unk | owego</code> (3 tokeny)</li>
+<li>„uprzejmy” → <code>upr | zej | my</code> (3 tokeny)</li>
+</ul>
+<p>Odmiana przez przypadki i polskie znaki (ą, ę, ł, ż…) sprawiają, że tokenizer rzadko zna całe słowo.</p>
+<h2>Co to oznacza w praktyce</h2>
+<ul>
+<li><strong>W API</strong> płacisz za ten sam tekst o 50–90% więcej.</li>
+<li><strong>W abonamencie</strong> (ChatGPT Plus, Claude Pro, Gemini) limity liczone są w tokenach, więc kończą się szybciej, gdy piszesz po polsku.</li>
+<li><strong>Jeśli odpowiedź też jest po polsku</strong>, ten sam mnożnik dotyczy tokenów wyjściowych, które zwykle są 4–5 razy droższe od wejściowych.</li>
+</ul>
+<h2>Jak płacić mniej: pisz po angielsku, odbieraj po polsku</h2>
+<p>Najprostszy sposób: napisz prompt po angielsku i dodaj na końcu <strong>„Reply in Polish.”</strong> Model rozumie tak samo dobrze, odpowiedź przychodzi po polsku, a wejście kosztuje mniej:</p>
+<ul>
+<li>krótki prompt: 64 → 38 tokenów (<strong>−41%</strong>)</li>
+<li>długi prompt: 166 → 114 tokenów (<strong>−31%</strong>)</li>
+</ul>
+<p>Najbardziej opłaca się to przy:</p>
+<ul>
+<li><strong>promptach systemowych</strong> i instrukcjach wysyłanych tysiące razy przez API,</li>
+<li><strong>długich dokumentach</strong> wklejanych jako kontekst,</li>
+<li>abonamentach, w których <strong>często trafiasz na limit</strong>.</li>
+</ul>
+<p>Przy jednorazowym krótkim pytaniu różnica jest pomijalna, więc pisz, jak ci wygodnie.</p>
+<h2>Sprawdź na własnym tekście</h2>
+<p>Każdy tekst jest inny. <a href="/pl/">TokenSave</a> liczy tokeny i koszt promptu dla GPT, Claude i Gemini, a jednym kliknięciem tłumaczy go na angielski bezpośrednio w przeglądarce i dodaje „Reply in Polish”. Kod zostaje nietknięty, tłumaczone są tylko komentarze. Za darmo, bez rejestracji, nic nie jest wysyłane na serwer.</p>
+<p>Pełny ranking 41 języków: <a href="/pl/blog/polski-tokeny-gpt">Ile tokenów kosztuje polski?</a></p>
+<p><em>Pomiary z października 2026: o200k_base (OpenAI) i Tekken 2024-09 (Mistral). Wynik zależy od tekstu; najnowsze modele mogą używać zaktualizowanych tokenizerów.</em></p>

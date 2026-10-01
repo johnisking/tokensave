@@ -112,3 +112,17 @@ MISTRAL_FR = [
   "date": "2026-10-02"
  },
 ]
+
+PROMPT_PL = [
+ {
+  "tag": "pl",
+  "path": "/pl/blog/ile-kosztuje-prompt-po-polsku",
+  "src": "prompt-pl",
+  "title": "Ile naprawdę kosztuje prompt po polsku? GPT i Mistral zmierzone",
+  "desc": "Polski zużywa o 50–88% więcej tokenów niż angielski, w GPT i w Mistralu. Pomiary, przyczyny i prosty sposób, by płacić mniej.",
+  "byline": "Jonhisking · 2 października 2026",
+  "cta": "Wklej swój prompt, zobacz tokeny i koszt, a potem przetłumacz go na angielski jednym kliknięciem.",
+  "ctaBtn": "Otwórz licznik tokenów",
+  "date": "2026-10-02"
+ },
+]
