@@ -1,0 +1,60 @@
+<p>Models with million-token context windows can read an entire manual, codebase or contract in one go. So why do so many apps still use retrieval-augmented generation (RAG), searching for a few relevant passages and sending only those? The answer is mostly cost. Here is the maths, and when each approach makes sense.</p>
+<h2>The two approaches</h2>
+<p><strong>Long context:</strong> put the whole document in the prompt with every question. Simple to build: no search, no chunking, no index.</p>
+<p><strong>RAG:</strong> split the document into small chunks, index them, and for each question retrieve the handful of chunks most likely to contain the answer. Only those go into the prompt.</p>
+<h2>The cost per question</h2>
+<p>Take a 500-page product manual. At roughly 500 words per page, that is about 250,000 words, or around 330,000 tokens. It fits comfortably in the context window of current flagship models.</p>
+<p>Now answer questions about it on GPT-6 Sol, at $2 per million input tokens (checked October 1, 2026). Output cost is the same in every case, so we compare input only.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Input tokens per question</th>
+<th>Input cost per question</th>
+<th>10,000 questions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Long context, no caching</td>
+<td>~333,000</td>
+<td>$0.67</td>
+<td>$6,660</td>
+</tr>
+<tr>
+<td>Long context, with prompt caching (90% off)</td>
+<td>~333,000 (mostly cached)</td>
+<td>about $0.07</td>
+<td>about $670</td>
+</tr>
+<tr>
+<td>RAG, 8 chunks of 500 tokens</td>
+<td>~4,500</td>
+<td>$0.009</td>
+<td>$90</td>
+</tr>
+</tbody>
+</table></div>
+<p>Even with caching, sending the whole manual costs around seven times more than RAG. Without caching, it is more than 70 times more.</p>
+<h2>It is not only about money</h2>
+<p><strong>Speed.</strong> Reading 330,000 tokens takes time. A long-context request can take many seconds before the first word appears, while a RAG request with 4,500 tokens starts almost immediately.</p>
+<p><strong>Accuracy.</strong> Long context is not automatically more accurate. Models tend to use information at the beginning and end of a long input better than information in the middle. A focused prompt with the right three passages often gets a sharper answer than the entire manual. See <a href="/blog/context-window-explained">Context windows explained</a>.</p>
+<p><strong>But retrieval can miss.</strong> RAG only works if the search finds the right chunks. If the answer depends on information spread across many sections, or the question is worded very differently from the text, retrieval may bring back the wrong passages, and the model cannot answer what it never sees.</p>
+<h2>When long context is the better choice</h2>
+<ul>
+<li><strong>Few questions per document.</strong> If you ask three questions about a contract and move on, building a retrieval system is not worth it.</li>
+<li><strong>Questions that need the whole document:</strong> "summarize this report", "list every deadline", "find contradictions between sections".</li>
+<li><strong>Prototypes.</strong> Start simple, measure, and add retrieval later if costs or speed require it.</li>
+<li><strong>Documents that change constantly,</strong> where keeping an index up to date is more trouble than it is worth.</li>
+</ul>
+<h2>When RAG is the better choice</h2>
+<ul>
+<li><strong>Many questions against the same large body of text:</strong> help centers, internal wikis, product documentation, policy libraries.</li>
+<li><strong>More text than any context window holds,</strong> such as thousands of documents.</li>
+<li><strong>Fast responses matter,</strong> as in customer-facing chat.</li>
+<li><strong>You need to cite sources.</strong> Retrieved chunks make it easy to show which passage an answer came from.</li>
+</ul>
+<h2>The common middle ground</h2>
+<p>Many production systems combine both: retrieve generously (say, 20–50 chunks instead of 5), use a model with a large context window, and rely on prompt caching for any instructions that repeat. This keeps costs low while making it much less likely that the right passage is missed.</p>
+<h2>Estimate your case</h2>
+<p>Paste a sample of your document into the <a href="/">token counter</a> to see how many tokens it uses and what one question would cost on each model. Then multiply by your expected number of questions per month.</p>

@@ -11454,4 +11454,70 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-coding-agent-cost"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-coding-agent-cost"/>
   </url>
+  <url>
+    <loc>https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/how-many-tokens-does-code-use</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/how-many-tokens-does-code-use"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/how-many-tokens-does-code-use"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/numbers-dates-emoji-tokens</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/numbers-dates-emoji-tokens"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/numbers-dates-emoji-tokens"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/gpt-tokenizer-cl100k-vs-o200k</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/gpt-tokenizer-cl100k-vs-o200k"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gpt-tokenizer-cl100k-vs-o200k"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/prompt-caching-explained</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/prompt-caching-explained"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/prompt-caching-explained"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/write-shorter-prompts</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/write-shorter-prompts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/write-shorter-prompts"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/reasoning-models-cost</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/reasoning-models-cost"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/reasoning-models-cost"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/batch-api-half-price</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/batch-api-half-price"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/batch-api-half-price"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/rag-vs-long-context-cost</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/rag-vs-long-context-cost"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/rag-vs-long-context-cost"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/ai-cost-per-user</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-cost-per-user"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-cost-per-user"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/ai-cost-glossary</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-cost-glossary"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-cost-glossary"/>
+  </url>
 </urlset>

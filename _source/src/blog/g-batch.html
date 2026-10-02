@@ -1,0 +1,64 @@
+<p>Not every AI request needs an answer in two seconds. Tagging a product catalog, summarizing yesterday's support tickets, translating a help center or running an evaluation can all wait a few hours. For that kind of work, most major AI providers offer a <strong>batch API</strong> at a large discount, commonly half the normal price.</p>
+<h2>How batch processing works</h2>
+<p>Instead of sending requests one by one and waiting for each answer, you:</p>
+<ol>
+<li>Write all your requests into one file, one request per line.</li>
+<li>Upload the file and start a batch job.</li>
+<li>Come back later, typically within 24 hours and often much sooner, and download a file with all the results.</li>
+</ol>
+<p>The provider runs your requests when it has spare capacity. In return for giving up the instant response, you pay less, commonly about 50% of the standard price on both input and output tokens. The exact discount, time window and limits depend on the provider, so check its documentation.</p>
+<h2>What it saves</h2>
+<p>A store wants AI-written descriptions for 100,000 products. Each request sends about 400 input tokens (product data and instructions) and gets back about 250 output tokens.</p>
+<p>That is 40 million input tokens and 25 million output tokens. At list prices checked October 1, 2026:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Standard price</th>
+<th>With a 50% batch discount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Sol ($2 / $10 per M)</td>
+<td>$330</td>
+<td>$165</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5 ($2 / $10 per M)</td>
+<td>$330</td>
+<td>$165</td>
+</tr>
+<tr>
+<td>Gemini 3.8 Flash ($0.75 / $3.75 per M)</td>
+<td>$124</td>
+<td>$62</td>
+</tr>
+</tbody>
+</table></div>
+<p>For jobs that run every day or every week, the saving adds up quickly.</p>
+<h2>Good fits for batch</h2>
+<ul>
+<li><strong>Bulk content:</strong> product descriptions, alt text for images, meta descriptions, translations.</li>
+<li><strong>Classification and tagging:</strong> support tickets, reviews, documents, transactions.</li>
+<li><strong>Data extraction:</strong> pulling fields out of invoices, contracts, emails or scraped pages.</li>
+<li><strong>Evaluations:</strong> running a test set through several prompts or models to compare quality.</li>
+<li><strong>Embeddings and backfills:</strong> processing an archive once, then switching to real-time for new items.</li>
+<li><strong>Nightly reports:</strong> summarizing the day's logs, feedback or sales notes.</li>
+</ul>
+<h2>Poor fits</h2>
+<ul>
+<li>Anything a user is waiting for.</li>
+<li>Multi-step agents, where each step depends on the previous answer.</li>
+<li>Very small jobs, where the setup is not worth a few cents of savings.</li>
+</ul>
+<h2>Tips</h2>
+<ol>
+<li><strong>Test on a small sample first.</strong> Run 20–50 requests normally and check the outputs before submitting 100,000. A mistake in the prompt is repeated in every result.</li>
+<li><strong>Give every request an ID.</strong> Results may not come back in the order you sent them. Use your own ID in each request to match them up.</li>
+<li><strong>Plan for some failures.</strong> A few requests in a large batch may fail or return something unusable. Collect them and resubmit.</li>
+<li><strong>Combine with caching where supported.</strong> If every request starts with the same long instructions, some providers apply prompt-caching discounts inside batches too. See <a href="/blog/prompt-caching-explained">Prompt caching explained</a>.</li>
+<li><strong>Keep outputs short.</strong> Output is the expensive side. Ask for exactly the fields you need, ideally as compact JSON.</li>
+</ol>
+<h2>Price your job</h2>
+<p>Measure one typical request and response with the <a href="/">token counter</a>, multiply by the number of items, and halve it for a batch estimate. The <a href="/blog/how-to-estimate-ai-api-cost">API cost guide</a> walks through the method step by step.</p>

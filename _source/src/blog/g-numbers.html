@@ -1,0 +1,165 @@
+<p>Most people estimate tokens from word count: about four characters, or three-quarters of a word, per token. That rule works for ordinary prose. It breaks down badly for numbers, IDs, dates, links, phone numbers and emoji, which are exactly the things that fill product catalogs, logs, spreadsheets and chat messages. We measured them on GPT's o200k tokenizer.</p>
+<h2>Numbers are split into groups of three digits</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Text</th>
+<th>Tokens</th>
+<th>How it splits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>2026</code></td>
+<td>2</td>
+<td>202 · 6</td>
+</tr>
+<tr>
+<td><code>1234567</code></td>
+<td>3</td>
+<td>123 · 456 · 7</td>
+</tr>
+<tr>
+<td><code>1,234,567</code></td>
+<td>5</td>
+<td>1 · , · 234 · , · 567</td>
+</tr>
+<tr>
+<td><code>3.14159265</code></td>
+<td>5</td>
+<td>3 · . · 141 · 592 · 65</td>
+</tr>
+<tr>
+<td><code>0.000123</code></td>
+<td>4</td>
+<td>0 · . · 000 · 123</td>
+</tr>
+<tr>
+<td><code>$1,299.99</code></td>
+<td>6</td>
+<td>$ · 1 · , · 299 · . · 99</td>
+</tr>
+</tbody>
+</table></div>
+<p>The o200k tokenizer splits long numbers into chunks of up to three digits, counted from the left. Thousands separators and decimal points each become a token of their own. So <code>1,234,567</code> costs more than <code>1234567</code>, and a price like <code>$1,299.99</code> costs six tokens.</p>
+<p>This chunking is also one reason language models are unreliable at exact arithmetic on long numbers: the model never sees <code>1234567</code> as one number, only as three pieces that happen to sit next to each other. For calculations that matter, have the model write and run code, or do the maths in your own code.</p>
+<h2>Dates and times</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Text</th>
+<th>Tokens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>2026-10-02</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>10/02/2026</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>October 2, 2026</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>14:35:07</code></td>
+<td>5</td>
+</tr>
+</tbody>
+</table></div>
+<p>A full timestamp like <code>2026-10-02T14:35:07Z</code> is 13 tokens. In a log with thousands of lines, timestamps alone can be a large part of the prompt. If the model does not need the exact time, remove them or keep only the time of day.</p>
+<h2>IDs, links and contact details</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Text</th>
+<th>Characters</th>
+<th>Tokens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A UUID (<code>550e8400-e29b-41d4-...</code>)</td>
+<td>36</td>
+<td>18</td>
+</tr>
+<tr>
+<td><code>https://tokensave.app/blog/what-is-a-token</code></td>
+<td>42</td>
+<td>11</td>
+</tr>
+<tr>
+<td><code>+82 10 1234 5678</code></td>
+<td>16</td>
+<td>10</td>
+</tr>
+<tr>
+<td><code>192.168.0.1</code></td>
+<td>11</td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>user@example.com</code></td>
+<td>16</td>
+<td>3</td>
+</tr>
+</tbody>
+</table></div>
+<p>A UUID costs 18 tokens: about two characters per token, half the efficiency of English text. Random-looking strings such as IDs, hashes, API keys and tracking parameters do not match anything in the tokenizer's vocabulary, so they break into small pieces.</p>
+<p>The email address is the opposite case: <code>@example</code> and <code>.com</code> are common enough to be single tokens.</p>
+<h2>Emoji: one token, or eleven</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Emoji</th>
+<th>o200k (GPT-4o and later)</th>
+<th>cl100k (older GPT-4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>😀</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>👍</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>❤️</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>🇰🇷 (flag)</td>
+<td>4</td>
+<td>6</td>
+</tr>
+<tr>
+<td>👨‍👩‍👧‍👦 (family)</td>
+<td>11</td>
+<td>18</td>
+</tr>
+</tbody>
+</table></div>
+<p>Common emoji are a single token on the current tokenizer. But some emoji are built from several characters joined together. A flag is two special letters; the family emoji is four people glued with invisible joiner characters. Those cost many tokens. Arrows and symbols such as → and © are usually one token each.</p>
+<h2>Why this matters</h2>
+<p><strong>Spreadsheets and catalogs.</strong> A product table full of SKUs, prices and dates can use two to three times the tokens its character count suggests.</p>
+<p><strong>Logs.</strong> Timestamps, request IDs and IP addresses on every line add up fast.</p>
+<p><strong>User data.</strong> Chat messages full of emoji and links cost more than plain text of the same length.</p>
+<p><strong>Estimates.</strong> If you budget with the "4 characters per token" rule, number-heavy prompts will cost more than you planned.</p>
+<h2>How to save tokens on this kind of data</h2>
+<ol>
+<li><strong>Replace long IDs with short keys.</strong> Send <code>#1, #2, #3</code> to the model and keep a lookup table in your code to map them back.</li>
+<li><strong>Drop precision the task does not need.</strong> Round prices and measurements, and trim timestamps to the date or the time.</li>
+<li><strong>Remove thousands separators</strong> from numbers you send as data.</li>
+<li><strong>Strip tracking parameters</strong> from URLs (<code>?utm_source=...</code>).</li>
+<li><strong>Don't send what the model does not use.</strong> Columns of IDs and timestamps are often there only because they were in the export.</li>
+</ol>
+<h2>Measure it</h2>
+<p>The <a href="/">token counter</a> shows exactly how any text splits into tokens. Open <em>See how it splits into tokens</em> under the text box to see each piece highlighted.</p>

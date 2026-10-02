@@ -1,0 +1,279 @@
+<p>For years, anyone using GPT in Hindi, Tamil or Malayalam paid several times more than an English user for the same request. Then, with GPT-4o in May 2024, OpenAI switched to a new tokenizer, and for many languages the cost of a prompt dropped by more than half overnight. Here is how tokenizers work, what changed, and the measured effect on 40 languages.</p>
+<h2>How a tokenizer is built</h2>
+<p>GPT models use a method called <strong>byte-pair encoding (BPE)</strong>. It starts from raw bytes and repeatedly merges the pairs that appear together most often in a large training text, until it has a fixed vocabulary of pieces. Frequent words end up as single tokens. Rare words are built from several smaller pieces, and in the worst case from individual bytes.</p>
+<p>The key point: <strong>the vocabulary reflects the text it was trained on.</strong> If that text is mostly English, English words get their own tokens and everything else is pieced together from fragments.</p>
+<p>Scripts outside the Latin alphabet suffer most. A character in Hindi's Devanagari script, or in Tamil or Malayalam, takes three bytes in UTF-8. If the tokenizer has few merges for that script, a single letter can cost several tokens.</p>
+<h2>cl100k vs o200k</h2>
+<p>OpenAI has used two main tokenizers for its recent models:</p>
+<ul>
+<li><strong>cl100k_base</strong>, about 100,000 tokens, used by GPT-3.5 Turbo and GPT-4.</li>
+<li><strong>o200k_base</strong>, about 200,000 tokens, introduced with GPT-4o and used by later GPT models.</li>
+</ul>
+<p>Doubling the vocabulary left room for far more pieces from non-English languages, so whole words and common syllables in many scripts became single tokens.</p>
+<h2>Measured: the same prompt in 41 languages</h2>
+<p>We translated one 34-token English prompt (a request to summarize a customer email and suggest a reply) into 40 languages and counted tokens on both tokenizers. Each number is how many tokens the language needs compared with English.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Language</th>
+<th>cl100k (older GPT-4)</th>
+<th>o200k (GPT-4o and later)</th>
+<th>Cost cut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Malayalam</td>
+<td>10.09×</td>
+<td>1.85×</td>
+<td>82%</td>
+</tr>
+<tr>
+<td>Kannada</td>
+<td>9.35×</td>
+<td>1.79×</td>
+<td>81%</td>
+</tr>
+<tr>
+<td>Telugu</td>
+<td>9.38×</td>
+<td>2.03×</td>
+<td>78%</td>
+</tr>
+<tr>
+<td>Gujarati</td>
+<td>7.18×</td>
+<td>1.59×</td>
+<td>78%</td>
+</tr>
+<tr>
+<td>Tamil</td>
+<td>8.47×</td>
+<td>1.97×</td>
+<td>77%</td>
+</tr>
+<tr>
+<td>Bengali</td>
+<td>6.09×</td>
+<td>1.68×</td>
+<td>72%</td>
+</tr>
+<tr>
+<td>Hindi</td>
+<td>4.59×</td>
+<td>1.50×</td>
+<td>67%</td>
+</tr>
+<tr>
+<td>Punjabi</td>
+<td>7.41×</td>
+<td>2.44×</td>
+<td>67%</td>
+</tr>
+<tr>
+<td>Marathi</td>
+<td>4.91×</td>
+<td>1.65×</td>
+<td>66%</td>
+</tr>
+<tr>
+<td>Urdu</td>
+<td>4.24×</td>
+<td>1.59×</td>
+<td>62%</td>
+</tr>
+<tr>
+<td>Hebrew</td>
+<td>3.76×</td>
+<td>1.56×</td>
+<td>59%</td>
+</tr>
+<tr>
+<td>Arabic</td>
+<td>3.03×</td>
+<td>1.26×</td>
+<td>58%</td>
+</tr>
+<tr>
+<td>Greek</td>
+<td>4.94×</td>
+<td>2.06×</td>
+<td>58%</td>
+</tr>
+<tr>
+<td>Persian</td>
+<td>2.79×</td>
+<td>1.24×</td>
+<td>56%</td>
+</tr>
+<tr>
+<td>Thai</td>
+<td>3.71×</td>
+<td>1.74×</td>
+<td>53%</td>
+</tr>
+<tr>
+<td>Korean</td>
+<td>2.50×</td>
+<td>1.44×</td>
+<td>42%</td>
+</tr>
+<tr>
+<td>Vietnamese</td>
+<td>2.32×</td>
+<td>1.35×</td>
+<td>42%</td>
+</tr>
+<tr>
+<td>Ukrainian</td>
+<td>3.15×</td>
+<td>1.88×</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>Russian</td>
+<td>2.15×</td>
+<td>1.32×</td>
+<td>39%</td>
+</tr>
+<tr>
+<td>Chinese (Traditional)</td>
+<td>2.12×</td>
+<td>1.35×</td>
+<td>36%</td>
+</tr>
+<tr>
+<td>Chinese (Simplified)</td>
+<td>1.53×</td>
+<td>1.03×</td>
+<td>33%</td>
+</tr>
+<tr>
+<td>Finnish</td>
+<td>2.03×</td>
+<td>1.44×</td>
+<td>29%</td>
+</tr>
+<tr>
+<td>Turkish</td>
+<td>2.06×</td>
+<td>1.47×</td>
+<td>29%</td>
+</tr>
+<tr>
+<td>Dutch</td>
+<td>1.74×</td>
+<td>1.29×</td>
+<td>26%</td>
+</tr>
+<tr>
+<td>Hungarian</td>
+<td>2.26×</td>
+<td>1.74×</td>
+<td>23%</td>
+</tr>
+<tr>
+<td>Czech</td>
+<td>2.59×</td>
+<td>2.00×</td>
+<td>23%</td>
+</tr>
+<tr>
+<td>Slovak</td>
+<td>2.53×</td>
+<td>2.00×</td>
+<td>21%</td>
+</tr>
+<tr>
+<td>Japanese</td>
+<td>2.21×</td>
+<td>1.79×</td>
+<td>19%</td>
+</tr>
+<tr>
+<td>Indonesian</td>
+<td>1.38×</td>
+<td>1.15×</td>
+<td>17%</td>
+</tr>
+<tr>
+<td>German</td>
+<td>1.50×</td>
+<td>1.26×</td>
+<td>16%</td>
+</tr>
+<tr>
+<td>Norwegian</td>
+<td>1.56×</td>
+<td>1.32×</td>
+<td>15%</td>
+</tr>
+<tr>
+<td>Danish</td>
+<td>1.59×</td>
+<td>1.35×</td>
+<td>15%</td>
+</tr>
+<tr>
+<td>Portuguese</td>
+<td>1.41×</td>
+<td>1.21×</td>
+<td>14%</td>
+</tr>
+<tr>
+<td>Italian</td>
+<td>1.59×</td>
+<td>1.38×</td>
+<td>13%</td>
+</tr>
+<tr>
+<td>Filipino</td>
+<td>1.76×</td>
+<td>1.53×</td>
+<td>13%</td>
+</tr>
+<tr>
+<td>Romanian</td>
+<td>1.76×</td>
+<td>1.53×</td>
+<td>13%</td>
+</tr>
+<tr>
+<td>Swedish</td>
+<td>1.50×</td>
+<td>1.32×</td>
+<td>12%</td>
+</tr>
+<tr>
+<td>Polish</td>
+<td>2.12×</td>
+<td>1.88×</td>
+<td>11%</td>
+</tr>
+<tr>
+<td>French</td>
+<td>1.44×</td>
+<td>1.29×</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Spanish</td>
+<td>1.29×</td>
+<td>1.18×</td>
+<td>9%</td>
+</tr>
+</tbody>
+</table></div>
+<h2>What the numbers show</h2>
+<p><strong>South Asian languages gained the most.</strong> Malayalam went from about 10 times the tokens of English to 1.85 times, an 82% cut. Kannada, Telugu, Gujarati and Tamil all fell by more than three-quarters. Hindi, spoken by hundreds of millions of people, went from 4.59× to 1.50×.</p>
+<p><strong>Middle Eastern scripts improved a lot.</strong> Arabic, Persian and Hebrew all roughly halved.</p>
+<p><strong>East Asian languages improved less, from a lower base.</strong> Korean went from 2.50× to 1.44×; Simplified Chinese is now almost at parity with English at 1.03×. Japanese, at 1.79×, is still one of the more expensive languages.</p>
+<p><strong>European languages changed least.</strong> They were already close to English on the old tokenizer. Some, such as Czech, Slovak and Polish, remain among the most expensive on the new one, at around 2×, because of their accented letters and long word forms.</p>
+<h2>The gap is smaller, not gone</h2>
+<p>On o200k, the same prompt still costs 15% more in Spanish, 44% more in Korean and twice as much in Czech as in English. Pricing is per token, so that difference goes straight to the bill, and it also means the context window fills up faster and usage limits are reached sooner.</p>
+<h2>Other providers are different</h2>
+<p>Anthropic, Google, Meta, Mistral and DeepSeek all train their own tokenizers, and their efficiency by language varies. A model with a lower price per token can still cost more for your language if its tokenizer splits your text into more pieces. When comparing providers, compare the cost of your actual text, not the price list. We compared GPT and Mistral for French and Polish in separate articles (<a href="/fr/blog/mistral-chatgpt-cout-prompt-francais">French</a>, <a href="/pl/blog/ile-kosztuje-prompt-po-polsku">Polish</a>).</p>
+<h2>How we measured</h2>
+<p>One English prompt of 34 tokens was translated into each language, starting from machine translation that was then checked, keeping the meaning and tone the same. Tokens were counted with OpenAI's published tokenizers (cl100k_base and o200k_base). One prompt is a small sample, so longer texts and different topics will give somewhat different ratios, but the large gaps between scripts are far bigger than that variation. Full details and per-language articles are in our <a href="/blog/token-cost-by-language">41-language study</a>.</p>
+<h2>Paying less in any language</h2>
+<p>The easiest saving is still to write instructions in English and ask for the answer in your language. See <a href="/blog/cut-token-cost-non-english-prompts">How to cut the token cost of non-English prompts</a>, or paste your prompt into the <a href="/">token counter</a> and press <em>To English</em> to see the difference.</p>
