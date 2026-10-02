@@ -11521,6 +11521,78 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gpt-6-api-pricing"/>
   </url>
   <url>
+    <loc>https://tokensave.app/blog/llm-api-pricing-comparison</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/llm-api-pricing-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/llm-api-gagyeok-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/llm-api-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/llm-api-pricing-comparison"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/blog/llm-api-gagyeok-bigyo</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/llm-api-pricing-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/llm-api-gagyeok-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/llm-api-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/llm-api-pricing-comparison"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/blog/llm-api-ryoukin-hikaku</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/llm-api-pricing-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/llm-api-gagyeok-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/llm-api-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/llm-api-pricing-comparison"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/tokens-per-word</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/tokens-per-word"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/token-dangeo-geulja"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/token-mojisuu"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/tokens-per-word"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/blog/token-dangeo-geulja</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/tokens-per-word"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/token-dangeo-geulja"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/token-mojisuu"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/tokens-per-word"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/blog/token-mojisuu</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/tokens-per-word"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/token-dangeo-geulja"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/token-mojisuu"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/tokens-per-word"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/token-segi-bangbeop"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/token-kazoekata"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/blog/token-segi-bangbeop</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/token-segi-bangbeop"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/token-kazoekata"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/blog/token-kazoekata</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/token-segi-bangbeop"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/token-kazoekata"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini"/>
+  </url>
+  <url>
     <loc>https://tokensave.app/blog/what-is-a-token</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/what-is-a-token"/>

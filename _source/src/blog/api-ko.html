@@ -1,0 +1,168 @@
+<p>이제 API 가격을 공개한 언어 모델이 수십 개나 되고, 같은 요청이라도 모델에 따라 비용이 150배까지 차이 납니다. 이 글에서는 OpenAI, Anthropic, Google, xAI, DeepSeek, Mistral, Alibaba, Moonshot의 인기 모델 22개 정가를 나란히 놓고, 일반적인 요청 하나가 실제로 얼마인지, 그리고 어떻게 고르면 좋은지 정리했습니다.</p>
+<h2>API 가격 비교</h2>
+<p>100만 토큰당 가격이며, 일반적인 요청(입력 2,000토큰, 출력 500토큰) 기준으로 싼 순서부터 정렬했습니다. 마지막 열은 이런 요청 10,000건의 비용입니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>모델</th>
+<th>입력 / 100만</th>
+<th>출력 / 100만</th>
+<th>요청 10,000건</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-5 nano</td>
+<td>$0.05</td>
+<td>$0.40</td>
+<td>$3.00</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td>$0.10</td>
+<td>$0.50</td>
+<td>$4.50</td>
+</tr>
+<tr>
+<td>Qwen3.8 Flash</td>
+<td>$0.15</td>
+<td>$0.47</td>
+<td>$5.35</td>
+</tr>
+<tr>
+<td>Mistral Small</td>
+<td>$0.15</td>
+<td>$0.60</td>
+<td>$6.00</td>
+</tr>
+<tr>
+<td>DeepSeek V4 Flash</td>
+<td>$0.30</td>
+<td>$1.20</td>
+<td>$12.00</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Flash-Lite</td>
+<td>$0.25</td>
+<td>$1.50</td>
+<td>$12.50</td>
+</tr>
+<tr>
+<td>GPT-5 mini</td>
+<td>$0.25</td>
+<td>$2.00</td>
+<td>$15.00</td>
+</tr>
+<tr>
+<td>Mistral Large 3</td>
+<td>$0.50</td>
+<td>$1.50</td>
+<td>$17.50</td>
+</tr>
+<tr>
+<td>Gemini 3.8 Flash</td>
+<td>$0.75</td>
+<td>$3.75</td>
+<td>$33.75</td>
+</tr>
+<tr>
+<td>Grok 4.20</td>
+<td>$1.25</td>
+<td>$2.50</td>
+<td>$37.50</td>
+</tr>
+<tr>
+<td>Claude Haiku 4.5</td>
+<td>$1.00</td>
+<td>$5.00</td>
+<td>$45.00</td>
+</tr>
+<tr>
+<td>DeepSeek V4 Pro</td>
+<td>$1.32</td>
+<td>$3.96</td>
+<td>$46.20</td>
+</tr>
+<tr>
+<td>Mistral Medium 3.5</td>
+<td>$1.50</td>
+<td>$7.50</td>
+<td>$67.50</td>
+</tr>
+<tr>
+<td>Grok 4.7</td>
+<td>$2.00</td>
+<td>$6.00</td>
+<td>$70.00</td>
+</tr>
+<tr>
+<td>Qwen3.8 Max</td>
+<td>$2.00</td>
+<td>$6.00</td>
+<td>$70.00</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td>$2.00</td>
+<td>$10.00</td>
+<td>$90.00</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td>$2.00</td>
+<td>$10.00</td>
+<td>$90.00</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td>$2.00</td>
+<td>$12.00</td>
+<td>$100.00</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td>$3.00</td>
+<td>$15.00</td>
+<td>$135.00</td>
+</tr>
+<tr>
+<td>Claude Opus 5.5</td>
+<td>$4.00</td>
+<td>$20.00</td>
+<td>$180.00</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td>$10.00</td>
+<td>$50.00</td>
+<td>$450.00</td>
+</tr>
+<tr>
+<td>Claude Fable 5.1</td>
+<td>$10.00</td>
+<td>$50.00</td>
+<td>$450.00</td>
+</tr>
+</tbody>
+</table></div>
+<p>미국 달러 기준 정가이며, 2026년 10월 1일에 확인했습니다. 가격은 자주, 때로는 매주 바뀌니 큰 작업 전에는 각 회사에서 다시 확인하세요. 저희 <a href="/ko/">토큰 계산기</a>도 같은 가격표를 쓰고 매일 업데이트합니다.</p>
+<h2>가격대 세 가지</h2>
+<p><strong>저가형 (입력 100만 토큰당 $0.50 미만):</strong> GPT-5 nano, GPT-6 Luna, Qwen3.8 Flash, Mistral Small, DeepSeek V4 Flash, Gemini 3.1 Flash-Lite, GPT-5 mini. 분류, 정보 추출, 라우팅, 짧은 답변처럼 양이 많은 작업에 잘 맞습니다.</p>
+<p><strong>중간형 (약 $1–3):</strong> Gemini 3.8 Flash, Claude Haiku 4.5, DeepSeek V4 Pro, Grok, Mistral Medium, Qwen3.8 Max, GPT-6 Sol, Claude Sonnet 5.5, Gemini 3.1 Pro, Kimi K3. 챗봇, 글쓰기, 분석, 코딩 에이전트의 기본 선택지입니다.</p>
+<p><strong>플래그십 ($4 이상):</strong> Claude Opus 5.5, GPT-6 Astra, Claude Fable 5.1. 길고 여러 단계로 이어지는 에이전트 작업이나 어려운 추론처럼, 확실히 더 잘한다는 게 보이는 곳에 쓰세요.</p>
+<h2>가격표만 보면 안 되는 이유</h2>
+<p><strong>비싼 쪽은 출력입니다.</strong> 대부분의 모델에서 출력이 입력보다 4–6배 비쌉니다. 앱이 긴 답변을 쓴다면 출력 가격부터 비교하세요. <a href="/blog/why-output-tokens-cost-more">출력 토큰이 더 비싼 이유</a> (영어)를 참고하세요.</p>
+<p><strong>토크나이저가 다릅니다.</strong> 회사마다 텍스트를 토큰으로 나누는 방식이 달라서, 같은 텍스트라도 모델에 따라 토큰 수가 10–30% 차이 날 수 있습니다. 그래서 토큰당 가격이 싸다고 청구액이 꼭 적은 건 아닙니다. 가격표만 보지 말고 <a href="/ko/">토큰 계산기</a>에서 내 텍스트의 비용을 직접 비교해 보세요. 자세한 내용은 <a href="/ko/blog/token-segi-bangbeop">GPT·Claude·Gemini 토큰 세는 방법</a>에 있습니다.</p>
+<p><strong>언어도 중요합니다.</strong> 영어가 아닌 텍스트는 토큰을 더 씁니다. GPT 토크나이저 기준으로 영어 대비 한국어는 약 1.44배, 일본어는 1.79배, 체코어는 2배입니다. 그래서 프롬프트를 영어로 보내면 한국어보다 토큰이 약 31% 줄어드는데, <a href="/ko/">토큰 계산기</a>의 💸 토큰 절약 버튼을 누르면 내 기기 안에서 바로 영어로 바꿔 줍니다(PC용 Chrome 138 이상 또는 Edge 148 이상).</p>
+<p><strong>할인이 순위를 바꿉니다.</strong> 대부분의 회사가 캐시된 입력은 정가의 일부만 받고, 배치 처리는 절반 정도 가격에 제공합니다. 길고 반복되는 프롬프트를 쓰는 앱이라면, 캐싱을 잘 활용한 중간형 모델이 캐싱 없는 저가형 모델보다 쌀 수도 있습니다. <a href="/blog/prompt-caching-explained">프롬프트 캐싱</a> (영어)과 <a href="/blog/batch-api-half-price">배치 API</a> (영어)를 참고하세요.</p>
+<p><strong>긴 프롬프트는 더 비쌀 수 있습니다.</strong> 일부 모델은 프롬프트가 일정 길이를 넘으면 더 높은 요금을 받습니다. 예를 들어 GPT-6 모델은 입력이 272,000토큰을 넘는 요청에 더 높은 요금을 매깁니다.</p>
+<h2>가장 싼 LLM API는?</h2>
+<p>정가 기준으로는 위 모델 중 GPT-5 nano와 GPT-6 Luna가 가장 싸서, 입력 100만 토큰당 각각 $0.05와 $0.10입니다. 하지만 중요한 건 내 작업에 충분히 쓸 만한 모델 중에서 가장 싼 모델입니다. 실용적인 방법은 이렇습니다.</p>
+<ol>
+<li>실제 테스트 입력 20–50개와 기대하는 답을 준비합니다.</li>
+<li>저가형과 중간형에서 모델 두세 개를 골라 돌려 봅니다.</li>
+<li>품질 기준을 넘는 모델 중 가장 싼 것을 고릅니다.</li>
+<li>그 모델이 실패하는 요청만 더 비싼 모델로 보냅니다.</li>
+</ol>
+<h2>내 청구액 예상해 보기</h2>
+<p>실제 프롬프트를 <a href="/ko/">토큰 계산기</a>에 붙여 넣으면 모든 모델의 비용을 한 번에 볼 수 있습니다. 전체 방법은 <a href="/blog/how-to-estimate-ai-api-cost">AI API 청구액 예상하는 법</a> (영어)을 읽어 보세요. 구독과 API 중 무엇이 나은지는 <a href="/ko/plans">구독 vs API 계산기</a>로 비교할 수 있습니다.</p>

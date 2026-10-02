@@ -252,3 +252,28 @@ GPT6 = [
  _cc("ja", "/ja/blog/gpt-6-api-ryoukin", "gpt6-ja", "GPT-6 の API 料金まとめ：Astra・Sol・Luna の比較と実際の費用",
      "GPT-6 Astra・Sol・Luna の100万トークンあたり API 料金、リクエストあたりの実費、Claude・Gemini との比較、どのモデルを使うか。", _BY["ja"], *_CTA_TK["ja"]),
 ]
+
+API_CMP = [
+ _cc("en", "/blog/llm-api-pricing-comparison", "api-en", "LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek",
+     "Input and output API prices of 22 models side by side, the real cost of 10,000 requests, the cheapest LLM APIs, and how to choose.", _BY["en"], *_CTA_TK["en"]),
+ _cc("ko", "/ko/blog/llm-api-gagyeok-bigyo", "api-ko", "LLM API 가격 비교: GPT-6·Claude·Gemini·DeepSeek 등 22개 모델",
+     "22개 모델의 입력·출력 API 가격을 나란히 비교하고, 요청 1만 건 실제 비용, 가장 싼 LLM API, 고르는 법을 정리했습니다.", _BY["ko"], *_CTA_TK["ko"]),
+ _cc("ja", "/ja/blog/llm-api-ryoukin-hikaku", "api-ja", "LLM API 料金比較：GPT-6・Claude・Gemini・DeepSeek など22モデル",
+     "22モデルの入力・出力 API 料金を並べて比較し、1万リクエストの実費、いちばん安い LLM API、選び方をまとめました。", _BY["ja"], *_CTA_TK["ja"]),
+]
+TPW = [
+ _cc("en", "/blog/tokens-per-word", "tpw-en", "Tokens per Word, Measured: English and 11 Other Languages",
+     "How many tokens per word and per character on current GPT models: about 1.1-1.3 per English word, and the real numbers for other languages.", _BY["en"], *_CTA_TK["en"]),
+ _cc("ko", "/ko/blog/token-dangeo-geulja", "tpw-ko", "단어·글자당 토큰 수 실측: 한국어는 몇 글자에 1토큰일까",
+     "최신 GPT 모델에서 영어는 단어당 약 1.1~1.3토큰, 한국어·일본어·중국어 등은 글자당 몇 토큰인지 직접 재서 정리했습니다.", _BY["ko"], *_CTA_TK["ko"]),
+ _cc("ja", "/ja/blog/token-mojisuu", "tpw-ja", "1トークンは何文字？日本語・英語など12言語で実測",
+     "最新の GPT モデルで、英語は1単語あたり約1.1〜1.3トークン、日本語は約1.2文字で1トークン。12言語の実測値をまとめました。", _BY["ja"], *_CTA_TK["ja"]),
+]
+COUNT = [
+ _cc("en", "/blog/how-to-count-tokens-gpt-claude-gemini", "count-en", "How to Count Tokens for GPT, Claude and Gemini",
+     "Why GPT, Claude and Gemini count tokens differently, how to get an exact count for each, and a quick way to estimate without code.", _BY["en"], *_CTA_TK["en"]),
+ _cc("ko", "/ko/blog/token-segi-bangbeop", "count-ko", "GPT·Claude·Gemini 토큰 세는 방법",
+     "GPT, Claude, Gemini가 토큰을 다르게 세는 이유, 각각 정확하게 세는 방법, 코드 없이 바로 어림잡는 방법을 정리했습니다.", _BY["ko"], *_CTA_TK["ko"]),
+ _cc("ja", "/ja/blog/token-kazoekata", "count-ja", "GPT・Claude・Gemini のトークンの数え方",
+     "GPT・Claude・Gemini でトークン数が違う理由、それぞれ正確に数える方法、コードなしですぐ見積もる方法をまとめました。", _BY["ja"], *_CTA_TK["ja"]),
+]

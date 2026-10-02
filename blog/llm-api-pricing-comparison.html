@@ -12,15 +12,17 @@
   })(window,document,'script','dataLayer','GTM-KCGSDH87');</script>
   <!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What Is a Token? A Plain-English Guide for AI Users | TokenSave</title>
-  <meta name="description" content="What AI tokens are, how many your text uses, why other languages need more, and why tokens decide cost and quality." />
-  <link rel="canonical" href="https://tokensave.app/blog/what-is-a-token" />
-  <link rel="alternate" hreflang="en" href="https://tokensave.app/blog/what-is-a-token" />
-  <link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/what-is-a-token" />
+  <title>LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek | TokenSave</title>
+  <meta name="description" content="Input and output API prices of 22 models side by side, the real cost of 10,000 requests, the cheapest LLM APIs, and how to choose." />
+  <link rel="canonical" href="https://tokensave.app/blog/llm-api-pricing-comparison" />
+  <link rel="alternate" hreflang="en" href="https://tokensave.app/blog/llm-api-pricing-comparison" />
+  <link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/llm-api-gagyeok-bigyo" />
+  <link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/llm-api-ryoukin-hikaku" />
+  <link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/llm-api-pricing-comparison" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tokensave.app/blog/what-is-a-token" />
-  <meta property="og:title" content="What Is a Token? A Plain-English Guide for AI Users | TokenSave" />
-  <meta property="og:description" content="What AI tokens are, how many your text uses, why other languages need more, and why tokens decide cost and quality." />
+  <meta property="og:url" content="https://tokensave.app/blog/llm-api-pricing-comparison" />
+  <meta property="og:title" content="LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek | TokenSave" />
+  <meta property="og:description" content="Input and output API prices of 22 models side by side, the real cost of 10,000 requests, the cheapest LLM APIs, and how to choose." />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
@@ -31,7 +33,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "What Is a Token? A Plain-English Guide for AI Users", "description": "What AI tokens are, how many your text uses, why other languages need more, and why tokens decide cost and quality.", "inLanguage": "en", "url": "https://tokensave.app/blog/what-is-a-token", "mainEntityOfPage": "https://tokensave.app/blog/what-is-a-token", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "What Is a Token? A Plain-English Guide for AI Users", "item": "https://tokensave.app/blog/what-is-a-token"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek", "description": "Input and output API prices of 22 models side by side, the real cost of 10,000 requests, the cheapest LLM APIs, and how to choose.", "inLanguage": "en", "url": "https://tokensave.app/blog/llm-api-pricing-comparison", "mainEntityOfPage": "https://tokensave.app/blog/llm-api-pricing-comparison", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek", "item": "https://tokensave.app/blog/llm-api-pricing-comparison"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -91,95 +93,179 @@
     </div>
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
-        <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">What Is a Token? A Plain-English Guide for AI Users</h1>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
-  <p>If you use ChatGPT, Claude or Gemini through an app, you rarely see the word "token". The moment you look at an API price list, it is everywhere: <em>$2 per million input tokens</em>, <em>a 1 million token context window</em>, <em>max output 32K tokens</em>. This guide explains what a token is, how to estimate how many your text uses, and why it matters for both cost and quality.</p>
-<h2>A token is a piece of text, not a word</h2>
-<p>AI language models do not read letters or words. Before your text reaches the model, a <strong>tokenizer</strong> cuts it into pieces from a fixed vocabulary of roughly 100,000 to 200,000 entries. Common words are usually one piece. Rare words, names and code get split into several.</p>
-<p>For example, the sentence below has 10 words and 11 tokens on GPT's current tokenizer (o200k): one per word, plus one for the full stop.</p>
-<blockquote>
-<p>Please summarize the customer email below in three bullet points.</p>
-</blockquote>
-<p>Every word here is common enough to be a single token, including the space in front of it. A product code is different: <em>XJ-4471B</em> is only 8 characters but splits into 6 tokens (<em>X</em>, <em>J</em>, <em>-</em>, <em>447</em>, <em>1</em>, <em>B</em>).</p>
-<h2>Rules of thumb for English</h2>
-<ul>
-<li>1 token ≈ 4 characters of English text</li>
-<li>1 token ≈ ¾ of a word, so 100 tokens ≈ 75 words</li>
-<li>1,000 tokens ≈ 750 words ≈ 1.5 pages of single-spaced text</li>
-<li>A 300-page novel ≈ 120,000–150,000 tokens</li>
-</ul>
-<p>These are averages. Technical text, code, URLs and numbers use more tokens per character than plain prose. On current GPT models, everyday English is actually a little cheaper than this rule: we measured about 1.1–1.15 tokens per word. See <a href="/blog/tokens-per-word">Tokens per word, measured</a>.</p>
-<h2>Other languages use more tokens</h2>
-<p>Tokenizers are trained mostly on English, so the same meaning written in another language usually takes more tokens. We measured the same prompt in 41 languages on GPT's o200k tokenizer:</p>
+  <p>There are now dozens of language models with public API prices, and the same request can cost 150 times more on one than on another. This page lists the current list prices of 22 popular models from OpenAI, Anthropic, Google, xAI, DeepSeek, Mistral, Alibaba and Moonshot side by side, with what a typical request actually costs, and how to choose.</p>
+<h2>API prices compared</h2>
+<p>Price per million tokens, sorted from cheapest to most expensive for a typical request (2,000 input tokens and 500 output tokens). The last column is what 10,000 such requests cost.</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
-<th>Language</th>
-<th>Tokens vs English</th>
+<th>Model</th>
+<th>Input / 1M</th>
+<th>Output / 1M</th>
+<th>10,000 requests</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Chinese (Simplified)</td>
-<td>1.03×</td>
+<td>GPT-5 nano</td>
+<td>$0.05</td>
+<td>$0.40</td>
+<td>$3.00</td>
 </tr>
 <tr>
-<td>Spanish</td>
-<td>1.18×</td>
+<td>GPT-6 Luna</td>
+<td>$0.10</td>
+<td>$0.50</td>
+<td>$4.50</td>
 </tr>
 <tr>
-<td>German</td>
-<td>1.26×</td>
+<td>Qwen3.8 Flash</td>
+<td>$0.15</td>
+<td>$0.47</td>
+<td>$5.35</td>
 </tr>
 <tr>
-<td>French</td>
-<td>1.29×</td>
+<td>Mistral Small</td>
+<td>$0.15</td>
+<td>$0.60</td>
+<td>$6.00</td>
 </tr>
 <tr>
-<td>Russian</td>
-<td>1.32×</td>
+<td>DeepSeek V4 Flash</td>
+<td>$0.30</td>
+<td>$1.20</td>
+<td>$12.00</td>
 </tr>
 <tr>
-<td>Korean</td>
-<td>1.44×</td>
+<td>Gemini 3.1 Flash-Lite</td>
+<td>$0.25</td>
+<td>$1.50</td>
+<td>$12.50</td>
 </tr>
 <tr>
-<td>Hindi</td>
-<td>1.50×</td>
+<td>GPT-5 mini</td>
+<td>$0.25</td>
+<td>$2.00</td>
+<td>$15.00</td>
 </tr>
 <tr>
-<td>Japanese</td>
-<td>1.79×</td>
+<td>Mistral Large 3</td>
+<td>$0.50</td>
+<td>$1.50</td>
+<td>$17.50</td>
 </tr>
 <tr>
-<td>Polish</td>
-<td>1.88×</td>
+<td>Gemini 3.8 Flash</td>
+<td>$0.75</td>
+<td>$3.75</td>
+<td>$33.75</td>
 </tr>
 <tr>
-<td>Czech</td>
-<td>2.00×</td>
+<td>Grok 4.20</td>
+<td>$1.25</td>
+<td>$2.50</td>
+<td>$37.50</td>
+</tr>
+<tr>
+<td>Claude Haiku 4.5</td>
+<td>$1.00</td>
+<td>$5.00</td>
+<td>$45.00</td>
+</tr>
+<tr>
+<td>DeepSeek V4 Pro</td>
+<td>$1.32</td>
+<td>$3.96</td>
+<td>$46.20</td>
+</tr>
+<tr>
+<td>Mistral Medium 3.5</td>
+<td>$1.50</td>
+<td>$7.50</td>
+<td>$67.50</td>
+</tr>
+<tr>
+<td>Grok 4.7</td>
+<td>$2.00</td>
+<td>$6.00</td>
+<td>$70.00</td>
+</tr>
+<tr>
+<td>Qwen3.8 Max</td>
+<td>$2.00</td>
+<td>$6.00</td>
+<td>$70.00</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td>$2.00</td>
+<td>$10.00</td>
+<td>$90.00</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td>$2.00</td>
+<td>$10.00</td>
+<td>$90.00</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td>$2.00</td>
+<td>$12.00</td>
+<td>$100.00</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td>$3.00</td>
+<td>$15.00</td>
+<td>$135.00</td>
+</tr>
+<tr>
+<td>Claude Opus 5.5</td>
+<td>$4.00</td>
+<td>$20.00</td>
+<td>$180.00</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td>$10.00</td>
+<td>$50.00</td>
+<td>$450.00</td>
+</tr>
+<tr>
+<td>Claude Fable 5.1</td>
+<td>$10.00</td>
+<td>$50.00</td>
+<td>$450.00</td>
 </tr>
 </tbody>
 </table></div>
-<p>Because API pricing is per token, a Japanese prompt costs about 1.8 times as much as the same prompt in English. The <a href="/blog/token-cost-by-language">full 41-language study</a> has every language and how it was measured.</p>
-<h2>Different models count differently</h2>
-<p>Each model family has its own tokenizer. OpenAI, Anthropic and Google all use different vocabularies, so the same text can be 10–30% more tokens on one model than another. When you compare prices between providers, compare the <strong>cost of your actual text</strong>, not just the price per million tokens.</p>
-<h2>Why tokens matter</h2>
-<p><strong>Cost.</strong> API prices are quoted per million tokens, with separate prices for input (what you send) and output (what the model writes back). Output is usually 4–6 times more expensive than input.</p>
-<p><strong>Limits.</strong> Every model has a <em>context window</em>: the maximum number of tokens it can consider at once, including the whole conversation so far. Plans and APIs also cap how many tokens you can use per minute or per day.</p>
-<p><strong>Quality.</strong> Very long inputs can make answers worse, because models pay less attention to the middle of a long context. Fewer, better-chosen tokens often give a sharper answer. See <a href="/blog/context-window-explained">Context windows explained</a>.</p>
-<h2>How to count tokens exactly</h2>
-<p>Paste your text into the <a href="/">TokenSave token counter</a>. It runs the real tokenizer in your browser for GPT models, shows an estimate for Claude and Gemini, and converts the count into a price for each model. Nothing you type leaves your device.</p>
-<h2>Key takeaways</h2>
-<ul>
-<li>A token is a chunk of text from the model's vocabulary, about 4 English characters.</li>
-<li>You pay per token, and output tokens cost more than input tokens.</li>
-<li>Non-English text, code and numbers use more tokens for the same meaning.</li>
-<li>Count your real text before you estimate a budget.</li>
-</ul>
+<p>List prices in US dollars, checked October 1, 2026. Prices change often, sometimes weekly, so confirm with the provider before a large job. Our <a href="/">token counter</a> uses the same price list and is updated daily.</p>
+<h2>Three price tiers</h2>
+<p><strong>Budget (under $0.50 per million input tokens):</strong> GPT-5 nano, GPT-6 Luna, Qwen3.8 Flash, Mistral Small, DeepSeek V4 Flash, Gemini 3.1 Flash-Lite, GPT-5 mini. Good for classification, extraction, routing, short answers and anything at high volume.</p>
+<p><strong>Mid-range (around $1–3):</strong> Gemini 3.8 Flash, Claude Haiku 4.5, DeepSeek V4 Pro, Grok, Mistral Medium, Qwen3.8 Max, GPT-6 Sol, Claude Sonnet 5.5, Gemini 3.1 Pro, Kimi K3. The default for chat assistants, writing, analysis and coding agents.</p>
+<p><strong>Flagship ($4 and up):</strong> Claude Opus 5.5, GPT-6 Astra, Claude Fable 5.1. Use them where you can show they do better: long, multi-step agent work and hard reasoning.</p>
+<h2>The price list is not the whole story</h2>
+<p><strong>Output is the expensive side.</strong> On most models, output costs 4–6 times as much as input. If your app writes long answers, compare output prices first. See <a href="/blog/why-output-tokens-cost-more">Why output tokens cost more</a>.</p>
+<p><strong>Tokenizers differ.</strong> Each provider splits text into tokens differently. The same text can be 10–30% more tokens on one model than another, so a lower price per token does not always mean a lower bill. Compare the cost of your own text in the <a href="/">token counter</a>, not just the price list. More in <a href="/blog/how-to-count-tokens-gpt-claude-gemini">How to count tokens for GPT, Claude and Gemini</a>.</p>
+<p><strong>Your language matters.</strong> Non-English text uses more tokens: on GPT's tokenizer, about 1.44× for Korean, 1.79× for Japanese and 2× for Czech compared with English.</p>
+<p><strong>Discounts change the ranking.</strong> Most providers offer cached input at a fraction of the normal price and batch processing at around half price. A mid-range model with good caching can cost less than a budget model without it for apps with long, repeated prompts. See <a href="/blog/prompt-caching-explained">Prompt caching</a> and <a href="/blog/batch-api-half-price">Batch APIs</a>.</p>
+<p><strong>Long prompts can cost more.</strong> Some models charge a higher rate above a certain prompt length; GPT-6 models, for example, charge more for requests over 272,000 input tokens.</p>
+<h2>What is the cheapest LLM API?</h2>
+<p>On list price, GPT-5 nano and GPT-6 Luna are the cheapest of the models above, at $0.05 and $0.10 per million input tokens. But the cheapest model that is good enough for your task is what matters. A practical approach:</p>
+<ol>
+<li>Write 20–50 real test inputs with the answers you expect.</li>
+<li>Run them through two or three models from the budget and mid-range tiers.</li>
+<li>Pick the cheapest one that meets your quality bar.</li>
+<li>Route only the requests it fails to a more expensive model.</li>
+</ol>
+<h2>Estimate your own bill</h2>
+<p>Paste a real prompt into the <a href="/">token counter</a> to see its cost on every model at once, or read <a href="/blog/how-to-estimate-ai-api-cost">How to estimate your AI API bill</a> for the full method. For subscriptions versus the API, use the <a href="/plans">Subscription vs API calculator</a>.</p>
 
         <div class="not-prose mt-8 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 text-center">
-          <p class="text-zinc-200">Paste any text to see its exact token count and cost on 30+ models.</p>
+          <p class="text-zinc-200">Paste a prompt to see its tokens and cost on every GPT-6 model, Claude and Gemini.</p>
           <a href="/" class="mt-3 inline-block tab-active rounded-lg px-4 py-2 font-semibold no-underline" style="text-decoration:none">Open the token counter →</a>
         </div>
       </article>

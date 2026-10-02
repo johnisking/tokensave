@@ -1,0 +1,44 @@
+<p>"How many tokens is this?" has a different answer depending on which model you ask. OpenAI, Anthropic and Google each use their own tokenizer, so the same paragraph can be 100 tokens on one model and 130 on another. Here is how to get an exact count for each, and how to get a quick estimate without writing code.</p>
+<h2>Why the counts differ</h2>
+<p>A tokenizer splits text into pieces from a fixed vocabulary that was built from the company's own training data. Different vocabularies mean different splits. A word that is one token for GPT may be two for Claude, and the other way round. The differences are usually small for plain English and larger for code, numbers and other languages.</p>
+<p>Anthropic has said that the tokenizer used by its newer Claude models produces noticeably more tokens for the same text than its earlier one. Our token counter assumes about 30% more tokens than GPT for current Claude Sonnet and Opus models when it estimates.</p>
+<p>Because API prices are per token, this changes real costs: two models with the same price per million tokens can cost different amounts for the same prompt.</p>
+<h2>GPT (OpenAI): count locally</h2>
+<p>OpenAI publishes its tokenizers, so you can count exactly on your own machine, with no API call.</p>
+<p>In Python, with the <code>tiktoken</code> library:</p>
+<pre><code class="language-python">import tiktoken
+enc = tiktoken.get_encoding(&quot;o200k_base&quot;)
+print(len(enc.encode(&quot;Your text here&quot;)))
+</code></pre>
+<p>In JavaScript, with <code>js-tiktoken</code>:</p>
+<pre><code class="language-js">import { getEncoding } from &quot;js-tiktoken&quot;;
+const enc = getEncoding(&quot;o200k_base&quot;);
+console.log(enc.encode(&quot;Your text here&quot;).length);
+</code></pre>
+<p><code>o200k_base</code> is the encoding behind GPT-4o and later models. The newest GPT models may differ slightly, so treat local counts for them as a very close estimate. Chat requests also add a few tokens per message for formatting.</p>
+<h2>Claude (Anthropic): use the token counting endpoint</h2>
+<p>Claude's current tokenizer is not published as a library, but Anthropic's API has a <strong>token counting endpoint</strong> that returns the exact number of input tokens for a message, including system prompt, tools and images, before you send it. Anthropic makes it free to use, subject to rate limits. In the Python SDK, it is <code>client.messages.count_tokens(...)</code> with the same arguments you would pass to <code>messages.create</code>.</p>
+<p>After a real request, every API response also reports the exact input and output tokens used, under <code>usage</code>.</p>
+<h2>Gemini (Google): use countTokens</h2>
+<p>The Gemini API has a <code>countTokens</code> method that returns the token count for a prompt without generating anything. Like Anthropic's endpoint, it uses the real tokenizer, and responses from real requests include <code>usageMetadata</code> with the exact counts.</p>
+<h2>Quick estimates without code</h2>
+<p>If you just want to know roughly how many tokens your text is, and what it costs:</p>
+<ol>
+<li>Paste it into the <a href="/">TokenSave token counter</a>.</li>
+<li>GPT models are counted with the real o200k tokenizer, running in your browser.</li>
+<li>Claude, Gemini and other models show an estimate calibrated on real text, clearly marked as an estimate.</li>
+<li>You see the cost on every model side by side, and nothing you paste is uploaded.</li>
+</ol>
+<p>For English, a rough mental rule also works: about 1.1–1.3 tokens per word on current GPT models. See <a href="/blog/tokens-per-word">Tokens per word, measured</a>.</p>
+<h2>Which count should you trust?</h2>
+<ul>
+<li><strong>For budgeting:</strong> a calibrated estimate is fine. Differences between models are usually smaller than the uncertainty in how much your app will be used.</li>
+<li><strong>For hard limits</strong> (context window, maximum output, rate limits): use the provider's own counting method, because going one token over a limit causes an error.</li>
+<li><strong>For billing disputes or exact cost tracking:</strong> use the <code>usage</code> numbers in the API responses. That is what you are billed for.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li><a href="/blog/what-is-a-token">What is a token?</a></li>
+<li><a href="/blog/llm-api-pricing-comparison">LLM API pricing compared</a></li>
+<li><a href="/blog/how-to-estimate-ai-api-cost">How to estimate your AI API bill</a></li>
+</ul>

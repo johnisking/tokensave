@@ -1,0 +1,45 @@
+<p>「これは何トークン？」の答えは、どのモデルに聞くかで変わります。OpenAI、Anthropic、Google はそれぞれ独自のトークナイザーを使っているので、同じ段落があるモデルでは100トークン、別のモデルでは130トークンになることもあります。ここでは、それぞれで正確に数える方法と、コードを書かずにすばやく見積もる方法を紹介します。</p>
+<h2>なぜ数が違うのか</h2>
+<p>トークナイザーは、各社が自社の学習データから作った固定の語彙を使って、テキストを分割します。語彙が違えば分け方も違います。GPT では1トークンの単語が Claude では2トークンになることもあれば、その逆もあります。差はふつうの英語なら小さく、コードや数字、他の言語では大きくなります。</p>
+<p>Anthropic は、新しい Claude モデルのトークナイザーが、同じテキストに対して以前のものよりはっきり多くのトークンを生成すると説明しています。TokenSave のトークンカウンターでは、現行の Claude Sonnet・Opus モデルについて、GPT より約30%多いトークン数を想定して見積もっています。</p>
+<p>API の料金はトークン単位なので、これは実際の費用に影響します。100万トークンあたりの料金が同じ2つのモデルでも、同じプロンプトの費用が変わることがあるのです。</p>
+<h2>GPT（OpenAI）：ローカルで数える</h2>
+<p>OpenAI はトークナイザーを公開しているので、API を呼ばずに自分のマシンで正確に数えられます。</p>
+<p>Python では <code>tiktoken</code> ライブラリを使います。</p>
+<pre><code class="language-python">import tiktoken
+enc = tiktoken.get_encoding(&quot;o200k_base&quot;)
+print(len(enc.encode(&quot;Your text here&quot;)))
+</code></pre>
+<p>JavaScript では <code>js-tiktoken</code> を使います。</p>
+<pre><code class="language-js">import { getEncoding } from &quot;js-tiktoken&quot;;
+const enc = getEncoding(&quot;o200k_base&quot;);
+console.log(enc.encode(&quot;Your text here&quot;).length);
+</code></pre>
+<p><code>o200k_base</code> は GPT-4o 以降のモデルで使われているエンコーディングです。最新の GPT モデルでは少し違う可能性があるので、ローカルでの数は非常に近い見積もりとして扱ってください。また、チャットのリクエストでは書式のためにメッセージごとに数トークンが追加されます。</p>
+<h2>Claude（Anthropic）：トークンカウント用エンドポイントを使う</h2>
+<p>Claude の現行トークナイザーはライブラリとして公開されていませんが、Anthropic の API には<strong>トークンカウント用のエンドポイント</strong>があり、送信する前に、システムプロンプト、ツール、画像を含むメッセージの正確な入力トークン数を返してくれます。レート制限はありますが、無料で使えます。Python SDK では <code>client.messages.count_tokens(...)</code> で、引数は <code>messages.create</code> に渡すものと同じです。</p>
+<p>実際にリクエストを送った後は、どの API レスポンスにも、使われた入力・出力トークンの正確な数が <code>usage</code> に含まれています。</p>
+<h2>Gemini（Google）：countTokens を使う</h2>
+<p>Gemini API には <code>countTokens</code> メソッドがあり、何も生成せずにプロンプトのトークン数を返します。Anthropic のエンドポイントと同じく本物のトークナイザーを使っており、実際のリクエストのレスポンスにも正確な数を含む <code>usageMetadata</code> が付いてきます。</p>
+<h2>コードなしですばやく見積もる</h2>
+<p>テキストがおおよそ何トークンで、いくらかかるかを知りたいだけなら、次のとおりです。</p>
+<ol>
+<li><a href="/ja/">TokenSave のトークンカウンター</a>に貼り付けます。</li>
+<li>GPT モデルは、ブラウザの中で動く本物の o200k トークナイザーで数えられます。</li>
+<li>Claude、Gemini などのモデルは、実際のテキストで調整した見積もりが表示され、見積もりであることがはっきり示されます。</li>
+<li>すべてのモデルの費用が並んで表示され、貼り付けた内容はどこにもアップロードされません。</li>
+</ol>
+<p>日本語のプロンプトは、英語で送るとトークンが約44%減ります。トークンカウンターの 💸 トークン節約 ボタンを使うと、自分の端末の中でプロンプトを英語に変換できます（デスクトップ版 Chrome 138以降 / Edge 148以降）。</p>
+<p>英語なら、現行の GPT モデルで1単語あたり約1.1〜1.3トークンという大まかな目安も使えます。<a href="/ja/blog/token-mojisuu">1単語・1文字は何トークン？実測データ</a>をご覧ください。</p>
+<h2>どの数を信頼すべきか</h2>
+<ul>
+<li><strong>予算を立てるなら：</strong> 調整済みの見積もりで十分です。モデル間の差は、アプリがどれだけ使われるかという不確かさより小さいのがふつうです。</li>
+<li><strong>厳密な上限があるなら</strong>（コンテキストウィンドウ、最大出力、レート制限）：各社の公式の数え方を使いましょう。上限を1トークンでも超えるとエラーになるからです。</li>
+<li><strong>請求の確認や正確な費用管理には：</strong> API レスポンスの <code>usage</code> の数字を使ってください。実際に請求されるのはその数字です。</li>
+</ul>
+<h2>関連記事</h2>
+<ul>
+<li><a href="/blog/what-is-a-token">トークンとは？</a>（英語）</li>
+<li><a href="/ja/blog/llm-api-ryoukin-hikaku">LLM API 料金比較</a></li>
+<li><a href="/blog/how-to-estimate-ai-api-cost">AI API の請求額を見積もる方法</a>（英語）</li>
+</ul>

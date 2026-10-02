@@ -12,15 +12,17 @@
   })(window,document,'script','dataLayer','GTM-KCGSDH87');</script>
   <!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What Is a Token? A Plain-English Guide for AI Users | TokenSave</title>
-  <meta name="description" content="What AI tokens are, how many your text uses, why other languages need more, and why tokens decide cost and quality." />
-  <link rel="canonical" href="https://tokensave.app/blog/what-is-a-token" />
-  <link rel="alternate" hreflang="en" href="https://tokensave.app/blog/what-is-a-token" />
-  <link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/what-is-a-token" />
+  <title>Tokens per Word, Measured: English and 11 Other Languages | TokenSave</title>
+  <meta name="description" content="How many tokens per word and per character on current GPT models: about 1.1-1.3 per English word, and the real numbers for other languages." />
+  <link rel="canonical" href="https://tokensave.app/blog/tokens-per-word" />
+  <link rel="alternate" hreflang="en" href="https://tokensave.app/blog/tokens-per-word" />
+  <link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/token-dangeo-geulja" />
+  <link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/token-mojisuu" />
+  <link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/tokens-per-word" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tokensave.app/blog/what-is-a-token" />
-  <meta property="og:title" content="What Is a Token? A Plain-English Guide for AI Users | TokenSave" />
-  <meta property="og:description" content="What AI tokens are, how many your text uses, why other languages need more, and why tokens decide cost and quality." />
+  <meta property="og:url" content="https://tokensave.app/blog/tokens-per-word" />
+  <meta property="og:title" content="Tokens per Word, Measured: English and 11 Other Languages | TokenSave" />
+  <meta property="og:description" content="How many tokens per word and per character on current GPT models: about 1.1-1.3 per English word, and the real numbers for other languages." />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
@@ -31,7 +33,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "What Is a Token? A Plain-English Guide for AI Users", "description": "What AI tokens are, how many your text uses, why other languages need more, and why tokens decide cost and quality.", "inLanguage": "en", "url": "https://tokensave.app/blog/what-is-a-token", "mainEntityOfPage": "https://tokensave.app/blog/what-is-a-token", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "What Is a Token? A Plain-English Guide for AI Users", "item": "https://tokensave.app/blog/what-is-a-token"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Tokens per Word, Measured: English and 11 Other Languages", "description": "How many tokens per word and per character on current GPT models: about 1.1-1.3 per English word, and the real numbers for other languages.", "inLanguage": "en", "url": "https://tokensave.app/blog/tokens-per-word", "mainEntityOfPage": "https://tokensave.app/blog/tokens-per-word", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Tokens per Word, Measured: English and 11 Other Languages", "item": "https://tokensave.app/blog/tokens-per-word"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -91,95 +93,203 @@
     </div>
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
-        <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">What Is a Token? A Plain-English Guide for AI Users</h1>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">Tokens per Word, Measured: English and 11 Other Languages</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
-  <p>If you use ChatGPT, Claude or Gemini through an app, you rarely see the word "token". The moment you look at an API price list, it is everywhere: <em>$2 per million input tokens</em>, <em>a 1 million token context window</em>, <em>max output 32K tokens</em>. This guide explains what a token is, how to estimate how many your text uses, and why it matters for both cost and quality.</p>
-<h2>A token is a piece of text, not a word</h2>
-<p>AI language models do not read letters or words. Before your text reaches the model, a <strong>tokenizer</strong> cuts it into pieces from a fixed vocabulary of roughly 100,000 to 200,000 entries. Common words are usually one piece. Rare words, names and code get split into several.</p>
-<p>For example, the sentence below has 10 words and 11 tokens on GPT's current tokenizer (o200k): one per word, plus one for the full stop.</p>
-<blockquote>
-<p>Please summarize the customer email below in three bullet points.</p>
-</blockquote>
-<p>Every word here is common enough to be a single token, including the space in front of it. A product code is different: <em>XJ-4471B</em> is only 8 characters but splits into 6 tokens (<em>X</em>, <em>J</em>, <em>-</em>, <em>447</em>, <em>1</em>, <em>B</em>).</p>
-<h2>Rules of thumb for English</h2>
+  <p>"One token is about four characters, or three-quarters of a word." You will find this rule of thumb everywhere. It comes from OpenAI's older tokenizers, and for modern models it is a little pessimistic for everyday English and wildly wrong for many other languages. We measured real text on GPT's current tokenizer (o200k, used by GPT-4o and later) to give updated numbers.</p>
+<h2>English: about 1.1 to 1.3 tokens per word</h2>
+<p>We counted four kinds of English text:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Text</th>
+<th>Words</th>
+<th>Tokens</th>
+<th>Tokens per word</th>
+<th>Characters per token</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A short story paragraph</td>
+<td>66</td>
+<td>74</td>
+<td>1.12</td>
+<td>4.9</td>
+</tr>
+<tr>
+<td>An explainer paragraph</td>
+<td>183</td>
+<td>206</td>
+<td>1.13</td>
+<td>4.9</td>
+</tr>
+<tr>
+<td>A work email</td>
+<td>79</td>
+<td>91</td>
+<td>1.15</td>
+<td>4.7</td>
+</tr>
+<tr>
+<td>Technical API documentation</td>
+<td>75</td>
+<td>100</td>
+<td>1.33</td>
+<td>4.4</td>
+</tr>
+</tbody>
+</table></div>
+<p>So for everyday English on current models:</p>
 <ul>
-<li>1 token ≈ 4 characters of English text</li>
-<li>1 token ≈ ¾ of a word, so 100 tokens ≈ 75 words</li>
-<li>1,000 tokens ≈ 750 words ≈ 1.5 pages of single-spaced text</li>
-<li>A 300-page novel ≈ 120,000–150,000 tokens</li>
+<li><strong>100 words ≈ 115 tokens</strong> (plain prose) to <strong>133 tokens</strong> (technical writing)</li>
+<li><strong>1 token ≈ 4.4–4.9 characters</strong></li>
+<li><strong>1,000 tokens ≈ 750–890 words</strong></li>
 </ul>
-<p>These are averages. Technical text, code, URLs and numbers use more tokens per character than plain prose. On current GPT models, everyday English is actually a little cheaper than this rule: we measured about 1.1–1.15 tokens per word. See <a href="/blog/tokens-per-word">Tokens per word, measured</a>.</p>
-<h2>Other languages use more tokens</h2>
-<p>Tokenizers are trained mostly on English, so the same meaning written in another language usually takes more tokens. We measured the same prompt in 41 languages on GPT's o200k tokenizer:</p>
+<p>The classic "¾ of a word per token" (1.33 tokens per word) matches technical text, so it is a safe, slightly conservative estimate. For ordinary writing, you will usually use about 15% fewer tokens than it predicts.</p>
+<p>Code is denser: in our measurements, Python and JavaScript averaged about 3.5 characters per token. See <a href="/blog/how-many-tokens-does-code-use">How many tokens does code use?</a></p>
+<h2>Other languages: tokens per character</h2>
+<p>Words are a poor unit across languages: Chinese, Japanese and Thai do not put spaces between words, and languages like Finnish or Turkish pack a whole phrase into one long word. Characters per token is more useful. Here is the same customer-support prompt in several languages:</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
 <th>Language</th>
+<th>Characters</th>
+<th>Tokens</th>
+<th>Characters per token</th>
 <th>Tokens vs English</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Chinese (Simplified)</td>
-<td>1.03×</td>
+<td>English</td>
+<td>181</td>
+<td>34</td>
+<td>5.3</td>
+<td>1.00×</td>
 </tr>
 <tr>
 <td>Spanish</td>
+<td>183</td>
+<td>40</td>
+<td>4.6</td>
 <td>1.18×</td>
 </tr>
 <tr>
 <td>German</td>
+<td>194</td>
+<td>43</td>
+<td>4.5</td>
 <td>1.26×</td>
 </tr>
 <tr>
 <td>French</td>
+<td>197</td>
+<td>44</td>
+<td>4.5</td>
 <td>1.29×</td>
 </tr>
 <tr>
 <td>Russian</td>
+<td>165</td>
+<td>45</td>
+<td>3.7</td>
 <td>1.32×</td>
 </tr>
 <tr>
-<td>Korean</td>
-<td>1.44×</td>
+<td>Arabic</td>
+<td>136</td>
+<td>43</td>
+<td>3.2</td>
+<td>1.26×</td>
 </tr>
 <tr>
 <td>Hindi</td>
+<td>161</td>
+<td>51</td>
+<td>3.2</td>
 <td>1.50×</td>
 </tr>
 <tr>
-<td>Japanese</td>
-<td>1.79×</td>
-</tr>
-<tr>
 <td>Polish</td>
+<td>190</td>
+<td>64</td>
+<td>3.0</td>
 <td>1.88×</td>
 </tr>
 <tr>
-<td>Czech</td>
-<td>2.00×</td>
+<td>Thai</td>
+<td>132</td>
+<td>59</td>
+<td>2.2</td>
+<td>1.74×</td>
+</tr>
+<tr>
+<td>Korean</td>
+<td>87</td>
+<td>49</td>
+<td>1.8</td>
+<td>1.44×</td>
+</tr>
+<tr>
+<td>Chinese (Simplified)</td>
+<td>50</td>
+<td>35</td>
+<td>1.4</td>
+<td>1.03×</td>
+</tr>
+<tr>
+<td>Japanese</td>
+<td>73</td>
+<td>61</td>
+<td>1.2</td>
+<td>1.79×</td>
 </tr>
 </tbody>
 </table></div>
-<p>Because API pricing is per token, a Japanese prompt costs about 1.8 times as much as the same prompt in English. The <a href="/blog/token-cost-by-language">full 41-language study</a> has every language and how it was measured.</p>
-<h2>Different models count differently</h2>
-<p>Each model family has its own tokenizer. OpenAI, Anthropic and Google all use different vocabularies, so the same text can be 10–30% more tokens on one model than another. When you compare prices between providers, compare the <strong>cost of your actual text</strong>, not just the price per million tokens.</p>
-<h2>Why tokens matter</h2>
-<p><strong>Cost.</strong> API prices are quoted per million tokens, with separate prices for input (what you send) and output (what the model writes back). Output is usually 4–6 times more expensive than input.</p>
-<p><strong>Limits.</strong> Every model has a <em>context window</em>: the maximum number of tokens it can consider at once, including the whole conversation so far. Plans and APIs also cap how many tokens you can use per minute or per day.</p>
-<p><strong>Quality.</strong> Very long inputs can make answers worse, because models pay less attention to the middle of a long context. Fewer, better-chosen tokens often give a sharper answer. See <a href="/blog/context-window-explained">Context windows explained</a>.</p>
-<h2>How to count tokens exactly</h2>
-<p>Paste your text into the <a href="/">TokenSave token counter</a>. It runs the real tokenizer in your browser for GPT models, shows an estimate for Claude and Gemini, and converts the count into a price for each model. Nothing you type leaves your device.</p>
-<h2>Key takeaways</h2>
+<p>Two things stand out:</p>
 <ul>
-<li>A token is a chunk of text from the model's vocabulary, about 4 English characters.</li>
-<li>You pay per token, and output tokens cost more than input tokens.</li>
-<li>Non-English text, code and numbers use more tokens for the same meaning.</li>
-<li>Count your real text before you estimate a budget.</li>
+<li><strong>Characters per token tells you little about cost on its own.</strong> Chinese has only 1.4 characters per token, yet costs almost the same as English, because each Chinese character carries much more meaning. The last column, tokens for the same meaning, is what matters for your bill.</li>
+<li><strong>For Korean and Japanese, plan on roughly one token per 1.2–1.8 characters,</strong> and expect about 1.4× (Korean) and 1.8× (Japanese) the tokens of the same content in English.</li>
 </ul>
+<p>The full results for 41 languages are in our <a href="/blog/token-cost-by-language">language comparison</a>.</p>
+<h2>Quick conversion table (English, current GPT models)</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>You have</th>
+<th>Roughly this many tokens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A tweet (40 words)</td>
+<td>45–55</td>
+</tr>
+<tr>
+<td>A short email (150 words)</td>
+<td>170–200</td>
+</tr>
+<tr>
+<td>A page of text (500 words)</td>
+<td>560–670</td>
+</tr>
+<tr>
+<td>A blog post (1,500 words)</td>
+<td>1,700–2,000</td>
+</tr>
+<tr>
+<td>A 300-page book (90,000 words)</td>
+<td>100,000–120,000</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Other models count differently</h2>
+<p>These numbers are for OpenAI's o200k tokenizer. Claude and Gemini use their own tokenizers, and the same text can be noticeably more tokens on them. Anthropic's newer Claude models in particular use more tokens for the same text than GPT. See <a href="/blog/how-to-count-tokens-gpt-claude-gemini">How to count tokens for GPT, Claude and Gemini</a>.</p>
+<h2>Count your own text</h2>
+<p>Rules of thumb are fine for rough planning. For anything you will pay for, paste your real text into the <a href="/">token counter</a>: it runs the actual tokenizer in your browser and shows the cost on every model.</p>
 
         <div class="not-prose mt-8 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 text-center">
-          <p class="text-zinc-200">Paste any text to see its exact token count and cost on 30+ models.</p>
+          <p class="text-zinc-200">Paste a prompt to see its tokens and cost on every GPT-6 model, Claude and Gemini.</p>
           <a href="/" class="mt-3 inline-block tab-active rounded-lg px-4 py-2 font-semibold no-underline" style="text-decoration:none">Open the token counter →</a>
         </div>
       </article>
