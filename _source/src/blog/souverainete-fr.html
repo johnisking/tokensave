@@ -1,0 +1,82 @@
+<p>On parle beaucoup de souveraineté de l'IA en France : où sont hébergés les modèles, qui les possède, à quelles lois sont soumises les données. Ce sont des questions d'États et de grandes entreprises. Mais elles ont aussi des effets très concrets pour quiconque écrit un prompt : <strong>dans quelle langue on paie, où part le texte, et de qui dépend la facture.</strong></p>
+<p>J'ai mesuré la partie qui se chiffre : la langue.</p>
+<p><img loading="lazy" width="960" height="1430" alt="Un prompt de service public coûte plus de tokens en français, même chez Mistral" src="/blog-souverainete-ia-fr.png" /></p>
+<h2>1. La langue : le français paie un supplément, même chez Mistral</h2>
+<p>Les tokeniseurs, qui découpent le texte en tokens facturés, sont entraînés sur des corpus où l'anglais domine. Résultat : le même contenu coûte plus de tokens en français.</p>
+<p>J'ai écrit une consigne typique d'un assistant de service public, en français et en anglais, avec exactement le même sens :</p>
+<blockquote>
+<p>Tu es un assistant pour un service public. Résume la demande de l'usager ci-dessous en trois points, indique quel service administratif est compétent et rédige une réponse claire, polie et sans jargon. Ne demande jamais de données personnelles supplémentaires.</p>
+</blockquote>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Texte</th>
+<th>Tokeniseur</th>
+<th style="text-align: right;">Anglais</th>
+<th style="text-align: right;">Français</th>
+<th style="text-align: right;">Surcoût</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consigne de service public</td>
+<td>GPT (o200k)</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">+11 %</td>
+</tr>
+<tr>
+<td>Consigne de service public</td>
+<td>Mistral (Tekken)</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">+13 %</td>
+</tr>
+<tr>
+<td>E-mail de compte rendu</td>
+<td>GPT (o200k)</td>
+<td style="text-align: right;">165</td>
+<td style="text-align: right;">199</td>
+<td style="text-align: right;">+21 %</td>
+</tr>
+<tr>
+<td>E-mail de compte rendu</td>
+<td>Mistral (Tekken)</td>
+<td style="text-align: right;">170</td>
+<td style="text-align: right;">206</td>
+<td style="text-align: right;">+21 %</td>
+</tr>
+</tbody>
+</table></div>
+<p>Le modèle français ne découpe pas le français plus efficacement que le modèle américain : sur ces textes, il produit même un peu plus de tokens. Choisir un fournisseur européen est une décision sur l'hébergement et le droit applicable ; ça ne supprime pas le surcoût linguistique.</p>
+<p>Ce surcoût reste modéré pour le français (de l'ordre de 10 à 30 % selon le texte), bien moins que pour le polonais (50 à 88 % de plus) ou le grec (environ deux fois l'anglais). Mais à l'échelle d'une administration ou d'une entreprise qui envoie des millions de requêtes, il se voit sur la facture.</p>
+<h2>2. Les données : où part votre prompt ?</h2>
+<p>Chaque prompt envoyé à un service d'IA en ligne quitte votre ordinateur. La question de souveraineté, c'est de savoir sous quelles lois il se retrouve. Le <strong>Cloud Act</strong> américain (2018) permet aux autorités américaines de demander à un fournisseur américain des données qu'il contrôle, même si elles sont stockées hors des États-Unis. C'est l'argument principal de ceux qui recommandent des fournisseurs et des hébergements européens pour les données sensibles.</p>
+<p>Pour un utilisateur, plusieurs options existent, de la plus simple à la plus exigeante :</p>
+<ul>
+<li><strong>Ne pas envoyer ce qui n'est pas nécessaire.</strong> Retirer noms, adresses et numéros avant de coller un document réduit l'exposition et le nombre de tokens.</li>
+<li><strong>Choisir l'hébergement</strong> : plusieurs fournisseurs proposent des offres hébergées dans l'Union européenne pour les entreprises.</li>
+<li><strong>Faire tourner un modèle en local.</strong> Certains modèles sont publiés en « poids ouverts » (Mistral en publie plusieurs) et peuvent s'exécuter sur vos propres machines : le texte ne sort pas du tout.</li>
+<li><strong>Utiliser des outils qui travaillent dans le navigateur.</strong> Compter des tokens ou traduire un prompt ne nécessite pas d'envoyer le texte à un serveur.</li>
+</ul>
+<h2>3. Le coût : dépendre d'un tarif qu'on ne fixe pas</h2>
+<p>Les grands modèles sont facturés en dollars, au million de tokens, avec des prix qui changent souvent. Être dépendant d'un seul fournisseur, c'est subir ses changements de tarifs et de limites. Le meilleur moyen de garder la main est de <strong>mesurer sa consommation en tokens</strong> : avec ce chiffre, on peut comparer les fournisseurs, estimer le coût d'une migration et choisir un modèle européen ou américain en connaissant le prix réel, et pas seulement le prix affiché.</p>
+<h2>4. Le cadre réglementaire : où en est l'AI Act ?</h2>
+<p>Le règlement européen sur l'IA s'applique par étapes. Selon les informations disponibles début octobre 2026 :</p>
+<ul>
+<li>depuis le <strong>2 août 2026</strong>, les obligations de transparence de l'article 50 s'appliquent (par exemple informer les personnes qu'elles interagissent avec une IA) ;</li>
+<li>le paquet « Digital Omnibus », adopté par le Parlement le 16 juin et par le Conseil le 29 juin 2026, <strong>reporte</strong> les obligations des systèmes à haut risque au <strong>2 décembre 2027</strong> (systèmes autonomes) et au <strong>2 août 2028</strong> (IA intégrée à des produits déjà réglementés).</li>
+</ul>
+<p>Ce résumé n'est pas un avis juridique : pour un projet précis, vérifiez auprès d'un juriste.</p>
+<h2>Check-list pour un usage plus souverain de l'IA</h2>
+<ol>
+<li><strong>Classez vos textes</strong> : publics, internes, sensibles. Seuls les derniers justifient un hébergement européen ou local.</li>
+<li><strong>Anonymisez</strong> avant d'envoyer, et ne collez que ce qui est utile.</li>
+<li><strong>Mesurez vos tokens</strong> pour connaître votre coût réel et pouvoir comparer les offres.</li>
+<li><strong>Écrivez les consignes répétées en anglais</strong> (prompts système, instructions d'automatisation) et ajoutez « Reply in French. » : la réponse reste en français, le prompt coûte moins cher.</li>
+<li><strong>Gardez une porte de sortie</strong> : des prompts simples et un format de données neutre (CSV, JSON compact) facilitent le passage d'un modèle à un autre.</li>
+</ol>
+<h2>Mesurer sans rien envoyer</h2>
+<p><a href="/fr/">TokenSave</a> compte les tokens et estime le coût de votre prompt pour GPT, Claude et Gemini <strong>directement dans votre navigateur</strong> : votre texte n'est envoyé à aucun serveur. Le bouton <strong>💸 Économiser des tokens</strong> le traduit en anglais avec le traducteur intégré à Chrome ou Edge, sur votre propre appareil, et ajoute « Reply in French. ». Gratuit, sans inscription.</p>
+<p>À lire aussi : <a href="/fr/blog/mistral-chatgpt-cout-prompt-francais">Mistral ou ChatGPT : combien coûte vraiment un prompt en français ?</a> et <a href="/fr/blog/compteur-de-tokens-pourquoi">Pourquoi utiliser un compteur de tokens ?</a></p>
+<p><em>Mesures effectuées en octobre 2026 avec o200k_base (OpenAI) et Tekken 2024-09 (Mistral). Les modèles Mistral les plus récents peuvent utiliser une version mise à jour de Tekken.</em></p>

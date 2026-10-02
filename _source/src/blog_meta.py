@@ -113,6 +113,22 @@ MISTRAL_FR = [
  },
 ]
 
+# French articles added 2026-10-03
+MISTRAL_FR += [
+ {"tag": "fr", "path": "/fr/blog/compteur-de-tokens-pourquoi", "src": "compteur-fr",
+  "title": "Pourquoi utiliser un compteur de tokens ? 5 raisons (mesures en français)",
+  "desc": "Le même e-mail coûte 21 % de tokens en plus en français, et la réponse coûte souvent plus que la question. 5 raisons de compter ses tokens avant d'envoyer.",
+  "byline": "Jonhisking · 3 octobre 2026",
+  "cta": "Collez votre prompt pour voir ses tokens et son coût, puis traduisez-le en anglais en un clic.",
+  "ctaBtn": "Ouvrir le compteur de tokens", "date": "2026-10-03"},
+ {"tag": "fr", "path": "/fr/blog/souverainete-ia-tokens", "src": "souverainete-fr",
+  "title": "Souveraineté de l'IA : ce que ça change pour vos prompts (langue, données, coût)",
+  "desc": "Le français coûte 11 à 21 % de tokens en plus, même chez Mistral. Langue, données, coût et AI Act : ce que la souveraineté de l'IA change concrètement.",
+  "byline": "Jonhisking · 3 octobre 2026",
+  "cta": "Comptez les tokens et le coût de votre prompt sans rien envoyer : tout se passe dans votre navigateur.",
+  "ctaBtn": "Ouvrir le compteur de tokens", "date": "2026-10-03"},
+]
+
 PROMPT_PL = [
  {
   "tag": "pl",
