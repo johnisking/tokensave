@@ -88,4 +88,4 @@ One English prompt of 34 tokens was translated into each language, starting from
 
 ## Paying less in any language
 
-The easiest saving is still to write instructions in English and ask for the answer in your language. See [How to cut the token cost of non-English prompts](/blog/cut-token-cost-non-english-prompts), or paste your prompt into the [token counter](/) and press *To English* to see the difference.
+The easiest saving is still to write instructions in English and ask for the answer in your language. See [How to cut the token cost of non-English prompts](/blog/cut-token-cost-non-english-prompts), or paste your prompt into the [token counter](/) and press *Save tokens* to see the difference.

@@ -1,0 +1,31 @@
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">사용 방법</h2>
+      <ol>
+        <li><strong>프롬프트 붙여 넣기</strong> — 입력하는 즉시 토큰 수, 글자 수, 단어 수, 예상 비용이 바뀝니다.</li>
+        <li><strong>모델 고르기</strong> — 위의 GPT · Claude · Gemini · 기타 탭에서 모델을 고르면 그 모델 가격으로 요청당·월간 비용을 계산합니다. 예상 출력 토큰과 월 요청 수를 바꿔 보세요.</li>
+        <li><strong>💸 토큰 절약</strong> — 줄일 여지가 있으면 버튼과 예상 절약률이 나타납니다. 누르면 공백 정리 → 영어 번역 → 군더더기 정리를 한 번에 하고, 끝에 "Reply in Korean."을 붙여 답은 한국어로 받게 합니다. 다시 누르면(↩ 원문) 원래 글로 돌아갑니다.</li>
+        <li><strong>토큰으로 어떻게 나뉘는지 보기</strong> — 글이 실제로 어떤 조각으로 잘리는지 색으로 보여줍니다.</li>
+        <li><strong>채팅 (JSON)</strong> — API에 보내는 메시지 배열을 그대로 붙여 넣으면 메시지 형식에 드는 토큰까지 더해 계산합니다.</li>
+        <li><strong>공유</strong> — 지금 입력한 글을 링크로 만들어 다른 사람에게 보낼 수 있습니다.</li>
+      </ol>
+      <h2>어떻게 계산하나요?</h2>
+      <ul>
+        <li><strong>GPT 모델</strong>은 OpenAI의 실제 토크나이저(o200k)를 브라우저에서 돌려서 정확한 토큰 수를 셉니다.</li>
+        <li><strong>Claude · Gemini 등</strong>은 토크나이저가 공개된 형태가 아니라서, 실제 글로 맞춘 비율로 추정합니다(“추정치”로 표시).</li>
+        <li><strong>비용</strong> = 토큰 수 ÷ 1,000,000 × 100만 토큰당 가격. 가격은 각 회사의 공식 API 가격이며 확인한 날짜를 함께 표시합니다.</li>
+        <li><strong>언어 효율</strong>은 같은 내용을 영어로 썼을 때보다 토큰이 몇 배 드는지 보여줍니다. 한국어는 보통 영어의 약 1.44배입니다.</li>
+      </ul>
+      <h2>번역 기능은 어떻게 동작하나요?</h2>
+      <ul>
+        <li>브라우저에 내장된 AI 번역을 씁니다. <strong>PC용 Chrome 138 이상 · Edge 148 이상</strong>에서 됩니다.</li>
+        <li>처음 한 번 번역 모델을 내려받으면, 그다음부터는 <strong>내 기기 안에서</strong> 번역합니다. 입력한 글은 서버로 보내지 않습니다.</li>
+        <li>번역했는데 토큰이 오히려 늘면 번역은 적용하지 않습니다. 코드는 그대로 두고 한국어 주석만 바꿉니다.</li>
+        <li>모바일이나 지원하지 않는 브라우저에서는 공백 정리만 하고 안내 문구를 보여줍니다.</li>
+      </ul>
+      <h2>함께 보면 좋은 글</h2>
+      <ul>
+        <li><a href="/ko/blog/korean-tokens-gpt">한국어 프롬프트, 영어로 보내면 토큰 31% 절약: 41개 언어 실측</a></li>
+        <li><a href="/ko/blog/chatgpt-pro-yogeumje-bigyo">챗GPT Pro 100 vs 200 vs 500 요금제 비교</a></li>
+        <li><a href="/blog/prompt-caching-explained" lang="en">Prompt caching explained (영어)</a></li>
+      </ul>
+    </section>

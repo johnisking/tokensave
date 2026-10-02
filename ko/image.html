@@ -196,6 +196,27 @@
         <p class="text-zinc-400">나노바나나는 구글 Gemini 이미지 모델의 별명입니다. 나노바나나 2는 Gemini 3.1 Flash Image, 나노바나나 프로는 Gemini 3 Pro Image입니다.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">사용 방법</h2>
+      <ol>
+        <li>출력 <strong>해상도</strong>를 고릅니다: 0.5K(512px) · 1K(1024px) · 2K(2048px) · 4K.</li>
+        <li>만들 <strong>이미지 수</strong>를 넣습니다.</li>
+        <li>그 해상도를 지원하는 모델이 <strong>장당 가격과 합계</strong> 순으로 정렬됩니다.</li>
+      </ol>
+      <h2>어떻게 계산하나요?</h2>
+      <ul>
+        <li>대부분의 이미지 API는 해상도별로 <strong>장당 고정 가격</strong>을 받습니다.</li>
+        <li>FLUX.2는 <strong>메가픽셀 단위</strong>로 과금합니다. 첫 1MP와 추가 MP 가격이 달라서 2K(4MP)는 그만큼 더 비쌉니다.</li>
+        <li>같은 모델도 <strong>품질 설정</strong>에 따라 가격이 크게 다릅니다. GPT Image 2.5는 high가 low보다 16배 비쌉니다.</li>
+        <li>공식 API 가격이 없는 모델은 Runway API 가격으로 보여주고 표시합니다.</li>
+      </ul>
+      <h2>팁</h2>
+      <ul>
+        <li>구도는 저가·저품질 설정으로 먼저 찾고, 고른 것만 고품질로 다시 뽑으세요.</li>
+        <li>웹이나 SNS용이면 1K로 충분한 경우가 많습니다.</li>
+        <li>손, 글자, 같은 캐릭터 반복처럼 어려운 이미지는 2~4번 시도를 예산에 넣으세요.</li>
+      </ul>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

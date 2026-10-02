@@ -28,11 +28,11 @@ The gap has shrunk a lot. Hindi used 4.59× the tokens of English on the old GPT
 
 ## Five ways to pay less
 
-**1. Translate the prompt to English before sending it.** This is the biggest single saving, and modern models understand an English prompt perfectly well while still answering in your language if you ask. The [TokenSave token counter](/) has a one-click *To English* button that uses the AI translator built into desktop Chrome 138+ and Edge 148+. It runs on your device, so your text is not uploaded, and it shows how many tokens you saved.
+**1. Translate the prompt to English before sending it.** This is the biggest single saving, and modern models understand an English prompt perfectly well while still answering in your language if you ask. The [TokenSave token counter](/) has a one-click *Save tokens* button: it cleans up spaces, translates the prompt to English with the AI translator built into desktop Chrome 138+ and Edge 148+, trims filler, and adds a line asking for the reply in your original language. Translation runs on your device, so your text is not uploaded, and the counter shows how many tokens you saved.
 
 **2. Ask for the answer in your language, keep the instructions in English.** System prompts and long instructions are sent with every request. Writing those in English and adding one line, *"Reply in Korean"*, saves tokens on every call without changing what the user sees.
 
-**3. Remove repeated spaces and filler.** Extra line breaks, double spaces and polite padding all cost tokens. The token counter's *Save tokens* button cleans up spaces, trims filler and translates to English in one go.
+**3. Remove repeated spaces and filler.** Extra line breaks, double spaces and polite padding all cost tokens. The token counter's *Save tokens* button does this automatically as its first step.
 
 **4. Keep chats short.** Every new message re-sends the whole conversation. Start a new chat for a new topic and carry over a short summary instead of the full history.
 
@@ -44,4 +44,4 @@ Translate instructions and questions, not material where wording matters: legal 
 
 ## Try it with your own prompt
 
-Paste a prompt into the [token counter](/), press *To English*, and see the difference in tokens and cost across 30+ models.
+Paste a prompt into the [token counter](/), press *Save tokens*, and see the difference in tokens and cost across 30+ models.

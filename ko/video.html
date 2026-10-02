@@ -209,6 +209,23 @@
         <p class="text-zinc-400">OpenAI가 2026년 9월 24일에 Sora 2 영상 모델을 API에서 종료했기 때문에, 이제 개발자가 쓸 수 없습니다.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">사용 방법</h2>
+      <ol>
+        <li><strong>클립당 길이(초)</strong>와 <strong>클립 수</strong>를 넣습니다.</li>
+        <li><strong>해상도</strong>(480p·720p·1080p·4K)와 <strong>오디오 포함/없음</strong>을 고릅니다.</li>
+        <li>그 조건을 지원하는 모델이 <strong>합계가 싼 순서</strong>로 정렬되고, 가장 싼 모델에 “최저가” 표시가 붙습니다.</li>
+      </ol>
+      <h2>어떻게 계산하나요?</h2>
+      <ul>
+        <li>대부분의 영상 API는 <strong>초 단위</strong>로 과금합니다. 합계 = 클립 길이 × 클립 수 × 초당 가격.</li>
+        <li>Luma는 <strong>5초/10초 클립 단위</strong>로 과금해서, 긴 영상은 여러 클립으로 나눠 계산합니다.</li>
+        <li>Veo처럼 오디오가 항상 포함된 모델도 있고, Kling처럼 오디오를 켜면 더 비싸지는 모델도 있습니다.</li>
+        <li>제작사가 초당 API 가격을 공개하지 않은 모델은 Runway API 가격으로 보여주고 “Runway API 경유”로 표시합니다.</li>
+      </ul>
+      <h2>예산 잡을 때 팁</h2>
+      <p>계산기는 한 번 생성한 비용입니다. 실제로는 쓸 만한 장면 하나에 2~4번 다시 만드는 경우가 많으니 <strong>약 3배</strong>로 잡으세요. 프롬프트는 720p·저가 모델로 먼저 시험하고, 마지막 장면만 고급 모델로 뽑으면 비용을 크게 줄일 수 있습니다.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">
