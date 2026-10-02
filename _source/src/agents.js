@@ -109,6 +109,15 @@ const bind = (sel, key, parse) => {
   btns.forEach(x => x.classList.toggle('tab-active', parse(x.dataset.v) === state[key]));
 };
 bind('#aSize', 'size', v => v);
+// Usage profiles for people who don't know their numbers yet: tasks/day, task size, working days/month
+const PROFILES = { light: [3, 'small', 10], side: [6, 'feature', 12], heavy: [20, 'feature', 22] };
+document.querySelectorAll('#aProfiles button').forEach(b => b.addEventListener('click', () => {
+  const [n, size, days] = PROFILES[b.dataset.p];
+  els.tasks.value = els.tasksNum.value = n; els.days.value = days; state.size = size;
+  document.querySelectorAll('#aSize button').forEach(x => x.classList.toggle('tab-active', x.dataset.v === size));
+  document.querySelectorAll('#aProfiles button').forEach(x => x.classList.toggle('ring-2', x === b));
+  render();
+}));
 bind('#aCache', 'cache', v => v === '1');
 els.days.addEventListener('input', render);
 render();

@@ -6,6 +6,7 @@ from i18n_agents_b import B
 from i18n_agents_c import C
 from i18n_plans_all import PL
 from i18n_crosslink import X
+from i18n_agents_preset import P
 
 AG, AGNAV, AGMETA = {}, {}, {}
 for _src in (A, B, C):
@@ -20,3 +21,6 @@ for _src in (A, B, C):
 for _t in AG:
     AG[_t]["toPlans"] = X[_t][1]
     PL[_t]["toAgents"] = X[_t][0]
+
+for _t in AG:
+    AG[_t]["quick"], AG[_t]["pLight"], AG[_t]["pSide"], AG[_t]["pHeavy"] = P[_t]

@@ -16,6 +16,14 @@
     <!-- ===== Usage ===== -->
     <section class="bg-zinc-900/70 backdrop-blur border border-zinc-800 rounded-2xl p-4 sm:p-5">
       <h2 class="text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-4">{{usage}}</h2>
+      <div class="mb-4 flex flex-wrap items-center gap-2">
+        <span class="text-xs text-zinc-400">{{quick}}</span>
+        <div id="aProfiles" class="flex flex-wrap gap-1.5">
+          <button data-p="light" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-200 hover:bg-violet-500/20">{{pLight}}</button>
+          <button data-p="side" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-200 hover:bg-violet-500/20">{{pSide}}</button>
+          <button data-p="heavy" class="text-xs font-semibold px-3 py-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-200 hover:bg-violet-500/20">{{pHeavy}}</button>
+        </div>
+      </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div>
           <label for="aTasks" class="block text-xs text-zinc-400 font-semibold mb-2">{{tasks}}</label>
