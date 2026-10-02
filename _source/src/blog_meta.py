@@ -164,7 +164,7 @@ GUIDES = [
 # In-depth guides, batch 2 (original measurements + explainers)
 GUIDES += [
  _G("json-vs-yaml-vs-csv-tokens", "g-formats", "token", "JSON vs YAML vs CSV: Which Data Format Uses the Fewest Tokens?",
-    "We measured one table in 7 formats. Pretty JSON used 2.9x the tokens of CSV, XML 3.6x. Results, costs and what to use.",
+    "One table in 9 formats: row-by-row pretty JSON used 2.9x the tokens of CSV, XML 3.6x, columnar JSON about the same as CSV.",
     "Paste your data in two formats and compare the tokens.", "Open the token counter"),
  _G("how-many-tokens-does-code-use", "g-code", "agents", "How Many Tokens Does Code Use? Indentation, Comments and Minification",
     "Measured: indentation is almost free, docstrings are not, minified JS is half the tokens. Where coding tokens really go.",
