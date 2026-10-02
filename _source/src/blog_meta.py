@@ -303,3 +303,15 @@ CMAX = [
  _cc("ja", "/ja/blog/claude-max-vs-pro", "cmax-ja", "Claude Max vs Pro 比較：$100・$200プランにする価値はある？",
      "Claude Pro、Max 5×、Max 20× の使用量あたりの価格、上限の仕組み、誰がアップグレードすべきかを API 費用と合わせて比較。", _BY["ja"], *_CTA_AG["ja"]),
 ]
+
+_CTA_AS = {"en": ("See what your AI use really costs: tokens, plans, images and video, all in one free tool.", "Open TokenSave"),
+           "ko": ("AI를 쓰는 데 실제로 얼마가 드는지 확인하세요. 토큰, 구독, 이미지, 영상 비용을 무료로 계산합니다.", "토큰세이브 열기"),
+           "ja": ("AIの利用に実際いくらかかるかを確認しましょう。トークン・サブスク・画像・動画の費用を無料で計算できます。", "TokenSave を開く")}
+AISITE = [
+ _cc("en", "/blog/useful-ai-websites", "aisite-en", "15 Useful AI Websites Worth Bookmarking (Free to Start)",
+     "The AI websites actually worth a bookmark: chat, research, translation, design, voice, music, video and model comparison, all free to try.", _BY["en"], *_CTA_AS["en"]),
+ _cc("ko", "/ko/blog/ai-site-chucheon", "aisite-ko", "유용한 AI 사이트 추천 15곳: 무료로 쓰는 꿀사이트 모음",
+     "즐겨찾기할 만한 AI 사이트만 골랐습니다. 채팅, 검색, 번역, 디자인, 음성, 음악, 영상, 모델 비교까지 모두 무료로 시작할 수 있습니다.", _BY["ko"], *_CTA_AS["ko"]),
+ _cc("ja", "/ja/blog/ai-site-osusume", "aisite-ja", "便利なAIサイトおすすめ15選：無料で始められるツールまとめ",
+     "ブックマークする価値があるAIサイトだけを厳選。チャット、調べもの、翻訳、デザイン、音声、音楽、動画、モデル比較まで無料で試せます。", _BY["ja"], *_CTA_AS["ja"]),
+]
