@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Počítadlo AI tokenů", "url": "https://tokensave.app/cs/", "inLanguage": "cs", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Spočítejte tokeny a cenu API pro GPT, Claude a Gemini. Zdarma a soukromě.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "cs", "mainEntity": [{"@type": "Question", "name": "Co je token?", "acceptedAnswer": {"@type": "Answer", "text": "Token je kousek textu, který AI model čte. V angličtině odpovídá 1 token zhruba 4 znakům nebo ¾ slova."}}, {"@type": "Question", "name": "Proč jsou jiné jazyky dražší?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizéry se trénují hlavně na angličtině, takže čeština, korejština, japonština, čínština a mnoho dalších jazyků se pro stejný význam rozdělí na víc tokenů."}}, {"@type": "Question", "name": "Je můj text soukromý?", "acceptedAnswer": {"@type": "Answer", "text": "Ano. Vše běží lokálně ve vašem prohlížeči. Váš text se nikdy neodesílá na žádný server."}}, {"@type": "Question", "name": "Kolikrát více tokenů spotřebuje čeština než angličtina?", "acceptedAnswer": {"@type": "Answer", "text": "Na tokenizéru o200k od GPT spotřebuje čeština zhruba 2.00× tokenů oproti stejnému textu v angličtině, což ji řadí mezi nejdražší ze 41 měřených jazyků (rozsah 1.03× u zjednodušené čínštiny až 2.44× u pandžábštiny). Starý tokenizér GPT-4 potřeboval 2.59×, takže náklady pro češtinu přesto znatelně klesly."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Počítadlo AI tokenů", "url": "https://tokensave.app/cs/", "inLanguage": "cs", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Spočítejte tokeny a cenu API pro GPT, Claude a Gemini. Zdarma a soukromě.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "cs", "mainEntity": [{"@type": "Question", "name": "Co je token?", "acceptedAnswer": {"@type": "Answer", "text": "Token je kousek textu, který AI model čte. V angličtině odpovídá 1 token zhruba 4 znakům nebo ¾ slova."}}, {"@type": "Question", "name": "Proč jsou jiné jazyky dražší?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizéry se trénují hlavně na angličtině, takže čeština, korejština, japonština, čínština a mnoho dalších jazyků se pro stejný význam rozdělí na víc tokenů."}}, {"@type": "Question", "name": "Je můj text soukromý?", "acceptedAnswer": {"@type": "Answer", "text": "Ano. Vše běží lokálně ve vašem prohlížeči. Váš text se nikdy neodesílá na žádný server."}}, {"@type": "Question", "name": "Kolikrát více tokenů spotřebuje čeština než angličtina?", "acceptedAnswer": {"@type": "Answer", "text": "V tokenizéru GPT (o200k) spotřebuje čeština asi 2,00× tokenů oproti stejnému textu v angličtině, takže odeslání promptu v angličtině ušetří asi 50%. Tlačítko 💸 Ušetřit tokeny ho přeloží do angličtiny přímo ve vašem zařízení (Chrome / Edge na počítači) a požádá o odpověď v češtině."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -310,8 +310,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Kolikrát více tokenů spotřebuje čeština než angličtina?</h2>
-        <p class="text-zinc-400">Na tokenizéru o200k od GPT spotřebuje čeština zhruba 2.00× tokenů oproti stejnému textu v angličtině, což ji řadí mezi nejdražší ze 41 měřených jazyků (rozsah 1.03× u zjednodušené čínštiny až 2.44× u pandžábštiny). Starý tokenizér GPT-4 potřeboval 2.59×, takže náklady pro češtinu přesto znatelně klesly.</p>
+        <p class="text-zinc-400">V tokenizéru GPT (o200k) spotřebuje čeština asi 2,00× tokenů oproti stejnému textu v angličtině, takže odeslání promptu v angličtině ušetří asi 50%. Tlačítko 💸 Ušetřit tokeny ho přeloží do angličtiny přímo ve vašem zařízení (Chrome / Edge na počítači) a požádá o odpověď v češtině.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Jak používat</h2>
+      <ol>
+        <li><strong>Vložte svůj prompt</strong> — počet tokenů, znaků, slov a odhadovaná cena se aktualizují už při psaní.</li>
+        <li><strong>Vyberte model</strong> na kartách GPT · Claude · Gemini · Další a uvidíte cenu za jeden požadavek i za měsíc podle ceníku daného modelu. Můžete také změnit očekávanou délku odpovědi a počet požadavků za měsíc.</li>
+        <li><strong>💸 Ušetřit tokeny</strong> — když lze text zkrátit, objeví se toto tlačítko s očekávanou úsporou. Jedním krokem odstraní nadbytečné mezery, přeloží prompt do angličtiny a vypustí výplňová slova, pak přidá „Reply in Czech.“, aby odpověď přišla i tak ve vašem jazyce. Dalším stisknutím (↩ Originál) vrátíte původní text.</li>
+        <li><strong>Zobrazit rozdělení na tokeny</strong> — barevně ukáže, jak se váš text dělí na tokeny.</li>
+        <li><strong>Chat (JSON)</strong> — vložte pole zpráv, které posíláte do API, a k počtu se přičtou tokeny, které spotřebuje formát zpráv.</li>
+        <li><strong>Sdílet</strong> — z vloženého textu vytvoří odkaz, který můžete někomu poslat.</li>
+      </ol>
+      <h2>Jak se to počítá?</h2>
+      <ul>
+        <li><strong>Modely GPT</strong>: skutečný tokenizér OpenAI (o200k) běží přímo ve vašem prohlížeči, takže počet je přesný.</li>
+        <li><strong>Claude, Gemini a další</strong>: jejich tokenizéry nejsou zveřejněny ve stejné podobě, takže počty jsou odhady kalibrované na skutečných textech (označené jako odhad).</li>
+        <li><strong>Cena</strong> = tokeny ÷ 1 000 000 × cena za milion tokenů. Ceny jsou oficiální ceny API jednotlivých poskytovatelů, uvedené s datem ověření.</li>
+        <li><strong>Efektivita jazyka</strong> ukazuje, kolikrát více tokenů potřebuje váš text než stejný obsah v angličtině. Čeština potřebuje asi 2,00× — odeslání promptu v angličtině ušetří asi 50%.</li>
+      </ul>
+      <h2>Jak funguje překlad?</h2>
+      <ul>
+        <li>Využívá AI překladač vestavěný v prohlížeči: <strong>Chrome 138+ nebo Edge 148+ na počítači</strong>.</li>
+        <li>Překladový model se stáhne jen jednou; poté překlad probíhá <strong>přímo ve vašem zařízení</strong>. Váš text se nikdy neodesílá na server.</li>
+        <li>Pokud by překlad počet tokenů zvýšil, nepoužije se. U kódu se překládají jen komentáře.</li>
+        <li>Na mobilu a v nepodporovaných prohlížečích se jen odstraní nadbytečné mezery a zobrazí se upozornění.</li>
+      </ul>
+      <h2>Související článek</h2>
+      <ul><li><a href="/cs/blog/cestina-tokeny-gpt">Čeština v GPT stojí 2× víc tokenů než angličtina</a></li></ul>
     </section>
 
 

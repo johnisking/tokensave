@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Penghitung Token AI", "url": "https://tokensave.app/id/", "inLanguage": "id", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Hitung token dan biaya API GPT, Claude, dan Gemini. Gratis, tanpa unggah.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "id", "mainEntity": [{"@type": "Question", "name": "Apa itu token?", "acceptedAnswer": {"@type": "Answer", "text": "Token adalah potongan teks yang dibaca model AI. Dalam bahasa Inggris, 1 token kira-kira 4 karakter atau ¾ kata."}}, {"@type": "Question", "name": "Mengapa bahasa lain lebih mahal?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizer sebagian besar dilatih dengan bahasa Inggris, sehingga banyak bahasa lain dipecah menjadi lebih banyak token untuk makna yang sama."}}, {"@type": "Question", "name": "Apakah teks saya aman?", "acceptedAnswer": {"@type": "Answer", "text": "Ya. Semua proses berjalan lokal di browser Anda. Teks Anda tidak pernah dikirim ke server mana pun."}}, {"@type": "Question", "name": "Berapa kali lebih banyak token yang dipakai bahasa Indonesia dibanding bahasa Inggris?", "acceptedAnswer": {"@type": "Answer", "text": "Pada tokenizer o200k GPT, bahasa Indonesia memakai sekitar 1.15× token dari teks yang sama dalam bahasa Inggris. Tokenizer GPT-4 lama membutuhkan 1.38×, jadi biaya untuk bahasa Indonesia turun cukup banyak; di 41 bahasa, rasionya berkisar dari 1.03× (Tionghoa Sederhana) hingga 2.44× (Punjabi)."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Penghitung Token AI", "url": "https://tokensave.app/id/", "inLanguage": "id", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Hitung token dan biaya API GPT, Claude, dan Gemini. Gratis, tanpa unggah.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "id", "mainEntity": [{"@type": "Question", "name": "Apa itu token?", "acceptedAnswer": {"@type": "Answer", "text": "Token adalah potongan teks yang dibaca model AI. Dalam bahasa Inggris, 1 token kira-kira 4 karakter atau ¾ kata."}}, {"@type": "Question", "name": "Mengapa bahasa lain lebih mahal?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizer sebagian besar dilatih dengan bahasa Inggris, sehingga banyak bahasa lain dipecah menjadi lebih banyak token untuk makna yang sama."}}, {"@type": "Question", "name": "Apakah teks saya aman?", "acceptedAnswer": {"@type": "Answer", "text": "Ya. Semua proses berjalan lokal di browser Anda. Teks Anda tidak pernah dikirim ke server mana pun."}}, {"@type": "Question", "name": "Berapa kali lebih banyak token yang dipakai bahasa Indonesia dibanding bahasa Inggris?", "acceptedAnswer": {"@type": "Answer", "text": "Pada tokenizer GPT (o200k), bahasa Indonesia memakai sekitar 1,15× token dari teks yang sama dalam bahasa Inggris, jadi mengirim prompt dalam bahasa Inggris menghemat sekitar 13%. Tombol 💸 Hemat token menerjemahkannya ke bahasa Inggris di perangkat Anda (Chrome / Edge desktop) dan meminta jawaban dalam bahasa Indonesia."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -309,8 +309,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Berapa kali lebih banyak token yang dipakai bahasa Indonesia dibanding bahasa Inggris?</h2>
-        <p class="text-zinc-400">Pada tokenizer o200k GPT, bahasa Indonesia memakai sekitar 1.15× token dari teks yang sama dalam bahasa Inggris. Tokenizer GPT-4 lama membutuhkan 1.38×, jadi biaya untuk bahasa Indonesia turun cukup banyak; di 41 bahasa, rasionya berkisar dari 1.03× (Tionghoa Sederhana) hingga 2.44× (Punjabi).</p>
+        <p class="text-zinc-400">Pada tokenizer GPT (o200k), bahasa Indonesia memakai sekitar 1,15× token dari teks yang sama dalam bahasa Inggris, jadi mengirim prompt dalam bahasa Inggris menghemat sekitar 13%. Tombol 💸 Hemat token menerjemahkannya ke bahasa Inggris di perangkat Anda (Chrome / Edge desktop) dan meminta jawaban dalam bahasa Indonesia.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Cara menggunakan</h2>
+      <ol>
+        <li><strong>Tempel prompt Anda</strong> — jumlah token, karakter, kata, dan perkiraan biaya diperbarui saat Anda mengetik.</li>
+        <li><strong>Pilih model</strong> di tab GPT · Claude · Gemini · Lainnya untuk melihat biaya per permintaan dan per bulan sesuai harga model tersebut. Anda juga bisa mengubah perkiraan output dan jumlah permintaan per bulan.</li>
+        <li><strong>💸 Hemat token</strong> — jika teks Anda bisa dipersingkat, tombol ini muncul beserta perkiraan penghematannya. Sekali tekan, tombol ini merapikan spasi, menerjemahkan prompt ke bahasa Inggris, dan membuang kata-kata yang tidak perlu, lalu menambahkan "Reply in Indonesian." agar jawabannya tetap dalam bahasa Anda. Tekan lagi (↩ Asli) untuk mengembalikan teks asli.</li>
+        <li><strong>Lihat cara teks dipecah jadi token</strong> — menampilkan dengan warna bagaimana teks Anda dipecah menjadi token.</li>
+        <li><strong>Chat (JSON)</strong> — tempel array pesan yang Anda kirim ke API, dan token yang dipakai oleh format pesan ikut ditambahkan ke hitungan.</li>
+        <li><strong>Bagikan</strong> — mengubah teks yang Anda masukkan menjadi tautan yang bisa dikirim ke orang lain.</li>
+      </ol>
+      <h2>Bagaimana cara menghitungnya?</h2>
+      <ul>
+        <li><strong>Model GPT</strong>: tokenizer OpenAI yang asli (o200k) berjalan di browser Anda, jadi hitungannya tepat.</li>
+        <li><strong>Claude, Gemini, dan lainnya</strong>: tokenizer-nya tidak dipublikasikan dalam bentuk yang sama, jadi hitungannya berupa perkiraan yang dikalibrasi pada teks nyata (ditandai sebagai perkiraan).</li>
+        <li><strong>Biaya</strong> = token ÷ 1.000.000 × harga per sejuta token. Harga yang dipakai adalah harga API resmi tiap penyedia, ditampilkan beserta tanggal pengecekannya.</li>
+        <li><strong>Efisiensi bahasa</strong> menunjukkan berapa kali lipat token yang dibutuhkan teks Anda dibanding konten yang sama dalam bahasa Inggris. Bahasa Indonesia membutuhkan sekitar 1,15× — mengirim prompt dalam bahasa Inggris menghemat sekitar 13%.</li>
+      </ul>
+      <h2>Bagaimana terjemahannya bekerja?</h2>
+      <ul>
+        <li>Fitur ini memakai penerjemah AI bawaan browser: <strong>Chrome 138+ atau Edge 148+ versi desktop</strong>.</li>
+        <li>Model terjemahan diunduh sekali; setelah itu, penerjemahan dilakukan <strong>di perangkat Anda sendiri</strong>. Teks Anda tidak pernah dikirim ke server.</li>
+        <li>Jika terjemahan justru menambah token, terjemahan tidak diterapkan. Untuk kode, hanya komentarnya yang diterjemahkan.</li>
+        <li>Di perangkat seluler atau browser yang tidak didukung, hanya spasi yang dirapikan dan sebuah pemberitahuan ditampilkan.</li>
+      </ul>
+      <h2>Artikel terkait</h2>
+      <ul><li><a href="/id/blog/token-bahasa-indonesia-gpt">Bahasa Indonesia memakai 1,15× token bahasa Inggris di GPT</a></li></ul>
     </section>
 
 

@@ -215,6 +215,18 @@
         <p class="text-zinc-400">Pour quelques petites tâches par jour, l&#x27;API est souvent moins chère. Pour un usage intensif quotidien, un abonnement à 100–200 $ revient souvent moins cher, tant que vous restez dans ses limites.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Mode d'emploi</h2>
+      <ol>
+        <li>Choisissez la <strong>Tâche typique</strong>, les <strong>Tâches par jour</strong> et les <strong>Jours travaillés par mois</strong>.</li>
+        <li>Laissez le <strong>Cache de prompt</strong> activé : la plupart des outils l'utilisent.</li>
+        <li>Comparez le coût API mensuel de chaque modèle avec les abonnements Claude et ChatGPT qui incluent un agent de programmation.</li>
+      </ol>
+      <h2>Comment est-ce calculé ?</h2>
+      <p>Un agent de programmation renvoie tout son contexte de travail (prompt système, définitions d'outils, fichiers lus, étapes précédentes) à chaque étape. Une tâche de développement de fonctionnalité est modélisée en 25 étapes qui commencent à 22 000 tokens, augmentent de 3 500 tokens et écrivent 700 tokens par étape. Avec le cache activé, le contexte répété est facturé à environ 10 % du prix d'entrée.</p>
+      <h2>Conseils</h2>
+      <p>Rédiger les instructions (prompt système) en anglais plutôt qu'en français permet d'économiser environ 22 % de leurs tokens.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

@@ -215,6 +215,18 @@
         <p class="text-zinc-400">Oui. Le même texte en coréen, en hindi ou en grec demande plus de tokens qu’en anglais, donc le coût de l’API augmente d’autant. Les abonnements coûtent le même prix, mais vous atteignez leurs limites plus vite.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Mode d'emploi</h2>
+      <ol>
+        <li>Indiquez les <strong>Messages par jour</strong>, la <strong>Taille des messages</strong> et les <strong>Messages par conversation</strong>.</li>
+        <li>Choisissez la <strong>Langue dans laquelle vous écrivez</strong>. Le français utilise environ 1,29× les tokens de l'anglais, ce qui se répercute directement sur le coût de l'API.</li>
+        <li>Chaque carte (ChatGPT · Claude · Gemini) indique combien coûterait le même usage par mois via l'API, et si un abonnement ou l'API revient moins cher.</li>
+      </ol>
+      <h2>Comment est-ce calculé ?</h2>
+      <p>Un modèle de chat relit toute la conversation à chaque message : les messages suivants envoient donc de plus en plus de tokens en entrée. Le calculateur additionne ces entrées croissantes, les réponses et le ratio de tokens de votre langue, puis applique le prix API par million de tokens de chaque modèle. Les prix des abonnements sont les tarifs mensuels officiels aux États-Unis.</p>
+      <h2>Conseils</h2>
+      <p>Les abonnements incluent des fonctionnalités comme l'application, la génération d'images, la voix et la mémoire, et comportent des limites d'utilisation. Utilisez le résultat comme repère pour savoir ce qui revient le moins cher selon votre usage de l'IA.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI-tokenräknare", "url": "https://tokensave.app/sv/", "inLanguage": "sv", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Räkna tokens, tecken och API-kostnad för GPT, Claude och Gemini. Gratis, privat.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "sv", "mainEntity": [{"@type": "Question", "name": "Vad är en token?", "acceptedAnswer": {"@type": "Answer", "text": "En token är en bit text som en AI-modell läser. På engelska motsvarar 1 token ungefär 4 tecken eller ¾ av ett ord."}}, {"@type": "Question", "name": "Varför kostar andra språk mer?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizers tränas mest på engelska, så svenska, koreanska, japanska, kinesiska och många andra språk delas upp i fler tokens för samma innehåll."}}, {"@type": "Question", "name": "Är min text privat?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Allt körs lokalt i din webbläsare. Din text skickas aldrig till någon server."}}, {"@type": "Question", "name": "Hur många fler tokens använder svenska jämfört med engelska?", "acceptedAnswer": {"@type": "Answer", "text": "Med GPT:s o200k-tokenizer använder svenska cirka 1.32× så många tokens som samma text på engelska. Den gamla GPT-4-tokenizern krävde 1.50×, så kostnaden för svenska har sjunkit tydligt; över 41 språk sträcker sig förhållandet från 1.03× (förenklad kinesiska) till 2.44× (punjabi)."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI-tokenräknare", "url": "https://tokensave.app/sv/", "inLanguage": "sv", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Räkna tokens, tecken och API-kostnad för GPT, Claude och Gemini. Gratis, privat.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "sv", "mainEntity": [{"@type": "Question", "name": "Vad är en token?", "acceptedAnswer": {"@type": "Answer", "text": "En token är en bit text som en AI-modell läser. På engelska motsvarar 1 token ungefär 4 tecken eller ¾ av ett ord."}}, {"@type": "Question", "name": "Varför kostar andra språk mer?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizers tränas mest på engelska, så svenska, koreanska, japanska, kinesiska och många andra språk delas upp i fler tokens för samma innehåll."}}, {"@type": "Question", "name": "Är min text privat?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Allt körs lokalt i din webbläsare. Din text skickas aldrig till någon server."}}, {"@type": "Question", "name": "Hur många fler tokens använder svenska jämfört med engelska?", "acceptedAnswer": {"@type": "Answer", "text": "Med GPT:s tokenizer (o200k) använder svenska cirka 1,32× så många tokens som samma text på engelska, så om du skickar prompten på engelska sparar du cirka 24 %. Knappen 💸 Spara tokens översätter den till engelska på din enhet (Chrome / Edge på dator) och ber om svar på svenska."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -310,8 +310,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Hur många fler tokens använder svenska jämfört med engelska?</h2>
-        <p class="text-zinc-400">Med GPT:s o200k-tokenizer använder svenska cirka 1.32× så många tokens som samma text på engelska. Den gamla GPT-4-tokenizern krävde 1.50×, så kostnaden för svenska har sjunkit tydligt; över 41 språk sträcker sig förhållandet från 1.03× (förenklad kinesiska) till 2.44× (punjabi).</p>
+        <p class="text-zinc-400">Med GPT:s tokenizer (o200k) använder svenska cirka 1,32× så många tokens som samma text på engelska, så om du skickar prompten på engelska sparar du cirka 24 %. Knappen 💸 Spara tokens översätter den till engelska på din enhet (Chrome / Edge på dator) och ber om svar på svenska.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Så använder du verktyget</h2>
+      <ol>
+        <li><strong>Klistra in din prompt</strong> – antalet tokens, tecken och ord samt den uppskattade kostnaden uppdateras medan du skriver.</li>
+        <li><strong>Välj en modell</strong> under flikarna GPT · Claude · Gemini · Övriga för att se kostnaden per anrop och per månad till modellens pris. Du kan också ändra förväntad svarslängd och antal anrop per månad.</li>
+        <li><strong>💸 Spara tokens</strong> – när texten kan kortas visas den här knappen med den förväntade besparingen. Den rensar mellanslag, översätter prompten till engelska och stryker utfyllnad i ett steg, och lägger sedan till "Reply in Swedish." så att svaret ändå kommer på ditt språk. Tryck igen (↩ Original) för att få tillbaka originaltexten.</li>
+        <li><strong>Se hur texten delas upp i tokens</strong> – visar i färg hur texten delas upp i tokens.</li>
+        <li><strong>Chatt (JSON)</strong> – klistra in meddelandelistan du skickar till API:et, så räknas även de tokens som meddelandeformatet använder.</li>
+        <li><strong>Dela</strong> – gör om texten du har skrivit till en länk som du kan skicka till någon.</li>
+      </ol>
+      <h2>Hur räknas det ut?</h2>
+      <ul>
+        <li><strong>GPT-modeller</strong>: OpenAI:s riktiga tokenizer (o200k) körs i din webbläsare, så antalet är exakt.</li>
+        <li><strong>Claude, Gemini och övriga</strong>: deras tokenizers är inte publicerade på samma sätt, så antalen är uppskattningar kalibrerade mot verklig text (markerade som uppskattning).</li>
+        <li><strong>Kostnad</strong> = tokens ÷ 1 000 000 × pris per miljon tokens. Priserna är respektive leverantörs officiella API-priser och visas med datumet då de kontrollerades.</li>
+        <li><strong>Språkeffektivitet</strong> visar hur många gånger fler tokens din text behöver jämfört med samma innehåll på engelska. Svenska behöver cirka 1,32× – skickar du prompten på engelska sparar du cirka 24 %.</li>
+      </ul>
+      <h2>Hur fungerar översättningen?</h2>
+      <ul>
+        <li>Den använder AI-översättaren som är inbyggd i webbläsaren: <strong>Chrome 138+ eller Edge 148+ på dator</strong>.</li>
+        <li>Översättningsmodellen laddas ner en gång; därefter sker översättningen <strong>på din egen enhet</strong>. Din text skickas aldrig till någon server.</li>
+        <li>Om översättningen skulle öka antalet tokens används den inte. I kod översätts bara kommentarerna.</li>
+        <li>I mobilen eller i webbläsare som inte stöds rensas bara mellanslagen och ett meddelande visas.</li>
+      </ul>
+      <h2>Relaterad artikel</h2>
+      <ul><li><a href="/sv/blog/tokens-svenska-gpt">Svenska kostar 1,32× så många tokens som engelska i GPT</a></li></ul>
     </section>
 
 

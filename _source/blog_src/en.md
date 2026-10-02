@@ -1,4 +1,4 @@
-I translated one ordinary customer-support prompt into 41 languages and counted tokens with **o200k_base**, the tokenizer behind GPT-4o and every newer OpenAI model (the last column uses cl100k, the GPT-4-era tokenizer). English needs 34 tokens. The same request costs anywhere from **1.03×** (Simplified Chinese) to **2.44×** (Punjabi).
+I translated one ordinary customer-support prompt into 41 languages and counted tokens with **o200k_base**, the tokenizer behind GPT-4o and every newer OpenAI model English needs 34 tokens. The same request costs anywhere from **1.03×** (Simplified Chinese) to **2.44×** (Punjabi).
 
 The English prompt:
 
@@ -6,49 +6,49 @@ The English prompt:
 
 ## All 41 languages
 
-| Language | Tokens | vs English | Old GPT-4 |
+| Language | Tokens | vs English | Saved if sent in English |
 |---|---:|---:|---:|
-| English | 34 | 1.00× | 1.00× |
-| Chinese (Simplified) | 35 | 1.03× | 1.53× |
-| Indonesian | 39 | 1.15× | 1.38× |
-| Spanish | 40 | 1.18× | 1.29× |
-| Portuguese | 41 | 1.21× | 1.41× |
-| Persian | 42 | 1.24× | 2.79× |
-| German | 43 | 1.26× | 1.50× |
-| Arabic | 43 | 1.26× | 3.03× |
-| French | 44 | 1.29× | 1.44× |
-| Dutch | 44 | 1.29× | 1.74× |
-| Russian | 45 | 1.32× | 2.15× |
-| Swedish | 45 | 1.32× | 1.50× |
-| Norwegian | 45 | 1.32× | 1.56× |
-| Chinese (Traditional) | 46 | 1.35× | 2.12× |
-| Vietnamese | 46 | 1.35× | 2.32× |
-| Danish | 46 | 1.35× | 1.59× |
-| Italian | 47 | 1.38× | 1.59× |
-| Korean | 49 | 1.44× | 2.50× |
-| Finnish | 49 | 1.44× | 2.03× |
-| Turkish | 50 | 1.47× | 2.06× |
-| Hindi | 51 | 1.50× | 4.59× |
-| Filipino | 52 | 1.53× | 1.76× |
-| Romanian | 52 | 1.53× | 1.76× |
-| Hebrew | 53 | 1.56× | 3.76× |
-| Urdu | 54 | 1.59× | 4.24× |
-| Gujarati | 54 | 1.59× | 7.18× |
-| Marathi | 56 | 1.65× | 4.91× |
-| Bengali | 57 | 1.68× | 6.09× |
-| Thai | 59 | 1.74× | 3.71× |
-| Hungarian | 59 | 1.74× | 2.26× |
-| Japanese | 61 | 1.79× | 2.21× |
-| Kannada | 61 | 1.79× | 9.35× |
-| Malayalam | 63 | 1.85× | 10.09× |
-| Ukrainian | 64 | 1.88× | 3.15× |
-| Polish | 64 | 1.88× | 2.12× |
-| Tamil | 67 | 1.97× | 8.47× |
-| Czech | 68 | 2.00× | 2.59× |
-| Slovak | 68 | 2.00× | 2.53× |
-| Telugu | 69 | 2.03× | 9.38× |
-| Greek | 70 | 2.06× | 4.94× |
-| Punjabi | 83 | 2.44× | 7.41× |
+| English | 34 | 1.00× | – |
+| Chinese (Simplified) | 35 | 1.03× | 3% |
+| Indonesian | 39 | 1.15× | 13% |
+| Spanish | 40 | 1.18× | 15% |
+| Portuguese | 41 | 1.21× | 17% |
+| Persian | 42 | 1.24× | 19% |
+| German | 43 | 1.26× | 21% |
+| Arabic | 43 | 1.26× | 21% |
+| French | 44 | 1.29× | 22% |
+| Dutch | 44 | 1.29× | 22% |
+| Russian | 45 | 1.32× | 24% |
+| Swedish | 45 | 1.32× | 24% |
+| Norwegian | 45 | 1.32× | 24% |
+| Chinese (Traditional) | 46 | 1.35× | 26% |
+| Vietnamese | 46 | 1.35× | 26% |
+| Danish | 46 | 1.35× | 26% |
+| Italian | 47 | 1.38× | 28% |
+| Korean | 49 | 1.44× | 31% |
+| Finnish | 49 | 1.44× | 31% |
+| Turkish | 50 | 1.47× | 32% |
+| Hindi | 51 | 1.50× | 33% |
+| Filipino | 52 | 1.53× | 35% |
+| Romanian | 52 | 1.53× | 35% |
+| Hebrew | 53 | 1.56× | 36% |
+| Urdu | 54 | 1.59× | 37% |
+| Gujarati | 54 | 1.59× | 37% |
+| Marathi | 56 | 1.65× | 39% |
+| Bengali | 57 | 1.68× | 40% |
+| Thai | 59 | 1.74× | 43% |
+| Hungarian | 59 | 1.74× | 43% |
+| Japanese | 61 | 1.79× | 44% |
+| Kannada | 61 | 1.79× | 44% |
+| Malayalam | 63 | 1.85× | 46% |
+| Ukrainian | 64 | 1.88× | 47% |
+| Polish | 64 | 1.88× | 47% |
+| Tamil | 67 | 1.97× | 49% |
+| Czech | 68 | 2.00× | 50% |
+| Slovak | 68 | 2.00× | 50% |
+| Telugu | 69 | 2.03× | 51% |
+| Greek | 70 | 2.06× | 51% |
+| Punjabi | 83 | 2.44× | 59% |
 
 ![Extra tokens per language vs English](/blog-language-tax-chart-v4.png)
 
@@ -60,17 +60,9 @@ Tokenizers are trained mostly on English, so common English words are a single t
 - Polish: opóźnieniem → `op | ó | ź | n | ieniem`
 - Hindi: सारांशित → `सार | ांश | ित`
 
-## The old tokenizer was much worse
+## Send it in English and save
 
-On the GPT-4-era tokenizer (cl100k), the gap was far larger. The biggest improvements:
-
-- Malayalam: 10.09× → 1.85×
-- Kannada: 9.35× → 1.79×
-- Telugu: 9.38× → 2.03×
-- Gujarati: 7.18× → 1.59×
-- Tamil: 8.47× → 1.97×
-
-That is why the common advice "Korean costs 2–3× English" is out of date: Korean went from 2.50× to 1.44×.
+Current models understand English instructions perfectly well and answer in your language if you ask, so the simplest saving is to send the prompt in English: about 31% fewer tokens for Korean, 44% for Japanese and 50% for Czech. In the [token counter](/), paste a prompt and press **💸 Save tokens**: it cleans up spaces, translates to English with the translator built into desktop Chrome 138+ / Edge 148+ (on your device; nothing is uploaded), trims filler and adds a line asking for the reply in your language. How the gap has changed over time is covered in [How GPT's new tokenizer cut costs in 40 languages](/blog/gpt-tokenizer-cl100k-vs-o200k).
 
 ## What it costs
 
@@ -78,6 +70,7 @@ With a model at $2 per million input tokens, sending this prompt one million tim
 
 ## How to spend fewer tokens
 
+- Send the prompt in English and ask for the answer in your language (the Save tokens button does this in one click).
 - Write the system prompt and fixed instructions in English; keep only user input in the user's language.
 - Ask for intermediate steps (classification, extraction, tool calls) in English or JSON, and only the final answer in the user's language.
 - Cache the fixed part of the prompt (prompt caching).

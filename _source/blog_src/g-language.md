@@ -18,8 +18,6 @@ We sent the same 34-token English prompt through GPT's current o200k tokenizer i
 
 The "saving" column is how many fewer tokens the same content needs in English. The [full 41-language study](/blog/token-cost-by-language) has every language, including the ones that cost twice as much as English.
 
-The gap has shrunk a lot. Hindi used 4.59× the tokens of English on the old GPT-4 tokenizer and 1.50× today. But it has not closed.
-
 ## Why it matters
 
 - **API cost** scales directly with tokens. A team sending Japanese prompts pays roughly 1.8 times what an English-speaking team pays for the same work.

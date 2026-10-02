@@ -210,6 +210,23 @@
         <p class="text-zinc-400">OpenAI 已於 2026 年 9 月 24 日將 Sora 2 影片模型從 API 下架，開發者已無法使用。</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">使用方式</h2>
+      <ol>
+        <li>輸入<strong>每段長度（秒）</strong>和<strong>影片段數</strong>。</li>
+        <li>選擇<strong>解析度</strong>（480p · 720p · 1080p · 4K）以及<strong>含音訊</strong> / <strong>無音訊</strong>。</li>
+        <li>支援所選條件的模型會依總費用由低到高排序，最便宜的會標示為「最便宜」。</li>
+      </ol>
+      <h2>如何計算？</h2>
+      <ul>
+        <li>大多數影片 API 按秒計費：總費用 = 每段長度 × 段數 × 每秒價格。</li>
+        <li>Luma 以每段 5 秒或 10 秒計費，因此較長的影片會算成多段。</li>
+        <li>有些模型一律包含音訊（Veo）；有些模型開啟音訊後價格較高（Kling）。</li>
+        <li>若廠商未公布按秒計費的 API 價格，則顯示 Runway 的 API 價格，並標示為「經 Runway API」。</li>
+      </ul>
+      <h2>小提示</h2>
+      <p>結果是單次生成的費用。一個可用的鏡頭通常要試 2–4 次，因此預算請抓約 3 倍。先用便宜的模型以 720p 測試提示詞，只在最終版本使用高階模型算圖。</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

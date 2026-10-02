@@ -197,6 +197,22 @@
         <p class="text-zinc-400">Nano Banana là biệt danh của các mô hình ảnh Gemini của Google. Nano Banana 2 là Gemini 3.1 Flash Image, còn Nano Banana Pro là Gemini 3 Pro Image.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Cách sử dụng</h2>
+      <ol>
+        <li>Chọn độ phân giải đầu ra: 0,5K (512 px) · 1K (1024 px) · 2K (2048 px) · 4K.</li>
+        <li>Nhập <strong>Số lượng ảnh</strong>.</li>
+        <li>Các mô hình hỗ trợ kích thước đó được sắp xếp theo giá mỗi ảnh và tổng chi phí.</li>
+      </ol>
+      <h2>Được tính như thế nào?</h2>
+      <ul>
+        <li>Hầu hết API tạo ảnh tính một mức giá cố định cho mỗi ảnh ở từng độ phân giải.</li>
+        <li>FLUX.2 tính phí theo megapixel: megapixel đầu tiên một mức giá, mỗi megapixel thêm một mức thấp hơn, nên 2K (4 MP) đắt hơn.</li>
+        <li>Thiết lập chất lượng rất quan trọng: GPT Image 2.5 ở chất lượng cao đắt gấp 16 lần so với chất lượng thấp.</li>
+      </ul>
+      <h2>Mẹo</h2>
+      <p>Tìm bố cục bằng thiết lập rẻ, chất lượng thấp, rồi chỉ tạo lại ở chất lượng cao những ảnh bạn giữ lại. Với web và mạng xã hội, 1K thường là đủ.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

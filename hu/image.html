@@ -197,6 +197,22 @@
         <p class="text-zinc-400">A Nano Banana a Google Gemini képmodelljeinek beceneve. A Nano Banana 2 a Gemini 3.1 Flash Image, a Nano Banana Pro pedig a Gemini 3 Pro Image.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Használat</h2>
+      <ol>
+        <li>Válaszd ki a kimeneti felbontást: 0,5K (512 px) · 1K (1024 px) · 2K (2048 px) · 4K.</li>
+        <li>Add meg: <strong>Képek száma</strong>.</li>
+        <li>Az adott méretet támogató modellek képenkénti ár és összköltség szerint vannak rendezve.</li>
+      </ol>
+      <h2>Hogyan számol?</h2>
+      <ul>
+        <li>A legtöbb kép-API felbontásonként fix árat kér képenként.</li>
+        <li>A FLUX.2 megapixelenként számláz: az első megapixel egy díjtétellel, minden további alacsonyabbal, így a 2K (4 MP) többe kerül.</li>
+        <li>A minőségi beállítás számít: a GPT Image 2.5 magas minőségben 16-szor annyiba kerül, mint alacsonyban.</li>
+      </ul>
+      <h2>Tippek</h2>
+      <p>A kompozíciót olcsó, alacsony minőségű beállítással keresd meg, majd csak a megtartott képeket generáld újra magas minőségben. Webre és közösségi médiára általában elég az 1K.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

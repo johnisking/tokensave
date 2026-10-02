@@ -210,6 +210,23 @@
         <p class="text-zinc-400">OpenAI usunęło modele wideo Sora 2 ze swojego API 24 września 2026 roku, więc nie są już dostępne dla programistów.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Jak używać</h2>
+      <ol>
+        <li>Podaj <strong>Długość klipu (sekundy)</strong> i <strong>Liczba klipów</strong>.</li>
+        <li>Wybierz <strong>Rozdzielczość</strong> (480p · 720p · 1080p · 4K) oraz <strong>Z dźwiękiem</strong> / <strong>Bez dźwięku</strong>.</li>
+        <li>Modele obsługujące Twój wybór są posortowane według łącznego kosztu, od najtańszego, a najtańszy jest oznaczony jako „Najtaniej”.</li>
+      </ol>
+      <h2>Jak to jest liczone?</h2>
+      <ul>
+        <li>Większość API wideo nalicza opłaty za sekundę: razem = długość klipu × liczba klipów × cena za sekundę.</li>
+        <li>Luma rozlicza klipy 5- lub 10-sekundowe, więc dłuższe filmy liczone są jako kilka klipów.</li>
+        <li>Niektóre modele zawsze generują dźwięk (Veo), inne kosztują więcej z dźwiękiem (Kling).</li>
+        <li>Gdy twórca modelu nie publikuje ceny API za sekundę, pokazujemy cenę w API Runway z oznaczeniem „Przez API Runway”.</li>
+      </ul>
+      <h2>Wskazówki</h2>
+      <p>Wynik to koszt jednej generacji. Udane ujęcie często wymaga 2–4 prób, więc zaplanuj budżet około 3×. Testuj prompty na tanim modelu w 720p, a tylko ostateczną wersję renderuj na modelu premium.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

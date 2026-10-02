@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI-tokenteller", "url": "https://tokensave.app/no/", "inLanguage": "no", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Tell tokens, tegn og API-kostnad for GPT, Claude og Gemini. Gratis og privat.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "no", "mainEntity": [{"@type": "Question", "name": "Hva er et token?", "acceptedAnswer": {"@type": "Answer", "text": "Et token er en tekstbit som en AI-modell leser. På engelsk tilsvarer 1 token omtrent 4 tegn eller ¾ av et ord."}}, {"@type": "Question", "name": "Hvorfor koster andre språk mer?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizere trenes mest på engelsk, så norsk, koreansk, japansk og mange andre språk deles opp i flere tokens for samme innhold."}}, {"@type": "Question", "name": "Er teksten min privat?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Alt kjører lokalt i nettleseren din. Teksten din sendes aldri til noen server."}}, {"@type": "Question", "name": "Hvor mange flere tokens bruker norsk enn engelsk?", "acceptedAnswer": {"@type": "Answer", "text": "På GPTs o200k-tokenizer bruker norsk omtrent 1.32× så mange tokens som den samme teksten på engelsk. Den gamle GPT-4-tokenizeren trengte 1.56×; blant 41 målte språk går forholdet fra 1.03× (forenklet kinesisk) til 2.44× (punjabi)."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI-tokenteller", "url": "https://tokensave.app/no/", "inLanguage": "no", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Tell tokens, tegn og API-kostnad for GPT, Claude og Gemini. Gratis og privat.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "no", "mainEntity": [{"@type": "Question", "name": "Hva er et token?", "acceptedAnswer": {"@type": "Answer", "text": "Et token er en tekstbit som en AI-modell leser. På engelsk tilsvarer 1 token omtrent 4 tegn eller ¾ av et ord."}}, {"@type": "Question", "name": "Hvorfor koster andre språk mer?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizere trenes mest på engelsk, så norsk, koreansk, japansk og mange andre språk deles opp i flere tokens for samme innhold."}}, {"@type": "Question", "name": "Er teksten min privat?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Alt kjører lokalt i nettleseren din. Teksten din sendes aldri til noen server."}}, {"@type": "Question", "name": "Hvor mange flere tokens bruker norsk enn engelsk?", "acceptedAnswer": {"@type": "Answer", "text": "Med GPTs tokenizer (o200k) bruker norsk omtrent 1,32× så mange tokens som den samme teksten på engelsk, så du sparer omtrent 24 % ved å sende prompten på engelsk. Knappen 💸 Spar tokens oversetter den til engelsk på enheten din (Chrome / Edge på datamaskin) og ber om svar på norsk."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -310,8 +310,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Hvor mange flere tokens bruker norsk enn engelsk?</h2>
-        <p class="text-zinc-400">På GPTs o200k-tokenizer bruker norsk omtrent 1.32× så mange tokens som den samme teksten på engelsk. Den gamle GPT-4-tokenizeren trengte 1.56×; blant 41 målte språk går forholdet fra 1.03× (forenklet kinesisk) til 2.44× (punjabi).</p>
+        <p class="text-zinc-400">Med GPTs tokenizer (o200k) bruker norsk omtrent 1,32× så mange tokens som den samme teksten på engelsk, så du sparer omtrent 24 % ved å sende prompten på engelsk. Knappen 💸 Spar tokens oversetter den til engelsk på enheten din (Chrome / Edge på datamaskin) og ber om svar på norsk.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Slik bruker du det</h2>
+      <ol>
+        <li><strong>Lim inn prompten din</strong> – antall tokens, tegn og ord og den anslåtte kostnaden oppdateres mens du skriver.</li>
+        <li><strong>Velg en modell</strong> i fanene GPT · Claude · Gemini · Andre for å se kostnaden per forespørsel og per måned med den modellens pris. Du kan også endre forventet svarlengde og antall forespørsler per måned.</li>
+        <li><strong>💸 Spar tokens</strong> – når teksten kan kortes ned, vises denne knappen med forventet besparelse. Den rydder opp i mellomrom, oversetter prompten til engelsk og fjerner fyllord i én operasjon, og legger deretter til "Reply in Norwegian." slik at svaret fortsatt kommer på ditt språk. Trykk igjen (↩ Original) for å få tilbake originalteksten.</li>
+        <li><strong>Se hvordan teksten deles opp i tokens</strong> – viser i farger hvordan teksten deles opp i tokens.</li>
+        <li><strong>Chat (JSON)</strong> – lim inn meldingslisten du sender til API-et, så legges også tokenene som meldingsformatet bruker, til i tellingen.</li>
+        <li><strong>Del</strong> – gjør teksten du har skrevet inn, om til en lenke du kan sende til andre.</li>
+      </ol>
+      <h2>Hvordan beregnes det?</h2>
+      <ul>
+        <li><strong>GPT-modeller</strong>: OpenAIs ekte tokenizer (o200k) kjører i nettleseren din, så tellingen er nøyaktig.</li>
+        <li><strong>Claude, Gemini og andre</strong>: tokenizerne deres er ikke publisert på samme måte, så tallene er anslag kalibrert mot ekte tekst (merket som anslag).</li>
+        <li><strong>Kostnad</strong> = tokens ÷ 1 000 000 × pris per million tokens. Prisene er hver leverandørs offisielle API-priser og vises med datoen de ble sjekket.</li>
+        <li><strong>Språkeffektivitet</strong> viser hvor mange ganger flere tokens teksten din trenger enn det samme innholdet på engelsk. Norsk trenger omtrent 1,32× – sender du prompten på engelsk, sparer du omtrent 24 %.</li>
+      </ul>
+      <h2>Hvordan fungerer oversettelsen?</h2>
+      <ul>
+        <li>Den bruker AI-oversetteren som er innebygd i nettleseren: <strong>Chrome 138+ eller Edge 148+ på datamaskin</strong>.</li>
+        <li>Oversettelsesmodellen lastes ned én gang; deretter skjer oversettelsen <strong>på din egen enhet</strong>. Teksten din sendes aldri til en server.</li>
+        <li>Hvis oversettelsen ville øke antall tokens, blir den ikke brukt. I kode oversettes bare kommentarene.</li>
+        <li>På mobil eller i nettlesere som ikke støttes, ryddes bare mellomrommene, og det vises en melding.</li>
+      </ul>
+      <h2>Relatert artikkel</h2>
+      <ul><li><a href="/no/blog/tokens-norsk-gpt">Norsk bruker 1,32× så mange tokens som engelsk i GPT</a></li></ul>
     </section>
 
 

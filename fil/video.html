@@ -210,6 +210,23 @@
         <p class="text-zinc-400">Hindi. Inalis ng OpenAI ang Sora 2 video models sa API nito noong Setyembre 24, 2026, kaya hindi na available ang Sora sa mga developer.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Paano gamitin</h2>
+      <ol>
+        <li>Ilagay ang <strong>Haba kada clip (segundo)</strong> at <strong>Bilang ng clips</strong>.</li>
+        <li>Piliin ang <strong>Resolution</strong> (480p · 720p · 1080p · 4K) at <strong>May audio</strong> / <strong>Walang audio</strong>.</li>
+        <li>Pinagsusunod-sunod ang mga model na sumusuporta sa pinili mo ayon sa kabuuang gastos, mula sa pinakamura, at may markang “Pinakamura” ang pinakamura.</li>
+      </ol>
+      <h2>Paano ito kinukuwenta?</h2>
+      <ul>
+        <li>Kada segundo naniningil ang karamihan ng video API: kabuuan = haba ng clip × bilang ng clips × presyo kada segundo.</li>
+        <li>Kada clip na 5 o 10 segundo naniningil ang Luma, kaya ilang clip ang bilang sa mas mahahabang video.</li>
+        <li>May audio palagi ang ilang model (Veo); mas mahal naman ang iba kapag naka-on ang audio (Kling).</li>
+        <li>Kapag walang inilalabas na per-second API price ang gumawa ng model, ang API price ng Runway ang ipinapakita at may label na “Sa Runway API”.</li>
+      </ul>
+      <h2>Mga tip</h2>
+      <p>Ang resulta ay gastos ng isang generation. Kadalasang 2–4 na subok bago makakuha ng magagamit na shot, kaya maglaan ng mga 3× na budget. Subukan ang mga prompt sa murang model sa 720p, at ang final take lang ang i-render sa premium na model.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

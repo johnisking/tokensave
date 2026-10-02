@@ -216,6 +216,18 @@
         <p class="text-zinc-400">Napi néhány kis feladatnál az API általában olcsóbb. Intenzív napi használatnál egy 100–200 $-os csomag gyakran olcsóbb, amíg a kereten belül maradsz.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Használat</h2>
+      <ol>
+        <li>Válaszd ki: <strong>Tipikus feladat</strong>, <strong>Feladat naponta</strong> és <strong>Munkanap havonta</strong>.</li>
+        <li>Hagyd bekapcsolva: <strong>Prompt-gyorsítótár</strong> — a legtöbb eszköz használja.</li>
+        <li>Hasonlítsd össze az egyes modellek havi API-költségét a kódoló ágenst tartalmazó Claude- és ChatGPT-előfizetésekkel.</li>
+      </ol>
+      <h2>Hogyan számol?</h2>
+      <p>Egy kódoló ágens minden lépésben újraküldi a teljes munkakontextust (rendszerprompt, eszközdefiníciók, beolvasott fájlok, korábbi lépések). Egy funkció megvalósítását 25 lépésként modellezzük: 22 000 tokenről indul, lépésenként 3 500 tokennel nő, és 700 tokent ír. Bekapcsolt gyorsítótárral az ismétlődő kontextus a bemeneti ár kb. 10%-áért számlázódik.</p>
+      <h2>Tippek</h2>
+      <p>Ha az utasításokat (rendszerprompt) magyar helyett angolul írod, kb. 43%-ot spórolsz a tokenjeiken.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

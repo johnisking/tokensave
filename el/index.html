@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Μετρητής tokens AI", "url": "https://tokensave.app/el/", "inLanguage": "el", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Μετρήστε tokens, χαρακτήρες και κόστος API για GPT, Claude, Gemini. Δωρεάν.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "el", "mainEntity": [{"@type": "Question", "name": "Τι είναι ένα token;", "acceptedAnswer": {"@type": "Answer", "text": "Ένα token είναι ένα κομμάτι κειμένου που διαβάζει ένα μοντέλο AI. Στα αγγλικά, 1 token αντιστοιχεί περίπου σε 4 χαρακτήρες ή ¾ μιας λέξης."}}, {"@type": "Question", "name": "Γιατί οι άλλες γλώσσες κοστίζουν περισσότερο;", "acceptedAnswer": {"@type": "Answer", "text": "Οι tokenizers εκπαιδεύονται κυρίως σε αγγλικά, οπότε τα ελληνικά, τα κορεατικά, τα ιαπωνικά και πολλές άλλες γλώσσες σπάνε σε περισσότερα tokens για το ίδιο νόημα."}}, {"@type": "Question", "name": "Είναι ιδιωτικό το κείμενό μου;", "acceptedAnswer": {"@type": "Answer", "text": "Ναι. Όλα εκτελούνται τοπικά στον browser σας. Το κείμενό σας δεν αποστέλλεται ποτέ σε κάποιον server."}}, {"@type": "Question", "name": "Πόσα περισσότερα tokens χρειάζονται τα ελληνικά από τα αγγλικά;", "acceptedAnswer": {"@type": "Answer", "text": "Στον tokenizer o200k του GPT, τα ελληνικά χρειάζονται περίπου 2.06× τα tokens του ίδιου κειμένου στα αγγλικά — το δεύτερο υψηλότερο ποσοστό από τις 41 γλώσσες που μετρήσαμε, μετά τα παντζάμπι (2.44×). Ο παλιός tokenizer του GPT-4 χρειαζόταν 4.94×, οπότε το κόστος έπεσε κάτω από το μισό."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Μετρητής tokens AI", "url": "https://tokensave.app/el/", "inLanguage": "el", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Μετρήστε tokens, χαρακτήρες και κόστος API για GPT, Claude, Gemini. Δωρεάν.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "el", "mainEntity": [{"@type": "Question", "name": "Τι είναι ένα token;", "acceptedAnswer": {"@type": "Answer", "text": "Ένα token είναι ένα κομμάτι κειμένου που διαβάζει ένα μοντέλο AI. Στα αγγλικά, 1 token αντιστοιχεί περίπου σε 4 χαρακτήρες ή ¾ μιας λέξης."}}, {"@type": "Question", "name": "Γιατί οι άλλες γλώσσες κοστίζουν περισσότερο;", "acceptedAnswer": {"@type": "Answer", "text": "Οι tokenizers εκπαιδεύονται κυρίως σε αγγλικά, οπότε τα ελληνικά, τα κορεατικά, τα ιαπωνικά και πολλές άλλες γλώσσες σπάνε σε περισσότερα tokens για το ίδιο νόημα."}}, {"@type": "Question", "name": "Είναι ιδιωτικό το κείμενό μου;", "acceptedAnswer": {"@type": "Answer", "text": "Ναι. Όλα εκτελούνται τοπικά στον browser σας. Το κείμενό σας δεν αποστέλλεται ποτέ σε κάποιον server."}}, {"@type": "Question", "name": "Πόσα περισσότερα tokens χρειάζονται τα ελληνικά από τα αγγλικά;", "acceptedAnswer": {"@type": "Answer", "text": "Στον tokenizer του GPT (o200k), τα ελληνικά χρησιμοποιούν περίπου 2,06× τα tokens του ίδιου κειμένου στα αγγλικά, οπότε η αποστολή του prompt στα αγγλικά εξοικονομεί περίπου 51%. Το κουμπί 💸 Εξοικονόμηση tokens το μεταφράζει στα αγγλικά στη συσκευή σας (Chrome / Edge για υπολογιστή) και ζητά την απάντηση στα ελληνικά."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -310,8 +310,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Πόσα περισσότερα tokens χρειάζονται τα ελληνικά από τα αγγλικά;</h2>
-        <p class="text-zinc-400">Στον tokenizer o200k του GPT, τα ελληνικά χρειάζονται περίπου 2.06× τα tokens του ίδιου κειμένου στα αγγλικά — το δεύτερο υψηλότερο ποσοστό από τις 41 γλώσσες που μετρήσαμε, μετά τα παντζάμπι (2.44×). Ο παλιός tokenizer του GPT-4 χρειαζόταν 4.94×, οπότε το κόστος έπεσε κάτω από το μισό.</p>
+        <p class="text-zinc-400">Στον tokenizer του GPT (o200k), τα ελληνικά χρησιμοποιούν περίπου 2,06× τα tokens του ίδιου κειμένου στα αγγλικά, οπότε η αποστολή του prompt στα αγγλικά εξοικονομεί περίπου 51%. Το κουμπί 💸 Εξοικονόμηση tokens το μεταφράζει στα αγγλικά στη συσκευή σας (Chrome / Edge για υπολογιστή) και ζητά την απάντηση στα ελληνικά.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Πώς να το χρησιμοποιήσετε</h2>
+      <ol>
+        <li><strong>Επικολλήστε το prompt σας</strong> — ο αριθμός tokens, χαρακτήρων, λέξεων και το εκτιμώμενο κόστος ενημερώνονται καθώς πληκτρολογείτε.</li>
+        <li><strong>Επιλέξτε μοντέλο</strong> στις καρτέλες GPT · Claude · Gemini · Άλλα για να δείτε το κόστος ανά αίτημα και ανά μήνα με την τιμή του συγκεκριμένου μοντέλου. Μπορείτε επίσης να αλλάξετε το αναμενόμενο μήκος απάντησης και τον αριθμό αιτημάτων τον μήνα.</li>
+        <li><strong>💸 Εξοικονόμηση tokens</strong> — όταν το κείμενό σας μπορεί να συντομευτεί, εμφανίζεται αυτό το κουμπί με την αναμενόμενη εξοικονόμηση. Με μία κίνηση καθαρίζει τα περιττά κενά, μεταφράζει το prompt στα αγγλικά και αφαιρεί τα περιττά λόγια, και στη συνέχεια προσθέτει «Reply in Greek.» ώστε η απάντηση να έρχεται και πάλι στη γλώσσα σας. Πατήστε το ξανά (↩ Πρωτότυπο) για να επαναφέρετε το αρχικό κείμενο.</li>
+        <li><strong>Δείτε πώς χωρίζεται σε tokens</strong> — δείχνει με χρώματα πώς χωρίζεται το κείμενό σας σε tokens.</li>
+        <li><strong>Συνομιλία (JSON)</strong> — επικολλήστε τον πίνακα μηνυμάτων που στέλνετε στο API και στο σύνολο προστίθενται τα tokens που καταναλώνει η μορφή των μηνυμάτων.</li>
+        <li><strong>Κοινοποίηση</strong> — μετατρέπει το κείμενο που εισαγάγατε σε σύνδεσμο που μπορείτε να στείλετε σε κάποιον.</li>
+      </ol>
+      <h2>Πώς υπολογίζεται;</h2>
+      <ul>
+        <li><strong>Μοντέλα GPT</strong>: ο πραγματικός tokenizer της OpenAI (o200k) εκτελείται στο πρόγραμμα περιήγησής σας, οπότε η μέτρηση είναι ακριβής.</li>
+        <li><strong>Claude, Gemini και άλλα</strong>: οι tokenizers τους δεν δημοσιεύονται στην ίδια μορφή, οπότε οι μετρήσεις είναι εκτιμήσεις βαθμονομημένες σε πραγματικά κείμενα (σημειώνονται ως εκτίμηση).</li>
+        <li><strong>Κόστος</strong> = tokens ÷ 1.000.000 × τιμή ανά εκατομμύριο tokens. Οι τιμές είναι οι επίσημες τιμές API κάθε παρόχου και εμφανίζονται με την ημερομηνία ελέγχου.</li>
+        <li><strong>Η αποδοτικότητα γλώσσας</strong> δείχνει πόσες φορές περισσότερα tokens χρειάζεται το κείμενό σας σε σχέση με το ίδιο περιεχόμενο στα αγγλικά. Τα ελληνικά χρειάζονται περίπου 2,06× — αν στείλετε το prompt στα αγγλικά, εξοικονομείτε περίπου 51%.</li>
+      </ul>
+      <h2>Πώς λειτουργεί η μετάφραση;</h2>
+      <ul>
+        <li>Χρησιμοποιεί τον μεταφραστή AI που είναι ενσωματωμένος στο πρόγραμμα περιήγησης: <strong>Chrome 138+ ή Edge 148+ για υπολογιστή</strong>.</li>
+        <li>Το μοντέλο μετάφρασης κατεβαίνει μία φορά· μετά, η μετάφραση γίνεται <strong>στη δική σας συσκευή</strong>. Το κείμενό σας δεν αποστέλλεται ποτέ σε διακομιστή.</li>
+        <li>Αν η μετάφραση θα αύξανε τα tokens, δεν εφαρμόζεται. Στον κώδικα μεταφράζονται μόνο τα σχόλια.</li>
+        <li>Σε κινητά ή σε μη υποστηριζόμενα προγράμματα περιήγησης καθαρίζονται μόνο τα κενά και εμφανίζεται σχετική ειδοποίηση.</li>
+      </ul>
+      <h2>Σχετικό άρθρο</h2>
+      <ul><li><a href="/el/blog/tokens-ellinika-gpt">Τα ελληνικά στο GPT θέλουν 2,06× τα tokens των αγγλικών — από τις ακριβότερες ανάμεσα σε 41 γλώσσες</a></li></ul>
     </section>
 
 

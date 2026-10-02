@@ -216,6 +216,18 @@
         <p class="text-zinc-400">Przy kilku małych zadaniach dziennie API zwykle jest tańsze. Przy intensywnej codziennej pracy plan za 100–200 $ często wychodzi taniej, o ile mieścisz się w limitach.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Jak używać</h2>
+      <ol>
+        <li>Wybierz <strong>Typowe zadanie</strong>, <strong>Zadań dziennie</strong> i <strong>Dni robocze w miesiącu</strong>.</li>
+        <li>Zostaw <strong>Cache promptów</strong> włączony: korzysta z niego większość narzędzi.</li>
+        <li>Porównaj miesięczny koszt API każdego modelu z planami Claude i ChatGPT, które zawierają agenta do programowania.</li>
+      </ol>
+      <h2>Jak to jest liczone?</h2>
+      <p>Agent do programowania na każdym kroku wysyła od nowa cały kontekst roboczy (prompt systemowy, definicje narzędzi, przeczytane pliki, wcześniejsze kroki). Zadanie dotyczące jednej funkcji jest modelowane jako 25 kroków: start od 22 000 tokenów, wzrost o 3 500 tokenów i 700 tokenów wyjścia na krok. Przy włączonym cache powtarzany kontekst jest rozliczany po około 10% ceny wejścia.</p>
+      <h2>Wskazówki</h2>
+      <p>Pisanie instrukcji (promptu systemowego) po angielsku zamiast po polsku oszczędza około 47% ich tokenów.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

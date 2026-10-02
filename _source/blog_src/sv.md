@@ -6,19 +6,19 @@ Den svenska versionen:
 
 ## Resultat
 
-| Språk | Tokens | Jämfört med engelska | Gamla GPT-4-tokenizern |
+| Språk | Tokens | Jämfört med engelska | Besparing om det skickas på engelska |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | 1,00× |
-| 简体中文 | 35 | 1,03× | 1,53× |
-| Español | 40 | 1,18× | 1,29× |
-| Deutsch | 43 | 1,26× | 1,50× |
-| **Svenska** | **45** | **1,32×** | **1,50×** |
-| 한국어 | 49 | 1,44× | 2,50× |
-| हिन्दी | 51 | 1,50× | 4,59× |
-| 日本語 | 61 | 1,79× | 2,21× |
-| Čeština | 68 | 2,00× | 2,59× |
-| Ελληνικά | 70 | 2,06× | 4,94× |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
+| English | 34 | 1,00× | – |
+| 简体中文 | 35 | 1,03× | 3% |
+| Español | 40 | 1,18× | 15% |
+| Deutsch | 43 | 1,26× | 21% |
+| **Svenska** | **45** | **1,32×** | **24%** |
+| 한국어 | 49 | 1,44× | 31% |
+| हिन्दी | 51 | 1,50× | 33% |
+| 日本語 | 61 | 1,79× | 44% |
+| Čeština | 68 | 2,00× | 50% |
+| Ελληνικά | 70 | 2,06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
 
 ![Resultat](/blog-language-tax-chart-v4.png)
 
@@ -30,9 +30,9 @@ Tokenizern lär sig mest från engelsk text: ord som " polite" eller " customer"
 - beställningen → `best | äll | ningen` · 3
 - saknades → `sak | n | ades` · 3
 
-## Jämfört med den gamla tokenizern
+## Byt till engelska med en knapp
 
-Med tokenizern från GPT-4-eran (cl100k) kostade samma prompt **1,50×**, i dag **1,32×**.
+Den största besparingen får du genom att skicka prompten på engelska: cirka 24 % färre tokens för svenska. Dagens modeller förstår engelska instruktioner utmärkt och svarar på svenska om du ber om det. I TokenSaves tokenräknare klistrar du in prompten och trycker på **💸 Spara tokens**: den rensar mellanslag, översätter till engelska, stryker utfyllnad och lägger till "Reply in Swedish." så att svaret kommer på ditt språk. Den använder översättaren som är inbyggd i Chrome 138+ / Edge 148+ på dator; översättningen sker på din egen enhet och texten laddas aldrig upp. Tryck på **↩ Original** för att få tillbaka originalet.
 
 ## I pengar
 

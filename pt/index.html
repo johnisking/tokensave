@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Contador de tokens de IA", "url": "https://tokensave.app/pt/", "inLanguage": "pt", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Conte tokens e o custo de API do GPT, Claude e Gemini. Grátis e sem upload.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "pt", "mainEntity": [{"@type": "Question", "name": "O que é um token?", "acceptedAnswer": {"@type": "Answer", "text": "Um token é um pedaço de texto que o modelo de IA lê. Em inglês, 1 token equivale a cerca de 4 caracteres ou ¾ de uma palavra."}}, {"@type": "Question", "name": "Por que outros idiomas custam mais?", "acceptedAnswer": {"@type": "Answer", "text": "Os tokenizadores são treinados principalmente em inglês, então o português e muitos outros idiomas são divididos em mais tokens para o mesmo significado."}}, {"@type": "Question", "name": "Meu texto é privado?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Tudo roda localmente no seu navegador. Seu texto nunca é enviado a nenhum servidor."}}, {"@type": "Question", "name": "Quantos tokens a mais o português usa em relação ao inglês?", "acceptedAnswer": {"@type": "Answer", "text": "No tokenizador o200k do GPT, o português usa cerca de 1.21× os tokens do mesmo texto em inglês. O antigo tokenizador do GPT-4 precisava de 1.41×, então o custo para o português caiu bastante; entre 41 idiomas, a proporção vai de 1.03× (chinês simplificado) a 2.44× (punjabi)."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Contador de tokens de IA", "url": "https://tokensave.app/pt/", "inLanguage": "pt", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Conte tokens e o custo de API do GPT, Claude e Gemini. Grátis e sem upload.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "pt", "mainEntity": [{"@type": "Question", "name": "O que é um token?", "acceptedAnswer": {"@type": "Answer", "text": "Um token é um pedaço de texto que o modelo de IA lê. Em inglês, 1 token equivale a cerca de 4 caracteres ou ¾ de uma palavra."}}, {"@type": "Question", "name": "Por que outros idiomas custam mais?", "acceptedAnswer": {"@type": "Answer", "text": "Os tokenizadores são treinados principalmente em inglês, então o português e muitos outros idiomas são divididos em mais tokens para o mesmo significado."}}, {"@type": "Question", "name": "Meu texto é privado?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Tudo roda localmente no seu navegador. Seu texto nunca é enviado a nenhum servidor."}}, {"@type": "Question", "name": "Quantos tokens a mais o português usa em relação ao inglês?", "acceptedAnswer": {"@type": "Answer", "text": "No tokenizador do GPT (o200k), o português usa cerca de 1,21× os tokens do mesmo texto em inglês, então enviar o prompt em inglês economiza cerca de 17%. O botão 💸 Economizar tokens traduz para o inglês no seu dispositivo (Chrome / Edge para desktop) e pede a resposta em português."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -309,8 +309,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Quantos tokens a mais o português usa em relação ao inglês?</h2>
-        <p class="text-zinc-400">No tokenizador o200k do GPT, o português usa cerca de 1.21× os tokens do mesmo texto em inglês. O antigo tokenizador do GPT-4 precisava de 1.41×, então o custo para o português caiu bastante; entre 41 idiomas, a proporção vai de 1.03× (chinês simplificado) a 2.44× (punjabi).</p>
+        <p class="text-zinc-400">No tokenizador do GPT (o200k), o português usa cerca de 1,21× os tokens do mesmo texto em inglês, então enviar o prompt em inglês economiza cerca de 17%. O botão 💸 Economizar tokens traduz para o inglês no seu dispositivo (Chrome / Edge para desktop) e pede a resposta em português.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Como usar</h2>
+      <ol>
+        <li><strong>Cole seu prompt</strong>: a contagem de tokens, caracteres e palavras e o custo estimado são atualizados enquanto você digita.</li>
+        <li><strong>Escolha um modelo</strong> nas abas GPT · Claude · Gemini · Outros para ver o custo por requisição e por mês com o preço desse modelo. Você também pode alterar a saída esperada e o número de requisições por mês.</li>
+        <li><strong>💸 Economizar tokens</strong>: quando seu texto pode ser encurtado, este botão aparece com a economia prevista. Ele limpa os espaços, traduz seu prompt para o inglês e corta o excesso de uma só vez, e depois adiciona "Reply in Portuguese." para que a resposta continue vindo no seu idioma. Pressione de novo (↩ Original) para recuperar o texto original.</li>
+        <li><strong>Ver como se divide em tokens</strong>: mostra em cores como seu texto é dividido em tokens.</li>
+        <li><strong>Chat (JSON)</strong>: cole o array de mensagens que você envia para a API, e os tokens usados pelo formato das mensagens são somados à contagem.</li>
+        <li><strong>Compartilhar</strong>: transforma o texto que você digitou em um link que pode ser enviado a outra pessoa.</li>
+      </ol>
+      <h2>Como é calculado?</h2>
+      <ul>
+        <li><strong>Modelos GPT</strong>: o tokenizador real da OpenAI (o200k) roda no seu navegador, então a contagem é exata.</li>
+        <li><strong>Claude, Gemini e outros</strong>: seus tokenizadores não são publicados da mesma forma, então as contagens são estimativas calibradas com texto real (marcadas como estimativa).</li>
+        <li><strong>Custo</strong> = tokens ÷ 1.000.000 × preço por milhão de tokens. Os preços são os preços oficiais de API de cada provedor, mostrados com a data em que foram verificados.</li>
+        <li><strong>Eficiência do idioma</strong> mostra quantas vezes mais tokens seu texto precisa em relação ao mesmo conteúdo em inglês. O português precisa de cerca de 1,21×: enviar o prompt em inglês economiza cerca de 17%.</li>
+      </ul>
+      <h2>Como funciona a tradução?</h2>
+      <ul>
+        <li>Ele usa o tradutor de IA integrado ao navegador: <strong>Chrome 138+ ou Edge 148+ para desktop</strong>.</li>
+        <li>O modelo de tradução é baixado uma única vez; depois disso, a tradução acontece <strong>no seu próprio dispositivo</strong>. Seu texto nunca é enviado a um servidor.</li>
+        <li>Se a tradução aumentar os tokens, ela não é aplicada. Em código, só os comentários são traduzidos.</li>
+        <li>No celular ou em navegadores não compatíveis, apenas os espaços são limpos e um aviso é exibido.</li>
+      </ul>
+      <h2>Artigo relacionado</h2>
+      <ul><li><a href="/pt/blog/tokens-portugues-gpt">O português gasta 1,21× mais tokens que o inglês no GPT</a></li></ul>
     </section>
 
 

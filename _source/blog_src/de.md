@@ -6,18 +6,18 @@ Die deutsche Fassung:
 
 ## Ergebnisse
 
-| Sprache | Tokens | Im Vergleich zu Englisch | Alter GPT-4-Tokenizer |
+| Sprache | Tokens | Im Vergleich zu Englisch | Ersparnis auf Englisch |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | 1,00× |
-| 简体中文 | 35 | 1,03× | 1,53× |
-| Español | 40 | 1,18× | 1,29× |
-| **Deutsch** | **43** | **1,26×** | **1,50×** |
-| 한국어 | 49 | 1,44× | 2,50× |
-| हिन्दी | 51 | 1,50× | 4,59× |
-| 日本語 | 61 | 1,79× | 2,21× |
-| Čeština | 68 | 2,00× | 2,59× |
-| Ελληνικά | 70 | 2,06× | 4,94× |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
+| English | 34 | 1,00× | – |
+| 简体中文 | 35 | 1,03× | 3% |
+| Español | 40 | 1,18× | 15% |
+| **Deutsch** | **43** | **1,26×** | **21%** |
+| 한국어 | 49 | 1,44× | 31% |
+| हिन्दी | 51 | 1,50× | 33% |
+| 日本語 | 61 | 1,79× | 44% |
+| Čeština | 68 | 2,00× | 50% |
+| Ελληνικά | 70 | 2,06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
 
 ![Ergebnisse](/blog-language-tax-chart-v4.png)
 
@@ -29,9 +29,9 @@ Der Tokenizer lernt vor allem aus englischem Text: Wörter wie „ polite“ ode
 - Stichpunkten → `Stich | punk | ten` · 3
 - höfliche → `höf | liche` · 2
 
-## Im Vergleich zum alten Tokenizer
+## Mit einem Klick auf Englisch umstellen
 
-Mit dem Tokenizer aus der GPT-4-Zeit (cl100k) brauchte derselbe Prompt **1,50×**, heute **1,26×**.
+Am meisten sparst du, wenn du deinen Prompt auf Englisch sendest: rund 21 % weniger Tokens als auf Deutsch. Aktuelle Modelle verstehen englische Anweisungen bestens und antworten auf Deutsch, wenn du darum bittest. Füge deinen Prompt im TokenSave-Tokenzähler ein und drück **💸 Tokens sparen**: Er bereinigt Leerzeichen, übersetzt ins Englische, streicht Füllwörter und fügt "Reply in German." hinzu, damit die Antwort in deiner Sprache bleibt. Genutzt wird der integrierte Übersetzer von Desktop-Chrome 138+ / Edge 148+; die Übersetzung läuft auf deinem eigenen Gerät, und dein Text wird nie hochgeladen. Mit **↩ Original** bekommst du das Original zurück.
 
 ## In Geld
 

@@ -210,6 +210,23 @@
         <p class="text-zinc-400">Nu. OpenAI a retras modelele video Sora 2 din API pe 24 septembrie 2026, așa că Sora nu mai este disponibil pentru dezvoltatori.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Cum se folosește</h2>
+      <ol>
+        <li>Introdu <strong>Durata clipului (secunde)</strong> și <strong>Număr de clipuri</strong>.</li>
+        <li>Alege <strong>Rezoluție</strong> (480p · 720p · 1080p · 4K) și <strong>Cu sunet</strong> / <strong>Fără sunet</strong>.</li>
+        <li>Modelele care acceptă alegerea ta sunt sortate după costul total, de la cel mai ieftin, iar cel mai ieftin este marcat „Cel mai ieftin”.</li>
+      </ol>
+      <h2>Cum se calculează?</h2>
+      <ul>
+        <li>Majoritatea API-urilor video taxează pe secundă: total = durata clipului × numărul de clipuri × prețul pe secundă.</li>
+        <li>Luma taxează pe clipuri de 5 sau 10 secunde, așa că videoclipurile mai lungi sunt socotite ca mai multe clipuri.</li>
+        <li>Unele modele includ mereu sunet (Veo); altele costă mai mult cu sunet (Kling).</li>
+        <li>Când producătorul nu publică un preț API pe secundă, este afișat prețul prin API-ul Runway, marcat „Prin Runway API”.</li>
+      </ul>
+      <h2>Sfaturi</h2>
+      <p>Rezultatul este costul unei singure generări. Un cadru utilizabil necesită adesea 2–4 încercări, așa că bugetează cam de 3× mai mult. Testează prompturile pe un model ieftin la 720p și randează doar varianta finală pe un model premium.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

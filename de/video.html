@@ -209,6 +209,23 @@
         <p class="text-zinc-400">OpenAI hat die Sora-2-Videomodelle am 24. September 2026 aus seiner API entfernt – für Entwickler sind sie nicht mehr verfügbar.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">So funktioniert's</h2>
+      <ol>
+        <li>Gib <strong>Länge pro Clip (Sekunden)</strong> und <strong>Anzahl Clips</strong> ein.</li>
+        <li>Wähle <strong>Auflösung</strong> (480p · 720p · 1080p · 4K) und <strong>Mit Audio</strong> / <strong>Ohne Audio</strong>.</li>
+        <li>Modelle, die deine Auswahl unterstützen, werden nach Gesamtkosten sortiert, das günstigste zuerst, und das günstigste ist mit „Am günstigsten“ markiert.</li>
+      </ol>
+      <h2>Wie wird gerechnet?</h2>
+      <ul>
+        <li>Die meisten Video-APIs rechnen pro Sekunde ab: Gesamt = Cliplänge × Anzahl Clips × Preis pro Sekunde.</li>
+        <li>Luma rechnet pro Clip von 5 oder 10 Sekunden ab, längere Videos zählen daher als mehrere Clips.</li>
+        <li>Manche Modelle enthalten immer Audio (Veo); andere kosten mit Audio mehr (Kling).</li>
+        <li>Wenn der Hersteller keinen API-Preis pro Sekunde veröffentlicht, wird der API-Preis von Runway angezeigt und mit „Über Runway-API“ gekennzeichnet.</li>
+      </ul>
+      <h2>Tipps</h2>
+      <p>Das Ergebnis sind die Kosten einer Generierung. Eine brauchbare Einstellung braucht oft 2–4 Versuche, plane also etwa das 3-Fache ein. Teste Prompts mit einem günstigen Modell in 720p und rendere nur die finale Version mit einem Premium-Modell.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

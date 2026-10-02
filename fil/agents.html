@@ -216,6 +216,18 @@
         <p class="text-zinc-400">Kung kaunting maliliit na gawain lang kada araw, kadalasang mas mura ang API. Sa mabigat na araw-araw na paggamit, madalas mas mura ang $100–200 na plan basta nasa loob ka ng limits.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Paano gamitin</h2>
+      <ol>
+        <li>Piliin ang <strong>Karaniwang gawain</strong>, <strong>Gawain kada araw</strong> at <strong>Araw ng trabaho kada buwan</strong>.</li>
+        <li>Iwanang naka-on ang <strong>Prompt caching</strong>: ginagamit ito ng karamihan ng tool.</li>
+        <li>Ikumpara ang buwanang API cost ng bawat model sa mga plan ng Claude at ChatGPT na may kasamang coding agent.</li>
+      </ol>
+      <h2>Paano ito kinukuwenta?</h2>
+      <p>Ipinapadala ulit ng coding agent ang buong working context nito (system prompt, tool definitions, mga file na nabasa na, mga naunang hakbang) sa bawat hakbang. Ang isang feature task ay mino-model bilang 25 hakbang na nagsisimula sa 22,000 token, nadaragdagan ng 3,500 token at nagsusulat ng 700 token kada hakbang. Kapag naka-on ang caching, sinisingil ang paulit-ulit na context sa mga 10% ng input price.</p>
+      <h2>Mga tip</h2>
+      <p>Kapag isinulat mo sa English ang mga instruction (system prompt) sa halip na sa Filipino, makakatipid ka ng mga 35% ng token ng mga ito.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

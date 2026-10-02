@@ -6,18 +6,18 @@ La versión en español:
 
 ## Resultados
 
-| Idioma | Tokens | Frente al inglés | Tokenizador GPT-4 antiguo |
+| Idioma | Tokens | Frente al inglés | Ahorro si se envía en inglés |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | 1,00× |
-| 简体中文 | 35 | 1,03× | 1,53× |
-| **Español** | **40** | **1,18×** | **1,29×** |
-| Deutsch | 43 | 1,26× | 1,50× |
-| 한국어 | 49 | 1,44× | 2,50× |
-| हिन्दी | 51 | 1,50× | 4,59× |
-| 日本語 | 61 | 1,79× | 2,21× |
-| Čeština | 68 | 2,00× | 2,59× |
-| Ελληνικά | 70 | 2,06× | 4,94× |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
+| English | 34 | 1,00× | – |
+| 简体中文 | 35 | 1,03× | 3% |
+| **Español** | **40** | **1,18×** | **15%** |
+| Deutsch | 43 | 1,26× | 21% |
+| 한국어 | 49 | 1,44× | 31% |
+| हिन्दी | 51 | 1,50× | 33% |
+| 日本語 | 61 | 1,79× | 44% |
+| Čeština | 68 | 2,00× | 50% |
+| Ελληνικά | 70 | 2,06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
 
 ![Resultados](/blog-language-tax-chart-v4.png)
 
@@ -29,9 +29,9 @@ El tokenizador aprende sobre todo de texto en inglés: palabras como " polite" o
 - retraso → `retras | o` · 2
 - faltaba → `falt | aba` · 2
 
-## Frente al tokenizador antiguo
+## Pasa a inglés con un solo botón
 
-Con el tokenizador de la era GPT-4 (cl100k), el mismo prompt costaba **1,29×**; hoy es **1,18×**.
+El mayor ahorro consiste en enviar tu prompt en inglés: alrededor de un 15% menos de tokens que en español. Los modelos actuales entienden perfectamente las instrucciones en inglés y responden en español si se lo pides. En el contador de tokens de TokenSave, pega tu prompt y pulsa **💸 Ahorrar tokens**: limpia los espacios, lo traduce al inglés, recorta el relleno y añade "Reply in Spanish." para que la respuesta siga en tu idioma. Usa el traductor integrado en Chrome 138+ / Edge 148+ de escritorio; la traducción se hace en tu propio dispositivo y tu texto nunca se sube. Pulsa **↩ Original** para recuperar el original.
 
 ## En dinero
 

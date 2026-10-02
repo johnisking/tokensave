@@ -4,21 +4,21 @@ Prompt (anglicky 34 tokenů):
 
 > Shrňte níže uvedený e-mail zákazníka do tří bodů a navrhněte zdvořilou odpověď. Zákazník píše, že objednávka dorazila se dvoudenním zpožděním a v krabici chyběla jedna položka.
 
-| Jazyk | Tokeny | Oproti angličtině | Starý GPT-4 tokenizér |
+| Jazyk | Tokeny | Oproti angličtině | Úspora při odeslání v angličtině |
 |---|---:|---:|---:|
-| Angličtina | 34 | 1,00× | 1,00× |
-| Čínština (zjednodušená) | 35 | 1,03× | 1,53× |
-| Němčina | 43 | 1,26× | 1,50× |
-| Ruština | 45 | 1,32× | 2,15× |
-| Korejština | 49 | 1,44× | 2,50× |
-| Japonština | 61 | 1,79× | 2,21× |
-| Polština | 64 | 1,88× | 2,12× |
-| Ukrajinština | 64 | 1,88× | 3,15× |
-| **Čeština** | **68** | **2,00×** | **2,59×** |
-| Slovenština | 68 | 2,00× | 2,53× |
-| Telugština | 69 | 2,03× | 9,38× |
-| Řečtina | 70 | 2,06× | 4,94× |
-| Pandžábština | 83 | 2,44× | 7,41× |
+| Angličtina | 34 | 1,00× | – |
+| Čínština (zjednodušená) | 35 | 1,03× | 3% |
+| Němčina | 43 | 1,26× | 21% |
+| Ruština | 45 | 1,32× | 24% |
+| Korejština | 49 | 1,44× | 31% |
+| Japonština | 61 | 1,79× | 44% |
+| Polština | 64 | 1,88× | 47% |
+| Ukrajinština | 64 | 1,88× | 47% |
+| **Čeština** | **68** | **2,00×** | **50%** |
+| Slovenština | 68 | 2,00× | 50% |
+| Telugština | 69 | 2,03× | 51% |
+| Řečtina | 70 | 2,06× | 51% |
+| Pandžábština | 83 | 2,44× | 59% |
 
 ![Graf](/blog-language-tax-chart-v4.png)
 
@@ -29,6 +29,8 @@ Prompt (anglicky 34 tokenů):
 - " navrhněte" → ` nav | r | hn | ě | te` (5 tokenů)
 
 Zajímavost: stejný text **bez diakritiky** má 60 tokenů místo 68 (o 12 % méně). Nedoporučuju to jako trik, kvalita odpovědí může utrpět, ale ukazuje to, kolik stojí háčky a čárky.
+
+**Přepněte do angličtiny jedním tlačítkem:** Největší úspora je poslat prompt v angličtině: pro češtinu asi o 50% méně tokenů. Současné modely anglickým instrukcím perfektně rozumí a odpoví česky, když je o to požádáte. V počítadle tokenů TokenSave vložte prompt a stiskněte **💸 Ušetřit tokeny**: odstraní nadbytečné mezery, přeloží text do angličtiny, vypustí výplňová slova a přidá „Reply in Czech.“, aby odpověď zůstala ve vašem jazyce. Využívá překladač vestavěný v Chrome 138+ / Edge 148+ na počítači; překlad probíhá ve vašem zařízení a text se nikam neodesílá. Stiskem **↩ Originál** vrátíte původní text.
 
 **V penězích:** model za 2 $ / 1M vstupních tokenů, prompt poslaný milionkrát: angličtina 68 $, čeština 136 $. A to jen vstup. Pokud model odpovídá česky, stejný násobek platí i pro výstupní tokeny, které bývají 4–5× dražší.
 

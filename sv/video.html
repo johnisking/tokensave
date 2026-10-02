@@ -210,6 +210,23 @@
         <p class="text-zinc-400">Nej. OpenAI tog bort Sora 2-videomodellerna från sitt API den 24 september 2026, så Sora är inte längre tillgänglig för utvecklare.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Så använder du verktyget</h2>
+      <ol>
+        <li>Ange <strong>Längd per klipp (sekunder)</strong> och <strong>Antal klipp</strong>.</li>
+        <li>Välj <strong>Upplösning</strong> (480p · 720p · 1080p · 4K) och <strong>Med ljud</strong> / <strong>Utan ljud</strong>.</li>
+        <li>Modellerna som stöder dina val sorteras efter total kostnad, billigast först, och den billigaste markeras med ”Billigast”.</li>
+      </ol>
+      <h2>Hur räknas det ut?</h2>
+      <ul>
+        <li>De flesta video-API:er tar betalt per sekund: totalt = klipplängd × antal klipp × pris per sekund.</li>
+        <li>Luma debiterar per klipp på 5 eller 10 sekunder, så längre videor räknas som flera klipp.</li>
+        <li>Vissa modeller inkluderar alltid ljud (Veo); andra kostar mer med ljud påslaget (Kling).</li>
+        <li>När tillverkaren inte publicerar något API-pris per sekund visas Runways API-pris, märkt ”Via Runway API”.</li>
+      </ul>
+      <h2>Tips</h2>
+      <p>Resultatet är kostnaden för en generering. En användbar tagning kräver ofta 2–4 försök, så budgetera för ungefär 3×. Testa promptar på en billig modell i 720p och rendera bara den slutliga tagningen på en premiummodell.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

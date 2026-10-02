@@ -6,19 +6,19 @@ La version française :
 
 ## Résultats
 
-| Langue | Tokens | Par rapport à l’anglais | Ancien tokeniseur GPT-4 |
+| Langue | Tokens | Par rapport à l’anglais | Économie si envoyé en anglais |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | 1,00× |
-| 简体中文 | 35 | 1,03× | 1,53× |
-| Español | 40 | 1,18× | 1,29× |
-| Deutsch | 43 | 1,26× | 1,50× |
-| **Français** | **44** | **1,29×** | **1,44×** |
-| 한국어 | 49 | 1,44× | 2,50× |
-| हिन्दी | 51 | 1,50× | 4,59× |
-| 日本語 | 61 | 1,79× | 2,21× |
-| Čeština | 68 | 2,00× | 2,59× |
-| Ελληνικά | 70 | 2,06× | 4,94× |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
+| English | 34 | 1,00× | – |
+| 简体中文 | 35 | 1,03× | 3% |
+| Español | 40 | 1,18× | 15% |
+| Deutsch | 43 | 1,26× | 21% |
+| **Français** | **44** | **1,29×** | **22%** |
+| 한국어 | 49 | 1,44× | 31% |
+| हिन्दी | 51 | 1,50× | 33% |
+| 日本語 | 61 | 1,79× | 44% |
+| Čeština | 68 | 2,00× | 50% |
+| Ελληνικά | 70 | 2,06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
 
 ![Résultats](/blog-language-tax-chart-v4.png)
 
@@ -30,9 +30,9 @@ Le tokeniseur apprend surtout sur du texte anglais : des mots comme « polite »
 - ci-dessous → `ci | -dessous` · 2
 - proposez → `propose | z` · 2
 
-## Par rapport à l’ancien tokeniseur
+## Passer à l'anglais en un clic
 
-Avec le tokeniseur de l’époque GPT-4 (cl100k), le même prompt coûtait **1,44×** ; aujourd’hui **1,29×**.
+La plus grosse économie consiste à envoyer votre prompt en anglais : environ 22 % de tokens en moins qu'en français. Les modèles actuels comprennent parfaitement les instructions en anglais et répondent en français si vous le demandez. Dans le compteur de tokens TokenSave, collez votre prompt et appuyez sur **💸 Économiser des tokens** : il nettoie les espaces, traduit en anglais, supprime le superflu et ajoute « Reply in French. » pour que la réponse reste dans votre langue. Il utilise le traducteur intégré à Chrome 138+ / Edge 148+ sur ordinateur ; la traduction s'effectue sur votre propre appareil et votre texte n'est jamais envoyé en ligne. Appuyez sur **↩ Original** pour retrouver l'original.
 
 ## En argent
 
@@ -51,5 +51,3 @@ Avec un modèle à 2 $ le million de tokens d’entrée, envoyer ce prompt un mi
 - La traduction repose sur une traduction automatique relue.
 
 Résultats complets des 41 langues (en anglais) : [comparaison de 41 langues](/blog/token-cost-by-language)
-
-Et chez Mistral ? [Mistral ou ChatGPT : combien coûte vraiment un prompt en français ?](/fr/blog/mistral-chatgpt-cout-prompt-francais)

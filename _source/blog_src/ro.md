@@ -6,19 +6,19 @@ Versiunea în română:
 
 ## Rezultate
 
-| Limbă | Tokeni | Față de engleză | Vechiul tokenizator GPT-4 |
+| Limbă | Tokeni | Față de engleză | Economie dacă e trimis în engleză |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | 1,00× |
-| 简体中文 | 35 | 1,03× | 1,53× |
-| Español | 40 | 1,18× | 1,29× |
-| Deutsch | 43 | 1,26× | 1,50× |
-| 한국어 | 49 | 1,44× | 2,50× |
-| हिन्दी | 51 | 1,50× | 4,59× |
-| **Română** | **52** | **1,53×** | **1,76×** |
-| 日本語 | 61 | 1,79× | 2,21× |
-| Čeština | 68 | 2,00× | 2,59× |
-| Ελληνικά | 70 | 2,06× | 4,94× |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
+| English | 34 | 1,00× | – |
+| 简体中文 | 35 | 1,03× | 3% |
+| Español | 40 | 1,18× | 15% |
+| Deutsch | 43 | 1,26× | 21% |
+| 한국어 | 49 | 1,44× | 31% |
+| हिन्दी | 51 | 1,50× | 33% |
+| **Română** | **52** | **1,53×** | **35%** |
+| 日本語 | 61 | 1,79× | 44% |
+| Čeština | 68 | 2,00× | 50% |
+| Ελληνικά | 70 | 2,06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
 
 ![Rezultate](/blog-language-tax-chart-v4.png)
 
@@ -30,9 +30,9 @@ Tokenizatorul învață mai ales din texte în engleză: cuvinte ca " polite" sa
 - propuneți → `prop | une | ți` · 3
 - Rezumați → `Rez | uma | ți` · 3
 
-## Față de vechiul tokenizator
+## Treci la engleză cu un singur buton
 
-Pe tokenizatorul din epoca GPT-4 (cl100k), același prompt costa **1,76×**; azi costă **1,53×**.
+Cea mai mare economie vine din trimiterea promptului în engleză: cu circa 35% mai puțini tokeni pentru limba română. Modelele actuale înțeleg perfect instrucțiunile în engleză și răspund în română dacă le ceri. În contorul de tokeni TokenSave, lipește promptul și apasă **💸 Economisește tokeni**: elimină spațiile inutile, traduce în engleză, taie umplutura și adaugă „Reply in Romanian.”, ca răspunsul să rămână în limba ta. Folosește traducătorul integrat în Chrome 138+ / Edge 148+ pe desktop; traducerea rulează pe dispozitivul tău, iar textul nu este încărcat nicăieri. Apasă **↩ Original** ca să revii la original.
 
 ## În bani
 

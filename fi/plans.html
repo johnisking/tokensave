@@ -216,6 +216,18 @@
         <p class="text-zinc-400">Kyllä. Sama teksti koreaksi, hindiksi tai kreikaksi vaatii enemmän tokeneita kuin englanniksi, joten API-kulut nousevat samassa suhteessa. Tilaukset maksavat saman verran, mutta niiden käyttörajat tulevat vastaan nopeammin.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Näin käytät</h2>
+      <ol>
+        <li>Aseta <strong>Viestejä päivässä</strong>, <strong>Viestin pituus</strong> ja <strong>Viestejä keskustelua kohden</strong>.</li>
+        <li>Valitse <strong>Kieli, jolla kirjoitat</strong>. Suomi käyttää noin 1,44× niin paljon tokeneita kuin englanti, ja se näkyy suoraan API-kustannuksissa.</li>
+        <li>Jokainen kortti (ChatGPT · Claude · Gemini) näyttää, mitä sama käyttö maksaisi kuukaudessa API:n kautta ja kumpi on halvempi, tilaus vai API.</li>
+      </ol>
+      <h2>Miten se lasketaan?</h2>
+      <p>Chat-malli lukee koko keskustelun uudelleen jokaisen viestin kohdalla, joten myöhemmät viestit lähettävät enemmän syötetokeneita. Laskuri laskee yhteen nämä kasvavat syötteet, vastaukset ja kielesi token-suhteen ja soveltaa sitten kunkin mallin API-hintaa miljoonaa tokenia kohden. Tilausten hinnat ovat virallisia Yhdysvaltain kuukausihintoja.</p>
+      <h2>Vinkit</h2>
+      <p>Tilauksiin kuuluu ominaisuuksia, kuten sovellus, kuvien luonti, puhe ja muisti, ja niissä on käyttörajoja. Käytä tulosta suuntaa-antavana arviona siitä, kumpi on halvempi sinun tavallasi käyttää tekoälyä.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

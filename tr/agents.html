@@ -216,6 +216,18 @@
         <p class="text-zinc-400">Günde birkaç küçük görev için API genellikle daha ucuzdur. Yoğun günlük kullanımda, limitler içinde kaldığınız sürece 100–200 $&#x27;lık plan çoğu zaman daha ucuza gelir.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Nasıl kullanılır</h2>
+      <ol>
+        <li><strong>Tipik görev</strong>, <strong>Günlük görev</strong> ve <strong>Aylık iş günü</strong> değerlerini seçin.</li>
+        <li><strong>İstem önbelleği</strong> açık kalsın: çoğu araç bunu kullanır.</li>
+        <li>Her modelin aylık API maliyetini, kodlama ajanı içeren Claude ve ChatGPT planlarıyla karşılaştırın.</li>
+      </ol>
+      <h2>Nasıl hesaplanıyor?</h2>
+      <p>Bir kodlama ajanı her adımda tüm çalışma bağlamını (sistem istemi, araç tanımları, okuduğu dosyalar, önceki adımlar) yeniden gönderir. Bir özellik görevi; 22.000 token ile başlayan, her adımda 3.500 token büyüyen ve adım başına 700 token yazan 25 adım olarak modellenir. Önbellek açıkken tekrarlanan bağlam, girdi fiyatının yaklaşık %10’u üzerinden ücretlendirilir.</p>
+      <h2>İpuçları</h2>
+      <p>Talimatları (sistem istemi) Türkçe yerine İngilizce yazmak, bunların token’larında yaklaşık %32 tasarruf sağlar.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

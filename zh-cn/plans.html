@@ -215,6 +215,18 @@
         <p class="text-zinc-400">会。同样的内容，用韩语、印地语或希腊语写需要比英语更多的 Token，API 费用也会按同样的倍数上涨。订阅价格不变，但你会更快用完使用限额。</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">使用方法</h2>
+      <ol>
+        <li>设置<strong>每天消息数</strong>、<strong>消息长度</strong>和<strong>每次对话的消息数</strong>。</li>
+        <li>选择<strong>你使用的语言</strong>。简体中文使用的 Token 约为英文的 1.03×，这会直接计入 API 费用。</li>
+        <li>每张卡片（ChatGPT · Claude · Gemini）会显示同样的用量在 API 上每月要花多少钱，以及订阅套餐和 API 哪个更便宜。</li>
+      </ol>
+      <h2>如何计算？</h2>
+      <p>聊天模型每收到一条消息都会重新读取整段对话，所以越往后的消息发送的输入 Token 越多。计算器会把这些不断增长的输入、回复以及你所用语言的 Token 比率加总，再套用各模型每百万 Token 的 API 价格。套餐价格为美国官方月费。</p>
+      <h2>小贴士</h2>
+      <p>订阅套餐包含 App、图像生成、语音和记忆等功能，并有用量限制。请把结果作为参考，判断按你的使用方式哪种更便宜。</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

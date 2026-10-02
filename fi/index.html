@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI-tokenlaskuri", "url": "https://tokensave.app/fi/", "inLanguage": "fi", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Laske tokenit, merkit ja API-hinta GPT:lle, Claudelle ja Geminille. Ilmainen.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "fi", "mainEntity": [{"@type": "Question", "name": "Mikä on token?", "acceptedAnswer": {"@type": "Answer", "text": "Token on tekstin pala, jonka AI-malli lukee. Englannissa 1 token on noin 4 merkkiä tai ¾ sanasta."}}, {"@type": "Question", "name": "Miksi muut kielet maksavat enemmän?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenisoijat opetetaan enimmäkseen englanniksi, joten suomi, korea, japani ja monet muut kielet pilkkoutuvat useampaan tokeniin samalla merkityksellä."}}, {"@type": "Question", "name": "Pysyykö tekstini yksityisenä?", "acceptedAnswer": {"@type": "Answer", "text": "Kyllä. Kaikki toimii paikallisesti selaimessasi. Tekstiäsi ei koskaan lähetetä millekään palvelimelle."}}, {"@type": "Question", "name": "Kuinka paljon enemmän tokeneita suomi vie kuin englanti?", "acceptedAnswer": {"@type": "Answer", "text": "GPT:n o200k-tokenisoijalla suomi vie noin 1.44× saman englanninkielisen tekstin tokenit. Vanha GPT-4-tokenisoija tarvitsi 2.03×; 41 mitatun kielen joukossa suhde vaihtelee 1.03×:sta (yksinkertaistettu kiina) 2.44×:ään (punjabi)."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI-tokenlaskuri", "url": "https://tokensave.app/fi/", "inLanguage": "fi", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Laske tokenit, merkit ja API-hinta GPT:lle, Claudelle ja Geminille. Ilmainen.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "fi", "mainEntity": [{"@type": "Question", "name": "Mikä on token?", "acceptedAnswer": {"@type": "Answer", "text": "Token on tekstin pala, jonka AI-malli lukee. Englannissa 1 token on noin 4 merkkiä tai ¾ sanasta."}}, {"@type": "Question", "name": "Miksi muut kielet maksavat enemmän?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenisoijat opetetaan enimmäkseen englanniksi, joten suomi, korea, japani ja monet muut kielet pilkkoutuvat useampaan tokeniin samalla merkityksellä."}}, {"@type": "Question", "name": "Pysyykö tekstini yksityisenä?", "acceptedAnswer": {"@type": "Answer", "text": "Kyllä. Kaikki toimii paikallisesti selaimessasi. Tekstiäsi ei koskaan lähetetä millekään palvelimelle."}}, {"@type": "Question", "name": "Kuinka paljon enemmän tokeneita suomi vie kuin englanti?", "acceptedAnswer": {"@type": "Answer", "text": "GPT:n tokenisoijalla (o200k) suomi käyttää noin 1,44× niin paljon tokeneita kuin sama teksti englanniksi, joten lähettämällä kehotteen englanniksi säästät noin 31 %. 💸 Säästä tokeneita -painike kääntää sen englanniksi laitteellasi (työpöydän Chrome / Edge) ja pyytää vastausta suomeksi."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -310,8 +310,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Kuinka paljon enemmän tokeneita suomi vie kuin englanti?</h2>
-        <p class="text-zinc-400">GPT:n o200k-tokenisoijalla suomi vie noin 1.44× saman englanninkielisen tekstin tokenit. Vanha GPT-4-tokenisoija tarvitsi 2.03×; 41 mitatun kielen joukossa suhde vaihtelee 1.03×:sta (yksinkertaistettu kiina) 2.44×:ään (punjabi).</p>
+        <p class="text-zinc-400">GPT:n tokenisoijalla (o200k) suomi käyttää noin 1,44× niin paljon tokeneita kuin sama teksti englanniksi, joten lähettämällä kehotteen englanniksi säästät noin 31 %. 💸 Säästä tokeneita -painike kääntää sen englanniksi laitteellasi (työpöydän Chrome / Edge) ja pyytää vastausta suomeksi.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Näin käytät</h2>
+      <ol>
+        <li><strong>Liitä kehotteesi</strong> – tokenien, merkkien ja sanojen määrä sekä arvioitu hinta päivittyvät kirjoittaessasi.</li>
+        <li><strong>Valitse malli</strong> välilehdiltä GPT · Claude · Gemini · Muut, niin näet hinnan pyyntöä ja kuukautta kohden kyseisen mallin hinnoilla. Voit myös muuttaa odotettua vastauksen pituutta ja pyyntöjen määrää kuukaudessa.</li>
+        <li><strong>💸 Säästä tokeneita</strong> – kun tekstiä voi lyhentää, tämä painike ilmestyy ja näyttää odotetun säästön. Se siistii välilyönnit, kääntää kehotteen englanniksi ja karsii täytesanat yhdellä kertaa ja lisää sitten rivin "Reply in Finnish.", jotta vastaus tulee silti omalla kielelläsi. Paina uudelleen (↩ Alkuperäinen), niin saat alkuperäisen tekstin takaisin.</li>
+        <li><strong>Katso, miten teksti jakautuu tokeneiksi</strong> – näyttää väreillä, miten teksti jakautuu tokeneiksi.</li>
+        <li><strong>Chat (JSON)</strong> – liitä API:lle lähettämäsi viestitaulukko, niin myös viestimuodon käyttämät tokenit lasketaan mukaan.</li>
+        <li><strong>Jaa</strong> – muuttaa kirjoittamasi tekstin linkiksi, jonka voit lähettää jollekulle.</li>
+      </ol>
+      <h2>Miten se lasketaan?</h2>
+      <ul>
+        <li><strong>GPT-mallit</strong>: OpenAI:n oikea tokenisoija (o200k) toimii selaimessasi, joten määrä on tarkka.</li>
+        <li><strong>Claude, Gemini ja muut</strong>: niiden tokenisoijia ei ole julkaistu samassa muodossa, joten määrät ovat oikealla tekstillä kalibroituja arvioita (merkitty arvioksi).</li>
+        <li><strong>Hinta</strong> = tokenit ÷ 1 000 000 × hinta miljoonaa tokenia kohden. Hinnat ovat kunkin palveluntarjoajan virallisia API-hintoja, ja niiden tarkistuspäivä näytetään.</li>
+        <li><strong>Kielen tehokkuus</strong> kertoo, kuinka monta kertaa enemmän tokeneita tekstisi vaatii kuin sama sisältö englanniksi. Suomi vaatii noin 1,44× – lähettämällä kehotteen englanniksi säästät noin 31 %.</li>
+      </ul>
+      <h2>Miten käännös toimii?</h2>
+      <ul>
+        <li>Se käyttää selaimeen sisäänrakennettua tekoälykääntäjää: <strong>työpöydän Chrome 138+ tai Edge 148+</strong>.</li>
+        <li>Käännösmalli ladataan kerran; sen jälkeen kääntäminen tapahtuu <strong>omalla laitteellasi</strong>. Tekstiäsi ei koskaan lähetetä palvelimelle.</li>
+        <li>Jos käännös lisäisi tokeneita, sitä ei käytetä. Koodista käännetään vain kommentit.</li>
+        <li>Mobiilissa ja selaimissa, joita ei tueta, vain välilyönnit siistitään ja näytetään ilmoitus.</li>
+      </ul>
+      <h2>Aiheeseen liittyvä artikkeli</h2>
+      <ul><li><a href="/fi/blog/tokenit-suomi-gpt">Suomi vie GPT:ssä 1,44× englannin tokenmäärän</a></li></ul>
     </section>
 
 

@@ -6,19 +6,19 @@ Slovenská verzia:
 
 ## Výsledky
 
-| Jazyk | Tokeny | Oproti angličtine | Starý tokenizér GPT-4 |
+| Jazyk | Tokeny | Oproti angličtine | Úspora pri odoslaní v angličtine |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | 1,00× |
-| 简体中文 | 35 | 1,03× | 1,53× |
-| Español | 40 | 1,18× | 1,29× |
-| Deutsch | 43 | 1,26× | 1,50× |
-| 한국어 | 49 | 1,44× | 2,50× |
-| हिन्दी | 51 | 1,50× | 4,59× |
-| 日本語 | 61 | 1,79× | 2,21× |
-| **Slovenčina** | **68** | **2,00×** | **2,53×** |
-| Čeština | 68 | 2,00× | 2,59× |
-| Ελληνικά | 70 | 2,06× | 4,94× |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
+| English | 34 | 1,00× | – |
+| 简体中文 | 35 | 1,03× | 3% |
+| Español | 40 | 1,18× | 15% |
+| Deutsch | 43 | 1,26× | 21% |
+| 한국어 | 49 | 1,44× | 31% |
+| हिन्दी | 51 | 1,50× | 33% |
+| 日本語 | 61 | 1,79× | 44% |
+| Čeština | 68 | 2,00× | 50% |
+| **Slovenčina** | **68** | **2,00×** | **50%** |
+| Ελληνικά | 70 | 2,06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
 
 ![Výsledky](/blog-language-tax-chart-v4.png)
 
@@ -30,9 +30,9 @@ Tokenizér sa učí hlavne z anglického textu: slová ako " polite" či " custo
 - dvojdňovým → `dvoj | d | ň | ovým` · 4
 - navrhnite → `nav | r | hn | ite` · 4
 
-## Oproti starému tokenizéru
+## Prepnite do angličtiny jedným tlačidlom
 
-Na tokenizéri z éry GPT-4 (cl100k) stál ten istý prompt **2,53×**, dnes **2,00×**.
+Najväčšia úspora je poslať prompt v angličtine: pre slovenčinu asi o 50% menej tokenov. Súčasné modely anglickým inštrukciám výborne rozumejú a odpovedia po slovensky, keď ich o to požiadate. V počítadle tokenov TokenSave vložte prompt a stlačte **💸 Ušetriť tokeny**: odstráni nadbytočné medzery, preloží text do angličtiny, vynechá výplňové slová a pridá „Reply in Slovak.“, aby odpoveď zostala vo vašom jazyku. Využíva prekladač vstavaný v Chrome 138+ / Edge 148+ na počítači; preklad prebieha vo vašom zariadení a text sa nikam neodosiela. Stlačením **↩ Originál** vrátite pôvodný text.
 
 ## V peniazoch
 

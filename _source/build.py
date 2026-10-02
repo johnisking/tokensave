@@ -21,6 +21,12 @@ PRO_BY_TAG = {b["tag"]: b for b in PRO}
 from i18n_view import MORE_LANGS
 from i18n_plans_all import PL, PNAV, PMETA
 from i18n_agents_all import AG, AGNAV, AGMETA
+import i18n_guides as GI
+for _t in GI.CTX:
+    S[_t]["a4"] = GI.a4(_t)
+S["en"]["a4"] = ("Yes: across 41 languages, the same prompt uses from 1.03× (Simplified Chinese) to 2.44× (Punjabi) the tokens of English "
+                 "on GPT's o200k tokenizer. Sending the prompt in English avoids most of that: the Save tokens button translates it on your "
+                 "device (desktop Chrome / Edge) and asks for the reply in your language.")
 LLM = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "src", "llm_prices.json"), encoding="utf-8"))
 
 # ---------------------------------------------------------------- settings
@@ -183,6 +189,12 @@ def blog_index_html():
             '      <ul class="not-prose mt-6 grid gap-3" style="list-style:none;padding:0">\n' + cards + '\n      </ul>\n'
             '      <h2>In other languages</h2>\n      <ul>\n' + links + '\n      </ul>\n    </section>')
 
+def guide_links(tag, key):
+    """Articles in the page language to link under the tool guide."""
+    arts = {"token": [b for G in (BLOG, MISTRAL_FR, PROMPT_PL) for b in G if b["tag"] == tag],
+            "plans": [b for b in PRO if b["tag"] == tag]}.get(key, [])
+    return [(b["path"], b["title"]) for b in arts]
+
 def path_for(slug, tool):
     return (f"/{slug}/" if slug else "/") + tool["page"]
 
@@ -297,7 +309,8 @@ def build():
                 htmlLang=tag, dir=direction, url=url, ogLocale=og, ogImage=f"{BASE}/{tool['og']}",
                 homeUrl=path_for(slug, TOOLS[0]), hreflang=hreflang, langOptions=options, langAll=lang_all, toolNav=nav,
                 ver=ver, adsHead=extras, faq=faq_html(s),
-                guide=(open(os.path.join(SRC, "guides", *([tag] if tag in ("ko", "ja") else []), tool["key"] + ".html"), encoding="utf-8").read() if tag in ("en", "ko", "ja") else ""), moreLink=more_link(tag, s.get("more", "")),
+                guide=(open(os.path.join(SRC, "guides", *([tag] if tag in ("ko", "ja") else []), tool["key"] + ".html"), encoding="utf-8").read() if tag in ("en", "ko", "ja")
+                       else GI.guide(tag, tool["key"], guide_links(tag, tool["key"])) if tag in GI.CTX else ""), moreLink=more_link(tag, s.get("more", "")),
                 proLink=(f'<a href="{PRO_BY_TAG[tag]["path"]}" class="text-violet-300 hover:text-violet-200 underline">{esc(PRO_BY_TAG[tag]["title"])} →</a>' if tag in PRO_BY_TAG else ""),
                 ldjson=js({"@context": "https://schema.org", "@graph": graph}),
                 tjson=js(runtime),
@@ -345,7 +358,7 @@ def build():
       for b in GROUP:
           tag, slug = b["tag"], tag_slug[b["tag"]]
           prefix = f"/{slug}/blog/" if slug else "/blog/"
-          assert b["path"].startswith(prefix) and len(b["desc"]) <= 130, (b["path"], len(b["desc"]))
+          assert b["path"].startswith(prefix) and len(b["desc"]) <= 160, (b["path"], len(b["desc"]))
           bdate = b.get("date", BLOG_DATE)
           url = BASE + b["path"]
           tool_home = path_for(slug, TOOLS[0])

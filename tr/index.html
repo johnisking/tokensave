@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Yapay Zekâ Token Sayacı", "url": "https://tokensave.app/tr/", "inLanguage": "tr", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "GPT, Claude ve Gemini için token ve API maliyetini hesaplayın. Ücretsiz.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Token nedir?", "acceptedAnswer": {"@type": "Answer", "text": "Token, bir yapay zekâ modelinin okuduğu metin parçasıdır. İngilizcede 1 token yaklaşık 4 karakter veya bir kelimenin ¾'ü kadardır."}}, {"@type": "Question", "name": "Diğer diller neden daha pahalı?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizer'lar çoğunlukla İngilizceyle eğitildiği için Türkçe ve birçok başka dil aynı anlam için daha fazla tokene bölünür."}}, {"@type": "Question", "name": "Metnim gizli mi?", "acceptedAnswer": {"@type": "Answer", "text": "Evet. Her şey tarayıcınızda yerel olarak çalışır. Metniniz hiçbir sunucuya gönderilmez."}}, {"@type": "Question", "name": "Türkçe İngilizceye göre kaç kat daha fazla token kullanır?", "acceptedAnswer": {"@type": "Answer", "text": "GPT'nin o200k tokenizer'ında Türkçe, aynı İngilizce metnin yaklaşık 1.47× katı token kullanır. Eski GPT-4 tokenizer'ında bu oran 2.06× idi, yani Türkçe için maliyet belirgin şekilde düştü; 41 dil genelinde oran 1.03× (Basitleştirilmiş Çince) ile 2.44× (Pencapça) arasında değişir."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Yapay Zekâ Token Sayacı", "url": "https://tokensave.app/tr/", "inLanguage": "tr", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "GPT, Claude ve Gemini için token ve API maliyetini hesaplayın. Ücretsiz.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "tr", "mainEntity": [{"@type": "Question", "name": "Token nedir?", "acceptedAnswer": {"@type": "Answer", "text": "Token, bir yapay zekâ modelinin okuduğu metin parçasıdır. İngilizcede 1 token yaklaşık 4 karakter veya bir kelimenin ¾'ü kadardır."}}, {"@type": "Question", "name": "Diğer diller neden daha pahalı?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizer'lar çoğunlukla İngilizceyle eğitildiği için Türkçe ve birçok başka dil aynı anlam için daha fazla tokene bölünür."}}, {"@type": "Question", "name": "Metnim gizli mi?", "acceptedAnswer": {"@type": "Answer", "text": "Evet. Her şey tarayıcınızda yerel olarak çalışır. Metniniz hiçbir sunucuya gönderilmez."}}, {"@type": "Question", "name": "Türkçe İngilizceye göre kaç kat daha fazla token kullanır?", "acceptedAnswer": {"@type": "Answer", "text": "GPT’nin tokenizer’ında (o200k) Türkçe, aynı metnin İngilizcesine göre yaklaşık 1,47× token kullanır; bu yüzden istemi İngilizce göndermek yaklaşık %32 tasarruf sağlar. 💸 Token tasarrufu düğmesi metni cihazınızda (masaüstü Chrome / Edge) İngilizceye çevirir ve yanıtı Türkçe ister."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -310,8 +310,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Türkçe İngilizceye göre kaç kat daha fazla token kullanır?</h2>
-        <p class="text-zinc-400">GPT&#x27;nin o200k tokenizer&#x27;ında Türkçe, aynı İngilizce metnin yaklaşık 1.47× katı token kullanır. Eski GPT-4 tokenizer&#x27;ında bu oran 2.06× idi, yani Türkçe için maliyet belirgin şekilde düştü; 41 dil genelinde oran 1.03× (Basitleştirilmiş Çince) ile 2.44× (Pencapça) arasında değişir.</p>
+        <p class="text-zinc-400">GPT’nin tokenizer’ında (o200k) Türkçe, aynı metnin İngilizcesine göre yaklaşık 1,47× token kullanır; bu yüzden istemi İngilizce göndermek yaklaşık %32 tasarruf sağlar. 💸 Token tasarrufu düğmesi metni cihazınızda (masaüstü Chrome / Edge) İngilizceye çevirir ve yanıtı Türkçe ister.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Nasıl kullanılır</h2>
+      <ol>
+        <li><strong>İsteminizi yapıştırın</strong> — token sayısı, karakter, kelime ve tahmini maliyet siz yazdıkça güncellenir.</li>
+        <li>GPT · Claude · Gemini · Diğer sekmelerinden <strong>bir model seçin</strong>; o modelin fiyatıyla istek başına ve aylık maliyeti görün. Beklenen çıktıyı ve aylık istek sayısını da değiştirebilirsiniz.</li>
+        <li><strong>💸 Token tasarrufu</strong> — metniniz kısaltılabildiğinde bu düğme beklenen tasarrufla birlikte görünür. Tek seferde boşlukları temizler, isteminizi İngilizceye çevirir ve gereksiz ifadeleri kırpar; ardından yanıt yine kendi dilinizde gelsin diye "Reply in Turkish." ekler. Orijinal metninize dönmek için düğmeye tekrar basın (↩ Orijinal).</li>
+        <li><strong>Token’lara nasıl bölündüğünü gör</strong> — metninizin token’lara nasıl bölündüğünü renkli olarak gösterir.</li>
+        <li><strong>Sohbet (JSON)</strong> — API’ye gönderdiğiniz mesaj dizisini yapıştırın; mesaj biçiminin kullandığı token’lar da sayıma eklenir.</li>
+        <li><strong>Paylaş</strong> — girdiğiniz metni birine gönderebileceğiniz bir bağlantıya dönüştürür.</li>
+      </ol>
+      <h2>Nasıl hesaplanıyor?</h2>
+      <ul>
+        <li><strong>GPT modelleri</strong>: gerçek OpenAI tokenizer’ı (o200k) tarayıcınızda çalışır, bu yüzden sayım kesindir.</li>
+        <li><strong>Claude, Gemini ve diğerleri</strong>: tokenizer’ları aynı biçimde yayımlanmadığından sayımlar, gerçek metinler üzerinde kalibre edilmiş tahminlerdir (tahmin olarak işaretlenir).</li>
+        <li><strong>Maliyet</strong> = token ÷ 1.000.000 × milyon token başına fiyat. Fiyatlar her sağlayıcının resmî API fiyatlarıdır ve kontrol edildikleri tarihle birlikte gösterilir.</li>
+        <li><strong>Dil verimliliği</strong>, metninizin aynı içeriğin İngilizcesine göre kaç kat fazla token gerektirdiğini gösterir. Türkçe yaklaşık 1,47× token gerektirir — istemi İngilizce göndermek yaklaşık %32 tasarruf sağlar.</li>
+      </ul>
+      <h2>Çeviri nasıl çalışıyor?</h2>
+      <ul>
+        <li>Tarayıcıya yerleşik yapay zekâ çevirmenini kullanır: <strong>masaüstü Chrome 138+ veya Edge 148+</strong>.</li>
+        <li>Çeviri modeli bir kez indirilir; sonrasında çeviri <strong>kendi cihazınızda</strong> yapılır. Metniniz asla bir sunucuya gönderilmez.</li>
+        <li>Çeviri token sayısını artıracaksa uygulanmaz. Kodda yalnızca yorumlar çevrilir.</li>
+        <li>Mobilde veya desteklenmeyen tarayıcılarda yalnızca boşluklar temizlenir ve bir bilgilendirme gösterilir.</li>
+      </ul>
+      <h2>İlgili makale</h2>
+      <ul><li><a href="/tr/blog/token-turkce-gpt">Türkçe, GPT&#x27;de İngilizceden 1,47× daha fazla token harcıyor</a></li></ul>
     </section>
 
 

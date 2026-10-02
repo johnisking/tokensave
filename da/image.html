@@ -197,6 +197,22 @@
         <p class="text-zinc-400">Nano Banana er kælenavnet for Googles Gemini-billedmodeller. Nano Banana 2 er Gemini 3.1 Flash Image, og Nano Banana Pro er Gemini 3 Pro Image.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Sådan bruger du det</h2>
+      <ol>
+        <li>Vælg outputopløsning: 0,5K (512 px) · 1K (1024 px) · 2K (2048 px) · 4K.</li>
+        <li>Angiv <strong>Antal billeder</strong>.</li>
+        <li>Modeller, der understøtter den størrelse, sorteres efter pris pr. billede og i alt.</li>
+      </ol>
+      <h2>Hvordan beregnes det?</h2>
+      <ul>
+        <li>De fleste billed-API'er tager en fast pris pr. billede for hver opløsning.</li>
+        <li>FLUX.2 afregner pr. megapixel: den første megapixel til én takst og hver ekstra til en lavere takst, så 2K (4 MP) koster mere.</li>
+        <li>Kvalitetsindstillingen betyder noget: GPT Image 2.5 i høj kvalitet koster 16 gange mere end i lav.</li>
+      </ul>
+      <h2>Tips</h2>
+      <p>Find kompositionen med en billig indstilling i lav kvalitet, og generér derefter kun de billeder, du beholder, igen i høj kvalitet. Til web og sociale medier er 1K som regel nok.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Contatore di token IA", "url": "https://tokensave.app/it/", "inLanguage": "it", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Conta token e costo API di GPT, Claude e Gemini. Gratis, senza caricare nulla.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "it", "mainEntity": [{"@type": "Question", "name": "Che cos'è un token?", "acceptedAnswer": {"@type": "Answer", "text": "Un token è un frammento di testo letto da un modello di IA. In inglese, 1 token corrisponde a circa 4 caratteri o ¾ di parola."}}, {"@type": "Question", "name": "Perché le altre lingue costano di più?", "acceptedAnswer": {"@type": "Answer", "text": "I tokenizer sono addestrati soprattutto sull'inglese, quindi l'italiano e molte altre lingue vengono divisi in più token a parità di significato."}}, {"@type": "Question", "name": "Il mio testo è privato?", "acceptedAnswer": {"@type": "Answer", "text": "Sì. Tutto viene elaborato localmente nel tuo browser. Il testo non viene mai inviato a nessun server."}}, {"@type": "Question", "name": "Quanti token in più usa l’italiano rispetto all’inglese?", "acceptedAnswer": {"@type": "Answer", "text": "Con il tokenizer o200k di GPT, l’italiano usa circa 1.38× i token dello stesso testo in inglese. Il vecchio tokenizer di GPT-4 ne richiedeva 1.59×, quindi il costo per l’italiano è sceso parecchio; su 41 lingue, il rapporto va da 1.03× (cinese semplificato) a 2.44× (punjabi)."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Contatore di token IA", "url": "https://tokensave.app/it/", "inLanguage": "it", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Conta token e costo API di GPT, Claude e Gemini. Gratis, senza caricare nulla.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "it", "mainEntity": [{"@type": "Question", "name": "Che cos'è un token?", "acceptedAnswer": {"@type": "Answer", "text": "Un token è un frammento di testo letto da un modello di IA. In inglese, 1 token corrisponde a circa 4 caratteri o ¾ di parola."}}, {"@type": "Question", "name": "Perché le altre lingue costano di più?", "acceptedAnswer": {"@type": "Answer", "text": "I tokenizer sono addestrati soprattutto sull'inglese, quindi l'italiano e molte altre lingue vengono divisi in più token a parità di significato."}}, {"@type": "Question", "name": "Il mio testo è privato?", "acceptedAnswer": {"@type": "Answer", "text": "Sì. Tutto viene elaborato localmente nel tuo browser. Il testo non viene mai inviato a nessun server."}}, {"@type": "Question", "name": "Quanti token in più usa l’italiano rispetto all’inglese?", "acceptedAnswer": {"@type": "Answer", "text": "Con il tokenizer di GPT (o200k), l'italiano usa circa 1,38× i token dello stesso testo in inglese, quindi inviare il prompt in inglese fa risparmiare circa il 28%. Il pulsante 💸 Risparmia token lo traduce in inglese sul tuo dispositivo (Chrome / Edge per desktop) e chiede la risposta in italiano."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -310,8 +310,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Quanti token in più usa l’italiano rispetto all’inglese?</h2>
-        <p class="text-zinc-400">Con il tokenizer o200k di GPT, l’italiano usa circa 1.38× i token dello stesso testo in inglese. Il vecchio tokenizer di GPT-4 ne richiedeva 1.59×, quindi il costo per l’italiano è sceso parecchio; su 41 lingue, il rapporto va da 1.03× (cinese semplificato) a 2.44× (punjabi).</p>
+        <p class="text-zinc-400">Con il tokenizer di GPT (o200k), l&#x27;italiano usa circa 1,38× i token dello stesso testo in inglese, quindi inviare il prompt in inglese fa risparmiare circa il 28%. Il pulsante 💸 Risparmia token lo traduce in inglese sul tuo dispositivo (Chrome / Edge per desktop) e chiede la risposta in italiano.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Come si usa</h2>
+      <ol>
+        <li><strong>Incolla il tuo prompt</strong>: il numero di token, caratteri e parole e il costo stimato si aggiornano mentre scrivi.</li>
+        <li><strong>Scegli un modello</strong> nelle schede GPT · Claude · Gemini · Altri per vedere il costo per richiesta e al mese al prezzo di quel modello. Puoi anche modificare l'output previsto e il numero di richieste al mese.</li>
+        <li><strong>💸 Risparmia token</strong>: quando il tuo testo si può accorciare, compare questo pulsante con il risparmio previsto. In un colpo solo pulisce gli spazi, traduce il prompt in inglese ed elimina il superfluo, poi aggiunge "Reply in Italian." così la risposta arriva comunque nella tua lingua. Premilo di nuovo (↩ Originale) per recuperare il testo originale.</li>
+        <li><strong>Guarda come si divide in token</strong>: mostra a colori come il tuo testo viene suddiviso in token.</li>
+        <li><strong>Chat (JSON)</strong>: incolla l'array di messaggi che invii all'API e i token usati dal formato dei messaggi vengono aggiunti al conteggio.</li>
+        <li><strong>Condividi</strong>: trasforma il testo inserito in un link da inviare a qualcuno.</li>
+      </ol>
+      <h2>Come viene calcolato?</h2>
+      <ul>
+        <li><strong>Modelli GPT</strong>: il vero tokenizer di OpenAI (o200k) gira nel tuo browser, quindi il conteggio è esatto.</li>
+        <li><strong>Claude, Gemini e altri</strong>: i loro tokenizer non sono pubblicati nella stessa forma, quindi i conteggi sono stime calibrate su testi reali (indicate come stima).</li>
+        <li><strong>Costo</strong> = token ÷ 1.000.000 × prezzo per milione di token. I prezzi sono quelli ufficiali delle API di ciascun fornitore, mostrati con la data di verifica.</li>
+        <li><strong>L'efficienza linguistica</strong> indica quante volte più token richiede il tuo testo rispetto allo stesso contenuto in inglese. L'italiano ne richiede circa 1,38×: inviando il prompt in inglese risparmi circa il 28%.</li>
+      </ul>
+      <h2>Come funziona la traduzione?</h2>
+      <ul>
+        <li>Usa il traduttore IA integrato nel browser: <strong>Chrome 138+ o Edge 148+ per desktop</strong>.</li>
+        <li>Il modello di traduzione viene scaricato una sola volta; dopodiché la traduzione avviene <strong>sul tuo dispositivo</strong>. Il tuo testo non viene mai inviato a un server.</li>
+        <li>Se la traduzione aumentasse i token, non viene applicata. Nel codice vengono tradotti solo i commenti.</li>
+        <li>Su dispositivi mobili o browser non supportati vengono puliti solo gli spazi e viene mostrato un avviso.</li>
+      </ul>
+      <h2>Articolo correlato</h2>
+      <ul><li><a href="/it/blog/token-italiano-gpt">L’italiano usa 1,38× i token dell’inglese in GPT</a></li></ul>
     </section>
 
 

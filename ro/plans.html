@@ -216,6 +216,18 @@
         <p class="text-zinc-400">Da. Același text în coreeană, hindi sau greacă are nevoie de mai mulți tokeni decât în engleză, așa că costurile API cresc în aceeași proporție. Abonamentele costă la fel, dar atingi mai repede limitele de utilizare.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Cum se folosește</h2>
+      <ol>
+        <li>Setează <strong>Mesaje pe zi</strong>, <strong>Lungimea mesajului</strong> și <strong>Mesaje pe conversație</strong>.</li>
+        <li>Alege <strong>Limba în care scrii</strong>. Limba română folosește aproximativ 1,53× tokenii limbii engleze, iar asta se reflectă direct în costul API.</li>
+        <li>Fiecare card (ChatGPT · Claude · Gemini) arată cât ar costa lunar aceeași utilizare prin API și dacă un abonament sau API-ul este mai ieftin.</li>
+      </ol>
+      <h2>Cum se calculează?</h2>
+      <p>Un model de chat recitește întreaga conversație la fiecare mesaj, așa că mesajele de mai târziu trimit mai mulți tokeni de intrare. Calculatorul adună aceste intrări tot mai mari, răspunsurile și raportul de tokeni al limbii tale, apoi aplică prețul API al fiecărui model pe milion de tokeni. Prețurile abonamentelor sunt prețurile lunare oficiale din SUA.</p>
+      <h2>Sfaturi</h2>
+      <p>Abonamentele includ funcții precum aplicația, generarea de imagini, vocea și memoria și au limite de utilizare. Folosește rezultatul ca reper pentru ce variantă e mai ieftină în felul în care folosești AI.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

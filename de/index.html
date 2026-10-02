@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "KI-Token-Zähler", "url": "https://tokensave.app/de/", "inLanguage": "de", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Tokens und API-Kosten für GPT, Claude und Gemini sofort zählen. Gratis, lokal.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "de", "mainEntity": [{"@type": "Question", "name": "Was ist ein Token?", "acceptedAnswer": {"@type": "Answer", "text": "Ein Token ist ein Textstück, das ein KI-Modell liest. Im Englischen entspricht 1 Token etwa 4 Zeichen oder ¾ eines Wortes."}}, {"@type": "Question", "name": "Warum kosten andere Sprachen mehr?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizer werden überwiegend mit Englisch trainiert. Deutsch und viele andere Sprachen werden daher für dieselbe Bedeutung in mehr Tokens zerlegt."}}, {"@type": "Question", "name": "Ist mein Text privat?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Alles läuft lokal in deinem Browser. Dein Text wird nie an einen Server gesendet."}}, {"@type": "Question", "name": "Wie viel mehr Tokens braucht Deutsch als Englisch?", "acceptedAnswer": {"@type": "Answer", "text": "Mit GPTs o200k-Tokenizer braucht Deutsch etwa 1.26× so viele Tokens wie derselbe Text auf Englisch. Der alte GPT-4-Tokenizer brauchte noch 1.50×, die Kosten für Deutsch sind also deutlich gesunken; über 41 Sprachen reicht das Verhältnis von 1.03× (vereinfachtes Chinesisch) bis 2.44× (Punjabi)."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "KI-Token-Zähler", "url": "https://tokensave.app/de/", "inLanguage": "de", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Tokens und API-Kosten für GPT, Claude und Gemini sofort zählen. Gratis, lokal.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "de", "mainEntity": [{"@type": "Question", "name": "Was ist ein Token?", "acceptedAnswer": {"@type": "Answer", "text": "Ein Token ist ein Textstück, das ein KI-Modell liest. Im Englischen entspricht 1 Token etwa 4 Zeichen oder ¾ eines Wortes."}}, {"@type": "Question", "name": "Warum kosten andere Sprachen mehr?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizer werden überwiegend mit Englisch trainiert. Deutsch und viele andere Sprachen werden daher für dieselbe Bedeutung in mehr Tokens zerlegt."}}, {"@type": "Question", "name": "Ist mein Text privat?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Alles läuft lokal in deinem Browser. Dein Text wird nie an einen Server gesendet."}}, {"@type": "Question", "name": "Wie viel mehr Tokens braucht Deutsch als Englisch?", "acceptedAnswer": {"@type": "Answer", "text": "Mit dem GPT-Tokenizer (o200k) braucht Deutsch etwa 1,26× so viele Tokens wie derselbe Text auf Englisch – wer den Prompt auf Englisch sendet, spart also rund 21 %. Der Button 💸 Tokens sparen übersetzt ihn auf deinem Gerät ins Englische (Desktop-Chrome / Edge) und bittet um eine Antwort auf Deutsch."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -309,8 +309,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Wie viel mehr Tokens braucht Deutsch als Englisch?</h2>
-        <p class="text-zinc-400">Mit GPTs o200k-Tokenizer braucht Deutsch etwa 1.26× so viele Tokens wie derselbe Text auf Englisch. Der alte GPT-4-Tokenizer brauchte noch 1.50×, die Kosten für Deutsch sind also deutlich gesunken; über 41 Sprachen reicht das Verhältnis von 1.03× (vereinfachtes Chinesisch) bis 2.44× (Punjabi).</p>
+        <p class="text-zinc-400">Mit dem GPT-Tokenizer (o200k) braucht Deutsch etwa 1,26× so viele Tokens wie derselbe Text auf Englisch – wer den Prompt auf Englisch sendet, spart also rund 21 %. Der Button 💸 Tokens sparen übersetzt ihn auf deinem Gerät ins Englische (Desktop-Chrome / Edge) und bittet um eine Antwort auf Deutsch.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">So funktioniert's</h2>
+      <ol>
+        <li><strong>Füge deinen Prompt ein</strong> – Token-, Zeichen- und Wortanzahl sowie die geschätzten Kosten aktualisieren sich während der Eingabe.</li>
+        <li><strong>Wähle ein Modell</strong> in den Tabs GPT · Claude · Gemini · Weitere, um die Kosten pro Anfrage und pro Monat zum Preis dieses Modells zu sehen. Du kannst auch die erwartete Ausgabe und die Anzahl der Anfragen pro Monat ändern.</li>
+        <li><strong>💸 Tokens sparen</strong> – wenn sich dein Text kürzen lässt, erscheint dieser Button mit der erwarteten Ersparnis. Er bereinigt Leerzeichen, übersetzt deinen Prompt ins Englische und streicht Füllwörter in einem Schritt und fügt dann "Reply in German." hinzu, damit die Antwort weiterhin in deiner Sprache kommt. Drück ihn erneut (↩ Original), um deinen Originaltext zurückzubekommen.</li>
+        <li><strong>Aufteilung in Tokens ansehen</strong> – zeigt farbig, wie dein Text in Tokens aufgeteilt wird.</li>
+        <li><strong>Chat (JSON)</strong> – füge das Nachrichten-Array ein, das du an die API sendest; die Tokens, die das Nachrichtenformat verbraucht, werden mitgezählt.</li>
+        <li><strong>Teilen</strong> – macht aus deinem eingegebenen Text einen Link, den du an andere schicken kannst.</li>
+      </ol>
+      <h2>Wie wird gerechnet?</h2>
+      <ul>
+        <li><strong>GPT-Modelle</strong>: Der echte OpenAI-Tokenizer (o200k) läuft in deinem Browser, die Zählung ist also exakt.</li>
+        <li><strong>Claude, Gemini und andere</strong>: Ihre Tokenizer sind nicht in gleicher Form veröffentlicht, daher sind die Werte Schätzungen, die an echten Texten kalibriert wurden (als Schätzung gekennzeichnet).</li>
+        <li><strong>Kosten</strong> = Tokens ÷ 1.000.000 × Preis pro Million Tokens. Die Preise sind die offiziellen API-Preise der jeweiligen Anbieter und werden mit dem Prüfdatum angezeigt.</li>
+        <li><strong>Spracheffizienz</strong> zeigt, wie viel Mal mehr Tokens dein Text braucht als derselbe Inhalt auf Englisch. Deutsch braucht etwa 1,26× – wer den Prompt auf Englisch sendet, spart rund 21 %.</li>
+      </ul>
+      <h2>Wie funktioniert die Übersetzung?</h2>
+      <ul>
+        <li>Genutzt wird der im Browser integrierte KI-Übersetzer: <strong>Desktop-Chrome 138+ oder Edge 148+</strong>.</li>
+        <li>Das Übersetzungsmodell wird einmal heruntergeladen; danach läuft die Übersetzung <strong>auf deinem eigenen Gerät</strong>. Dein Text wird nie an einen Server gesendet.</li>
+        <li>Würde die Übersetzung mehr Tokens erzeugen, wird sie nicht angewendet. Bei Code werden nur die Kommentare übersetzt.</li>
+        <li>Auf Mobilgeräten oder in nicht unterstützten Browsern werden nur die Leerzeichen bereinigt und ein Hinweis angezeigt.</li>
+      </ul>
+      <h2>Verwandter Artikel</h2>
+      <ul><li><a href="/de/blog/tokens-deutsch-gpt">Deutsch braucht in GPT 1,26× so viele Tokens wie Englisch</a></li></ul>
     </section>
 
 

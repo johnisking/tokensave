@@ -216,6 +216,18 @@
         <p class="text-zinc-400">För några små uppgifter om dagen är API:et oftast billigare. Vid tung daglig användning blir ett abonnemang för 100–200 $ ofta billigare, så länge du håller dig inom gränserna.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Så använder du verktyget</h2>
+      <ol>
+        <li>Välj <strong>Typisk uppgift</strong>, <strong>Uppgifter per dag</strong> och <strong>Arbetsdagar per månad</strong>.</li>
+        <li>Låt <strong>Promptcachning</strong> vara på: de flesta verktyg använder det.</li>
+        <li>Jämför varje modells månatliga API-kostnad med de Claude- och ChatGPT-abonnemang som inkluderar en kodagent.</li>
+      </ol>
+      <h2>Hur räknas det ut?</h2>
+      <p>En kodagent skickar om hela sin arbetskontext (systemprompt, verktygsdefinitioner, filer den har läst, tidigare steg) i varje steg. En funktionsuppgift modelleras som 25 steg som börjar på 22 000 tokens, växer med 3 500 tokens och skriver 700 tokens per steg. Med cachning påslagen debiteras den upprepade kontexten med cirka 10 % av indatapriset.</p>
+      <h2>Tips</h2>
+      <p>Att skriva instruktionerna (systemprompten) på engelska i stället för svenska sparar cirka 24 % av deras tokens.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

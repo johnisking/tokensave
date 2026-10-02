@@ -6,19 +6,19 @@ A versão em português:
 
 ## Resultados
 
-| Idioma | Tokens | Em relação ao inglês | Tokenizador antigo do GPT-4 |
+| Idioma | Tokens | Em relação ao inglês | Economia se enviado em inglês |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | 1,00× |
-| 简体中文 | 35 | 1,03× | 1,53× |
-| Español | 40 | 1,18× | 1,29× |
-| **Português** | **41** | **1,21×** | **1,41×** |
-| Deutsch | 43 | 1,26× | 1,50× |
-| 한국어 | 49 | 1,44× | 2,50× |
-| हिन्दी | 51 | 1,50× | 4,59× |
-| 日本語 | 61 | 1,79× | 2,21× |
-| Čeština | 68 | 2,00× | 2,59× |
-| Ελληνικά | 70 | 2,06× | 4,94× |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
+| English | 34 | 1,00× | – |
+| 简体中文 | 35 | 1,03× | 3% |
+| Español | 40 | 1,18× | 15% |
+| **Português** | **41** | **1,21×** | **17%** |
+| Deutsch | 43 | 1,26× | 21% |
+| 한국어 | 49 | 1,44× | 31% |
+| हिन्दी | 51 | 1,50× | 33% |
+| 日本語 | 61 | 1,79× | 44% |
+| Čeština | 68 | 2,00× | 50% |
+| Ελληνικά | 70 | 2,06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
 
 ![Resultados](/blog-language-tax-chart-v4.png)
 
@@ -30,9 +30,9 @@ O tokenizador aprende principalmente com texto em inglês: palavras como " polit
 - educada → `educ | ada` · 2
 - faltava → `falt | ava` · 2
 
-## Comparado ao tokenizador antigo
+## Mude para o inglês com um botão
 
-No tokenizador da era GPT-4 (cl100k), o mesmo prompt custava **1,41×**; hoje custa **1,21×**.
+A maior economia é enviar seu prompt em inglês: cerca de 17% menos tokens do que em português. Os modelos atuais entendem perfeitamente instruções em inglês e respondem em português se você pedir. No contador de tokens do TokenSave, cole seu prompt e pressione **💸 Economizar tokens**: ele limpa os espaços, traduz para o inglês, corta o excesso e adiciona "Reply in Portuguese." para que a resposta continue no seu idioma. Ele usa o tradutor integrado ao Chrome 138+ / Edge 148+ para desktop; a tradução acontece no seu próprio dispositivo e seu texto nunca é enviado. Pressione **↩ Original** para recuperar o original.
 
 ## Em dinheiro
 

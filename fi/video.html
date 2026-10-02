@@ -210,6 +210,23 @@
         <p class="text-zinc-400">Ei. OpenAI poisti Sora 2 -videomallit API:staan 24. syyskuuta 2026, joten Sora ei ole enää kehittäjien saatavilla.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Näin käytät</h2>
+      <ol>
+        <li>Syötä <strong>Leikkeen pituus (sekuntia)</strong> ja <strong>Leikkeiden määrä</strong>.</li>
+        <li>Valitse <strong>Resoluutio</strong> (480p · 720p · 1080p · 4K) sekä <strong>Äänen kanssa</strong> / <strong>Ilman ääntä</strong>.</li>
+        <li>Valintasi tukevat mallit järjestetään kokonaishinnan mukaan halvimmasta alkaen, ja halvin merkitään tunnuksella ”Halvin”.</li>
+      </ol>
+      <h2>Miten se lasketaan?</h2>
+      <ul>
+        <li>Useimmat video-API:t laskuttavat sekunnin mukaan: yhteensä = leikkeen pituus × leikkeiden määrä × sekuntihinta.</li>
+        <li>Luma laskuttaa 5 tai 10 sekunnin leikkeittäin, joten pidemmät videot lasketaan useaksi leikkeeksi.</li>
+        <li>Jotkin mallit sisältävät aina äänen (Veo); toiset maksavat enemmän ääni päällä (Kling).</li>
+        <li>Jos valmistaja ei julkaise sekuntikohtaista API-hintaa, näytetään Runwayn API-hinta merkinnällä ”Runway API:n kautta”.</li>
+      </ul>
+      <h2>Vinkit</h2>
+      <p>Tulos on yhden generoinnin hinta. Käyttökelpoinen otos vaatii usein 2–4 yritystä, joten budjetoi noin 3×. Testaa kehotteita halvalla mallilla 720p-tarkkuudella ja renderöi vain lopullinen otos premium-mallilla.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

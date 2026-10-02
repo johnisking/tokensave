@@ -210,6 +210,23 @@
         <p class="text-zinc-400">OpenAI, Sora 2 video modellerini 24 Eylül 2026&#x27;da API&#x27;sinden kaldırdı; artık geliştiriciler tarafından kullanılamıyor.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Nasıl kullanılır</h2>
+      <ol>
+        <li><strong>Klip başına süre (saniye)</strong> ve <strong>Klip sayısı</strong> değerlerini girin.</li>
+        <li><strong>Çözünürlük</strong> (480p · 720p · 1080p · 4K) ve <strong>Sesli</strong> / <strong>Sessiz</strong> seçimini yapın.</li>
+        <li>Seçiminizi destekleyen modeller toplam maliyete göre en ucuzdan başlayarak sıralanır ve en ucuzu “En ucuz” olarak işaretlenir.</li>
+      </ol>
+      <h2>Nasıl hesaplanıyor?</h2>
+      <ul>
+        <li>Çoğu video API’si saniye başına ücret alır: toplam = klip süresi × klip sayısı × saniye başına fiyat.</li>
+        <li>Luma 5 ya da 10 saniyelik klip başına ücretlendirir, bu yüzden daha uzun videolar birden fazla klip olarak sayılır.</li>
+        <li>Bazı modeller her zaman ses içerir (Veo); bazılarında ses açıkken maliyet artar (Kling).</li>
+        <li>Üreticinin saniye başına API fiyatı yayımlamadığı durumlarda Runway’in API fiyatı gösterilir ve “Runway API üzerinden” olarak etiketlenir.</li>
+      </ul>
+      <h2>İpuçları</h2>
+      <p>Sonuç tek bir üretimin maliyetidir. Kullanılabilir bir çekim çoğu zaman 2–4 deneme ister, bu yüzden bütçeyi yaklaşık 3× planlayın. İstemleri ucuz bir modelde 720p ile deneyin, yalnızca son çekimi premium bir modelde oluşturun.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

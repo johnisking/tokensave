@@ -210,6 +210,23 @@
         <p class="text-zinc-400">OpenAI ha rimosso i modelli video Sora 2 dalla sua API il 24 settembre 2026, quindi non sono più disponibili per gli sviluppatori.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Come si usa</h2>
+      <ol>
+        <li>Inserisci <strong>Durata per clip (secondi)</strong> e <strong>Numero di clip</strong>.</li>
+        <li>Scegli <strong>Risoluzione</strong> (480p · 720p · 1080p · 4K) e <strong>Con audio</strong> / <strong>Senza audio</strong>.</li>
+        <li>I modelli che supportano la tua scelta sono ordinati per costo totale, dal più economico, e il più economico è contrassegnato come «Il più economico».</li>
+      </ol>
+      <h2>Come viene calcolato?</h2>
+      <ul>
+        <li>La maggior parte delle API video addebita al secondo: totale = durata della clip × numero di clip × prezzo al secondo.</li>
+        <li>Luma addebita per clip da 5 o 10 secondi, quindi i video più lunghi contano come più clip.</li>
+        <li>Alcuni modelli includono sempre l'audio (Veo); altri costano di più con l'audio attivo (Kling).</li>
+        <li>Se il produttore non pubblica un prezzo API al secondo, viene mostrato il prezzo dell'API di Runway con l'etichetta «Tramite API Runway».</li>
+      </ul>
+      <h2>Consigli</h2>
+      <p>Il risultato è il costo di una singola generazione. Un'inquadratura utilizzabile richiede spesso 2–4 tentativi, quindi metti in conto circa 3×. Prova i prompt su un modello economico a 720p e renderizza solo la versione finale con un modello premium.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

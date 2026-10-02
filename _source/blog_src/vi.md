@@ -6,19 +6,19 @@ Bản tiếng Việt:
 
 ## Kết quả
 
-| Ngôn ngữ | Token | So với tiếng Anh | Tokenizer GPT-4 cũ |
+| Ngôn ngữ | Token | So với tiếng Anh | Tiết kiệm nếu gửi bằng tiếng Anh |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | 1,00× |
-| 简体中文 | 35 | 1,03× | 1,53× |
-| Español | 40 | 1,18× | 1,29× |
-| Deutsch | 43 | 1,26× | 1,50× |
-| **Tiếng Việt** | **46** | **1,35×** | **2,32×** |
-| 한국어 | 49 | 1,44× | 2,50× |
-| हिन्दी | 51 | 1,50× | 4,59× |
-| 日本語 | 61 | 1,79× | 2,21× |
-| Čeština | 68 | 2,00× | 2,59× |
-| Ελληνικά | 70 | 2,06× | 4,94× |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
+| English | 34 | 1,00× | – |
+| 简体中文 | 35 | 1,03× | 3% |
+| Español | 40 | 1,18× | 15% |
+| Deutsch | 43 | 1,26× | 21% |
+| **Tiếng Việt** | **46** | **1,35×** | **26%** |
+| 한국어 | 49 | 1,44× | 31% |
+| हिन्दी | 51 | 1,50× | 33% |
+| 日本語 | 61 | 1,79× | 44% |
+| Čeština | 68 | 2,00× | 50% |
+| Ελληνικά | 70 | 2,06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
 
 ![Kết quả](/blog-language-tax-chart-v4.png)
 
@@ -30,9 +30,9 @@ Tokenizer học chủ yếu từ văn bản tiếng Anh: những từ như " pol
 - Hãy → `H | ãy` · 2
 - tóm → `t | óm` · 2
 
-## So với tokenizer cũ
+## Chuyển sang tiếng Anh chỉ với một nút bấm
 
-Với tokenizer thời GPT-4 (cl100k), cùng prompt này gấp **2,32×**; nay chỉ còn **1,35×**.
+Cách tiết kiệm nhiều nhất là gửi prompt bằng tiếng Anh: ít hơn khoảng 26% token so với tiếng Việt. Các mô hình hiện nay hiểu chỉ dẫn tiếng Anh rất tốt và sẽ trả lời bằng tiếng Việt nếu bạn yêu cầu. Trong công cụ đếm token TokenSave, hãy dán prompt và bấm **💸 Tiết kiệm token**: nó dọn khoảng trắng, dịch sang tiếng Anh, lược bỏ phần thừa và thêm "Reply in Vietnamese." để câu trả lời vẫn bằng ngôn ngữ của bạn. Tính năng dùng trình dịch tích hợp trong Chrome 138+ / Edge 148+ trên máy tính; việc dịch chạy trên thiết bị của bạn và văn bản không bao giờ bị tải lên. Bấm **↩ Bản gốc** để lấy lại bản gốc.
 
 ## Quy ra tiền
 

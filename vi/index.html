@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Đếm token AI", "url": "https://tokensave.app/vi/", "inLanguage": "vi", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Đếm token và chi phí API của GPT, Claude, Gemini ngay. Miễn phí, không tải lên.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "vi", "mainEntity": [{"@type": "Question", "name": "Token là gì?", "acceptedAnswer": {"@type": "Answer", "text": "Token là một đoạn văn bản mà mô hình AI đọc. Trong tiếng Anh, 1 token xấp xỉ 4 ký tự hoặc ¾ một từ."}}, {"@type": "Question", "name": "Vì sao ngôn ngữ khác tốn hơn?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizer chủ yếu được huấn luyện bằng tiếng Anh, nên tiếng Việt và nhiều ngôn ngữ khác bị tách thành nhiều token hơn cho cùng một ý."}}, {"@type": "Question", "name": "Văn bản của tôi có riêng tư không?", "acceptedAnswer": {"@type": "Answer", "text": "Có. Mọi thứ chạy cục bộ trong trình duyệt. Văn bản của bạn không bao giờ được gửi đến máy chủ nào."}}, {"@type": "Question", "name": "Tiếng Việt tốn gấp mấy lần token so với tiếng Anh?", "acceptedAnswer": {"@type": "Answer", "text": "Trên tokenizer o200k của GPT, tiếng Việt dùng khoảng 1.35× số token so với cùng nội dung bằng tiếng Anh. Tokenizer GPT-4 cũ cần tới 2.32×, nên chi phí cho tiếng Việt đã giảm đáng kể; trên 41 ngôn ngữ, tỷ lệ dao động từ 1.03× (tiếng Trung giản thể) đến 2.44× (tiếng Punjab)."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Đếm token AI", "url": "https://tokensave.app/vi/", "inLanguage": "vi", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Đếm token và chi phí API của GPT, Claude, Gemini ngay. Miễn phí, không tải lên.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "vi", "mainEntity": [{"@type": "Question", "name": "Token là gì?", "acceptedAnswer": {"@type": "Answer", "text": "Token là một đoạn văn bản mà mô hình AI đọc. Trong tiếng Anh, 1 token xấp xỉ 4 ký tự hoặc ¾ một từ."}}, {"@type": "Question", "name": "Vì sao ngôn ngữ khác tốn hơn?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizer chủ yếu được huấn luyện bằng tiếng Anh, nên tiếng Việt và nhiều ngôn ngữ khác bị tách thành nhiều token hơn cho cùng một ý."}}, {"@type": "Question", "name": "Văn bản của tôi có riêng tư không?", "acceptedAnswer": {"@type": "Answer", "text": "Có. Mọi thứ chạy cục bộ trong trình duyệt. Văn bản của bạn không bao giờ được gửi đến máy chủ nào."}}, {"@type": "Question", "name": "Tiếng Việt tốn gấp mấy lần token so với tiếng Anh?", "acceptedAnswer": {"@type": "Answer", "text": "Với tokenizer của GPT (o200k), tiếng Việt dùng khoảng 1,35× số token so với cùng văn bản bằng tiếng Anh, nên gửi prompt bằng tiếng Anh giúp tiết kiệm khoảng 26%. Nút 💸 Tiết kiệm token dịch prompt sang tiếng Anh ngay trên thiết bị của bạn (Chrome / Edge trên máy tính) và yêu cầu trả lời bằng tiếng Việt."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -310,8 +310,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Tiếng Việt tốn gấp mấy lần token so với tiếng Anh?</h2>
-        <p class="text-zinc-400">Trên tokenizer o200k của GPT, tiếng Việt dùng khoảng 1.35× số token so với cùng nội dung bằng tiếng Anh. Tokenizer GPT-4 cũ cần tới 2.32×, nên chi phí cho tiếng Việt đã giảm đáng kể; trên 41 ngôn ngữ, tỷ lệ dao động từ 1.03× (tiếng Trung giản thể) đến 2.44× (tiếng Punjab).</p>
+        <p class="text-zinc-400">Với tokenizer của GPT (o200k), tiếng Việt dùng khoảng 1,35× số token so với cùng văn bản bằng tiếng Anh, nên gửi prompt bằng tiếng Anh giúp tiết kiệm khoảng 26%. Nút 💸 Tiết kiệm token dịch prompt sang tiếng Anh ngay trên thiết bị của bạn (Chrome / Edge trên máy tính) và yêu cầu trả lời bằng tiếng Việt.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Cách sử dụng</h2>
+      <ol>
+        <li><strong>Dán prompt của bạn</strong> — số token, ký tự, từ và chi phí ước tính được cập nhật ngay khi bạn gõ.</li>
+        <li><strong>Chọn một mô hình</strong> ở các tab GPT · Claude · Gemini · Khác để xem chi phí mỗi yêu cầu và mỗi tháng theo giá của mô hình đó. Bạn cũng có thể thay đổi độ dài đầu ra dự kiến và số yêu cầu mỗi tháng.</li>
+        <li><strong>💸 Tiết kiệm token</strong> — khi văn bản của bạn có thể rút gọn, nút này sẽ xuất hiện kèm mức tiết kiệm dự kiến. Chỉ một lần bấm, nó dọn khoảng trắng, dịch prompt sang tiếng Anh và lược bỏ phần thừa, rồi thêm "Reply in Vietnamese." để câu trả lời vẫn bằng ngôn ngữ của bạn. Bấm lại (↩ Bản gốc) để lấy lại văn bản gốc.</li>
+        <li><strong>Xem văn bản được tách thành token thế nào</strong> — hiển thị bằng màu cách văn bản của bạn được tách thành token.</li>
+        <li><strong>Chat (JSON)</strong> — dán mảng tin nhắn bạn gửi tới API, số token mà định dạng tin nhắn sử dụng sẽ được cộng vào kết quả.</li>
+        <li><strong>Chia sẻ</strong> — biến văn bản bạn đã nhập thành một đường link để gửi cho người khác.</li>
+      </ol>
+      <h2>Được tính như thế nào?</h2>
+      <ul>
+        <li><strong>Mô hình GPT</strong>: tokenizer thật của OpenAI (o200k) chạy ngay trong trình duyệt, nên số đếm là chính xác.</li>
+        <li><strong>Claude, Gemini và các mô hình khác</strong>: tokenizer của chúng không được công bố theo cùng dạng, nên số đếm là ước tính đã hiệu chỉnh trên văn bản thực (có ghi chú là ước tính).</li>
+        <li><strong>Chi phí</strong> = số token ÷ 1.000.000 × giá mỗi triệu token. Giá là giá API chính thức của từng nhà cung cấp, kèm ngày kiểm tra.</li>
+        <li><strong>Hiệu quả ngôn ngữ</strong> cho biết văn bản của bạn cần gấp bao nhiêu lần token so với cùng nội dung bằng tiếng Anh. Tiếng Việt cần khoảng 1,35× — gửi prompt bằng tiếng Anh giúp tiết kiệm khoảng 26%.</li>
+      </ul>
+      <h2>Tính năng dịch hoạt động ra sao?</h2>
+      <ul>
+        <li>Tính năng dùng trình dịch AI tích hợp sẵn trong trình duyệt: <strong>Chrome 138+ hoặc Edge 148+ trên máy tính</strong>.</li>
+        <li>Mô hình dịch chỉ tải về một lần; sau đó việc dịch diễn ra <strong>ngay trên thiết bị của bạn</strong>. Văn bản của bạn không bao giờ được gửi lên máy chủ.</li>
+        <li>Nếu bản dịch làm tăng số token, nó sẽ không được áp dụng. Với mã nguồn, chỉ phần chú thích được dịch.</li>
+        <li>Trên điện thoại hoặc trình duyệt không được hỗ trợ, chỉ khoảng trắng được dọn và một thông báo sẽ hiện ra.</li>
+      </ul>
+      <h2>Bài viết liên quan</h2>
+      <ul><li><a href="/vi/blog/token-tieng-viet-gpt">Tiếng Việt dùng gấp 1,35 lần token so với tiếng Anh trong GPT</a></li></ul>
     </section>
 
 

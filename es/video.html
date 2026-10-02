@@ -209,6 +209,23 @@
         <p class="text-zinc-400">OpenAI retiró los modelos de vídeo Sora 2 de su API el 24 de septiembre de 2026, por lo que ya no están disponibles para desarrolladores.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Cómo usarlo</h2>
+      <ol>
+        <li>Introduce <strong>Duración por clip (segundos)</strong> y <strong>Número de clips</strong>.</li>
+        <li>Elige <strong>Resolución</strong> (480p · 720p · 1080p · 4K) y <strong>Con audio</strong> / <strong>Sin audio</strong>.</li>
+        <li>Los modelos compatibles con tu elección se ordenan por coste total, del más barato al más caro, y el más barato se marca como «Más barato».</li>
+      </ol>
+      <h2>¿Cómo se calcula?</h2>
+      <ul>
+        <li>La mayoría de las API de vídeo cobran por segundo: total = duración del clip × número de clips × precio por segundo.</li>
+        <li>Luma cobra por clip de 5 o 10 segundos, así que los vídeos más largos se cuentan como varios clips.</li>
+        <li>Algunos modelos siempre incluyen audio (Veo); otros cuestan más con el audio activado (Kling).</li>
+        <li>Cuando el fabricante no publica un precio de API por segundo, se muestra el precio de la API de Runway con la etiqueta «Vía API de Runway».</li>
+      </ul>
+      <h2>Consejos</h2>
+      <p>El resultado es el coste de una sola generación. Una toma aprovechable suele requerir 2–4 intentos, así que calcula unas 3×. Prueba los prompts con un modelo barato a 720p y renderiza solo la toma final con un modelo premium.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

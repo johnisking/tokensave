@@ -215,6 +215,18 @@
         <p class="text-zinc-400">每天只有几个小任务时，API 通常更便宜。每天大量使用时，只要不超出限制，100–200 美元的套餐往往比 API 更省。</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">使用方法</h2>
+      <ol>
+        <li>选择<strong>典型任务</strong>、<strong>每天任务数</strong>和<strong>每月工作日</strong>。</li>
+        <li>请保持开启<strong>提示缓存</strong>：大多数工具都会使用它。</li>
+        <li>将各模型每月的 API 费用与包含编程智能体的 Claude 和 ChatGPT 套餐进行比较。</li>
+      </ol>
+      <h2>如何计算？</h2>
+      <p>编程智能体在每一步都会重新发送完整的工作上下文（系统提示词、工具定义、已读取的文件、之前的步骤）。一个功能开发任务被建模为 25 步：起始 22,000 Token，每步增加 3,500 Token，每步输出 700 Token。开启缓存后，重复的上下文按输入价格的约 10% 计费。</p>
+      <h2>小贴士</h2>
+      <p>用英文而不是简体中文编写指令（系统提示词），可节省其约 3% 的 Token。</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

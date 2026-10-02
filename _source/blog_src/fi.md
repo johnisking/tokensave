@@ -6,19 +6,19 @@ Suomenkielinen versio:
 
 ## Tulokset
 
-| Kieli | Tokenit | Englantiin verrattuna | Vanha GPT-4-tokenisoija |
+| Kieli | Tokenit | Englantiin verrattuna | Säästö englanniksi lähetettynä |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | 1,00× |
-| 简体中文 | 35 | 1,03× | 1,53× |
-| Español | 40 | 1,18× | 1,29× |
-| Deutsch | 43 | 1,26× | 1,50× |
-| 한국어 | 49 | 1,44× | 2,50× |
-| **Suomi** | **49** | **1,44×** | **2,03×** |
-| हिन्दी | 51 | 1,50× | 4,59× |
-| 日本語 | 61 | 1,79× | 2,21× |
-| Čeština | 68 | 2,00× | 2,59× |
-| Ελληνικά | 70 | 2,06× | 4,94× |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
+| English | 34 | 1,00× | – |
+| 简体中文 | 35 | 1,03× | 3% |
+| Español | 40 | 1,18× | 15% |
+| Deutsch | 43 | 1,26× | 21% |
+| **Suomi** | **49** | **1,44×** | **31%** |
+| 한국어 | 49 | 1,44× | 31% |
+| हिन्दी | 51 | 1,50× | 33% |
+| 日本語 | 61 | 1,79× | 44% |
+| Čeština | 68 | 2,00× | 50% |
+| Ελληνικά | 70 | 2,06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
 
 ![Tulokset](/blog-language-tax-chart-v4.png)
 
@@ -30,9 +30,9 @@ Tokenisoija oppii enimmäkseen englanninkielisestä tekstistä: sanat kuten " po
 - laatikosta → `laat | ik | osta` · 3
 - Tiivistä → `Ti | iv | istä` · 3
 
-## Vanhaan tokenisoijaan verrattuna
+## Vaihda englantiin yhdellä painikkeella
 
-GPT-4-ajan tokenisoijalla (cl100k) sama prompti vei **2,03×**, nyt **1,44×**. Suomi hyötyi muutoksesta selvästi.
+Suurin säästö syntyy, kun lähetät kehotteen englanniksi: suomeen verrattuna noin 31 % vähemmän tokeneita. Nykyiset mallit ymmärtävät englanninkieliset ohjeet erinomaisesti ja vastaavat suomeksi, jos pyydät. Liitä kehote TokenSaven token-laskuriin ja paina **💸 Säästä tokeneita**: se siistii välilyönnit, kääntää englanniksi, karsii täytesanat ja lisää rivin "Reply in Finnish.", jotta vastaus tulee omalla kielelläsi. Se käyttää työpöydän Chrome 138+:aan / Edge 148+:aan sisäänrakennettua kääntäjää; käännös tehdään omalla laitteellasi, eikä tekstiäsi koskaan ladata palvelimelle. Paina **↩ Alkuperäinen**, niin saat alkuperäisen takaisin.
 
 ## Rahana
 

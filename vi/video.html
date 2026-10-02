@@ -210,6 +210,23 @@
         <p class="text-zinc-400">OpenAI đã gỡ các mô hình video Sora 2 khỏi API vào ngày 24/9/2026, nên nhà phát triển không còn dùng được nữa.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Cách sử dụng</h2>
+      <ol>
+        <li>Nhập <strong>Thời lượng mỗi clip (giây)</strong> và <strong>Số clip</strong>.</li>
+        <li>Chọn <strong>Độ phân giải</strong> (480p · 720p · 1080p · 4K) và <strong>Có âm thanh</strong> / <strong>Không âm thanh</strong>.</li>
+        <li>Các mô hình hỗ trợ lựa chọn của bạn được sắp xếp theo tổng chi phí, rẻ nhất lên đầu, và mô hình rẻ nhất được đánh dấu “Rẻ nhất”.</li>
+      </ol>
+      <h2>Được tính như thế nào?</h2>
+      <ul>
+        <li>Hầu hết API video tính phí theo giây: tổng = thời lượng clip × số clip × giá mỗi giây.</li>
+        <li>Luma tính phí theo mỗi clip 5 hoặc 10 giây, nên video dài hơn được tính thành nhiều clip.</li>
+        <li>Một số mô hình luôn có âm thanh (Veo); số khác đắt hơn khi bật âm thanh (Kling).</li>
+        <li>Khi nhà phát triển không công bố giá API theo giây, giá API trên Runway sẽ được hiển thị với nhãn “Qua API Runway”.</li>
+      </ul>
+      <h2>Mẹo</h2>
+      <p>Kết quả là chi phí cho một lần tạo. Một cảnh dùng được thường cần 2–4 lần thử, vì vậy hãy dự trù khoảng 3×. Thử prompt trên mô hình rẻ ở 720p và chỉ render bản cuối trên mô hình cao cấp.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

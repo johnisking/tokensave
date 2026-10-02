@@ -196,6 +196,22 @@
         <p class="text-zinc-400">Nano Banana هو اللقب الشائع لنماذج الصور Gemini من Google. ‏Nano Banana 2 هو Gemini 3.1 Flash Image، وNano Banana Pro هو Gemini 3 Pro Image.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">طريقة الاستخدام</h2>
+      <ol>
+        <li>اختر دقة الإخراج: 0.5K ‏(512 px) · 1K ‏(1024 px) · 2K ‏(2048 px) · 4K.</li>
+        <li>أدخل <strong>عدد الصور</strong>.</li>
+        <li>تُرتَّب النماذج التي تدعم هذا الحجم حسب السعر لكل صورة والإجمالي.</li>
+      </ol>
+      <h2>كيف يُحسب؟</h2>
+      <ul>
+        <li>تفرض معظم واجهات API للصور سعرًا ثابتًا لكل صورة عند كل دقة.</li>
+        <li>تحاسب FLUX.2 بالميغابكسل: الميغابكسل الأول بسعر، وكل ميغابكسل إضافي بسعر أقل، لذا تكلّف 2K ‏(4 MP) أكثر.</li>
+        <li>إعداد الجودة مهم: GPT Image 2.5 بجودة عالية يكلّف 16 ضعف تكلفته بجودة منخفضة.</li>
+      </ul>
+      <h2>نصائح</h2>
+      <p>ابحث عن التكوين المناسب بإعداد رخيص منخفض الجودة، ثم أعد توليد الصور التي ستحتفظ بها فقط بجودة عالية. للويب ووسائل التواصل الاجتماعي تكفي 1K عادةً.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

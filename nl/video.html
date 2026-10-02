@@ -210,6 +210,23 @@
         <p class="text-zinc-400">OpenAI heeft de Sora 2-videomodellen op 24 september 2026 uit de API gehaald, dus ontwikkelaars kunnen ze niet meer gebruiken.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Zo gebruik je het</h2>
+      <ol>
+        <li>Vul <strong>Lengte per clip (seconden)</strong> en <strong>Aantal clips</strong> in.</li>
+        <li>Kies <strong>Resolutie</strong> (480p · 720p · 1080p · 4K) en <strong>Met audio</strong> / <strong>Zonder audio</strong>.</li>
+        <li>Modellen die jouw keuze ondersteunen, worden gesorteerd op totale kosten, goedkoopste eerst, en de goedkoopste krijgt het label ‘Goedkoopst’.</li>
+      </ol>
+      <h2>Hoe wordt het berekend?</h2>
+      <ul>
+        <li>De meeste video-API's rekenen per seconde: totaal = cliplengte × aantal clips × prijs per seconde.</li>
+        <li>Luma rekent per clip van 5 of 10 seconden, dus langere video's tellen als meerdere clips.</li>
+        <li>Sommige modellen bevatten altijd audio (Veo); andere kosten meer met audio aan (Kling).</li>
+        <li>Als de maker geen API-prijs per seconde publiceert, wordt de API-prijs van Runway getoond met het label ‘Via Runway-API’.</li>
+      </ul>
+      <h2>Tips</h2>
+      <p>Het resultaat is de prijs van één generatie. Voor een bruikbaar shot zijn vaak 2–4 pogingen nodig, dus reken op ongeveer 3×. Test prompts op een goedkoop model in 720p en render alleen de definitieve versie op een premiummodel.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

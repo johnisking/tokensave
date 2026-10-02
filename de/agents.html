@@ -215,6 +215,18 @@
         <p class="text-zinc-400">Bei ein paar kleinen Aufgaben am Tag ist die API meist günstiger. Bei intensiver täglicher Nutzung kostet ein Abo für 100–200 $ oft weniger, solange du innerhalb der Limits bleibst.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">So funktioniert's</h2>
+      <ol>
+        <li>Wähle <strong>Typische Aufgabe</strong>, <strong>Aufgaben pro Tag</strong> und <strong>Arbeitstage pro Monat</strong>.</li>
+        <li>Lass <strong>Prompt-Caching</strong> aktiviert: Die meisten Tools nutzen es.</li>
+        <li>Vergleiche die monatlichen API-Kosten jedes Modells mit den Claude- und ChatGPT-Abos, die einen Coding-Agenten enthalten.</li>
+      </ol>
+      <h2>Wie wird gerechnet?</h2>
+      <p>Ein Coding-Agent sendet bei jedem Schritt seinen gesamten Arbeitskontext erneut (System-Prompt, Tool-Definitionen, gelesene Dateien, vorherige Schritte). Eine Feature-Aufgabe wird als 25 Schritte modelliert, die bei 22.000 Tokens beginnen, pro Schritt um 3.500 Tokens wachsen und 700 Tokens schreiben. Mit aktiviertem Caching wird der wiederholte Kontext mit etwa 10 % des Input-Preises berechnet.</p>
+      <h2>Tipps</h2>
+      <p>Wenn du die Anweisungen (System-Prompt) auf Englisch statt auf Deutsch schreibst, sparst du rund 21 % ihrer Tokens.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

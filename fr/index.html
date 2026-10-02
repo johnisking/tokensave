@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Compteur de tokens IA", "url": "https://tokensave.app/fr/", "inLanguage": "fr", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Comptez les tokens et le coût API de GPT, Claude et Gemini. Gratuit, sans envoi.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "fr", "mainEntity": [{"@type": "Question", "name": "Qu'est-ce qu'un token ?", "acceptedAnswer": {"@type": "Answer", "text": "Un token est un morceau de texte lu par un modèle d'IA. En anglais, 1 token correspond à environ 4 caractères ou ¾ de mot."}}, {"@type": "Question", "name": "Pourquoi les autres langues coûtent-elles plus ?", "acceptedAnswer": {"@type": "Answer", "text": "Les tokenizers sont surtout entraînés sur l'anglais : le français et beaucoup d'autres langues sont découpés en davantage de tokens pour le même sens."}}, {"@type": "Question", "name": "Mon texte reste-t-il privé ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Tout est calculé localement dans votre navigateur. Votre texte n'est jamais envoyé à un serveur."}}, {"@type": "Question", "name": "Combien de tokens en plus le français utilise-t-il par rapport à l’anglais ?", "acceptedAnswer": {"@type": "Answer", "text": "Avec le tokenizer o200k de GPT, le français utilise environ 1.29× les tokens du même texte en anglais. L’ancien tokenizer de GPT-4 en demandait 1.44×, donc le coût pour le français a nettement baissé ; sur 41 langues, le rapport va de 1.03× (chinois simplifié) à 2.44× (pendjabi)."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Compteur de tokens IA", "url": "https://tokensave.app/fr/", "inLanguage": "fr", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Comptez les tokens et le coût API de GPT, Claude et Gemini. Gratuit, sans envoi.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "fr", "mainEntity": [{"@type": "Question", "name": "Qu'est-ce qu'un token ?", "acceptedAnswer": {"@type": "Answer", "text": "Un token est un morceau de texte lu par un modèle d'IA. En anglais, 1 token correspond à environ 4 caractères ou ¾ de mot."}}, {"@type": "Question", "name": "Pourquoi les autres langues coûtent-elles plus ?", "acceptedAnswer": {"@type": "Answer", "text": "Les tokenizers sont surtout entraînés sur l'anglais : le français et beaucoup d'autres langues sont découpés en davantage de tokens pour le même sens."}}, {"@type": "Question", "name": "Mon texte reste-t-il privé ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Tout est calculé localement dans votre navigateur. Votre texte n'est jamais envoyé à un serveur."}}, {"@type": "Question", "name": "Combien de tokens en plus le français utilise-t-il par rapport à l’anglais ?", "acceptedAnswer": {"@type": "Answer", "text": "Avec le tokenizer de GPT (o200k), le français utilise environ 1,29× les tokens du même texte en anglais : envoyer le prompt en anglais permet donc d'économiser environ 22 %. Le bouton 💸 Économiser des tokens le traduit en anglais sur votre appareil (Chrome / Edge sur ordinateur) et demande une réponse en français."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -309,8 +309,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Combien de tokens en plus le français utilise-t-il par rapport à l’anglais ?</h2>
-        <p class="text-zinc-400">Avec le tokenizer o200k de GPT, le français utilise environ 1.29× les tokens du même texte en anglais. L’ancien tokenizer de GPT-4 en demandait 1.44×, donc le coût pour le français a nettement baissé ; sur 41 langues, le rapport va de 1.03× (chinois simplifié) à 2.44× (pendjabi).</p>
+        <p class="text-zinc-400">Avec le tokenizer de GPT (o200k), le français utilise environ 1,29× les tokens du même texte en anglais : envoyer le prompt en anglais permet donc d&#x27;économiser environ 22 %. Le bouton 💸 Économiser des tokens le traduit en anglais sur votre appareil (Chrome / Edge sur ordinateur) et demande une réponse en français.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Mode d'emploi</h2>
+      <ol>
+        <li><strong>Collez votre prompt</strong> : le nombre de tokens, de caractères et de mots ainsi que le coût estimé se mettent à jour pendant la saisie.</li>
+        <li><strong>Choisissez un modèle</strong> dans les onglets GPT · Claude · Gemini · Autres pour voir le coût par requête et par mois au tarif de ce modèle. Vous pouvez aussi modifier la sortie attendue et le nombre de requêtes par mois.</li>
+        <li><strong>💸 Économiser des tokens</strong> : lorsque votre texte peut être raccourci, ce bouton apparaît avec l'économie prévue. Il nettoie les espaces, traduit votre prompt en anglais et supprime le superflu en une seule fois, puis ajoute « Reply in French. » pour que la réponse arrive toujours dans votre langue. Appuyez à nouveau (↩ Original) pour retrouver votre texte d'origine.</li>
+        <li><strong>Voir le découpage en tokens</strong> : montre en couleur comment votre texte est découpé en tokens.</li>
+        <li><strong>Chat (JSON)</strong> : collez le tableau de messages que vous envoyez à l'API ; les tokens utilisés par le format des messages sont ajoutés au total.</li>
+        <li><strong>Partager</strong> : transforme le texte saisi en un lien que vous pouvez envoyer à quelqu'un.</li>
+      </ol>
+      <h2>Comment est-ce calculé ?</h2>
+      <ul>
+        <li><strong>Modèles GPT</strong> : le véritable tokenizer d'OpenAI (o200k) s'exécute dans votre navigateur, le décompte est donc exact.</li>
+        <li><strong>Claude, Gemini et les autres</strong> : leurs tokenizers ne sont pas publiés sous la même forme, les décomptes sont donc des estimations calibrées sur des textes réels (signalées comme estimations).</li>
+        <li><strong>Coût</strong> = tokens ÷ 1 000 000 × prix par million de tokens. Les prix sont les tarifs API officiels de chaque fournisseur, affichés avec leur date de vérification.</li>
+        <li><strong>L'efficacité linguistique</strong> indique combien de fois plus de tokens votre texte nécessite par rapport au même contenu en anglais. Le français en nécessite environ 1,29× : envoyer le prompt en anglais permet d'économiser environ 22 %.</li>
+      </ul>
+      <h2>Comment fonctionne la traduction ?</h2>
+      <ul>
+        <li>Il utilise le traducteur IA intégré au navigateur : <strong>Chrome 138+ ou Edge 148+ sur ordinateur</strong>.</li>
+        <li>Le modèle de traduction est téléchargé une seule fois ; ensuite, la traduction s'effectue <strong>sur votre propre appareil</strong>. Votre texte n'est jamais envoyé à un serveur.</li>
+        <li>Si la traduction augmente le nombre de tokens, elle n'est pas appliquée. Pour le code, seuls les commentaires sont traduits.</li>
+        <li>Sur mobile ou dans les navigateurs non compatibles, seuls les espaces sont nettoyés et un message s'affiche.</li>
+      </ul>
+      <h2>Article associé</h2>
+      <ul><li><a href="/fr/blog/tokens-francais-gpt">Le français consomme 1,29× plus de tokens que l’anglais dans GPT</a></li><li><a href="/fr/blog/mistral-chatgpt-cout-prompt-francais">Mistral ou ChatGPT : combien coûte vraiment un prompt en français ?</a></li></ul>
     </section>
 
 

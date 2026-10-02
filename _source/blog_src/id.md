@@ -6,19 +6,19 @@ Versi bahasa Indonesia:
 
 ## Hasil
 
-| Bahasa | Token | Dibanding bahasa Inggris | Tokenizer GPT-4 lama |
+| Bahasa | Token | Dibanding bahasa Inggris | Hemat jika dikirim dalam bahasa Inggris |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | 1,00× |
-| 简体中文 | 35 | 1,03× | 1,53× |
-| **Bahasa Indonesia** | **39** | **1,15×** | **1,38×** |
-| Español | 40 | 1,18× | 1,29× |
-| Deutsch | 43 | 1,26× | 1,50× |
-| 한국어 | 49 | 1,44× | 2,50× |
-| हिन्दी | 51 | 1,50× | 4,59× |
-| 日本語 | 61 | 1,79× | 2,21× |
-| Čeština | 68 | 2,00× | 2,59× |
-| Ελληνικά | 70 | 2,06× | 4,94× |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
+| English | 34 | 1,00× | – |
+| 简体中文 | 35 | 1,03× | 3% |
+| **Bahasa Indonesia** | **39** | **1,15×** | **13%** |
+| Español | 40 | 1,18× | 15% |
+| Deutsch | 43 | 1,26× | 21% |
+| 한국어 | 49 | 1,44× | 31% |
+| हिन्दी | 51 | 1,50× | 33% |
+| 日本語 | 61 | 1,79× | 44% |
+| Čeština | 68 | 2,00× | 50% |
+| Ελληνικά | 70 | 2,06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
 
 ![Hasil](/blog-language-tax-chart-v4.png)
 
@@ -30,9 +30,9 @@ Tokenizer terutama belajar dari teks bahasa Inggris: kata seperti " polite" atau
 - Pelanggan → `Pel | anggan` · 2
 - sarankan → `sar | ankan` · 2
 
-## Dibanding tokenizer lama
+## Beralih ke bahasa Inggris dengan satu tombol
 
-Di tokenizer era GPT-4 (cl100k), prompt yang sama **1,38×**; sekarang **1,15×**. Bahasa Indonesia termasuk yang paling hemat setelah bahasa Inggris dan Mandarin.
+Penghematan terbesar adalah mengirim prompt dalam bahasa Inggris: sekitar 13% lebih sedikit token dibanding bahasa Indonesia. Model saat ini sangat memahami instruksi berbahasa Inggris dan akan menjawab dalam bahasa Indonesia jika Anda memintanya. Di penghitung token TokenSave, tempel prompt Anda lalu tekan **💸 Hemat token**: tombol ini merapikan spasi, menerjemahkan ke bahasa Inggris, membuang kata yang tidak perlu, dan menambahkan "Reply in Indonesian." agar jawabannya tetap dalam bahasa Anda. Fitur ini memakai penerjemah bawaan Chrome 138+ / Edge 148+ versi desktop; terjemahan berjalan di perangkat Anda sendiri dan teks Anda tidak pernah diunggah. Tekan **↩ Asli** untuk mengembalikan teks asli.
 
 ## Dalam uang
 

@@ -216,6 +216,18 @@
         <p class="text-zinc-400">Ved et par små opgaver om dagen er API&#x27;et som regel billigst. Ved tung daglig brug er et abonnement til 100–200 $ ofte billigere, så længe du holder dig inden for grænserne.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Sådan bruger du det</h2>
+      <ol>
+        <li>Vælg <strong>Typisk opgave</strong>, <strong>Opgaver pr. dag</strong> og <strong>Arbejdsdage pr. måned</strong>.</li>
+        <li>Lad <strong>Prompt-caching</strong> være slået til: de fleste værktøjer bruger det.</li>
+        <li>Sammenlign hver models månedlige API-pris med de Claude- og ChatGPT-abonnementer, der indeholder en kodeagent.</li>
+      </ol>
+      <h2>Hvordan beregnes det?</h2>
+      <p>En kodeagent sender hele sin arbejdskontekst (systemprompt, værktøjsdefinitioner, filer den har læst, tidligere trin) igen ved hvert trin. En feature-opgave modelleres som 25 trin, der starter ved 22.000 tokens, vokser med 3.500 tokens og skriver 700 tokens pr. trin. Med caching slået til afregnes den gentagne kontekst til ca. 10 % af inputprisen.</p>
+      <h2>Tips</h2>
+      <p>Skriver du instruktionerne (systemprompten) på engelsk i stedet for dansk, sparer du ca. 26 % af deres tokens.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

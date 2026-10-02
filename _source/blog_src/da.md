@@ -6,19 +6,19 @@ Den danske version:
 
 ## Resultater
 
-| Sprog | Tokens | I forhold til engelsk | Gammel GPT-4-tokenizer |
+| Sprog | Tokens | I forhold til engelsk | Sparet ved afsendelse på engelsk |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | 1,00× |
-| 简体中文 | 35 | 1,03× | 1,53× |
-| Español | 40 | 1,18× | 1,29× |
-| Deutsch | 43 | 1,26× | 1,50× |
-| **Dansk** | **46** | **1,35×** | **1,59×** |
-| 한국어 | 49 | 1,44× | 2,50× |
-| हिन्दी | 51 | 1,50× | 4,59× |
-| 日本語 | 61 | 1,79× | 2,21× |
-| Čeština | 68 | 2,00× | 2,59× |
-| Ελληνικά | 70 | 2,06× | 4,94× |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
+| English | 34 | 1,00× | – |
+| 简体中文 | 35 | 1,03× | 3% |
+| Español | 40 | 1,18× | 15% |
+| Deutsch | 43 | 1,26× | 21% |
+| **Dansk** | **46** | **1,35×** | **26%** |
+| 한국어 | 49 | 1,44× | 31% |
+| हिन्दी | 51 | 1,50× | 33% |
+| 日本語 | 61 | 1,79× | 44% |
+| Čeština | 68 | 2,00× | 50% |
+| Ελληνικά | 70 | 2,06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
 
 ![Resultater](/blog-language-tax-chart-v4.png)
 
@@ -30,9 +30,9 @@ Tokenizeren lærer mest af engelsk tekst: ord som " polite" eller " customer" er
 - høfligt → `hø | fl | igt` · 3
 - Opsummer → `Ops | ummer` · 2
 
-## I forhold til den gamle tokenizer
+## Skift til engelsk med én knap
 
-Med tokenizeren fra GPT-4-tiden (cl100k) kostede den samme prompt **1,59×**, i dag **1,35×**.
+Den største besparelse får du ved at sende din prompt på engelsk: ca. 26 % færre tokens for dansk. Nutidens modeller forstår engelske instruktioner fint og svarer på dansk, hvis du beder om det. I TokenSaves token-tæller indsætter du din prompt og trykker på **💸 Spar tokens**: den rydder op i mellemrum, oversætter til engelsk, fjerner fyldord og tilføjer "Reply in Danish.", så svaret forbliver på dit sprog. Den bruger oversætteren, der er indbygget i Chrome 138+ / Edge 148+ på computer; oversættelsen sker på din egen enhed, og din tekst uploades aldrig. Tryk på **↩ Original** for at få originalen tilbage.
 
 ## I penge
 

@@ -210,6 +210,23 @@
         <p class="text-zinc-400">Nem. Az OpenAI 2026. szeptember 24-én kivette a Sora 2 videómodelleket az API-ból, így a Sora már nem érhető el fejlesztőknek.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Használat</h2>
+      <ol>
+        <li>Add meg: <strong>Klip hossza (másodperc)</strong> és <strong>Klipek száma</strong>.</li>
+        <li>Válaszd ki: <strong>Felbontás</strong> (480p · 720p · 1080p · 4K), valamint <strong>Hanggal</strong> / <strong>Hang nélkül</strong>.</li>
+        <li>A választásodat támogató modellek teljes költség szerint vannak rendezve, a legolcsóbbal kezdve, és a legolcsóbb „Legolcsóbb” jelölést kap.</li>
+      </ol>
+      <h2>Hogyan számol?</h2>
+      <ul>
+        <li>A legtöbb videós API másodpercenként számláz: összesen = klip hossza × klipek száma × másodpercenkénti ár.</li>
+        <li>A Luma 5 vagy 10 másodperces klipenként számláz, így a hosszabb videók több klipnek számítanak.</li>
+        <li>Egyes modellek mindig adnak hangot (Veo), másoknál hanggal drágább (Kling).</li>
+        <li>Ahol a fejlesztő nem tesz közzé másodpercenkénti API-árat, a Runway API-n keresztüli árat mutatjuk „Runway API-n keresztül” jelöléssel.</li>
+      </ul>
+      <h2>Tippek</h2>
+      <p>Az eredmény egyetlen generálás költsége. Egy használható felvétel gyakran 2–4 próbálkozást igényel, ezért számolj nagyjából 3× annyival. A promptokat olcsó modellen, 720p-ben teszteld, és csak a végső változatot rendereld prémium modellel.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

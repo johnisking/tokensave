@@ -216,6 +216,18 @@
         <p class="text-zinc-400">每天只有幾個小任務時，API 通常比較便宜。每天大量使用時，只要不超出限制，100–200 美元的方案往往比 API 划算。</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">使用方式</h2>
+      <ol>
+        <li>選擇<strong>典型任務</strong>、<strong>每天任務數</strong>和<strong>每月工作日</strong>。</li>
+        <li>請保持開啟<strong>提示快取</strong>：大多數工具都會使用它。</li>
+        <li>將各模型每月的 API 費用，與包含程式設計代理的 Claude 和 ChatGPT 方案做比較。</li>
+      </ol>
+      <h2>如何計算？</h2>
+      <p>程式設計代理在每個步驟都會重新傳送完整的工作脈絡（系統提示詞、工具定義、已讀取的檔案、先前的步驟）。一項功能開發任務被模擬為 25 個步驟：起始 22,000 Token，每步增加 3,500 Token，每步輸出 700 Token。開啟快取後，重複的脈絡以輸入價格的約 10% 計費。</p>
+      <h2>小提示</h2>
+      <p>用英文而非繁體中文撰寫指令（系統提示詞），可節省約 26% 的 Token。</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

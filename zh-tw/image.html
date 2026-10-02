@@ -197,6 +197,22 @@
         <p class="text-zinc-400">Nano Banana 是 Google Gemini 圖片模型的暱稱。Nano Banana 2 即 Gemini 3.1 Flash Image，Nano Banana Pro 即 Gemini 3 Pro Image。</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">使用方式</h2>
+      <ol>
+        <li>選擇輸出解析度：0.5K（512 px）· 1K（1024 px）· 2K（2048 px）· 4K。</li>
+        <li>輸入<strong>圖片數量</strong>。</li>
+        <li>支援該尺寸的模型會依單張價格和總價排序。</li>
+      </ol>
+      <h2>如何計算？</h2>
+      <ul>
+        <li>大多數圖像 API 在各解析度下以每張固定價格計費。</li>
+        <li>FLUX.2 以百萬像素計費：第一個百萬像素一個價格，之後每個百萬像素價格較低，因此 2K（4 MP）比較貴。</li>
+        <li>品質設定影響很大：GPT Image 2.5 高品質的價格是低品質的 16 倍。</li>
+      </ul>
+      <h2>小提示</h2>
+      <p>先用便宜的低品質設定找出構圖，再只把要保留的圖片以高品質重新生成。用於網頁和社群媒體時，1K 通常就足夠了。</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

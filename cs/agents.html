@@ -216,6 +216,18 @@
         <p class="text-zinc-400">Při pár malých úkolech denně bývá levnější API. Při intenzivním denním používání často vyjde levněji tarif za 100–200 $, pokud se vejdete do limitů.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Jak používat</h2>
+      <ol>
+        <li>Zvolte <strong>Typický úkol</strong>, <strong>Úkolů denně</strong> a <strong>Pracovních dnů v měsíci</strong>.</li>
+        <li>Nechte <strong>Cache promptů</strong> zapnutou: většina nástrojů ji používá.</li>
+        <li>Porovnejte měsíční cenu API každého modelu s předplatným Claude a ChatGPT, které zahrnuje programovacího agenta.</li>
+      </ol>
+      <h2>Jak se to počítá?</h2>
+      <p>Programovací agent v každém kroku znovu posílá celý pracovní kontext (systémový prompt, definice nástrojů, přečtené soubory, předchozí kroky). Úkol na jednu funkci je modelován jako 25 kroků, které začínají na 22 000 tokenech, rostou o 3 500 tokenů a v každém kroku zapíší 700 tokenů. Se zapnutou cache se opakovaný kontext účtuje asi za 10% ceny vstupu.</p>
+      <h2>Tipy</h2>
+      <p>Když instrukce (systémový prompt) napíšete anglicky místo česky, ušetříte asi 50% jejich tokenů.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

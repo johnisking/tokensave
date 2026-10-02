@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI Token Counter", "url": "https://tokensave.app/fil/", "inLanguage": "fil", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Bilangin ang tokens at API cost ng GPT, Claude at Gemini. Libre at pribado.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "fil", "mainEntity": [{"@type": "Question", "name": "Ano ang token?", "acceptedAnswer": {"@type": "Answer", "text": "Ang token ay isang piraso ng text na binabasa ng AI model. Sa English, ang 1 token ay humigit-kumulang 4 na character o ¾ ng isang salita."}}, {"@type": "Question", "name": "Bakit mas mahal ang ibang wika?", "acceptedAnswer": {"@type": "Answer", "text": "Karamihan sa training ng tokenizers ay sa English, kaya ang Korean, Japanese, Chinese at marami pang ibang wika ay nahahati sa mas maraming tokens para sa parehong kahulugan."}}, {"@type": "Question", "name": "Pribado ba ang text ko?", "acceptedAnswer": {"@type": "Answer", "text": "Oo. Lahat ay tumatakbo nang lokal sa browser mo. Hindi kailanman ipinapadala ang text mo sa anumang server."}}, {"@type": "Question", "name": "Ilang beses na mas maraming token ang ginagamit ng Filipino kaysa Ingles?", "acceptedAnswer": {"@type": "Answer", "text": "Sa o200k tokenizer ng GPT, gumagamit ang Filipino ng mga 1.53× na token kumpara sa parehong teksto sa Ingles. Ang lumang GPT-4 tokenizer ay nangangailangan ng 1.76×, kaya bumaba ang gastos para sa Filipino; sa 41 wika, ang ratio ay mula 1.03× (Simplified Chinese) hanggang 2.44× (Punjabi)."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI Token Counter", "url": "https://tokensave.app/fil/", "inLanguage": "fil", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Bilangin ang tokens at API cost ng GPT, Claude at Gemini. Libre at pribado.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "fil", "mainEntity": [{"@type": "Question", "name": "Ano ang token?", "acceptedAnswer": {"@type": "Answer", "text": "Ang token ay isang piraso ng text na binabasa ng AI model. Sa English, ang 1 token ay humigit-kumulang 4 na character o ¾ ng isang salita."}}, {"@type": "Question", "name": "Bakit mas mahal ang ibang wika?", "acceptedAnswer": {"@type": "Answer", "text": "Karamihan sa training ng tokenizers ay sa English, kaya ang Korean, Japanese, Chinese at marami pang ibang wika ay nahahati sa mas maraming tokens para sa parehong kahulugan."}}, {"@type": "Question", "name": "Pribado ba ang text ko?", "acceptedAnswer": {"@type": "Answer", "text": "Oo. Lahat ay tumatakbo nang lokal sa browser mo. Hindi kailanman ipinapadala ang text mo sa anumang server."}}, {"@type": "Question", "name": "Ilang beses na mas maraming token ang ginagamit ng Filipino kaysa Ingles?", "acceptedAnswer": {"@type": "Answer", "text": "Sa tokenizer ng GPT (o200k), gumagamit ang Filipino ng mga 1.53× ng token ng parehong text sa English, kaya makakatipid ng mga 35% kung sa English ipapadala ang prompt. Hindi pa sinusuportahan ng built-in translator ng browser ang Filipino, kaya ikaw mismo ang magsulat ng mga nakapirming instruction sa English at humiling ng sagot sa Filipino."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -310,8 +310,30 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Ilang beses na mas maraming token ang ginagamit ng Filipino kaysa Ingles?</h2>
-        <p class="text-zinc-400">Sa o200k tokenizer ng GPT, gumagamit ang Filipino ng mga 1.53× na token kumpara sa parehong teksto sa Ingles. Ang lumang GPT-4 tokenizer ay nangangailangan ng 1.76×, kaya bumaba ang gastos para sa Filipino; sa 41 wika, ang ratio ay mula 1.03× (Simplified Chinese) hanggang 2.44× (Punjabi).</p>
+        <p class="text-zinc-400">Sa tokenizer ng GPT (o200k), gumagamit ang Filipino ng mga 1.53× ng token ng parehong text sa English, kaya makakatipid ng mga 35% kung sa English ipapadala ang prompt. Hindi pa sinusuportahan ng built-in translator ng browser ang Filipino, kaya ikaw mismo ang magsulat ng mga nakapirming instruction sa English at humiling ng sagot sa Filipino.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Paano gamitin</h2>
+      <ol>
+        <li><strong>I-paste ang prompt mo</strong> — nag-a-update ang bilang ng token, character, salita at tantiyang gastos habang nagta-type ka.</li>
+        <li><strong>Pumili ng model</strong> sa mga tab na GPT · Claude · Gemini · Iba pa para makita ang gastos kada request at kada buwan sa presyo ng model na iyon. Puwede mo ring baguhin ang inaasahang output at ang bilang ng request kada buwan.</li>
+        <li><strong>💸 Tipirin ang token</strong> — inaayos ang sobrang space at mga blangkong linya. Hindi pa sinusuportahan ng built-in translator ng browser ang Filipino, kaya wala pang awtomatikong pagsasalin sa English para sa wikang ito.</li>
+        <li><strong>Tingnan kung paano nahahati sa mga token</strong> — ipinapakita nang may kulay kung paano nahahati sa mga token ang text mo.</li>
+        <li><strong>Chat (JSON)</strong> — i-paste ang message array na ipinapadala mo sa API, at idaragdag sa bilang ang mga token na ginagamit ng format ng mensahe.</li>
+        <li><strong>I-share</strong> — ginagawang link ang text na inilagay mo para maipadala mo sa iba.</li>
+      </ol>
+      <h2>Paano ito kinukuwenta?</h2>
+      <ul>
+        <li><strong>Mga GPT model</strong>: tumatakbo sa browser mo ang mismong tokenizer ng OpenAI (o200k), kaya eksakto ang bilang.</li>
+        <li><strong>Claude, Gemini at iba pa</strong>: hindi nila inilalabas ang tokenizer nila sa parehong anyo, kaya tantiya ang mga bilang na naka-calibrate sa totoong text (may markang tantiya).</li>
+        <li><strong>Gastos</strong> = token ÷ 1,000,000 × presyo kada isang milyong token. Ang mga presyo ay ang opisyal na API price ng bawat provider, kasama ang petsa kung kailan ito sinuri.</li>
+        <li>Ipinapakita ng <strong>language efficiency</strong> kung ilang beses na mas maraming token ang kailangan ng text mo kumpara sa parehong nilalaman sa English. Nangangailangan ang Filipino ng mga 1.53× — makakatipid ka ng mga 35% kung sa English mo ipapadala ang prompt.</li>
+      </ul>
+      <h2>Mga tip</h2>
+      <p>Makakatipid ka pa rin ng mga 35% kung ikaw mismo ang magsusulat ng prompt mo sa English — lalo na ang mga nakapirming instruction na paulit-ulit mong ipinapadala — at magdadagdag ng isang linya na humihiling ng sagot sa Filipino.</p>
+      <h2>Kaugnay na artikulo</h2>
+      <ul><li><a href="/fil/blog/token-filipino-gpt">Gumagamit ang Filipino ng 1.53× na token kumpara sa English sa GPT</a></li></ul>
     </section>
 
 

@@ -6,19 +6,19 @@ Türkçe sürümü:
 
 ## Sonuçlar
 
-| Dil | Token | İngilizceye göre | Eski GPT-4 tokenizer |
+| Dil | Token | İngilizceye göre | İngilizce gönderilirse tasarruf |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | 1,00× |
-| 简体中文 | 35 | 1,03× | 1,53× |
-| Español | 40 | 1,18× | 1,29× |
-| Deutsch | 43 | 1,26× | 1,50× |
-| 한국어 | 49 | 1,44× | 2,50× |
-| **Türkçe** | **50** | **1,47×** | **2,06×** |
-| हिन्दी | 51 | 1,50× | 4,59× |
-| 日本語 | 61 | 1,79× | 2,21× |
-| Čeština | 68 | 2,00× | 2,59× |
-| Ελληνικά | 70 | 2,06× | 4,94× |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
+| English | 34 | 1,00× | – |
+| 简体中文 | 35 | 1,03× | 3% |
+| Español | 40 | 1,18× | 15% |
+| Deutsch | 43 | 1,26× | 21% |
+| 한국어 | 49 | 1,44× | 31% |
+| **Türkçe** | **50** | **1,47×** | **32%** |
+| हिन्दी | 51 | 1,50× | 33% |
+| 日本語 | 61 | 1,79× | 44% |
+| Čeština | 68 | 2,00× | 50% |
+| Ελληνικά | 70 | 2,06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
 
 ![Sonuçlar](/blog-language-tax-chart-v4.png)
 
@@ -30,9 +30,9 @@ Tokenizer çoğunlukla İngilizce metinle eğitilir: " polite" veya " customer" 
 - özetleyin → `ö | zet | ley | in` · 4
 - e-postasını → `e | -post | asını` · 3
 
-## Eski tokenizer'a göre
+## Tek düğmeyle İngilizceye geçin
 
-GPT-4 dönemi tokenizer'ında (cl100k) aynı istem **2,06×** tutuyordu; bugün **1,47×**.
+En büyük tasarruf, isteminizi İngilizce göndermektir: Türkçeye göre yaklaşık %32 daha az token. Güncel modeller İngilizce talimatları çok iyi anlar ve isterseniz Türkçe yanıt verir. TokenSave token sayacında isteminizi yapıştırıp **💸 Token tasarrufu** düğmesine basın: boşlukları temizler, İngilizceye çevirir, gereksiz ifadeleri kırpar ve yanıt kendi dilinizde kalsın diye "Reply in Turkish." ekler. Masaüstü Chrome 138+ / Edge 148+ tarayıcılarına yerleşik çevirmeni kullanır; çeviri kendi cihazınızda yapılır ve metniniz asla yüklenmez. Orijinale dönmek için **↩ Orijinal** düğmesine basın.
 
 ## Parayla
 

@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Numărător de tokeni AI", "url": "https://tokensave.app/ro/", "inLanguage": "ro", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Numără tokenii, caracterele și costul API pentru GPT, Claude, Gemini. Gratuit.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "ro", "mainEntity": [{"@type": "Question", "name": "Ce este un token?", "acceptedAnswer": {"@type": "Answer", "text": "Un token este o bucată de text pe care o citește un model AI. În engleză, 1 token înseamnă aproximativ 4 caractere sau ¾ dintr-un cuvânt."}}, {"@type": "Question", "name": "De ce costă mai mult alte limbi?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizatoarele sunt antrenate mai ales pe engleză, așa că româna, coreeana, japoneza și multe alte limbi se împart în mai mulți tokeni pentru același sens."}}, {"@type": "Question", "name": "Textul meu rămâne privat?", "acceptedAnswer": {"@type": "Answer", "text": "Da. Totul rulează local, în browserul tău. Textul nu este trimis niciodată către vreun server."}}, {"@type": "Question", "name": "Câți tokeni în plus folosește româna față de engleză?", "acceptedAnswer": {"@type": "Answer", "text": "Pe tokenizatorul o200k al GPT, româna folosește cam 1.53× tokenii aceluiași text în engleză. Vechiul tokenizator GPT-4 avea nevoie de 1.76×; în cele 41 de limbi măsurate, raportul variază de la 1.03× (chineza simplificată) la 2.44× (punjabi)."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Numărător de tokeni AI", "url": "https://tokensave.app/ro/", "inLanguage": "ro", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Numără tokenii, caracterele și costul API pentru GPT, Claude, Gemini. Gratuit.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "ro", "mainEntity": [{"@type": "Question", "name": "Ce este un token?", "acceptedAnswer": {"@type": "Answer", "text": "Un token este o bucată de text pe care o citește un model AI. În engleză, 1 token înseamnă aproximativ 4 caractere sau ¾ dintr-un cuvânt."}}, {"@type": "Question", "name": "De ce costă mai mult alte limbi?", "acceptedAnswer": {"@type": "Answer", "text": "Tokenizatoarele sunt antrenate mai ales pe engleză, așa că româna, coreeana, japoneza și multe alte limbi se împart în mai mulți tokeni pentru același sens."}}, {"@type": "Question", "name": "Textul meu rămâne privat?", "acceptedAnswer": {"@type": "Answer", "text": "Da. Totul rulează local, în browserul tău. Textul nu este trimis niciodată către vreun server."}}, {"@type": "Question", "name": "Câți tokeni în plus folosește româna față de engleză?", "acceptedAnswer": {"@type": "Answer", "text": "Cu tokenizerul GPT (o200k), limba română folosește aproximativ 1,53× tokenii aceluiași text în engleză, așa că trimiterea promptului în engleză economisește circa 35%. Butonul 💸 Economisește tokeni îl traduce în engleză pe dispozitivul tău (Chrome / Edge pe desktop) și cere răspunsul în română."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -310,8 +310,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Câți tokeni în plus folosește româna față de engleză?</h2>
-        <p class="text-zinc-400">Pe tokenizatorul o200k al GPT, româna folosește cam 1.53× tokenii aceluiași text în engleză. Vechiul tokenizator GPT-4 avea nevoie de 1.76×; în cele 41 de limbi măsurate, raportul variază de la 1.03× (chineza simplificată) la 2.44× (punjabi).</p>
+        <p class="text-zinc-400">Cu tokenizerul GPT (o200k), limba română folosește aproximativ 1,53× tokenii aceluiași text în engleză, așa că trimiterea promptului în engleză economisește circa 35%. Butonul 💸 Economisește tokeni îl traduce în engleză pe dispozitivul tău (Chrome / Edge pe desktop) și cere răspunsul în română.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Cum se folosește</h2>
+      <ol>
+        <li><strong>Lipește promptul</strong> — numărul de tokeni, caractere, cuvinte și costul estimat se actualizează pe măsură ce scrii.</li>
+        <li><strong>Alege un model</strong> din filele GPT · Claude · Gemini · Altele ca să vezi costul pe cerere și pe lună la prețul acelui model. Poți modifica și lungimea estimată a răspunsului și numărul de cereri pe lună.</li>
+        <li><strong>💸 Economisește tokeni</strong> — când textul poate fi scurtat, apare acest buton cu economia estimată. Dintr-o singură apăsare elimină spațiile inutile, traduce promptul în engleză și taie umplutura, apoi adaugă „Reply in Romanian.”, ca răspunsul să vină tot în limba ta. Apasă-l din nou (↩ Original) ca să revii la textul original.</li>
+        <li><strong>Vezi cum se împarte în tokeni</strong> — arată colorat cum este împărțit textul tău în tokeni.</li>
+        <li><strong>Chat (JSON)</strong> — lipește array-ul de mesaje pe care îl trimiți la API, iar tokenii folosiți de formatul mesajelor se adaugă la total.</li>
+        <li><strong>Distribuie</strong> — transformă textul introdus într-un link pe care îl poți trimite cuiva.</li>
+      </ol>
+      <h2>Cum se calculează?</h2>
+      <ul>
+        <li><strong>Modelele GPT</strong>: tokenizerul real OpenAI (o200k) rulează în browserul tău, deci numărătoarea este exactă.</li>
+        <li><strong>Claude, Gemini și altele</strong>: tokenizerele lor nu sunt publicate în aceeași formă, așa că valorile sunt estimări calibrate pe texte reale (marcate ca estimare).</li>
+        <li><strong>Cost</strong> = tokeni ÷ 1.000.000 × prețul pe milion de tokeni. Prețurile sunt prețurile oficiale API ale fiecărui furnizor, afișate cu data verificării.</li>
+        <li><strong>Eficiența limbii</strong> arată de câte ori mai mulți tokeni îi trebuie textului tău față de același conținut în engleză. Limba română are nevoie de aproximativ 1,53× — dacă trimiți promptul în engleză, economisești circa 35%.</li>
+      </ul>
+      <h2>Cum funcționează traducerea?</h2>
+      <ul>
+        <li>Folosește traducătorul AI integrat în browser: <strong>Chrome 138+ sau Edge 148+ pe desktop</strong>.</li>
+        <li>Modelul de traducere se descarcă o singură dată; după aceea, traducerea are loc <strong>pe propriul tău dispozitiv</strong>. Textul tău nu este trimis niciodată la un server.</li>
+        <li>Dacă traducerea ar crește numărul de tokeni, nu se aplică. La cod se traduc doar comentariile.</li>
+        <li>Pe mobil sau în browserele neacceptate se curăță doar spațiile și se afișează o notificare.</li>
+      </ul>
+      <h2>Articol asociat</h2>
+      <ul><li><a href="/ro/blog/tokeni-romana-gpt">Româna folosește 1,53× tokenii englezei în GPT</a></li></ul>
     </section>
 
 

@@ -210,6 +210,23 @@
         <p class="text-zinc-400">Nie. OpenAI 24. septembra 2026 odstránila videomodely Sora 2 zo svojho API, takže Sora už vývojárom nie je dostupná.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Ako používať</h2>
+      <ol>
+        <li>Zadajte <strong>Dĺžka klipu (sekundy)</strong> a <strong>Počet klipov</strong>.</li>
+        <li>Zvoľte <strong>Rozlíšenie</strong> (480p · 720p · 1080p · 4K) a možnosť <strong>So zvukom</strong> / <strong>Bez zvuku</strong>.</li>
+        <li>Modely, ktoré váš výber podporujú, sú zoradené podľa celkovej ceny od najlacnejšieho a ten najlacnejší je označený „Najlacnejšie“.</li>
+      </ol>
+      <h2>Ako sa to počíta?</h2>
+      <ul>
+        <li>Väčšina video API účtuje za sekundu: spolu = dĺžka klipu × počet klipov × cena za sekundu.</li>
+        <li>Luma účtuje po 5- alebo 10-sekundových klipoch, takže dlhšie videá sa počítajú ako viac klipov.</li>
+        <li>Niektoré modely vždy generujú zvuk (Veo), iné sú so zvukom drahšie (Kling).</li>
+        <li>Ak výrobca nezverejňuje cenu API za sekundu, zobrazí sa cena cez API Runway s označením „Cez Runway API“.</li>
+      </ul>
+      <h2>Tipy</h2>
+      <p>Výsledok je cena jedného generovania. Použiteľný záber často vyžaduje 2–4 pokusy, takže počítajte s rozpočtom zhruba 3×. Prompty testujte na lacnom modeli v 720p a iba finálnu verziu renderujte na prémiovom modeli.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

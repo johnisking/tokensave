@@ -6,19 +6,19 @@ A magyar változat:
 
 ## Eredmények
 
-| Nyelv | Tokenek | Az angolhoz képest | Régi GPT-4 tokenizáló |
+| Nyelv | Tokenek | Az angolhoz képest | Megtakarítás angol nyelvű küldéssel |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | 1,00× |
-| 简体中文 | 35 | 1,03× | 1,53× |
-| Español | 40 | 1,18× | 1,29× |
-| Deutsch | 43 | 1,26× | 1,50× |
-| 한국어 | 49 | 1,44× | 2,50× |
-| हिन्दी | 51 | 1,50× | 4,59× |
-| **Magyar** | **59** | **1,74×** | **2,26×** |
-| 日本語 | 61 | 1,79× | 2,21× |
-| Čeština | 68 | 2,00× | 2,59× |
-| Ελληνικά | 70 | 2,06× | 4,94× |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
+| English | 34 | 1,00× | – |
+| 简体中文 | 35 | 1,03× | 3% |
+| Español | 40 | 1,18× | 15% |
+| Deutsch | 43 | 1,26× | 21% |
+| 한국어 | 49 | 1,44× | 31% |
+| हिन्दी | 51 | 1,50× | 33% |
+| **Magyar** | **59** | **1,74×** | **43%** |
+| 日本語 | 61 | 1,79× | 44% |
+| Čeština | 68 | 2,00× | 50% |
+| Ελληνικά | 70 | 2,06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
 
 ![Eredmények](/blog-language-tax-chart-v4.png)
 
@@ -30,9 +30,9 @@ A tokenizáló főleg angol szövegből tanul: az olyan szavak, mint a " polite"
 - dobozból → `do | bo | zb | ól` · 4
 - hiányzott → `hi | ány | zott` · 3
 
-## A régi tokenizálóhoz képest
+## Válts angolra egy gombnyomással
 
-A GPT-4-korszak tokenizálóján (cl100k) ugyanez a prompt **2,26×** volt, ma **1,74×**.
+A legnagyobb megtakarítás, ha angolul küldöd a promptot: magyar nyelv esetén kb. 43%-kal kevesebb token. A mai modellek tökéletesen értik az angol utasításokat, és magyarul válaszolnak, ha kéred. A TokenSave tokenszámlálójában illeszd be a promptot, és nyomd meg a **💸 Tokenspórolás** gombot: eltávolítja a felesleges szóközöket, angolra fordít, kigyomlálja a töltelékszavakat, és hozzáadja a „Reply in Hungarian.” sort, hogy a válasz a te nyelveden maradjon. Az asztali Chrome 138+ / Edge 148+ beépített fordítóját használja; a fordítás a saját eszközödön fut, a szöveged sosem kerül feltöltésre. Az eredetit a **↩ Eredeti** gombbal kapod vissza.
 
 ## Pénzben
 

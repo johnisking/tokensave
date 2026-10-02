@@ -209,6 +209,23 @@
         <p class="text-zinc-400">OpenAI menghapus model video Sora 2 dari API-nya pada 24 September 2026, sehingga tidak lagi tersedia bagi developer.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Cara menggunakan</h2>
+      <ol>
+        <li>Masukkan <strong>Durasi per klip (detik)</strong> dan <strong>Jumlah klip</strong>.</li>
+        <li>Pilih <strong>Resolusi</strong> (480p · 720p · 1080p · 4K) dan <strong>Dengan audio</strong> / <strong>Tanpa audio</strong>.</li>
+        <li>Model yang mendukung pilihan Anda diurutkan berdasarkan total biaya, dari yang termurah, dan yang paling murah diberi tanda “Termurah”.</li>
+      </ol>
+      <h2>Bagaimana cara menghitungnya?</h2>
+      <ul>
+        <li>Sebagian besar API video mengenakan biaya per detik: total = durasi klip × jumlah klip × harga per detik.</li>
+        <li>Luma menagih per klip 5 atau 10 detik, jadi video yang lebih panjang dihitung sebagai beberapa klip.</li>
+        <li>Beberapa model selalu menyertakan audio (Veo); model lain lebih mahal jika audio diaktifkan (Kling).</li>
+        <li>Jika pembuat model tidak memublikasikan harga API per detik, harga API Runway yang ditampilkan dengan label “Lewat API Runway”.</li>
+      </ul>
+      <h2>Tips</h2>
+      <p>Hasilnya adalah biaya satu kali generate. Satu shot yang layak pakai sering butuh 2–4 percobaan, jadi siapkan anggaran sekitar 3×. Uji prompt di model murah pada 720p, dan render hanya hasil akhirnya di model premium.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

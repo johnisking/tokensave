@@ -6,19 +6,19 @@ La versione italiana:
 
 ## Risultati
 
-| Lingua | Token | Rispetto all’inglese | Vecchio tokenizer GPT-4 |
+| Lingua | Token | Rispetto all’inglese | Risparmio inviando in inglese |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | 1,00× |
-| 简体中文 | 35 | 1,03× | 1,53× |
-| Español | 40 | 1,18× | 1,29× |
-| Deutsch | 43 | 1,26× | 1,50× |
-| **Italiano** | **47** | **1,38×** | **1,59×** |
-| 한국어 | 49 | 1,44× | 2,50× |
-| हिन्दी | 51 | 1,50× | 4,59× |
-| 日本語 | 61 | 1,79× | 2,21× |
-| Čeština | 68 | 2,00× | 2,59× |
-| Ελληνικά | 70 | 2,06× | 4,94× |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 7,41× |
+| English | 34 | 1,00× | – |
+| 简体中文 | 35 | 1,03× | 3% |
+| Español | 40 | 1,18× | 15% |
+| Deutsch | 43 | 1,26× | 21% |
+| **Italiano** | **47** | **1,38×** | **28%** |
+| 한국어 | 49 | 1,44× | 31% |
+| हिन्दी | 51 | 1,50× | 33% |
+| 日本語 | 61 | 1,79× | 44% |
+| Čeština | 68 | 2,00× | 50% |
+| Ελληνικά | 70 | 2,06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
 
 ![Risultati](/blog-language-tax-chart-v4.png)
 
@@ -30,9 +30,9 @@ Il tokenizer impara soprattutto da testo inglese: parole come " polite" o " cust
 - suggerisci → `sugger | isci` · 2
 - arrivato → `arriv | ato` · 2
 
-## Rispetto al vecchio tokenizer
+## Passa all'inglese con un pulsante
 
-Con il tokenizer dell’epoca GPT-4 (cl100k) lo stesso prompt costava **1,59×**; oggi **1,38×**.
+Il risparmio maggiore si ottiene inviando il prompt in inglese: circa il 28% di token in meno rispetto all'italiano. I modelli attuali capiscono perfettamente le istruzioni in inglese e rispondono in italiano se glielo chiedi. Nel contatore di token di TokenSave, incolla il tuo prompt e premi **💸 Risparmia token**: pulisce gli spazi, traduce in inglese, elimina il superfluo e aggiunge "Reply in Italian." così la risposta resta nella tua lingua. Usa il traduttore integrato in Chrome 138+ / Edge 148+ per desktop; la traduzione avviene sul tuo dispositivo e il tuo testo non viene mai caricato. Premi **↩ Originale** per recuperare l'originale.
 
 ## In denaro
 

@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI-tokenszámláló", "url": "https://tokensave.app/hu/", "inLanguage": "hu", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Tokenek, karakterek és API-költség GPT-hez, Claude-hoz, Geminihez. Ingyen.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "hu", "mainEntity": [{"@type": "Question", "name": "Mi az a token?", "acceptedAnswer": {"@type": "Answer", "text": "A token egy szövegdarab, amelyet egy AI-modell olvas. Angolul 1 token nagyjából 4 karakter vagy egy szó ¾ része."}}, {"@type": "Question", "name": "Miért drágábbak más nyelvek?", "acceptedAnswer": {"@type": "Answer", "text": "A tokenizálókat főleg angol szövegen tanítják, ezért a magyar, a koreai, a japán és sok más nyelv ugyanarra a jelentésre több tokenre bomlik."}}, {"@type": "Question", "name": "Privát marad a szövegem?", "acceptedAnswer": {"@type": "Answer", "text": "Igen. Minden helyben, a böngésződben fut. A szöveged soha nem kerül fel semmilyen szerverre."}}, {"@type": "Question", "name": "Mennyivel több tokent használ a magyar, mint az angol?", "acceptedAnswer": {"@type": "Answer", "text": "A GPT o200k tokenizálóján a magyar nagyjából 1.74× annyi tokent használ, mint ugyanaz a szöveg angolul. A régi GPT-4 tokenizálónak 2.26× kellett; a 41 mért nyelv között az arány 1.03× (egyszerűsített kínai) és 2.44× (pandzsábi) között mozog."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI-tokenszámláló", "url": "https://tokensave.app/hu/", "inLanguage": "hu", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "Tokenek, karakterek és API-költség GPT-hez, Claude-hoz, Geminihez. Ingyen.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "hu", "mainEntity": [{"@type": "Question", "name": "Mi az a token?", "acceptedAnswer": {"@type": "Answer", "text": "A token egy szövegdarab, amelyet egy AI-modell olvas. Angolul 1 token nagyjából 4 karakter vagy egy szó ¾ része."}}, {"@type": "Question", "name": "Miért drágábbak más nyelvek?", "acceptedAnswer": {"@type": "Answer", "text": "A tokenizálókat főleg angol szövegen tanítják, ezért a magyar, a koreai, a japán és sok más nyelv ugyanarra a jelentésre több tokenre bomlik."}}, {"@type": "Question", "name": "Privát marad a szövegem?", "acceptedAnswer": {"@type": "Answer", "text": "Igen. Minden helyben, a böngésződben fut. A szöveged soha nem kerül fel semmilyen szerverre."}}, {"@type": "Question", "name": "Mennyivel több tokent használ a magyar, mint az angol?", "acceptedAnswer": {"@type": "Answer", "text": "A GPT tokenizálójával (o200k) a magyar nyelv nagyjából 1,74× annyi tokent használ, mint ugyanaz a szöveg angolul, így ha angolul küldöd a promptot, kb. 43%-ot spórolsz. A 💸 Tokenspórolás gomb a saját eszközödön fordítja angolra (asztali Chrome / Edge), és magyar nyelvű választ kér."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -310,8 +310,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">Mennyivel több tokent használ a magyar, mint az angol?</h2>
-        <p class="text-zinc-400">A GPT o200k tokenizálóján a magyar nagyjából 1.74× annyi tokent használ, mint ugyanaz a szöveg angolul. A régi GPT-4 tokenizálónak 2.26× kellett; a 41 mért nyelv között az arány 1.03× (egyszerűsített kínai) és 2.44× (pandzsábi) között mozog.</p>
+        <p class="text-zinc-400">A GPT tokenizálójával (o200k) a magyar nyelv nagyjából 1,74× annyi tokent használ, mint ugyanaz a szöveg angolul, így ha angolul küldöd a promptot, kb. 43%-ot spórolsz. A 💸 Tokenspórolás gomb a saját eszközödön fordítja angolra (asztali Chrome / Edge), és magyar nyelvű választ kér.</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Használat</h2>
+      <ol>
+        <li><strong>Illeszd be a promptot</strong> — a tokenek, karakterek és szavak száma, valamint a becsült költség gépelés közben frissül.</li>
+        <li><strong>Válassz modellt</strong> a GPT · Claude · Gemini · Egyéb füleken, és láthatod a kérésenkénti és havi költséget az adott modell árával. A várható válaszhosszt és a havi kérések számát is módosíthatod.</li>
+        <li><strong>💸 Tokenspórolás</strong> — ha a szöveg rövidíthető, megjelenik ez a gomb a várható megtakarítással. Egy lépésben eltávolítja a felesleges szóközöket, angolra fordítja a promptot és kigyomlálja a töltelékszavakat, majd hozzáadja a „Reply in Hungarian.” sort, hogy a válasz továbbra is a te nyelveden érkezzen. Nyomd meg újra (↩ Eredeti), és visszakapod az eredeti szöveget.</li>
+        <li><strong>Nézd meg, hogyan bomlik tokenekre</strong> — színekkel mutatja, hogyan bomlik a szöveged tokenekre.</li>
+        <li><strong>Chat (JSON)</strong> — illeszd be az API-nak küldött üzenettömböt, és a számláló hozzáadja az üzenetformátum által felhasznált tokeneket is.</li>
+        <li><strong>Megosztás</strong> — a beírt szövegből linket készít, amelyet elküldhetsz valakinek.</li>
+      </ol>
+      <h2>Hogyan számol?</h2>
+      <ul>
+        <li><strong>GPT-modellek</strong>: a valódi OpenAI-tokenizáló (o200k) fut a böngésződben, így a szám pontos.</li>
+        <li><strong>Claude, Gemini és a többiek</strong>: tokenizálóik nem érhetők el ugyanebben a formában, ezért a számok valós szövegeken kalibrált becslések (becslésként jelölve).</li>
+        <li><strong>Költség</strong> = tokenek ÷ 1 000 000 × millió tokenenkénti ár. Az árak az egyes szolgáltatók hivatalos API-árai, az ellenőrzés dátumával feltüntetve.</li>
+        <li><strong>Nyelvi hatékonyság</strong>: megmutatja, hányszor több tokenre van szüksége a szövegednek, mint ugyanannak a tartalomnak angolul. A magyar nyelvnek nagyjából 1,74× kell — ha angolul küldöd a promptot, kb. 43%-ot spórolsz.</li>
+      </ul>
+      <h2>Hogyan működik a fordítás?</h2>
+      <ul>
+        <li>A böngészőbe épített MI-fordítót használja: <strong>asztali Chrome 138+ vagy Edge 148+</strong>.</li>
+        <li>A fordítómodell egyszer töltődik le; utána a fordítás <strong>a saját eszközödön</strong> történik. A szöveged soha nem kerül szerverre.</li>
+        <li>Ha a fordítás növelné a tokenek számát, nem alkalmazzuk. Kódnál csak a megjegyzések fordulnak le.</li>
+        <li>Mobilon és nem támogatott böngészőkben csak a szóközök tisztítása történik meg, és megjelenik egy értesítés.</li>
+      </ul>
+      <h2>Kapcsolódó cikk</h2>
+      <ul><li><a href="/hu/blog/tokenek-magyar-gpt">A magyar 1,74× annyi tokent használ a GPT-ben, mint az angol</a></li></ul>
     </section>
 
 

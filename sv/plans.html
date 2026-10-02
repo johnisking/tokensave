@@ -216,6 +216,18 @@
         <p class="text-zinc-400">Ja. Samma text på koreanska, hindi eller grekiska kräver fler tokens än på engelska, så API-kostnaden ökar med samma faktor. Abonnemang kostar lika mycket, men du når deras användningsgränser snabbare.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Så använder du verktyget</h2>
+      <ol>
+        <li>Ställ in <strong>Meddelanden per dag</strong>, <strong>Meddelandets längd</strong> och <strong>Meddelanden per konversation</strong>.</li>
+        <li>Välj <strong>Språket du skriver på</strong>. Svenska använder cirka 1,32× så många tokens som engelska, och det slår direkt igenom på API-kostnaden.</li>
+        <li>Varje kort (ChatGPT · Claude · Gemini) visar vad samma användning skulle kosta per månad via API:et, och om ett abonnemang eller API:et är billigare.</li>
+      </ol>
+      <h2>Hur räknas det ut?</h2>
+      <p>En chattmodell läser om hela konversationen vid varje meddelande, så senare meddelanden skickar fler indata-tokens. Kalkylatorn summerar dessa växande indata, svaren och ditt språks tokenkvot och tillämpar sedan varje modells API-pris per miljon tokens. Abonnemangspriserna är officiella amerikanska månadspriser.</p>
+      <h2>Tips</h2>
+      <p>Abonnemang innehåller funktioner som app, bildgenerering, röst och minne, och har användningsgränser. Se resultatet som en vägledning om vad som är billigast för ditt sätt att använda AI.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

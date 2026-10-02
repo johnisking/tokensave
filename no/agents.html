@@ -216,6 +216,18 @@
         <p class="text-zinc-400">For noen få små oppgaver om dagen er API-et som regel billigst. Ved tung daglig bruk er et abonnement til 100–200 $ ofte billigere, så lenge du holder deg innenfor grensene.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Slik bruker du det</h2>
+      <ol>
+        <li>Velg <strong>Typisk oppgave</strong>, <strong>Oppgaver per dag</strong> og <strong>Arbeidsdager per måned</strong>.</li>
+        <li>La <strong>Prompt-hurtigbuffer</strong> være på: de fleste verktøy bruker det.</li>
+        <li>Sammenlign hver modells månedlige API-kostnad med Claude- og ChatGPT-abonnementene som inkluderer en kodeagent.</li>
+      </ol>
+      <h2>Hvordan beregnes det?</h2>
+      <p>En kodeagent sender hele arbeidskonteksten sin (systemprompt, verktøydefinisjoner, filer den har lest, tidligere steg) på nytt i hvert steg. En funksjonsoppgave modelleres som 25 steg som starter på 22 000 tokens, vokser med 3 500 tokens og skriver 700 tokens per steg. Med hurtigbuffer slått på faktureres den gjentatte konteksten til omtrent 10 % av inputprisen.</p>
+      <h2>Tips</h2>
+      <p>Å skrive instruksjonene (systemprompten) på engelsk i stedet for norsk sparer omtrent 24 % av tokenene deres.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

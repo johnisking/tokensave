@@ -6,19 +6,19 @@ Ang bersyong Filipino:
 
 ## Mga resulta
 
-| Wika | Token | Kumpara sa English | Lumang GPT-4 tokenizer |
+| Wika | Token | Kumpara sa English | Matitipid kung ipapadala sa English |
 |---|---:|---:|---:|
-| English | 34 | 1.00× | 1.00× |
-| 简体中文 | 35 | 1.03× | 1.53× |
-| Español | 40 | 1.18× | 1.29× |
-| Deutsch | 43 | 1.26× | 1.50× |
-| 한국어 | 49 | 1.44× | 2.50× |
-| हिन्दी | 51 | 1.50× | 4.59× |
-| **Filipino** | **52** | **1.53×** | **1.76×** |
-| 日本語 | 61 | 1.79× | 2.21× |
-| Čeština | 68 | 2.00× | 2.59× |
-| Ελληνικά | 70 | 2.06× | 4.94× |
-| ਪੰਜਾਬੀ | 83 | 2.44× | 7.41× |
+| English | 34 | 1.00× | – |
+| 简体中文 | 35 | 1.03× | 3% |
+| Español | 40 | 1.18× | 15% |
+| Deutsch | 43 | 1.26× | 21% |
+| 한국어 | 49 | 1.44× | 31% |
+| हिन्दी | 51 | 1.50× | 33% |
+| **Filipino** | **52** | **1.53×** | **35%** |
+| 日本語 | 61 | 1.79× | 44% |
+| Čeština | 68 | 2.00× | 50% |
+| Ελληνικά | 70 | 2.06× | 51% |
+| ਪੰਜਾਬੀ | 83 | 2.44× | 59% |
 
 ![Mga resulta](/blog-language-tax-chart-v4.png)
 
@@ -30,9 +30,9 @@ Karamihang natututo ang tokenizer mula sa English na text: isang token lang ang 
 - Ibuod → `I | bu | od` · 3
 - magalang → `mag | alang` · 2
 
-## Kumpara sa lumang tokenizer
+## Lumipat sa English sa isang pindot
 
-Sa tokenizer ng panahon ng GPT-4 (cl100k), **1.76×** ang parehong prompt; ngayon **1.53×**.
+Pinakamalaki ang matitipid kung sa English mo ipapadala ang prompt: mga 35% na mas kaunting token kumpara sa Filipino. Naiintindihan nang mabuti ng mga model ngayon ang instruction sa English at sasagot sila sa Filipino kung hihilingin mo. Hindi pa sinusuportahan ng built-in translator ng browser ang Filipino, kaya isalin nang isang beses sa English ang mga nakapirming instruction mo at gamitin ulit ang mga ito; ipinapakita ng TokenSave token counter kung eksaktong ilang token ang natitipid mo.
 
 ## Sa pera
 

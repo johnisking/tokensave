@@ -216,6 +216,18 @@
         <p class="text-zinc-400">Evet. Aynı metin Korece, Hintçe veya Yunanca yazıldığında İngilizceden daha fazla token gerektirir, bu yüzden API maliyeti aynı oranda artar. Abonelikler aynı fiyattadır ama kullanım sınırlarına daha erken ulaşırsınız.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Nasıl kullanılır</h2>
+      <ol>
+        <li><strong>Günlük mesaj</strong>, <strong>Mesaj uzunluğu</strong> ve <strong>Sohbet başına mesaj</strong> değerlerini ayarlayın.</li>
+        <li><strong>Yazdığınız dil</strong> alanından dilinizi seçin. Türkçe, İngilizceye göre yaklaşık 1,47× token kullanır ve bu doğrudan API maliyetine yansır.</li>
+        <li>Her kart (ChatGPT · Claude · Gemini), aynı kullanımın API’de aylık ne kadar tutacağını ve planın mı yoksa API’nin mi daha ucuz olduğunu gösterir.</li>
+      </ol>
+      <h2>Nasıl hesaplanıyor?</h2>
+      <p>Bir sohbet modeli her mesajda tüm konuşmayı yeniden okur; bu yüzden sonraki mesajlar daha fazla girdi token’ı gönderir. Hesaplayıcı bu büyüyen girdileri, yanıtları ve dilinizin token oranını toplar, ardından her modelin milyon token başına API fiyatını uygular. Plan fiyatları resmî ABD aylık fiyatlarıdır.</p>
+      <h2>İpuçları</h2>
+      <p>Planlar uygulama, görsel üretimi, ses ve bellek gibi özellikler içerir ve kullanım sınırları vardır. Sonucu, yapay zekâyı kullanma biçiminiz için hangisinin daha ucuz olduğuna dair bir rehber olarak kullanın.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

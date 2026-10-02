@@ -215,6 +215,18 @@
         <p class="text-zinc-400">Untuk beberapa tugas kecil sehari, API biasanya lebih murah. Untuk pemakaian berat harian, paket $100–200 sering lebih murah selama Anda tetap dalam batasnya.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Cara menggunakan</h2>
+      <ol>
+        <li>Pilih <strong>Tugas umum</strong>, <strong>Tugas per hari</strong>, dan <strong>Hari kerja per bulan</strong>.</li>
+        <li>Biarkan <strong>Caching prompt</strong> tetap aktif: sebagian besar tool menggunakannya.</li>
+        <li>Bandingkan biaya API bulanan tiap model dengan paket Claude dan ChatGPT yang menyertakan agen coding.</li>
+      </ol>
+      <h2>Bagaimana cara menghitungnya?</h2>
+      <p>Agen coding mengirim ulang seluruh konteks kerjanya (system prompt, definisi tool, file yang sudah dibaca, langkah-langkah sebelumnya) di setiap langkah. Satu tugas fitur dimodelkan sebagai 25 langkah yang dimulai dari 22.000 token, bertambah 3.500 token, dan menulis 700 token per langkah. Dengan caching aktif, konteks yang berulang ditagih sekitar 10% dari harga input.</p>
+      <h2>Tips</h2>
+      <p>Menulis instruksi (system prompt) dalam bahasa Inggris alih-alih bahasa Indonesia menghemat sekitar 13% token-nya.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

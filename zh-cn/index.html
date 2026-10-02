@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI Token 计算器", "url": "https://tokensave.app/zh-cn/", "inLanguage": "zh-CN", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "即时计算 GPT、Claude、Gemini 的 Token 数和 API 费用。免费，不上传。", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "zh-CN", "mainEntity": [{"@type": "Question", "name": "什么是 Token？", "acceptedAnswer": {"@type": "Answer", "text": "Token 是 AI 模型读取文本的基本单位。在英文中，1 个 Token 大约是 4 个字符，或 3/4 个单词。"}}, {"@type": "Question", "name": "为什么中文更耗 Token？", "acceptedAnswer": {"@type": "Answer", "text": "分词器主要基于英文训练，因此中文、日文、韩文等语言表达同样意思时会被切分成更多 Token。"}}, {"@type": "Question", "name": "我的文本安全吗？", "acceptedAnswer": {"@type": "Answer", "text": "安全。所有计算都在你的浏览器本地完成，文本不会发送到任何服务器。"}}, {"@type": "Question", "name": "中文比英文多用多少 Token？", "acceptedAnswer": {"@type": "Answer", "text": "在 GPT 的 o200k 分词器上，简体中文的 Token 数约为同等英文内容的 1.03×。旧版 GPT-4 分词器需要 1.53×，因此中文的使用成本已大幅下降；在 41 种语言中，比例从 1.03×（简体中文）到 2.44×（旁遮普语）不等。"}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AI Token 计算器", "url": "https://tokensave.app/zh-cn/", "inLanguage": "zh-CN", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "即时计算 GPT、Claude、Gemini 的 Token 数和 API 费用。免费，不上传。", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "zh-CN", "mainEntity": [{"@type": "Question", "name": "什么是 Token？", "acceptedAnswer": {"@type": "Answer", "text": "Token 是 AI 模型读取文本的基本单位。在英文中，1 个 Token 大约是 4 个字符，或 3/4 个单词。"}}, {"@type": "Question", "name": "为什么中文更耗 Token？", "acceptedAnswer": {"@type": "Answer", "text": "分词器主要基于英文训练，因此中文、日文、韩文等语言表达同样意思时会被切分成更多 Token。"}}, {"@type": "Question", "name": "我的文本安全吗？", "acceptedAnswer": {"@type": "Answer", "text": "安全。所有计算都在你的浏览器本地完成，文本不会发送到任何服务器。"}}, {"@type": "Question", "name": "中文比英文多用多少 Token？", "acceptedAnswer": {"@type": "Answer", "text": "在 GPT 的分词器（o200k）上，简体中文使用的 Token 约为相同英文文本的 1.03×，因此用英文发送提示词可节省约 3%。💸 节省 Token 按钮会在你的设备上（桌面版 Chrome / Edge）将其翻译成英文，并要求用简体中文回答。"}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -309,8 +309,35 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">中文比英文多用多少 Token？</h2>
-        <p class="text-zinc-400">在 GPT 的 o200k 分词器上，简体中文的 Token 数约为同等英文内容的 1.03×。旧版 GPT-4 分词器需要 1.53×，因此中文的使用成本已大幅下降；在 41 种语言中，比例从 1.03×（简体中文）到 2.44×（旁遮普语）不等。</p>
+        <p class="text-zinc-400">在 GPT 的分词器（o200k）上，简体中文使用的 Token 约为相同英文文本的 1.03×，因此用英文发送提示词可节省约 3%。💸 节省 Token 按钮会在你的设备上（桌面版 Chrome / Edge）将其翻译成英文，并要求用简体中文回答。</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">使用方法</h2>
+      <ol>
+        <li><strong>粘贴你的提示词</strong>——Token 数、字符数、词数和预估费用会随输入实时更新。</li>
+        <li><strong>选择模型</strong>：在 GPT · Claude · Gemini · 其他 标签页中选择模型，即可按该模型的价格查看每次请求和每月的费用。你还可以调整预期输出量和每月请求次数。</li>
+        <li><strong>💸 节省 Token</strong>——当你的文本还能精简时，会出现这个按钮并显示预计节省量。它会一次性清理多余空格、把提示词翻译成英文并删去冗余内容，然后加上 “Reply in Chinese.”，让回答仍然使用你的语言。再按一次（↩ 原文）即可恢复原文。</li>
+        <li><strong>查看如何拆分为 Token</strong>——用不同颜色显示你的文本如何被拆分为 Token。</li>
+        <li><strong>对话 (JSON)</strong>——粘贴你发送给 API 的消息数组，消息格式本身占用的 Token 也会计入总数。</li>
+        <li><strong>分享</strong>——把你输入的文本生成一个链接，方便发给别人。</li>
+      </ol>
+      <h2>如何计算？</h2>
+      <ul>
+        <li><strong>GPT 模型</strong>：在浏览器中运行 OpenAI 官方分词器（o200k），因此计数是精确的。</li>
+        <li><strong>Claude、Gemini 等模型</strong>：它们的分词器没有以同样的形式公开，因此计数是基于真实文本校准的估算值（会标注为估算）。</li>
+        <li><strong>费用</strong> = Token 数 ÷ 1,000,000 × 每百万 Token 价格。价格均为各厂商官方 API 价格，并注明核对日期。</li>
+        <li><strong>语言效率</strong>表示你的文本所需 Token 是相同内容英文版的多少倍。简体中文约为 1.03×——用英文发送提示词可节省约 3%。</li>
+      </ul>
+      <h2>翻译是如何工作的？</h2>
+      <ul>
+        <li>它使用浏览器内置的 AI 翻译器：<strong>桌面版 Chrome 138+ 或 Edge 148+</strong>。</li>
+        <li>翻译模型只需下载一次，之后翻译<strong>完全在你自己的设备上</strong>进行。你的文本绝不会发送到服务器。</li>
+        <li>如果翻译后 Token 反而增加，则不会应用翻译。对于代码，只翻译注释。</li>
+        <li>在手机或不支持的浏览器上，只会清理空格，并显示提示信息。</li>
+      </ul>
+      <h2>相关文章</h2>
+      <ul><li><a href="/zh-cn/blog/zhongwen-token-gpt">简体中文在 GPT 中的 Token 数几乎与英文相同（1.03×）</a></li></ul>
     </section>
 
 

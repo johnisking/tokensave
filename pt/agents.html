@@ -215,6 +215,18 @@
         <p class="text-zinc-400">Com poucas tarefas pequenas por dia, a API costuma ser mais barata. Com uso intenso diário, um plano de US$ 100–200 costuma sair mais barato, desde que você fique dentro dos limites.</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">Como usar</h2>
+      <ol>
+        <li>Escolha <strong>Tarefa típica</strong>, <strong>Tarefas por dia</strong> e <strong>Dias úteis por mês</strong>.</li>
+        <li>Deixe <strong>Cache de prompt</strong> ativado: a maioria das ferramentas usa esse recurso.</li>
+        <li>Compare o custo mensal de API de cada modelo com os planos do Claude e do ChatGPT que incluem um agente de programação.</li>
+      </ol>
+      <h2>Como é calculado?</h2>
+      <p>Um agente de programação reenvia todo o seu contexto de trabalho (prompt de sistema, definições de ferramentas, arquivos lidos, etapas anteriores) a cada etapa. Uma tarefa de desenvolvimento de funcionalidade é modelada como 25 etapas que começam em 22.000 tokens, crescem 3.500 tokens e escrevem 700 tokens por etapa. Com o cache ativado, o contexto repetido é cobrado a cerca de 10% do preço de entrada.</p>
+      <h2>Dicas</h2>
+      <p>Escrever as instruções (prompt de sistema) em inglês em vez de português economiza cerca de 17% dos tokens delas.</p>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">
