@@ -16,7 +16,7 @@ from i18n_video import NAV, V
 from i18n_image import I
 from i18n_site import SITE
 from seo_meta import META
-from blog_meta import BLOG, BLOG_DATE, PRO, MISTRAL_FR, PROMPT_PL
+from blog_meta import BLOG, BLOG_DATE, PRO, MISTRAL_FR, PROMPT_PL, GUIDES
 PRO_BY_TAG = {b["tag"]: b for b in PRO}
 from i18n_view import MORE_LANGS
 from i18n_plans_all import PL, PNAV, PMETA
@@ -25,7 +25,7 @@ LLM = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "s
 
 # ---------------------------------------------------------------- settings
 BASE = "https://tokensave.app"
-LASTMOD = "2026-09-30"
+LASTMOD = "2026-10-02"
 # Google AdSense publisher id, e.g. "ca-pub-1234567890123456". Empty = no ad code on the pages.
 ADSENSE_PUB = "ca-pub-6520495092767533"
 # Search engine ownership tags (content value only). Empty = not added.
@@ -94,6 +94,15 @@ PAGES = [
     dict(file="privacy.html", path="/privacy", body="privacy_body.html",
          title="Privacy Policy | TokenSave",
          desc="How TokenSave handles data: text stays in your browser, analytics and ads."),
+    dict(file="contact.html", path="/contact", body="contact_body.html",
+         title="Contact | TokenSave",
+         desc="Contact TokenSave: report a wrong price, a missing model or a translation fix."),
+    dict(file="terms.html", path="/terms", body="terms_body.html",
+         title="Terms of Use | TokenSave",
+         desc="Terms of use for TokenSave's free AI cost calculators."),
+    dict(file="blog/index.html", path="/blog/", body=None,
+         title="Blog: AI tokens, prices and costs | TokenSave",
+         desc="Guides to AI tokens, API prices, video and image costs, and how to spend less."),
     dict(file="404.html", path=None, body="404_body.html",
          title="Page not found | TokenSave", desc="This page does not exist."),
 ]
@@ -156,6 +165,23 @@ def languages_html():
 
 _LD = json.load(open(os.path.join(ROOT, "blog_data", "langdata.json"), encoding="utf-8"))
 LANG_RATIOS = sorted(([tag, nat, _LD[tag]["ro"]] for _, tag, nat, _, _ in LANGS), key=lambda x: x[2])
+
+def blog_index_html():
+    en = GUIDES + [b for G in (PRO, BLOG) for b in G if b["tag"] == "en"]
+    en.sort(key=lambda b: b.get("date", BLOG_DATE), reverse=True)
+    cards = "\n".join(
+        f'      <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{b["path"]}" class="block no-underline" style="text-decoration:none">'
+        f'<span class="block font-semibold text-zinc-100">{esc(b["title"])}</span>'
+        f'<span class="block mt-1 text-sm text-zinc-400">{esc(b["desc"])}</span></a></li>' for b in en)
+    native = {tag: nat for _, tag, nat, _, _ in LANGS}
+    other = [b for G in (BLOG, PRO, MISTRAL_FR, PROMPT_PL) for b in G if b["tag"] != "en"]
+    other.sort(key=lambda b: native[b["tag"]])
+    links = "\n".join(f'        <li><a href="{b["path"]}" lang="{b["tag"]}">{esc(native[b["tag"]])}: {esc(b["title"])}</a></li>' for b in other)
+    return ('    <section class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">\n'
+            '      <h1 class="text-3xl font-extrabold text-white">Blog</h1>\n'
+            '      <p class="mt-3">Plain-English guides to what AI really costs: tokens, API prices, subscriptions, video and image generation, and practical ways to spend less.</p>\n'
+            '      <ul class="not-prose mt-6 grid gap-3" style="list-style:none;padding:0">\n' + cards + '\n      </ul>\n'
+            '      <h2>In other languages</h2>\n      <ul>\n' + links + '\n      </ul>\n    </section>')
 
 def path_for(slug, tool):
     return (f"/{slug}/" if slug else "/") + tool["page"]
@@ -270,7 +296,8 @@ def build():
             values.update(
                 htmlLang=tag, dir=direction, url=url, ogLocale=og, ogImage=f"{BASE}/{tool['og']}",
                 homeUrl=path_for(slug, TOOLS[0]), hreflang=hreflang, langOptions=options, langAll=lang_all, toolNav=nav,
-                ver=ver, adsHead=extras, faq=faq_html(s), moreLink=more_link(tag, s.get("more", "")),
+                ver=ver, adsHead=extras, faq=faq_html(s),
+                guide=(open(os.path.join(SRC, "guides", tool["key"] + ".html"), encoding="utf-8").read() if tag == "en" else ""), moreLink=more_link(tag, s.get("more", "")),
                 proLink=(f'<a href="{PRO_BY_TAG[tag]["path"]}" class="text-violet-300 hover:text-violet-200 underline">{esc(PRO_BY_TAG[tag]["title"])} →</a>' if tag in PRO_BY_TAG else ""),
                 ldjson=js({"@context": "https://schema.org", "@graph": graph}),
                 tjson=js(runtime),
@@ -285,12 +312,12 @@ def build():
     en_nav = "\n".join(f'          <a href="{path_for("", t)}" class="{NAV_OFF}">{esc(NAV["en"][t["nav"]])}</a>' for t in TOOLS)
     en_opts, en_all = lang_menu("", "en", lambda sl: path_for(sl, TOOLS[0]))
     for pg in PAGES:
-        body = languages_html() if pg["path"] == "/languages" else open(os.path.join(SRC, pg["body"]), encoding="utf-8").read()
+        body = languages_html() if pg["path"] == "/languages" else blog_index_html() if pg["path"] == "/blog/" else open(os.path.join(SRC, pg["body"]), encoding="utf-8").read()
         url = BASE + (pg["path"] or "/404")
         values = dict(
             htmlLang="en", dir="ltr", url=url, ogLocale="en_US", ogImage=f"{BASE}/og-token.jpg",
             title=esc(pg["title"]), desc=esc(pg["desc"]), lang=esc(S["en"]["lang"]),
-            homeUrl="/", hreflang="", langOptions=en_opts, langAll=en_all, toolNav=en_nav, ver=ver, adsHead=extras, faq="",
+            homeUrl="/", hreflang="", langOptions=en_opts, langAll=en_all, toolNav=en_nav, ver=ver, adsHead=extras, faq="", guide="",
             f1="", f2="", fAbout=esc(SITE["en"]["fAbout"]), fPrivacy=esc(SITE["en"]["fPrivacy"]),
             ldjson=js({"@context": "https://schema.org", "@type": "WebPage", "name": pg["title"], "url": url}),
             tjson=js({"static": True}),
@@ -299,12 +326,16 @@ def build():
         out = render(base, body, values)
         if pg["path"] is None:  # 404: keep out of the index, absolute canonical removed
             out = out.replace(f'  <link rel="canonical" href="{url}" />\n', '  <meta name="robots" content="noindex" />\n')
+        os.makedirs(os.path.dirname(os.path.join(DIST, pg["file"])), exist_ok=True)
         open(os.path.join(DIST, pg["file"]), "w", encoding="utf-8").write(out)
 
 
     # Articles (/<slug>/blog/...): each group is one article in several languages, linked with hreflang
     plans_tool = next(t for t in TOOLS if t["key"] == "plans")
-    for GROUP, gimg, gtool in [(BLOG, "blog-language-tax-chart-v4.png", TOOLS[0]), (PRO, "blog-chatgpt-pro-tiers.png", plans_tool), (MISTRAL_FR, "blog-mistral-francais.png", TOOLS[0]), (PROMPT_PL, "blog-prompt-polski.png", TOOLS[0])]:
+    tool_by_key = {t["key"]: t for t in TOOLS}
+    og_by_key = {"video": "og-video.jpg", "image": "og-image.jpg"}
+    for GROUP, gimg, gtool in [(BLOG, "blog-language-tax-chart-v4.png", TOOLS[0]), (PRO, "blog-chatgpt-pro-tiers.png", plans_tool), (MISTRAL_FR, "blog-mistral-francais.png", TOOLS[0]), (PROMPT_PL, "blog-prompt-polski.png", TOOLS[0])] + [
+            ([g], og_by_key.get(g["tool"], "og-token.jpg"), tool_by_key[g["tool"]]) for g in GUIDES]:
       blog_en = next((b for b in GROUP if b["tag"] == "en"), None)
       blog_alts = "\n".join(f'  <link rel="alternate" hreflang="{b["tag"]}" href="{BASE}{b["path"]}" />' for b in GROUP) + (
           f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{blog_en["path"]}" />' if blog_en else "")
@@ -343,7 +374,7 @@ def build():
           values = dict(
               htmlLang=tag, dir=tag_dir[tag], url=url, ogLocale=tag_og[tag], ogImage=f"{BASE}/{gimg}",
               title=esc(b["title"] + " | TokenSave"), desc=esc(b["desc"]), lang=esc(S[tag]["lang"]),
-              homeUrl=tool_home, hreflang=blog_alts, langOptions=opts, langAll=opts_all, toolNav=nav, ver=ver, adsHead=extras, faq="",
+              homeUrl=tool_home, hreflang=blog_alts, langOptions=opts, langAll=opts_all, toolNav=nav, ver=ver, adsHead=extras, faq="", guide="",
               f1="", f2="", fAbout=esc(SITE[tag]["fAbout"]), fPrivacy=esc(SITE[tag]["fPrivacy"]),
               ldjson=js(ld), tjson=js({"static": True}),
               scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>',
@@ -373,7 +404,7 @@ def build():
     for pg in PAGES:
         if pg["path"]:
             entries.append(f"\n  <url>\n    <loc>{BASE}{pg['path']}</loc>\n    <lastmod>{LASTMOD}</lastmod>\n  </url>")
-    for GROUP in (BLOG, PRO, MISTRAL_FR, PROMPT_PL):
+    for GROUP in (BLOG, PRO, MISTRAL_FR, PROMPT_PL, *([g] for g in GUIDES)):
       b_alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{b["tag"]}" href="{BASE}{b["path"]}"/>' for b in GROUP)
       b_en = next((b for b in GROUP if b["tag"] == "en"), None)
       if b_en:
@@ -385,7 +416,7 @@ def build():
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'
         + "".join(entries) + "\n</urlset>\n"
     )
-    print("built", count, "tool pages +", len(PAGES), "site pages +", len(BLOG) + len(PRO) + len(MISTRAL_FR) + len(PROMPT_PL), "articles ->", DIST)
+    print("built", count, "tool pages +", len(PAGES), "site pages +", len(BLOG) + len(PRO) + len(MISTRAL_FR) + len(PROMPT_PL) + len(GUIDES), "articles ->", DIST)
 
 if __name__ == "__main__":
     build()

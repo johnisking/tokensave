@@ -1,0 +1,19 @@
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">How to use the agent cost calculator</h2>
+      <ol>
+        <li>Choose a typical task size: a small fix, a feature, or a big change.</li>
+        <li>Set how many tasks you run per day and how many days a month.</li>
+        <li>Leave prompt caching on unless your tool does not use it.</li>
+        <li>Compare the monthly API cost of each model with the Claude and ChatGPT plans that include an agent.</li>
+      </ol>
+      <h2>How it is calculated</h2>
+      <p>An agent works in steps, and every step sends its whole working context back to the model. The calculator models a task as a number of steps with a starting context, a fixed amount of new context per step and a fixed output per step: a feature task is 25 steps starting at 22,000 tokens, adding 3,500 per step and writing 700 per step. With caching on, the repeated part of the context is billed at 10% of the input price. Contexts are capped at 180,000 tokens, as agents compact long sessions.</p>
+      <h2>Tips</h2>
+      <ul>
+        <li>Small, specific tasks need far fewer steps than open-ended ones.</li>
+        <li>Start a fresh session between unrelated tasks so old history is not re-sent.</li>
+        <li>Use a smaller model for routine edits.</li>
+      </ul>
+      <h2>Guide</h2>
+      <ul><li><a href="/blog/ai-coding-agent-cost">What does an AI coding agent really cost per task?</a></li></ul>
+    </section>

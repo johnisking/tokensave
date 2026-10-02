@@ -1,0 +1,83 @@
+<p>Coding agents such as Claude Code, Codex and Gemini CLI do far more than answer a question. They read files, run commands, look at the results, and try again, often dozens of times for a single task. Every one of those steps is a full request to the model. That is why an agent can burn through more tokens in an afternoon than a chat user does in a month, and why the choice between a subscription and the API matters so much.</p>
+<h2>Why agents use so many tokens</h2>
+<p>A chat message is one request. An agent task is a loop: plan, read a file, edit, run the tests, read the error, edit again. At each step the agent sends its <strong>whole working context</strong> back to the model: the system prompt, the tool definitions, the files it has read and everything that happened in earlier steps. The context grows with every step, and the agent pays for all of it again each time.</p>
+<p>A typical medium-sized task might look like this:</p>
+<ul>
+<li>25 steps</li>
+<li>about 22,000 tokens of context at the start (instructions, tool descriptions, the first files)</li>
+<li>about 3,500 new tokens added per step</li>
+<li>about 700 output tokens written per step</li>
+</ul>
+<p>Add that up and one task sends roughly <strong>1.6 million input tokens</strong> and writes about 17,500 output tokens.</p>
+<h2>What one task costs on the API</h2>
+<p>Using API prices checked October 1, 2026:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Small task (8 steps)</th>
+<th>Feature (25 steps)</th>
+<th>Big task (60 steps)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Haiku 4.5</td>
+<td>$0.08</td>
+<td>$0.36</td>
+<td>$1.33</td>
+</tr>
+<tr>
+<td>DeepSeek V4 Pro</td>
+<td>$0.09</td>
+<td>$0.43</td>
+<td>$1.61</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td>$0.15</td>
+<td>$0.72</td>
+<td>$2.65</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td>$0.15</td>
+<td>$0.72</td>
+<td>$2.65</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td>$0.16</td>
+<td>$0.75</td>
+<td>$2.76</td>
+</tr>
+<tr>
+<td>Claude Opus 5.5</td>
+<td>$0.31</td>
+<td>$1.43</td>
+<td>$5.30</td>
+</tr>
+</tbody>
+</table></div>
+<p>These figures assume <strong>prompt caching</strong>, where the repeated part of the context is billed at about 10% of the normal input price. Without caching, the same feature task on Claude Sonnet 5.5 costs about $3.38 instead of $0.72, almost five times as much. Make sure your agent uses caching.</p>
+<h2>From one task to a month</h2>
+<p>Ten feature-sized tasks a day, on 22 working days, is 220 tasks a month:</p>
+<ul>
+<li>Claude Sonnet 5.5 or GPT-6 Sol: about <strong>$158 a month</strong></li>
+<li>Claude Opus 5.5: about <strong>$315 a month</strong></li>
+<li>Claude Haiku 4.5: about <strong>$79 a month</strong></li>
+</ul>
+<h2>Subscription or API?</h2>
+<p>Both Anthropic and OpenAI include their agents in their consumer plans: Claude Code comes with Claude Pro ($20) and Max ($100 / $200), and Codex with ChatGPT Plus ($20) and Pro ($100 / $200 / $500). Plans have usage limits, but for steady daily use they are usually far cheaper than paying the API rate for the same work.</p>
+<p>The API makes sense when you use an agent occasionally, when you need a model that is not in a plan, when you run agents in automated pipelines, or when you need predictable billing for a team.</p>
+<h2>How to cut agent costs</h2>
+<ol>
+<li><strong>Keep tasks small and specific.</strong> "Fix the failing test in auth.py" uses far fewer steps than "clean up the project".</li>
+<li><strong>Start fresh sessions.</strong> A long session drags its whole history into every step. Clear or compact it between unrelated tasks.</li>
+<li><strong>Point to the right files.</strong> Telling the agent where to look saves the steps it would spend searching.</li>
+<li><strong>Use a smaller model for routine work.</strong> Renames, small fixes and boilerplate rarely need the largest model.</li>
+<li><strong>Keep project instructions short.</strong> Instruction files are sent with every step of every task.</li>
+</ol>
+<h2>Estimate your own usage</h2>
+<p>The <a href="/agents">AI coding agent cost calculator</a> lets you set task size, tasks per day and working days, toggles caching, and compares the API cost with every Claude and ChatGPT plan.</p>
+<p><em>Prices and plan limits change often. Confirm on each provider's pricing page.</em></p>

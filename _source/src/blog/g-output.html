@@ -1,0 +1,76 @@
+<p>Look at any AI API price list and you will see two prices per model: one for input tokens and a higher one for output tokens. The gap is not small. On most current models, every token the model writes costs four to six times more than every token you send. If you want a lower bill, the answer is usually not a shorter prompt. It is a shorter answer.</p>
+<h2>How big is the gap?</h2>
+<p>API prices per million tokens, checked October 1, 2026:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Input</th>
+<th>Output</th>
+<th>Output ÷ input</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Sol</td>
+<td>$2.00</td>
+<td>$10.00</td>
+<td>5×</td>
+</tr>
+<tr>
+<td>GPT-5.5</td>
+<td>$5.00</td>
+<td>$30.00</td>
+<td>6×</td>
+</tr>
+<tr>
+<td>Claude Opus 5.5</td>
+<td>$4.00</td>
+<td>$20.00</td>
+<td>5×</td>
+</tr>
+<tr>
+<td>Claude Haiku 4.5</td>
+<td>$1.00</td>
+<td>$5.00</td>
+<td>5×</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td>$2.00</td>
+<td>$12.00</td>
+<td>6×</td>
+</tr>
+<tr>
+<td>DeepSeek V4 Pro</td>
+<td>$1.32</td>
+<td>$3.96</td>
+<td>3×</td>
+</tr>
+<tr>
+<td>Grok 4.20</td>
+<td>$1.25</td>
+<td>$2.50</td>
+<td>2×</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Why output costs more</h2>
+<p><strong>Input is read in parallel; output is written one token at a time.</strong> When you send a prompt, the model processes all of it in one large, efficient pass. When it answers, it has to generate the first token, then run again to produce the second, then the third. Each output token needs its own pass through the model, which ties up expensive hardware for longer.</p>
+<p><strong>Output also holds memory.</strong> While generating, the model keeps a growing cache of everything it has read and written so far. Long answers keep that memory occupied, which limits how many requests a server can handle at once.</p>
+<p>Providers price output higher to reflect that cost.</p>
+<h2>The hidden output: reasoning tokens</h2>
+<p>Reasoning models think before they answer. That thinking is made of tokens, it is usually not shown to you, and it is <strong>billed at the output price</strong>. A two-paragraph answer can sit on top of thousands of reasoning tokens. If a reasoning model feels expensive, this is usually why.</p>
+<h2>Six ways to use fewer output tokens</h2>
+<ol>
+<li><strong>Ask for the length you need.</strong> "Answer in 3 bullet points" or "under 100 words" works well. Models follow length instructions better than most people expect.</li>
+<li><strong>Set a maximum output length.</strong> In the API, set a token limit so a runaway answer cannot cost more than you planned.</li>
+<li><strong>Ask for the change, not the whole thing.</strong> When editing code or a document, ask for only the changed lines or a diff instead of the full file again.</li>
+<li><strong>Use structured output.</strong> Ask for JSON with exactly the fields you need. It removes greetings, recaps and closing summaries.</li>
+<li><strong>Turn reasoning down when it is not needed.</strong> Many APIs let you set a lower reasoning effort. Simple extraction, classification and formatting tasks rarely need deep thinking.</li>
+<li><strong>Pick the model per task.</strong> A small model for short, routine answers and a large one only for hard problems can cut the bill several times over.</li>
+</ol>
+<h2>A quick example</h2>
+<p>A request with 2,000 input tokens and 1,000 output tokens on GPT-6 Sol costs $0.004 for input and $0.010 for output: output is 71% of the bill even though it is only a third of the tokens. Cut the answer to 400 tokens and the request drops from $0.014 to $0.008, a 43% saving without touching the prompt.</p>
+<h2>Measure it</h2>
+<p>Paste a typical prompt and a typical answer into the <a href="/">token counter</a> to see how many tokens each side uses and what that costs on 30+ models.</p>

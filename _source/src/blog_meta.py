@@ -126,3 +126,37 @@ PROMPT_PL = [
   "date": "2026-10-02"
  },
 ]
+
+# English guides (blog_src/g-*.md), one article each. "tool" = key of the calculator the CTA opens.
+_G = lambda slug, src, tool, title, desc, cta, btn: dict(
+    tag="en", path="/blog/" + slug, src=src, tool=tool, title=title, desc=desc,
+    byline="Jonhisking · October 2, 2026", cta=cta, ctaBtn=btn, date="2026-10-02")
+GUIDES = [
+ _G("what-is-a-token", "g-token", "token", "What Is a Token? A Plain-English Guide for AI Users",
+    "What AI tokens are, how many your text uses, why other languages need more, and why tokens decide cost and quality.",
+    "Paste any text to see its exact token count and cost on 30+ models.", "Open the token counter"),
+ _G("how-to-estimate-ai-api-cost", "g-estimate", "token", "How to Estimate Your AI API Bill Before You Build",
+    "A simple formula and a worked example for estimating monthly AI API cost, plus the multipliers most estimates miss.",
+    "Measure your real prompt and answer, then see the cost on every model at once.", "Open the token counter"),
+ _G("why-output-tokens-cost-more", "g-output", "token", "Why Output Tokens Cost More (and 6 Ways to Use Fewer)",
+    "Output tokens cost 2-6x more than input on current AI APIs. Why, the hidden cost of reasoning, and how to cut it.",
+    "Paste a typical prompt and answer to see how much each side costs.", "Open the token counter"),
+ _G("context-window-explained", "g-context", "token", "Context Windows Explained: Why Long Chats Get Worse and Cost More",
+    "What a context window is, why AI forgets things in long chats, why long chats cost more, and what to do instead.",
+    "See how much of each model's context window your text fills.", "Open the token counter"),
+ _G("cut-token-cost-non-english-prompts", "g-language", "token", "Prompting in Korean, Japanese or Hindi? How to Cut the Token Cost",
+    "Non-English prompts use up to 1.8x the tokens of English. Measured ratios and five ways to pay less, starting with one click.",
+    "Paste your prompt, press To English, and see how many tokens you save.", "Open the token counter"),
+ _G("ai-video-cost-per-minute", "g-video", "video", "How Much Does One Minute of AI Video Cost?",
+    "One minute of AI video on Veo, Kling, Grok, FLUX, Seedance and more, from $3 to $24 at list price, and why retries triple it.",
+    "Set clip length, resolution and audio, and rank every video model by total cost.", "Open the video cost calculator"),
+ _G("ai-image-cost-per-image", "g-image", "image", "AI Image Generation Cost per Image, Compared",
+    "Price per image on GPT Image, Nano Banana, FLUX.2, Grok Imagine, Seedream and Runway, from $0.01 to $0.20 at 1K.",
+    "Pick a resolution and number of images to compare every model.", "Open the image cost calculator"),
+ _G("chatgpt-subscription-vs-api", "g-plans", "plans", "ChatGPT Plus or the API: Which Is Cheaper for You?",
+    "When a $20 AI subscription beats paying per token, and when the API is far cheaper, with monthly costs by usage.",
+    "Enter how you chat and see the API cost next to every ChatGPT, Claude and Gemini plan.", "Open the Subscription vs API calculator"),
+ _G("ai-coding-agent-cost", "g-agents", "agents", "What Does an AI Coding Agent Really Cost per Task?",
+    "Why Claude Code, Codex and Gemini CLI use millions of tokens per task, what that costs on the API, and when a plan is cheaper.",
+    "Set task size and tasks per day to compare API cost with every plan.", "Open the agent cost calculator"),
+]

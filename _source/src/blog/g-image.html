@@ -1,0 +1,110 @@
+<p>AI image prices are quoted per image, and the range is wider than most people expect: from about one cent to forty cents for a single picture. For a one-off that hardly matters. For a product catalog, a game's art pipeline or an app that generates images for users, it is the difference between a rounding error and a real line in the budget.</p>
+<h2>Price per 1024px image</h2>
+<p>API prices checked September 30, 2026:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Maker</th>
+<th>1 image</th>
+<th>1,000 images</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT Image 2.5 · low*</td>
+<td>OpenAI</td>
+<td>$0.010</td>
+<td>$10</td>
+</tr>
+<tr>
+<td>FLUX.2 [klein] 4B</td>
+<td>Black Forest Labs</td>
+<td>$0.014</td>
+<td>$14</td>
+</tr>
+<tr>
+<td>Grok Imagine Image</td>
+<td>xAI</td>
+<td>$0.020</td>
+<td>$20</td>
+</tr>
+<tr>
+<td>Runway Gen-4 Image Turbo</td>
+<td>Runway</td>
+<td>$0.020</td>
+<td>$20</td>
+</tr>
+<tr>
+<td>FLUX.2 [pro]</td>
+<td>Black Forest Labs</td>
+<td>$0.030</td>
+<td>$30</td>
+</tr>
+<tr>
+<td>Nano Banana 2 Lite</td>
+<td>Google</td>
+<td>$0.034</td>
+<td>$34</td>
+</tr>
+<tr>
+<td>Seedream 5 Lite*</td>
+<td>ByteDance</td>
+<td>$0.040</td>
+<td>$40</td>
+</tr>
+<tr>
+<td>GPT Image 2.5 · medium*</td>
+<td>OpenAI</td>
+<td>$0.050</td>
+<td>$50</td>
+</tr>
+<tr>
+<td>Nano Banana 2</td>
+<td>Google</td>
+<td>$0.067</td>
+<td>$67</td>
+</tr>
+<tr>
+<td>FLUX.2 [max]</td>
+<td>Black Forest Labs</td>
+<td>$0.070</td>
+<td>$70</td>
+</tr>
+<tr>
+<td>GPT Image 2.5 · high*</td>
+<td>OpenAI</td>
+<td>$0.160</td>
+<td>$160</td>
+</tr>
+<tr>
+<td>Nano Banana Pro*</td>
+<td>Google</td>
+<td>$0.200</td>
+<td>$200</td>
+</tr>
+</tbody>
+</table></div>
+<p>* Rate from Runway's API for that model.</p>
+<h2>Resolution changes the price</h2>
+<p>Most models charge more for larger images, but not in the same way:</p>
+<ul>
+<li><strong>Nano Banana 2</strong> goes from $0.067 at 1K to $0.101 at 2K and $0.151 at 4K.</li>
+<li><strong>FLUX.2</strong> bills per megapixel: the first megapixel at one price, each additional one cheaper. A 2048px image is 4 MP.</li>
+<li><strong>GPT Image 2.5 · medium</strong> costs the same $0.05 at 1K and 2K, then $0.11 at 4K.</li>
+</ul>
+<p>If you only need images for the web or social media, 1K is usually enough, and upscaling a good 1K image can be cheaper than generating at 4K.</p>
+<h2>Quality tiers are the biggest lever</h2>
+<p>The same model can cost very different amounts depending on the quality setting. GPT Image 2.5 is 16 times more expensive at <em>high</em> than at <em>low</em>. Use the low or draft tier to find a composition that works, then regenerate only the keepers at higher quality.</p>
+<h2>Plan for retries</h2>
+<p>As with video, the list price is the cost of one attempt. Hands, text inside images, and consistent characters often need several tries. Budget <strong>two to four generations per usable image</strong> for anything detailed.</p>
+<h2>Which one to pick</h2>
+<ul>
+<li><strong>Bulk and drafts:</strong> GPT Image 2.5 low, FLUX.2 [klein], Grok Imagine Image.</li>
+<li><strong>Good quality at a fair price:</strong> FLUX.2 [pro], Nano Banana 2, Seedream 5.</li>
+<li><strong>Hardest prompts, text in images, final assets:</strong> Nano Banana Pro, GPT Image 2.5 high, FLUX.2 [max].</li>
+</ul>
+<p>Quality is subjective, so test your own prompts on two or three models before you commit to one for a large batch.</p>
+<h2>Price your batch</h2>
+<p>The <a href="/image">AI image cost calculator</a> compares every model above for your resolution and number of images.</p>
+<p><em>Prices change often. Confirm on the provider's pricing page before a large job.</em></p>

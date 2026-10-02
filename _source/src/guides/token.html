@@ -1,0 +1,24 @@
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">How to use the token counter</h2>
+      <ol>
+        <li>Paste or type your prompt. The count updates as you type.</li>
+        <li>Compare what that text costs on each model, from small, cheap models to the largest ones.</li>
+        <li>Press <strong>Save tokens</strong> to clean up spaces, trim filler and, for non-English text, translate it to English on your device. The counter shows how many tokens and how much money you saved.</li>
+      </ol>
+      <h2>How the count is calculated</h2>
+      <p>For OpenAI models the counter runs the real <strong>o200k</strong> tokenizer in your browser, so the number matches what the API bills. Claude, Gemini and other model families use their own tokenizers, which are not public in the same form, so their counts are estimates calibrated against measured text. Cost is <em>tokens ÷ 1,000,000 × the price per million tokens</em>, using each provider's list price and the date it was checked.</p>
+      <h2>Why the same text costs different amounts</h2>
+      <ul>
+        <li><strong>Language.</strong> The same meaning takes 1.03× (Chinese) to 2.44× (Punjabi) the tokens of English. Korean is 1.44×, Japanese 1.79×.</li>
+        <li><strong>Input vs output.</strong> What the model writes costs 2–6 times more per token than what you send.</li>
+        <li><strong>Model.</strong> Prices per million tokens range from $0.05 to $10 for input across the models listed here.</li>
+      </ul>
+      <h2>Guides</h2>
+      <ul>
+        <li><a href="/blog/what-is-a-token">What is a token? A plain-English guide</a></li>
+        <li><a href="/blog/how-to-estimate-ai-api-cost">How to estimate your AI API bill before you build</a></li>
+        <li><a href="/blog/why-output-tokens-cost-more">Why output tokens cost more, and how to use fewer</a></li>
+        <li><a href="/blog/context-window-explained">Context windows explained</a></li>
+        <li><a href="/blog/cut-token-cost-non-english-prompts">How to cut the token cost of non-English prompts</a></li>
+      </ul>
+    </section>
