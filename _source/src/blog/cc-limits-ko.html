@@ -1,0 +1,71 @@
+<p>"사용량 한도에 도달했습니다(usage limit reached)"는 클로드 코드를 쓰다 보면 가장 자주 보는 메시지이면서, 가장 헷갈리는 메시지입니다. 한도가 <strong>두 가지</strong>가 동시에 작동하기 때문입니다. 어떻게 돌아가는지, 2026년에 뭐가 바뀌었는지, 걸렸을 때 어떻게 하면 되는지 정리했습니다.</p>
+<h2>한도는 두 가지</h2>
+<p><strong>1. 5시간 세션 한도.</strong> 첫 메시지를 보낸 순간부터 5시간 단위로 사용량을 잽니다. 그 5시간 동안 쓸 수 있는 양을 다 쓰면 초기화될 때까지 기다려야 합니다.</p>
+<p><strong>2. 주간 한도.</strong> 세션 한도와 별개로 일주일 전체 사용량에도 상한이 있습니다. 소수의 계정이 클로드 코드를 24시간 돌리는 걸 막으려고 2025년 8월에 도입됐습니다. 여기에 걸리면 5시간 세션이 새로 시작됐어도 주간 초기화까지 기다려야 합니다.</p>
+<p>두 한도 모두 <strong>클로드 코드와 Claude 앱(웹·데스크톱·모바일)이 함께 씁니다.</strong> 앱에서 긴 대화를 하면 코딩에 쓸 양도 같이 줄어듭니다.</p>
+<h2>요금제별 사용량</h2>
+<p>Anthropic은 정확한 토큰 수 대신 요금제끼리의 배수로 설명합니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>요금제</th>
+<th>가격</th>
+<th>사용량</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pro</td>
+<td>월 $20</td>
+<td>기본</td>
+</tr>
+<tr>
+<td>Max 5×</td>
+<td>월 $100</td>
+<td>Pro의 5배</td>
+</tr>
+<tr>
+<td>Max 20×</td>
+<td>월 $200</td>
+<td>Pro의 20배</td>
+</tr>
+</tbody>
+</table></div>
+<p>실제로 얼마나 버티는지는 작업에 따라 크게 다릅니다. 큰 파일, 긴 세션, Opus는 Sonnet으로 짧은 작업을 할 때보다 훨씬 빨리 한도를 씁니다. 단계마다 작업 맥락 전체를 다시 보내기 때문입니다.</p>
+<h2>2026년에 바뀐 것</h2>
+<ul>
+<li><strong>2026년 5월 6일:</strong> Anthropic이 Pro·Max·Team·좌석형 Enterprise 요금제의 <strong>클로드 코드 5시간 한도를 두 배로</strong> 늘렸습니다. Pro·Max의 피크 시간대 한도 축소도 없앴습니다.</li>
+<li><strong>2026년 여름:</strong> 주간 한도에 <strong>50% 임시 증량</strong>이 적용됐습니다.</li>
+<li><strong>2026년 9월 14일:</strong> Pro·Max·Team·좌석형 Enterprise의 <strong>기본 주간 한도를 영구적으로 25% 올렸습니다.</strong> 다만 50% 임시 증량을 대체한 것이라, 여름보다는 약 17% 줄어든 셈입니다. 원래 기준보다는 25% 많습니다.</li>
+</ul>
+<p>그래서 9월 중순 이후 주간 한도에 더 빨리 걸린다고 느끼셨다면 착각이 아닙니다.</p>
+<h2>남은 사용량 확인하는 법</h2>
+<p>클로드 코드에서 <strong>/status</strong> 명령어를 치면 남은 사용량을 볼 수 있습니다. 한도에 가까워지면 클로드 코드가 경고도 띄워 줍니다. 긴 작업은 중간이 아니라 <strong>시작하기 전에</strong> 확인하세요.</p>
+<h2>한도에 걸렸을 때</h2>
+<ol>
+<li><strong>초기화까지 기다리기.</strong> 5시간 한도는 보통 몇 시간이면 풀립니다.</li>
+<li><strong>추가 사용량(usage credits) 켜기.</strong> 유료 요금제는 멈추지 않고 별도 과금되는 크레딧으로 계속 쓸 수 있습니다.</li>
+<li><strong>API 크레딧으로 전환.</strong> 클로드 코드는 사용한 만큼 내는 API로도 돌아갑니다. 전환 전에 반드시 동의를 묻습니다.</li>
+<li><strong>요금제 올리기.</strong> Pro → Max 5×, Max 5× → Max 20×.</li>
+<li><strong>작업당 토큰 줄이기.</strong> 사실 가장 싼 해결책입니다. 아래를 보세요.</li>
+</ol>
+<h2>생각보다 빨리 한도에 걸리는 이유</h2>
+<ul>
+<li><strong>긴 세션.</strong> 단계마다 그동안의 모든 내용을 다시 보냅니다. 두 시간짜리 세션은 새 단계마다 엄청난 맥락을 끌고 갑니다.</li>
+<li><strong>Opus.</strong> Sonnet보다 한도를 빨리 씁니다.</li>
+<li><strong>큰 파일과 로그.</strong> 3,000줄짜리 파일이나 테스트 로그 전체를 읽으면 수만 토큰이 더해집니다.</li>
+<li><strong>막연한 지시.</strong> "프로젝트 정리해 줘"는 수십 단계, "auth.py의 실패하는 테스트 고쳐 줘"는 몇 단계면 끝납니다.</li>
+<li><strong>Claude 앱 동시 사용.</strong> 같은 한도에서 빠져나갑니다.</li>
+<li><strong>한국어 지시문.</strong> 같은 내용이라도 한국어는 영어보다 토큰을 더 씁니다(GPT 토크나이저 기준 약 1.44배).</li>
+</ul>
+<h2>한도를 늘려 쓰는 법</h2>
+<ul>
+<li>관련 없는 작업 사이에는 <strong>/clear</strong>로 새로 시작하고, 길어진 세션은 <strong>/compact</strong>로 요약하세요.</li>
+<li>클로드가 찾게 두지 말고 어느 파일을 보면 되는지 알려 주세요.</li>
+<li>CLAUDE.md 지시문은 짧게 유지하세요. 매 단계마다 같이 전송됩니다.</li>
+<li>평소에는 Sonnet, 어려운 문제에만 Opus를 쓰세요.</li>
+</ul>
+<p>자세한 방법과 숫자는 <a href="/ko/blog/claude-code-token-jeolyak">클로드 코드 토큰 절약 방법</a>에 있습니다.</p>
+<h2>요금제냐 API냐</h2>
+<p>주간 한도에 자주 걸린다면, 그 추가분을 API로 냈을 때 비용과 한 단계 위 요금제를 비교해 보세요. <a href="/ko/blog/claude-code-yogeum">클로드 코드 한 달 요금 계산</a>과 <a href="/ko/agents">코딩 에이전트 비용 계산기</a>가 계산해 드립니다.</p>
+<p><em>한도는 바뀝니다. 최신 규칙은 Anthropic의 <a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">클로드 코드 요금제 도움말</a>과 <a href="https://claude.com/pricing" target="_blank" rel="noopener">요금 페이지</a>를 확인하세요.</em></p>

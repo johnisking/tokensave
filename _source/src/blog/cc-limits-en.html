@@ -1,0 +1,70 @@
+<p>"Claude usage limit reached" is one of the most common messages Claude Code users see, and one of the most confusing, because there are two different limits working at the same time. Here is how they work, what changed in 2026, and what you can do when you hit one.</p>
+<h2>The two limits</h2>
+<p><strong>1. The 5-hour session limit.</strong> Your usage is measured over a rolling five-hour window that starts with your first message. When you use up the allowance for that window, you have to wait until it resets.</p>
+<p><strong>2. The weekly limit.</strong> On top of the session limit, there is a cap on total usage over a week. It was introduced in August 2025 to stop a small share of accounts from running Claude Code around the clock. If you hit it, you wait for the weekly reset even if your 5-hour window is fresh.</p>
+<p>Both limits are <strong>shared between Claude Code and the Claude app</strong> (web, desktop and mobile). A long chat in the app uses the same allowance as your coding session.</p>
+<h2>How much each plan gets</h2>
+<p>Anthropic describes plan limits relative to each other rather than in exact tokens:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Price</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pro</td>
+<td>$20/month</td>
+<td>Base level</td>
+</tr>
+<tr>
+<td>Max 5×</td>
+<td>$100/month</td>
+<td>5× Pro</td>
+</tr>
+<tr>
+<td>Max 20×</td>
+<td>$200/month</td>
+<td>20× Pro</td>
+</tr>
+</tbody>
+</table></div>
+<p>How far that goes depends heavily on what you do. Large files, long sessions and Opus use the allowance much faster than short tasks on Sonnet, because every step resends the whole working context.</p>
+<h2>What changed in 2026</h2>
+<ul>
+<li><strong>May 6, 2026:</strong> Anthropic <strong>doubled Claude Code's five-hour rate limits</strong> for Pro, Max, Team and seat-based Enterprise plans, and removed the extra limit reduction during peak hours for Pro and Max.</li>
+<li><strong>Summer 2026:</strong> a temporary <strong>50% increase</strong> to weekly limits was in place.</li>
+<li><strong>September 14, 2026:</strong> Anthropic <strong>permanently raised standard weekly limits by 25%</strong> for Pro, Max, Team and seat-based Enterprise. Because this replaced the temporary 50% boost, weekly limits ended up about 17% lower than during the summer, though still 25% above the original level.</li>
+</ul>
+<p>So if you feel you hit the weekly limit sooner since mid-September, that is expected.</p>
+<h2>How to check where you are</h2>
+<p>Inside Claude Code, the <strong>/status</strong> command shows your remaining allowance. Claude Code also warns you as you approach a limit. Check before starting a long task, not halfway through it.</p>
+<h2>What to do when you hit a limit</h2>
+<ol>
+<li><strong>Wait for the reset.</strong> For the 5-hour limit this is usually a matter of hours.</li>
+<li><strong>Turn on extra usage.</strong> Paid plans can continue with usage credits billed separately, instead of stopping.</li>
+<li><strong>Switch to API credits.</strong> Claude Code can run on pay-as-you-go API billing; it asks for your consent before it does.</li>
+<li><strong>Upgrade your plan.</strong> Pro to Max 5×, or Max 5× to Max 20×.</li>
+<li><strong>Use fewer tokens per task.</strong> Often the cheapest fix. See below.</li>
+</ol>
+<h2>Why you hit limits faster than expected</h2>
+<ul>
+<li><strong>Long sessions.</strong> Each step resends everything that happened before. A two-hour session drags a huge context into every new step.</li>
+<li><strong>Opus.</strong> It uses the allowance faster than Sonnet.</li>
+<li><strong>Large files and logs.</strong> Reading a 3,000-line file or a full test log adds tens of thousands of tokens.</li>
+<li><strong>Vague tasks.</strong> "Clean up the project" can take dozens of steps; "fix the failing test in auth.py" takes a few.</li>
+<li><strong>Using the Claude app at the same time.</strong> Both draw from the same pool.</li>
+</ul>
+<h2>Stretch your limits</h2>
+<ul>
+<li>Start a fresh session (<strong>/clear</strong>) between unrelated tasks, and use <strong>/compact</strong> to summarize a long one.</li>
+<li>Point Claude to the right files instead of letting it search.</li>
+<li>Keep your CLAUDE.md instructions short: they are sent with every step.</li>
+<li>Use Sonnet for routine work and save Opus for hard problems.</li>
+</ul>
+<p>More detail and numbers in <a href="/blog/claude-code-save-tokens">How to save tokens in Claude Code</a>.</p>
+<h2>Plan or API?</h2>
+<p>If you regularly hit the weekly limit, compare what that extra usage would cost on the API with the next plan up. Our <a href="/blog/claude-code-cost-per-month">Claude Code cost per month</a> guide and <a href="/agents">coding agent calculator</a> do the maths.</p>
+<p><em>Limits change. Anthropic's <a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Claude Code plan help page</a> and <a href="https://claude.com/pricing" target="_blank" rel="noopener">pricing page</a> have the current rules.</em></p>

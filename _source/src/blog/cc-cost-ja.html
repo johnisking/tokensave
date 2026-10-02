@@ -1,0 +1,165 @@
+<p>Claude Code（クロードコード）は、Claude の Pro・Max プランに含まれているほか、使った分だけ払う API でも使えます。では、実際に月いくらかかるのでしょうか。使う量しだいで、同じ作業でも払い方によって10倍以上の差が出ます。実際の数字でまとめました。</p>
+<h2>払い方は2つ</h2>
+<p><strong>1. サブスクリプション（定額プラン）</strong>。Claude Code が含まれるプランです（米国価格、2026年10月確認）。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>プラン</th>
+<th>月額</th>
+<th>利用量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pro</td>
+<td>$20（年払いなら月$17）</td>
+<td>基準</td>
+</tr>
+<tr>
+<td>Max 5×</td>
+<td>$100</td>
+<td>Pro の5倍</td>
+</tr>
+<tr>
+<td>Max 20×</td>
+<td>$200</td>
+<td>Pro の20倍</td>
+</tr>
+</tbody>
+</table></div>
+<p>料金は定額で、利用上限があります。Claude Code と Claude アプリ（Web・デスクトップ・モバイル）は<strong>同じ上限を共有</strong>します。料金はドル建てなので、円での支払額は為替によって変わります。</p>
+<p><strong>2. API</strong>。Anthropic の API 価格で、トークン単位で支払います。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>モデル</th>
+<th>入力 100万トークン</th>
+<th>出力 100万トークン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Haiku 4.5</td>
+<td>$1</td>
+<td>$5</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td>$2</td>
+<td>$10</td>
+</tr>
+<tr>
+<td>Claude Opus 5.5</td>
+<td>$4</td>
+<td>$20</td>
+</tr>
+</tbody>
+</table></div>
+<p>プロンプトキャッシュから読み込む入力は、通常の入力価格のおよそ10分の1です。プランの上限はありませんが、使ったトークンはすべて課金されます。</p>
+<h2>Claude Code がトークンを多く使う理由</h2>
+<p>Claude Code はステップごとに作業します。ファイルを読み、編集し、テストを実行し、結果を見て、またやり直す。そして<strong>ステップのたびに作業コンテキスト全体</strong>（指示、ツール定義、読んだファイル、それまでの経緯）をモデルに送り直します。そのため、機能を1つ追加するだけでも入力トークンが<strong>約160万</strong>になることは珍しくありません。書くコードが短くても同じです。</p>
+<p>これを現実的なコストに抑えているのが<strong>プロンプトキャッシュ</strong>です。繰り返し送られる部分は入力価格の約10%で計算され、Claude Code は自動で使っています。</p>
+<h2>API で1タスクあたりいくらか</h2>
+<p>TokenSave の<a href="/ja/agents">コーディングエージェント費用計算機</a>で、キャッシュありの場合です。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>タスク</th>
+<th>ステップ</th>
+<th>Haiku 4.5</th>
+<th>Sonnet 5.5</th>
+<th>Opus 5.5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小さな修正</td>
+<td>約8</td>
+<td>$0.08</td>
+<td>$0.15</td>
+<td>$0.31</td>
+</tr>
+<tr>
+<td>新機能</td>
+<td>約25</td>
+<td>$0.36</td>
+<td>$0.72</td>
+<td>$1.43</td>
+</tr>
+<tr>
+<td>大規模リファクタ</td>
+<td>約60</td>
+<td>$1.33</td>
+<td>$2.65</td>
+<td>$5.30</td>
+</tr>
+</tbody>
+</table></div>
+<p>キャッシュがなければ、Sonnet での新機能タスクは$0.72ではなく約$3.38になります。</p>
+<h2>1か月の費用</h2>
+<p>月の稼働日を22日とした場合です。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>使い方</th>
+<th>月のタスク数</th>
+<th>API（Sonnet）</th>
+<th>API（Opus）</th>
+<th>たいてい合う最安プラン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ライト：1日に小さな修正3件</td>
+<td>66</td>
+<td>約$10</td>
+<td>約$20</td>
+<td>API または Pro（$20）</td>
+</tr>
+<tr>
+<td>普通：1日に新機能5件</td>
+<td>110</td>
+<td>約$79</td>
+<td>約$158</td>
+<td>Pro または Max 5×</td>
+</tr>
+<tr>
+<td>ヘビー：1日に新機能15件</td>
+<td>330</td>
+<td>約$236</td>
+<td>約$473</td>
+<td>Max 5× または Max 20×</td>
+</tr>
+<tr>
+<td>一日中エージェント：大きなタスク1日8件</td>
+<td>176</td>
+<td>約$466</td>
+<td>約$932</td>
+<td>Max 20×</td>
+</tr>
+</tbody>
+</table></div>
+<p>傾向ははっきりしています。</p>
+<ul>
+<li><strong>たまに使う</strong>なら、API がどのプランより安いこともあります。Pro が$20の月に、API なら$10ほどです。</li>
+<li><strong>毎日使う</strong>なら、サブスクのほうがすぐに大幅に安くなります。Opus で普通に使うと API は約$158、Max 5× は$100です。</li>
+<li><strong>ヘビーに使う</strong>なら、上限が足りる限り Max は API よりはるかに安くなります。</li>
+</ul>
+<p>プランの落とし穴は上限です。Anthropic はプランごとの正確なトークン数を公開しておらず、ヘビーユーザーは週の上限に当たります。<a href="/ja/blog/claude-code-shiyouryou-jougen">Claude Code の使用量上限まとめ</a>をご覧ください。</p>
+<h2>トークンを料金に換算すると</h2>
+<p>Claude Sonnet 5.5 での簡単な目安です。</p>
+<ul>
+<li>入力100万トークン = $2（キャッシュからの読み込みなら約$0.20）</li>
+<li>出力100万トークン = $10</li>
+</ul>
+<p>Claude Code が送る内容の大半はキャッシュされたコンテキストなので、エージェント作業の実質単価は Sonnet で処理トークン100万あたり$1を大きく下回ることが多いです。Opus はその約2倍と考えてください。</p>
+<h2>どう選ぶか</h2>
+<ol>
+<li>週に数回使う程度なら、<strong>まず Pro から</strong>。</li>
+<li><strong>上限にどれくらい当たるか</strong>を見ましょう。ほぼ毎週当たるなら、追加分を API で払うより Max 5× のほうが安い可能性が高いです。</li>
+<li>自動化、CI パイプライン、使う量が不規則な場合は <strong>API</strong> が向いています。</li>
+<li><strong>タスクごとにモデルを選ぶ</strong>。多くのコーディングは Sonnet で十分で、Opus はトークン単価が2倍です。</li>
+</ol>
+<h2>自分の1か月を計算する</h2>
+<p><a href="/ja/agents">コーディングエージェント費用計算機</a>で、タスクの大きさ、1日のタスク数、稼働日数を入れると、Claude・GPT・Gemini モデルの API 費用を Claude・ChatGPT の各プランと並べて比較できます。どちらの払い方でもトークンを減らしたいなら、<a href="/ja/blog/claude-code-token-setsuyaku">Claude Code のトークン節約術</a>をどうぞ。</p>
+<p><em>料金と上限はよく変わります。決める前に <a href="https://claude.com/pricing" target="_blank" rel="noopener">claude.com/pricing</a> を確認してください。</em></p>

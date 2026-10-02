@@ -1,0 +1,71 @@
+<p>「usage limit reached（使用量の上限に達しました）」は、Claude Code を使っているといちばんよく見るメッセージのひとつで、いちばん分かりにくいメッセージでもあります。<strong>2種類の上限</strong>が同時に働いているからです。仕組み、2026年に変わったこと、上限に当たったときの対処法をまとめました。</p>
+<h2>上限は2種類</h2>
+<p><strong>1. 5時間のセッション上限</strong>。最初のメッセージを送った時点から5時間単位で使用量を測ります。その5時間で使える分を使い切ると、リセットされるまで待つ必要があります。</p>
+<p><strong>2. 週の上限</strong>。セッション上限とは別に、1週間の合計使用量にも上限があります。一部のアカウントが Claude Code を24時間動かし続けるのを防ぐため、2025年8月に導入されました。これに当たると、5時間のセッションが新しく始まっていても、週のリセットまで待つことになります。</p>
+<p>どちらの上限も <strong>Claude Code と Claude アプリ（Web・デスクトップ・モバイル）で共有</strong>です。アプリで長い会話をすると、コーディングに使える分も減ります。</p>
+<h2>プランごとの使用量</h2>
+<p>Anthropic は正確なトークン数ではなく、プラン同士の倍率で説明しています。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>プラン</th>
+<th>料金</th>
+<th>使用量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pro</td>
+<td>月$20</td>
+<td>基準</td>
+</tr>
+<tr>
+<td>Max 5×</td>
+<td>月$100</td>
+<td>Pro の5倍</td>
+</tr>
+<tr>
+<td>Max 20×</td>
+<td>月$200</td>
+<td>Pro の20倍</td>
+</tr>
+</tbody>
+</table></div>
+<p>実際にどこまで持つかは作業内容で大きく変わります。大きなファイル、長いセッション、Opus は、Sonnet で短いタスクをするよりずっと早く上限を消費します。ステップごとに作業コンテキスト全体を送り直すからです。</p>
+<h2>2026年に変わったこと</h2>
+<ul>
+<li><strong>2026年5月6日</strong>：Anthropic が Pro・Max・Team・シート制 Enterprise プランで <strong>Claude Code の5時間上限を2倍</strong>にしました。Pro・Max のピーク時間帯の上限引き下げも廃止されました。</li>
+<li><strong>2026年夏</strong>：週の上限に<strong>50%の一時的な引き上げ</strong>が適用されていました。</li>
+<li><strong>2026年9月14日</strong>：Pro・Max・Team・シート制 Enterprise の<strong>標準の週上限を恒久的に25%引き上げ</strong>ました。ただし50%の一時増量を置き換えたものなので、夏と比べると約17%少なくなっています。元の水準よりは25%多い状態です。</li>
+</ul>
+<p>9月中旬以降、週の上限に早く当たるようになったと感じているなら、それは気のせいではありません。</p>
+<h2>残りの使用量を確認する</h2>
+<p>Claude Code で <strong>/status</strong> コマンドを実行すると、残りの使用量を確認できます。上限に近づくと Claude Code が警告も出してくれます。長いタスクは途中ではなく、<strong>始める前に</strong>確認しましょう。</p>
+<h2>上限に当たったら</h2>
+<ol>
+<li><strong>リセットを待つ</strong>。5時間上限なら、たいてい数時間で解除されます。</li>
+<li><strong>追加使用（usage credits）を有効にする</strong>。有料プランなら、止まらずに別課金のクレジットで続けられます。</li>
+<li><strong>API クレジットに切り替える</strong>。Claude Code は従量課金の API でも動きます。切り替える前に必ず同意を求められます。</li>
+<li><strong>プランを上げる</strong>。Pro → Max 5×、Max 5× → Max 20×。</li>
+<li><strong>1タスクあたりのトークンを減らす</strong>。実はいちばん安い解決策です。下をご覧ください。</li>
+</ol>
+<h2>思ったより早く上限に当たる理由</h2>
+<ul>
+<li><strong>長いセッション</strong>。ステップごとにそれまでの内容をすべて送り直します。2時間のセッションは、新しいステップのたびに巨大なコンテキストを引きずります。</li>
+<li><strong>Opus</strong>。Sonnet より上限を早く消費します。</li>
+<li><strong>大きなファイルやログ</strong>。3,000行のファイルやテストログ全体を読むと、数万トークンが加わります。</li>
+<li><strong>あいまいな指示</strong>。「プロジェクトを整理して」は数十ステップ、「auth.py の失敗しているテストを直して」なら数ステップで終わります。</li>
+<li><strong>Claude アプリとの同時利用</strong>。同じ上限から引かれます。</li>
+<li><strong>日本語の指示文</strong>。同じ内容でも、日本語は英語よりトークンが多くかかります（GPT のトークナイザーで約1.79倍）。</li>
+</ul>
+<h2>上限を長持ちさせるには</h2>
+<ul>
+<li>関係のないタスクの間は <strong>/clear</strong> で新しく始め、長くなったセッションは <strong>/compact</strong> で要約しましょう。</li>
+<li>Claude に探させず、どのファイルを見ればいいか伝えましょう。</li>
+<li>CLAUDE.md の指示は短く。毎ステップ一緒に送られます。</li>
+<li>普段は Sonnet、難しい問題だけ Opus を使いましょう。</li>
+</ul>
+<p>具体的な方法と数字は <a href="/ja/blog/claude-code-token-setsuyaku">Claude Code のトークン節約術</a>にまとめています。</p>
+<h2>プランか API か</h2>
+<p>週の上限によく当たるなら、その追加分を API で払った場合と、ひとつ上のプランを比べてみましょう。<a href="/ja/blog/claude-code-ryoukin">Claude Code の月額料金</a>と<a href="/ja/agents">コーディングエージェント費用計算機</a>で計算できます。</p>
+<p><em>上限は変わります。最新のルールは Anthropic の <a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Claude Code プランのヘルプ</a>と<a href="https://claude.com/pricing" target="_blank" rel="noopener">料金ページ</a>で確認してください。</em></p>

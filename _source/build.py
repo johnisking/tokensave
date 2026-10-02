@@ -16,7 +16,8 @@ from i18n_video import NAV, V
 from i18n_image import I
 from i18n_site import SITE
 from seo_meta import META
-from blog_meta import BLOG, BLOG_DATE, PRO, MISTRAL_FR, PROMPT_PL, GUIDES
+from blog_meta import BLOG, BLOG_DATE, PRO, MISTRAL_FR, PROMPT_PL, GUIDES, CC_COST, CC_LIMITS, CC_SAVE
+CC = (CC_COST, CC_LIMITS, CC_SAVE)
 PRO_BY_TAG = {b["tag"]: b for b in PRO}
 from i18n_view import MORE_LANGS
 from i18n_plans_all import PL, PNAV, PMETA
@@ -173,14 +174,14 @@ _LD = json.load(open(os.path.join(ROOT, "blog_data", "langdata.json"), encoding=
 LANG_RATIOS = sorted(([tag, nat, _LD[tag]["ro"]] for _, tag, nat, _, _ in LANGS), key=lambda x: x[2])
 
 def blog_index_html():
-    en = GUIDES + [b for G in (PRO, BLOG) for b in G if b["tag"] == "en"]
+    en = GUIDES + [b for G in (PRO, BLOG, *CC) for b in G if b["tag"] == "en"]
     en.sort(key=lambda b: b.get("date", BLOG_DATE), reverse=True)
     cards = "\n".join(
         f'      <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{b["path"]}" class="block no-underline" style="text-decoration:none">'
         f'<span class="block font-semibold text-zinc-100">{esc(b["title"])}</span>'
         f'<span class="block mt-1 text-sm text-zinc-400">{esc(b["desc"])}</span></a></li>' for b in en)
     native = {tag: nat for _, tag, nat, _, _ in LANGS}
-    other = [b for G in (BLOG, PRO, MISTRAL_FR, PROMPT_PL) for b in G if b["tag"] != "en"]
+    other = [b for G in (BLOG, PRO, MISTRAL_FR, PROMPT_PL, *CC) for b in G if b["tag"] != "en"]
     other.sort(key=lambda b: native[b["tag"]])
     links = "\n".join(f'        <li><a href="{b["path"]}" lang="{b["tag"]}">{esc(native[b["tag"]])}: {esc(b["title"])}</a></li>' for b in other)
     return ('    <section class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">\n'
@@ -192,7 +193,8 @@ def blog_index_html():
 def guide_links(tag, key):
     """Articles in the page language to link under the tool guide."""
     arts = {"token": [b for G in (BLOG, MISTRAL_FR, PROMPT_PL) for b in G if b["tag"] == tag],
-            "plans": [b for b in PRO if b["tag"] == tag]}.get(key, [])
+            "plans": [b for b in PRO if b["tag"] == tag],
+            "agents": [b for G in CC for b in G if b["tag"] == tag]}.get(key, [])
     return [(b["path"], b["title"]) for b in arts]
 
 def path_for(slug, tool):
@@ -348,7 +350,8 @@ def build():
     tool_by_key = {t["key"]: t for t in TOOLS}
     og_by_key = {"video": "og-video.jpg", "image": "og-image.jpg"}
     for GROUP, gimg, gtool in [(BLOG, "blog-language-tax-chart-v4.png", TOOLS[0]), (PRO, "blog-chatgpt-pro-tiers.png", plans_tool), (MISTRAL_FR, "blog-mistral-francais.png", TOOLS[0]), (PROMPT_PL, "blog-prompt-polski.png", TOOLS[0])] + [
-            ([g], og_by_key.get(g["tool"], "og-token.jpg"), tool_by_key[g["tool"]]) for g in GUIDES]:
+            ([g], og_by_key.get(g["tool"], "og-token.jpg"), tool_by_key[g["tool"]]) for g in GUIDES] + [
+            (G, "og-token.jpg", tool_by_key["agents"]) for G in CC]:
       blog_en = next((b for b in GROUP if b["tag"] == "en"), None)
       blog_alts = "\n".join(f'  <link rel="alternate" hreflang="{b["tag"]}" href="{BASE}{b["path"]}" />' for b in GROUP) + (
           f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{blog_en["path"]}" />' if blog_en else "")
@@ -417,7 +420,7 @@ def build():
     for pg in PAGES:
         if pg["path"]:
             entries.append(f"\n  <url>\n    <loc>{BASE}{pg['path']}</loc>\n    <lastmod>{LASTMOD}</lastmod>\n  </url>")
-    for GROUP in (BLOG, PRO, MISTRAL_FR, PROMPT_PL, *([g] for g in GUIDES)):
+    for GROUP in (BLOG, PRO, MISTRAL_FR, PROMPT_PL, *CC, *([g] for g in GUIDES)):
       b_alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{b["tag"]}" href="{BASE}{b["path"]}"/>' for b in GROUP)
       b_en = next((b for b in GROUP if b["tag"] == "en"), None)
       if b_en:
@@ -429,7 +432,7 @@ def build():
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'
         + "".join(entries) + "\n</urlset>\n"
     )
-    print("built", count, "tool pages +", len(PAGES), "site pages +", len(BLOG) + len(PRO) + len(MISTRAL_FR) + len(PROMPT_PL) + len(GUIDES), "articles ->", DIST)
+    print("built", count, "tool pages +", len(PAGES), "site pages +", len(BLOG) + len(PRO) + len(MISTRAL_FR) + len(PROMPT_PL) + len(GUIDES) + sum(map(len, CC)), "articles ->", DIST)
 
 if __name__ == "__main__":
     build()

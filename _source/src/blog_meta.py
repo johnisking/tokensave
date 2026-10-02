@@ -197,3 +197,35 @@ GUIDES += [
     "Tokens, tokenizers, cached input, batch pricing, reasoning tokens, context windows, RAG and more, explained simply.",
     "Turn these terms into real numbers for your own text.", "Open the token counter"),
 ]
+
+# Claude Code guides (EN/KO/JA), each group linked with hreflang; CTA opens the agent calculator
+def _cc(tag, path, src, title, desc, byline, cta, btn):
+    return dict(tag=tag, path=path, src=src, title=title, desc=desc, byline=byline, cta=cta, ctaBtn=btn, date="2026-10-02")
+_BY = {"en": "Jonhisking · October 2, 2026", "ko": "Jonhisking · 2026년 10월 2일", "ja": "Jonhisking · 2026年10月2日"}
+_CTA = {"en": ("Set task size and tasks per day to compare Claude Code's API cost with Pro and Max.", "Open the agent cost calculator"),
+        "ko": ("작업 크기와 하루 작업 수를 넣고, 클로드 코드의 API 비용을 Pro·Max와 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"),
+        "ja": ("タスクの大きさと1日のタスク数を入れて、Claude Code の API 費用を Pro・Max と比べてみましょう。", "エージェント費用計算機を開く")}
+CC_COST = [
+ _cc("en", "/blog/claude-code-cost-per-month", "cc-cost-en", "Claude Code Cost per Month: Pro vs Max vs API",
+     "What Claude Code really costs per month on Pro, Max 5x, Max 20x or the API, with cost per task and when each one is cheapest.", _BY["en"], *_CTA["en"]),
+ _cc("ko", "/ko/blog/claude-code-yogeum", "cc-cost-ko", "클로드 코드 요금 한 달에 얼마? Pro·Max·API 비교",
+     "클로드 코드를 Pro, Max 5×, Max 20×, API로 쓸 때 한 달 비용과 작업당 비용, 어떤 경우에 무엇이 가장 싼지 정리했습니다.", _BY["ko"], *_CTA["ko"]),
+ _cc("ja", "/ja/blog/claude-code-ryoukin", "cc-cost-ja", "Claude Code の料金は月いくら？Pro・Max・API を比較",
+     "Claude Code を Pro、Max 5×、Max 20×、API で使ったときの月額とタスクあたりの費用、どれがいちばん安いかを解説します。", _BY["ja"], *_CTA["ja"]),
+]
+CC_LIMITS = [
+ _cc("en", "/blog/claude-code-usage-limits", "cc-limits-en", "Claude Code Usage Limits Explained: 5-Hour and Weekly Caps",
+     "How Claude Code's 5-hour and weekly limits work on Pro and Max, what changed in 2026, how to check usage and what to do at the limit.", _BY["en"], *_CTA["en"]),
+ _cc("ko", "/ko/blog/claude-code-sayongnyang-hando", "cc-limits-ko", "클로드 코드 사용량 한도 정리: 5시간·주간 한도와 확인 방법",
+     "클로드 코드 Pro·Max의 5시간 한도와 주간 한도가 어떻게 작동하는지, 2026년 변경 사항, 사용량 확인법과 한도에 걸렸을 때 대처법.", _BY["ko"], *_CTA["ko"]),
+ _cc("ja", "/ja/blog/claude-code-shiyouryou-jougen", "cc-limits-ja", "Claude Code の使用量上限まとめ：5時間・週の上限と確認方法",
+     "Claude Code の Pro・Max の5時間上限と週の上限の仕組み、2026年の変更点、使用量の確認方法と上限に当たったときの対処法。", _BY["ja"], *_CTA["ja"]),
+]
+CC_SAVE = [
+ _cc("en", "/blog/claude-code-save-tokens", "cc-save-en", "How to Save Tokens in Claude Code: 9 Habits That Matter",
+     "Why Claude Code uses so many tokens and 9 practical ways to cut them, from /clear and /compact to a shorter CLAUDE.md.", _BY["en"], *_CTA["en"]),
+ _cc("ko", "/ko/blog/claude-code-token-jeolyak", "cc-save-ko", "클로드 코드 토큰 절약 방법 9가지",
+     "클로드 코드가 토큰을 많이 쓰는 이유와 /clear, /compact, 짧은 CLAUDE.md, 영어 지시문까지 토큰을 줄이는 실전 방법 9가지.", _BY["ko"], *_CTA["ko"]),
+ _cc("ja", "/ja/blog/claude-code-token-setsuyaku", "cc-save-ja", "Claude Code のトークン節約術9選",
+     "Claude Code がトークンを多く使う理由と、/clear・/compact、短い CLAUDE.md、英語の指示まで、トークンを減らす実践的な方法9つ。", _BY["ja"], *_CTA["ja"]),
+]
