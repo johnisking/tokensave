@@ -229,3 +229,26 @@ CC_SAVE = [
  _cc("ja", "/ja/blog/claude-code-token-setsuyaku", "cc-save-ja", "Claude Code のトークン節約術9選",
      "Claude Code がトークンを多く使う理由と、/clear・/compact、短い CLAUDE.md、英語の指示まで、トークンを減らす実践的な方法9つ。", _BY["ja"], *_CTA["ja"]),
 ]
+
+_CTA_PL = {"en": ("Enter how you use AI and see the monthly API cost next to every ChatGPT, Claude and Gemini plan.", "Open the Subscription vs API calculator"),
+           "ko": ("내 사용 방식으로 월 API 비용을 챗GPT·Claude·Gemini 모든 요금제와 비교해 보세요.", "구독 vs API 계산기 열기"),
+           "ja": ("自分の使い方で、月額 API 費用を ChatGPT・Claude・Gemini の全プランと比べてみましょう。", "サブスク vs API 計算機を開く")}
+_CTA_TK = {"en": ("Paste a prompt to see its tokens and cost on every GPT-6 model, Claude and Gemini.", "Open the token counter"),
+           "ko": ("프롬프트를 붙여 넣고 GPT-6 각 모델·Claude·Gemini의 토큰과 비용을 비교해 보세요.", "토큰 계산기 열기"),
+           "ja": ("プロンプトを貼り付けて、GPT-6 各モデル・Claude・Gemini のトークンと費用を比べましょう。", "トークンカウンターを開く")}
+CMP = [
+ _cc("en", "/blog/chatgpt-pro-vs-claude-max", "cmp-en", "ChatGPT Pro vs Claude Max: Which $100 or $200 Plan Gives More?",
+     "ChatGPT Plus/Pro vs Claude Pro/Max compared: usage per dollar after the September 2026 changes, models, coding agents and which to pick.", _BY["en"], *_CTA_PL["en"]),
+ _cc("ko", "/ko/blog/chatgpt-pro-vs-claude-max", "cmp-ko", "챗GPT Pro vs Claude Max 요금제 비교: $100·$200 어디가 더 많이 줄까",
+     "챗GPT Plus·Pro와 Claude Pro·Max를 비교했습니다. 2026년 9월 변경 후 1달러당 사용량, 모델, 코딩 에이전트, 무엇을 고를지.", _BY["ko"], *_CTA_PL["ko"]),
+ _cc("ja", "/ja/blog/chatgpt-pro-vs-claude-max", "cmp-ja", "ChatGPT Pro vs Claude Max 料金比較：$100・$200でどちらが多く使える？",
+     "ChatGPT Plus・Pro と Claude Pro・Max を比較。2026年9月の変更後の1ドルあたり使用量、モデル、コーディングエージェント、選び方。", _BY["ja"], *_CTA_PL["ja"]),
+]
+GPT6 = [
+ _cc("en", "/blog/gpt-6-api-pricing", "gpt6-en", "GPT-6 API Pricing: Astra vs Sol vs Luna, and What It Costs",
+     "GPT-6 Astra, Sol and Luna API prices per million tokens, real cost per request, comparison with Claude and Gemini, and which to use.", _BY["en"], *_CTA_TK["en"]),
+ _cc("ko", "/ko/blog/gpt-6-api-gagyeok", "gpt6-ko", "GPT-6 API 가격 정리: Astra·Sol·Luna 비교와 실제 비용",
+     "GPT-6 Astra·Sol·Luna의 100만 토큰당 API 가격, 요청당 실제 비용, Claude·Gemini 비교, 어떤 모델을 쓸지 정리했습니다.", _BY["ko"], *_CTA_TK["ko"]),
+ _cc("ja", "/ja/blog/gpt-6-api-ryoukin", "gpt6-ja", "GPT-6 の API 料金まとめ：Astra・Sol・Luna の比較と実際の費用",
+     "GPT-6 Astra・Sol・Luna の100万トークンあたり API 料金、リクエストあたりの実費、Claude・Gemini との比較、どのモデルを使うか。", _BY["ja"], *_CTA_TK["ja"]),
+]

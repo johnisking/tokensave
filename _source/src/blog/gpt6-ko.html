@@ -1,0 +1,106 @@
+<p>OpenAI가 2026년 9월에 GPT-6 모델 세 개를 내놨습니다. 최상위 모델 <strong>GPT-6 Astra</strong>가 9월 4일, <strong>GPT-6 Sol</strong>과 <strong>GPT-6 Luna</strong>가 9월 22일입니다. 세 모델의 API 가격 차이가 워낙 커서, 할인보다 모델을 잘 고르는 게 훨씬 중요합니다. 가격, 실제 사용량 기준 비용, Claude·Gemini와의 비교를 정리했습니다.</p>
+<h2>GPT-6 API 가격</h2>
+<p>100만 토큰당 가격입니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>모델</th>
+<th>입력</th>
+<th>캐시된 입력</th>
+<th>출력</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Astra</td>
+<td>$10</td>
+<td>$1</td>
+<td>$50</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td>$2</td>
+<td>$0.20</td>
+<td>$10</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td>$0.10</td>
+<td>$0.01</td>
+<td>$0.50</td>
+</tr>
+</tbody>
+</table></div>
+<p>Astra는 Sol의 5배, Sol은 Luna의 20배입니다. 같은 GPT-6인데 가장 싼 모델과 가장 비싼 모델이 100배 차이 납니다.</p>
+<p>입력이 272,000토큰을 넘는 요청은 더 높은 요율이 적용되니, 아주 긴 맥락은 표보다 더 비쌉니다.</p>
+<h2>GPT-5.6과 비교하면</h2>
+<p>Sol과 Luna는 이전 모델의 절반 가격으로 나왔습니다. GPT-5.6 Sol은 입력 $4·출력 $20, GPT-5.6 Luna는 $0.20·$1.20이었습니다. 아직 GPT-5.6을 쓰고 있다면 모델 이름만 바꿔도 비용이 반으로 줄어듭니다.</p>
+<h2>실제로 얼마나 들까</h2>
+<p>입력 2,000토큰, 출력 500토큰짜리 일반적인 요청 기준입니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>모델</th>
+<th>요청 1번</th>
+<th>요청 1만 번</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Luna</td>
+<td>$0.00045</td>
+<td>$4.50</td>
+</tr>
+<tr>
+<td>Gemini 3.8 Flash</td>
+<td>$0.0034</td>
+<td>$34</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td>$0.009</td>
+<td>$90</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td>$0.009</td>
+<td>$90</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td>$0.010</td>
+<td>$100</td>
+</tr>
+<tr>
+<td>Claude Opus 5.5</td>
+<td>$0.018</td>
+<td>$180</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td>$0.045</td>
+<td>$450</td>
+</tr>
+</tbody>
+</table></div>
+<p>다른 모델 가격은 2026년 10월 1일 확인한 공식 API 가격입니다.</p>
+<p>GPT-6 Sol은 토큰당 Claude Sonnet 5.5와 가격이 똑같고, GPT-6 Astra는 Claude Opus 5.5의 2.5배입니다.</p>
+<p><strong>한국어로 쓰면 더 듭니다.</strong> GPT 토크나이저에서 같은 프롬프트가 한국어는 영어의 약 1.44배 토큰입니다. 위 표의 입력 비용에 그만큼 곱해진다고 보면 됩니다.</p>
+<h2>어떤 GPT-6 모델을 쓸까</h2>
+<p><strong>GPT-6 Luna:</strong> 분류, 정보 추출, 라우팅, 짧은 답변, 짧은 글 요약처럼 양이 많고 단순한 작업. 입력 100만 토큰당 $0.10이라 모든 요청에 돌려도 부담이 적습니다.</p>
+<p><strong>GPT-6 Sol:</strong> 대부분의 앱과 코딩 작업의 기본값. 챗봇, 글쓰기, 분석, 에이전트에 무난한 중간 선택입니다.</p>
+<p><strong>GPT-6 Astra:</strong> 확실히 더 낫다는 게 확인되는 곳에만. 길고 여러 단계인 에이전트 작업, 어려운 추론, 실수하면 비싼 작업. 그런 요청만 Astra로 보내세요.</p>
+<p>흔한 방식은 평소엔 Sol이나 Luna로 처리하고, 싼 모델이 실패하거나 어려운 작업으로 분류될 때만 Astra로 넘기는 것입니다.</p>
+<h2>비용 줄이는 방법</h2>
+<ol>
+<li><strong>프롬프트 캐싱 쓰기.</strong> 세 모델 모두 캐시된 입력은 일반 가격의 10분의 1입니다. 고정 지시문과 문서를 프롬프트 앞부분에 두세요.</li>
+<li><strong>급하지 않은 작업은 배치(Batch) API로.</strong> 보통 절반 가격입니다.</li>
+<li><strong>출력 짧게.</strong> GPT-6 모델은 모두 출력이 입력의 5배 가격입니다.</li>
+<li><strong>추론량 줄이기.</strong> 보이지 않는 추론 토큰도 출력으로 과금됩니다. 충분한 가장 낮은 추론 단계를 쓰세요.</li>
+<li><strong>프롬프트를 영어로.</strong> 한국어보다 토큰이 약 31% 줄어듭니다. <a href="/ko/">토큰 계산기</a>의 💸 토큰 절약 버튼으로 내 기기 안에서 바로 바꿀 수 있습니다.</li>
+</ol>
+<h2>챗GPT 요금제에서 GPT-6 쓰기</h2>
+<p>API 없이도 GPT-6를 쓸 수 있습니다. GPT-6 Astra는 챗GPT Pro, Business Premium, Enterprise에서 쓸 수 있고, Plus에도 Work와 Codex부터 순차 적용 중입니다. 많이 쓴다면 Astra API 요금보다 요금제가 훨씬 쌀 수 있습니다. <a href="/ko/plans">구독 vs API 계산기</a>로 비교해 보세요.</p>
+<h2>내 비용 계산해 보기</h2>
+<p>평소 쓰는 프롬프트를 <a href="/ko/">토큰 계산기</a>에 붙여 넣으면 GPT 모델 기준 정확한 토큰 수와, GPT-6 각 모델·Claude·Gemini의 비용을 한 번에 비교해 볼 수 있습니다.</p>
+<p><em>가격은 바뀝니다. 큰 작업 전에는 <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener">OpenAI 가격 페이지</a>를 확인하세요.</em></p>
