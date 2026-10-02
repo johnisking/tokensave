@@ -143,6 +143,16 @@ PROMPT_PL = [
  },
 ]
 
+# Polish article added 2026-10-03
+PROMPT_PL += [
+ {"tag": "pl", "path": "/pl/blog/jak-skrocic-prompt-po-polsku", "src": "skracanie-pl",
+  "title": "Jak pisać prompty po polsku taniej? Sprawdziłem 7 wersji (GPT i Mistral)",
+  "desc": "Krótszy polski prompt to 34% mniej tokenów, a usuwanie polskich znaków nic nie daje. Skrócony prompt systemowy jest prawie tak tani jak angielski.",
+  "byline": "Jonhisking · 3 października 2026",
+  "cta": "Wklej swój prompt, zobacz tokeny i koszt, a potem przetłumacz go na angielski jednym kliknięciem.",
+  "ctaBtn": "Otwórz licznik tokenów", "date": "2026-10-03"},
+]
+
 # English guides (blog_src/g-*.md), one article each. "tool" = key of the calculator the CTA opens.
 _G = lambda slug, src, tool, title, desc, cta, btn: dict(
     tag="en", path="/blog/" + slug, src=src, tool=tool, title=title, desc=desc,
