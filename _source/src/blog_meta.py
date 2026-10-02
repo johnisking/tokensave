@@ -315,3 +315,20 @@ AISITE = [
  _cc("ja", "/ja/blog/ai-site-osusume", "aisite-ja", "便利なAIサイトおすすめ15選：無料で始められるツールまとめ",
      "ブックマークする価値があるAIサイトだけを厳選。チャット、調べもの、翻訳、デザイン、音声、音楽、動画、モデル比較まで無料で試せます。", _BY["ja"], *_CTA_AS["ja"]),
 ]
+
+# Spanish versions (added 2026-10-03)
+_BY["es"] = "Jonhisking · 3 de octubre de 2026"
+_CTA["es"] = ("Indica el tamaño de las tareas y cuántas haces al día para comparar el costo de Claude Code por API con Pro y Max.", "Abrir la calculadora de agentes")
+_CTA_AS["es"] = ("Descubre cuánto te cuesta de verdad usar IA: tokens, planes, imágenes y video en una sola herramienta gratis.", "Abrir TokenSave")
+def _es(path, src, title, desc, cta):
+    d = _cc("es", path, src, title, desc, _BY["es"], *cta); d["date"] = "2026-10-03"; return d
+CC_COST.append(_es("/es/blog/claude-code-precio", "cc-cost-es", "Precio de Claude Code: ¿cuánto cuesta al mes? Pro vs Max vs API",
+    "Cuánto cuesta Claude Code al mes con Pro, Max 5×, Max 20× o la API, el costo por tarea y cuándo conviene cada opción.", _CTA["es"]))
+CC_LIMITS.append(_es("/es/blog/claude-code-limites-de-uso", "cc-limits-es", "Límites de uso de Claude Code: el límite de 5 horas y el semanal",
+    "Cómo funcionan los límites de 5 horas y semanales de Claude Code en Pro y Max, qué cambió en 2026 y qué hacer al llegar al límite.", _CTA["es"]))
+CXLIM.append(_es("/es/blog/codex-limites-de-uso", "cxlim-es", "Límites de uso de Codex en ChatGPT Plus, Pro y Business",
+    "Cómo funcionan los límites de 5 horas y semanales de Codex, cuántas tareas da cada modelo y cómo sacarle más partido a tu plan.", _CTA["es"]))
+CMAX.append(_es("/es/blog/claude-max-vs-pro", "cmax-es", "Claude Max vs Pro: ¿vale la pena el plan de $100 o $200?",
+    "Claude Pro vs Max 5× vs Max 20×: precio por unidad de uso, cómo funcionan los límites y quién debería subir de plan.", _CTA["es"]))
+AISITE.append(_es("/es/blog/paginas-de-ia-gratis", "aisite-es", "15 páginas de IA gratis que vale la pena guardar en favoritos",
+    "Las mejores páginas de inteligencia artificial para chatear, investigar, traducir, diseñar, crear voz, música y video. Todas se pueden probar gratis.", _CTA_AS["es"]))
