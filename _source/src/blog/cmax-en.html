@@ -1,0 +1,77 @@
+<p>Claude Pro costs $20 a month. Claude Max costs $100 or $200. Both include the Claude app and Claude Code, so the real question is simple: is the extra usage worth five or ten times the price? For many people it is not. For heavy Claude Code users, Max 20× is the best value Anthropic sells.</p>
+<h2>The plans</h2>
+<p>US prices, checked October 2026:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Price</th>
+<th>Usage</th>
+<th>Price per "Pro-worth" of usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pro</td>
+<td>$20 a month ($17 with annual billing)</td>
+<td>base</td>
+<td>$20</td>
+</tr>
+<tr>
+<td>Max 5×</td>
+<td>$100 a month</td>
+<td>5× Pro</td>
+<td>$20</td>
+</tr>
+<tr>
+<td>Max 20×</td>
+<td>$200 a month</td>
+<td>20× Pro</td>
+<td>$10</td>
+</tr>
+</tbody>
+</table></div>
+<p>All three include Claude Code, and the Claude app and Claude Code share the same allowance.</p>
+<h2>The key point: Max 5× is not cheaper per unit, Max 20× is</h2>
+<p>Max 5× gives you five times Pro's usage for five times the price. It is the same deal, just more of it.</p>
+<p>Max 20× gives you twenty times Pro's usage for ten times the price. <strong>Each unit of usage costs half as much as on Pro.</strong> If you would otherwise need more than ten Pro accounts' worth of usage, it is the clear choice; if you regularly need more than Max 5× gives you, it is better value than adding API credits on top.</p>
+<h2>How the limits work</h2>
+<p>Every plan has two limits at once:</p>
+<ul>
+<li><strong>A 5-hour session limit</strong>, a rolling window from your first message. Anthropic doubled Claude Code's 5-hour limits on May 6, 2026.</li>
+<li><strong>A weekly limit</strong> across all your usage. On September 14, 2026, Anthropic permanently raised standard weekly limits in Claude Code by 25%, replacing a temporary 50% boost.</li>
+</ul>
+<p>Max multiplies both. Run <strong>/status</strong> in Claude Code to see where you are. Full details in <a href="/blog/claude-code-usage-limits">Claude Code usage limits explained</a>.</p>
+<h2>Who should stay on Pro</h2>
+<ul>
+<li>You use Claude a few times a day, mostly in the app.</li>
+<li>You use Claude Code for occasional tasks, not hours at a time.</li>
+<li>You rarely or never see the limit message.</li>
+</ul>
+<p>If that is you, $20 is plenty. Occasional extra usage can be covered by usage credits or a short wait.</p>
+<h2>Who should get Max 5×</h2>
+<ul>
+<li>You hit the Pro limit most weeks.</li>
+<li>You use Claude Code for real work several times a day.</li>
+<li>You want to use Opus more, which uses the allowance faster than Sonnet.</li>
+</ul>
+<h2>Who should get Max 20×</h2>
+<ul>
+<li>You run Claude Code for hours a day, or several sessions in parallel.</li>
+<li>You keep hitting Max 5×'s weekly limit.</li>
+<li>You use Opus as your default model.</li>
+</ul>
+<p>At this level, the API would usually cost far more. On our cost model, a heavy user running 15 feature-sized tasks a day would spend around $236 a month on the API with Sonnet, or about $473 with Opus. Max 20× is $200. See <a href="/blog/claude-code-cost-per-month">Claude Code cost per month</a>.</p>
+<h2>Things that make the allowance go further on any plan</h2>
+<ul>
+<li>Start a new session (<strong>/clear</strong>) between unrelated tasks; use <strong>/compact</strong> on long ones.</li>
+<li>Keep your CLAUDE.md short; it is sent with every step.</li>
+<li>Use Sonnet for routine work and Opus only for hard problems.</li>
+<li>Write instructions in English if you normally write in another language.</li>
+</ul>
+<p>More in <a href="/blog/claude-code-save-tokens">How to save tokens in Claude Code</a>.</p>
+<h2>Claude Max or ChatGPT Pro?</h2>
+<p>At $200, Claude Max 20× is now 20× its base plan, while ChatGPT Pro 200 is 10× its base plan for new subscribers. The two companies' base plans are not the same size, so compare what you actually use. See <a href="/blog/chatgpt-pro-vs-claude-max">ChatGPT Pro vs Claude Max</a>.</p>
+<h2>Check your own numbers</h2>
+<p>Use the <a href="/agents">coding agent calculator</a> to compare Pro, Max and the API for the way you use Claude Code, or the <a href="/plans">Subscription vs API calculator</a> for chat use.</p>
+<p><em>Prices and limits change. Check <a href="https://claude.com/pricing" target="_blank" rel="noopener">claude.com/pricing</a> before you upgrade.</em></p>

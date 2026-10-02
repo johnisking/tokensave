@@ -277,3 +277,29 @@ COUNT = [
  _cc("ja", "/ja/blog/token-kazoekata", "count-ja", "GPT・Claude・Gemini のトークンの数え方",
      "GPT・Claude・Gemini でトークン数が違う理由、それぞれ正確に数える方法、コードなしですぐ見積もる方法をまとめました。", _BY["ja"], *_CTA_TK["ja"]),
 ]
+
+_CTA_AG = _CTA
+CHLIM = [
+ _cc("en", "/blog/chatgpt-usage-limits", "chlim-en", "ChatGPT Usage Limits in 2026: What Is Still Capped and When It Resets",
+     "Text chat is unlimited since August 2026, but GPT-6 Astra, Work, Codex, files and images still have limits. What resets when, and how to check.", _BY["en"], *_CTA_PL["en"]),
+ _cc("ko", "/ko/blog/chatgpt-sayongnyang-hando", "chlim-ko", "챗GPT 사용량 한도 정리: 무엇이 아직 제한되고 언제 초기화될까",
+     "2026년 8월부터 일반 채팅은 무제한이지만 GPT-6 Astra, Work, Codex, 파일·이미지는 아직 한도가 있습니다. 초기화 시점과 확인 방법까지.", _BY["ko"], *_CTA_PL["ko"]),
+ _cc("ja", "/ja/blog/chatgpt-shiyouryou-jougen", "chlim-ja", "ChatGPT の使用量上限まとめ：まだ制限があるものとリセットのタイミング",
+     "2026年8月から通常のチャットは無制限。ただし GPT-6 Astra、Work、Codex、ファイル・画像には上限があります。リセット時期と確認方法も。", _BY["ja"], *_CTA_PL["ja"]),
+]
+CXLIM = [
+ _cc("en", "/blog/codex-usage-limits", "cxlim-en", "Codex Usage Limits Explained: 5-Hour Window, Weekly Cap and Resets",
+     "How Codex limits work on ChatGPT Plus and Pro, messages per 5 hours by model, how to check usage, and how to make it last longer.", _BY["en"], *_CTA_AG["en"]),
+ _cc("ko", "/ko/blog/codex-sayongnyang-hando", "cxlim-ko", "Codex 사용량 한도 정리: 5시간·주간 한도와 초기화",
+     "챗GPT Plus·Pro에서 Codex 한도가 어떻게 작동하는지, 모델별 5시간당 메시지 수, 사용량 확인법과 오래 쓰는 방법을 정리했습니다.", _BY["ko"], *_CTA_AG["ko"]),
+ _cc("ja", "/ja/blog/codex-shiyouryou-jougen", "cxlim-ja", "Codex の使用量上限まとめ：5時間・週の上限とリセット",
+     "ChatGPT Plus・Pro での Codex の上限の仕組み、モデル別の5時間あたりメッセージ数、使用量の確認方法と長持ちさせるコツ。", _BY["ja"], *_CTA_AG["ja"]),
+]
+CMAX = [
+ _cc("en", "/blog/claude-max-vs-pro", "cmax-en", "Claude Max vs Pro: Is the $100 or $200 Plan Worth It?",
+     "Claude Pro vs Max 5x vs Max 20x: price per unit of usage, how the limits work, and who should upgrade, with API cost comparisons.", _BY["en"], *_CTA_AG["en"]),
+ _cc("ko", "/ko/blog/claude-max-vs-pro", "cmax-ko", "Claude Max vs Pro 비교: $100·$200 요금제, 올릴 가치가 있을까",
+     "Claude Pro, Max 5×, Max 20×의 사용량당 가격, 한도 구조, 누가 올려야 하는지를 API 비용과 함께 비교했습니다.", _BY["ko"], *_CTA_AG["ko"]),
+ _cc("ja", "/ja/blog/claude-max-vs-pro", "cmax-ja", "Claude Max vs Pro 比較：$100・$200プランにする価値はある？",
+     "Claude Pro、Max 5×、Max 20× の使用量あたりの価格、上限の仕組み、誰がアップグレードすべきかを API 費用と合わせて比較。", _BY["ja"], *_CTA_AG["ja"]),
+]

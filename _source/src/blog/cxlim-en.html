@@ -1,0 +1,67 @@
+<p>Codex, OpenAI's coding agent, is included in ChatGPT Plus, Pro and Business plans, and it is where most people now run into usage limits. Codex shares its allowance with ChatGPT Work, uses a 5-hour window and a weekly cap, and burns through them at very different speeds depending on the model. Here is how it works and how to get more out of it.</p>
+<h2>Which plans include Codex</h2>
+<p>Codex (and ChatGPT Work) usage is included with <strong>Plus</strong> ($20), <strong>Pro</strong> ($100, $200 or $500) and <strong>Business</strong> Standard and Premium seats. Usage is not unlimited: each plan gets an allowance, measured over two windows.</p>
+<h2>Two limits at once</h2>
+<p><strong>The 5-hour window.</strong> A rolling allowance that starts with your first request. Use it up and you wait until the window resets. OpenAI restored the 5-hour window for Plus at the end of August 2026; at the time it said Pro 100 and Pro 200 would not have it for the coming months.</p>
+<p><strong>The weekly limit.</strong> A rolling seven-day cap on top. Hit it and you wait for the weekly reset, even if your 5-hour window is fresh.</p>
+<p>Codex and ChatGPT Work draw from the <strong>same allowance</strong>.</p>
+<h2>How much you get, by model</h2>
+<p>OpenAI's help center gives estimated messages per 5-hour window. The model you pick changes the number enormously:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Plus</th>
+<th>Pro (5× tier)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Astra</td>
+<td>about 5–45</td>
+<td>about 25–225</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td>about 10–100</td>
+<td>about 50–500</td>
+</tr>
+<tr>
+<td>GPT-5.6 Terra</td>
+<td>about 25–200</td>
+<td>about 125–1,000</td>
+</tr>
+<tr>
+<td>GPT-5.6 Luna</td>
+<td>about 250–2,000</td>
+<td>about 1,250–10,000</td>
+</tr>
+</tbody>
+</table></div>
+<p>The low end of each range is long, multi-step tasks on a large codebase; the high end is short, simple requests. Higher Pro tiers scale up: Pro 200 is 10× Plus for new subscribers since September 29, 2026, and Pro 500 is 25×.</p>
+<p><strong>Ultrafast</strong>, available only on Pro 500, is a faster mode that uses your included usage and credits more quickly.</p>
+<h2>Why Codex uses the allowance so fast</h2>
+<p>Like every coding agent, Codex works in steps and sends its whole working context back to the model at each step: instructions, tool definitions, files it has read and earlier steps. A typical 25-step feature task sends around 1.6 million input tokens. On the API that task would cost about $0.72 on a Sol-class model and around $3.60 on GPT-6 Astra, which is why Astra's allowance is so much smaller. See <a href="/blog/ai-coding-agent-cost">What does an AI coding agent cost per task?</a></p>
+<h2>How to check your usage</h2>
+<p>OpenAI's help center points to <strong>Settings → Usage</strong> in ChatGPT, which shows your remaining allowance and reset times. Codex also warns you as you approach the limit.</p>
+<h2>When you hit the limit</h2>
+<ol>
+<li><strong>Wait for the reset.</strong> The 5-hour window refills within hours.</li>
+<li><strong>Use a banked reset or buy an instant reset</strong>, available on eligible Plus and Pro accounts.</li>
+<li><strong>Use credits</strong> to keep going on plans that support them.</li>
+<li><strong>Upgrade</strong> to a higher Pro tier.</li>
+<li><strong>Use an API key</strong> with pay-as-you-go billing for overflow work.</li>
+</ol>
+<h2>How to stretch it</h2>
+<ul>
+<li><strong>Default to GPT-5.6 Sol or Terra.</strong> Use GPT-6 Astra only for the hard problems where you can see the difference: it uses several times the allowance.</li>
+<li><strong>Use Luna for simple edits</strong>, renames and boilerplate.</li>
+<li><strong>Keep tasks small and specific.</strong> Fewer steps means less context resent.</li>
+<li><strong>Start fresh between unrelated tasks</strong> so old history is not carried along.</li>
+<li><strong>Point Codex at the right files</strong> instead of letting it search the whole repo.</li>
+<li><strong>Keep your instruction file short</strong>, and write it in English if you normally use another language: on GPT's tokenizer, Korean takes about 1.44× and Japanese 1.79× the tokens of English.</li>
+</ul>
+<p>Many of the same habits apply to Claude Code: see <a href="/blog/claude-code-save-tokens">How to save tokens in Claude Code</a>.</p>
+<h2>Codex or Claude Code?</h2>
+<p>Both are included in $20, $100 and $200 plans with similar limit systems. The <a href="/blog/chatgpt-pro-vs-claude-max">ChatGPT Pro vs Claude Max comparison</a> covers the differences, and the <a href="/agents">coding agent calculator</a> compares monthly API costs with every plan.</p>
+<p><em>Limits change often. OpenAI's <a href="https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex" target="_blank" rel="noopener">Codex and Work usage help page</a> has the current numbers.</em></p>
