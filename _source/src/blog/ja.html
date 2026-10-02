@@ -1,5 +1,5 @@
-<p>同じプロンプトを41言語に翻訳して、OpenAIのトークナイザーでトークン数を測ってみました。「日本語は英語よりトークンを食う」とよく言われますが、実際どのくらいなのか、他の言語と比べてどうなのかを数字で確認したかったからです。</p>
-<p>結論から言うと、<strong>日本語は英語の1.79倍</strong>。41言語中で高いほうから11番目で、トークナイザーの世代交代でほとんど改善されなかった数少ない言語でした。</p>
+<p>同じことを聞いても、日本語で書くと英語よりトークンが多くかかります。APIはトークン単位で課金されるので、そのぶん料金も高くなります。どのくらい差があるのかを実際に測り、その差をボタンひとつで縮める方法もまとめました。</p>
+<p>結論から言うと、<strong>日本語は英語の1.79倍</strong>。41言語中で高いほうから11番目です。そしてプロンプトを英語にして送ると、<strong>トークンが約44%減ります</strong>。</p>
 <h2>測定方法</h2>
 <p>英語で34トークンになる、ごく普通のカスタマーサポート用プロンプトを使いました。</p>
 <blockquote>
@@ -9,11 +9,7 @@
 <blockquote>
 <p>以下の顧客メールを3つの箇条書きで要約し、丁寧な返信を提案してください。顧客によると、注文品が2日遅れて届き、箱から商品が1つ欠けていたそうです。</p>
 </blockquote>
-<p>これを41言語に翻訳し、2つのエンコーディングで数えました。</p>
-<ul>
-<li><strong>o200k_base</strong>：GPT-4o以降のOpenAIモデルで使われている現行トークナイザー</li>
-<li><strong>cl100k_base</strong>：GPT-4 / GPT-3.5時代の旧トークナイザー（比較用）</li>
-</ul>
+<p>これを41言語に翻訳し、GPT-4o以降のOpenAIモデルで使われているトークナイザー（<strong>o200k_base</strong>）で数えました。</p>
 <pre><code class="language-js">import { getEncoding } from &quot;js-tiktoken&quot;;
 
 const enc = getEncoding(&quot;o200k_base&quot;);
@@ -33,9 +29,9 @@ print(len(enc.encode(japanese)))  # 61
 <thead>
 <tr>
 <th>言語</th>
-<th style="text-align: right;">トークン数 (o200k)</th>
+<th style="text-align: right;">トークン数</th>
 <th style="text-align: right;">英語比</th>
-<th style="text-align: right;">旧GPT-4トークナイザー (cl100k)</th>
+<th style="text-align: right;">英語で送ると節約</th>
 </tr>
 </thead>
 <tbody>
@@ -43,139 +39,92 @@ print(len(enc.encode(japanese)))  # 61
 <td>英語</td>
 <td style="text-align: right;">34</td>
 <td style="text-align: right;"><strong>1.00倍</strong></td>
-<td style="text-align: right;">1.00倍</td>
+<td style="text-align: right;">–</td>
 </tr>
 <tr>
 <td>中国語（簡体字）</td>
 <td style="text-align: right;">35</td>
 <td style="text-align: right;"><strong>1.03倍</strong></td>
-<td style="text-align: right;">1.53倍</td>
+<td style="text-align: right;">約3%</td>
 </tr>
 <tr>
 <td>スペイン語</td>
 <td style="text-align: right;">40</td>
 <td style="text-align: right;"><strong>1.18倍</strong></td>
-<td style="text-align: right;">1.29倍</td>
+<td style="text-align: right;">約15%</td>
 </tr>
 <tr>
 <td>ドイツ語</td>
 <td style="text-align: right;">43</td>
 <td style="text-align: right;"><strong>1.26倍</strong></td>
-<td style="text-align: right;">1.50倍</td>
-</tr>
-<tr>
-<td>アラビア語</td>
-<td style="text-align: right;">43</td>
-<td style="text-align: right;"><strong>1.26倍</strong></td>
-<td style="text-align: right;">3.03倍</td>
+<td style="text-align: right;">約21%</td>
 </tr>
 <tr>
 <td>フランス語</td>
 <td style="text-align: right;">44</td>
 <td style="text-align: right;"><strong>1.29倍</strong></td>
-<td style="text-align: right;">1.44倍</td>
+<td style="text-align: right;">約22%</td>
 </tr>
 <tr>
 <td>ロシア語</td>
 <td style="text-align: right;">45</td>
 <td style="text-align: right;"><strong>1.32倍</strong></td>
-<td style="text-align: right;">2.15倍</td>
+<td style="text-align: right;">約24%</td>
 </tr>
 <tr>
 <td>中国語（繁体字）</td>
 <td style="text-align: right;">46</td>
 <td style="text-align: right;"><strong>1.35倍</strong></td>
-<td style="text-align: right;">2.12倍</td>
-</tr>
-<tr>
-<td>ベトナム語</td>
-<td style="text-align: right;">46</td>
-<td style="text-align: right;"><strong>1.35倍</strong></td>
-<td style="text-align: right;">2.32倍</td>
+<td style="text-align: right;">約26%</td>
 </tr>
 <tr>
 <td>韓国語</td>
 <td style="text-align: right;">49</td>
 <td style="text-align: right;"><strong>1.44倍</strong></td>
-<td style="text-align: right;">2.50倍</td>
+<td style="text-align: right;">約31%</td>
 </tr>
 <tr>
 <td>ヒンディー語</td>
 <td style="text-align: right;">51</td>
 <td style="text-align: right;"><strong>1.50倍</strong></td>
-<td style="text-align: right;">4.59倍</td>
-</tr>
-<tr>
-<td>ベンガル語</td>
-<td style="text-align: right;">57</td>
-<td style="text-align: right;"><strong>1.68倍</strong></td>
-<td style="text-align: right;">6.09倍</td>
+<td style="text-align: right;">約33%</td>
 </tr>
 <tr>
 <td>タイ語</td>
 <td style="text-align: right;">59</td>
 <td style="text-align: right;"><strong>1.74倍</strong></td>
-<td style="text-align: right;">3.71倍</td>
+<td style="text-align: right;">約43%</td>
 </tr>
 <tr>
 <td><strong>日本語</strong></td>
 <td style="text-align: right;"><strong>61</strong></td>
 <td style="text-align: right;"><strong>1.79倍</strong></td>
-<td style="text-align: right;"><strong>2.21倍</strong></td>
-</tr>
-<tr>
-<td>ウクライナ語</td>
-<td style="text-align: right;">64</td>
-<td style="text-align: right;"><strong>1.88倍</strong></td>
-<td style="text-align: right;">3.15倍</td>
+<td style="text-align: right;"><strong>約44%</strong></td>
 </tr>
 <tr>
 <td>ポーランド語</td>
 <td style="text-align: right;">64</td>
 <td style="text-align: right;"><strong>1.88倍</strong></td>
-<td style="text-align: right;">2.12倍</td>
+<td style="text-align: right;">約47%</td>
 </tr>
 <tr>
 <td>チェコ語</td>
 <td style="text-align: right;">68</td>
 <td style="text-align: right;"><strong>2.00倍</strong></td>
-<td style="text-align: right;">2.59倍</td>
-</tr>
-<tr>
-<td>タミル語</td>
-<td style="text-align: right;">67</td>
-<td style="text-align: right;"><strong>1.97倍</strong></td>
-<td style="text-align: right;">8.47倍</td>
-</tr>
-<tr>
-<td>ギリシャ語</td>
-<td style="text-align: right;">70</td>
-<td style="text-align: right;"><strong>2.06倍</strong></td>
-<td style="text-align: right;">4.94倍</td>
+<td style="text-align: right;">約50%</td>
 </tr>
 <tr>
 <td>パンジャブ語</td>
 <td style="text-align: right;">83</td>
 <td style="text-align: right;"><strong>2.44倍</strong></td>
-<td style="text-align: right;">7.41倍</td>
+<td style="text-align: right;">約59%</td>
 </tr>
 </tbody>
 </table></div>
 <p>（41言語すべての結果は<a href="/blog/token-cost-by-language">こちらの英語記事</a>にあります）</p>
-<h2>意外だったこと</h2>
-<h3>1. 日本語は「改善が一番小さかった言語」のひとつ</h3>
-<p>旧トークナイザーから現行への変化を見ると、多くの言語が大幅に安くなっています。</p>
-<ul>
-<li>ベンガル語：6.09倍 → 1.68倍</li>
-<li>ヒンディー語：4.59倍 → 1.50倍</li>
-<li>アラビア語：3.03倍 → 1.26倍</li>
-<li>韓国語：2.50倍 → 1.44倍</li>
-</ul>
-<p>一方、日本語は <strong>2.21倍 → 1.79倍</strong> とあまり縮まりませんでした。旧トークナイザーの頃は韓国語より安かったのに、今は韓国語より高くなっています。</p>
-<h3>2. 同じ漢字でも中国語（簡体字）はほぼ英語と同じ</h3>
-<p>中国語（簡体字）は35トークンで、英語とほぼ同じです。同じ内容の繁体字は1.35倍でした。漢字の多さが原因なら中国語も高くなるはずなので、日本語の割高さは漢字そのものより、<strong>ひらがな・カタカナと漢字が混ざる書き方</strong>や学習データの量の影響が大きそうです。</p>
-<h3>3. 一番高いのはパンジャブ語、その次はヨーロッパの言語</h3>
-<p>最下位はインドのパンジャブ語（2.44倍）で、グルムキー文字はまだ細かく分割されます。次いでギリシャ語（2.06倍）、テルグ語（2.03倍）、チェコ語とスロバキア語（2.00倍）、ポーランド語とウクライナ語（1.88倍）。語形変化が多い言語は、ラテン文字やキリル文字でも細かく分割されるようです。</p>
+<h2>なぜ日本語は多くかかるのか</h2>
+<p>AIは文字や単語をそのまま読むわけではありません。まず<strong>トークナイザー</strong>が文章を決まった断片（トークン）に切り分けます。この断片の辞書は主に英語のテキストから作られているため、英語の単語はほとんどが1トークンですが、日本語は語や文字が複数の断片に分かれることが多くなります。</p>
+<p>面白いのは、同じ漢字を使う中国語（簡体字）は1.03倍で英語とほぼ同じだという点です。日本語の割高さは漢字そのものより、<strong>ひらがな・カタカナと漢字が混ざる書き方</strong>や、学習データに含まれる量の差によるものと考えられます。</p>
 <h2>コストにするとどのくらいか</h2>
 <p>入力が100万トークンあたり2ドルのモデルで、このプロンプトを100万回送った場合です。</p>
 <div class="overflow-x-auto"><table>
@@ -202,25 +151,40 @@ print(len(enc.encode(japanese)))  # 61
 <td style="text-align: right;">6,100万</td>
 <td style="text-align: right;">$122</td>
 </tr>
-<tr>
-<td>チェコ語</td>
-<td style="text-align: right;">6,800万</td>
-<td style="text-align: right;">$136</td>
-</tr>
 </tbody>
 </table></div>
-<p>これは入力だけの話です。回答も日本語で返ってくれば、単価が4〜5倍高い出力トークンにも同じ倍率がかかります。</p>
-<h2>日本語でトークンを節約するコツ</h2>
+<p>これは入力だけの話です。回答も日本語で返ってくれば、単価が入力より4〜5倍高い出力トークンにも同じ倍率がかかります。コーディングエージェントのように1タスクで数十万〜数百万トークンを使う場合、この差は利用上限と料金にそのまま響きます。</p>
+<h2>ボタンひとつで英語に：TokenSaveの翻訳機能</h2>
+<p>いちばん効く節約は、<strong>プロンプトを英語にして送ること</strong>です。最近のモデルは英語の指示を正確に理解し、「日本語で答えて」と一行添えれば回答は日本語で返してくれます。</p>
+<p><a href="/ja/">TokenSaveのトークンカウンター</a>なら、これが一度にできます。</p>
+<ol>
+<li>プロンプトを貼り付けると、トークン数とモデルごとの料金がすぐに表示されます。</li>
+<li>減らせる余地があると <strong>💸 トークン節約</strong> ボタンが現れ、横に予想節約率（例：−44%）が出ます。</li>
+<li>押すと <strong>空白を整理 → 英語に翻訳 → 冗長表現を短縮</strong> を順に行い、最後に <em>"Reply in Japanese."</em> を自動で付けます。プロンプトは英語でも、回答は日本語で受け取れます。何トークン（何%）減ったかもすぐに表示されます。</li>
+<li>英語になったプロンプトを <strong>コピー</strong> して、ChatGPT・Claude・Geminiなどにそのまま使えます。気に入らなければ、ボタンが <strong>↩ 原文</strong> に変わっているので、もう一度押せば元に戻ります。</li>
+</ol>
+<p><strong>どう動いているの？</strong></p>
 <ul>
-<li><strong>システムプロンプトや固定の指示文は英語で書く</strong>。ユーザーの入力だけ日本語にすれば、毎回送る部分のコストが下がります。</li>
-<li><strong>中間処理（分類・抽出・ツール呼び出し）は英語かJSONで出力させる</strong>。ユーザーに見せる最終回答だけ日本語にします。</li>
-<li><strong>全角スペースや空行を消す</strong>。コピペした文章には意外と多く含まれています。</li>
-<li><strong>敬語を盛りすぎない</strong>。「〜していただけますと幸いです」のような丁寧な言い回しは、指示としての効果に比べてトークンが多くかかります。</li>
-<li><strong>プロンプトキャッシュを使う</strong>。固定部分をキャッシュすれば入力単価は大幅に下がります（90%以上安くなるモデルもあります）。</li>
+<li>翻訳にはブラウザに内蔵されたAI翻訳を使います。<strong>デスクトップ版Chrome 138以降またはEdge 148以降</strong>で動きます。</li>
+<li>最初の1回だけ翻訳モデルをダウンロードし（進捗が表示されます）、それ以降は <strong>自分の端末の中で</strong> 翻訳します。入力した文章はどのサーバーにも送られません。</li>
+<li>翻訳するとかえってトークンが増える場合、翻訳は適用しません。</li>
+<li>コードを貼り付けた場合は、コードはそのままで <strong>日本語のコメントだけ</strong> を英語にします。</li>
+<li>スマートフォンや対応していないブラウザでは翻訳を飛ばし、空白の整理だけ行って案内を表示します。</li>
 </ul>
+<h2>そのほかの節約のコツ</h2>
+<ul>
+<li><strong>システムプロンプトや固定の指示文は英語で書く</strong>。毎回送る部分なので効果がいちばん大きいところです。ユーザーの入力と最終回答だけ日本語にします。</li>
+<li><strong>中間処理（分類・抽出・ツール呼び出し）は英語かJSONで出力させる</strong>。ユーザーが直接見ない部分です。</li>
+<li><strong>全角スペースや空行を消す</strong>。コピペした文章には意外と多く含まれています。</li>
+<li><strong>敬語を盛りすぎない</strong>。「〜していただけますと幸いです」より「〜してください」で十分です。</li>
+<li><strong>長い会話は新しいチャットで</strong>。メッセージを送るたびに、それまでの会話全体が再送されます。話題が変わったら5行の要約だけ持って新しいチャットを開きましょう。</li>
+<li><strong>プロンプトキャッシュを使う</strong>。固定部分をキャッシュすれば、その部分の入力単価は大幅に下がります（90%近く安くなるモデルもあります）。</li>
+</ul>
+<h2>翻訳しないほうがいい場合</h2>
+<p>指示や質問は英語にしても問題ありませんが、原文そのものが大事な文章はそのままにしてください。そのまま引用すべき契約書の文言、日本語の添削を頼む文章、詩やコピーのように表現そのものが中身の文章などです。</p>
 <h2>注意点</h2>
 <ul>
-<li>測ったのは1つのプロンプトだけです。文によって倍率は0.1〜0.2倍ほど変わるので、順位はおおまかな目安として見てください。</li>
+<li>測ったのは1つのプロンプトだけです。文によって倍率は0.1〜0.2倍ほど変わるので、おおまかな目安として見てください。</li>
 <li>翻訳は機械翻訳をベースに確認しました。日本語訳に違和感があれば教えてください。測り直します。</li>
-<li>ClaudeとGeminiはトークナイザーが異なるため、この数字がそのまま当てはまるのはOpenAIのモデルだけです。</li>
+<li>ClaudeとGeminiはトークナイザーが異なるため、この数字がそのまま当てはまるのはOpenAIのモデルです。ほかのモデルはトークンカウンターで推定値として表示します。</li>
 </ul>

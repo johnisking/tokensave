@@ -196,6 +196,27 @@
         <p class="text-zinc-400">Nano BananaはGoogleのGemini画像モデルの愛称です。Nano Banana 2はGemini 3.1 Flash Image、Nano Banana ProはGemini 3 Pro Imageです。</p>
       </div>
     </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">使い方</h2>
+      <ol>
+        <li>出力の<strong>解像度</strong>を選びます：0.5K（512px）・1K（1024px）・2K（2048px）・4K。</li>
+        <li>作る<strong>画像の枚数</strong>を入力します。</li>
+        <li>その解像度に対応するモデルが、<strong>1枚あたりの料金と合計</strong>の順に並びます。</li>
+      </ol>
+      <h2>どう計算しているの？</h2>
+      <ul>
+        <li>多くの画像APIは解像度ごとに<strong>1枚あたりの固定料金</strong>です。</li>
+        <li>FLUX.2は<strong>メガピクセル単位</strong>で課金します。最初の1MPと追加MPで単価が違い、2K（4MP）はそのぶん高くなります。</li>
+        <li>同じモデルでも<strong>品質設定</strong>で料金が大きく変わります。GPT Image 2.5はhighがlowの16倍です。</li>
+        <li>公式API価格のないモデルはRunway APIの価格で表示し、明記しています。</li>
+      </ul>
+      <h2>コツ</h2>
+      <ul>
+        <li>構図は低価格・低品質設定で探し、選んだものだけ高品質で作り直しましょう。</li>
+        <li>WebやSNS用なら1Kで十分なことが多いです。</li>
+        <li>手や文字、同じキャラクターの再現など難しい画像は、2〜4回の試行を予算に入れておきましょう。</li>
+      </ul>
+    </section>
 
 
     <footer class="mt-10 text-center text-xs text-zinc-600 space-y-1">

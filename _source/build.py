@@ -297,7 +297,7 @@ def build():
                 htmlLang=tag, dir=direction, url=url, ogLocale=og, ogImage=f"{BASE}/{tool['og']}",
                 homeUrl=path_for(slug, TOOLS[0]), hreflang=hreflang, langOptions=options, langAll=lang_all, toolNav=nav,
                 ver=ver, adsHead=extras, faq=faq_html(s),
-                guide=(open(os.path.join(SRC, "guides", *(["ko"] if tag == "ko" else []), tool["key"] + ".html"), encoding="utf-8").read() if tag in ("en", "ko") else ""), moreLink=more_link(tag, s.get("more", "")),
+                guide=(open(os.path.join(SRC, "guides", *([tag] if tag in ("ko", "ja") else []), tool["key"] + ".html"), encoding="utf-8").read() if tag in ("en", "ko", "ja") else ""), moreLink=more_link(tag, s.get("more", "")),
                 proLink=(f'<a href="{PRO_BY_TAG[tag]["path"]}" class="text-violet-300 hover:text-violet-200 underline">{esc(PRO_BY_TAG[tag]["title"])} →</a>' if tag in PRO_BY_TAG else ""),
                 ldjson=js({"@context": "https://schema.org", "@graph": graph}),
                 tjson=js(runtime),

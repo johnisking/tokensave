@@ -1,0 +1,17 @@
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">使い方</h2>
+      <ol>
+        <li><strong>クリップの長さ（秒）</strong>と<strong>クリップ数</strong>を入力します。</li>
+        <li><strong>解像度</strong>（480p・720p・1080p・4K）と<strong>音声あり／なし</strong>を選びます。</li>
+        <li>その条件に対応するモデルが<strong>合計の安い順</strong>に並び、いちばん安いモデルに「最安」が付きます。</li>
+      </ol>
+      <h2>どう計算しているの？</h2>
+      <ul>
+        <li>多くの動画APIは<strong>秒単位</strong>で課金します。合計 = クリップの長さ × クリップ数 × 1秒あたりの料金。</li>
+        <li>Lumaは<strong>5秒／10秒のクリップ単位</strong>で課金するため、長い動画は複数クリップとして計算します。</li>
+        <li>Veoのように音声が常に含まれるモデルもあれば、Klingのように音声ありで高くなるモデルもあります。</li>
+        <li>メーカーが秒単位のAPI価格を公開していないモデルは、Runway APIの価格を表示し「Runway API経由」と明記しています。</li>
+      </ul>
+      <h2>予算のコツ</h2>
+      <p>表示されるのは1回生成したときの料金です。実際には使えるカット1つに2〜4回作り直すことが多いので、<strong>約3倍</strong>で見積もってください。プロンプトは720p・低価格モデルで試し、最後のカットだけ上位モデルで出すと大きく節約できます。</p>
+    </section>

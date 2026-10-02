@@ -71,7 +71,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AIトークンカウンター", "url": "https://tokensave.app/ja/", "inLanguage": "ja", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "GPT・Claude・Geminiのトークン数とAPI料金をすぐ計算。無料・アップロード不要。", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "ja", "mainEntity": [{"@type": "Question", "name": "トークンとは?", "acceptedAnswer": {"@type": "Answer", "text": "トークンはAIモデルが読み取るテキストの単位です。英語では1トークンがおよそ4文字、単語の3/4程度です。"}}, {"@type": "Question", "name": "なぜ日本語はトークンが多くなるの?", "acceptedAnswer": {"@type": "Answer", "text": "トークナイザーは主に英語で学習されているため、日本語・中国語・韓国語などは同じ意味でもより多くのトークンに分割されます。"}}, {"@type": "Question", "name": "入力したテキストは安全?", "acceptedAnswer": {"@type": "Answer", "text": "はい。計算はすべてブラウザ内で行われ、テキストがサーバーに送信されることはありません。"}}, {"@type": "Question", "name": "日本語は英語の何倍のトークンを使いますか？", "acceptedAnswer": {"@type": "Answer", "text": "GPTのo200kトークナイザーでは、日本語は同じ内容の英語の約1.79×のトークンを使います。旧GPT-4トークナイザーでは2.21×必要だったため日本語のコストは大きく下がっており、41言語全体では1.03×（簡体字中国語）から2.44×（パンジャブ語）までの幅があります。"}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "AIトークンカウンター", "url": "https://tokensave.app/ja/", "inLanguage": "ja", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "description": "GPT・Claude・Geminiのトークン数とAPI料金をすぐ計算。無料・アップロード不要。", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "FAQPage", "inLanguage": "ja", "mainEntity": [{"@type": "Question", "name": "トークンとは?", "acceptedAnswer": {"@type": "Answer", "text": "トークンはAIモデルが読み取るテキストの単位です。英語では1トークンがおよそ4文字、単語の3/4程度です。"}}, {"@type": "Question", "name": "なぜ日本語はトークンが多くなるの?", "acceptedAnswer": {"@type": "Answer", "text": "トークナイザーは主に英語で学習されているため、日本語・中国語・韓国語などは同じ意味でもより多くのトークンに分割されます。"}}, {"@type": "Question", "name": "入力したテキストは安全?", "acceptedAnswer": {"@type": "Answer", "text": "はい。計算はすべてブラウザ内で行われ、テキストがサーバーに送信されることはありません。"}}, {"@type": "Question", "name": "日本語は英語の何倍のトークンを使いますか？", "acceptedAnswer": {"@type": "Answer", "text": "GPTのトークナイザー（o200k）では、日本語は同じ内容の英語の約1.79×のトークンを使います。そのためプロンプトを英語にして送ると、トークンが約44%減ります。💸 トークン節約ボタンを押すと、デスクトップ版Chrome・Edgeの端末内翻訳で英語に変換し、回答は日本語で返すよう一行を添えます。"}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -309,8 +309,39 @@
       </div>
       <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">日本語は英語の何倍のトークンを使いますか？</h2>
-        <p class="text-zinc-400">GPTのo200kトークナイザーでは、日本語は同じ内容の英語の約1.79×のトークンを使います。旧GPT-4トークナイザーでは2.21×必要だったため日本語のコストは大きく下がっており、41言語全体では1.03×（簡体字中国語）から2.44×（パンジャブ語）までの幅があります。</p>
+        <p class="text-zinc-400">GPTのトークナイザー（o200k）では、日本語は同じ内容の英語の約1.79×のトークンを使います。そのためプロンプトを英語にして送ると、トークンが約44%減ります。💸 トークン節約ボタンを押すと、デスクトップ版Chrome・Edgeの端末内翻訳で英語に変換し、回答は日本語で返すよう一行を添えます。</p>
       </div>
+    </section>
+    <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h2 style="margin-top:0">使い方</h2>
+      <ol>
+        <li><strong>プロンプトを貼り付ける</strong> — 入力するとすぐに、トークン数・文字数・単語数・予想コストが更新されます。</li>
+        <li><strong>モデルを選ぶ</strong> — 上の GPT・Claude・Gemini・その他 のタブでモデルを選ぶと、その料金でリクエストあたり・月間のコストを計算します。想定出力（トークン）と月間リクエスト数も変えられます。</li>
+        <li><strong>💸 トークン節約</strong> — 減らせる余地があるとボタンと予想節約率が表示されます。押すと 空白を整理 → 英語に翻訳 → 冗長表現を短縮 をまとめて行い、最後に "Reply in Japanese." を付けて回答は日本語で受け取れるようにします。もう一度押す（↩ 原文）と元に戻ります。</li>
+        <li><strong>トークンへの分かれ方を見る</strong> — 文章が実際にどんな断片に切られるかを色で表示します。</li>
+        <li><strong>チャット (JSON)</strong> — APIに送るメッセージ配列をそのまま貼ると、メッセージ形式のぶんのトークンも加えて計算します。</li>
+        <li><strong>共有</strong> — 入力中の文章をリンクにして送れます。</li>
+      </ol>
+      <h2>どう計算しているの？</h2>
+      <ul>
+        <li><strong>GPTモデル</strong>は、OpenAIの実際のトークナイザー（o200k）をブラウザで動かして正確に数えます。</li>
+        <li><strong>Claude・Geminiなど</strong>はトークナイザーが同じ形で公開されていないため、実際の文章で合わせた比率で推定します（「推定値」と表示）。</li>
+        <li><strong>コスト</strong> = トークン数 ÷ 1,000,000 × 100万トークンあたりの料金。料金は各社の公式API価格で、確認日も表示しています。</li>
+        <li><strong>言語効率</strong>は、同じ内容を英語で書いた場合の何倍のトークンがかかるかを示します。日本語はおよそ英語の1.79倍です。</li>
+      </ul>
+      <h2>翻訳機能のしくみ</h2>
+      <ul>
+        <li>ブラウザに内蔵されたAI翻訳を使います。<strong>デスクトップ版Chrome 138以降・Edge 148以降</strong>で動きます。</li>
+        <li>最初の1回だけ翻訳モデルをダウンロードし、以降は<strong>自分の端末の中で</strong>翻訳します。入力した文章はサーバーに送られません。</li>
+        <li>翻訳でかえってトークンが増える場合は適用しません。コードはそのままで、日本語のコメントだけを英語にします。</li>
+        <li>スマートフォンや非対応のブラウザでは、空白の整理だけ行って案内を表示します。</li>
+      </ul>
+      <h2>関連記事</h2>
+      <ul>
+        <li><a href="/ja/blog/nihongo-tokens-gpt">日本語プロンプトは英語で送るとトークン44%節約：41言語で実測</a></li>
+        <li><a href="/ja/blog/chatgpt-pro-ryokin-hikaku">ChatGPT Pro 料金比較：Pro 100・200・500どれを選ぶ？</a></li>
+        <li><a href="/blog/prompt-caching-explained" lang="en">Prompt caching explained（英語）</a></li>
+      </ul>
     </section>
 
 
