@@ -28,6 +28,7 @@ S = dict(
     h1="AI-tokentæller",
     high="Højt tokenspild",
     lang="Sprog",
+  extRef="Officielle priser og tokenizer-referencer:",
     moderate="Moderat spild",
     note="{name}: ${in} input / ${out} output pr. 1M tokens",
     optimize="Ryd mellemrum",

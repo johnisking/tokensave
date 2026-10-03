@@ -28,6 +28,7 @@ S = dict(
     h1="Μετρητής tokens AI",
     high="Μεγάλη σπατάλη tokens",
     lang="Γλώσσα",
+  extRef="Επίσημες αναφορές τιμολόγησης και tokenizer:",
     moderate="Μέτρια σπατάλη",
     note="{name}: ${in} είσοδος / ${out} έξοδος ανά 1M tokens",
     optimize="Καθαρισμός κενών",

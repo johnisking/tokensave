@@ -28,6 +28,7 @@ S = dict(
     h1="AI-tokenlaskuri",
     high="Suuri tokenhukka",
     lang="Kieli",
+  extRef="Viralliset hinnoittelu- ja tokenizer-viitteet:",
     moderate="Kohtalainen hukka",
     note="{name}: ${in} syöte / ${out} tuloste 1M tokenia kohden",
     optimize="Siivoa välilyönnit",

@@ -32,7 +32,7 @@ S["en"] = dict(
   title="AI Token Counter for GPT, Claude & Gemini – TokenSave",
   desc="Free AI token counter for GPT, Claude and Gemini. Count tokens, characters and estimated API cost instantly in your browser, in any language. Nothing is uploaded.",
   badge="100% in-browser · Nothing is uploaded",
-  h1="AI Token Counter",
+  h1="Free AI Token Counter for GPT & Claude",
   sub="Count tokens, characters & API cost in real time — in any language.",
   prompt="Your prompt", optimize="Optimize", optimizeTip="Remove extra spaces & blank lines", copy="Copy", clear="Clear",
   ph1="Paste or type your prompt here...",
@@ -52,6 +52,7 @@ S["en"] = dict(
   f2="Prices are list rates per 1M tokens, last checked September 2026. Always confirm on the provider's pricing page.",
   tSaved="Optimized — saved {n} tokens", tAlready="Already optimized", tNothing="Nothing to copy", tCopied="Copied to clipboard", tCleared="Cleared",
   lang="Language",
+  extRef="Official pricing & tokenizer references:",
 )
 
 S["ko"] = dict(
@@ -78,6 +79,7 @@ S["ko"] = dict(
   f2="가격은 100만 토큰당 공시 가격이며 2026년 9월 기준입니다. 정확한 가격은 각 제공사 요금 페이지에서 확인하세요.",
   tSaved="최적화 완료 — 토큰 {n}개 절약", tAlready="이미 최적화된 상태입니다", tNothing="복사할 내용이 없습니다", tCopied="클립보드에 복사했습니다", tCleared="지웠습니다",
   lang="언어",
+  extRef="공식 요금 및 토크나이저 참고 링크:",
 )
 
 S["ja"] = dict(
@@ -104,6 +106,7 @@ S["ja"] = dict(
   f2="料金は100万トークンあたりの公表価格で、2026年9月時点のものです。正確な料金は各社の料金ページでご確認ください。",
   tSaved="最適化しました — {n}トークン削減", tAlready="すでに最適化されています", tNothing="コピーする内容がありません", tCopied="クリップボードにコピーしました", tCleared="クリアしました",
   lang="言語",
+  extRef="公式料金・トークナイザー参考リンク:",
 )
 
 S["zh-CN"] = dict(
@@ -130,6 +133,7 @@ S["zh-CN"] = dict(
   f2="价格为每 100 万 Token 的官方标价，更新于 2026 年 9 月。请以各服务商的价格页面为准。",
   tSaved="已优化 — 节省 {n} 个 Token", tAlready="已经是最优状态", tNothing="没有可复制的内容", tCopied="已复制到剪贴板", tCleared="已清空",
   lang="语言",
+  extRef="官方定价与分词器参考链接:",
 )
 
 S["zh-TW"] = dict(
@@ -156,6 +160,7 @@ S["zh-TW"] = dict(
   f2="價格為每 100 萬 Token 的官方定價，更新於 2026 年 9 月。請以各服務商的價格頁面為準。",
   tSaved="已最佳化 — 節省 {n} 個 Token", tAlready="已經是最佳狀態", tNothing="沒有可複製的內容", tCopied="已複製到剪貼簿", tCleared="已清除",
   lang="語言",
+  extRef="官方定價與分詞器參考連結:",
 )
 
 S["es"] = dict(
@@ -182,6 +187,7 @@ S["es"] = dict(
   f2="Los precios son tarifas oficiales por 1 M de tokens, revisadas en septiembre de 2026. Confírmalos siempre en la página de precios de cada proveedor.",
   tSaved="Optimizado: {n} tokens ahorrados", tAlready="Ya está optimizado", tNothing="No hay nada que copiar", tCopied="Copiado al portapapeles", tCleared="Borrado",
   lang="Idioma",
+  extRef="Referencias oficiales de precios y tokenizador:",
 )
 
 S["pt"] = dict(
@@ -208,6 +214,7 @@ S["pt"] = dict(
   f2="Os preços são tabelas oficiais por 1M de tokens, verificadas em setembro de 2026. Confirme sempre na página de preços de cada provedor.",
   tSaved="Otimizado — {n} tokens economizados", tAlready="Já está otimizado", tNothing="Nada para copiar", tCopied="Copiado para a área de transferência", tCleared="Limpo",
   lang="Idioma",
+  extRef="Referências oficiais de preços e tokenizador:",
 )
 
 S["fr"] = dict(
@@ -234,6 +241,7 @@ S["fr"] = dict(
   f2="Les prix sont les tarifs publics par million de tokens, vérifiés en septembre 2026. Vérifiez toujours sur la page tarifaire de chaque fournisseur.",
   tSaved="Optimisé — {n} tokens économisés", tAlready="Déjà optimisé", tNothing="Rien à copier", tCopied="Copié dans le presse-papiers", tCleared="Effacé",
   lang="Langue",
+  extRef="Références officielles de tarifs et tokenizer:",
 )
 
 S["de"] = dict(
@@ -260,6 +268,7 @@ S["de"] = dict(
   f2="Preise sind Listenpreise pro 1 Mio. Tokens, Stand September 2026. Bitte immer auf der Preisseite des Anbieters prüfen.",
   tSaved="Optimiert – {n} Tokens gespart", tAlready="Bereits optimiert", tNothing="Nichts zu kopieren", tCopied="In die Zwischenablage kopiert", tCleared="Geleert",
   lang="Sprache",
+  extRef="Offizielle Preis- und Tokenizer-Referenzen:",
 )
 
 S["it"] = dict(
@@ -286,6 +295,7 @@ S["it"] = dict(
   f2="I prezzi sono tariffe di listino per 1M di token, aggiornate a settembre 2026. Verifica sempre sulla pagina prezzi di ciascun fornitore.",
   tSaved="Ottimizzato: {n} token risparmiati", tAlready="Già ottimizzato", tNothing="Niente da copiare", tCopied="Copiato negli appunti", tCleared="Cancellato",
   lang="Lingua",
+  extRef="Riferimenti ufficiali a prezzi e tokenizer:",
 )
 
 S["ru"] = dict(
@@ -312,6 +322,7 @@ S["ru"] = dict(
   f2="Цены — официальные тарифы за 1 млн токенов по состоянию на сентябрь 2026 года. Всегда уточняйте на странице цен провайдера.",
   tSaved="Оптимизировано — сэкономлено токенов: {n}", tAlready="Уже оптимизировано", tNothing="Нечего копировать", tCopied="Скопировано в буфер обмена", tCleared="Очищено",
   lang="Язык",
+  extRef="Официальные ссылки на тарифы и токенизатор:",
 )
 
 S["uk"] = dict(
@@ -338,6 +349,7 @@ S["uk"] = dict(
   f2="Ціни — офіційні тарифи за 1 млн токенів станом на вересень 2026 року. Завжди перевіряйте на сторінці цін постачальника.",
   tSaved="Оптимізовано — заощаджено токенів: {n}", tAlready="Уже оптимізовано", tNothing="Нічого копіювати", tCopied="Скопійовано в буфер обміну", tCleared="Очищено",
   lang="Мова",
+  extRef="Офіційні посилання на тарифи та токенізатор:",
 )
 
 S["tr"] = dict(
@@ -364,6 +376,7 @@ S["tr"] = dict(
   f2="Fiyatlar 1M token başına liste fiyatlarıdır ve Eylül 2026'da kontrol edilmiştir. Her zaman sağlayıcının fiyat sayfasından doğrulayın.",
   tSaved="Optimize edildi — {n} token tasarruf edildi", tAlready="Zaten optimize", tNothing="Kopyalanacak bir şey yok", tCopied="Panoya kopyalandı", tCleared="Temizlendi",
   lang="Dil",
+  extRef="Resmi fiyat ve tokenizer referansları:",
 )
 
 S["ar"] = dict(
@@ -390,6 +403,7 @@ S["ar"] = dict(
   f2="الأسعار هي الأسعار الرسمية لكل مليون رمز، وتم التحقق منها في سبتمبر 2026. تحقق دائمًا من صفحة الأسعار لدى كل مزوّد.",
   tSaved="تم التحسين — تم توفير {n} رمز", tAlready="النص محسّن بالفعل", tNothing="لا يوجد ما يُنسخ", tCopied="تم النسخ إلى الحافظة", tCleared="تم المسح",
   lang="اللغة",
+  extRef="مراجع رسمية للأسعار والمحلل اللغوي:",
 )
 
 S["fa"] = dict(
@@ -416,6 +430,7 @@ S["fa"] = dict(
   f2="قیمت‌ها نرخ رسمی به ازای هر ۱ میلیون توکن هستند و در سپتامبر ۲۰۲۶ بررسی شده‌اند. همیشه در صفحه قیمت هر ارائه‌دهنده تأیید کنید.",
   tSaved="بهینه شد — {n} توکن صرفه‌جویی شد", tAlready="از قبل بهینه است", tNothing="چیزی برای کپی وجود ندارد", tCopied="در کلیپ‌بورد کپی شد", tCleared="پاک شد",
   lang="زبان",
+  extRef="لینک‌های مرجع رسمی قیمت‌گذاری و توکنایزر:",
 )
 
 S["hi"] = dict(
@@ -442,6 +457,7 @@ S["hi"] = dict(
   f2="कीमतें प्रति 10 लाख टोकन की सूची दरें हैं, सितंबर 2026 में जाँची गईं। हमेशा प्रदाता के मूल्य पृष्ठ पर पुष्टि करें।",
   tSaved="ऑप्टिमाइज़ हो गया — {n} टोकन बचे", tAlready="पहले से ऑप्टिमाइज़ है", tNothing="कॉपी करने के लिए कुछ नहीं", tCopied="क्लिपबोर्ड पर कॉपी हो गया", tCleared="साफ़ हो गया",
   lang="भाषा",
+  extRef="आधिकारिक मूल्य निर्धारण और टोकनाइज़र संदर्भ:",
 )
 
 S["id"] = dict(
@@ -468,6 +484,7 @@ S["id"] = dict(
   f2="Harga adalah tarif resmi per 1 juta token, diperiksa pada September 2026. Selalu konfirmasi di halaman harga penyedia.",
   tSaved="Dioptimalkan — hemat {n} token", tAlready="Sudah optimal", tNothing="Tidak ada yang bisa disalin", tCopied="Disalin ke clipboard", tCleared="Dihapus",
   lang="Bahasa",
+  extRef="Referensi resmi harga dan tokenizer:",
 )
 
 S["vi"] = dict(
@@ -494,6 +511,7 @@ S["vi"] = dict(
   f2="Giá là mức niêm yết cho mỗi 1 triệu token, kiểm tra vào tháng 9/2026. Hãy luôn xác nhận trên trang giá của nhà cung cấp.",
   tSaved="Đã tối ưu — tiết kiệm {n} token", tAlready="Đã được tối ưu", tNothing="Không có gì để sao chép", tCopied="Đã sao chép vào bộ nhớ tạm", tCleared="Đã xóa",
   lang="Ngôn ngữ",
+  extRef="Tài liệu tham khảo chính thức về giá và tokenizer:",
 )
 
 S["th"] = dict(
@@ -520,6 +538,7 @@ S["th"] = dict(
   f2="ราคาเป็นราคาตามประกาศต่อ 1 ล้านโทเค็น ตรวจสอบเมื่อกันยายน 2026 โปรดยืนยันที่หน้าราคาของผู้ให้บริการเสมอ",
   tSaved="ปรับแล้ว — ประหยัด {n} โทเค็น", tAlready="กระชับอยู่แล้ว", tNothing="ไม่มีข้อความให้คัดลอก", tCopied="คัดลอกไปยังคลิปบอร์ดแล้ว", tCleared="ล้างแล้ว",
   lang="ภาษา",
+  extRef="ลิงก์อ้างอิงราคาและ tokenizer อย่างเป็นทางการ:",
 )
 
 S["pl"] = dict(
@@ -546,6 +565,7 @@ S["pl"] = dict(
   f2="Ceny to cenniki za 1 mln tokenów, sprawdzone we wrześniu 2026. Zawsze potwierdzaj na stronie cennika dostawcy.",
   tSaved="Zoptymalizowano — zaoszczędzono tokenów: {n}", tAlready="Już zoptymalizowano", tNothing="Nie ma nic do skopiowania", tCopied="Skopiowano do schowka", tCleared="Wyczyszczono",
   lang="Język",
+  extRef="Officialne odniesienia do cen i tokenizatora:",
 )
 
 S["nl"] = dict(
@@ -572,6 +592,7 @@ S["nl"] = dict(
   f2="Prijzen zijn officiële tarieven per 1 mln tokens, gecontroleerd in september 2026. Controleer altijd de prijspagina van de aanbieder.",
   tSaved="Geoptimaliseerd — {n} tokens bespaard", tAlready="Al geoptimaliseerd", tNothing="Niets om te kopiëren", tCopied="Gekopieerd naar klembord", tCleared="Gewist",
   lang="Taal",
+  extRef="Officiële prijs- en tokenizer-referenties:",
 )
 
 # Extra languages (i18n_extra/*.py)

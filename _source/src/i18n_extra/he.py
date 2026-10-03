@@ -50,6 +50,7 @@ S = dict(
     tCopied="הועתק ללוח",
     tCleared="נוקה",
     lang="שפה",
+  extRef="קישורי עיון רשמיים לתמחור ו-tokenizer:",
 )
 
 V = dict(

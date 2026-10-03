@@ -28,6 +28,7 @@ S = dict(
     h1="AI-tokenteller",
     high="Mye tokensløsing",
     lang="Språk",
+  extRef="Offisielle priser og tokenizer-referanser:",
     moderate="Moderat sløsing",
     note="{name}: ${in} input / ${out} output per 1M tokens",
     optimize="Rydd mellomrom",

@@ -50,6 +50,7 @@ S = dict(
     tCopied="Zkopírováno do schránky",
     tCleared="Vymazáno",
     lang="Jazyk",
+  extRef="Oficiální reference pro ceny a tokenizer:",
 )
 
 V = dict(

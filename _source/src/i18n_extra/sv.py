@@ -28,6 +28,7 @@ S = dict(
     h1="AI-tokenräknare",
     high="Högt tokenslöseri",
     lang="Språk",
+  extRef="Officiella pris- och tokenizer-referenser:",
     moderate="Måttligt slöseri",
     note="{name}: ${in} indata / ${out} utdata per 1M tokens",
     optimize="Optimera",

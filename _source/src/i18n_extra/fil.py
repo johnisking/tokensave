@@ -49,6 +49,7 @@ S = dict(
     tCopied="Nakopya sa clipboard",
     tCleared="Nabura na",
     lang="Wika",
+  extRef="Mga opisyal na sanggunian sa pagpepresyo at tokenizer:",
 )
 
 V = dict(

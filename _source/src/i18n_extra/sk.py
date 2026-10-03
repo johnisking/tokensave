@@ -28,6 +28,7 @@ S = dict(
     h1="Počítadlo AI tokenov",
     high="Vysoké plytvanie tokenmi",
     lang="Jazyk",
+  extRef="Oficiálne referencie pre ceny a tokenizer:",
     moderate="Mierne plytvanie",
     note="{name}: ${in} vstup / ${out} výstup za 1M tokenov",
     optimize="Vyčistiť medzery",

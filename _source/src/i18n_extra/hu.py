@@ -28,6 +28,7 @@ S = dict(
     h1="AI-tokenszámláló",
     high="Nagy tokenpazarlás",
     lang="Nyelv",
+  extRef="Hivatalos ár- és tokenizer-hivatkozások:",
     moderate="Mérsékelt pazarlás",
     note="{name}: ${in} bemenet / ${out} kimenet 1M tokenenként",
     optimize="Szóközök tisztítása",

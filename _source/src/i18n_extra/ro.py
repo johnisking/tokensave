@@ -28,6 +28,7 @@ S = dict(
     h1="Numărător de tokeni AI",
     high="Risipă mare de tokeni",
     lang="Limbă",
+  extRef="Referințe oficiale pentru prețuri și tokenizer:",
     moderate="Risipă moderată",
     note="{name}: ${in} intrare / ${out} ieșire per 1M tokeni",
     optimize="Curăță spațiile",
