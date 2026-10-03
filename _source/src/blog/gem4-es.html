@@ -1,0 +1,121 @@
+<p>Google presentó <strong>Gemini 4 Argon</strong> el 30 de septiembre de 2026, su nuevo modelo más potente. Está pensado para programación, ciberseguridad y tareas largas con agentes, y Google asegura que supera a GPT-6 Astra y a Claude Fable y Opus en varios benchmarks. Aquí tienes cuánto cuesta en la API, cuánto sale una petición real y cómo se compara con GPT y Claude.</p>
+<h2>Precio de la API de Gemini 4 Argon</h2>
+<p>Precios por millón de tokens. Empieza con un precio de lanzamiento y después pasa al precio estándar.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Tarifa</th>
+<th>Entrada</th>
+<th>Entrada en caché</th>
+<th>Salida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lanzamiento</td>
+<td>$2</td>
+<td>~$0,10</td>
+<td>$10</td>
+</tr>
+<tr>
+<td>Estándar</td>
+<td>$4</td>
+<td>~$0,20</td>
+<td>$20</td>
+</tr>
+</tbody>
+</table></div>
+<p>La entrada en caché tiene un 95% de descuento, algo que se nota mucho si envías una y otra vez las mismas instrucciones o documentos. Google no ha dicho cuánto durará el precio de lanzamiento.</p>
+<p>Argon también puede <strong>generar hasta 1 millón de tokens</strong> en una sola respuesta. Eso sí, una salida larga cuesta en proporción: 1 millón de tokens de salida son $20 por respuesta con el precio estándar.</p>
+<h2>¿Ya se puede usar?</h2>
+<p>Todavía no. Por ahora solo está disponible para los socios del programa de ciberdefensa Fairwind de Google, y después llegará a los suscriptores de Google AI Ultra y a los clientes de pago de la API. El identificador del modelo en la API sería <code>gemini-4-argon</code>, pero aún no aparece en la documentación oficial.</p>
+<h2>Cómo se compara</h2>
+<p>Una petición típica: 2.000 tokens de entrada y 500 de salida.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Por 1M de tokens (entrada/salida)</th>
+<th>1 petición</th>
+<th>10.000 peticiones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gemini 3.8 Flash</td>
+<td>$0,75 / $3,75</td>
+<td>$0,0034</td>
+<td>$34</td>
+</tr>
+<tr>
+<td><strong>Gemini 4 Argon (lanzamiento)</strong></td>
+<td>$2 / $10</td>
+<td>$0,009</td>
+<td>$90</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td>$2 / $10</td>
+<td>$0,009</td>
+<td>$90</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td>$2 / $10</td>
+<td>$0,009</td>
+<td>$90</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td>$2 / $12</td>
+<td>$0,010</td>
+<td>$100</td>
+</tr>
+<tr>
+<td><strong>Gemini 4 Argon (estándar)</strong></td>
+<td>$4 / $20</td>
+<td>$0,018</td>
+<td>$180</td>
+</tr>
+<tr>
+<td>Claude Opus 5.5</td>
+<td>$4 / $20</td>
+<td>$0,018</td>
+<td>$180</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td>$10 / $50</td>
+<td>$0,045</td>
+<td>$450</td>
+</tr>
+<tr>
+<td>Claude Fable 5.1</td>
+<td>$10 / $50</td>
+<td>$0,045</td>
+<td>$450</td>
+</tr>
+</tbody>
+</table></div>
+<p>Los demás precios son tarifas oficiales de API revisadas en octubre de 2026.</p>
+<p>Lo más destacado:</p>
+<ul>
+<li><strong>El precio estándar es exactamente el de Claude Opus 5.5:</strong> $4 de entrada y $20 de salida.</li>
+<li><strong>El precio de lanzamiento es el mismo que GPT-6 Sol y Claude Sonnet 5.5.</strong> Un modelo de gama alta a precio de gama media, de momento.</li>
+<li><strong>Incluso con el precio estándar es 2,5 veces más barato que GPT-6 Astra y Claude Fable 5.1.</strong> Si se confirman los benchmarks de Google, es la mejor relación calidad-precio entre los modelos de gama alta.</li>
+<li><strong>Es más caro que Gemini 3.1 Pro</strong>, unas 1,8 veces por petición con el precio estándar. Si 3.1 Pro ya te sirve, no hace falta cambiar.</li>
+</ul>
+<h2>Cuándo usarlo</h2>
+<p><strong>Encaja bien en:</strong> cambios grandes de código y migraciones, revisiones de seguridad, tareas largas con agentes de varios pasos y análisis de videos largos o gráficos. Cuanto más caro te salga un error, más vale la pena pagarlo.</p>
+<p><strong>No hace falta para:</strong> resúmenes, traducciones, clasificación y respuestas cortas. Gemini 3.8 Flash los resuelve por una quinta parte del costo por petición.</p>
+<p>Lo habitual es mandar las peticiones del día a día a Flash o a 3.1 Pro y pasar a Argon solo las difíciles.</p>
+<h2>Cómo gastar menos</h2>
+<ol>
+<li><strong>Pruébalo durante el lanzamiento.</strong> Cuesta la mitad del precio estándar: es el mejor momento para ver si encaja con tu trabajo.</li>
+<li><strong>Usa la caché.</strong> La entrada en caché tiene un 95% de descuento, así que deja las instrucciones fijas y los documentos al principio del prompt.</li>
+<li><strong>Limita la salida.</strong> Puede escribir hasta 1 millón de tokens y la salida cuesta 5 veces más que la entrada. Pide solo lo que necesitas.</li>
+<li><strong>Escribe los prompts en inglés.</strong> En español el mismo texto suele ocupar más tokens. El botón 💸 Ahorrar tokens del <a href="/es/">contador de tokens</a> traduce tu prompt al inglés dentro de tu propio dispositivo.</li>
+</ol>
+<h2>Calcula tu propio costo</h2>
+<p>Ya puedes elegir Gemini 4 Argon en el <a href="/es/">contador de tokens</a>, con el precio estándar. Pega un prompt que uses de verdad y compara Argon, GPT-6 y Claude lado a lado.</p>
+<p><em>Los precios y las fechas de despliegue pueden cambiar. Revisa la <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">página de precios de la API de Gemini</a> antes de trabajos grandes.</em></p>

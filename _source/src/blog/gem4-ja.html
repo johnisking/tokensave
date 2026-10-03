@@ -1,0 +1,121 @@
+<p>Google は2026年9月30日、新しい最上位モデル <strong>Gemini 4 Argon</strong> を発表しました。コーディング、サイバーセキュリティ、長時間のエージェント作業に重点を置いたモデルで、Google は複数のベンチマークで GPT-6 Astra や Claude Fable・Opus を上回ると説明しています。API 料金、1リクエストあたりの実費、GPT・Claude との比較をまとめました。</p>
+<h2>Gemini 4 Argon の API 料金</h2>
+<p>100万トークンあたりの料金です。最初は導入価格で始まり、その後に通常価格へ切り替わります。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>区分</th>
+<th>入力</th>
+<th>キャッシュ入力</th>
+<th>出力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>導入価格</td>
+<td>$2</td>
+<td>約 $0.10</td>
+<td>$10</td>
+</tr>
+<tr>
+<td>通常価格</td>
+<td>$4</td>
+<td>約 $0.20</td>
+<td>$20</td>
+</tr>
+</tbody>
+</table></div>
+<p>キャッシュ入力は通常の入力から95%割引なので、同じ指示や文書を繰り返し送る作業では大きな差になります。導入価格がいつまで続くかはまだ公表されていません。</p>
+<p>1回の応答で最大 <strong>100万トークンを出力</strong> できるのも特徴です。ただし出力が長いほど費用も増え、100万トークン出力すると通常価格で1回 $20 になります。</p>
+<h2>もう使える？</h2>
+<p>まだです。現在は Google のサイバー防御パートナー向けプログラム（Fairwind）参加組織だけに提供されており、Google AI Ultra 加入者と有料 API ユーザーには順次展開される予定です。API のモデル ID は <code>gemini-4-argon</code> と報じられていますが、公式ドキュメントにはまだ載っていません。</p>
+<h2>他のモデルと比べると</h2>
+<p>入力2,000トークン、出力500トークンの一般的なリクエストで計算しました。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>モデル</th>
+<th>100万トークンあたり（入力/出力）</th>
+<th>1回</th>
+<th>1万回</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gemini 3.8 Flash</td>
+<td>$0.75 / $3.75</td>
+<td>$0.0034</td>
+<td>$34</td>
+</tr>
+<tr>
+<td><strong>Gemini 4 Argon（導入価格）</strong></td>
+<td>$2 / $10</td>
+<td>$0.009</td>
+<td>$90</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td>$2 / $10</td>
+<td>$0.009</td>
+<td>$90</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td>$2 / $10</td>
+<td>$0.009</td>
+<td>$90</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td>$2 / $12</td>
+<td>$0.010</td>
+<td>$100</td>
+</tr>
+<tr>
+<td><strong>Gemini 4 Argon（通常価格）</strong></td>
+<td>$4 / $20</td>
+<td>$0.018</td>
+<td>$180</td>
+</tr>
+<tr>
+<td>Claude Opus 5.5</td>
+<td>$4 / $20</td>
+<td>$0.018</td>
+<td>$180</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td>$10 / $50</td>
+<td>$0.045</td>
+<td>$450</td>
+</tr>
+<tr>
+<td>Claude Fable 5.1</td>
+<td>$10 / $50</td>
+<td>$0.045</td>
+<td>$450</td>
+</tr>
+</tbody>
+</table></div>
+<p>他のモデルは2026年10月に確認した公式 API 料金です。</p>
+<p>ポイントは次のとおりです。</p>
+<ul>
+<li><strong>通常価格は Claude Opus 5.5 とまったく同じ</strong>です（入力 $4、出力 $20）。</li>
+<li><strong>導入価格は GPT-6 Sol や Claude Sonnet 5.5 と同じ</strong>です。最上位モデルを中位モデルの価格で使える期間です。</li>
+<li><strong>通常価格でも GPT-6 Astra や Claude Fable 5.1 より2.5倍安い</strong>です。Google の発表どおりの性能なら、最上位モデルの中でいちばんコスパの良い選択肢になります。</li>
+<li><strong>Gemini 3.1 Pro よりは高い</strong>です。通常価格で1リクエストあたり約1.8倍。3.1 Pro で足りている作業なら、乗り換える理由はありません。</li>
+</ul>
+<h2>どんな作業に使う？</h2>
+<p><strong>向いている作業：</strong> 大規模なコード修正や移行、セキュリティ診断、何段階も続く長いエージェント作業、長い動画やグラフの分析。ミスのコストが高い作業ほど価値があります。</p>
+<p><strong>使わなくてよい作業：</strong> 要約、翻訳、分類、短い回答。これらは Gemini 3.8 Flash が1リクエストあたり約5分の1の費用で十分こなします。</p>
+<p>普段は Flash や 3.1 Pro で処理し、難しいリクエストだけ Argon に回すのが一般的な使い方です。</p>
+<h2>費用を抑えるコツ</h2>
+<ol>
+<li><strong>導入価格のうちに試す。</strong> 通常価格の半額なので、自分の作業に合うか試すには最適な時期です。</li>
+<li><strong>キャッシュを使う。</strong> キャッシュ入力は95%割引です。固定の指示や文書はプロンプトの先頭に置きましょう。</li>
+<li><strong>出力の長さを絞る。</strong> 最大100万トークンまで出力できますが、出力は入力の5倍の価格です。必要な分だけ答えるよう指示しましょう。</li>
+<li><strong>プロンプトを英語にする。</strong> 日本語のプロンプトは同じ内容でも英語よりトークンが多くかかります。<a href="/ja/">トークンカウンター</a>の 💸 トークン節約 ボタンで、端末内ですぐ英語に変えられます。</li>
+</ol>
+<h2>自分の費用を計算する</h2>
+<p><a href="/ja/">トークンカウンター</a>に Gemini 4 Argon を追加しました（通常価格）。普段のプロンプトを貼り付けて、Argon・GPT-6・Claude の費用を並べて比べてみてください。</p>
+<p><em>料金や提供時期は変わることがあります。使う前に <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini API の料金ページ</a> を確認してください。</em></p>

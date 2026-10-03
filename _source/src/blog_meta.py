@@ -342,6 +342,27 @@ AISITE = [
      "ブックマークする価値があるAIサイトだけを厳選。チャット、調べもの、翻訳、デザイン、音声、音楽、動画、モデル比較まで無料で試せます。", _BY["ja"], *_CTA_AS["ja"]),
 ]
 
+_CTA_G4 = {"en": ("Paste a prompt to compare its cost on Gemini 4 Argon, GPT-6 and Claude.", "Open the token counter"),
+           "ko": ("프롬프트를 붙여 넣고 Gemini 4 Argon·GPT-6·Claude의 비용을 비교해 보세요.", "토큰 계산기 열기"),
+           "ja": ("プロンプトを貼り付けて、Gemini 4 Argon・GPT-6・Claude の費用を比べましょう。", "トークンカウンターを開く"),
+           "es": ("Pega un prompt y compara su costo en Gemini 4 Argon, GPT-6 y Claude.", "Abrir el contador de tokens")}
+def _g4(tag, path, title, desc, by):
+    d = _cc(tag, path, "gem4-" + tag, title, desc, by, *_CTA_G4[tag]); d["date"] = "2026-10-03"; return d
+GEM4 = [
+ _g4("en", "/blog/gemini-4-argon-api-pricing", "Gemini 4 Argon API Pricing: Cost vs GPT-6 and Claude",
+     "Gemini 4 Argon API prices ($2/$10 intro, $4/$20 standard), cost per request, availability, and how it compares with GPT-6 and Claude.",
+     "Jonhisking · October 3, 2026"),
+ _g4("ko", "/ko/blog/gemini-4-argon-api-gagyeok", "제미나이 4 아르곤 API 가격: GPT-6·Claude와 비용 비교",
+     "Gemini 4 Argon의 API 가격(출시가 $2/$10, 정가 $4/$20), 요청당 실제 비용, 출시 일정, GPT-6·Claude와의 비교를 정리했습니다.",
+     "Jonhisking · 2026년 10월 3일"),
+ _g4("ja", "/ja/blog/gemini-4-argon-api-ryoukin", "Gemini 4 Argon の API 料金：GPT-6・Claude との費用比較",
+     "Gemini 4 Argon の API 料金（導入価格 $2/$10、通常 $4/$20）、1リクエストあたりの費用、提供時期、GPT-6・Claude との比較。",
+     "Jonhisking · 2026年10月3日"),
+ _g4("es", "/es/blog/gemini-4-argon-precio-api", "Precio de Gemini 4 Argon: costo frente a GPT-6 y Claude",
+     "Precios de la API de Gemini 4 Argon ($2/$10 de lanzamiento, $4/$20 estándar), costo por petición, disponibilidad y comparación con GPT-6 y Claude.",
+     "Jonhisking · 3 de octubre de 2026"),
+]
+
 # Spanish versions (added 2026-10-03)
 _BY["es"] = "Jonhisking · 3 de octubre de 2026"
 _CTA["es"] = ("Indica el tamaño de las tareas y cuántas haces al día para comparar el costo de Claude Code por API con Pro y Max.", "Abrir la calculadora de agentes")
