@@ -34,7 +34,9 @@ const PROVIDERS = {
     { id: 'claude-haiku-4-5',  name: 'Claude Haiku 4.5',  in: 1.00,  out: 5.00,  ratio: 1.05 },
   ],
   gemini: [
-    { id: 'gemini-3-1-pro',        name: 'Gemini 3.1 Pro',        in: 2.00, out: 12.00, ratio: 0.95 },
+    // Gemini 4 Argon (2026-09-30): standard $4/$20; introductory $2/$10 for a limited time
+    { id: 'gemini-4-argon',        name: 'Gemini 4 Argon',        in: 4.00, out: 20.00, ratio: 0.95 },
+    { id: 'gemini-3-1-pro',       name: 'Gemini 3.1 Pro',        in: 2.00, out: 12.00, ratio: 0.95 },
     { id: 'gemini-3-8-flash',      name: 'Gemini 3.8 Flash',      in: 0.75, out: 3.75,  ratio: 0.95 },
     { id: 'gemini-3-5-flash-lite', name: 'Gemini 3.5 Flash-Lite', in: 0.30, out: 2.50,  ratio: 0.95 },
     { id: 'gemini-3-1-flash-lite', name: 'Gemini 3.1 Flash-Lite', in: 0.25, out: 1.50,  ratio: 0.95 },

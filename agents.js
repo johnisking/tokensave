@@ -25,7 +25,7 @@ const GROUPS = [
     models: [['gpt-6-sol', 'GPT-6 Sol'], ['gpt-6-astra', 'GPT-6 Astra'], ['gpt-6-luna', 'GPT-6 Luna']],
     plans: [['ChatGPT Plus', 20], ['ChatGPT Pro 100', 100], ['ChatGPT Pro 200', 200], ['ChatGPT Pro 500', 500]] },
   { name: 'Gemini · DeepSeek · Grok', tool: 'Gemini CLI · Cline · Aider', main: 'gemini-3-1-pro',
-    models: [['gemini-3-1-pro', 'Gemini 3.1 Pro'], ['gemini-3-8-flash', 'Gemini 3.8 Flash'], ['deepseek-v4-pro', 'DeepSeek V4 Pro'], ['grok-code-fast-1', 'Grok Code Fast 1']],
+    models: [['gemini-3-1-pro', 'Gemini 3.1 Pro'], ['gemini-4-argon', 'Gemini 4 Argon'], ['gemini-3-8-flash', 'Gemini 3.8 Flash'], ['deepseek-v4-pro', 'DeepSeek V4 Pro'], ['grok-code-fast-1', 'Grok Code Fast 1']],
     plans: [] },
 ];
 
