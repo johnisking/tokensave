@@ -188,6 +188,7 @@ def blog_index_html():
     return ('    <section class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">\n'
             '      <h1 class="text-3xl font-extrabold text-white">Blog</h1>\n'
             '      <p class="mt-3">Plain-English guides to what AI really costs: tokens, API prices, subscriptions, video and image generation, and practical ways to spend less.</p>\n'
+            '      <p><a href="/compare/">Model vs model API cost comparisons →</a></p>\n'
             '      <ul class="not-prose mt-6 grid gap-3" style="list-style:none;padding:0">\n' + cards + '\n      </ul>\n'
             '      <h2>In other languages</h2>\n      <ul>\n' + links + '\n      </ul>\n    </section>')
 
@@ -346,6 +347,30 @@ def build():
         open(os.path.join(DIST, pg["file"]), "w", encoding="utf-8").write(out)
 
 
+    # Model-vs-model comparison pages (/compare/...), English only, prices from llm_prices.json
+    import compare as CMPG
+    cmp_pages, cmp_hub = CMPG.build_all(LLM)
+    for cp in [cmp_hub] + cmp_pages:
+        url = BASE + cp["path"]
+        ld = {"@context": "https://schema.org", "@graph": [
+            {"@type": "WebPage", "name": cp["title"], "url": url, "description": cp["desc"], "dateModified": LLM.get("checked", LASTMOD)},
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + "/"},
+                {"@type": "ListItem", "position": 2, "name": "Compare", "item": BASE + "/compare/"},
+                *([{"@type": "ListItem", "position": 3, "name": cp["title"], "item": url}] if cp is not cmp_hub else [])]}]
+            + ([cp["faq_ld"]] if "faq_ld" in cp else [])}
+        values = dict(
+            htmlLang="en", dir="ltr", url=url, ogLocale="en_US", ogImage=f"{BASE}/og-token.jpg",
+            title=esc(cp["title"] if cp is cmp_hub else cp["title"] + " | TokenSave"), desc=esc(cp["desc"]), lang=esc(S["en"]["lang"]),
+            homeUrl="/", hreflang="", langOptions=en_opts, langAll=en_all, toolNav=en_nav, ver=ver, adsHead=extras, faq="", guide="",
+            f1="", f2="", fAbout=esc(SITE["en"]["fAbout"]), fPrivacy=esc(SITE["en"]["fPrivacy"]),
+            ldjson=js(ld), tjson=js({"static": True}),
+            scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>',
+        )
+        fpath = os.path.join(DIST, "compare", "index.html") if cp is cmp_hub else os.path.join(DIST, cp["path"].lstrip("/") + ".html")
+        os.makedirs(os.path.dirname(fpath), exist_ok=True)
+        open(fpath, "w", encoding="utf-8").write(render(base, cp["body"], values))
+
     # Articles (/<slug>/blog/...): each group is one article in several languages, linked with hreflang
     plans_tool = next(t for t in TOOLS if t["key"] == "plans")
     tool_by_key = {t["key"]: t for t in TOOLS}
@@ -428,12 +453,14 @@ def build():
           b_alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}{b_en["path"]}"/>'
       for b in GROUP:
         entries.append(f"\n  <url>\n    <loc>{BASE}{b['path']}</loc>\n    <lastmod>{b.get('date', BLOG_DATE)}</lastmod>{b_alts}\n  </url>")
+    for cp in [cmp_hub] + cmp_pages:
+        entries.append(f"\n  <url>\n    <loc>{BASE}{cp['path']}</loc>\n    <lastmod>{LLM.get('checked', LASTMOD)}</lastmod>\n  </url>")
     open(os.path.join(DIST, "sitemap.xml"), "w", encoding="utf-8").write(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'
         + "".join(entries) + "\n</urlset>\n"
     )
-    print("built", count, "tool pages +", len(PAGES), "site pages +", len(BLOG) + len(PRO) + len(MISTRAL_FR) + len(PROMPT_PL) + len(GUIDES) + sum(map(len, MULTI)), "articles ->", DIST)
+    print("built", count, "tool pages +", len(PAGES), "site pages +", len(BLOG) + len(PRO) + len(MISTRAL_FR) + len(PROMPT_PL) + len(GUIDES) + sum(map(len, MULTI)), "articles +", len(cmp_pages) + 1, "compare pages ->", DIST)
 
 if __name__ == "__main__":
     build()
