@@ -483,7 +483,7 @@ def build():
               '<img src="https://uno.directory/uno-directory.svg" alt="Listed on Uno Directory" width="120" height="30" loading="lazy" /></a>'
               '<a href="https://findly.tools/tokensave?utm_source=tokensave" target="_blank" rel="noopener noreferrer">'
               '<img src="https://findly.tools/badges/findly-tools-badge-dark.svg" alt="Featured on Findly.tools" width="175" height="55" loading="lazy" /></a>'
-              '<a href="https://neeed.directory" target="_blank" rel="noopener">'
+              '<a href="https://neeed.directory/products/tokensave?utm_source=tokensave" target="_blank">'
               '<img src="https://neeed.directory/badges/neeed-badge-dark.svg" alt="Featured on neeed.directory" width="139" height="20" loading="lazy" /></a></p>')
     _home = os.path.join(DIST, "index.html")
     _h = open(_home, encoding="utf-8").read()
