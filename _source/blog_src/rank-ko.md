@@ -47,7 +47,13 @@ Claude Sonnet 5.5는 165.2점입니다. Opus보다 2.2점 낮은데 가격은 �
 
 나쁜 모델이라는 뜻은 아닙니다. 특정 작업에서는 종합 점수보다 잘할 수 있습니다. 다만 습관처럼 쓰고 있다면, 먼저 더 싼 모델을 내 프롬프트로 시험해 보세요.
 
-## 5. 아직 점수가 없는 모델
+## 5. GPT-6 Sol은 어디에?
+
+실제로 가장 많이 쓰는 모델이 GPT-6 Sol이라, 그래프에서 가장 눈에 띄는 빈자리입니다. Epoch AI는 아직 Sol 점수를 내지 않았지만, 다른 척도의 독립 측정 결과가 하나 나와 있습니다. [Artificial Analysis Intelligence Index](https://artificialanalysis.ai/)(v4.3.2, 최대 추론, 9월 30일 기준)에서 **GPT-6.1 Sol은 51.8점으로 GPT-6 Astra(52.7점)에 거의 근접**했습니다.
+
+Astra에 가까운 성능을 1/5 가격($2 / $10 vs $10 / $50)에 내는 셈입니다. Epoch 점수가 나와도 비슷하다면, Sol은 정가가 같은 Claude Sonnet 5.5 옆, 가성비 라인 위에 올라갈 가능성이 큽니다. 두 점수는 척도가 달라서 위 그래프에는 넣지 않았습니다.
+
+## 6. 아직 점수가 없는 모델
 
 GPT-6 Sol, GPT-6 Luna, GPT-6.1 Sol, Gemini 4 Argon, Grok 4.7은 너무 새로 나와서 아직 성능 점수가 없습니다. Epoch AI가 점수를 내면 [실시간 순위](/ko/compare/performance)에 자동으로 들어갑니다.
 

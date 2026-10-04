@@ -63,3 +63,6 @@ input[type=number]::-webkit-inner-spin-button { opacity: .4; }
 .perf-pend li { display: flex; flex-direction: column; background: #18181b; border: 1px solid #3f3f46; border-radius: .6rem; padding: .4rem .7rem; font-size: .85rem; }
 .perf-pend li strong { color: #fff; }
 .perf-pend li span { color: #a1a1aa; font-size: .75rem; font-variant-numeric: tabular-nums; }
+.perf-pend li em { font-style: normal; color: #fbbf24; font-size: .72rem; margin-top: .1rem; }
+.perf-pend p.perf-ext { margin: .75rem 0 0; font-size: .85rem; color: #d4d4d8; }
+.perf-pend p.perf-ext a { color: #c4b5fd; }

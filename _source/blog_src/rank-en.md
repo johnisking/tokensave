@@ -47,7 +47,13 @@ These models cost more than a frontier model that scores the same or higher:
 
 That does not make them bad models. They may do better on a specific task than the overall score suggests. But if you use them by default, test the cheaper option on your own prompts first.
 
-## 5. Not scored yet
+## 5. What about GPT-6 Sol?
+
+GPT-6 Sol is the model most people actually use, so it is the obvious gap in the chart. Epoch AI has not scored it yet, but one independent result is out on a different scale: on the [Artificial Analysis Intelligence Index](https://artificialanalysis.ai/) (v4.3.2, max reasoning effort, September 30), **GPT-6.1 Sol scores 51.8 against GPT-6 Astra's 52.7**.
+
+That is near-Astra capability at a fifth of the price ($2 / $10 against $10 / $50). If that holds when Epoch adds it, Sol would land on the best-value line next to Claude Sonnet 5.5, which has the same list price. The two scores use different scales, so they are not placed on the chart above.
+
+## 6. Not scored yet
 
 GPT-6 Sol, GPT-6 Luna, GPT-6.1 Sol, Gemini 4 Argon and Grok 4.7 are too new for a capability score. They will join the [live ranking](/compare/performance) automatically once Epoch AI publishes one.
 

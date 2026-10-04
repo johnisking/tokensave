@@ -88,6 +88,12 @@ CREDIT_L = {
     "ja": ('性能スコア：Epoch AI の <a href="https://epoch.ai/eci" rel="noopener" target="_blank">Epoch Capabilities Index</a>'
            '（<a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a>）を使用。'),
 }
+# Independent scores on another scale, quoted (not charted) until Epoch publishes an ECI score.
+EXTERNAL = {"gpt-6-1-sol": dict(score=51.8, ref="GPT-6 Astra 52.7", date="2026-09-30")}
+EXT_SRC = '<a href="https://artificialanalysis.ai/" rel="noopener" target="_blank">Artificial Analysis Intelligence Index</a>'
+EXT_NOTE = {"en": "Scores on a different scale cannot go on this chart, but one independent result is out: on the {src} (v4.3.2, max effort, {d}), GPT-6.1 Sol scores {s} against GPT-6 Astra's 52.7, near-Astra capability at a fifth of the price.",
+            "ko": "점수 체계가 달라 그래프에는 넣을 수 없지만 독립 측정 결과가 하나 나와 있습니다. {src}(v4.3.2, 최대 추론, {d} 기준)에서 GPT-6.1 Sol은 {s}점으로 GPT-6 Astra(52.7점)에 거의 근접했습니다. 가격은 Astra의 1/5입니다.",
+            "ja": "尺度が違うためグラフには載せられませんが、独立した測定結果が1つ出ています。{src}（v4.3.2、最大推論、{d}時点）で GPT-6.1 Sol は {s}、GPT-6 Astra の 52.7 にほぼ並びます。料金は Astra の5分の1です。"}
 PATH = {"en": "/compare/performance", "ko": "/ko/compare/performance", "ja": "/ja/compare/performance"}
 HOME = {"en": "/", "ko": "/ko/", "ja": "/ja/"}
 READ = {"en": 'What the chart means, model by model: <a href="/blog/best-value-llm-october-2026">Best value LLM in October 2026</a>.',
@@ -234,8 +240,13 @@ def build_page(models, llm, lang="en"):
     missing = [mid for mid in ECI_MAP if mid in models and mid not in sc]
     pend = ""
     if missing:
-        chips = "".join(f'<li><strong>{esc(models[m]["name"])}</strong><span>${models[m]["inp"]:g} / ${models[m]["out"]:g} · ${blended(models[m]):.2f}</span></li>' for m in missing)
-        pend = f'<div class="perf-pend not-prose"><div class="perf-pend-h">⏳ {t["pend_h"]}</div><p>{t["pend_p"]}</p><ul>{chips}</ul></div>'
+        def chip(m):
+            ext = EXTERNAL.get(m)
+            extra = f'<em>AA {ext["score"]} · {esc(ext["ref"].replace("GPT-6 ", ""))}</em>' if ext else ""
+            return (f'<li><strong>{esc(models[m]["name"])}</strong><span>${models[m]["inp"]:g} / ${models[m]["out"]:g} · ${blended(models[m]):.2f}</span>{extra}</li>')
+        chips = "".join(chip(m) for m in missing)
+        notes = "".join(f'<p class="perf-ext">{EXT_NOTE[lang].format(src=EXT_SRC, d=e["date"], s=e["score"])}</p>' for k, e in EXTERNAL.items() if k in missing)
+        pend = f'<div class="perf-pend not-prose"><div class="perf-pend-h">⏳ {t["pend_h"]}</div><p>{t["pend_p"]}</p><ul>{chips}</ul>{notes}</div>'
     th = t["th"]
     rows = []
     for p in sorted(pts, key=lambda p: -p["y"]):
