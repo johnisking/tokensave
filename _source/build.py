@@ -46,7 +46,7 @@ VERIFY = {
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC, DIST, TW = os.path.join(ROOT, "src"), os.path.join(ROOT, "dist"), os.path.join(ROOT, "tw")
-JS_FILES = ["common.js", "token.js", "video.js", "image.js", "plans.js", "agents.js"]
+JS_FILES = ["common.js", "token.js", "video.js", "image.js", "plans.js", "agents.js", "gamecost.js"]
 DEV_POST = "https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m"
 BLOG_BY_TAG = {b["tag"]: b for b in BLOG}
 MORE_CLS = "inline-block whitespace-nowrap font-semibold text-amber-300 underline underline-offset-2 decoration-amber-400/40 hover:text-white"
@@ -245,6 +245,8 @@ RANK_NAV = {"en": "AI Ranking", "ko": "AI 순위", "ja": "AIランキング", "z
     "da": "AI-rangliste", "fi": "AI-ranking", "no": "KI-rangering", "sk": "Rebríček AI", "mr": "AI क्रमवारी", "gu": "AI રેન્કિંગ",
     "kn": "AI ಶ್ರೇಯಾಂಕ", "ml": "AI റാങ്കിംഗ്", "ta": "AI தரவரிசை", "te": "AI ర్యాంకింగ్", "pa": "AI ਰੈਂਕਿੰਗ"}
 
+GC_NAV = {"en": "Game cost", "ko": "게임 제작비", "ja": "ゲーム制作費"}
+
 def render(base, body, values):
     if "toolNav" in values:  # every page's top menu gets the capability/price ranking
         here = values.get("url", "").endswith("/compare/performance")
@@ -252,6 +254,12 @@ def render(base, body, values):
         href = {"ko": "/ko/compare/performance", "ja": "/ja/compare/performance"}.get(values.get("htmlLang"), "/compare/performance")
         values = dict(values, toolNav=values["toolNav"] + f'\n          <a href="{href}" class="{NAV_ON if here else NAV_OFF}"'
                       + (' aria-current="page"' if here else '') + f'>📊 {esc(lab)}</a>')
+    if "toolNav" in values and values.get("htmlLang") in GC_NAV:
+        gl = values["htmlLang"]
+        here = values.get("url", "").endswith("ai-game-cost-calculator")
+        href = {"ko": "/ko/ai-game-cost-calculator", "ja": "/ja/ai-game-cost-calculator"}.get(gl, "/ai-game-cost-calculator")
+        values = dict(values, toolNav=values["toolNav"] + f'\n          <a href="{href}" class="{NAV_ON if here else NAV_OFF}"'
+                      + (' aria-current="page"' if here else '') + f'>🎮 {esc(GC_NAV[gl])}</a>')
     out = base.replace("{{body}}", body)
     for k, v in values.items():
         out = out.replace("{{" + k + "}}", v)
@@ -462,6 +470,37 @@ def build():
         os.makedirs(os.path.dirname(fp), exist_ok=True)
         open(fp, "w", encoding="utf-8").write(render(base, pp["body"], values))
 
+    # AI game cost estimator (/ai-game-cost-calculator + ko/ja)
+    import gamecost as GC
+    GC_ALTS = "\n".join(f'  <link rel="alternate" hreflang="{l}" href="{BASE}{p}" />' for l, p in GC.PATH.items()) + \
+        f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{GC.PATH["en"]}" />'
+    gc_prices = {k: {"in": v["in"], "out": v["out"]} for k, v in LLM["models"].items()}
+    for gl in ["en", "ko", "ja"]:
+        gp = GC.build_page(gl, LLM)
+        slug = tag_slug_[gl]
+        url = BASE + gp["path"]
+        nav = "\n".join(f'          <a href="{path_for(slug, t)}" class="{NAV_OFF}">{esc(NAV[gl][t["nav"]])}</a>' for t in TOOLS)
+        opts, opts_all = lang_menu(slug, gl, lambda sl: path_for(sl, TOOLS[0]))
+        ld = {"@context": "https://schema.org", "@graph": [
+            {"@type": "WebApplication", "name": gp["h1"], "url": url, "inLanguage": gl, "applicationCategory": "DeveloperApplication",
+             "operatingSystem": "Any", "isAccessibleForFree": True, "description": gp["desc"],
+             "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+             "publisher": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"}},
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + path_for(slug, TOOLS[0])},
+                {"@type": "ListItem", "position": 2, "name": gp["h1"], "item": url}]}, gp["faq_ld"]]}
+        values = dict(
+            htmlLang=gl, dir="ltr", url=url, ogLocale=tag_og_[gl], ogImage=f"{BASE}/og-token.jpg",
+            title=esc(gp["title"]), desc=esc(gp["desc"]), lang=esc(S[gl]["lang"]),
+            homeUrl=path_for(slug, TOOLS[0]), hreflang=GC_ALTS, langOptions=opts, langAll=opts_all, toolNav=nav, ver=ver, adsHead=extras,
+            faq="", guide="", f1="", f2="", fAbout=esc(SITE[gl]["fAbout"]), fPrivacy=esc(SITE[gl]["fPrivacy"]),
+            ldjson=js(ld), tjson=js({"static": True, "gc": gp["gc"], "prices": gc_prices, "modelNames": gp["models"]}),
+            scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>\n  <script type="module" src="/gamecost.js?v={ver}"></script>',
+        )
+        fp = os.path.join(DIST, gp["path"].lstrip("/") + ".html")
+        os.makedirs(os.path.dirname(fp), exist_ok=True)
+        open(fp, "w", encoding="utf-8").write(render(base, gp["body"], values))
+
     # Price chart for the API-pricing articles (one chart per highlight set, localized alt/caption)
     _cm = CMPG.load_models(LLM)
     _ids = ["claude-fable-5-1", "gpt-6-astra", "claude-opus-5-5", "gemini-4-argon", "gemini-3-1-pro", "gpt-6-sol",
@@ -638,6 +677,10 @@ def build():
         entries.append(f"\n  <url>\n    <loc>{BASE}{p_}</loc>\n    <lastmod>{LLM.get('checked', LASTMOD)}</lastmod>{var_x}\n  </url>")
     for pl in PERF_LANGS[1:]:
         entries.append(f"\n  <url>\n    <loc>{BASE}{PERF.PATH[pl]}</loc>\n    <lastmod>{LLM.get('checked', LASTMOD)}</lastmod>{perf_x}{img_tags(PERF.PATH[pl])}\n  </url>")
+    gc_x = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{BASE}{p}"/>' for l, p in GC.PATH.items()) + \
+        f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}{GC.PATH["en"]}"/>'
+    for p_ in GC.PATH.values():
+        entries.append(f"\n  <url>\n    <loc>{BASE}{p_}</loc>\n    <lastmod>{GC.CHECKED}</lastmod>{gc_x}\n  </url>")
     open(os.path.join(DIST, "sitemap.xml"), "w", encoding="utf-8").write(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'

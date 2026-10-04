@@ -12384,4 +12384,28 @@
       <image:loc>https://tokensave.app/img/ja-cheapest-ai-models.svg</image:loc>
     </image:image>
   </url>
+  <url>
+    <loc>https://tokensave.app/ai-game-cost-calculator</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/ai-game-cost-calculator</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/ai-game-cost-calculator</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
+  </url>
 </urlset>
