@@ -54,6 +54,7 @@ T = {
   l_art="Art", l_music="Music", l_sfx="SFX / voice", l_code="Code", l_d3="3D models", l_trailer="Trailer",
   cAi="Solo + AI (typical tools)", cMine="Your tools",
   days="{n} days", capWarn="This plan's usage limit is likely too low for daily agent coding — expect waits or extra usage.",
+  hireRef="For reference: hiring freelancers for a game this size usually starts at <b>{min}+</b>, and quotes can differ by 10× or more depending on country and quality.",
   noTrailer="Turn on “Promo trailer” to get trailer prompts.",
   copied="Copied ✓", packTitle="prompt pack",
   related="Related", rel=[("/agents", "Claude Code monthly cost"), ("/image", "AI image cost per image"), ("/compare/performance", "AI model capability vs price")],
@@ -97,6 +98,7 @@ T = {
   l_art="그림", l_music="음악", l_sfx="효과음·음성", l_code="코딩", l_d3="3D 모델", l_trailer="트레일러",
   cAi="1인 + AI (대표 도구)", cMine="내 도구 조합",
   days="{n}일", capWarn="이 요금제의 사용량 한도는 매일 에이전트로 코딩하기엔 부족할 가능성이 큽니다. 대기 시간이나 추가 사용료를 예상하세요.",
+  hireRef="참고: 같은 규모를 외주로 맡기면 보통 <b>{min} 이상</b>이 들며, 나라와 퀄리티에 따라 10배 넘게 차이 납니다.",
   noTrailer="'홍보 트레일러'를 켜면 트레일러 프롬프트가 나옵니다.",
   copied="복사됨 ✓", packTitle="프롬프트 묶음",
   related="함께 보기", rel=[("/ko/agents", "Claude Code 월 비용 계산기"), ("/ko/image", "AI 이미지 장당 비용"), ("/ko/compare/performance", "AI 모델 성능 vs 가격 순위")],
@@ -140,6 +142,7 @@ T = {
   l_art="画像", l_music="音楽", l_sfx="効果音・ボイス", l_code="コード", l_d3="3Dモデル", l_trailer="トレーラー",
   cAi="1人 + AI（代表的なツール）", cMine="自分のツール",
   days="{n}日", capWarn="このプランの利用上限は、毎日エージェントでコーディングするには足りない可能性が高いです。待ち時間や追加料金を見込んでください。",
+  hireRef="参考：同じ規模を外注すると通常<b>{min}以上</b>かかり、国や品質によって10倍以上の差があります。",
   noTrailer="「PRトレーラー」をオンにするとトレーラー用プロンプトが出ます。",
   copied="コピーしました ✓", packTitle="プロンプト集",
   related="関連ページ", rel=[("/ja/agents", "Claude Code 月額コスト計算機"), ("/ja/image", "AI画像の1枚あたりの費用"), ("/ja/compare/performance", "AIモデルの性能と価格ランキング")],
@@ -238,6 +241,7 @@ def build_page(lang, llm):
     <section class="{CARD} mt-5">
       <h2 class="{H2}">{e("cmpTitle")}</h2>
       <div id="gcCompare" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+      <p id="gcRef" class="mt-4 text-center text-xs sm:text-sm text-zinc-400"></p>
     </section>
 
     <section class="{CARD} mt-5">
@@ -263,7 +267,7 @@ def build_page(lang, llm):
     faq_ld = {"@type": "FAQPage", "inLanguage": lang, "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in t["faq"]]}
     runtime_keys = [k for k in t if k.startswith(("g_", "f_", "st", "dev", "r", "l_", "c")) or k in
-                    ("defName", "defIdea", "days", "capWarn", "saveLine", "noTrailer", "copied", "packTitle", "tDev", "tArt", "tMusic", "tSfx", "tTrailer")]
+                    ("defName", "defIdea", "days", "capWarn", "hireRef", "noTrailer", "copied", "packTitle", "tDev", "tArt", "tMusic", "tSfx", "tTrailer")]
     gc = {k: t[k] for k in runtime_keys if isinstance(t[k], str)}
     return dict(path=PATH[lang], title=t["title"], desc=t["desc"], h1=t["h1"], body=body, faq_ld=faq_ld, gc=gc,
                 models={k: n for k, n in models})

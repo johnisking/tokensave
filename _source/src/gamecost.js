@@ -213,6 +213,8 @@ function render() {
     col(t('cAi'), 'Midjourney + Suno + ElevenLabs + Claude Max 5×', e.base.lines, e.base.lo, e.base.hi, aiTime, true) +
     col(t('cMine'), mineTools, e.mine.lines, e.mine.lo, e.mine.hi, aiTime, false, e.mine.codeFits ? '' : t('capWarn'));
 
+  const HIRE_MIN = { s: 5000, m: 15000, l: 30000 };
+  $('#gcRef').innerHTML = t('hireRef', { min: usd(HIRE_MIN[state.scale] * (state.dim === '3d' ? 1.5 : 1)) });
   const P = prompts(e);
   window.__gcPrompts = P;
   for (const k of ['dev', 'art', 'music', 'sfx', 'trailer']) {
