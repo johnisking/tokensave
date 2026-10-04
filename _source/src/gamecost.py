@@ -14,7 +14,7 @@ CHECKED = "2026-10-05"
 GENRES = ["merge", "match3", "puzzle", "idle", "tycoon", "hyper", "runner", "survivor", "rpg", "tower", "card"]
 ENGINES = [("unity", "Unity"), ("godot", "Godot"), ("unreal", "Unreal"), ("gamemaker", "GameMaker"), ("cocos", "Cocos Creator"), ("defold", "Defold"), ("phaser", "Phaser"), ("flutter", "Flutter")]
 OTHER_ENGINES = [("construct", "Construct 3"), ("gdevelop", "GDevelop"), ("rpgmaker", "RPG Maker MZ"), ("renpy", "Ren'Py"), ("love", "LÖVE (Lua)"), ("solar2d", "Solar2D"), ("pixi", "PixiJS"), ("monogame", "MonoGame"), ("bevy", "Bevy (Rust)"), ("pygame", "Pygame"), ("roblox", "Roblox Studio"), ("native", "Kotlin / Swift"), ("rn", "React Native")]
-OTHER_GENRES = ["farming", "racing", "platformer", "shooter", "rhythm", "novel", "word", "escape", "board", "autobattler", "survival", "fishing", "sports", "fighting", "pet", "minigames", "metroidvania"]
+OTHER_GENRES = ["farming", "racing", "platformer", "shooter", "rhythm", "novel", "word", "escape", "board", "autobattler", "survival", "fishing", "sports", "fighting", "pet", "minigames", "metroidvania", "strategy", "gacha", "horror", "sandbox", "mmo"]
 FEATS = ["ads", "iap", "save", "rank", "online"]
 
 T = {
@@ -43,10 +43,11 @@ T = {
        ("Which AI tools do I need to make a game?", "Usually four: an image tool for sprites and backgrounds (Midjourney, Leonardo, Gemini, PixelLab, Scenario or an image API), a music tool (Suno, Stable Audio, AIVA or free Pixabay music), a sound effects tool (ElevenLabs, Stable Audio or free libraries) and a coding agent (Claude Code, Cursor or Gemini CLI). Meshy helps if you want 3D models, Higgsfield for a promo video."),
        ("How many tokens does it take to code a game with Claude Code?", "Agents re-read your project a lot, so a 2-week build can pass a few hundred million tokens, mostly cached. On a Claude Max plan you pay a flat monthly fee; on the API the calculator shows the cost for the model you choose."),
        ("Are the prompts free to use?", "Yes. Copy them or download the whole pack as a Markdown file and paste them into your tools. Nothing you type is uploaded.")],
-  defName="My Game", defIdea="a {genre} game for mobile",
-  g_merge="Merge", g_puzzle="Puzzle", g_racing="Racing", g_idle="Idle", g_platformer="Platformer", g_rpg="RPG", g_novel="Visual novel", g_shooter="Shooter", g_match3="Match-3", g_tower="Tower defense", g_card="Card / deckbuilder", g_survivor="Survivor-like", g_tycoon="Tycoon / sim", g_hyper="Hyper-casual", g_runner="Runner", g_rhythm="Rhythm", g_word="Word / quiz", g_farming="Farming / life sim", g_escape="Escape room / hidden object", g_board="Board game", g_autobattler="Auto battler", g_survival="Survival / crafting", g_fishing="Fishing", g_sports="Sports", g_fighting="Fighting", g_pet="Pet raising", g_minigames="Mini-game collection", g_metroidvania="Metroidvania", gOther="Other ▾",
+  defName="My Game", defIdea="a {genre} game for {plat}",
+  g_merge="Merge", g_puzzle="Puzzle", g_racing="Racing", g_idle="Idle", g_platformer="Platformer", g_rpg="RPG", g_novel="Visual novel", g_shooter="Shooter", g_match3="Match-3", g_tower="Tower defense", g_card="Card / deckbuilder", g_survivor="Survivor-like", g_tycoon="Tycoon / sim", g_hyper="Hyper-casual", g_runner="Runner", g_rhythm="Rhythm", g_word="Word / quiz", g_farming="Farming / life sim", g_escape="Escape room / hidden object", g_board="Board game", g_autobattler="Auto battler", g_survival="Survival / crafting", g_fishing="Fishing", g_sports="Sports", g_fighting="Fighting", g_pet="Pet raising", g_minigames="Mini-game collection", g_metroidvania="Metroidvania", g_strategy="Strategy / 4X", g_gacha="Gacha collection RPG", g_horror="Horror", g_sandbox="Sandbox", g_mmo="MMO / online RPG", gOther="Other ▾",
   f_ads="Ads", f_iap="In-app purchases", f_save="Save / load", f_rank="Leaderboard", f_online="Online multiplayer",
-  devIntro="You are a senior game developer. Help me build \"{name}\", a 2D {genre} mobile game in {engine}.",
+  devIntro="You are a senior game developer. Help me build \"{name}\", a 2D {genre} game for {plat} in {engine}.",
+  qPlat="Release on", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Web", pls_android="Google Play, once", pls_mobile="Google Play $25 + Apple $99/yr", pls_pc="Steam Direct, per game", pls_web="", l_store="Store fee", l_server="Server",
   devIdea="Idea:", devScope="Scope: {chars} characters, {bg} backgrounds, {items} items, {music} music tracks, {sfx} sound effects, {langs} language(s).",
   devFeats="Features:", devRules="Rules: keep the code simple and modular; one feature per step; after each step tell me how to test it on my phone; use placeholder shapes until I give you the real art.",
   devSteps="Build it in these steps:", st1="Project setup, folder structure, scene flow (title → game → result)", st2="Core gameplay loop with placeholder art",
@@ -87,10 +88,11 @@ T = {
        ("게임 만들 때 어떤 AI 도구가 필요한가요?", "보통 네 가지입니다. 스프라이트·배경용 이미지 도구(Midjourney, Leonardo, Gemini, PixelLab, Scenario, 이미지 API), 음악 도구(Suno, Stable Audio, AIVA, 무료 픽사베이), 효과음 도구(ElevenLabs, Stable Audio, 무료 라이브러리), 코딩 에이전트(Claude Code, Cursor, Gemini CLI)입니다. 3D 모델이 필요하면 Meshy, 홍보 영상은 Higgsfield를 씁니다."),
        ("Claude Code로 게임을 만들면 토큰이 얼마나 드나요?", "에이전트는 프로젝트를 반복해서 읽기 때문에 2주짜리 개발에도 수억 토큰이 오가고, 대부분은 캐시입니다. Claude Max 구독이면 월 정액이고, API로 쓰면 고른 모델 기준 비용을 계산기가 보여 줍니다."),
        ("프롬프트는 무료로 써도 되나요?", "네. 복사하거나 전체를 Markdown 파일로 받아 각 도구에 붙여 넣으면 됩니다. 입력한 내용은 어디에도 업로드되지 않습니다.")],
-  defName="내 게임", defIdea="모바일 {genre} 게임",
-  g_merge="머지", g_puzzle="퍼즐", g_racing="레이싱", g_idle="방치형", g_platformer="플랫포머", g_rpg="RPG", g_novel="비주얼노벨", g_shooter="슈팅", g_match3="3매치", g_tower="타워디펜스", g_card="카드·덱빌딩", g_survivor="뱀서류", g_tycoon="경영·시뮬", g_hyper="하이퍼캐주얼", g_runner="러너", g_rhythm="리듬", g_word="단어·퀴즈", g_farming="농장·생활", g_escape="방탈출·숨은그림", g_board="보드게임", g_autobattler="오토배틀러", g_survival="생존·크래프팅", g_fishing="낚시", g_sports="스포츠", g_fighting="격투", g_pet="육성", g_minigames="미니게임 모음", g_metroidvania="메트로배니아", gOther="그 외 ▾",
+  defName="내 게임", defIdea="{plat}용 {genre} 게임",
+  g_merge="머지", g_puzzle="퍼즐", g_racing="레이싱", g_idle="방치형", g_platformer="플랫포머", g_rpg="RPG", g_novel="비주얼노벨", g_shooter="슈팅", g_match3="3매치", g_tower="타워디펜스", g_card="카드·덱빌딩", g_survivor="뱀서류", g_tycoon="경영·시뮬", g_hyper="하이퍼캐주얼", g_runner="러너", g_rhythm="리듬", g_word="단어·퀴즈", g_farming="농장·생활", g_escape="방탈출·숨은그림", g_board="보드게임", g_autobattler="오토배틀러", g_survival="생존·크래프팅", g_fishing="낚시", g_sports="스포츠", g_fighting="격투", g_pet="육성", g_minigames="미니게임 모음", g_metroidvania="메트로배니아", g_strategy="전략·4X", g_gacha="가챠 수집형 RPG", g_horror="공포", g_sandbox="샌드박스", g_mmo="MMO·온라인 RPG", gOther="그 외 ▾",
   f_ads="광고", f_iap="인앱 결제", f_save="저장·불러오기", f_rank="랭킹", f_online="온라인 대전",
-  devIntro="당신은 숙련된 게임 개발자입니다. {engine}로 2D 모바일 {genre} 게임 \"{name}\"을 함께 만들어 주세요.",
+  devIntro="당신은 숙련된 게임 개발자입니다. {engine}로 {plat}용 2D {genre} 게임 \"{name}\"을 함께 만들어 주세요.",
+  qPlat="출시 플랫폼", pl_android="안드로이드", pl_mobile="안드로이드 + iOS", pl_pc="PC (Steam)", pl_web="웹", pls_android="Google Play, 1회", pls_mobile="Google Play $25 + Apple 연 $99", pls_pc="Steam Direct, 게임당", pls_web="", l_store="스토어 등록비", l_server="서버",
   devIdea="아이디어:", devScope="규모: 캐릭터 {chars}종, 배경 {bg}장, 아이템 {items}개, 배경음악 {music}곡, 효과음 {sfx}개, 지원 언어 {langs}개.",
   devFeats="기능:", devRules="규칙: 코드는 단순하고 모듈 단위로 나눠 주세요. 한 단계에 기능 하나씩 만들고, 단계가 끝날 때마다 휴대폰에서 테스트하는 방법을 알려 주세요. 진짜 그림을 드리기 전까지는 도형으로 임시 그래픽을 써 주세요.",
   devSteps="다음 순서로 만들어 주세요:", st1="프로젝트 설정, 폴더 구조, 화면 흐름 (타이틀 → 게임 → 결과)", st2="임시 그래픽으로 핵심 게임 루프",
@@ -131,10 +133,11 @@ T = {
        ("ゲーム制作にはどのAIツールが必要ですか？", "主に4つです。スプライト・背景用の画像ツール（Midjourney、Leonardo、Gemini、PixelLab、Scenario、画像API）、音楽（Suno、Stable Audio、AIVA、無料のPixabay）、効果音（ElevenLabs、Stable Audio、無料素材）、コーディングエージェント（Claude Code、Cursor、Gemini CLI）。3DモデルならMeshy、PR動画ならHiggsfieldも使えます。"),
        ("Claude Codeでゲームを作るとトークンはどれくらい？", "エージェントはプロジェクトを何度も読み直すため、2週間の開発でも数億トークンが流れ、その大半はキャッシュです。Claude Maxなら月額固定、APIなら選んだモデルでの費用を計算機が表示します。"),
        ("プロンプトは無料で使えますか？", "はい。コピーするか、まとめてMarkdownファイルでダウンロードして各ツールに貼り付けてください。入力内容はどこにもアップロードされません。")],
-  defName="マイゲーム", defIdea="モバイル向け{genre}ゲーム",
-  g_merge="マージ", g_puzzle="パズル", g_racing="レース", g_idle="放置", g_platformer="アクション", g_rpg="RPG", g_novel="ノベル", g_shooter="シューティング", g_match3="マッチ3", g_tower="タワーディフェンス", g_card="カード・デッキ構築", g_survivor="サバイバー系", g_tycoon="経営シミュ", g_hyper="ハイパーカジュアル", g_runner="ランナー", g_rhythm="リズム", g_word="単語・クイズ", g_farming="農場・生活", g_escape="脱出・隠し絵探し", g_board="ボードゲーム", g_autobattler="オートバトラー", g_survival="サバイバル・クラフト", g_fishing="釣り", g_sports="スポーツ", g_fighting="格闘", g_pet="育成", g_minigames="ミニゲーム集", g_metroidvania="メトロイドヴァニア", gOther="その他 ▾",
+  defName="マイゲーム", defIdea="{plat}向け{genre}ゲーム",
+  g_merge="マージ", g_puzzle="パズル", g_racing="レース", g_idle="放置", g_platformer="アクション", g_rpg="RPG", g_novel="ノベル", g_shooter="シューティング", g_match3="マッチ3", g_tower="タワーディフェンス", g_card="カード・デッキ構築", g_survivor="サバイバー系", g_tycoon="経営シミュ", g_hyper="ハイパーカジュアル", g_runner="ランナー", g_rhythm="リズム", g_word="単語・クイズ", g_farming="農場・生活", g_escape="脱出・隠し絵探し", g_board="ボードゲーム", g_autobattler="オートバトラー", g_survival="サバイバル・クラフト", g_fishing="釣り", g_sports="スポーツ", g_fighting="格闘", g_pet="育成", g_minigames="ミニゲーム集", g_metroidvania="メトロイドヴァニア", g_strategy="戦略・4X", g_gacha="ガチャ収集RPG", g_horror="ホラー", g_sandbox="サンドボックス", g_mmo="MMO・オンラインRPG", gOther="その他 ▾",
   f_ads="広告", f_iap="アプリ内課金", f_save="セーブ・ロード", f_rank="ランキング", f_online="オンライン対戦",
-  devIntro="あなたは経験豊富なゲーム開発者です。{engine}で2Dモバイル{genre}ゲーム「{name}」を一緒に作ってください。",
+  devIntro="あなたは経験豊富なゲーム開発者です。{engine}で{plat}向けの2D{genre}ゲーム「{name}」を一緒に作ってください。",
+  qPlat="リリース先", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Web", pls_android="Google Play、1回", pls_mobile="Google Play $25 + Apple 年$99", pls_pc="Steam Direct、1作品", pls_web="", l_store="ストア登録料", l_server="サーバー",
   devIdea="アイデア：", devScope="規模：キャラクター{chars}種、背景{bg}枚、アイテム{items}個、BGM{music}曲、効果音{sfx}個、対応言語{langs}。",
   devFeats="機能：", devRules="ルール：コードはシンプルにモジュール単位で。1ステップに1機能ずつ作り、各ステップの後にスマホでのテスト方法を教えてください。本番の絵を渡すまでは図形で仮グラフィックを使ってください。",
   devSteps="次の順番で作ってください：", st1="プロジェクト設定、フォルダ構成、画面の流れ（タイトル → ゲーム → 結果）", st2="仮グラフィックでコアゲームループ",
@@ -242,8 +245,9 @@ def build_page(lang, llm):
         <div><label for="gcVoice" class="block text-xs text-zinc-400 font-semibold mb-2">{e("qVoice")}</label><input id="gcVoice" type="number" min="0" max="2000" value="0" inputmode="numeric" {NUM}></div>
         <div><label for="gcLangs" class="block text-xs text-zinc-400 font-semibold mb-2">{e("qLangs")}</label><input id="gcLangs" type="number" min="1" max="41" value="1" inputmode="numeric" {NUM}></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-4">
         <div class="lg:col-span-2">{_field(e("qFeats"), f'<div id="gcFeats" class="flex flex-wrap gap-1.5">{feats}</div>')}</div>
+        {_field(e("qPlat"), _seg("gcPlat", [("android", e("pl_android")), ("mobile", e("pl_mobile")), ("pc", e("pl_pc")), ("web", e("pl_web"))], 2))}
         {_field(e("qTrailer"), _seg("gcTrailer", [("false", e("no")), ("true", e("yes"))]))}
       </div>
       <div class="mt-4">{_field(e("qEngine"), _seg("gcEngine", ENGINES + [("other", e("gOther"))], "grid-cols-3 sm:grid-cols-9") + '<select id="gcEngineOther" hidden class="mt-2 w-full sm:w-72 bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py-2 text-sm">' + "".join(f'<option value="{v}">{esc(l)}</option>' for v, l in OTHER_ENGINES) + '</select>')}</div>

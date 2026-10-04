@@ -45,9 +45,16 @@ const GENRE = {
   pet:        { chars: 0.6, bg: 1.0, items: 2.0, loc: 1.0, days: 1.0 },
   minigames:  { chars: 0.8, bg: 1.5, items: 1.0, loc: 1.5, days: 1.4 },
   metroidvania:{ chars: 1.5, bg: 2.0, items: 1.2, loc: 1.5, days: 1.6 },
+  strategy:   { chars: 1.5, bg: 1.2, items: 1.5, loc: 1.5, days: 1.5 },
+  gacha:      { chars: 3.0, bg: 1.5, items: 2.0, loc: 1.6, days: 1.7 },
+  horror:     { chars: 0.6, bg: 1.8, items: 1.0, loc: 1.0, days: 1.1 },
+  sandbox:    { chars: 1.0, bg: 1.2, items: 3.0, loc: 1.7, days: 1.7 },
+  mmo:        { chars: 2.0, bg: 2.0, items: 2.5, loc: 2.5, days: 2.5 },
 };
 const ANIM = { none: { actions: 1, frames: 1 }, simple: { actions: 3, frames: 4 }, full: { actions: 6, frames: 8 } };
 const SFXLV = { few: 0.6, normal: 1, many: 1.6 };
+const PLATFORM = { android: { fee: 25, days: 0 }, mobile: { fee: 124, days: 3 }, pc: { fee: 100, days: 2 }, web: { fee: 0, days: 0 } }; // store fees: Google Play $25 once, Apple $99/yr, Steam Direct $100
+const SERVER_MONTH = 12; // online play: Photon / Firebase / small VPS during development
 const FEAT = { ads: { loc: 300, days: 1 }, iap: { loc: 600, days: 2 }, save: { loc: 300, days: 1 }, rank: { loc: 500, days: 2 }, online: { loc: 3000, days: 10 } };
 
 // ---- Tool prices (checked 2026-10-05; verify on each vendor's page) ----
@@ -105,7 +112,7 @@ const PAINTS = [];
 const state = {
   genre: 'merge', scale: 's', style: 'illust', anim: 'simple', sfx: 'normal', dim: '2d',
   chars: null, music: null, voice: 0, langs: 1, trailer: false,
-  feats: new Set(['ads', 'save']), engine: 'unity',
+  feats: new Set(['ads', 'save']), engine: 'unity', platform: 'android',
   imgTool: 'mj', codeTool: 'max5', musicTool: 'suno', sfxTool: 'eleven', d3Tool: 'meshy', model: 'claude-sonnet-5-5', name: '', idea: '',
 };
 
@@ -123,6 +130,7 @@ function estimate() {
   const sfx = Math.round(S.sfx * SFXLV[state.sfx]);
   let loc = S.loc * g.loc, days = S.days * g.days;
   for (const f of state.feats) { loc += FEAT[f].loc; days += FEAT[f].days; }
+  days += PLATFORM[state.platform].days;
   if (state.langs > 1) { days += 0.5 * (state.langs - 1); loc += 150; }
   if (state.dim === '3d') { days *= 1.25; loc *= 1.15; }
   const frames = chars * a.actions * a.frames;
@@ -174,6 +182,8 @@ function estimate() {
       return { c, lines: [
         ['art', imgCost(img, m)], ['music', musicCost], ['sfx', sfxCost], ['code', c.cost, sub],
         ...(models3d ? [['d3', d3Cost(d3)]] : []), ...(state.trailer ? [['trailer', trailerCost]] : []),
+        ...(state.feats.has('online') ? [['server', SERVER_MONTH * m, t('monthsN', { n: m })]] : []),
+        ...(PLATFORM[state.platform].fee ? [['store', PLATFORM[state.platform].fee, t('pls_' + state.platform)]] : []),
       ] };
     };
     const sum = ls => ls.reduce((s, [, v]) => s + v, 0);
@@ -198,7 +208,7 @@ const STYLE_EN = {
 };
 const GENRE_EN = { puzzle: 'puzzle', racing: 'racing', merge: 'merge', idle: 'idle / incremental', platformer: 'platformer', rpg: 'RPG', novel: 'visual novel', shooter: 'shooter',
   match3: 'match-3', tower: 'tower defense', card: 'card / deckbuilder', survivor: 'survivor-like roguelite', tycoon: 'tycoon / management sim', hyper: 'hyper-casual', runner: 'endless runner', rhythm: 'rhythm', word: 'word / quiz', farming: 'farming / life sim',
-  escape: 'escape room / hidden object', board: 'board game', autobattler: 'auto battler', survival: 'survival crafting', fishing: 'fishing', sports: 'sports', fighting: 'fighting', pet: 'pet raising / virtual pet', minigames: 'mini-game collection', metroidvania: 'metroidvania' };
+  escape: 'escape room / hidden object', board: 'board game', autobattler: 'auto battler', survival: 'survival crafting', fishing: 'fishing', sports: 'sports', fighting: 'fighting', pet: 'pet raising / virtual pet', minigames: 'mini-game collection', metroidvania: 'metroidvania', strategy: 'strategy / 4X', gacha: 'gacha character-collection RPG', horror: 'horror', sandbox: 'sandbox', mmo: 'online multiplayer RPG' };
 const MOOD = {
   puzzle: ['calm, playful', 95], racing: ['energetic, driving', 140], merge: ['cozy, cheerful', 100], idle: ['relaxed, uplifting', 90],
   platformer: ['bouncy, adventurous', 128], rpg: ['epic, orchestral', 110], novel: ['gentle, emotional piano', 80], shooter: ['intense, electronic', 150],
@@ -206,18 +216,21 @@ const MOOD = {
   hyper: ['upbeat, catchy', 120], runner: ['fast, energetic', 150], rhythm: ['danceable, catchy electronic', 128], word: ['calm, light', 90], farming: ['peaceful, acoustic', 90],
   escape: ['mysterious, ambient', 85], board: ['calm, thoughtful', 90], autobattler: ['epic, tactical', 115], survival: ['tense, atmospheric', 100], fishing: ['relaxed, breezy', 92],
   sports: ['energetic, stadium rock', 135], fighting: ['aggressive, fast rock', 155], pet: ['cute, cheerful', 105], minigames: ['playful, varied', 115], metroidvania: ['dark, atmospheric', 105],
+  strategy: ['epic, strategic orchestral', 100], gacha: ['heroic, anime-style orchestral', 120], horror: ['eerie, dark ambient', 70], sandbox: ['calm, wondrous', 95], mmo: ['epic fantasy orchestral', 110],
 };
+const PLAT_EN = { android: 'Android phones', mobile: 'mobile (Android + iOS)', pc: 'PC (Steam)', web: 'web browsers' };
+const END_CARD = { android: 'Free on Google Play', mobile: 'Free on Google Play & App Store', pc: 'Wishlist now on Steam', web: 'Play free in your browser' };
 const ENGINE = { unity: 'Unity (C#)', godot: 'Godot 4 (GDScript)', unreal: 'Unreal Engine 5 (C++ / Blueprints, Paper2D)', gamemaker: 'GameMaker (GML)', cocos: 'Cocos Creator 3 (TypeScript)', defold: 'Defold (Lua)', phaser: 'Phaser 3 (TypeScript, web)', flutter: 'Flutter + Flame (Dart)',
   construct: 'Construct 3 (event sheets + JavaScript)', gdevelop: 'GDevelop (events + JavaScript)', rpgmaker: 'RPG Maker MZ (JavaScript plugins)', renpy: "Ren'Py (Python)", love: 'LÖVE (Lua)', solar2d: 'Solar2D (Lua)', pixi: 'PixiJS (TypeScript, web)', monogame: 'MonoGame (C#)', bevy: 'Bevy (Rust)', pygame: 'Pygame (Python)', roblox: 'Roblox Studio (Luau)', native: 'native Android/iOS (Kotlin / Swift)', rn: 'React Native (TypeScript)' };
 
 function prompts(e) {
   const name = state.name.trim() || t('defName');
-  const idea = state.idea.trim() || t('defIdea', { genre: t('g_' + state.genre) });
+  const idea = state.idea.trim() || t('defIdea', { genre: t('g_' + state.genre), plat: t('pl_' + state.platform) });
   const style = STYLE_EN[state.style] + (state.dim === '3d' ? ', 2.5D low-poly look' : '');
   const feats = [...state.feats].map(f => t('f_' + f)).join(', ') || '-';
   const steps = [t('st1'), t('st2'), t('st3'), t('st4'), ...(state.feats.size ? [t('st5', { feats })] : []), t('st6'), t('st7')];
   const dev = [
-    t('devIntro', { name, genre: t('g_' + state.genre), engine: ENGINE[state.engine] }),
+    t('devIntro', { name, genre: t('g_' + state.genre), engine: ENGINE[state.engine], plat: t('pl_' + state.platform) }),
     '', t('devIdea') + ' ' + idea,
     t('devScope', { chars: e.chars, bg: e.bg, items: e.items, music: e.music, sfx: e.sfx, langs: state.langs }),
     t('devFeats') + ' ' + feats,
@@ -226,7 +239,7 @@ function prompts(e) {
     '', t('devStart'),
   ].join('\n');
 
-  const head = `Style: ${style}. Game: 2D ${GENRE_EN[state.genre]} mobile game. Transparent background, centered, consistent proportions, no text.`;
+  const head = `Style: ${style}. Game: 2D ${GENRE_EN[state.genre]} game for ${PLAT_EN[state.platform]}. Transparent background, centered, consistent proportions, no text.`;
   const art = [`# STYLE (use in every prompt)\n${head}\n`];
   const a = ANIM[state.anim];
   const acts = ['idle', 'walk', 'jump', 'attack', 'hurt', 'win'].slice(0, a.actions);
@@ -259,7 +272,7 @@ function prompts(e) {
     '2. 2–5 s: core loop shown in 2 quick cuts',
     '3. 5–9 s: progression — bigger rewards, new characters/areas',
     '4. 9–12 s: challenge moment, camera shake',
-    '5. 12–15 s: logo + "Free on Google Play" end card',
+    `5. 12–15 s: logo + "${END_CARD[state.platform]}" end card`,
   ].join('\n') : '';
   return { dev, art: art.join('\n\n'), music, sfx, trailer };
 }
@@ -345,7 +358,7 @@ function num(id, key) {
 }
 
 seg('gcScale', 'scale'); seg('gcStyle', 'style'); seg('gcAnim', 'anim'); seg('gcSfx', 'sfx');
-seg('gcDim', 'dim'); seg('gcImg', 'imgTool'); seg('gcCodeTool', 'codeTool'); seg('gcMusicTool', 'musicTool'); seg('gcSfxTool', 'sfxTool'); seg('gcD3Tool', 'd3Tool');
+seg('gcDim', 'dim'); seg('gcPlat', 'platform'); seg('gcImg', 'imgTool'); seg('gcCodeTool', 'codeTool'); seg('gcMusicTool', 'musicTool'); seg('gcSfxTool', 'sfxTool'); seg('gcD3Tool', 'd3Tool');
 seg('gcTrailer', 'trailer', v => v === 'true');
 // Popular choices as buttons, the rest in an "other" dropdown (genre, engine)
 function popOther(boxId, selId, key, onPick) {
