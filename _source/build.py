@@ -9,7 +9,7 @@ src/base.html (shared layout) + src/<page>_body.html + src/i18n*.py + src/*.js +
 
 Run:  python3 build.py      (needs Node for Tailwind: the first run installs it into tw/node_modules)
 """
-import html, json, os, shutil, hashlib, subprocess, sys
+import html, json, os, re, shutil, hashlib, subprocess, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "src"))
 from i18n import LANGS, S
 from i18n_video import NAV, V
@@ -350,10 +350,20 @@ def build():
     # Model-vs-model comparison pages (/compare/...), English only, prices from llm_prices.json
     import compare as CMPG
     cmp_pages, cmp_hub = CMPG.build_all(LLM)
+    import charts as CH
+    IMAGES = {}  # page path -> [(image url, caption)] for the image sitemap
+    def write_img(src, svg):
+        fp = os.path.join(DIST, src.lstrip("/"))
+        os.makedirs(os.path.dirname(fp), exist_ok=True)
+        open(fp, "w", encoding="utf-8").write(svg)
+    for cp in cmp_pages:
+        write_img(*cp["chart"])
+        IMAGES[cp["path"]] = [(BASE + cp["chart"][0], cp["image_caption"])]
     for cp in [cmp_hub] + cmp_pages:
         url = BASE + cp["path"]
         ld = {"@context": "https://schema.org", "@graph": [
-            {"@type": "WebPage", "name": cp["title"], "url": url, "description": cp["desc"], "dateModified": LLM.get("checked", LASTMOD)},
+            {"@type": "WebPage", "name": cp["title"], "url": url, "description": cp["desc"], "dateModified": LLM.get("checked", LASTMOD),
+             **({"primaryImageOfPage": {"@type": "ImageObject", "url": BASE + cp["chart"][0], "caption": cp["image_caption"]}} if "chart" in cp else {})},
             {"@type": "BreadcrumbList", "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + "/"},
                 {"@type": "ListItem", "position": 2, "name": "Compare", "item": BASE + "/compare/"},
@@ -370,6 +380,37 @@ def build():
         fpath = os.path.join(DIST, "compare", "index.html") if cp is cmp_hub else os.path.join(DIST, cp["path"].lstrip("/") + ".html")
         os.makedirs(os.path.dirname(fpath), exist_ok=True)
         open(fpath, "w", encoding="utf-8").write(render(base, cp["body"], values))
+
+    # Price chart for the API-pricing articles (one chart per highlight set, localized alt/caption)
+    _cm = CMPG.load_models(LLM)
+    _ids = ["claude-fable-5-1", "gpt-6-astra", "claude-opus-5-5", "gemini-4-argon", "gemini-3-1-pro", "gpt-6-sol",
+            "claude-sonnet-5-5", "grok-4-7", "deepseek-v4-pro", "kimi-k3", "claude-haiku-4-5", "gemini-3-8-flash",
+            "gpt-6-luna", "deepseek-v4-flash"]
+    _pm = sorted((_cm[i] for i in _ids if i in _cm), key=lambda m: (-m["out"], -m["inp"]))
+    PRICE_CAP = {
+        "en": ("Bar chart of API prices per 1M tokens, input and output, for {n} AI models{hl}", "API price per 1M tokens{hl} vs other major models (USD, checked {d})."),
+        "ko": ("주요 AI 모델 {n}개의 100만 토큰당 입력·출력 API 가격 막대그래프{hl}", "100만 토큰당 API 가격{hl} (달러, {d} 기준)"),
+        "ja": ("主要AIモデル{n}種の100万トークンあたり入力・出力API料金の棒グラフ{hl}", "100万トークンあたりのAPI料金{hl}（ドル、{d}時点）"),
+        "es": ("Gráfico de barras del precio de la API por 1M de tokens, entrada y salida, de {n} modelos de IA{hl}", "Precio de la API por 1M de tokens{hl} (USD, revisado el {d})."),
+    }
+    PRICE_HL = {
+        "gem4": (["gemini-4-argon"], "/img/gemini-4-argon-api-price-chart.svg",
+                 {"en": " (Gemini 4 Argon highlighted)", "ko": ": 제미나이 4 아르곤 강조", "ja": "：Gemini 4 Argon を強調", "es": " (Gemini 4 Argon resaltado)"}),
+        "gpt6": (["gpt-6-astra", "gpt-6-sol", "gpt-6-luna"], "/img/gpt-6-api-price-chart.svg",
+                 {"en": " (GPT-6 Astra, Sol and Luna highlighted)", "ko": ": GPT-6 Astra·Sol·Luna 강조", "ja": "：GPT-6 Astra・Sol・Luna を強調", "es": " (GPT-6 resaltado)"}),
+        "api": ([], "/img/llm-api-price-chart.svg", {}),
+    }
+    PRICE_SVG = {}
+    for key, (hl, src, _) in PRICE_HL.items():
+        PRICE_SVG[key] = CH.price_chart(_pm, set(hl), LLM.get("checked", ""))
+        write_img(src, PRICE_SVG[key])
+    def price_fig(key, tag):
+        hl, src, names = PRICE_HL[key]
+        alt, cap = PRICE_CAP.get(tag, PRICE_CAP["en"])
+        h = names.get(tag, names.get("en", ""))
+        w_, h_ = CH.size_of(PRICE_SVG[key])
+        return CH.figure(src, alt.format(n=len(_pm), hl=h), cap.format(hl=h, d=LLM.get("checked", "")), w_, h_), (BASE + src, cap.format(hl=h, d=LLM.get("checked", "")))
+    PRICE_GROUP = {id(GEM4): "gem4", id(GPT6): "gpt6", id(API_CMP): "api"}
 
     # Articles (/<slug>/blog/...): each group is one article in several languages, linked with hreflang
     plans_tool = next(t for t in TOOLS if t["key"] == "plans")
@@ -393,6 +434,13 @@ def build():
           tool_home = path_for(slug, TOOLS[0])
           cta_url = path_for(slug, gtool)
           article = open(os.path.join(SRC, "blog", b.get("src", tag) + ".html"), encoding="utf-8").read()
+          for _alt, _src in re.findall(r'<img[^>]*?alt="([^"]*)"[^>]*?src="(/[^"]+)"', article):
+              IMAGES.setdefault(b["path"], []).append((BASE + _src, _alt))
+          if id(GROUP) in PRICE_GROUP:
+              fig, img = price_fig(PRICE_GROUP[id(GROUP)], tag)
+              cut = article.find("<h2")
+              article = article[:cut] + fig + "\n" + article[cut:] if cut >= 0 else article + fig
+              IMAGES.setdefault(b["path"], []).append(img)
           body = f"""    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">{esc(b["title"])}</h1>
         <p class="mt-2 text-xs text-zinc-500">{esc(b["byline"])}</p>
@@ -435,6 +483,9 @@ def build():
         open(os.path.join(DIST, "ads.txt"), "w").write(
             f"google.com, {ADSENSE_PUB.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")
 
+    def img_tags(p):
+        return "".join(f"\n    <image:image>\n      <image:loc>{u}</image:loc>\n    </image:image>" for u, _ in IMAGES.get(p, []))
+
     # Sitemap with hreflang alternates for every tool page
     entries = []
     for tool in TOOLS:
@@ -452,12 +503,12 @@ def build():
       if b_en:
           b_alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}{b_en["path"]}"/>'
       for b in GROUP:
-        entries.append(f"\n  <url>\n    <loc>{BASE}{b['path']}</loc>\n    <lastmod>{b.get('date', BLOG_DATE)}</lastmod>{b_alts}\n  </url>")
+        entries.append(f"\n  <url>\n    <loc>{BASE}{b['path']}</loc>\n    <lastmod>{b.get('date', BLOG_DATE)}</lastmod>{b_alts}{img_tags(b['path'])}\n  </url>")
     for cp in [cmp_hub] + cmp_pages:
-        entries.append(f"\n  <url>\n    <loc>{BASE}{cp['path']}</loc>\n    <lastmod>{LLM.get('checked', LASTMOD)}</lastmod>\n  </url>")
+        entries.append(f"\n  <url>\n    <loc>{BASE}{cp['path']}</loc>\n    <lastmod>{LLM.get('checked', LASTMOD)}</lastmod>{img_tags(cp['path'])}\n  </url>")
     open(os.path.join(DIST, "sitemap.xml"), "w", encoding="utf-8").write(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
         + "".join(entries) + "\n</urlset>\n"
     )
     print("built", count, "tool pages +", len(PAGES), "site pages +", len(BLOG) + len(PRO) + len(MISTRAL_FR) + len(PROMPT_PL) + len(GUIDES) + sum(map(len, MULTI)), "articles +", len(cmp_pages) + 1, "compare pages ->", DIST)

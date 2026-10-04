@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://tokensave.app/</loc>
     <lastmod>2026-10-02</lastmod>
@@ -9499,6 +9499,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/polski-tokeny-gpt</loc>
@@ -9545,6 +9548,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/nihongo-tokens-gpt</loc>
@@ -9591,6 +9597,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/korean-tokens-gpt</loc>
@@ -9637,6 +9646,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/token-cost-by-language</loc>
@@ -9683,6 +9695,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/zh-cn/blog/zhongwen-token-gpt</loc>
@@ -9729,6 +9744,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/zh-tw/blog/zhongwen-fanti-token-gpt</loc>
@@ -9775,6 +9793,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/tokens-espanol-gpt</loc>
@@ -9821,6 +9842,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pt/blog/tokens-portugues-gpt</loc>
@@ -9867,6 +9891,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/fr/blog/tokens-francais-gpt</loc>
@@ -9913,6 +9940,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/de/blog/tokens-deutsch-gpt</loc>
@@ -9959,6 +9989,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/it/blog/token-italiano-gpt</loc>
@@ -10005,6 +10038,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ru/blog/tokeny-russkiy-gpt</loc>
@@ -10051,6 +10087,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/uk/blog/tokeny-ukrainska-gpt</loc>
@@ -10097,6 +10136,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/tr/blog/token-turkce-gpt</loc>
@@ -10143,6 +10185,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ar/blog/tokens-arabic-gpt</loc>
@@ -10189,6 +10234,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/fa/blog/token-farsi-gpt</loc>
@@ -10235,6 +10283,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/hi/blog/tokens-hindi-gpt</loc>
@@ -10281,6 +10332,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/id/blog/token-bahasa-indonesia-gpt</loc>
@@ -10327,6 +10381,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/vi/blog/token-tieng-viet-gpt</loc>
@@ -10373,6 +10430,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/th/blog/token-phasa-thai-gpt</loc>
@@ -10419,6 +10479,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/nl/blog/tokens-nederlands-gpt</loc>
@@ -10465,6 +10528,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/bn/blog/token-bangla-gpt</loc>
@@ -10511,6 +10577,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ur/blog/token-urdu-gpt</loc>
@@ -10557,6 +10626,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/fil/blog/token-filipino-gpt</loc>
@@ -10603,6 +10675,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/sv/blog/tokens-svenska-gpt</loc>
@@ -10649,6 +10724,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/he/blog/tokens-ivrit-gpt</loc>
@@ -10695,6 +10773,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/el/blog/tokens-ellinika-gpt</loc>
@@ -10741,6 +10822,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ro/blog/tokeni-romana-gpt</loc>
@@ -10787,6 +10871,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/hu/blog/tokenek-magyar-gpt</loc>
@@ -10833,6 +10920,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/da/blog/tokens-dansk-gpt</loc>
@@ -10879,6 +10969,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/fi/blog/tokenit-suomi-gpt</loc>
@@ -10925,6 +11018,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/no/blog/tokens-norsk-gpt</loc>
@@ -10971,6 +11067,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/sk/blog/tokeny-slovencina-gpt</loc>
@@ -11017,6 +11116,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/mr/blog/marathi-tokens-gpt</loc>
@@ -11063,6 +11165,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/gu/blog/gujarati-tokens-gpt</loc>
@@ -11109,6 +11214,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/kn/blog/kannada-tokens-gpt</loc>
@@ -11155,6 +11263,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ml/blog/malayalam-tokens-gpt</loc>
@@ -11201,6 +11312,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ta/blog/tamil-tokens-gpt</loc>
@@ -11247,6 +11361,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/te/blog/telugu-tokens-gpt</loc>
@@ -11293,6 +11410,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pa/blog/punjabi-tokens-gpt</loc>
@@ -11339,6 +11459,9 @@
     <xhtml:link rel="alternate" hreflang="te" href="https://tokensave.app/te/blog/telugu-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/chatgpt-pro-100-vs-200-vs-500</loc>
@@ -11349,6 +11472,9 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-pro-100-200-500-precios"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-pro-100-200-500-precos"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-pro-100-vs-200-vs-500"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-chatgpt-pro-tiers.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/chatgpt-pro-yogeumje-bigyo</loc>
@@ -11359,6 +11485,9 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-pro-100-200-500-precios"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-pro-100-200-500-precos"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-pro-100-vs-200-vs-500"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-chatgpt-pro-tiers.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/chatgpt-pro-ryokin-hikaku</loc>
@@ -11369,6 +11498,9 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-pro-100-200-500-precios"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-pro-100-200-500-precos"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-pro-100-vs-200-vs-500"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-chatgpt-pro-tiers.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/chatgpt-pro-100-200-500-precios</loc>
@@ -11379,6 +11511,9 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-pro-100-200-500-precios"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-pro-100-200-500-precos"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-pro-100-vs-200-vs-500"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-chatgpt-pro-tiers.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pt/blog/chatgpt-pro-100-200-500-precos</loc>
@@ -11389,6 +11524,9 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-pro-100-200-500-precios"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-pro-100-200-500-precos"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-pro-100-vs-200-vs-500"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-chatgpt-pro-tiers.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/fr/blog/mistral-chatgpt-cout-prompt-francais</loc>
@@ -11396,6 +11534,9 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/mistral-chatgpt-cout-prompt-francais"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/compteur-de-tokens-pourquoi"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/souverainete-ia-tokens"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-mistral-francais.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/fr/blog/compteur-de-tokens-pourquoi</loc>
@@ -11403,6 +11544,9 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/mistral-chatgpt-cout-prompt-francais"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/compteur-de-tokens-pourquoi"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/souverainete-ia-tokens"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-compteur-tokens-fr.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/fr/blog/souverainete-ia-tokens</loc>
@@ -11410,18 +11554,27 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/mistral-chatgpt-cout-prompt-francais"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/compteur-de-tokens-pourquoi"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/souverainete-ia-tokens"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-souverainete-ia-fr.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/ile-kosztuje-prompt-po-polsku</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-prompt-po-polsku"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/jak-skrocic-prompt-po-polsku"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-prompt-polski.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/jak-skrocic-prompt-po-polsku</loc>
     <lastmod>2026-10-03</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-prompt-po-polsku"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/jak-skrocic-prompt-po-polsku"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-prompt-pl-skracanie.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/claude-code-cost-per-month</loc>
@@ -11550,6 +11703,9 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gpt-6-api-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gpt-6-api-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gpt-6-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/img/gpt-6-api-price-chart.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/gpt-6-api-gagyeok</loc>
@@ -11558,6 +11714,9 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gpt-6-api-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gpt-6-api-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gpt-6-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/img/gpt-6-api-price-chart.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/gpt-6-api-ryoukin</loc>
@@ -11566,6 +11725,9 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gpt-6-api-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gpt-6-api-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gpt-6-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/img/gpt-6-api-price-chart.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/llm-api-pricing-comparison</loc>
@@ -11574,6 +11736,9 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/llm-api-gagyeok-bigyo"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/llm-api-ryoukin-hikaku"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/llm-api-pricing-comparison"/>
+    <image:image>
+      <image:loc>https://tokensave.app/img/llm-api-price-chart.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/llm-api-gagyeok-bigyo</loc>
@@ -11582,6 +11747,9 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/llm-api-gagyeok-bigyo"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/llm-api-ryoukin-hikaku"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/llm-api-pricing-comparison"/>
+    <image:image>
+      <image:loc>https://tokensave.app/img/llm-api-price-chart.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/llm-api-ryoukin-hikaku</loc>
@@ -11590,6 +11758,9 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/llm-api-gagyeok-bigyo"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/llm-api-ryoukin-hikaku"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/llm-api-pricing-comparison"/>
+    <image:image>
+      <image:loc>https://tokensave.app/img/llm-api-price-chart.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/tokens-per-word</loc>
@@ -11779,6 +11950,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-4-argon-api-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-4-argon-precio-api"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gemini-4-argon-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/img/gemini-4-argon-api-price-chart.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/gemini-4-argon-api-gagyeok</loc>
@@ -11788,6 +11962,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-4-argon-api-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-4-argon-precio-api"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gemini-4-argon-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/img/gemini-4-argon-api-price-chart.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/gemini-4-argon-api-ryoukin</loc>
@@ -11797,6 +11974,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-4-argon-api-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-4-argon-precio-api"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gemini-4-argon-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/img/gemini-4-argon-api-price-chart.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/gemini-4-argon-precio-api</loc>
@@ -11806,6 +11986,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-4-argon-api-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-4-argon-precio-api"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gemini-4-argon-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/img/gemini-4-argon-api-price-chart.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/what-is-a-token</loc>
@@ -11934,97 +12117,169 @@
   <url>
     <loc>https://tokensave.app/compare/gpt-6-sol-vs-claude-sonnet-5-5</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gpt-6-sol-vs-claude-sonnet-5-5-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gpt-6-astra-vs-claude-opus-5-5</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gpt-6-astra-vs-claude-opus-5-5-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gpt-6-astra-vs-claude-fable-5-1</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gpt-6-astra-vs-claude-fable-5-1-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gpt-6-astra-vs-gemini-4-argon</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gpt-6-astra-vs-gemini-4-argon-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gemini-4-argon-vs-claude-opus-5-5</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gemini-4-argon-vs-claude-opus-5-5-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gemini-4-argon-vs-claude-fable-5-1</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gemini-4-argon-vs-claude-fable-5-1-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gemini-4-argon-vs-gemini-3-1-pro</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gemini-4-argon-vs-gemini-3-1-pro-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gemini-3-1-pro-vs-gpt-6-sol</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gemini-3-1-pro-vs-gpt-6-sol-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gemini-3-1-pro-vs-claude-sonnet-5-5</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gemini-3-1-pro-vs-claude-sonnet-5-5-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gpt-6-sol-vs-gpt-6-astra</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gpt-6-sol-vs-gpt-6-astra-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gpt-6-luna-vs-gpt-6-sol</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gpt-6-luna-vs-gpt-6-sol-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gpt-6-luna-vs-gemini-3-8-flash</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gpt-6-luna-vs-gemini-3-8-flash-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gpt-6-luna-vs-claude-haiku-4-5</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gpt-6-luna-vs-claude-haiku-4-5-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gemini-3-8-flash-vs-claude-haiku-4-5</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gemini-3-8-flash-vs-claude-haiku-4-5-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/claude-sonnet-5-5-vs-claude-opus-5-5</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/claude-sonnet-5-5-vs-claude-opus-5-5-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/claude-haiku-4-5-vs-claude-sonnet-5-5</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/claude-haiku-4-5-vs-claude-sonnet-5-5-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/claude-opus-5-5-vs-claude-fable-5-1</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/claude-opus-5-5-vs-claude-fable-5-1-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/deepseek-v4-pro-vs-gpt-6-sol</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/deepseek-v4-pro-vs-gpt-6-sol-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/deepseek-v4-pro-vs-claude-sonnet-5-5</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/deepseek-v4-pro-vs-claude-sonnet-5-5-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/deepseek-v4-flash-vs-gpt-6-luna</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/deepseek-v4-flash-vs-gpt-6-luna-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/grok-4-7-vs-gpt-6-sol</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/grok-4-7-vs-gpt-6-sol-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/kimi-k3-vs-claude-sonnet-5-5</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/kimi-k3-vs-claude-sonnet-5-5-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/qwen3-8-max-vs-gpt-6-sol</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/qwen3-8-max-vs-gpt-6-sol-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gpt-5-6-vs-gpt-6-sol</loc>
     <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gpt-5-6-vs-gpt-6-sol-api-cost.svg</image:loc>
+    </image:image>
   </url>
 </urlset>

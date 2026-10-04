@@ -30,6 +30,9 @@ input[type=number]::-webkit-inner-spin-button { opacity: .4; }
 @media (max-width: 480px) { .prose-ts table { font-size: .8rem; } .prose-ts th, .prose-ts td { padding: .4rem .3rem; } }
 .prose-ts th { color: #f4f4f5; font-weight: 600; text-align: start; }
 .prose-ts img { width: 100%; max-width: 560px; height: auto; margin: 1.25rem auto; border-radius: .75rem; }
+.prose-ts figure.chart-fig { margin: 1.5rem 0; }
+.prose-ts img.chart { max-width: 100%; margin: 0; border-radius: 1rem; border: 1px solid #27272a; }
+.prose-ts figure.chart-fig figcaption { margin-top: .5rem; font-size: .75rem; color: #71717a; text-align: center; }
 
 /* Token split view */
 .tokview span{border-radius:3px;padding:2px 0;margin-right:1px;box-decoration-break:clone;-webkit-box-decoration-break:clone}

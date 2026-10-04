@@ -6,6 +6,7 @@ Prices come from token.js (model list, names, tokenizer ratios) overridden by sr
 actually compare are generated; each page is computed from the two models' own numbers.
 """
 import html, json, os, re
+import charts
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 esc = lambda s: html.escape(str(s), quote=True)
@@ -113,6 +114,12 @@ def build_page(a, b, models, checked, related):
         verdict = "≈ same" if r < 1.03 else f"{esc((a if ca < cb else b)['name'])} {times(r)} cheaper" if r >= 1.5 else f"{esc((a if ca < cb else b)['name'])} {round((1 - 1 / r) * 100)}% cheaper"
         wl_rows.append(f"<tr><td><strong>{label}</strong><br><span class=\"text-xs\">{what} · {i:,} in / {o:,} out</span></td>"
                        f"<td>{money(ca)}</td><td>{money(cb)}</td><td>{verdict}</td></tr>")
+    chart_rows = [(label, cost(a, i, o) * 1000, cost(b, i, o) * 1000) for label, what, i, o in WORKLOADS]
+    chart_svg = charts.compare_chart(a, b, chart_rows, checked)
+    chart_src = f"/img/compare/{slug(a)}-vs-{slug(b)}-api-cost.svg"
+    cw, ch = charts.size_of(chart_svg)
+    chart_fig = charts.figure(chart_src, f"Bar chart: {a['name']} vs {b['name']} API cost per 1,000 requests for chatbot, RAG, coding agent, summary and article workloads",
+                              f"{a['name']} vs {b['name']}: cost per 1,000 requests by workload (USD).", cw, ch)
     wl_tbl = (f"<table><thead><tr><th>Workload (per 1,000 requests)</th><th>{esc(a['name'])}</th><th>{esc(b['name'])}</th><th>Cheaper</th></tr></thead><tbody>"
               + "".join(wl_rows) + "</tbody></table>")
 
@@ -192,6 +199,7 @@ $('{calc_id}R').innerHTML=[D.a,D.b].map(function(m,k){{var best=c[k]===lo&&c[0]!
       <div class="overflow-x-auto">{price_tbl}</div>
       <h2>Cost by workload</h2>
       <div class="overflow-x-auto">{wl_tbl}</div>
+      {chart_fig}
       {cross}
       {tok_p}
       <h2>Monthly cost</h2>
@@ -210,7 +218,8 @@ $('{calc_id}R').innerHTML=[D.a,D.b].map(function(m,k){{var best=c[k]===lo&&c[0]!
       <p class="text-xs text-zinc-500 mt-6">Standard API list prices, short-context tier, no caching or batch discounts. Prices change; check each provider's pricing page before large jobs.</p>
     </article>"""
     faq_ld = {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ans}} for q, ans in faq]}
-    return dict(path=path(a, b), title=title, desc=desc, body=body, faq_ld=faq_ld)
+    return dict(path=path(a, b), title=title, desc=desc, body=body, faq_ld=faq_ld,
+                chart=(chart_src, chart_svg), image_caption=f"{a['name']} vs {b['name']} API cost per 1,000 requests")
 
 def build_all(llm):
     models = load_models(llm)
