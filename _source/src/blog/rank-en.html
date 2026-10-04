@@ -1,0 +1,102 @@
+<p>Is the most expensive AI model the smartest one? We put 23 models' capability scores next to their API prices to find out. Short answer: no. The best model costs half of what the second-best costs, and a model at 5% of the top price lands within 13 points of it.</p>
+<p>Scores come from the <strong>Epoch Capabilities Index (ECI)</strong>, which combines dozens of benchmarks (math, coding, science, reasoning) into one scale. Prices are standard API list prices, checked October 4, 2026.</p>
+<p><img loading="lazy" width="960" height="1430" alt="AI model capability vs API price, October 2026" src="/img/ai-model-capability-vs-price.svg" /></p>
+<p>Models on the green line are the <strong>best-value frontier</strong>: no other model is both cheaper and more capable. Anything below the line costs more than a frontier model with the same or higher score.</p>
+<h2>The short version</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Pick</th>
+<th>Model</th>
+<th>ECI</th>
+<th>10,000 chat requests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Top capability</td>
+<td>Claude Opus 5.5</td>
+<td>167.3</td>
+<td>$182</td>
+</tr>
+<tr>
+<td>Best value</td>
+<td>Claude Sonnet 5.5</td>
+<td>165.2</td>
+<td>$91</td>
+</tr>
+<tr>
+<td>Cheap and strong</td>
+<td>Gemini 3.8 Flash</td>
+<td>156.9</td>
+<td>$25</td>
+</tr>
+<tr>
+<td>Lowest price</td>
+<td>DeepSeek V4 Flash</td>
+<td>154.5</td>
+<td>$9</td>
+</tr>
+</tbody>
+</table></div>
+<p>A chat request here is 1,500 input and 400 output tokens of English text. Costs include each model's tokenizer difference: Claude counts about 30% more tokens than GPT for the same text, and that is already in the numbers.</p>
+<h2>1. Top capability: Claude Opus 5.5</h2>
+<p>Claude Opus 5.5 has the highest score, 167.3. At $4 input and $20 output per million tokens, it is also far from the most expensive model at the top. GPT-6 Astra is close behind at 166.5, but costs $10 / $50, so 10,000 chat requests run $350 against Opus's $182.</p>
+<p>The two are within each other's margin of error, so for most work you will not notice a quality gap. You will notice the bill.</p>
+<h2>2. Best value: Claude Sonnet 5.5</h2>
+<p>Claude Sonnet 5.5 scores 165.2, just 2.2 points under Opus, for half the price ($2 / $10). That gap is within the margin of error too. If you are choosing one model for a product today, this is the one the chart points to.</p>
+<h2>3. Cheap and strong: Gemini 3.8 Flash and DeepSeek V4 Flash</h2>
+<ul>
+<li><strong>Gemini 3.8 Flash</strong> (156.9) costs $0.75 / $3.75. 10,000 chat requests: about $25.</li>
+<li><strong>DeepSeek V4 Flash</strong> (154.5) costs $0.30 / $1.20. 10,000 chat requests: about $9, or 5% of Opus.</li>
+</ul>
+<p>Both sit about 10 to 13 points below the top. For classification, extraction, summaries and most chatbot traffic, that is often enough, and the savings are 7 to 20 times.</p>
+<h2>4. Expensive for what you get</h2>
+<p>These models cost more than a frontier model that scores the same or higher:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>ECI</th>
+<th>10,000 chat requests</th>
+<th>Same or better for less</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Fable 5.1</td>
+<td>164.8</td>
+<td>$455</td>
+<td>Sonnet 5.5 (165.2, $91)</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td>166.5</td>
+<td>$350</td>
+<td>Opus 5.5 (167.3, $182)</td>
+</tr>
+<tr>
+<td>GPT-5.5</td>
+<td>159.2</td>
+<td>$195</td>
+<td>Sonnet 5.5 (165.2, $91)</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td>154.8</td>
+<td>$74</td>
+<td>Gemini 3.8 Flash (156.9, $25)</td>
+</tr>
+</tbody>
+</table></div>
+<p>That does not make them bad models. They may do better on a specific task than the overall score suggests. But if you use them by default, test the cheaper option on your own prompts first.</p>
+<h2>5. Not scored yet</h2>
+<p>GPT-6 Sol, GPT-6 Luna, GPT-6.1 Sol, Gemini 4 Argon and Grok 4.7 are too new for a capability score. They will join the <a href="/compare/performance">live ranking</a> automatically once Epoch AI publishes one.</p>
+<h2>How to use this</h2>
+<ol>
+<li>Start from the frontier: Sonnet 5.5 for quality, Gemini 3.8 Flash or DeepSeek V4 Flash for volume.</li>
+<li>Test two or three of them on 20 real prompts from your app. The overall score is general capability, not your task.</li>
+<li>Check what your actual prompts cost on each model with the token counter, including the tokenizer difference.</li>
+</ol>
+<p>The chart and table update every day as prices and scores change: see the <a href="/compare/performance">AI model ranking</a>.</p>
+<p><em>Capability scores: Epoch Capabilities Index by Epoch AI, used under CC BY 4.0. Prices: standard API list prices, no caching or batch discounts, checked October 4, 2026.</em></p>

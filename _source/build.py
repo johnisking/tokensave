@@ -16,9 +16,9 @@ from i18n_video import NAV, V
 from i18n_image import I
 from i18n_site import SITE
 from seo_meta import META
-from blog_meta import BLOG, BLOG_DATE, PRO, MISTRAL_FR, PROMPT_PL, GUIDES, CC_COST, CC_LIMITS, CC_SAVE, CMP, GPT6, API_CMP, TPW, COUNT, CHLIM, CXLIM, CMAX, AISITE, GEM4
+from blog_meta import BLOG, BLOG_DATE, PRO, MISTRAL_FR, PROMPT_PL, GUIDES, CC_COST, CC_LIMITS, CC_SAVE, CMP, GPT6, API_CMP, TPW, COUNT, CHLIM, CXLIM, CMAX, AISITE, GEM4, RANK
 CC = (CC_COST, CC_LIMITS, CC_SAVE, CXLIM, CMAX)
-MULTI = (CC_COST, CC_LIMITS, CC_SAVE, CMP, GPT6, API_CMP, TPW, COUNT, CHLIM, CXLIM, CMAX, AISITE, GEM4)
+MULTI = (CC_COST, CC_LIMITS, CC_SAVE, CMP, GPT6, API_CMP, TPW, COUNT, CHLIM, CXLIM, CMAX, AISITE, GEM4, RANK)
 PRO_BY_TAG = {b["tag"]: b for b in PRO}
 from i18n_view import MORE_LANGS
 from i18n_plans_all import PL, PNAV, PMETA
@@ -194,7 +194,7 @@ def blog_index_html():
 
 def guide_links(tag, key):
     """Articles in the page language to link under the tool guide."""
-    arts = {"token": [b for G in (BLOG, MISTRAL_FR, PROMPT_PL, GEM4, GPT6, API_CMP, TPW, COUNT, AISITE) for b in G if b["tag"] == tag],
+    arts = {"token": [b for G in (BLOG, MISTRAL_FR, PROMPT_PL, RANK, GEM4, GPT6, API_CMP, TPW, COUNT, AISITE) for b in G if b["tag"] == tag],
             "plans": [b for G in (PRO, CMP, CHLIM) for b in G if b["tag"] == tag],
             "agents": [b for G in CC for b in G if b["tag"] == tag]}.get(key, [])
     return [(b["path"], b["title"]) for b in arts]
@@ -488,7 +488,7 @@ def build():
     og_by_key = {"video": "og-video.jpg", "image": "og-image.jpg"}
     for GROUP, gimg, gtool in [(BLOG, "blog-language-tax-chart-v4.png", TOOLS[0]), (PRO, "blog-chatgpt-pro-tiers.png", plans_tool), (MISTRAL_FR, "blog-mistral-francais.png", TOOLS[0]), (PROMPT_PL, "blog-prompt-polski.png", TOOLS[0])] + [
             ([g], og_by_key.get(g["tool"], "og-token.jpg"), tool_by_key[g["tool"]]) for g in GUIDES] + [
-            (G, "og-token.jpg", tool_by_key["agents"]) for G in CC] + [(CMP, "og-token.jpg", plans_tool), (GPT6, "og-token.jpg", TOOLS[0]), (GEM4, "og-token.jpg", TOOLS[0]), (API_CMP, "og-token.jpg", TOOLS[0]), (TPW, "og-token.jpg", TOOLS[0]), (COUNT, "og-token.jpg", TOOLS[0]), (CHLIM, "og-token.jpg", plans_tool), (AISITE, "og-token.jpg", TOOLS[0])]:
+            (G, "og-token.jpg", tool_by_key["agents"]) for G in CC] + [(CMP, "og-token.jpg", plans_tool), (GPT6, "og-token.jpg", TOOLS[0]), (GEM4, "og-token.jpg", TOOLS[0]), (RANK, "og-token.jpg", TOOLS[0]), (API_CMP, "og-token.jpg", TOOLS[0]), (TPW, "og-token.jpg", TOOLS[0]), (COUNT, "og-token.jpg", TOOLS[0]), (CHLIM, "og-token.jpg", plans_tool), (AISITE, "og-token.jpg", TOOLS[0])]:
       blog_en = next((b for b in GROUP if b["tag"] == "en"), None)
       blog_alts = "\n".join(f'  <link rel="alternate" hreflang="{b["tag"]}" href="{BASE}{b["path"]}" />' for b in GROUP) + (
           f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{blog_en["path"]}" />' if blog_en else "")
@@ -504,6 +504,14 @@ def build():
           tool_home = path_for(slug, TOOLS[0])
           cta_url = path_for(slug, gtool)
           article = open(os.path.join(SRC, "blog", b.get("src", tag) + ".html"), encoding="utf-8").read()
+          def _fix_chart(m):  # charts generated into /img: real size, full width
+              fp = os.path.join(DIST, m.group(2).lstrip("/"))
+              if not os.path.exists(fp):
+                  return m.group(0)
+              w_, h_ = CH.size_of(open(fp, encoding="utf-8").read())
+              tag_ = re.sub(r'width="\d+" height="\d+"', f'width="{w_}" height="{h_}"', m.group(0))
+              return tag_.replace("<img ", '<img class="chart" ', 1)
+          article = re.sub(r'<img[^>]*?alt="([^"]*)"[^>]*?src="(/img/[^"]+\.svg)"[^>]*>', _fix_chart, article)
           for _alt, _src in re.findall(r'<img[^>]*?alt="([^"]*)"[^>]*?src="(/[^"]+)"', article):
               IMAGES.setdefault(b["path"], []).append((BASE + _src, _alt))
           if id(GROUP) in PRICE_GROUP:

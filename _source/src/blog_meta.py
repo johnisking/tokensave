@@ -379,3 +379,21 @@ CMAX.append(_es("/es/blog/claude-max-vs-pro", "cmax-es", "Claude Max vs Pro: ¿v
     "Claude Pro vs Max 5× vs Max 20×: precio por unidad de uso, cómo funcionan los límites y quién debería subir de plan.", _CTA["es"]))
 AISITE.append(_es("/es/blog/paginas-de-ia-gratis", "aisite-es", "15 páginas de IA gratis que vale la pena guardar en favoritos",
     "Las mejores páginas de inteligencia artificial para chatear, investigar, traducir, diseñar, crear voz, música y video. Todas se pueden probar gratis.", _CTA_AS["es"]))
+
+# Monthly "best value LLM" ranking posts (blog_src/rank-<tag>.md), data from /compare/performance
+_CTA_RK = {"en": ("Paste a real prompt to see what it costs on Opus 5.5, Sonnet 5.5, Gemini 3.8 Flash and DeepSeek V4 Flash.", "Open the token counter"),
+           "ko": ("내 프롬프트를 붙여 넣고 Opus 5.5·Sonnet 5.5·Gemini 3.8 Flash·DeepSeek V4 Flash에서 얼마인지 확인해 보세요.", "토큰 계산기 열기"),
+           "ja": ("自分のプロンプトを貼り付けて、Opus 5.5・Sonnet 5.5・Gemini 3.8 Flash・DeepSeek V4 Flash でいくらかかるか確かめましょう。", "トークンカウンターを開く")}
+def _rk(tag, path, title, desc, by):
+    d = _cc(tag, path, "rank-" + tag, title, desc, by, *_CTA_RK[tag]); d["date"] = "2026-10-04"; return d
+RANK = [
+ _rk("en", "/blog/best-value-llm-october-2026", "Best Value LLM in October 2026: AI Capability vs Price",
+     "23 AI models' capability scores against API prices: Opus 5.5 leads, Sonnet 5.5 is half the price, and DeepSeek V4 Flash costs 5%.",
+     "Jonhisking · October 4, 2026"),
+ _rk("ko", "/ko/blog/ai-gaseongbi-sunwi-2026-10", "2026년 10월 AI 가성비 순위: 성능 vs 가격으로 본 LLM",
+     "AI 모델 23개의 성능 점수와 API 가격 비교. 1위 Opus 5.5, 절반 가격의 Sonnet 5.5, 5% 가격의 DeepSeek V4 Flash까지 정리했습니다.",
+     "Jonhisking · 2026년 10월 4일"),
+ _rk("ja", "/ja/blog/ai-cospa-ranking-2026-10", "2026年10月 AIコスパランキング：性能と価格で比べるLLM",
+     "AIモデル23種の性能スコアとAPI料金を比較。1位の Opus 5.5、半額の Sonnet 5.5、5%の料金の DeepSeek V4 Flash まで。",
+     "Jonhisking · 2026年10月4日"),
+]

@@ -90,6 +90,9 @@ CREDIT_L = {
 }
 PATH = {"en": "/compare/performance", "ko": "/ko/compare/performance", "ja": "/ja/compare/performance"}
 HOME = {"en": "/", "ko": "/ko/", "ja": "/ja/"}
+READ = {"en": 'What the chart means, model by model: <a href="/blog/best-value-llm-october-2026">Best value LLM in October 2026</a>.',
+        "ko": '모델별로 자세히 풀어 쓴 글: <a href="/ko/blog/ai-gaseongbi-sunwi-2026-10">2026년 10월 AI 가성비 순위</a>.',
+        "ja": 'モデルごとの詳しい解説：<a href="/ja/blog/ai-cospa-ranking-2026-10">2026年10月 AIコスパランキング</a>。'}
 
 T = {
  "en": dict(
@@ -261,6 +264,7 @@ def build_page(models, llm, lang="en"):
       <h2>{t['h_mean']}</h2>
       <p>{t['mean']}</p>
       <p>{t['cta'].format(home=HOME[lang])}</p>
+      <p>{READ[lang]}</p>
       <p class="text-xs text-zinc-500">{credit} {t['prices']}</p>
     </article>"""
     faq = [(q, a.format(names=names_plain, top=top_p["name"], ty=f"{top_p['y']:.1f}", d=checked)) for q, a in t["faq"]]
