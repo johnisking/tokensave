@@ -233,6 +233,8 @@ def build_all(llm):
                    for p, q in PAIRS if (p, q) != (x, y) and ({p, q} & {x, y})][:8]
         pg = build_page(a, b, models, checked, related)
         line = perf.compare_line(a, b, eci)
+        if "claude" in x or "claude" in y:
+            line += '\n      <p>Counting tokens for Claude? Use the <a href="/claude-token-counter">Claude token counter</a>: Claude needs about 30% more tokens than GPT for the same text.</p>'
         if line:
             pg["body"] = pg["body"].replace("<h2>Cost by workload</h2>", "<h2>Capability</h2>\n      " + line + "\n      <h2>Cost by workload</h2>", 1)
         pages.append(pg)

@@ -278,6 +278,9 @@ def build():
             assert not missing, f"{tool['key']} {tag} missing keys: {missing}"
             assert tag in NAV and tag in SITE, f"NAV/SITE missing {tag}"
 
+    import variants as VAR
+    VAR_ALTS = "\n".join(f'  <link rel="alternate" hreflang="{l}" href="{BASE}{p}" />' for l, p in VAR.PATHS.items()) + \
+        f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{VAR.PATHS["en"]}" />'
     count = 0
     for tool in TOOLS:
         body = open(os.path.join(SRC, tool["body"]), encoding="utf-8").read()
@@ -334,10 +337,37 @@ def build():
                 tjson=js(runtime),
                 scriptTag=f'<script type="module" src="/{tool["script"]}?v={ver}"></script>',
             )
+            if tool["key"] == "token" and tag in VAR.PATHS and "</section>" in values["guide"]:
+                lk = {"en": "Using Claude? Open the <a href=\"{p}\">Claude token counter</a> with Opus, Sonnet and Haiku preselected.",
+                      "ko": "Claude를 쓰시나요? Opus·Sonnet·Haiku가 바로 선택된 <a href=\"{p}\">Claude 토큰 계산기</a>를 열어 보세요.",
+                      "ja": "Claude をお使いですか？ Opus・Sonnet・Haiku が最初から選ばれた<a href=\"{p}\">Claude トークンカウンター</a>をどうぞ。"}[tag].format(p=VAR.PATHS[tag])
+                values["guide"] = values["guide"].replace("</section>", f"      <p>{lk}</p>\n    </section>", 1)
             folder = os.path.join(DIST, slug) if slug else DIST
             os.makedirs(folder, exist_ok=True)
             open(os.path.join(folder, tool["file"]), "w", encoding="utf-8").write(render(base, body, values))
             count += 1
+            if tool["key"] == "token" and tag in VAR.PATHS:  # Claude token counter landing page
+                vt = VAR.TXT[tag]
+                vguide, vfaq = VAR.guide_and_faq(tag, LLM)
+                vurl = BASE + VAR.PATHS[tag]
+                vs = dict(s, title=vt["title"], desc=vt["desc"], h1=vt["h1"], sub=vt["sub"])
+                for i in (1, 2, 3, 4):
+                    vs.pop(f"q{i}", None); vs.pop(f"a{i}", None)
+                for i, (q_, a_) in enumerate(vfaq, 1):
+                    vs[f"q{i}"], vs[f"a{i}"] = q_, a_
+                vgraph = [dict(graph[0], name=vt["h1"], url=vurl, description=vt["desc"]),
+                          {"@type": "FAQPage", "inLanguage": tag, "mainEntity": [{"@type": "Question", "name": q_, "acceptedAnswer": {"@type": "Answer", "text": a_}} for q_, a_ in vfaq]},
+                          {"@type": "BreadcrumbList", "itemListElement": [
+                              {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": url_for(slug, TOOLS[0])},
+                              {"@type": "ListItem", "position": 2, "name": vt["h1"], "item": vurl}]}]
+                vvalues = dict(values)
+                vvalues.update({k: esc(v) for k, v in vs.items()})
+                vvalues.update(url=vurl, hreflang=VAR_ALTS, guide=vguide, faq=faq_html(vs),
+                               ldjson=js({"@context": "https://schema.org", "@graph": vgraph}),
+                               tjson=js(dict(runtime, defaultProvider="claude", defaultModel="claude-sonnet-5-5")))
+                vfile = os.path.join(DIST, VAR.PATHS[tag].lstrip("/") + ".html")
+                os.makedirs(os.path.dirname(vfile), exist_ok=True)
+                open(vfile, "w", encoding="utf-8").write(render(base, body, vvalues))
 
     # English site pages
     en_nav = "\n".join(f'          <a href="{path_for("", t)}" class="{NAV_OFF}">{esc(NAV["en"][t["nav"]])}</a>' for t in TOOLS)
@@ -603,6 +633,9 @@ def build():
     for cp in [cmp_hub] + cmp_pages:
         alts_ = perf_x if cp["path"] == "/compare/performance" else ""
         entries.append(f"\n  <url>\n    <loc>{BASE}{cp['path']}</loc>\n    <lastmod>{LLM.get('checked', LASTMOD)}</lastmod>{alts_}{img_tags(cp['path'])}\n  </url>")
+    var_x = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{BASE}{p}"/>' for l, p in VAR.PATHS.items())
+    for p_ in VAR.PATHS.values():
+        entries.append(f"\n  <url>\n    <loc>{BASE}{p_}</loc>\n    <lastmod>{LLM.get('checked', LASTMOD)}</lastmod>{var_x}\n  </url>")
     for pl in PERF_LANGS[1:]:
         entries.append(f"\n  <url>\n    <loc>{BASE}{PERF.PATH[pl]}</loc>\n    <lastmod>{LLM.get('checked', LASTMOD)}</lastmod>{perf_x}{img_tags(PERF.PATH[pl])}\n  </url>")
     open(os.path.join(DIST, "sitemap.xml"), "w", encoding="utf-8").write(

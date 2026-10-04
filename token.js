@@ -433,7 +433,8 @@ els.select.addEventListener('change', () => {
   update();
 });
 
-tabs[0].click();
+([...tabs].find(b => b.dataset.provider === (window.T && window.T.defaultProvider)) || tabs[0]).click();
+{ const dm = window.T && window.T.defaultModel && PROVIDERS[provider].find(m => m.id === window.T.defaultModel); if (dm) { model = dm; els.select.value = dm.id; } }
 
 // Optimize: collapse repeated spaces/tabs, trim line edges, remove blank lines
 $('btnOptimize').addEventListener('click', () => {

@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=70322433" />
+  <link rel="stylesheet" href="/styles.css?v=a98b3615" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -98,6 +98,7 @@
       <div class="overflow-x-auto"><table><thead><tr><th></th><th>DeepSeek V4 Pro</th><th>Claude Sonnet 5.5</th></tr></thead><tbody><tr><td>Maker</td><td>DeepSeek</td><td>Anthropic</td></tr><tr><td>Input / 1M tokens</td><td>$1.32</td><td>$2</td></tr><tr><td>Output / 1M tokens</td><td>$3.96</td><td>$10</td></tr><tr><td>Output vs input price</td><td>3.0×</td><td>5.0×</td></tr><tr><td>Context window</td><td>1M tokens</td><td>1M tokens</td></tr><tr><td>Tokens for the same English text</td><td>baseline (GPT o200k count)</td><td>~130% of GPT's count (estimate)</td></tr></tbody></table></div>
       <h2>Capability</h2>
       <p>On the Epoch Capabilities Index, DeepSeek V4 Pro scores <strong>155.4</strong> and Claude Sonnet 5.5 <strong>165.2</strong>: Claude Sonnet 5.5 is 9.8 points higher. See <a href="/compare/performance">capability vs price for all models</a>.</p><p class="text-xs text-zinc-500">Capability scores: <a href="https://epoch.ai/eci" rel="noopener" target="_blank">Epoch Capabilities Index</a> by Epoch AI, used under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a>.</p>
+      <p>Counting tokens for Claude? Use the <a href="/claude-token-counter">Claude token counter</a>: Claude needs about 30% more tokens than GPT for the same text.</p>
       <h2>Cost by workload</h2>
       <div class="overflow-x-auto"><table><thead><tr><th>Workload (per 1,000 requests)</th><th>DeepSeek V4 Pro</th><th>Claude Sonnet 5.5</th><th>Cheaper</th></tr></thead><tbody><tr><td><strong>Chatbot reply</strong><br><span class="text-xs">short question plus some chat history · 1,500 in / 400 out</span></td><td>$3.56</td><td>$9.10</td><td>DeepSeek V4 Pro 2.6× cheaper</td></tr><tr><td><strong>Document Q&A (RAG)</strong><br><span class="text-xs">retrieved passages plus a question · 8,000 in / 500 out</span></td><td>$12.54</td><td>$27.30</td><td>DeepSeek V4 Pro 2.2× cheaper</td></tr><tr><td><strong>Coding agent step</strong><br><span class="text-xs">large working context, short edit · 25,000 in / 800 out</span></td><td>$36.17</td><td>$75.40</td><td>DeepSeek V4 Pro 2.1× cheaper</td></tr><tr><td><strong>Summarize a long report</strong><br><span class="text-xs">long input, short summary · 20,000 in / 300 out</span></td><td>$27.59</td><td>$55.90</td><td>DeepSeek V4 Pro 2.0× cheaper</td></tr><tr><td><strong>Write an article</strong><br><span class="text-xs">short brief, long draft · 800 in / 2,000 out</span></td><td>$8.98</td><td>$28.08</td><td>DeepSeek V4 Pro 3.1× cheaper</td></tr></tbody></table></div>
       <figure class="chart-fig"><img class="chart" src="/img/compare/deepseek-v4-pro-vs-claude-sonnet-5-5-api-cost.svg" alt="Bar chart: DeepSeek V4 Pro vs Claude Sonnet 5.5 API cost per 1,000 requests for chatbot, RAG, coding agent, summary and article workloads" width="560" height="636" loading="lazy" decoding="async" /><figcaption>DeepSeek V4 Pro vs Claude Sonnet 5.5: cost per 1,000 requests by workload (USD).</figcaption></figure>
@@ -148,6 +149,6 @@ $('cmpR').innerHTML=[D.a,D.b].map(function(m,k){var best=c[k]===lo&&c[0]!==c[1];
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=70322433"></script>
+  <script type="module" src="/common.js?v=a98b3615"></script>
 </body>
 </html>
