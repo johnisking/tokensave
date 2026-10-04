@@ -207,6 +207,8 @@ for _tag, (_slug, _t) in _EXTRA.items():
     T[_tag] = _t
     PATH[_tag] = f"/{_slug}/{SLUG}"
 
+READ2 = {"ja": ("/ja/blog/ai-game-tsukurikata", "AIでスマホゲームを作る方法：手順とツール")}
+
 def build_page(lang, llm):
     t = T[lang]
     e = lambda k: esc(t[k])
@@ -301,6 +303,7 @@ def build_page(lang, llm):
       <h2 style="margin-top:0">{e("howTitle")}</h2>
       <ul>{how}</ul>
       {f'<p><a href="{READ[lang][0]}">{esc(READ[lang][1])} →</a></p>' if lang in READ else ""}
+      {f'<p><a href="{READ2[lang][0]}">{esc(READ2[lang][1])} →</a></p>' if lang in READ2 else ""}
       <h2>{e("srcTitle")}</h2>
       <div class="overflow-x-auto"><table class="text-sm w-full"><tbody>{prices}</tbody></table></div>
       <p class="text-xs text-zinc-500">{e("srcNote")}</p>

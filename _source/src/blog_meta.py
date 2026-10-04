@@ -415,3 +415,11 @@ GAME = [
      "AIで1人で2Dゲームを作ると、小規模モバイルゲームで約$130〜180、2〜3週間。規模・ジャンル別の費用、内訳、ゲーム向けAIツールまで。",
      "Jonhisking · 2026年10月5日"),
 ]
+
+# Japanese how-to (targets 「ゲーム 作り方」 + AI), CTA -> /ja/ai-game-cost-calculator
+GAME_HOWTO = [
+ _gm("ja", "/ja/blog/ai-game-tsukurikata", "AIでスマホゲームを作る方法：手順・ツール・費用【2026年】",
+     "AIでスマホゲームを1人で作る6つの手順と必要なツール、ジャンル別の費用と期間（小規模で約$50〜180・2〜3週間）をまとめました。",
+     "Jonhisking · 2026年10月5日"),
+]
+GAME_HOWTO[0]["src"] = "game-howto-ja"
