@@ -53,7 +53,7 @@ T = {
   rImages="Images", rImagesSub="{chars} chars · {frames} frames · {bg} bg · {items} items · {ui} UI", rAudio="Music + SFX", rAudioSub="tracks + effects",
   rCode="Lines of code", rCodeSub="estimated", rTokens="Coding tokens", rTokensSub="≈ {api} on the API",
   l_art="Art", l_music="Music", l_sfx="SFX / voice", l_code="Code", l_d3="3D models", l_trailer="Trailer",
-  cAi="Solo + AI (typical tools)", cMine="Your tools",
+  p_value="💰 Best value", p_normal="⚖️ Typical", p_max="🚀 Top tier", pCustom="Your mix", tier_value="budget", tier_normal="typical", tier_max="premium", pHint="Click a combo to switch every tool at once, or change tools one by one below.",
   days="{n} days", monthsN="{n} mo", capWarn="This plan's usage limit is likely too low for daily agent coding — expect waits or extra usage.",
   hireRef="For reference: hiring freelancers for a game this size usually starts at <b>{min}+</b>, and quotes can differ by 10× or more depending on country and quality.",
   noTrailer="Turn on “Promo trailer” to get trailer prompts.",
@@ -97,7 +97,7 @@ T = {
   rImages="이미지", rImagesSub="캐릭터 {chars} · 프레임 {frames} · 배경 {bg} · 아이템 {items} · UI {ui}", rAudio="음악 + 효과음", rAudioSub="곡 + 효과음",
   rCode="코드 줄 수", rCodeSub="추정", rTokens="코딩 토큰", rTokensSub="API로 하면 약 {api}",
   l_art="그림", l_music="음악", l_sfx="효과음·음성", l_code="코딩", l_d3="3D 모델", l_trailer="트레일러",
-  cAi="1인 + AI (대표 도구)", cMine="내 도구 조합",
+  p_value="💰 가성비", p_normal="⚖️ 보통", p_max="🚀 최고 성능", pCustom="내 조합", tier_value="가성비형", tier_normal="보통", tier_max="고급형", pHint="조합을 누르면 도구가 한 번에 바뀝니다. 아래에서 하나씩 바꿀 수도 있습니다.",
   days="{n}일", monthsN="{n}개월", capWarn="이 요금제의 사용량 한도는 매일 에이전트로 코딩하기엔 부족할 가능성이 큽니다. 대기 시간이나 추가 사용료를 예상하세요.",
   hireRef="참고: 같은 규모를 외주로 맡기면 보통 <b>{min} 이상</b>이 들며, 나라와 퀄리티에 따라 10배 넘게 차이 납니다.",
   noTrailer="'홍보 트레일러'를 켜면 트레일러 프롬프트가 나옵니다.",
@@ -141,7 +141,7 @@ T = {
   rImages="画像", rImagesSub="キャラ{chars} · フレーム{frames} · 背景{bg} · アイテム{items} · UI{ui}", rAudio="BGM + 効果音", rAudioSub="曲 + 効果音",
   rCode="コード行数", rCodeSub="推定", rTokens="コーディングのトークン", rTokensSub="APIなら約{api}",
   l_art="画像", l_music="音楽", l_sfx="効果音・ボイス", l_code="コード", l_d3="3Dモデル", l_trailer="トレーラー",
-  cAi="1人 + AI（代表的なツール）", cMine="自分のツール",
+  p_value="💰 コスパ", p_normal="⚖️ 標準", p_max="🚀 最上位", pCustom="自分の組み合わせ", tier_value="節約型", tier_normal="標準", tier_max="高級型", pHint="組み合わせを押すとツールが一括で切り替わります。下で1つずつ変えることもできます。",
   days="{n}日", monthsN="{n}か月", capWarn="このプランの利用上限は、毎日エージェントでコーディングするには足りない可能性が高いです。待ち時間や追加料金を見込んでください。",
   hireRef="参考：同じ規模を外注すると通常<b>{min}以上</b>かかり、国や品質によって10倍以上の差があります。",
   noTrailer="「PRトレーラー」をオンにするとトレーラー用プロンプトが出ます。",
@@ -267,7 +267,7 @@ def build_page(lang, llm):
 
     <section class="{CARD} mt-5">
       <h2 class="{H2}">{e("cmpTitle")}</h2>
-      <div id="gcCompare" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+      <div id="gcCompare"></div>
       <p id="gcRef" class="mt-4 text-center text-xs sm:text-sm text-zinc-400"></p>
     </section>
 
@@ -293,7 +293,7 @@ def build_page(lang, llm):
     </section>'''
     faq_ld = {"@type": "FAQPage", "inLanguage": lang, "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in t["faq"]]}
-    runtime_keys = [k for k in t if k.startswith(("g_", "f_", "st", "dev", "r", "l_", "c")) or k in
+    runtime_keys = [k for k in t if k.startswith(("g_", "f_", "st", "dev", "r", "l_", "c", "p_", "p", "tier_")) or k in
                     ("defName", "defIdea", "days", "monthsN", "capWarn", "hireRef", "noTrailer", "copied", "packTitle", "tDev", "tArt", "tMusic", "tSfx", "tTrailer")]
     gc = {k: t[k] for k in runtime_keys if isinstance(t[k], str)}
     return dict(path=PATH[lang], title=t["title"], desc=t["desc"], h1=t["h1"], body=body, faq_ld=faq_ld, gc=gc,

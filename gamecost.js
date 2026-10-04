@@ -93,6 +93,15 @@ const TOOLS = {
 // Coding with an agent: tokens per active day (mostly cached context re-reads)
 const DAY_IN = 20e6, DAY_OUT = 0.4e6, CACHE_HIT = 0.85, CACHE_RATE = 0.1, CODE_SHARE = 0.7;
 
+// Tool presets the visitor can switch with one click
+const PRESETS = {
+  value:  { imgTool: 'gemini', codeTool: 'gemini', musicTool: 'free', sfxTool: 'free', d3Tool: 'tripo' },
+  normal: { imgTool: 'mj', codeTool: 'max5', musicTool: 'suno', sfxTool: 'eleven', d3Tool: 'meshy' },
+  max:    { imgTool: 'mj', codeTool: 'max20', musicTool: 'aiva', sfxTool: 'eleven', d3Tool: 'meshy' },
+};
+const KEYS = ['imgTool', 'codeTool', 'musicTool', 'sfxTool', 'd3Tool'];
+const PAINTS = [];
+
 const state = {
   genre: 'merge', scale: 's', style: 'illust', anim: 'simple', sfx: 'normal', dim: '2d',
   chars: null, music: null, voice: 0, langs: 1, trailer: false,
@@ -176,7 +185,8 @@ function estimate() {
   return {
     chars, bg, items, ui, frames, images, gens, music, sfx, loc: Math.round(loc / 100) * 100, days: Math.round(days),
     tokIn, tokOut, months, models3d,
-    base: ai('mj', 'max5', 'suno', 'eleven'), mine: ai(state.imgTool, state.codeTool, state.musicTool, state.sfxTool, state.d3Tool), apiCode,
+    presets: Object.fromEntries(Object.entries(PRESETS).map(([k, P]) => [k, ai(P.imgTool, P.codeTool, P.musicTool, P.sfxTool, P.d3Tool)])),
+    mine: ai(state.imgTool, state.codeTool, state.musicTool, state.sfxTool, state.d3Tool), apiCode,
   };
 }
 
@@ -275,10 +285,24 @@ function render() {
     </div>`;
   const days = n => t('days', { n });
   const aiTime = `${days(Math.round(e.days * 0.8))} – ${days(Math.round(e.days * 1.3))}`;
-  const mineTools = [...new Set([TOOLS.img[state.imgTool].name, TOOLS.music[state.musicTool].name.split(' (')[0], TOOLS.sfx[state.sfxTool].name.split(' (')[0], TOOLS.code[state.codeTool].name + (state.codeTool === 'api' ? ` (${(window.T.modelNames || {})[state.model] || state.model})` : '')])].join(' + ');
+  const toolNames = P => [...new Set([TOOLS.img[P.imgTool].name, TOOLS.music[P.musicTool].name.split(' (')[0], TOOLS.sfx[P.sfxTool].name.split(' (')[0],
+    TOOLS.code[P.codeTool].name + (P.codeTool === 'api' ? ` (${(window.T.modelNames || {})[state.model] || state.model})` : '')])].join(' + ');
+  const matched = Object.keys(PRESETS).find(k => KEYS.every(x => PRESETS[k][x] === state[x]));
+  const cards = Object.keys(PRESETS).map(k => {
+    const r = e.presets[k], on = k === matched;
+    return `<button data-preset="${k}" class="text-start rounded-xl border ${on ? 'border-violet-500/60 bg-violet-500/10' : 'border-zinc-800 bg-zinc-950/40 hover:border-zinc-600'} p-3">
+      <div class="text-sm font-bold">${t('p_' + k)}</div>
+      <div class="text-lg font-extrabold tabular-nums ${on ? 'text-violet-200' : ''}">${range(r.lo, r.hi)}</div>
+      <div class="text-[11px] text-zinc-500 leading-snug">${toolNames(PRESETS[k])}</div></button>`;
+  }).join('');
+  // Tier of a custom combo: compare with the three presets
+  const mid = r => (r.lo + r.hi) / 2, m = mid(e.mine);
+  const tier = matched || (m <= mid(e.presets.value) * 1.15 ? 'value' : m >= mid(e.presets.max) * 0.85 ? 'max' : 'normal');
+  const title = matched ? t('p_' + matched) : `${t('pCustom')} · ${t('tier_' + tier)}`;
   $('#gcCompare').innerHTML =
-    col(t('cAi'), 'Midjourney + Suno + ElevenLabs + Claude Max 5×', e.base.lines, e.base.lo, e.base.hi, aiTime, true) +
-    col(t('cMine'), mineTools, e.mine.lines, e.mine.lo, e.mine.hi, aiTime, false, e.mine.codeFits ? '' : t('capWarn'));
+    `<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3">${cards}</div>
+     <p class="text-[11px] text-zinc-500 mb-3">${t('pHint')}</p>` +
+    col(title, toolNames(state), e.mine.lines, e.mine.lo, e.mine.hi, aiTime, true, e.mine.codeFits ? '' : t('capWarn'));
 
   const HIRE_MIN = { s: 5000, m: 15000, l: 30000, xl: 80000 };
   $('#gcRef').innerHTML = t('hireRef', { min: usd(HIRE_MIN[state.scale] * (state.dim === '3d' ? 1.5 : 1)) });
@@ -305,6 +329,7 @@ function seg(id, key, cast = v => v) {
     if (key === 'scale' || key === 'genre') { state.chars = null; state.music = null; syncNums(); }
     paint(); render();
   });
+  PAINTS.push(paint);
   paint();
 }
 function syncNums() {
@@ -343,6 +368,11 @@ document.getElementById('gcFeats').addEventListener('change', ev => {
 });
 document.getElementById('gcModel').addEventListener('change', ev => { state.model = ev.target.value; render(); });
 for (const id of ['gcName', 'gcIdea']) document.getElementById(id).addEventListener('input', ev => { state[id === 'gcName' ? 'name' : 'idea'] = ev.target.value; render(); });
+
+document.getElementById('gcCompare').addEventListener('click', ev => {
+  const b = ev.target.closest('[data-preset]'); if (!b) return;
+  Object.assign(state, PRESETS[b.dataset.preset]); PAINTS.forEach(f => f()); render();
+});
 
 // Prompt tabs, copy, download
 const tabs = document.getElementById('gcTabs');
