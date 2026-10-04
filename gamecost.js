@@ -207,7 +207,8 @@ const MOOD = {
   escape: ['mysterious, ambient', 85], board: ['calm, thoughtful', 90], autobattler: ['epic, tactical', 115], survival: ['tense, atmospheric', 100], fishing: ['relaxed, breezy', 92],
   sports: ['energetic, stadium rock', 135], fighting: ['aggressive, fast rock', 155], pet: ['cute, cheerful', 105], minigames: ['playful, varied', 115], metroidvania: ['dark, atmospheric', 105],
 };
-const ENGINE = { unity: 'Unity (C#)', godot: 'Godot 4 (GDScript)', phaser: 'Phaser 3 (TypeScript, web)', flutter: 'Flutter + Flame (Dart)' };
+const ENGINE = { unity: 'Unity (C#)', godot: 'Godot 4 (GDScript)', unreal: 'Unreal Engine 5 (C++ / Blueprints, Paper2D)', gamemaker: 'GameMaker (GML)', cocos: 'Cocos Creator 3 (TypeScript)', defold: 'Defold (Lua)', phaser: 'Phaser 3 (TypeScript, web)', flutter: 'Flutter + Flame (Dart)',
+  construct: 'Construct 3 (event sheets + JavaScript)', gdevelop: 'GDevelop (events + JavaScript)', rpgmaker: 'RPG Maker MZ (JavaScript plugins)', renpy: "Ren'Py (Python)", love: 'LÖVE (Lua)', solar2d: 'Solar2D (Lua)', pixi: 'PixiJS (TypeScript, web)', monogame: 'MonoGame (C#)', bevy: 'Bevy (Rust)', pygame: 'Pygame (Python)', roblox: 'Roblox Studio (Luau)', native: 'native Android/iOS (Kotlin / Swift)', rn: 'React Native (TypeScript)' };
 
 function prompts(e) {
   const name = state.name.trim() || t('defName');
@@ -344,22 +345,25 @@ function num(id, key) {
 }
 
 seg('gcScale', 'scale'); seg('gcStyle', 'style'); seg('gcAnim', 'anim'); seg('gcSfx', 'sfx');
-seg('gcDim', 'dim'); seg('gcEngine', 'engine'); seg('gcImg', 'imgTool'); seg('gcCodeTool', 'codeTool'); seg('gcMusicTool', 'musicTool'); seg('gcSfxTool', 'sfxTool'); seg('gcD3Tool', 'd3Tool');
+seg('gcDim', 'dim'); seg('gcImg', 'imgTool'); seg('gcCodeTool', 'codeTool'); seg('gcMusicTool', 'musicTool'); seg('gcSfxTool', 'sfxTool'); seg('gcD3Tool', 'd3Tool');
 seg('gcTrailer', 'trailer', v => v === 'true');
-// Genre: popular ones as buttons, the rest in the "other" dropdown
-{
-  const box = document.getElementById('gcGenre'), sel = document.getElementById('gcGenreOther');
+// Popular choices as buttons, the rest in an "other" dropdown (genre, engine)
+function popOther(boxId, selId, key, onPick) {
+  const box = document.getElementById(boxId), sel = document.getElementById(selId);
   const popular = [...box.querySelectorAll('button')].map(b => b.dataset.v).filter(v => v !== 'other');
   const paint = () => {
-    const cur = popular.includes(state.genre) ? state.genre : 'other';
+    const cur = popular.includes(state[key]) ? state[key] : 'other';
     box.querySelectorAll('button').forEach(b => { const on = b.dataset.v === cur; b.classList.toggle('tab-active', on); b.classList.toggle('text-zinc-400', !on); b.setAttribute('aria-pressed', on); });
     sel.hidden = cur !== 'other';
+    if (cur === 'other' && sel.value !== state[key]) sel.value = state[key];
   };
-  const pick = g => { state.genre = g; state.chars = null; state.music = null; syncNums(); paint(); render(); };
+  const pick = v => { state[key] = v; if (onPick) onPick(); paint(); render(); };
   box.addEventListener('click', ev => { const b = ev.target.closest('button'); if (b) pick(b.dataset.v === 'other' ? sel.value : b.dataset.v); });
   sel.addEventListener('change', () => pick(sel.value));
   paint();
 }
+popOther('gcGenre', 'gcGenreOther', 'genre', () => { state.chars = null; state.music = null; syncNums(); });
+popOther('gcEngine', 'gcEngineOther', 'engine');
 num('gcChars', 'chars'); num('gcMusic', 'music'); num('gcVoice', 'voice');
 document.getElementById('gcLangs').addEventListener('input', ev => { state.langs = Math.max(1, Math.min(41, parseInt(ev.target.value, 10) || 1)); render(); });
 document.getElementById('gcFeats').addEventListener('change', ev => {

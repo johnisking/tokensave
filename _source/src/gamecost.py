@@ -12,6 +12,8 @@ PATH = {"en": f"/{SLUG}", "ko": f"/ko/{SLUG}", "ja": f"/ja/{SLUG}"}
 CHECKED = "2026-10-05"
 
 GENRES = ["merge", "match3", "puzzle", "idle", "tycoon", "hyper", "runner", "survivor", "rpg", "tower", "card"]
+ENGINES = [("unity", "Unity"), ("godot", "Godot"), ("unreal", "Unreal"), ("gamemaker", "GameMaker"), ("cocos", "Cocos Creator"), ("defold", "Defold"), ("phaser", "Phaser"), ("flutter", "Flutter")]
+OTHER_ENGINES = [("construct", "Construct 3"), ("gdevelop", "GDevelop"), ("rpgmaker", "RPG Maker MZ"), ("renpy", "Ren'Py"), ("love", "LÖVE (Lua)"), ("solar2d", "Solar2D"), ("pixi", "PixiJS"), ("monogame", "MonoGame"), ("bevy", "Bevy (Rust)"), ("pygame", "Pygame"), ("roblox", "Roblox Studio"), ("native", "Kotlin / Swift"), ("rn", "React Native")]
 OTHER_GENRES = ["farming", "racing", "platformer", "shooter", "rhythm", "novel", "word", "escape", "board", "autobattler", "survival", "fishing", "sports", "fighting", "pet", "minigames", "metroidvania"]
 FEATS = ["ads", "iap", "save", "rank", "online"]
 
@@ -241,10 +243,10 @@ def build_page(lang, llm):
         <div><label for="gcLangs" class="block text-xs text-zinc-400 font-semibold mb-2">{e("qLangs")}</label><input id="gcLangs" type="number" min="1" max="41" value="1" inputmode="numeric" {NUM}></div>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
-        {_field(e("qFeats"), f'<div id="gcFeats" class="flex flex-wrap gap-1.5">{feats}</div>')}
-        {_field(e("qEngine"), _seg("gcEngine", [("unity", "Unity"), ("godot", "Godot"), ("phaser", "Phaser"), ("flutter", "Flutter")], 4))}
+        <div class="lg:col-span-2">{_field(e("qFeats"), f'<div id="gcFeats" class="flex flex-wrap gap-1.5">{feats}</div>')}</div>
         {_field(e("qTrailer"), _seg("gcTrailer", [("false", e("no")), ("true", e("yes"))]))}
       </div>
+      <div class="mt-4">{_field(e("qEngine"), _seg("gcEngine", ENGINES + [("other", e("gOther"))], "grid-cols-3 sm:grid-cols-9") + '<select id="gcEngineOther" hidden class="mt-2 w-full sm:w-72 bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py-2 text-sm">' + "".join(f'<option value="{v}">{esc(l)}</option>' for v, l in OTHER_ENGINES) + '</select>')}</div>
       <h2 class="{H2} mt-6">{e("qTools")}</h2>
       <div class="grid grid-cols-1 gap-4">
         {_field(e("qImg"), _seg("gcImg", [("mj", "Midjourney"), ("leonardo", "Leonardo"), ("gemini", "Gemini"), ("gptimg", "GPT Image"), ("pixel", "PixelLab"), ("scenario", "Scenario"), ("ludo", "Ludo.ai"), ("godmode", "God Mode AI"), ("autosprite", "AutoSprite"), ("layer", "Layer.ai")], "grid-cols-3 sm:grid-cols-5"))}
