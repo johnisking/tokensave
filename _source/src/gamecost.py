@@ -27,7 +27,7 @@ T = {
   qChars="Characters / enemies", qAnim="Animation", aNone="None", aSimple="Simple (3 moves)", aFull="Full (6 moves)",
   qMusic="Music tracks", qSfx="Sound effects", sfFew="Few", sfNormal="Normal", sfMany="Many", qVoice="Voice lines",
   qFeats="Features", qLangs="Languages", qEngine="Engine", qTrailer="Promo trailer", yes="Yes", no="No",
-  qTools="Your tools", qImg="Images", qCode="Coding", qMusicTool="Music", qSfxTool="Sound effects", freeLib="Free libraries", freeMusic="Pixabay (free)", qModel="API model",
+  qTools="Your tools", qImg="Images", qCode="Coding", qMusicTool="Music", qSfxTool="Sound effects", q3dTool="3D models (when 2.5D / 3D)", freeLib="Free libraries", freeMusic="Pixabay (free)", qModel="API model",
   resTitle="What your game needs", cmpTitle="Cost and time with AI",
   promptTitle="Your prompt pack", promptSub="Built from your answers. Asset prompts are in English because image, music and sound tools work best in English.",
   tDev="Dev kickoff", tArt="Art", tMusic="Music", tSfx="Sound effects", tTrailer="Trailer", copy="Copy", download="Download all (.md)",
@@ -71,7 +71,7 @@ T = {
   qChars="캐릭터·적 수", qAnim="애니메이션", aNone="없음", aSimple="간단 (동작 3개)", aFull="풍부 (동작 6개)",
   qMusic="배경음악 곡 수", qSfx="효과음", sfFew="적게", sfNormal="보통", sfMany="많이", qVoice="대사 음성 수",
   qFeats="기능", qLangs="지원 언어 수", qEngine="엔진", qTrailer="홍보 트레일러", yes="필요", no="없음",
-  qTools="내가 쓸 도구", qImg="이미지", qCode="코딩", qMusicTool="음악", qSfxTool="효과음", freeLib="무료 라이브러리", freeMusic="픽사베이 (무료)", qModel="API 모델",
+  qTools="내가 쓸 도구", qImg="이미지", qCode="코딩", qMusicTool="음악", qSfxTool="효과음", q3dTool="3D 모델 (2.5D/3D 선택 시)", freeLib="무료 라이브러리", freeMusic="픽사베이 (무료)", qModel="API 모델",
   resTitle="이 게임에 필요한 것", cmpTitle="AI로 만들 때 비용과 기간",
   promptTitle="프롬프트 묶음", promptSub="답변을 바탕으로 만들었습니다. 그림·음악·효과음 도구는 영어 프롬프트가 가장 잘 먹혀서 에셋 프롬프트는 영어로 드립니다.",
   tDev="개발 시작", tArt="그림", tMusic="음악", tSfx="효과음", tTrailer="트레일러", copy="복사", download="전체 받기 (.md)",
@@ -115,7 +115,7 @@ T = {
   qChars="キャラクター・敵の数", qAnim="アニメーション", aNone="なし", aSimple="シンプル（動作3つ）", aFull="豊富（動作6つ）",
   qMusic="BGMの曲数", qSfx="効果音", sfFew="少なめ", sfNormal="普通", sfMany="多め", qVoice="ボイス数",
   qFeats="機能", qLangs="対応言語数", qEngine="エンジン", qTrailer="PRトレーラー", yes="必要", no="なし",
-  qTools="使うツール", qImg="画像", qCode="コーディング", qMusicTool="音楽", qSfxTool="効果音", freeLib="無料素材", freeMusic="Pixabay（無料）", qModel="APIモデル",
+  qTools="使うツール", qImg="画像", qCode="コーディング", qMusicTool="音楽", qSfxTool="効果音", q3dTool="3Dモデル（2.5D/3D選択時）", freeLib="無料素材", freeMusic="Pixabay（無料）", qModel="APIモデル",
   resTitle="このゲームに必要なもの", cmpTitle="AIで作る場合の費用と期間",
   promptTitle="プロンプト集", promptSub="回答をもとに作成しました。画像・音楽・効果音ツールは英語のプロンプトが最も効くため、素材用は英語で出します。",
   tDev="開発スタート", tArt="画像", tMusic="音楽", tSfx="効果音", tTrailer="トレーラー", copy="コピー", download="まとめてダウンロード (.md)",
@@ -157,23 +157,32 @@ PRICE_ROWS = [
     ("GPT Image", "≈ $0.05 per image, medium quality (API)", "https://openai.com/api/pricing/"),
     ("PixelLab", "≈ $0.01–0.03 per sprite or animation (API)", "https://www.pixellab.ai/pixellab-api"),
     ("Scenario", "≈ $15–45 / month", "https://www.scenario.com/pricing"),
+    ("Ludo.ai", "≈ $20 / month (sprites, animation, game ideas)", "https://ludo.ai/pricing"),
+    ("God Mode AI", "≈ $38 / month (sprite and Spine animation)", "https://www.godmodeai.co/"),
+    ("AutoSprite", "≈ $12 / month (sprite sheets from one sprite)", "https://autosprite.io/"),
+    ("Layer.ai", "from ≈ $10 / month, usage-based", "https://www.layer.ai/pricing"),
     ("Suno", "Pro $10 (2,500 credits) · Premier $30 (10,000) / month", "https://suno.com/pricing"),
     ("ElevenLabs", "Starter $6 · Creator $22 · Pro $99 / month", "https://elevenlabs.io/pricing"),
     ("Stable Audio", "Pro $11.99 (250 tracks) · Studio $29.99 (675) · Max $89.99 / month — music and SFX", "https://stableaudio.com/pricing"),
     ("AIVA", "Pro €33 / month (you own the music; Standard €11 does not)", "https://www.aiva.ai/pricing"),
+    ("Soundraw", "Creator ≈ $11 / month (commercial use, unlimited downloads)", "https://soundraw.io/pricing"),
     ("Pixabay", "Free music and sound effects, commercial use OK, no attribution (Pixabay Content License)", "https://pixabay.com/music/"),
     ("Kenney · Freesound", "Free (Kenney is CC0; check each Freesound license)", "https://kenney.nl/assets"),
     ("Meshy", "Pro $20 (1,000 credits) · Premium $40 · Ultra $100 / month", "https://www.meshy.ai/pricing"),
+    ("Tripo", "Pro $20 (3,000 credits ≈ 200 models) · Max $90 / month", "https://www.tripo3d.ai/pricing"),
     ("Higgsfield", "Starter $15 · Plus $39 · Ultra $99 / month", "https://higgsfield.ai/pricing"),
     ("Claude", "Pro $20 · Max 5× $100 · Max 20× $200 / month", "https://claude.com/pricing"),
     ("Cursor", "Pro $20 / month", "https://cursor.com/pricing"),
+    ("Windsurf", "Pro $20 / month", "https://windsurf.com/pricing"),
+    ("GitHub Copilot", "Pro $10 · Pro+ $39 / month (agent use draws AI credits)", "https://github.com/features/copilot/plans"),
     ("Google AI Pro", "$19.99 / month (Gemini CLI, Gemini app)", "https://one.google.com/about/google-ai-plans/"),
 ]
 
 def _seg(id_, opts, cols=None):
     cols = cols or len(opts)
+    gc = cols if isinstance(cols, str) else f"grid-cols-{cols}"
     btns = "".join(f'<button data-v="{v}" class="tab py-1.5 px-2 rounded-md text-xs font-semibold text-zinc-400">{lab}</button>' for v, lab in opts)
-    return f'<div id="{id_}" class="grid grid-cols-{cols} p-1 bg-zinc-950/70 border border-zinc-800 rounded-lg gap-1">{btns}</div>'
+    return f'<div id="{id_}" class="grid {gc} p-1 bg-zinc-950/70 border border-zinc-800 rounded-lg gap-1">{btns}</div>'
 
 def _field(label, inner):
     return f'<div><span class="block text-xs text-zinc-400 font-semibold mb-2">{label}</span>{inner}</div>'
@@ -237,14 +246,17 @@ def build_page(lang, llm):
         {_field(e("qTrailer"), _seg("gcTrailer", [("false", e("no")), ("true", e("yes"))]))}
       </div>
       <h2 class="{H2} mt-6">{e("qTools")}</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        {_field(e("qImg"), _seg("gcImg", [("mj", "Midjourney"), ("leonardo", "Leonardo"), ("gemini", "Gemini"), ("gptimg", "GPT Image"), ("pixel", "PixelLab"), ("scenario", "Scenario")], 3))}
-        {_field(e("qCode"), _seg("gcCodeTool", [("pro", "Claude Pro"), ("max5", "Max 5×"), ("max20", "Max 20×"), ("cursor", "Cursor"), ("gemini", "Gemini"), ("api", "API")], 3))}
-        <div><label for="gcModel" class="block text-xs text-zinc-400 font-semibold mb-2">{e("qModel")}</label><select id="gcModel" class="w-full bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py-2 text-sm">{model_opts}</select></div>
+      <div class="grid grid-cols-1 gap-4">
+        {_field(e("qImg"), _seg("gcImg", [("mj", "Midjourney"), ("leonardo", "Leonardo"), ("gemini", "Gemini"), ("gptimg", "GPT Image"), ("pixel", "PixelLab"), ("scenario", "Scenario"), ("ludo", "Ludo.ai"), ("godmode", "God Mode AI"), ("autosprite", "AutoSprite"), ("layer", "Layer.ai")], "grid-cols-3 sm:grid-cols-5"))}
+        {_field(e("qCode"), _seg("gcCodeTool", [("pro", "Claude Pro"), ("max5", "Max 5×"), ("max20", "Max 20×"), ("cursor", "Cursor"), ("windsurf", "Windsurf"), ("copilot", "Copilot Pro+"), ("gemini", "Gemini"), ("api", "API")], "grid-cols-4 sm:grid-cols-8"))}
+        <div class="max-w-xs"><label for="gcModel" class="block text-xs text-zinc-400 font-semibold mb-2">{e("qModel")}</label><select id="gcModel" class="w-full bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py-2 text-sm">{model_opts}</select></div>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
-        {_field(e("qMusicTool"), _seg("gcMusicTool", [("suno", "Suno"), ("stable", "Stable Audio"), ("aiva", "AIVA"), ("free", e("freeMusic"))], 4))}
+        {_field(e("qMusicTool"), _seg("gcMusicTool", [("suno", "Suno"), ("stable", "Stable Audio"), ("soundraw", "Soundraw"), ("aiva", "AIVA"), ("free", e("freeMusic"))], 3))}
         {_field(e("qSfxTool"), _seg("gcSfxTool", [("eleven", "ElevenLabs"), ("stable", "Stable Audio"), ("free", e("freeLib"))]))}
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+        {_field(e("q3dTool"), _seg("gcD3Tool", [("meshy", "Meshy"), ("tripo", "Tripo")]))}
       </div>
     </section>
 

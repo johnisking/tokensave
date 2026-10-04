@@ -58,11 +58,16 @@ const TOOLS = {
     gemini:  { name: 'Gemini (Nano Banana 2)', perImage: 0.067 },                               // API, 1K image
     leonardo:{ name: 'Leonardo', plans: [[12, 8500], [30, 25000], [60, 60000]], perGenCredits: 10 }, // tokens/month; ~10 per image
     scenario:{ name: 'Scenario', plans: [[15, 1500], [45, 5000]], perGenCredits: 5 },             // approx credits per image
+    ludo:    { name: 'Ludo.ai', flat: 20 },                                                         // sprites + animation, monthly
+    godmode: { name: 'God Mode AI', flat: 38 },                                                     // sprite / Spine animation
+    autosprite:{ name: 'AutoSprite', flat: 12 },                                                    // sprite sheets from one sprite
+    layer:   { name: 'Layer.ai', flat: 10 },                                                        // entry plan, usage-based above
   },
   music: {
     suno:   { name: 'Suno', plans: [[10, 500], [30, 2000]] },                 // songs/month (2 per generation, ~4 songs per kept track)
     stable: { name: 'Stable Audio', plans: [[11.99, 250], [29.99, 675], [89.99, 2250]] }, // tracks/month, music + SFX share the plan
     aiva:   { name: 'AIVA Pro', plans: [[36, 300]] },                          // €33 ≈ $36; only Pro gives full ownership
+    soundraw: { name: 'Soundraw', flat: 11.04 },                       // Creator: unlimited downloads, commercial use
     free:   { name: 'Pixabay Music (free)' },
   },
   sfx: {
@@ -76,9 +81,12 @@ const TOOLS = {
     max20: { name: 'Claude Max 20×', monthly: 200, capPerDay: 80e6 },
     cursor:{ name: 'Cursor Pro', monthly: 20, capPerDay: 8e6 },
     gemini:{ name: 'Google AI Pro (Gemini)', monthly: 20, capPerDay: 25e6 },
+    copilot:{ name: 'GitHub Copilot Pro+', monthly: 39, capPerDay: 10e6 },
+    windsurf:{ name: 'Windsurf Pro', monthly: 20, capPerDay: 8e6 },
     api:   { name: 'API', monthly: 0 },
   },
-  d3:    { meshy: { name: 'Meshy', plans: [[20, 1000], [40, 3000], [100, 8000]], perModel: 20 } },
+  d3:    { meshy: { name: 'Meshy', plans: [[20, 1000], [40, 3000], [100, 8000]], perModel: 20 },
+           tripo: { name: 'Tripo', plans: [[20, 3000], [90, 25000]], perModel: 15 } },
   video: { higgs: { name: 'Higgsfield', plans: [[15, 200], [39, 1000], [99, 3000]], perClip: 75 } },
 };
 // Coding with an agent: tokens per active day (mostly cached context re-reads)
@@ -88,7 +96,7 @@ const state = {
   genre: 'merge', scale: 's', style: 'illust', anim: 'simple', sfx: 'normal', dim: '2d',
   chars: null, music: null, voice: 0, langs: 1, trailer: false,
   feats: new Set(['ads', 'save']), engine: 'unity',
-  imgTool: 'mj', codeTool: 'max5', musicTool: 'suno', sfxTool: 'eleven', model: 'claude-sonnet-5-5', name: '', idea: '',
+  imgTool: 'mj', codeTool: 'max5', musicTool: 'suno', sfxTool: 'eleven', d3Tool: 'meshy', model: 'claude-sonnet-5-5', name: '', idea: '',
 };
 
 function plan(plans, need) { // cheapest single plan that covers `need` per month, else the biggest one repeated
@@ -118,6 +126,7 @@ function estimate() {
   // --- AI tool costs (scenario 2 = default stack, scenario 3 = user's picks) ---
   const imgCost = tool => {
     const T = TOOLS.img[tool];
+    if (T.flat) return T.flat * months;
     if (T.plans && T.perGen) return plan(T.plans, Math.ceil(gens / T.perGen / months)).price * months;
     if (T.plans) return plan(T.plans, Math.ceil(gens * T.perGenCredits / months)).price * months;
     if (T.perAnim) return (bg + items + ui) * attempts * T.perImage + chars * a.actions * attempts * T.perAnim;
@@ -128,7 +137,7 @@ function estimate() {
     const stableNeed = (mt === 'stable' ? music * 4 : 0) + (st === 'stable' ? sfx * 3 : 0);
     const stableCost = stableNeed ? plan(TOOLS.music.stable.plans, stableNeed).price : 0;
     let m = 0, x = 0;
-    if (music && mt !== 'free') m = mt === 'stable' ? stableCost : plan(TOOLS.music[mt].plans, music * (mt === 'aiva' ? 2 : 4)).price;
+    if (music && mt !== 'free') m = TOOLS.music[mt].flat ? TOOLS.music[mt].flat : mt === 'stable' ? stableCost : plan(TOOLS.music[mt].plans, music * (mt === 'aiva' ? 2 : 4)).price;
     const elevenNeed = (st === 'eleven' ? sfx * 3 * E.perGen : 0) + voiceCredits;
     x = (elevenNeed ? plan(E.plans, elevenNeed).price : 0) + (st === 'stable' && mt !== 'stable' ? stableCost : 0);
     return [m, x];
@@ -142,15 +151,15 @@ function estimate() {
     return { cost: C.monthly * months, months, fits: perDay <= C.capPerDay };
   };
   const models3d = state.dim === '3d' ? chars + Math.round(items / 2) + bg : 0;
-  const d3Cost = models3d ? plan(TOOLS.d3.meshy.plans, models3d * attempts * TOOLS.d3.meshy.perModel).price : 0;
+  const d3Cost = tool => models3d ? plan(TOOLS.d3[tool].plans, models3d * attempts * TOOLS.d3[tool].perModel).price : 0;
   const clips = state.trailer ? 8 * attempts : 0;
   const trailerCost = clips ? plan(TOOLS.video.higgs.plans, clips * TOOLS.video.higgs.perClip).price : 0;
 
-  const ai = (img, code, mt, st) => {
+  const ai = (img, code, mt, st, d3 = 'meshy') => {
     const c = codeCost(code), [musicCost, sfxCost] = audio(mt, st);
     const lines = [
       ['art', imgCost(img)], ['music', musicCost], ['sfx', sfxCost], ['code', c.cost],
-      ...(models3d ? [['d3', d3Cost]] : []), ...(state.trailer ? [['trailer', trailerCost]] : []),
+      ...(models3d ? [['d3', d3Cost(d3)]] : []), ...(state.trailer ? [['trailer', trailerCost]] : []),
     ];
     const total = lines.reduce((s, [, v]) => s + v, 0);
     return { lines, total, lo: total * 0.7, hi: total * 1.5, codeFits: c.fits };
@@ -159,7 +168,7 @@ function estimate() {
   return {
     chars, bg, items, ui, frames, images, gens, music, sfx, loc: Math.round(loc / 100) * 100, days: Math.round(days),
     tokIn, tokOut, months, models3d,
-    base: ai('mj', 'max5', 'suno', 'eleven'), mine: ai(state.imgTool, state.codeTool, state.musicTool, state.sfxTool), apiCode,
+    base: ai('mj', 'max5', 'suno', 'eleven'), mine: ai(state.imgTool, state.codeTool, state.musicTool, state.sfxTool, state.d3Tool), apiCode,
   };
 }
 
@@ -210,6 +219,8 @@ function prompts(e) {
   art.push(`Items (${e.items}) — icon set on a grid, each item a separate 256×256 icon with a soft drop shadow. ${head}`);
   art.push(`UI kit (${e.ui} elements) — buttons (normal/pressed), panels, progress bar, coin and gem icons, close/settings icons, matching the style. ${head}`);
   if (state.imgTool === 'mj') art.push('\nMidjourney: add  --ar 1:1 --style raw  (sprites)  or  --ar 16:9  (backgrounds); use --sref with your first approved image to keep the style.');
+  if (['ludo', 'godmode', 'autosprite'].includes(state.imgTool)) art.push(`\n${TOOLS.img[state.imgTool].name}: generate one approved base sprite per character first, then create the animations (${acts.join(', ')}) from that sprite so every frame stays on-model.`);
+  if (state.imgTool === 'layer') art.push('\nLayer.ai: upload 5–10 approved images as a style, then batch-generate the item and UI lists with that style.');
   if (state.imgTool === 'leonardo') art.push('\nLeonardo: use a game-asset model with "Transparency" on, and train or pick one Element/style reference from your first approved image to keep every asset consistent.');
   if (state.imgTool === 'gemini') art.push('\nGemini (Nano Banana): paste the STYLE line first, then each asset; attach your first approved image and say "same style as the attached image" to keep it consistent.');
   if (state.imgTool === 'pixel') art.push('\nPixelLab: generate characters at 64×64 or 128×128 with "8 directions" for top-down games, then use "Animate" with the action names above.');
@@ -300,7 +311,7 @@ function num(id, key) {
 }
 
 seg('gcScale', 'scale'); seg('gcStyle', 'style'); seg('gcAnim', 'anim'); seg('gcSfx', 'sfx');
-seg('gcDim', 'dim'); seg('gcEngine', 'engine'); seg('gcImg', 'imgTool'); seg('gcCodeTool', 'codeTool'); seg('gcMusicTool', 'musicTool'); seg('gcSfxTool', 'sfxTool');
+seg('gcDim', 'dim'); seg('gcEngine', 'engine'); seg('gcImg', 'imgTool'); seg('gcCodeTool', 'codeTool'); seg('gcMusicTool', 'musicTool'); seg('gcSfxTool', 'sfxTool'); seg('gcD3Tool', 'd3Tool');
 seg('gcTrailer', 'trailer', v => v === 'true');
 // Genre: popular ones as buttons, the rest in the "other" dropdown
 {
