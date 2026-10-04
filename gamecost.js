@@ -34,7 +34,9 @@ const TOOLS = {
   img: {
     mj:      { name: 'Midjourney', plans: [[10, 200], [30, 900], [60, 1800]], perGen: 4 },      // $/month, fast generations; 4 images per generation
     pixel:   { name: 'PixelLab', perImage: 0.015, perAnim: 0.025 },                               // API, per call
-    gptimg:  { name: 'GPT Image (API)', perImage: 0.04 },
+    gptimg:  { name: 'GPT Image (API)', perImage: 0.05 },
+    gemini:  { name: 'Gemini (Nano Banana 2)', perImage: 0.067 },                               // API, 1K image
+    leonardo:{ name: 'Leonardo', plans: [[12, 8500], [30, 25000], [60, 60000]], perGenCredits: 10 }, // tokens/month; ~10 per image
     scenario:{ name: 'Scenario', plans: [[15, 1500], [45, 5000]], perGenCredits: 5 },             // approx credits per image
   },
   music: { suno: { name: 'Suno', plans: [[10, 500], [30, 2000]] }, none: null },                  // songs/month (2 per generation)
@@ -44,6 +46,7 @@ const TOOLS = {
     max5:  { name: 'Claude Max 5×', monthly: 100, capPerDay: 30e6 },
     max20: { name: 'Claude Max 20×', monthly: 200, capPerDay: 80e6 },
     cursor:{ name: 'Cursor Pro', monthly: 20, capPerDay: 8e6 },
+    gemini:{ name: 'Google AI Pro (Gemini)', monthly: 20, capPerDay: 25e6 },
     api:   { name: 'API', monthly: 0 },
   },
   d3:    { meshy: { name: 'Meshy', plans: [[20, 1000], [40, 3000], [100, 8000]], perModel: 20 } },
@@ -165,6 +168,8 @@ function prompts(e) {
   art.push(`Items (${e.items}) — icon set on a grid, each item a separate 256×256 icon with a soft drop shadow. ${head}`);
   art.push(`UI kit (${e.ui} elements) — buttons (normal/pressed), panels, progress bar, coin and gem icons, close/settings icons, matching the style. ${head}`);
   if (state.imgTool === 'mj') art.push('\nMidjourney: add  --ar 1:1 --style raw  (sprites)  or  --ar 16:9  (backgrounds); use --sref with your first approved image to keep the style.');
+  if (state.imgTool === 'leonardo') art.push('\nLeonardo: use a game-asset model with "Transparency" on, and train or pick one Element/style reference from your first approved image to keep every asset consistent.');
+  if (state.imgTool === 'gemini') art.push('\nGemini (Nano Banana): paste the STYLE line first, then each asset; attach your first approved image and say "same style as the attached image" to keep it consistent.');
   if (state.imgTool === 'pixel') art.push('\nPixelLab: generate characters at 64×64 or 128×128 with "8 directions" for top-down games, then use "Animate" with the action names above.');
 
   const [mood, bpm] = MOOD[state.genre];

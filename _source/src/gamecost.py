@@ -37,7 +37,7 @@ T = {
   srcTitle="Tool prices used", srcNote=f"Checked {CHECKED}. Prices change often — check each tool's pricing page before you buy.",
   faqTitle="FAQ",
   faq=[("How much does it cost to make a 2D game with AI?", "For a small mobile game, one person with AI tools usually spends about $100–300 in subscriptions and API fees and 2–3 weeks of work. Use the calculator above for your own genre and size."),
-       ("Which AI tools do I need to make a game?", "Usually four: an image tool for sprites and backgrounds (Midjourney, PixelLab, Scenario or an image API), a music tool (Suno), a sound effects tool (ElevenLabs) and a coding agent (Claude Code or Cursor). Meshy helps if you want 3D models, Higgsfield for a promo video."),
+       ("Which AI tools do I need to make a game?", "Usually four: an image tool for sprites and backgrounds (Midjourney, Leonardo, Gemini, PixelLab, Scenario or an image API), a music tool (Suno), a sound effects tool (ElevenLabs) and a coding agent (Claude Code, Cursor or Gemini CLI). Meshy helps if you want 3D models, Higgsfield for a promo video."),
        ("How many tokens does it take to code a game with Claude Code?", "Agents re-read your project a lot, so a 2-week build can pass a few hundred million tokens, mostly cached. On a Claude Max plan you pay a flat monthly fee; on the API the calculator shows the cost for the model you choose."),
        ("Are the prompts free to use?", "Yes. Copy them or download the whole pack as a Markdown file and paste them into your tools. Nothing you type is uploaded.")],
   defName="My Game", defIdea="a {genre} game for mobile",
@@ -81,7 +81,7 @@ T = {
   srcTitle="사용한 도구 가격", srcNote=f"{CHECKED} 기준. 가격이 자주 바뀌니 결제 전 각 도구의 가격 페이지를 확인하세요.",
   faqTitle="자주 묻는 질문",
   faq=[("AI로 2D 게임을 만들면 비용이 얼마나 드나요?", "소형 모바일 게임이면 혼자 AI 도구를 써서 구독료와 API 비용으로 약 $100~300, 기간은 2~3주 정도입니다. 장르와 규모를 넣어 위 계산기로 확인해 보세요."),
-       ("게임 만들 때 어떤 AI 도구가 필요한가요?", "보통 네 가지입니다. 스프라이트·배경용 이미지 도구(Midjourney, PixelLab, Scenario, 이미지 API), 음악 도구(Suno), 효과음 도구(ElevenLabs), 코딩 에이전트(Claude Code, Cursor)입니다. 3D 모델이 필요하면 Meshy, 홍보 영상은 Higgsfield를 씁니다."),
+       ("게임 만들 때 어떤 AI 도구가 필요한가요?", "보통 네 가지입니다. 스프라이트·배경용 이미지 도구(Midjourney, Leonardo, Gemini, PixelLab, Scenario, 이미지 API), 음악 도구(Suno), 효과음 도구(ElevenLabs), 코딩 에이전트(Claude Code, Cursor, Gemini CLI)입니다. 3D 모델이 필요하면 Meshy, 홍보 영상은 Higgsfield를 씁니다."),
        ("Claude Code로 게임을 만들면 토큰이 얼마나 드나요?", "에이전트는 프로젝트를 반복해서 읽기 때문에 2주짜리 개발에도 수억 토큰이 오가고, 대부분은 캐시입니다. Claude Max 구독이면 월 정액이고, API로 쓰면 고른 모델 기준 비용을 계산기가 보여 줍니다."),
        ("프롬프트는 무료로 써도 되나요?", "네. 복사하거나 전체를 Markdown 파일로 받아 각 도구에 붙여 넣으면 됩니다. 입력한 내용은 어디에도 업로드되지 않습니다.")],
   defName="내 게임", defIdea="모바일 {genre} 게임",
@@ -125,7 +125,7 @@ T = {
   srcTitle="使用したツール料金", srcNote=f"{CHECKED}時点。料金はよく変わるので、購入前に各ツールの料金ページを確認してください。",
   faqTitle="よくある質問",
   faq=[("AIで2Dゲームを作るといくらかかりますか？", "小規模なモバイルゲームなら、1人でAIツールを使ってサブスクとAPI代で約$100〜300、期間は2〜3週間ほどです。上の計算機でジャンルと規模を入れて確認してください。"),
-       ("ゲーム制作にはどのAIツールが必要ですか？", "主に4つです。スプライト・背景用の画像ツール（Midjourney、PixelLab、Scenario、画像API）、音楽（Suno）、効果音（ElevenLabs）、コーディングエージェント（Claude Code、Cursor）。3DモデルならMeshy、PR動画ならHiggsfieldも使えます。"),
+       ("ゲーム制作にはどのAIツールが必要ですか？", "主に4つです。スプライト・背景用の画像ツール（Midjourney、Leonardo、Gemini、PixelLab、Scenario、画像API）、音楽（Suno）、効果音（ElevenLabs）、コーディングエージェント（Claude Code、Cursor、Gemini CLI）。3DモデルならMeshy、PR動画ならHiggsfieldも使えます。"),
        ("Claude Codeでゲームを作るとトークンはどれくらい？", "エージェントはプロジェクトを何度も読み直すため、2週間の開発でも数億トークンが流れ、その大半はキャッシュです。Claude Maxなら月額固定、APIなら選んだモデルでの費用を計算機が表示します。"),
        ("プロンプトは無料で使えますか？", "はい。コピーするか、まとめてMarkdownファイルでダウンロードして各ツールに貼り付けてください。入力内容はどこにもアップロードされません。")],
   defName="マイゲーム", defIdea="モバイル向け{genre}ゲーム",
@@ -151,6 +151,9 @@ T = {
 
 PRICE_ROWS = [
     ("Midjourney", "Basic $10 · Standard $30 · Pro $60 / month", "https://docs.midjourney.com/docs/plans"),
+    ("Leonardo", "Essential $12 · Premium $30 · Ultimate $60 / month (≈ 10 tokens per image)", "https://leonardo.ai/pricing"),
+    ("Gemini (Nano Banana 2)", "≈ $0.067 per 1K image (API)", "https://ai.google.dev/gemini-api/docs/pricing"),
+    ("GPT Image", "≈ $0.05 per image, medium quality (API)", "https://openai.com/api/pricing/"),
     ("PixelLab", "≈ $0.01–0.03 per sprite or animation (API)", "https://www.pixellab.ai/pixellab-api"),
     ("Scenario", "≈ $15–45 / month", "https://www.scenario.com/pricing"),
     ("Suno", "Pro $10 (2,500 credits) · Premier $30 (10,000) / month", "https://suno.com/pricing"),
@@ -159,6 +162,7 @@ PRICE_ROWS = [
     ("Higgsfield", "Starter $15 · Plus $39 · Ultra $99 / month", "https://higgsfield.ai/pricing"),
     ("Claude", "Pro $20 · Max 5× $100 · Max 20× $200 / month", "https://claude.com/pricing"),
     ("Cursor", "Pro $20 / month", "https://cursor.com/pricing"),
+    ("Google AI Pro", "$19.99 / month (Gemini CLI, Gemini app)", "https://one.google.com/about/google-ai-plans/"),
 ]
 
 def _seg(id_, opts, cols=None):
@@ -227,8 +231,8 @@ def build_page(lang, llm):
       </div>
       <h2 class="{H2} mt-6">{e("qTools")}</h2>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        {_field(e("qImg"), _seg("gcImg", [("mj", "Midjourney"), ("pixel", "PixelLab"), ("scenario", "Scenario"), ("gptimg", "GPT Image")], 2))}
-        {_field(e("qCode"), _seg("gcCodeTool", [("pro", "Claude Pro"), ("max5", "Max 5×"), ("max20", "Max 20×"), ("cursor", "Cursor"), ("api", "API")], 3))}
+        {_field(e("qImg"), _seg("gcImg", [("mj", "Midjourney"), ("leonardo", "Leonardo"), ("gemini", "Gemini"), ("gptimg", "GPT Image"), ("pixel", "PixelLab"), ("scenario", "Scenario")], 3))}
+        {_field(e("qCode"), _seg("gcCodeTool", [("pro", "Claude Pro"), ("max5", "Max 5×"), ("max20", "Max 20×"), ("cursor", "Cursor"), ("gemini", "Gemini"), ("api", "API")], 3))}
         <div><label for="gcModel" class="block text-xs text-zinc-400 font-semibold mb-2">{e("qModel")}</label><select id="gcModel" class="w-full bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py-2 text-sm">{model_opts}</select></div>
       </div>
     </section>
