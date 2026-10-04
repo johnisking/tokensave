@@ -108,16 +108,19 @@ def scatter_chart(points, checked):
     """Capability (y) vs blended price (x, log scale). points: [{id,name,x,y,front}].
     Frontier points are joined by a line; labels are placed greedily to avoid overlaps."""
     import math
-    WS, HS = 760, 600
-    L, R, T, B = 64, 24, 92, 64
+    WS, HS = 760, 680
+    L, R, T, B = 70, 24, 100, 70
     pw, ph = WS - L - R, HS - T - B
     xs = [p["x"] for p in points]; ys = [p["y"] for p in points]
-    x0 = 10 ** math.floor(math.log10(min(xs))); x1 = 10 ** math.ceil(math.log10(max(xs)))
+    def nice_up(v):
+        e = 10 ** math.floor(math.log10(v))
+        return next(m * e for m in (1, 2, 5, 10) if m * e >= v * 1.15)
+    x0 = 10 ** math.floor(math.log10(min(xs))); x1 = nice_up(max(xs))
     y0 = math.floor((min(ys) - 2) / 10) * 10; y1 = math.ceil((max(ys) + 2) / 5) * 5
     X = lambda v: L + (math.log10(v) - math.log10(x0)) / (math.log10(x1) - math.log10(x0)) * pw
     Y = lambda v: T + (1 - (v - y0) / (y1 - y0)) * ph
-    out = [f'<text x="24" y="40" font-size="21" font-weight="700" fill="{FG}">AI model capability vs API price</text>',
-           f'<text x="24" y="64" font-size="14" fill="{MUTED}">Epoch Capabilities Index (Epoch AI, CC BY) vs blended price per 1M tokens · {esc(checked)}</text>']
+    out = [f'<text x="24" y="40" font-size="24" font-weight="700" fill="{FG}">AI model capability vs API price</text>',
+           f'<text x="24" y="68" font-size="15" fill="{MUTED}">Epoch Capabilities Index (Epoch AI, CC BY) vs blended price per 1M tokens · {esc(checked)}</text>']
     # grid + axes
     d = x0
     while d <= x1 * 1.0001:
@@ -126,14 +129,14 @@ def scatter_chart(points, checked):
             if x0 <= v <= x1 * 1.0001:
                 gx = X(v)
                 out.append(f'<line x1="{gx:.1f}" y1="{T}" x2="{gx:.1f}" y2="{T + ph}" stroke="{GRID}" stroke-width="{1 if m == 1 else 0.5}"/>'
-                           f'<text x="{gx:.1f}" y="{T + ph + 18}" text-anchor="middle" font-size="12" fill="{MUTED}">${v:g}</text>')
+                           f'<text x="{gx:.1f}" y="{T + ph + 20}" text-anchor="middle" font-size="14" fill="{MUTED}">${v:g}</text>')
         d *= 10
     for v in range(int(y0), int(y1) + 1, 5):
         gy = Y(v)
         out.append(f'<line x1="{L}" y1="{gy:.1f}" x2="{L + pw}" y2="{gy:.1f}" stroke="{GRID}" stroke-width="0.5"/>'
-                   f'<text x="{L - 8}" y="{gy + 4:.1f}" text-anchor="end" font-size="12" fill="{MUTED}">{v}</text>')
-    out.append(f'<text x="{L + pw / 2:.0f}" y="{HS - 22}" text-anchor="middle" font-size="13" fill="{MUTED}">Blended API price per 1M tokens (USD, log scale) → cheaper on the left</text>'
-               f'<text x="18" y="{T + ph / 2:.0f}" transform="rotate(-90 18 {T + ph / 2:.0f})" text-anchor="middle" font-size="13" fill="{MUTED}">Capability (ECI) ↑</text>')
+                   f'<text x="{L - 8}" y="{gy + 4:.1f}" text-anchor="end" font-size="14" fill="{MUTED}">{v}</text>')
+    out.append(f'<text x="{L + pw / 2:.0f}" y="{HS - 22}" text-anchor="middle" font-size="15" fill="{MUTED}">Blended API price per 1M tokens (USD, log scale) → cheaper on the left</text>'
+               f'<text x="18" y="{T + ph / 2:.0f}" transform="rotate(-90 18 {T + ph / 2:.0f})" text-anchor="middle" font-size="15" fill="{MUTED}">Capability (ECI) ↑</text>')
     fr = sorted((p for p in points if p.get("front")), key=lambda p: p["x"])
     if len(fr) > 1:
         path = " ".join(f"{X(p['x']):.1f},{Y(p['y']):.1f}" for p in fr)
@@ -145,25 +148,32 @@ def scatter_chart(points, checked):
             return False
         return all(x + w < a or a + c < x or y + h < b or b + e < y for a, b, c, e in boxes)
     for p in points:  # reserve dots first so labels avoid them
-        boxes.append((X(p["x"]) - 5, Y(p["y"]) - 5, 10, 10))
+        boxes.append((X(p["x"]) - 8, Y(p["y"]) - 8, 16, 16))
     for p in sorted(points, key=lambda p: -p["y"]):
         cx, cy = X(p["x"]), Y(p["y"])
         col = C_B if p.get("front") else C_A
-        out.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="5.5" fill="{col}" stroke="{BG}" stroke-width="1.5"/>')
-        fs = 12
-        w = len(p["name"]) * 6.6 + 4
-        for dx, dy, anchor in ((9, 4, "start"), (-9, 4, "end"), (9, -8, "start"), (-9, -8, "end"), (9, 16, "start"), (-9, 16, "end"),
-                               (-w / 2, -12, "middle"), (-w / 2, 22, "middle"), (9, -20, "start"), (-9, 28, "end")):
+        out.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="8" fill="{col}" stroke="{BG}" stroke-width="2"/>')
+        fs = 15
+        w = len(p["name"]) * 8.1 + 4
+        cands = [(12, 5, "start"), (-12, 5, "end"), (12, -9, "start"), (-12, -9, "end"), (12, 19, "start"), (-12, 19, "end"),
+                 (0, -14, "middle"), (0, 26, "middle")]
+        for dy in (-28, 40, -42, 54, -56, 68):  # farther slots get a leader line
+            cands += [(12, dy, "start"), (-12, dy, "end"), (0, dy, "middle")]
+        for dx, dy, anchor in cands:
             bx = cx + dx if anchor == "start" else cx + dx - w if anchor == "end" else cx - w / 2
             box = (bx, cy + dy - fs + 2, w, fs + 2)
             if free(box):
                 boxes.append(box)
                 tx = cx + dx if anchor != "middle" else cx
+                if abs(dy) > 27:
+                    ly = cy + dy - fs / 2 + 2 if dy > 0 else cy + dy + 3
+                    ly = cy + dy - fs + 3 if dy > 0 else cy + dy + 3
+                    out.append(f'<line x1="{cx:.1f}" y1="{cy + (8 if dy > 0 else -8):.1f}" x2="{tx:.1f}" y2="{ly:.1f}" stroke="{MUTED}" stroke-width="1" opacity="0.7"/>')
                 out.append(f'<text x="{tx:.1f}" y="{cy + dy:.1f}" text-anchor="{anchor}" font-size="{fs}" '
                            f'font-weight="{700 if p.get("front") else 400}" fill="{FG}">{esc(p["name"])}</text>')
                 break
-    out.append(f'<circle cx="{WS - 236}" cy="{82}" r="5.5" fill="{C_B}"/><text x="{WS - 226}" y="86" font-size="13" fill="{FG}">Best value (frontier)</text>'
-               f'<circle cx="{WS - 84}" cy="{82}" r="5.5" fill="{C_A}"/><text x="{WS - 74}" y="86" font-size="13" fill="{FG}">Other</text>')
+    out.append(f'<circle cx="{WS - 262}" cy="{84}" r="7" fill="{C_B}"/><text x="{WS - 250}" y="89" font-size="15" fill="{FG}">Best value (frontier)</text>'
+               f'<circle cx="{WS - 84}" cy="{84}" r="7" fill="{C_A}"/><text x="{WS - 72}" y="89" font-size="15" fill="{FG}">Other</text>')
     desc = "; ".join(f"{p['name']}: ECI {p['y']:.1f}, ${p['x']:.2f} per 1M tokens" for p in sorted(points, key=lambda p: -p["y"]))
     body = "".join(out)
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {WS} {HS}" width="{WS}" height="{HS}" role="img" font-family="{FONT}">'
@@ -175,7 +185,7 @@ def rank_chart(points, mode, checked):
     """mode 'top': capability dot plot with 90% range, sorted by ECI.
     mode 'cheap': blended price bars (log scale), sorted cheapest first, ECI shown."""
     import math
-    WS = 760; rowh = 26; T = 96; L = 190; R = 90
+    WS = 760; rowh = 32; T = 100; L = 210; R = 120
     pts = sorted(points, key=(lambda p: -p["y"]) if mode == "top" else (lambda p: p["x"]))
     HS = T + rowh * len(pts) + 56
     pw = WS - L - R
@@ -194,24 +204,24 @@ def rank_chart(points, mode, checked):
                 if x0 <= d * m <= x1 * 1.0001: ticks.append((d * m, f"${d * m:g}"))
             d *= 10
         title, sub = "Cheapest AI models", "Blended API price per 1M tokens (log scale), with capability score"
-    out = [f'<text x="24" y="40" font-size="21" font-weight="700" fill="{FG}">{title}</text>',
-           f'<text x="24" y="64" font-size="14" fill="{MUTED}">{sub} · {esc(checked)}</text>']
+    out = [f'<text x="24" y="40" font-size="24" font-weight="700" fill="{FG}">{title}</text>',
+           f'<text x="24" y="68" font-size="15" fill="{MUTED}">{sub} · {esc(checked)}</text>']
     for v, lab in ticks:
         gx = X(v)
         out.append(f'<line x1="{gx:.1f}" y1="{T - 8}" x2="{gx:.1f}" y2="{T + rowh * len(pts)}" stroke="{GRID}" stroke-width="0.6"/>'
-                   f'<text x="{gx:.1f}" y="{T + rowh * len(pts) + 18}" text-anchor="middle" font-size="12" fill="{MUTED}">{lab}</text>')
+                   f'<text x="{gx:.1f}" y="{T + rowh * len(pts) + 20}" text-anchor="middle" font-size="14" fill="{MUTED}">{lab}</text>')
     for i, p in enumerate(pts):
         cy = T + i * rowh + rowh / 2
         col = C_B if p.get("front") else C_A
-        out.append(f'<text x="{L - 12}" y="{cy + 4:.1f}" text-anchor="end" font-size="13" font-weight="{700 if p.get("front") else 400}" fill="{FG}">{esc(p["name"])}</text>')
+        out.append(f'<text x="{L - 12}" y="{cy + 4:.1f}" text-anchor="end" font-size="15" font-weight="{700 if p.get("front") else 400}" fill="{FG}">{esc(p["name"])}</text>')
         if mode == "top":
-            out.append(f'<line x1="{X(p["lo"]):.1f}" y1="{cy:.1f}" x2="{X(p["hi"]):.1f}" y2="{cy:.1f}" stroke="{col}" stroke-width="3" opacity="0.35" stroke-linecap="round"/>'
-                       f'<circle cx="{X(p["y"]):.1f}" cy="{cy:.1f}" r="5.5" fill="{col}"/>'
-                       f'<text x="{X(p["hi"]) + 8:.1f}" y="{cy + 4:.1f}" font-size="12" fill="{FG}">{p["y"]:.1f}</text>')
+            out.append(f'<line x1="{X(p["lo"]):.1f}" y1="{cy:.1f}" x2="{X(p["hi"]):.1f}" y2="{cy:.1f}" stroke="{col}" stroke-width="4" opacity="0.35" stroke-linecap="round"/>'
+                       f'<circle cx="{X(p["y"]):.1f}" cy="{cy:.1f}" r="7.5" fill="{col}"/>'
+                       f'<text x="{X(p["hi"]) + 8:.1f}" y="{cy + 5:.1f}" font-size="14" fill="{FG}">{p["y"]:.1f}</text>')
         else:
             w = max(3, X(p["x"]) - L)
-            out.append(f'<rect x="{L}" y="{cy - 8:.1f}" width="{w:.1f}" height="16" rx="4" fill="{col}"/>'
-                       f'<text x="{L + w + 8:.1f}" y="{cy + 4:.1f}" font-size="12" fill="{FG}">${p["x"]:.2f} · ECI {p["y"]:.0f}</text>')
+            out.append(f'<rect x="{L}" y="{cy - 10:.1f}" width="{w:.1f}" height="20" rx="4" fill="{col}"/>'
+                       f'<text x="{L + w + 8:.1f}" y="{cy + 5:.1f}" font-size="14" fill="{FG}">${p["x"]:.2f} · ECI {p["y"]:.0f}</text>')
     desc = "; ".join(f"{p['name']}: ECI {p['y']:.1f}, ${p['x']:.2f}" for p in pts)
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {WS} {HS}" width="{WS}" height="{HS}" role="img" font-family="{FONT}">'
             f'<title>{title}</title><desc>{esc(desc)}</desc><rect width="{WS}" height="{HS}" rx="16" fill="{BG}"/>{"".join(out)}'
