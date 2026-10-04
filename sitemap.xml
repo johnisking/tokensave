@@ -12282,4 +12282,11 @@
       <image:loc>https://tokensave.app/img/compare/gpt-5-6-vs-gpt-6-sol-api-cost.svg</image:loc>
     </image:image>
   </url>
+  <url>
+    <loc>https://tokensave.app/compare/performance</loc>
+    <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/ai-model-capability-vs-price.svg</image:loc>
+    </image:image>
+  </url>
 </urlset>

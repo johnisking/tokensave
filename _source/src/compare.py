@@ -7,6 +7,7 @@ actually compare are generated; each page is computed from the two models' own n
 """
 import html, json, os, re
 import charts
+import perf
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 esc = lambda s: html.escape(str(s), quote=True)
@@ -225,15 +226,23 @@ def build_all(llm):
     models = load_models(llm)
     checked = llm.get("checked", "")
     pages = []
+    eci = perf.scores()
     for x, y in PAIRS:
         a, b = models[x], models[y]
         related = [(path(models[p], models[q]), f"{models[p]['name']} vs {models[q]['name']}")
                    for p, q in PAIRS if (p, q) != (x, y) and ({p, q} & {x, y})][:8]
-        pages.append(build_page(a, b, models, checked, related))
+        pg = build_page(a, b, models, checked, related)
+        line = perf.compare_line(a, b, eci)
+        if line:
+            pg["body"] = pg["body"].replace("<h2>Cost by workload</h2>", "<h2>Capability</h2>\n      " + line + "\n      <h2>Cost by workload</h2>", 1)
+        pages.append(pg)
+    perf_page, _ = perf.build_page(models, llm)
+    pages.append(perf_page)
     hub_items = "".join(f'<li><a href="{p["path"]}">{esc(p["title"].split(":")[0])}</a></li>' for p in pages)
     hub = f"""    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
       <h1 class="text-2xl sm:text-3xl font-extrabold text-white">AI model API cost comparisons</h1>
       <p>Side-by-side API costs for the models people compare most: price per million tokens, cost per request for chat, RAG, coding agents and writing, and monthly totals. Prices update automatically (last checked {checked}).</p>
+      <p><strong>New:</strong> <a href="/compare/performance">AI model capability vs price</a>, every model's Epoch Capabilities Index score against its API cost, with the best-value models marked.</p>
       <ul>{hub_items}</ul>
       <p>Want the full list in one table? See <a href="/blog/llm-api-pricing-comparison">LLM API pricing compared</a>, or paste your own prompt into the <a href="/">token counter</a>.</p>
     </article>"""

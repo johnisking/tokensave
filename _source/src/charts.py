@@ -103,3 +103,70 @@ def size_of(svg):
     import re
     m = re.search(r'viewBox="0 0 (\d+) (\d+)"', svg)
     return int(m.group(1)), int(m.group(2))
+
+def scatter_chart(points, checked):
+    """Capability (y) vs blended price (x, log scale). points: [{id,name,x,y,front}].
+    Frontier points are joined by a line; labels are placed greedily to avoid overlaps."""
+    import math
+    WS, HS = 760, 600
+    L, R, T, B = 64, 24, 92, 64
+    pw, ph = WS - L - R, HS - T - B
+    xs = [p["x"] for p in points]; ys = [p["y"] for p in points]
+    x0 = 10 ** math.floor(math.log10(min(xs))); x1 = 10 ** math.ceil(math.log10(max(xs)))
+    y0 = math.floor((min(ys) - 2) / 10) * 10; y1 = math.ceil((max(ys) + 2) / 5) * 5
+    X = lambda v: L + (math.log10(v) - math.log10(x0)) / (math.log10(x1) - math.log10(x0)) * pw
+    Y = lambda v: T + (1 - (v - y0) / (y1 - y0)) * ph
+    out = [f'<text x="24" y="40" font-size="21" font-weight="700" fill="{FG}">AI model capability vs API price</text>',
+           f'<text x="24" y="64" font-size="14" fill="{MUTED}">Epoch Capabilities Index (Epoch AI, CC BY) vs blended price per 1M tokens · {esc(checked)}</text>']
+    # grid + axes
+    d = x0
+    while d <= x1 * 1.0001:
+        for m in (1, 2, 5):
+            v = d * m
+            if x0 <= v <= x1 * 1.0001:
+                gx = X(v)
+                out.append(f'<line x1="{gx:.1f}" y1="{T}" x2="{gx:.1f}" y2="{T + ph}" stroke="{GRID}" stroke-width="{1 if m == 1 else 0.5}"/>'
+                           f'<text x="{gx:.1f}" y="{T + ph + 18}" text-anchor="middle" font-size="12" fill="{MUTED}">${v:g}</text>')
+        d *= 10
+    for v in range(int(y0), int(y1) + 1, 5):
+        gy = Y(v)
+        out.append(f'<line x1="{L}" y1="{gy:.1f}" x2="{L + pw}" y2="{gy:.1f}" stroke="{GRID}" stroke-width="0.5"/>'
+                   f'<text x="{L - 8}" y="{gy + 4:.1f}" text-anchor="end" font-size="12" fill="{MUTED}">{v}</text>')
+    out.append(f'<text x="{L + pw / 2:.0f}" y="{HS - 22}" text-anchor="middle" font-size="13" fill="{MUTED}">Blended API price per 1M tokens (USD, log scale) → cheaper on the left</text>'
+               f'<text x="18" y="{T + ph / 2:.0f}" transform="rotate(-90 18 {T + ph / 2:.0f})" text-anchor="middle" font-size="13" fill="{MUTED}">Capability (ECI) ↑</text>')
+    fr = sorted((p for p in points if p.get("front")), key=lambda p: p["x"])
+    if len(fr) > 1:
+        path = " ".join(f"{X(p['x']):.1f},{Y(p['y']):.1f}" for p in fr)
+        out.append(f'<polyline points="{path}" fill="none" stroke="{C_B}" stroke-width="2" stroke-dasharray="6 4" opacity="0.8"/>')
+    boxes = []
+    def free(bx):
+        x, y, w, h = bx
+        if x < L or x + w > WS - 4 or y < T - 4 or y + h > T + ph:
+            return False
+        return all(x + w < a or a + c < x or y + h < b or b + e < y for a, b, c, e in boxes)
+    for p in points:  # reserve dots first so labels avoid them
+        boxes.append((X(p["x"]) - 5, Y(p["y"]) - 5, 10, 10))
+    for p in sorted(points, key=lambda p: -p["y"]):
+        cx, cy = X(p["x"]), Y(p["y"])
+        col = C_B if p.get("front") else C_A
+        out.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="5.5" fill="{col}" stroke="{BG}" stroke-width="1.5"/>')
+        fs = 12
+        w = len(p["name"]) * 6.6 + 4
+        for dx, dy, anchor in ((9, 4, "start"), (-9, 4, "end"), (9, -8, "start"), (-9, -8, "end"), (9, 16, "start"), (-9, 16, "end"),
+                               (-w / 2, -12, "middle"), (-w / 2, 22, "middle"), (9, -20, "start"), (-9, 28, "end")):
+            bx = cx + dx if anchor == "start" else cx + dx - w if anchor == "end" else cx - w / 2
+            box = (bx, cy + dy - fs + 2, w, fs + 2)
+            if free(box):
+                boxes.append(box)
+                tx = cx + dx if anchor != "middle" else cx
+                out.append(f'<text x="{tx:.1f}" y="{cy + dy:.1f}" text-anchor="{anchor}" font-size="{fs}" '
+                           f'font-weight="{700 if p.get("front") else 400}" fill="{FG}">{esc(p["name"])}</text>')
+                break
+    out.append(f'<circle cx="{WS - 236}" cy="{82}" r="5.5" fill="{C_B}"/><text x="{WS - 226}" y="86" font-size="13" fill="{FG}">Best value (frontier)</text>'
+               f'<circle cx="{WS - 84}" cy="{82}" r="5.5" fill="{C_A}"/><text x="{WS - 74}" y="86" font-size="13" fill="{FG}">Other</text>')
+    desc = "; ".join(f"{p['name']}: ECI {p['y']:.1f}, ${p['x']:.2f} per 1M tokens" for p in sorted(points, key=lambda p: -p["y"]))
+    body = "".join(out)
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {WS} {HS}" width="{WS}" height="{HS}" role="img" font-family="{FONT}">'
+            f'<title>AI model capability vs API price</title><desc>{esc(desc)}</desc>'
+            f'<rect width="{WS}" height="{HS}" rx="16" fill="{BG}"/>{body}'
+            f'<text x="{WS - 24}" y="{HS - 6}" text-anchor="end" font-size="12" font-weight="600" fill="{MUTED}">tokensave.app</text></svg>\n')
