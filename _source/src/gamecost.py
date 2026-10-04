@@ -21,7 +21,7 @@ T = {
   badge="New · free · no sign-up", h1="AI Game Cost Calculator",
   sub="Answer a few questions about your 2D game. Get the asset list, the cost and time to build it with AI tools, the tokens, and a prompt pack to start building today.",
   qProject="Your game", name="Game name", namePh="e.g. Cat Merge Café", idea="One-line idea", ideaPh="e.g. merge cat furniture to decorate a café",
-  qGenre="Genre", qScale="Size", sS="Small", sSsub="≈ 2 weeks solo", sM="Medium", sMsub="≈ 4 weeks", sL="Large", sLsub="≈ 6 weeks",
+  qGenre="Genre", qScale="Size", sS="Small", sSsub="≈ 2 weeks solo", sM="Medium", sMsub="≈ 4 weeks", sL="Large", sLsub="≈ 6 weeks", sXL="Extra large", sXLsub="≈ 3 months+",
   qStyle="Art style", stPixel="Pixel art", stIllust="Illustration", stSimple="Simple / vector",
   qDim="Look", d2="2D", d3="2.5D / 3D models",
   qChars="Characters / enemies", qAnim="Animation", aNone="None", aSimple="Simple (3 moves)", aFull="Full (6 moves)",
@@ -32,7 +32,7 @@ T = {
   promptTitle="Your prompt pack", promptSub="Built from your answers. Asset prompts are in English because image, music and sound tools work best in English.",
   tDev="Dev kickoff", tArt="Art", tMusic="Music", tSfx="Sound effects", tTrailer="Trailer", copy="Copy", download="Download all (.md)",
   howTitle="How the estimate works",
-  how=["Sizes are anchored on real solo builds made with AI coding agents: a small mobile game took about 2 weeks, a medium one about 4 and a large one about 6. Genre, features, languages and 3D change those numbers.",
+  how=["Sizes are anchored on real solo builds made with AI coding agents: a small mobile game took about 2 weeks, a medium one about 4 and a large one about 6; extra large is about 3 months. Genre, features, languages and 3D change those numbers.",
        "Images = characters × animation frames + backgrounds + items + UI. We assume you keep about 1 in 3 generations, so the number of generations is three times the number of images.",
        "Coding tokens assume an agent like Claude Code works about 70% of the days and reads around 20M tokens a day, most of it cached context. The API cost uses today's list price for the model you pick; subscriptions are charged per month."],
   srcTitle="Tool prices used", srcNote=f"Checked {CHECKED}. Prices change often — check each tool's pricing page before you buy.",
@@ -65,7 +65,7 @@ T = {
   badge="신규 · 무료 · 가입 없음", h1="AI 게임 제작 비용 계산기",
   sub="만들 2D 게임에 대해 몇 가지만 답하세요. 필요한 에셋 목록, AI 도구로 만들 때의 비용·기간, 토큰, 그리고 바로 시작할 수 있는 프롬프트 묶음을 드립니다.",
   qProject="내 게임", name="게임 이름", namePh="예: 냥냥 머지 카페", idea="한 줄 설명", ideaPh="예: 고양이 가구를 합쳐 카페를 꾸미는 게임",
-  qGenre="장르", qScale="규모", sS="소형", sSsub="1인 약 2주", sM="중형", sMsub="약 4주", sL="대형", sLsub="약 6주",
+  qGenre="장르", qScale="규모", sS="소형", sSsub="1인 약 2주", sM="중형", sMsub="약 4주", sL="대형", sLsub="약 6주", sXL="초대형", sXLsub="약 3개월+",
   qStyle="그림 스타일", stPixel="픽셀아트", stIllust="일러스트", stSimple="단순·벡터",
   qDim="표현 방식", d2="2D", d3="2.5D / 3D 모델",
   qChars="캐릭터·적 수", qAnim="애니메이션", aNone="없음", aSimple="간단 (동작 3개)", aFull="풍부 (동작 6개)",
@@ -76,7 +76,7 @@ T = {
   promptTitle="프롬프트 묶음", promptSub="답변을 바탕으로 만들었습니다. 그림·음악·효과음 도구는 영어 프롬프트가 가장 잘 먹혀서 에셋 프롬프트는 영어로 드립니다.",
   tDev="개발 시작", tArt="그림", tMusic="음악", tSfx="효과음", tTrailer="트레일러", copy="복사", download="전체 받기 (.md)",
   howTitle="계산 방식",
-  how=["규모 기준은 AI 코딩 에이전트로 실제 1인 개발한 게임입니다. 소형 모바일 게임 약 2주, 중형 약 4주, 대형 약 6주가 걸렸고, 장르·기능·언어 수·3D 여부에 따라 늘거나 줄어듭니다.",
+  how=["규모 기준은 AI 코딩 에이전트로 실제 1인 개발한 게임입니다. 소형 모바일 게임 약 2주, 중형 약 4주, 대형 약 6주가 걸렸고 초대형은 약 3개월로 잡았습니다. 장르·기능·언어 수·3D 여부에 따라 늘거나 줄어듭니다.",
        "이미지 수 = 캐릭터 × 애니메이션 프레임 + 배경 + 아이템 + UI입니다. 생성한 것 중 3장에 1장 정도를 쓴다고 보고, 생성 횟수는 이미지 수의 3배로 잡았습니다.",
        "코딩 토큰은 Claude Code 같은 에이전트가 전체 기간의 70% 동안 하루 약 2천만 토큰(대부분 캐시된 맥락)을 읽는다고 가정합니다. API 비용은 고른 모델의 현재 정가, 구독은 월 단위로 계산합니다."],
   srcTitle="사용한 도구 가격", srcNote=f"{CHECKED} 기준. 가격이 자주 바뀌니 결제 전 각 도구의 가격 페이지를 확인하세요.",
@@ -109,7 +109,7 @@ T = {
   badge="新機能 · 無料 · 登録不要", h1="AIゲーム制作費計算機",
   sub="作りたい2Dゲームについていくつか答えるだけ。必要な素材リスト、AIツールで作る場合の費用・期間、トークン数、すぐ始められるプロンプト集をお届けします。",
   qProject="あなたのゲーム", name="ゲーム名", namePh="例：ねこマージカフェ", idea="一行説明", ideaPh="例：猫の家具を合体させてカフェを飾る",
-  qGenre="ジャンル", qScale="規模", sS="小規模", sSsub="1人で約2週間", sM="中規模", sMsub="約4週間", sL="大規模", sLsub="約6週間",
+  qGenre="ジャンル", qScale="規模", sS="小規模", sSsub="1人で約2週間", sM="中規模", sMsub="約4週間", sL="大規模", sLsub="約6週間", sXL="超大型", sXLsub="約3か月以上",
   qStyle="絵柄", stPixel="ドット絵", stIllust="イラスト", stSimple="シンプル・ベクター",
   qDim="表現", d2="2D", d3="2.5D / 3Dモデル",
   qChars="キャラクター・敵の数", qAnim="アニメーション", aNone="なし", aSimple="シンプル（動作3つ）", aFull="豊富（動作6つ）",
@@ -120,7 +120,7 @@ T = {
   promptTitle="プロンプト集", promptSub="回答をもとに作成しました。画像・音楽・効果音ツールは英語のプロンプトが最も効くため、素材用は英語で出します。",
   tDev="開発スタート", tArt="画像", tMusic="音楽", tSfx="効果音", tTrailer="トレーラー", copy="コピー", download="まとめてダウンロード (.md)",
   howTitle="計算の仕組み",
-  how=["規模の基準は、AIコーディングエージェントで実際に1人で作ったゲームです。小規模のモバイルゲームで約2週間、中規模で約4週間、大規模で約6週間かかりました。ジャンル・機能・言語数・3Dの有無で増減します。",
+  how=["規模の基準は、AIコーディングエージェントで実際に1人で作ったゲームです。小規模のモバイルゲームで約2週間、中規模で約4週間、大規模で約6週間かかり、超大型は約3か月としています。ジャンル・機能・言語数・3Dの有無で増減します。",
        "画像数 = キャラクター × アニメーションのフレーム + 背景 + アイテム + UI。生成した3枚に1枚を使う想定で、生成回数は画像数の3倍としています。",
        "コーディングのトークンは、Claude Code などのエージェントが期間の70%の日に1日約2,000万トークン（大半はキャッシュされた文脈）を読む想定です。APIは選んだモデルの現在の定価、サブスクは月単位で計算します。"],
   srcTitle="使用したツール料金", srcNote=f"{CHECKED}時点。料金はよく変わるので、購入前に各ツールの料金ページを確認してください。",
@@ -199,7 +199,7 @@ def build_page(lang, llm):
         f'<button data-v="other" class="tab py-1.5 px-2 rounded-md text-xs font-semibold text-zinc-400">{e("gOther")}</button>'
     other_opts = "".join(f'<option value="{g}">{esc(t["g_" + g])}</option>' for g in OTHER_GENRES)
     scale = "".join(f'<button data-v="{v}" class="tab py-2 px-2 rounded-md text-xs font-semibold text-zinc-400 leading-tight">{e(a)}<span class="block text-[10px] font-normal text-zinc-500">{e(b)}</span></button>'
-                    for v, a, b in [("s", "sS", "sSsub"), ("m", "sM", "sMsub"), ("l", "sL", "sLsub")])
+                    for v, a, b in [("s", "sS", "sSsub"), ("m", "sM", "sMsub"), ("l", "sL", "sLsub"), ("xl", "sXL", "sXLsub")])
     feats = "".join(f'<label class="inline-flex items-center gap-1.5 text-xs bg-zinc-950/70 border border-zinc-800 rounded-lg px-2.5 py-1.5 cursor-pointer"><input type="checkbox" data-f="{f}" class="accent-violet-500"{" checked" if f in ("ads", "save") else ""}>{esc(t["f_" + f])}</label>' for f in FEATS)
     models = [("claude-sonnet-5-5", "Claude Sonnet 5.5"), ("claude-opus-5-5", "Claude Opus 5.5"), ("gpt-6-sol", "GPT-6 Sol"), ("gemini-3-8-flash", "Gemini 3.8 Flash"), ("deepseek-v4-flash", "DeepSeek V4 Flash")]
     models = [(k, n) for k, n in models if k in llm["models"]]
@@ -228,7 +228,7 @@ def build_page(lang, llm):
       </div>
       <div class="grid grid-cols-1 gap-4">
         {_field(e("qGenre"), f'<div id="gcGenre" class="grid grid-cols-3 sm:grid-cols-6 p-1 bg-zinc-950/70 border border-zinc-800 rounded-lg gap-1">{genre_btns}</div><select id="gcGenreOther" hidden class="mt-2 w-full sm:w-72 bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py-2 text-sm">{other_opts}</select>')}
-        <div class="max-w-xl">{_field(e("qScale"), f'<div id="gcScale" class="grid grid-cols-3 p-1 bg-zinc-950/70 border border-zinc-800 rounded-lg gap-1">{scale}</div>')}</div>
+        <div class="max-w-xl">{_field(e("qScale"), f'<div id="gcScale" class="grid grid-cols-4 p-1 bg-zinc-950/70 border border-zinc-800 rounded-lg gap-1">{scale}</div>')}</div>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
         {_field(e("qStyle"), _seg("gcStyle", [("pixel", e("stPixel")), ("illust", e("stIllust")), ("simple", e("stSimple"))]))}

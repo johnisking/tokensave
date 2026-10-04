@@ -13,6 +13,7 @@ const SCALE = {
   s: { days: 14, loc: 4000, chars: 3, bg: 4, items: 15, ui: 25, music: 3, sfx: 25 },
   m: { days: 28, loc: 9000, chars: 6, bg: 10, items: 40, ui: 50, music: 5, sfx: 45 },
   l: { days: 42, loc: 15000, chars: 10, bg: 18, items: 80, ui: 80, music: 8, sfx: 70 },
+  xl: { days: 90, loc: 32000, chars: 20, bg: 35, items: 160, ui: 120, music: 12, sfx: 120 },
 };
 // Genre multipliers on the anchors
 const GENRE = {
@@ -233,8 +234,8 @@ function prompts(e) {
   if (state.imgTool === 'pixel') art.push('\nPixelLab: generate characters at 64×64 or 128×128 with "8 directions" for top-down games, then use "Animate" with the action names above.');
 
   const [mood, bpm] = MOOD[state.genre];
-  const tracks = ['Main menu theme', 'Gameplay loop', 'Gameplay loop (intense)', 'Boss / challenge', 'Shop / break', 'Victory jingle', 'Game over sting', 'Ending theme'].slice(0, e.music);
-  const music = state.musicTool === 'free' ? 'Search these on pixabay.com/music (free for commercial use, no attribution required):\n\n' + tracks.map((tr, i) => `${i + 1}. ${tr}: "${[mood.split(',')[0] + ' menu', mood.split(',')[0] + ' background', 'upbeat action', 'boss battle', 'shop', 'victory jingle', 'game over', 'ending'][i]} ${state.style === 'pixel' ? 'chiptune' : 'game music'}" — filter: instrumental, ${i >= 5 ? 'under 0:15' : '1–3 min, loopable'}`).join('\n') : (state.musicTool === 'aiva' ? 'AIVA: pick the closest style preset (e.g. ' + (state.style === 'pixel' ? 'Chiptune' : 'Video Game') + '), then set mood, tempo and length from each line below.\n\n' : '') + tracks.map((tr, i) => `${i + 1}. ${tr} — instrumental, ${mood}, ${bpm + (i === 2 || i === 3 ? 20 : 0)} BPM, ${state.style === 'pixel' ? 'chiptune / 8-bit' : 'light game soundtrack'}, seamless loop, no vocals${i >= 5 ? ', short 5–10 s' : ', 60–90 s'}`).join('\n');
+  const tracks = ['Main menu theme', 'Gameplay loop', 'Gameplay loop (intense)', 'Boss / challenge', 'Shop / break', 'Victory jingle', 'Game over sting', 'Ending theme', 'World 2 theme', 'World 3 theme', 'Cutscene / story', 'Credits'].slice(0, e.music);
+  const music = state.musicTool === 'free' ? 'Search these on pixabay.com/music (free for commercial use, no attribution required):\n\n' + tracks.map((tr, i) => `${i + 1}. ${tr}: "${[mood.split(',')[0] + ' menu', mood.split(',')[0] + ' background', 'upbeat action', 'boss battle', 'shop', 'victory jingle', 'game over', 'ending', 'adventure', 'exploration', 'emotional story', 'credits'][i] || 'game background'} ${state.style === 'pixel' ? 'chiptune' : 'game music'}" — filter: instrumental, ${i >= 5 ? 'under 0:15' : '1–3 min, loopable'}`).join('\n') : (state.musicTool === 'aiva' ? 'AIVA: pick the closest style preset (e.g. ' + (state.style === 'pixel' ? 'Chiptune' : 'Video Game') + '), then set mood, tempo and length from each line below.\n\n' : '') + tracks.map((tr, i) => `${i + 1}. ${tr} — instrumental, ${mood}, ${bpm + (i === 2 || i === 3 ? 20 : 0)} BPM, ${state.style === 'pixel' ? 'chiptune / 8-bit' : 'light game soundtrack'}, seamless loop, no vocals${i >= 5 ? ', short 5–10 s' : ', 60–90 s'}`).join('\n');
 
   const freeLib = state.sfxTool === 'free';
   const sfxBase = ['Button tap', 'Coin pickup', 'Level complete fanfare', 'Fail / lose', 'Item merge pop', 'Power-up', 'Jump', 'Hit', 'Whoosh transition', 'Unlock chime', 'Countdown beep', 'Reward chest open'];
@@ -279,7 +280,7 @@ function render() {
     col(t('cAi'), 'Midjourney + Suno + ElevenLabs + Claude Max 5×', e.base.lines, e.base.lo, e.base.hi, aiTime, true) +
     col(t('cMine'), mineTools, e.mine.lines, e.mine.lo, e.mine.hi, aiTime, false, e.mine.codeFits ? '' : t('capWarn'));
 
-  const HIRE_MIN = { s: 5000, m: 15000, l: 30000 };
+  const HIRE_MIN = { s: 5000, m: 15000, l: 30000, xl: 80000 };
   $('#gcRef').innerHTML = t('hireRef', { min: usd(HIRE_MIN[state.scale] * (state.dim === '3d' ? 1.5 : 1)) });
   const P = prompts(e);
   window.__gcPrompts = P;
