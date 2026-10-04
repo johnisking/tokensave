@@ -237,7 +237,20 @@ def compile_css():
                     "-o", os.path.join(DIST, "styles.css"), "--minify"], cwd=TW, check=True,
                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
+RANK_NAV = {"en": "AI Ranking", "ko": "AI 순위", "ja": "AIランキング", "zh-CN": "AI排行", "zh-TW": "AI排行", "es": "Ranking IA",
+    "pt": "Ranking IA", "fr": "Classement IA", "de": "KI-Ranking", "it": "Classifica IA", "ru": "Рейтинг ИИ", "uk": "Рейтинг ШІ",
+    "tr": "YZ Sıralaması", "ar": "تصنيف AI", "fa": "رتبه‌بندی AI", "hi": "AI रैंकिंग", "id": "Peringkat AI", "vi": "Xếp hạng AI",
+    "th": "อันดับ AI", "pl": "Ranking AI", "nl": "AI-ranglijst", "bn": "AI র‍্যাঙ্কিং", "ur": "AI درجہ بندی", "fil": "Ranggo ng AI",
+    "cs": "Žebříček AI", "sv": "AI-ranking", "he": "דירוג AI", "el": "Κατάταξη AI", "ro": "Clasament AI", "hu": "MI-rangsor",
+    "da": "AI-rangliste", "fi": "AI-ranking", "no": "KI-rangering", "sk": "Rebríček AI", "mr": "AI क्रमवारी", "gu": "AI રેન્કિંગ",
+    "kn": "AI ಶ್ರೇಯಾಂಕ", "ml": "AI റാങ്കിംഗ്", "ta": "AI தரவரிசை", "te": "AI ర్యాంకింగ్", "pa": "AI ਰੈਂਕਿੰਗ"}
+
 def render(base, body, values):
+    if "toolNav" in values:  # every page's top menu gets the capability/price ranking
+        here = values.get("url", "").endswith("/compare/performance")
+        lab = RANK_NAV.get(values.get("htmlLang", "en"), RANK_NAV["en"])
+        values = dict(values, toolNav=values["toolNav"] + f'\n          <a href="/compare/performance" class="{NAV_ON if here else NAV_OFF}"'
+                      + (' aria-current="page"' if here else '') + f'>📊 {esc(lab)}</a>')
     out = base.replace("{{body}}", body)
     for k, v in values.items():
         out = out.replace("{{" + k + "}}", v)
