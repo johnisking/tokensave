@@ -15,6 +15,11 @@ C_A, C_B = "#a78bfa", "#34d399"          # two models being compared
 C_IN, C_OUT, C_HI = "#60a5fa", "#a78bfa", "#fbbf24"
 FONT = "Inter, 'Segoe UI', Helvetica, Arial, sans-serif"
 W = 560
+CHART_EN = dict(s_title="AI model capability vs API price", s_sub="Epoch Capabilities Index (Epoch AI, CC BY) vs blended price per 1M tokens",
+                s_x="Blended API price per 1M tokens (USD, log scale) → cheaper on the left", s_y="Capability (ECI) ↑",
+                s_front="Best value (frontier)", s_other="Other",
+                t_title="Most capable AI models", t_sub="Epoch Capabilities Index with 90% range (Epoch AI, CC BY)",
+                c_title="Cheapest AI models", c_sub="Blended API price per 1M tokens (log scale), with capability score")
 
 def _money(x):
     if x >= 100: return f"${x:,.0f}"
@@ -104,7 +109,8 @@ def size_of(svg):
     m = re.search(r'viewBox="0 0 (\d+) (\d+)"', svg)
     return int(m.group(1)), int(m.group(2))
 
-def scatter_chart(points, checked):
+def scatter_chart(points, checked, tx=None):
+    tx = dict(CHART_EN, **(tx or {}))
     """Capability (y) vs blended price (x, log scale). points: [{id,name,x,y,front}].
     Frontier points are joined by a line; labels are placed greedily to avoid overlaps."""
     import math
@@ -119,8 +125,8 @@ def scatter_chart(points, checked):
     y0 = math.floor((min(ys) - 2) / 10) * 10; y1 = math.ceil((max(ys) + 2) / 5) * 5
     X = lambda v: L + (math.log10(v) - math.log10(x0)) / (math.log10(x1) - math.log10(x0)) * pw
     Y = lambda v: T + (1 - (v - y0) / (y1 - y0)) * ph
-    out = [f'<text x="24" y="40" font-size="24" font-weight="700" fill="{FG}">AI model capability vs API price</text>',
-           f'<text x="24" y="68" font-size="15" fill="{MUTED}">Epoch Capabilities Index (Epoch AI, CC BY) vs blended price per 1M tokens · {esc(checked)}</text>']
+    out = [f'<text x="24" y="40" font-size="24" font-weight="700" fill="{FG}">{esc(tx["s_title"])}</text>',
+           f'<text x="24" y="68" font-size="15" fill="{MUTED}">{esc(tx["s_sub"])} · {esc(checked)}</text>']
     # grid + axes
     d = x0
     while d <= x1 * 1.0001:
@@ -135,8 +141,8 @@ def scatter_chart(points, checked):
         gy = Y(v)
         out.append(f'<line x1="{L}" y1="{gy:.1f}" x2="{L + pw}" y2="{gy:.1f}" stroke="{GRID}" stroke-width="0.5"/>'
                    f'<text x="{L - 8}" y="{gy + 4:.1f}" text-anchor="end" font-size="14" fill="{MUTED}">{v}</text>')
-    out.append(f'<text x="{L + pw / 2:.0f}" y="{HS - 22}" text-anchor="middle" font-size="15" fill="{MUTED}">Blended API price per 1M tokens (USD, log scale) → cheaper on the left</text>'
-               f'<text x="18" y="{T + ph / 2:.0f}" transform="rotate(-90 18 {T + ph / 2:.0f})" text-anchor="middle" font-size="15" fill="{MUTED}">Capability (ECI) ↑</text>')
+    out.append(f'<text x="{L + pw / 2:.0f}" y="{HS - 22}" text-anchor="middle" font-size="15" fill="{MUTED}">{esc(tx["s_x"])}</text>'
+               f'<text x="18" y="{T + ph / 2:.0f}" transform="rotate(-90 18 {T + ph / 2:.0f})" text-anchor="middle" font-size="15" fill="{MUTED}">{esc(tx["s_y"])}</text>')
     fr = sorted((p for p in points if p.get("front")), key=lambda p: p["x"])
     if len(fr) > 1:
         path = " ".join(f"{X(p['x']):.1f},{Y(p['y']):.1f}" for p in fr)
@@ -164,27 +170,28 @@ def scatter_chart(points, checked):
             box = (bx, cy + dy - fs + 2, w, fs + 2)
             if free(box):
                 boxes.append(box)
-                tx = cx + dx if anchor != "middle" else cx
+                lx = cx + dx if anchor != "middle" else cx
                 if abs(dy) > 27:
                     ly = cy + dy - fs / 2 + 2 if dy > 0 else cy + dy + 3
                     ly = cy + dy - fs + 3 if dy > 0 else cy + dy + 3
-                    out.append(f'<line x1="{cx:.1f}" y1="{cy + (8 if dy > 0 else -8):.1f}" x2="{tx:.1f}" y2="{ly:.1f}" stroke="{MUTED}" stroke-width="1" opacity="0.7"/>')
-                out.append(f'<text x="{tx:.1f}" y="{cy + dy:.1f}" text-anchor="{anchor}" font-size="{fs}" '
+                    out.append(f'<line x1="{cx:.1f}" y1="{cy + (8 if dy > 0 else -8):.1f}" x2="{lx:.1f}" y2="{ly:.1f}" stroke="{MUTED}" stroke-width="1" opacity="0.7"/>')
+                out.append(f'<text x="{lx:.1f}" y="{cy + dy:.1f}" text-anchor="{anchor}" font-size="{fs}" '
                            f'font-weight="{700 if p.get("front") else 400}" fill="{FG}">{esc(p["name"])}</text>')
                 break
-    out.append(f'<circle cx="{WS - 262}" cy="{84}" r="7" fill="{C_B}"/><text x="{WS - 250}" y="89" font-size="15" fill="{FG}">Best value (frontier)</text>'
-               f'<circle cx="{WS - 84}" cy="{84}" r="7" fill="{C_A}"/><text x="{WS - 72}" y="89" font-size="15" fill="{FG}">Other</text>')
+    out.append(f'<circle cx="{WS - 262}" cy="{84}" r="7" fill="{C_B}"/><text x="{WS - 250}" y="89" font-size="15" fill="{FG}">{esc(tx["s_front"])}</text>'
+               f'<circle cx="{WS - 84}" cy="{84}" r="7" fill="{C_A}"/><text x="{WS - 72}" y="89" font-size="15" fill="{FG}">{esc(tx["s_other"])}</text>')
     desc = "; ".join(f"{p['name']}: ECI {p['y']:.1f}, ${p['x']:.2f} per 1M tokens" for p in sorted(points, key=lambda p: -p["y"]))
     body = "".join(out)
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {WS} {HS}" width="{WS}" height="{HS}" role="img" font-family="{FONT}">'
-            f'<title>AI model capability vs API price</title><desc>{esc(desc)}</desc>'
+            f'<title>{esc(tx["s_title"])}</title><desc>{esc(desc)}</desc>'
             f'<rect width="{WS}" height="{HS}" rx="16" fill="{BG}"/>{body}'
             f'<text x="{WS - 24}" y="{HS - 6}" text-anchor="end" font-size="12" font-weight="600" fill="{MUTED}">tokensave.app</text></svg>\n')
 
-def rank_chart(points, mode, checked):
+def rank_chart(points, mode, checked, tx=None):
     """mode 'top': capability dot plot with 90% range, sorted by ECI.
     mode 'cheap': blended price bars (log scale), sorted cheapest first, ECI shown."""
     import math
+    tx = dict(CHART_EN, **(tx or {}))
     WS = 760; rowh = 32; T = 100; L = 210; R = 120
     pts = sorted(points, key=(lambda p: -p["y"]) if mode == "top" else (lambda p: p["x"]))
     HS = T + rowh * len(pts) + 56
@@ -193,7 +200,7 @@ def rank_chart(points, mode, checked):
         lo = math.floor((min(p["lo"] for p in pts) - 1) / 10) * 10; hi = math.ceil((max(p["hi"] for p in pts) + 1) / 5) * 5
         X = lambda v: L + (v - lo) / (hi - lo) * pw
         ticks = [(v, f"{v}") for v in range(int(lo), int(hi) + 1, 10)]
-        title, sub = "Most capable AI models", "Epoch Capabilities Index with 90% range (Epoch AI, CC BY)"
+        title, sub = tx["t_title"], tx["t_sub"]
     else:
         x0 = 10 ** math.floor(math.log10(min(p["x"] for p in pts))); x1 = 10 ** math.ceil(math.log10(max(p["x"] for p in pts)))
         X = lambda v: L + (math.log10(v) - math.log10(x0)) / (math.log10(x1) - math.log10(x0)) * pw
@@ -203,9 +210,9 @@ def rank_chart(points, mode, checked):
             for m in (1, 2, 5):
                 if x0 <= d * m <= x1 * 1.0001: ticks.append((d * m, f"${d * m:g}"))
             d *= 10
-        title, sub = "Cheapest AI models", "Blended API price per 1M tokens (log scale), with capability score"
-    out = [f'<text x="24" y="40" font-size="24" font-weight="700" fill="{FG}">{title}</text>',
-           f'<text x="24" y="68" font-size="15" fill="{MUTED}">{sub} · {esc(checked)}</text>']
+        title, sub = tx["c_title"], tx["c_sub"]
+    out = [f'<text x="24" y="40" font-size="24" font-weight="700" fill="{FG}">{esc(title)}</text>',
+           f'<text x="24" y="68" font-size="15" fill="{MUTED}">{esc(sub)} · {esc(checked)}</text>']
     for v, lab in ticks:
         gx = X(v)
         out.append(f'<line x1="{gx:.1f}" y1="{T - 8}" x2="{gx:.1f}" y2="{T + rowh * len(pts)}" stroke="{GRID}" stroke-width="0.6"/>'
@@ -224,5 +231,5 @@ def rank_chart(points, mode, checked):
                        f'<text x="{L + w + 8:.1f}" y="{cy + 5:.1f}" font-size="14" fill="{FG}">${p["x"]:.2f} · ECI {p["y"]:.0f}</text>')
     desc = "; ".join(f"{p['name']}: ECI {p['y']:.1f}, ${p['x']:.2f}" for p in pts)
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {WS} {HS}" width="{WS}" height="{HS}" role="img" font-family="{FONT}">'
-            f'<title>{title}</title><desc>{esc(desc)}</desc><rect width="{WS}" height="{HS}" rx="16" fill="{BG}"/>{"".join(out)}'
+            f'<title>{esc(title)}</title><desc>{esc(desc)}</desc><rect width="{WS}" height="{HS}" rx="16" fill="{BG}"/>{"".join(out)}'
             f'<text x="{WS - 24}" y="{HS - 10}" text-anchor="end" font-size="12" font-weight="600" fill="{MUTED}">tokensave.app</text></svg>\n')

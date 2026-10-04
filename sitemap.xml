@@ -12285,6 +12285,9 @@
   <url>
     <loc>https://tokensave.app/compare/performance</loc>
     <lastmod>2026-10-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/compare/performance"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/compare/performance"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/compare/performance"/>
     <image:image>
       <image:loc>https://tokensave.app/img/ai-model-capability-vs-price.svg</image:loc>
     </image:image>
@@ -12293,6 +12296,38 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/img/cheapest-ai-models.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/compare/performance</loc>
+    <lastmod>2026-10-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/compare/performance"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/compare/performance"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/compare/performance"/>
+    <image:image>
+      <image:loc>https://tokensave.app/img/ko-ai-model-capability-vs-price.svg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/img/ko-most-capable-ai-models.svg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/img/ko-cheapest-ai-models.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/compare/performance</loc>
+    <lastmod>2026-10-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/compare/performance"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/compare/performance"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/compare/performance"/>
+    <image:image>
+      <image:loc>https://tokensave.app/img/ja-ai-model-capability-vs-price.svg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/img/ja-most-capable-ai-models.svg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/img/ja-cheapest-ai-models.svg</image:loc>
     </image:image>
   </url>
 </urlset>

@@ -56,3 +56,10 @@ input[type=number]::-webkit-inner-spin-button { opacity: .4; }
 .perf-pick-v { font-size: .85rem; color: #a1a1aa; }
 .prose-ts .perf-pick p { margin: .4rem 0 0; font-size: .9rem; }
 @media (max-width: 480px) { .perf-tabs button { font-size: .78rem; } }
+.perf-pend { border: 1px dashed #52525b; border-radius: 1rem; padding: .9rem 1.1rem; margin: 1.25rem 0; }
+.perf-pend-h { font-weight: 700; color: #fbbf24; }
+.perf-pend p { margin: .35rem 0 .6rem; font-size: .85rem; color: #a1a1aa; }
+.perf-pend ul { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+.perf-pend li { display: flex; flex-direction: column; background: #18181b; border: 1px solid #3f3f46; border-radius: .6rem; padding: .4rem .7rem; font-size: .85rem; }
+.perf-pend li strong { color: #fff; }
+.perf-pend li span { color: #a1a1aa; font-size: .75rem; font-variant-numeric: tabular-nums; }

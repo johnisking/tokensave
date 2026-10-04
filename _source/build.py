@@ -249,7 +249,8 @@ def render(base, body, values):
     if "toolNav" in values:  # every page's top menu gets the capability/price ranking
         here = values.get("url", "").endswith("/compare/performance")
         lab = RANK_NAV.get(values.get("htmlLang", "en"), RANK_NAV["en"])
-        values = dict(values, toolNav=values["toolNav"] + f'\n          <a href="/compare/performance" class="{NAV_ON if here else NAV_OFF}"'
+        href = {"ko": "/ko/compare/performance", "ja": "/ja/compare/performance"}.get(values.get("htmlLang"), "/compare/performance")
+        values = dict(values, toolNav=values["toolNav"] + f'\n          <a href="{href}" class="{NAV_ON if here else NAV_OFF}"'
                       + (' aria-current="page"' if here else '') + f'>📊 {esc(lab)}</a>')
     out = base.replace("{{body}}", body)
     for k, v in values.items():
@@ -364,6 +365,10 @@ def build():
     import compare as CMPG
     cmp_pages, cmp_hub = CMPG.build_all(LLM)
     import charts as CH
+    import perf as PERF
+    PERF_LANGS = ["en", "ko", "ja"]
+    PERF_ALTS = "\n".join(f'  <link rel="alternate" hreflang="{l}" href="{BASE}{PERF.PATH[l]}" />' for l in PERF_LANGS) + \
+        f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{PERF.PATH["en"]}" />'
     IMAGES = {}  # page path -> [(image url, caption)] for the image sitemap
     def write_img(src, svg):
         fp = os.path.join(DIST, src.lstrip("/"))
@@ -388,7 +393,7 @@ def build():
         values = dict(
             htmlLang="en", dir="ltr", url=url, ogLocale="en_US", ogImage=f"{BASE}/og-token.jpg",
             title=esc(cp["title"] if cp is cmp_hub else cp["title"] + " | TokenSave"), desc=esc(cp["desc"]), lang=esc(S["en"]["lang"]),
-            homeUrl="/", hreflang="", langOptions=en_opts, langAll=en_all, toolNav=en_nav, ver=ver, adsHead=extras, faq="", guide="",
+            homeUrl="/", hreflang=PERF_ALTS if cp["path"] == "/compare/performance" else "", langOptions=en_opts, langAll=en_all, toolNav=en_nav, ver=ver, adsHead=extras, faq="", guide="",
             f1="", f2="", fAbout=esc(SITE["en"]["fAbout"]), fPrivacy=esc(SITE["en"]["fPrivacy"]),
             ldjson=js(ld), tjson=js({"static": True}),
             scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>',
@@ -396,6 +401,36 @@ def build():
         fpath = os.path.join(DIST, "compare", "index.html") if cp is cmp_hub else os.path.join(DIST, cp["path"].lstrip("/") + ".html")
         os.makedirs(os.path.dirname(fpath), exist_ok=True)
         open(fpath, "w", encoding="utf-8").write(render(base, cp["body"], values))
+
+    # Localized capability vs price pages (/ko/compare/performance, /ja/compare/performance)
+    tag_slug_ = {tag: slug for slug, tag, *_ in LANGS}
+    tag_og_ = {tag: og for slug, tag, _, og, _ in LANGS}
+    for pl in PERF_LANGS[1:]:
+        pp, _ = PERF.build_page(CMPG.load_models(LLM), LLM, pl)
+        write_img(*pp["chart"])
+        IMAGES[pp["path"]] = [(BASE + pp["chart"][0], pp["image_caption"])]
+        for src_, svg_, cap_ in pp["extra_images"]:
+            write_img(src_, svg_); IMAGES[pp["path"]].append((BASE + src_, cap_))
+        slug = tag_slug_[pl]
+        url = BASE + pp["path"]
+        nav = "\n".join(f'          <a href="{path_for(slug, t)}" class="{NAV_OFF}">{esc(NAV[pl][t["nav"]])}</a>' for t in TOOLS)
+        opts, opts_all = lang_menu(slug, pl, lambda sl: path_for(sl, TOOLS[0]))
+        ld = {"@context": "https://schema.org", "@graph": [
+            {"@type": "WebPage", "name": pp["title"], "url": url, "description": pp["desc"], "inLanguage": pl, "dateModified": LLM.get("checked", LASTMOD),
+             "primaryImageOfPage": {"@type": "ImageObject", "url": BASE + pp["chart"][0], "caption": pp["image_caption"]}},
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + path_for(slug, TOOLS[0])},
+                {"@type": "ListItem", "position": 2, "name": pp["title"], "item": url}]}, pp["faq_ld"]]}
+        values = dict(
+            htmlLang=pl, dir="ltr", url=url, ogLocale=tag_og_[pl], ogImage=f"{BASE}/og-token.jpg",
+            title=esc(pp["title"] + " | TokenSave"), desc=esc(pp["desc"]), lang=esc(S[pl]["lang"]),
+            homeUrl=path_for(slug, TOOLS[0]), hreflang=PERF_ALTS, langOptions=opts, langAll=opts_all, toolNav=nav, ver=ver, adsHead=extras,
+            faq="", guide="", f1="", f2="", fAbout=esc(SITE[pl]["fAbout"]), fPrivacy=esc(SITE[pl]["fPrivacy"]),
+            ldjson=js(ld), tjson=js({"static": True}), scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>',
+        )
+        fp = os.path.join(DIST, pp["path"].lstrip("/") + ".html")
+        os.makedirs(os.path.dirname(fp), exist_ok=True)
+        open(fp, "w", encoding="utf-8").write(render(base, pp["body"], values))
 
     # Price chart for the API-pricing articles (one chart per highlight set, localized alt/caption)
     _cm = CMPG.load_models(LLM)
@@ -556,8 +591,12 @@ def build():
           b_alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}{b_en["path"]}"/>'
       for b in GROUP:
         entries.append(f"\n  <url>\n    <loc>{BASE}{b['path']}</loc>\n    <lastmod>{b.get('date', BLOG_DATE)}</lastmod>{b_alts}{img_tags(b['path'])}\n  </url>")
+    perf_x = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{BASE}{PERF.PATH[l]}"/>' for l in PERF_LANGS)
     for cp in [cmp_hub] + cmp_pages:
-        entries.append(f"\n  <url>\n    <loc>{BASE}{cp['path']}</loc>\n    <lastmod>{LLM.get('checked', LASTMOD)}</lastmod>{img_tags(cp['path'])}\n  </url>")
+        alts_ = perf_x if cp["path"] == "/compare/performance" else ""
+        entries.append(f"\n  <url>\n    <loc>{BASE}{cp['path']}</loc>\n    <lastmod>{LLM.get('checked', LASTMOD)}</lastmod>{alts_}{img_tags(cp['path'])}\n  </url>")
+    for pl in PERF_LANGS[1:]:
+        entries.append(f"\n  <url>\n    <loc>{BASE}{PERF.PATH[pl]}</loc>\n    <lastmod>{LLM.get('checked', LASTMOD)}</lastmod>{perf_x}{img_tags(PERF.PATH[pl])}\n  </url>")
     open(os.path.join(DIST, "sitemap.xml"), "w", encoding="utf-8").write(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
