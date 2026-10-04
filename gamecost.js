@@ -1,4 +1,4 @@
-// AI game cost estimator: a few questions -> asset list -> cost/time/tokens in three scenarios -> ready-to-use prompts.
+// AI game cost estimator: a few questions -> asset list -> cost/time/tokens with AI tools -> ready-to-use prompts.
 // Strings come from window.T.gc (en/ko/ja), model prices from window.T.prices (llm_prices.json).
 const G = (window.T && window.T.gc) || {};
 const PRICES = (window.T && window.T.prices) || {};
@@ -48,15 +48,6 @@ const TOOLS = {
   },
   d3:    { meshy: { name: 'Meshy', plans: [[20, 1000], [40, 3000], [100, 8000]], perModel: 20 } },
   video: { higgs: { name: 'Higgsfield', plans: [[15, 200], [39, 1000], [99, 3000]], perClip: 75 } },
-};
-// Freelance ranges (rough industry averages, USD) for the "hire people" column
-const HIRE = {
-  frame: { pixel: [8, 25], illust: [20, 60], simple: [5, 15] },
-  char:  { pixel: [40, 120], illust: [120, 400], simple: [25, 80] },
-  bg:    { pixel: [40, 150], illust: [120, 400], simple: [30, 100] },
-  item:  { pixel: [5, 15], illust: [15, 50], simple: [3, 10] },
-  ui:    [10, 40], music: [100, 400], sfx: [5, 25], voiceLine: [10, 40], hour: [25, 75],
-  trailer: [500, 2500], model3d: [80, 300],
 };
 // Coding with an agent: tokens per active day (mostly cached context re-reads)
 const DAY_IN = 20e6, DAY_OUT = 0.4e6, CACHE_HIT = 0.85, CACHE_RATE = 0.1, CODE_SHARE = 0.7;
@@ -126,27 +117,12 @@ function estimate() {
     return { lines, total, lo: total * 0.7, hi: total * 1.5, codeFits: c.fits };
   };
 
-  // --- Hire people ---
-  const st = state.style;
-  const h = (k, n) => [HIRE[k][st][0] * n, HIRE[k][st][1] * n];
-  const hireLines = [
-    ['art', sum(h('char', chars), h('frame', frames), h('bg', bg), h('item', items), [HIRE.ui[0] * ui, HIRE.ui[1] * ui])],
-    ['music', [HIRE.music[0] * music, HIRE.music[1] * music]],
-    ['sfx', [HIRE.sfx[0] * sfx + HIRE.voiceLine[0] * state.voice, HIRE.sfx[1] * sfx + HIRE.voiceLine[1] * state.voice]],
-    ['code', [loc / 25 * HIRE.hour[0], loc / 25 * HIRE.hour[1]]],
-    ...(models3d ? [['d3', [HIRE.model3d[0] * models3d, HIRE.model3d[1] * models3d]]] : []),
-    ...(state.trailer ? [['trailer', HIRE.trailer]] : []),
-  ];
-  const hire = { lines: hireLines, lo: hireLines.reduce((s, [, v]) => s + v[0], 0), hi: hireLines.reduce((s, [, v]) => s + v[1], 0) };
-
   return {
     chars, bg, items, ui, frames, images, gens, music, sfx, loc: Math.round(loc / 100) * 100, days: Math.round(days),
     tokIn, tokOut, months, models3d,
-    hire, base: ai('mj', 'max5'), mine: ai(state.imgTool, state.codeTool), apiCode,
-    hireDays: [Math.round(days * 2.5), Math.round(days * 4)],
+    base: ai('mj', 'max5'), mine: ai(state.imgTool, state.codeTool), apiCode,
   };
 }
-const sum = (...rs) => rs.reduce((a, r) => [a[0] + r[0], a[1] + r[1]], [0, 0]);
 
 // ---------------- Prompts ----------------
 const STYLE_EN = {
@@ -234,10 +210,8 @@ function render() {
   const aiTime = `${days(Math.round(e.days * 0.8))} – ${days(Math.round(e.days * 1.3))}`;
   const mineTools = [TOOLS.img[state.imgTool].name, TOOLS.code[state.codeTool].name + (state.codeTool === 'api' ? ` (${(window.T.modelNames || {})[state.model] || state.model})` : '')].join(' + ');
   $('#gcCompare').innerHTML =
-    col(t('cHire'), t('cHireSub'), e.hire.lines, e.hire.lo, e.hire.hi, `${days(e.hireDays[0])} – ${days(e.hireDays[1])}`, false) +
     col(t('cAi'), 'Midjourney + Suno + ElevenLabs + Claude Max 5×', e.base.lines, e.base.lo, e.base.hi, aiTime, true) +
     col(t('cMine'), mineTools, e.mine.lines, e.mine.lo, e.mine.hi, aiTime, false, e.mine.codeFits ? '' : t('capWarn'));
-  $('#gcSave').textContent = t('saveLine', { x: Math.max(1, Math.round(((e.hire.lo + e.hire.hi) / 2) / ((e.base.lo + e.base.hi) / 2))) });
 
   const P = prompts(e);
   window.__gcPrompts = P;
