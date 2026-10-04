@@ -26,7 +26,7 @@ T = {
   qChars="Characters / enemies", qAnim="Animation", aNone="None", aSimple="Simple (3 moves)", aFull="Full (6 moves)",
   qMusic="Music tracks", qSfx="Sound effects", sfFew="Few", sfNormal="Normal", sfMany="Many", qVoice="Voice lines",
   qFeats="Features", qLangs="Languages", qEngine="Engine", qTrailer="Promo trailer", yes="Yes", no="No",
-  qTools="Your tools", qImg="Images", qCode="Coding", qMusicTool="Music", qSfxTool="Sound effects", freeLib="Free libraries", qModel="API model",
+  qTools="Your tools", qImg="Images", qCode="Coding", qMusicTool="Music", qSfxTool="Sound effects", freeLib="Free libraries", freeMusic="Pixabay (free)", qModel="API model",
   resTitle="What your game needs", cmpTitle="Cost and time with AI",
   promptTitle="Your prompt pack", promptSub="Built from your answers. Asset prompts are in English because image, music and sound tools work best in English.",
   tDev="Dev kickoff", tArt="Art", tMusic="Music", tSfx="Sound effects", tTrailer="Trailer", copy="Copy", download="Download all (.md)",
@@ -37,7 +37,7 @@ T = {
   srcTitle="Tool prices used", srcNote=f"Checked {CHECKED}. Prices change often — check each tool's pricing page before you buy.",
   faqTitle="FAQ",
   faq=[("How much does it cost to make a 2D game with AI?", "For a small mobile game, one person with AI tools usually spends about $100–300 in subscriptions and API fees and 2–3 weeks of work. Use the calculator above for your own genre and size."),
-       ("Which AI tools do I need to make a game?", "Usually four: an image tool for sprites and backgrounds (Midjourney, Leonardo, Gemini, PixelLab, Scenario or an image API), a music tool (Suno, Stable Audio or AIVA), a sound effects tool (ElevenLabs, Stable Audio or free libraries) and a coding agent (Claude Code, Cursor or Gemini CLI). Meshy helps if you want 3D models, Higgsfield for a promo video."),
+       ("Which AI tools do I need to make a game?", "Usually four: an image tool for sprites and backgrounds (Midjourney, Leonardo, Gemini, PixelLab, Scenario or an image API), a music tool (Suno, Stable Audio, AIVA or free Pixabay music), a sound effects tool (ElevenLabs, Stable Audio or free libraries) and a coding agent (Claude Code, Cursor or Gemini CLI). Meshy helps if you want 3D models, Higgsfield for a promo video."),
        ("How many tokens does it take to code a game with Claude Code?", "Agents re-read your project a lot, so a 2-week build can pass a few hundred million tokens, mostly cached. On a Claude Max plan you pay a flat monthly fee; on the API the calculator shows the cost for the model you choose."),
        ("Are the prompts free to use?", "Yes. Copy them or download the whole pack as a Markdown file and paste them into your tools. Nothing you type is uploaded.")],
   defName="My Game", defIdea="a {genre} game for mobile",
@@ -70,7 +70,7 @@ T = {
   qChars="캐릭터·적 수", qAnim="애니메이션", aNone="없음", aSimple="간단 (동작 3개)", aFull="풍부 (동작 6개)",
   qMusic="배경음악 곡 수", qSfx="효과음", sfFew="적게", sfNormal="보통", sfMany="많이", qVoice="대사 음성 수",
   qFeats="기능", qLangs="지원 언어 수", qEngine="엔진", qTrailer="홍보 트레일러", yes="필요", no="없음",
-  qTools="내가 쓸 도구", qImg="이미지", qCode="코딩", qMusicTool="음악", qSfxTool="효과음", freeLib="무료 라이브러리", qModel="API 모델",
+  qTools="내가 쓸 도구", qImg="이미지", qCode="코딩", qMusicTool="음악", qSfxTool="효과음", freeLib="무료 라이브러리", freeMusic="픽사베이 (무료)", qModel="API 모델",
   resTitle="이 게임에 필요한 것", cmpTitle="AI로 만들 때 비용과 기간",
   promptTitle="프롬프트 묶음", promptSub="답변을 바탕으로 만들었습니다. 그림·음악·효과음 도구는 영어 프롬프트가 가장 잘 먹혀서 에셋 프롬프트는 영어로 드립니다.",
   tDev="개발 시작", tArt="그림", tMusic="음악", tSfx="효과음", tTrailer="트레일러", copy="복사", download="전체 받기 (.md)",
@@ -81,7 +81,7 @@ T = {
   srcTitle="사용한 도구 가격", srcNote=f"{CHECKED} 기준. 가격이 자주 바뀌니 결제 전 각 도구의 가격 페이지를 확인하세요.",
   faqTitle="자주 묻는 질문",
   faq=[("AI로 2D 게임을 만들면 비용이 얼마나 드나요?", "소형 모바일 게임이면 혼자 AI 도구를 써서 구독료와 API 비용으로 약 $100~300, 기간은 2~3주 정도입니다. 장르와 규모를 넣어 위 계산기로 확인해 보세요."),
-       ("게임 만들 때 어떤 AI 도구가 필요한가요?", "보통 네 가지입니다. 스프라이트·배경용 이미지 도구(Midjourney, Leonardo, Gemini, PixelLab, Scenario, 이미지 API), 음악 도구(Suno, Stable Audio, AIVA), 효과음 도구(ElevenLabs, Stable Audio, 무료 라이브러리), 코딩 에이전트(Claude Code, Cursor, Gemini CLI)입니다. 3D 모델이 필요하면 Meshy, 홍보 영상은 Higgsfield를 씁니다."),
+       ("게임 만들 때 어떤 AI 도구가 필요한가요?", "보통 네 가지입니다. 스프라이트·배경용 이미지 도구(Midjourney, Leonardo, Gemini, PixelLab, Scenario, 이미지 API), 음악 도구(Suno, Stable Audio, AIVA, 무료 픽사베이), 효과음 도구(ElevenLabs, Stable Audio, 무료 라이브러리), 코딩 에이전트(Claude Code, Cursor, Gemini CLI)입니다. 3D 모델이 필요하면 Meshy, 홍보 영상은 Higgsfield를 씁니다."),
        ("Claude Code로 게임을 만들면 토큰이 얼마나 드나요?", "에이전트는 프로젝트를 반복해서 읽기 때문에 2주짜리 개발에도 수억 토큰이 오가고, 대부분은 캐시입니다. Claude Max 구독이면 월 정액이고, API로 쓰면 고른 모델 기준 비용을 계산기가 보여 줍니다."),
        ("프롬프트는 무료로 써도 되나요?", "네. 복사하거나 전체를 Markdown 파일로 받아 각 도구에 붙여 넣으면 됩니다. 입력한 내용은 어디에도 업로드되지 않습니다.")],
   defName="내 게임", defIdea="모바일 {genre} 게임",
@@ -114,7 +114,7 @@ T = {
   qChars="キャラクター・敵の数", qAnim="アニメーション", aNone="なし", aSimple="シンプル（動作3つ）", aFull="豊富（動作6つ）",
   qMusic="BGMの曲数", qSfx="効果音", sfFew="少なめ", sfNormal="普通", sfMany="多め", qVoice="ボイス数",
   qFeats="機能", qLangs="対応言語数", qEngine="エンジン", qTrailer="PRトレーラー", yes="必要", no="なし",
-  qTools="使うツール", qImg="画像", qCode="コーディング", qMusicTool="音楽", qSfxTool="効果音", freeLib="無料素材", qModel="APIモデル",
+  qTools="使うツール", qImg="画像", qCode="コーディング", qMusicTool="音楽", qSfxTool="効果音", freeLib="無料素材", freeMusic="Pixabay（無料）", qModel="APIモデル",
   resTitle="このゲームに必要なもの", cmpTitle="AIで作る場合の費用と期間",
   promptTitle="プロンプト集", promptSub="回答をもとに作成しました。画像・音楽・効果音ツールは英語のプロンプトが最も効くため、素材用は英語で出します。",
   tDev="開発スタート", tArt="画像", tMusic="音楽", tSfx="効果音", tTrailer="トレーラー", copy="コピー", download="まとめてダウンロード (.md)",
@@ -125,7 +125,7 @@ T = {
   srcTitle="使用したツール料金", srcNote=f"{CHECKED}時点。料金はよく変わるので、購入前に各ツールの料金ページを確認してください。",
   faqTitle="よくある質問",
   faq=[("AIで2Dゲームを作るといくらかかりますか？", "小規模なモバイルゲームなら、1人でAIツールを使ってサブスクとAPI代で約$100〜300、期間は2〜3週間ほどです。上の計算機でジャンルと規模を入れて確認してください。"),
-       ("ゲーム制作にはどのAIツールが必要ですか？", "主に4つです。スプライト・背景用の画像ツール（Midjourney、Leonardo、Gemini、PixelLab、Scenario、画像API）、音楽（Suno、Stable Audio、AIVA）、効果音（ElevenLabs、Stable Audio、無料素材）、コーディングエージェント（Claude Code、Cursor、Gemini CLI）。3DモデルならMeshy、PR動画ならHiggsfieldも使えます。"),
+       ("ゲーム制作にはどのAIツールが必要ですか？", "主に4つです。スプライト・背景用の画像ツール（Midjourney、Leonardo、Gemini、PixelLab、Scenario、画像API）、音楽（Suno、Stable Audio、AIVA、無料のPixabay）、効果音（ElevenLabs、Stable Audio、無料素材）、コーディングエージェント（Claude Code、Cursor、Gemini CLI）。3DモデルならMeshy、PR動画ならHiggsfieldも使えます。"),
        ("Claude Codeでゲームを作るとトークンはどれくらい？", "エージェントはプロジェクトを何度も読み直すため、2週間の開発でも数億トークンが流れ、その大半はキャッシュです。Claude Maxなら月額固定、APIなら選んだモデルでの費用を計算機が表示します。"),
        ("プロンプトは無料で使えますか？", "はい。コピーするか、まとめてMarkdownファイルでダウンロードして各ツールに貼り付けてください。入力内容はどこにもアップロードされません。")],
   defName="マイゲーム", defIdea="モバイル向け{genre}ゲーム",
@@ -160,6 +160,7 @@ PRICE_ROWS = [
     ("ElevenLabs", "Starter $6 · Creator $22 · Pro $99 / month", "https://elevenlabs.io/pricing"),
     ("Stable Audio", "Pro $11.99 (250 tracks) · Studio $29.99 (675) · Max $89.99 / month — music and SFX", "https://stableaudio.com/pricing"),
     ("AIVA", "Pro €33 / month (you own the music; Standard €11 does not)", "https://www.aiva.ai/pricing"),
+    ("Pixabay", "Free music and sound effects, commercial use OK, no attribution (Pixabay Content License)", "https://pixabay.com/music/"),
     ("Kenney · Freesound", "Free (Kenney is CC0; check each Freesound license)", "https://kenney.nl/assets"),
     ("Meshy", "Pro $20 (1,000 credits) · Premium $40 · Ultra $100 / month", "https://www.meshy.ai/pricing"),
     ("Higgsfield", "Starter $15 · Plus $39 · Ultra $99 / month", "https://higgsfield.ai/pricing"),
@@ -239,7 +240,7 @@ def build_page(lang, llm):
         <div><label for="gcModel" class="block text-xs text-zinc-400 font-semibold mb-2">{e("qModel")}</label><select id="gcModel" class="w-full bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py-2 text-sm">{model_opts}</select></div>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
-        {_field(e("qMusicTool"), _seg("gcMusicTool", [("suno", "Suno"), ("stable", "Stable Audio"), ("aiva", "AIVA")]))}
+        {_field(e("qMusicTool"), _seg("gcMusicTool", [("suno", "Suno"), ("stable", "Stable Audio"), ("aiva", "AIVA"), ("free", e("freeMusic"))], 4))}
         {_field(e("qSfxTool"), _seg("gcSfxTool", [("eleven", "ElevenLabs"), ("stable", "Stable Audio"), ("free", e("freeLib"))]))}
       </div>
     </section>

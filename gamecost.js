@@ -43,11 +43,12 @@ const TOOLS = {
     suno:   { name: 'Suno', plans: [[10, 500], [30, 2000]] },                 // songs/month (2 per generation, ~4 songs per kept track)
     stable: { name: 'Stable Audio', plans: [[11.99, 250], [29.99, 675], [89.99, 2250]] }, // tracks/month, music + SFX share the plan
     aiva:   { name: 'AIVA Pro', plans: [[36, 300]] },                          // €33 ≈ $36; only Pro gives full ownership
+    free:   { name: 'Pixabay Music (free)' },
   },
   sfx: {
     eleven: { name: 'ElevenLabs', plans: [[6, 30000], [22, 121000], [99, 600000]], perGen: 200, perChar: 1 },
     stable: { name: 'Stable Audio' },
-    free:   { name: 'Free libraries (Kenney, Freesound)' },
+    free:   { name: 'Free libraries (Pixabay, Kenney, Freesound)' },
   },
   code: {
     pro:   { name: 'Claude Pro', monthly: 20, capPerDay: 4e6 },
@@ -107,7 +108,7 @@ function estimate() {
     const stableNeed = (mt === 'stable' ? music * 4 : 0) + (st === 'stable' ? sfx * 3 : 0);
     const stableCost = stableNeed ? plan(TOOLS.music.stable.plans, stableNeed).price : 0;
     let m = 0, x = 0;
-    if (music) m = mt === 'stable' ? stableCost : plan(TOOLS.music[mt].plans, music * (mt === 'aiva' ? 2 : 4)).price;
+    if (music && mt !== 'free') m = mt === 'stable' ? stableCost : plan(TOOLS.music[mt].plans, music * (mt === 'aiva' ? 2 : 4)).price;
     const elevenNeed = (st === 'eleven' ? sfx * 3 * E.perGen : 0) + voiceCredits;
     x = (elevenNeed ? plan(E.plans, elevenNeed).price : 0) + (st === 'stable' && mt !== 'stable' ? stableCost : 0);
     return [m, x];
@@ -189,11 +190,11 @@ function prompts(e) {
 
   const [mood, bpm] = MOOD[state.genre];
   const tracks = ['Main menu theme', 'Gameplay loop', 'Gameplay loop (intense)', 'Boss / challenge', 'Shop / break', 'Victory jingle', 'Game over sting', 'Ending theme'].slice(0, e.music);
-  const music = (state.musicTool === 'aiva' ? 'AIVA: pick the closest style preset (e.g. ' + (state.style === 'pixel' ? 'Chiptune' : 'Video Game') + '), then set mood, tempo and length from each line below.\n\n' : '') + tracks.map((tr, i) => `${i + 1}. ${tr} — instrumental, ${mood}, ${bpm + (i === 2 || i === 3 ? 20 : 0)} BPM, ${state.style === 'pixel' ? 'chiptune / 8-bit' : 'light game soundtrack'}, seamless loop, no vocals${i >= 5 ? ', short 5–10 s' : ', 60–90 s'}`).join('\n');
+  const music = state.musicTool === 'free' ? 'Search these on pixabay.com/music (free for commercial use, no attribution required):\n\n' + tracks.map((tr, i) => `${i + 1}. ${tr}: "${[mood.split(',')[0] + ' menu', mood.split(',')[0] + ' background', 'upbeat action', 'boss battle', 'shop', 'victory jingle', 'game over', 'ending'][i]} ${state.style === 'pixel' ? 'chiptune' : 'game music'}" — filter: instrumental, ${i >= 5 ? 'under 0:15' : '1–3 min, loopable'}`).join('\n') : (state.musicTool === 'aiva' ? 'AIVA: pick the closest style preset (e.g. ' + (state.style === 'pixel' ? 'Chiptune' : 'Video Game') + '), then set mood, tempo and length from each line below.\n\n' : '') + tracks.map((tr, i) => `${i + 1}. ${tr} — instrumental, ${mood}, ${bpm + (i === 2 || i === 3 ? 20 : 0)} BPM, ${state.style === 'pixel' ? 'chiptune / 8-bit' : 'light game soundtrack'}, seamless loop, no vocals${i >= 5 ? ', short 5–10 s' : ', 60–90 s'}`).join('\n');
 
   const freeLib = state.sfxTool === 'free';
   const sfxBase = ['Button tap', 'Coin pickup', 'Level complete fanfare', 'Fail / lose', 'Item merge pop', 'Power-up', 'Jump', 'Hit', 'Whoosh transition', 'Unlock chime', 'Countdown beep', 'Reward chest open'];
-  const sfx = (freeLib ? 'Search these on kenney.nl/assets (CC0) or freesound.org (check each license):\n\n' + sfxBase.slice(0, Math.min(e.sfx, 12)).map((x, i) => `${i + 1}. "${x.toLowerCase()}" ${state.style === 'pixel' ? '8-bit' : 'cartoon'} game sound`).join('\n') : Array.from({ length: Math.min(e.sfx, 40) }, (_, i) => `${i + 1}. ${sfxBase[i % sfxBase.length]}${i >= sfxBase.length ? ` (variation ${Math.floor(i / sfxBase.length) + 1})` : ''} — ${state.style === 'pixel' ? 'retro 8-bit' : 'clean, cartoony'} game sound, ${i % 3 === 0 ? '0.3' : i % 3 === 1 ? '0.6' : '1.2'} s, no music`).join('\n')) +
+  const sfx = (freeLib ? 'Search these on pixabay.com/sound-effects (free for commercial use), kenney.nl/assets (CC0) or freesound.org (check each license):\n\n' + sfxBase.slice(0, Math.min(e.sfx, 12)).map((x, i) => `${i + 1}. "${x.toLowerCase()}" ${state.style === 'pixel' ? '8-bit' : 'cartoon'} game sound`).join('\n') : Array.from({ length: Math.min(e.sfx, 40) }, (_, i) => `${i + 1}. ${sfxBase[i % sfxBase.length]}${i >= sfxBase.length ? ` (variation ${Math.floor(i / sfxBase.length) + 1})` : ''} — ${state.style === 'pixel' ? 'retro 8-bit' : 'clean, cartoony'} game sound, ${i % 3 === 0 ? '0.3' : i % 3 === 1 ? '0.6' : '1.2'} s, no music`).join('\n')) +
     (!freeLib && e.sfx > 40 ? `\n… +${e.sfx - 40} more in the same format` : '');
 
   const trailer = state.trailer ? [
@@ -229,7 +230,7 @@ function render() {
     </div>`;
   const days = n => t('days', { n });
   const aiTime = `${days(Math.round(e.days * 0.8))} – ${days(Math.round(e.days * 1.3))}`;
-  const mineTools = [...new Set([TOOLS.img[state.imgTool].name, TOOLS.music[state.musicTool].name, TOOLS.sfx[state.sfxTool].name.split(' (')[0], TOOLS.code[state.codeTool].name + (state.codeTool === 'api' ? ` (${(window.T.modelNames || {})[state.model] || state.model})` : '')])].join(' + ');
+  const mineTools = [...new Set([TOOLS.img[state.imgTool].name, TOOLS.music[state.musicTool].name.split(' (')[0], TOOLS.sfx[state.sfxTool].name.split(' (')[0], TOOLS.code[state.codeTool].name + (state.codeTool === 'api' ? ` (${(window.T.modelNames || {})[state.model] || state.model})` : '')])].join(' + ');
   $('#gcCompare').innerHTML =
     col(t('cAi'), 'Midjourney + Suno + ElevenLabs + Claude Max 5×', e.base.lines, e.base.lo, e.base.hi, aiTime, true) +
     col(t('cMine'), mineTools, e.mine.lines, e.mine.lo, e.mine.hi, aiTime, false, e.mine.codeFits ? '' : t('capWarn'));
