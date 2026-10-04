@@ -642,7 +642,9 @@ def build():
     for f in os.listdir(os.path.join(SRC, "static")):
         shutil.copy(os.path.join(SRC, "static", f), os.path.join(DIST, f))
     open(os.path.join(DIST, "CNAME"), "w").write("tokensave.app\n")
-    open(os.path.join(DIST, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\n\nUser-agent: Yeti\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n")
+    # AI training crawlers bring no visitors (and no ad views), so they are blocked; search/answer bots that link back stay allowed
+    TRAIN_BOTS = ["GPTBot", "ClaudeBot", "anthropic-ai", "CCBot", "Google-Extended", "Applebot-Extended", "Bytespider", "meta-externalagent", "cohere-training-data-crawler"]
+    open(os.path.join(DIST, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\nUser-agent: Yeti\nAllow: /\n\n" + "".join(f"User-agent: {b_}\nDisallow: /\n\n" for b_ in TRAIN_BOTS) + f"Sitemap: {BASE}/sitemap.xml\n")
     if ADSENSE_PUB:
         open(os.path.join(DIST, "ads.txt"), "w").write(
             f"google.com, {ADSENSE_PUB.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")

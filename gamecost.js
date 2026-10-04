@@ -329,6 +329,15 @@ function render() {
   document.getElementById('gcTab_trailer').classList.toggle('opacity-40', !state.trailer);
 }
 
+// ---------------- Analytics (GTM dataLayer) ----------------
+const track = (event, extra = {}) => {
+  try { (window.dataLayer = window.dataLayer || []).push({ event, gc_genre: state.genre, gc_scale: state.scale, gc_platform: state.platform, gc_engine: state.engine, ...extra }); } catch (_) {}
+};
+let engaged = false;
+const engage = () => { if (!engaged) { engaged = true; track('gc_engage'); } };
+document.querySelector('main')?.addEventListener('click', ev => { if (ev.target.closest('button,input,select,label')) engage(); });
+document.querySelector('main')?.addEventListener('input', engage);
+
 // ---------------- Wire up ----------------
 function seg(id, key, cast = v => v) {
   const box = document.getElementById(id);
@@ -388,7 +397,7 @@ for (const id of ['gcName', 'gcIdea']) document.getElementById(id).addEventListe
 
 document.getElementById('gcCompare').addEventListener('click', ev => {
   const b = ev.target.closest('[data-preset]'); if (!b) return;
-  Object.assign(state, PRESETS[b.dataset.preset]); PAINTS.forEach(f => f()); render();
+  Object.assign(state, PRESETS[b.dataset.preset]); PAINTS.forEach(f => f()); render(); track('gc_preset', { gc_preset: b.dataset.preset });
 });
 
 // Prompt tabs, copy, download
@@ -397,6 +406,7 @@ tabs.addEventListener('click', ev => {
   const b = ev.target.closest('button'); if (!b) return;
   tabs.querySelectorAll('button').forEach(x => { const on = x === b; x.classList.toggle('tab-active', on); x.classList.toggle('text-zinc-400', !on); });
   document.querySelectorAll('[data-pane]').forEach(p => p.hidden = p.dataset.pane !== b.dataset.v);
+  track('gc_prompt_tab', { gc_tab: b.dataset.v });
 });
 document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', async () => {
   const txt = document.getElementById('gcP_' + btn.dataset.copy).textContent;
@@ -404,6 +414,7 @@ document.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('cl
     const r = document.createRange(); r.selectNodeContents(document.getElementById('gcP_' + btn.dataset.copy));
     const s = getSelection(); s.removeAllRanges(); s.addRange(r);
   }
+  track('gc_copy', { gc_tab: btn.dataset.copy });
   const old = btn.textContent; btn.textContent = t('copied'); setTimeout(() => (btn.textContent = old), 1400);
 }));
 document.getElementById('gcDownload').addEventListener('click', () => {
@@ -414,7 +425,7 @@ document.getElementById('gcDownload').addEventListener('click', () => {
     `\n---\nhttps://tokensave.app`].join('\n');
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([md], { type: 'text/markdown' }));
-  a.download = `${name}-prompts.md`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  a.download = `${name}-prompts.md`; a.click(); track('gc_download'); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
 });
 
 syncNums();
