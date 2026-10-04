@@ -201,6 +201,12 @@ READ = {"en": ("/blog/ai-game-development-cost", "How much does it cost to make 
         "ko": ("/ko/blog/ai-game-jejakbi", "AI로 게임 만들기 비용 자세히 보기"),
         "ja": ("/ja/blog/ai-game-seisakuhi", "AIでゲームを作る費用の詳しい解説")}
 
+from gamecost_i18n import EXTRA as _EXTRA, NAV as NAV_EXTRA
+for _tag, (_slug, _t) in _EXTRA.items():
+    assert set(_t) == set(T["en"]), (_tag, set(T["en"]) ^ set(_t))
+    T[_tag] = _t
+    PATH[_tag] = f"/{_slug}/{SLUG}"
+
 def build_page(lang, llm):
     t = T[lang]
     e = lambda k: esc(t[k])
@@ -294,7 +300,7 @@ def build_page(lang, llm):
     <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
       <h2 style="margin-top:0">{e("howTitle")}</h2>
       <ul>{how}</ul>
-      <p><a href="{READ[lang][0]}">{esc(READ[lang][1])} →</a></p>
+      {f'<p><a href="{READ[lang][0]}">{esc(READ[lang][1])} →</a></p>' if lang in READ else ""}
       <h2>{e("srcTitle")}</h2>
       <div class="overflow-x-auto"><table class="text-sm w-full"><tbody>{prices}</tbody></table></div>
       <p class="text-xs text-zinc-500">{e("srcNote")}</p>

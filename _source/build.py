@@ -246,6 +246,9 @@ RANK_NAV = {"en": "AI Ranking", "ko": "AI 순위", "ja": "AIランキング", "z
     "kn": "AI ಶ್ರೇಯಾಂಕ", "ml": "AI റാങ്കിംഗ്", "ta": "AI தரவரிசை", "te": "AI ర్యాంకింగ్", "pa": "AI ਰੈਂਕਿੰਗ"}
 
 GC_NAV = {"en": "Game cost", "ko": "게임 제작비", "ja": "ゲーム制作費"}
+from gamecost_i18n import NAV as _GCN, EXTRA as _GCX
+GC_NAV.update(_GCN)
+GC_HREF = {"ko": "/ko/ai-game-cost-calculator", "ja": "/ja/ai-game-cost-calculator", **{t_: f"/{s_}/ai-game-cost-calculator" for t_, (s_, _) in _GCX.items()}}
 
 FEEDBACK = {"en": "Ideas or a bug? Email", "ko": "개선 제안·오류 제보", "ja": "改善のご提案・不具合のご報告", "zh-CN": "改进建议・问题反馈", "zh-TW": "改進建議・問題回報",
     "es": "¿Ideas o errores? Escríbenos", "pt": "Sugestões ou erros? Escreva para", "fr": "Une idée ou un bug ? Écrivez à", "de": "Ideen oder Fehler? Schreib an",
@@ -270,7 +273,7 @@ def render(base, body, values):
     if "toolNav" in values and values.get("htmlLang") in GC_NAV:
         gl = values["htmlLang"]
         here = values.get("url", "").endswith("ai-game-cost-calculator")
-        href = {"ko": "/ko/ai-game-cost-calculator", "ja": "/ja/ai-game-cost-calculator"}.get(gl, "/ai-game-cost-calculator")
+        href = GC_HREF.get(gl, "/ai-game-cost-calculator")
         values = dict(values, toolNav=values["toolNav"] + f'\n          <a href="{href}" class="{NAV_ON if here else NAV_OFF}"'
                       + (' aria-current="page"' if here else '') + f'>🎮 {esc(GC_NAV[gl])}</a>')
     out = base.replace("{{body}}", body)
@@ -488,7 +491,7 @@ def build():
     GC_ALTS = "\n".join(f'  <link rel="alternate" hreflang="{l}" href="{BASE}{p}" />' for l, p in GC.PATH.items()) + \
         f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{GC.PATH["en"]}" />'
     gc_prices = {k: {"in": v["in"], "out": v["out"]} for k, v in LLM["models"].items()}
-    for gl in ["en", "ko", "ja"]:
+    for gl in GC.PATH:
         gp = GC.build_page(gl, LLM)
         slug = tag_slug_[gl]
         url = BASE + gp["path"]
