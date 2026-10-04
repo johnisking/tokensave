@@ -474,9 +474,11 @@ def build():
           open(os.path.join(folder, b["path"].rsplit("/", 1)[1] + ".html"), "w", encoding="utf-8").write(render(base, body, values))
 
     # Directory badges, English home page footer only (listing verification)
-    BADGES = ('<p class="pt-3 flex justify-center"><a href="https://verifieddr.com/website/tokensave-app" target="_blank">'
+    BADGES = ('<p class="pt-3 flex flex-wrap items-center justify-center gap-3"><a href="https://verifieddr.com/website/tokensave-app" target="_blank">'
               '<img src="https://verifieddr.com/badge/tokensave-app.svg?metric=truedr" alt="Verified DR - Verified Domain Rating for tokensave.app" '
-              'width="220" height="68" loading="lazy" /></a></p>')
+              'width="220" height="68" loading="lazy" /></a>'
+              '<a href="https://easylaunch.dev/ai/tokensave" target="_blank" rel="noopener">'
+              '<img src="https://easylaunch.dev/badge/easylaunch-badge-dark.svg" alt="Featured on EasyLaunch" width="188" height="56" loading="lazy" /></a></p>')
     _home = os.path.join(DIST, "index.html")
     _h = open(_home, encoding="utf-8").read()
     assert _h.count("    </footer>") == 1
