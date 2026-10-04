@@ -247,7 +247,20 @@ RANK_NAV = {"en": "AI Ranking", "ko": "AI 순위", "ja": "AIランキング", "z
 
 GC_NAV = {"en": "Game cost", "ko": "게임 제작비", "ja": "ゲーム制作費"}
 
+FEEDBACK = {"en": "Ideas or a bug? Email", "ko": "개선 제안·오류 제보", "ja": "改善のご提案・不具合のご報告", "zh-CN": "改进建议・问题反馈", "zh-TW": "改進建議・問題回報",
+    "es": "¿Ideas o errores? Escríbenos", "pt": "Sugestões ou erros? Escreva para", "fr": "Une idée ou un bug ? Écrivez à", "de": "Ideen oder Fehler? Schreib an",
+    "it": "Idee o errori? Scrivi a", "ru": "Идеи или ошибки? Пишите на", "uk": "Ідеї чи помилки? Пишіть на", "tr": "Öneri veya hata? Yazın",
+    "ar": "اقتراح أو خطأ؟ راسلنا", "fa": "پیشنهاد یا خطا؟ ایمیل بزنید", "hi": "सुझाव या गड़बड़ी? ईमेल करें", "id": "Ada saran atau bug? Email",
+    "vi": "Góp ý hoặc báo lỗi", "th": "ข้อเสนอแนะหรือแจ้งปัญหา", "pl": "Pomysł lub błąd? Napisz na", "nl": "Idee of fout? Mail naar",
+    "bn": "পরামর্শ বা ত্রুটি? ইমেল করুন", "ur": "تجویز یا خرابی؟ ای میل کریں", "fil": "May mungkahi o bug? Mag-email sa", "cs": "Nápad nebo chyba? Napište na",
+    "sv": "Idéer eller fel? Mejla", "he": "רעיון או באג? כתבו אל", "el": "Ιδέες ή σφάλματα; Γράψτε στο", "ro": "Idei sau erori? Scrie la",
+    "hu": "Ötlet vagy hiba? Írj ide", "da": "Idéer eller fejl? Skriv til", "fi": "Ideoita tai virheitä? Kirjoita", "no": "Idéer eller feil? Skriv til",
+    "sk": "Nápad alebo chyba? Napíšte na", "mr": "सूचना किंवा त्रुटी? ईमेल करा", "gu": "સૂચન કે ભૂલ? ઇમેઇલ કરો", "kn": "ಸಲಹೆ ಅಥವಾ ದೋಷ? ಇಮೇಲ್ ಮಾಡಿ",
+    "ml": "നിർദേശമോ പിശകോ? ഇമെയിൽ ചെയ്യൂ", "ta": "யோசனை அல்லது பிழை? மின்னஞ்சல்", "te": "సూచన లేదా లోపం? ఇమెయిల్ చేయండి", "pa": "ਸੁਝਾਅ ਜਾਂ ਗਲਤੀ? ਈਮੇਲ ਕਰੋ"}
+
 def render(base, body, values):
+    lab_fb = FEEDBACK.get(values.get("htmlLang", "en"), FEEDBACK["en"])
+    values = dict(values, feedback=f'✉️ {esc(lab_fb)} → <a href="mailto:contact@jonhisking.com" class="text-zinc-400 hover:text-zinc-200 select-all">contact@jonhisking.com</a>')
     if "toolNav" in values:  # every page's top menu gets the capability/price ranking
         here = values.get("url", "").endswith("/compare/performance")
         lab = RANK_NAV.get(values.get("htmlLang", "en"), RANK_NAV["en"])
