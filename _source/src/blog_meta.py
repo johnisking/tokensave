@@ -397,3 +397,21 @@ RANK = [
      "AIモデル23種の性能スコアとAPI料金を比較。1位の Opus 5.5、半額の Sonnet 5.5、5%の料金の DeepSeek V4 Flash まで。",
      "Jonhisking · 2026年10月4日"),
 ]
+
+# AI game development cost (blog_src/game-<tag>.md), CTA -> /ai-game-cost-calculator
+_CTA_GM = {"en": ("Pick a genre, size, engine and platform to get your own cost, schedule and ready-to-use prompts.", "Open the AI game cost calculator"),
+           "ko": ("장르·규모·엔진·플랫폼을 고르면 내 게임의 비용과 기간, 바로 쓸 수 있는 프롬프트가 나옵니다.", "AI 게임 제작 비용 계산기 열기"),
+           "ja": ("ジャンル・規模・エンジン・プラットフォームを選ぶと、自分のゲームの費用と期間、すぐ使えるプロンプトが出ます。", "AIゲーム制作費計算機を開く")}
+def _gm(tag, path, title, desc, by):
+    d = _cc(tag, path, "game-" + tag, title, desc, by, *_CTA_GM[tag]); d["date"] = "2026-10-05"; return d
+GAME = [
+ _gm("en", "/blog/ai-game-development-cost", "How Much Does It Cost to Make a Game with AI? (2026)",
+     "Making a 2D game solo with AI: about $130–180 and 2–3 weeks for a small mobile game. Cost by size and genre, where the money goes, and tools.",
+     "Jonhisking · October 5, 2026"),
+ _gm("ko", "/ko/blog/ai-game-jejakbi", "AI로 게임 만들기 비용 얼마? 2026년 2D 게임 제작비 정리",
+     "AI로 혼자 2D 게임을 만들면 소형 모바일 게임 기준 약 $130~180, 2~3주. 규모·장르별 비용, 돈이 나가는 곳, 게임용 AI 도구까지 정리했습니다.",
+     "Jonhisking · 2026년 10월 5일"),
+ _gm("ja", "/ja/blog/ai-game-seisakuhi", "AIでゲームを作る費用はいくら？2026年版 2Dゲーム制作費の目安",
+     "AIで1人で2Dゲームを作ると、小規模モバイルゲームで約$130〜180、2〜3週間。規模・ジャンル別の費用、内訳、ゲーム向けAIツールまで。",
+     "Jonhisking · 2026年10月5日"),
+]

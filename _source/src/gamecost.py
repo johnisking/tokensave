@@ -197,6 +197,10 @@ TXT_IN = 'class="w-full bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py
 CARD = "bg-zinc-900/70 backdrop-blur border border-zinc-800 rounded-2xl p-4 sm:p-5"
 H2 = "text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-4"
 
+READ = {"en": ("/blog/ai-game-development-cost", "How much does it cost to make a game with AI? Full breakdown"),
+        "ko": ("/ko/blog/ai-game-jejakbi", "AI로 게임 만들기 비용 자세히 보기"),
+        "ja": ("/ja/blog/ai-game-seisakuhi", "AIでゲームを作る費用の詳しい解説")}
+
 def build_page(lang, llm):
     t = T[lang]
     e = lambda k: esc(t[k])
@@ -290,6 +294,7 @@ def build_page(lang, llm):
     <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
       <h2 style="margin-top:0">{e("howTitle")}</h2>
       <ul>{how}</ul>
+      <p><a href="{READ[lang][0]}">{esc(READ[lang][1])} →</a></p>
       <h2>{e("srcTitle")}</h2>
       <div class="overflow-x-auto"><table class="text-sm w-full"><tbody>{prices}</tbody></table></div>
       <p class="text-xs text-zinc-500">{e("srcNote")}</p>

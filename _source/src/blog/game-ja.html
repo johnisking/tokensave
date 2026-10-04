@@ -1,0 +1,144 @@
+<p>AIツールを使って1人で2Dゲームを作ると、いくらかかるのでしょうか。結論から言うと、<strong>小規模なモバイルゲームで約$130〜180、期間は2〜3週間</strong>です。お金の大半は画像ではなく、<strong>コーディングAIのサブスク</strong>に使われます。</p>
+<p>以下の数字はすべて<a href="/ja/ai-game-cost-calculator">AIゲーム制作費計算機</a>で出したものです。規模の基準は、AIコーディングエージェントで実際に1人で作ったモバイルゲームです。小規模で約2週間、中規模で約4週間、大規模で約6週間かかりました。料金は2026年10月5日時点です。</p>
+<h2>規模別の費用と期間（マージゲーム）</h2>
+<p>ツールの組み合わせは<strong>標準</strong>（Midjourney + Suno + ElevenLabs + Claude Max 5×）、Androidでのリリースです。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>規模</th>
+<th>期間</th>
+<th>画像数</th>
+<th>費用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小規模</td>
+<td>14〜22日</td>
+<td>86枚</td>
+<td>$128〜181</td>
+</tr>
+<tr>
+<td>中規模</td>
+<td>26〜43日</td>
+<td>196枚</td>
+<td>$128〜313</td>
+</tr>
+<tr>
+<td>大規模</td>
+<td>38〜62日</td>
+<td>358枚</td>
+<td>$235〜464</td>
+</tr>
+<tr>
+<td>超大型</td>
+<td>81〜131日</td>
+<td>675枚</td>
+<td>$329〜728</td>
+</tr>
+</tbody>
+</table></div>
+<p>中規模の幅が広いのは、1か月を超えるとサブスクがもう1か月分かかるためです。26日で終われば1か月分、43日かかれば2か月分です。</p>
+<h2>お金はどこに使われるか</h2>
+<p>小規模マージゲームを標準の組み合わせで作る場合の内訳です。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>費用</th>
+<th>割合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>コード（Claude Max 5×、1か月）</td>
+<td>$100</td>
+<td>約66%</td>
+</tr>
+<tr>
+<td>ストア登録料（Google Play、1回）</td>
+<td>$25</td>
+<td>約17%</td>
+</tr>
+<tr>
+<td>画像（Midjourney）</td>
+<td>$10</td>
+<td>約7%</td>
+</tr>
+<tr>
+<td>音楽（Suno）</td>
+<td>$10</td>
+<td>約7%</td>
+</tr>
+<tr>
+<td>効果音（ElevenLabs）</td>
+<td>$6</td>
+<td>約4%</td>
+</tr>
+</tbody>
+</table></div>
+<p>画像86枚は意外と安く済みます。3回生成して1枚使うとしても、Midjourneyのベーシックプランに収まります。一方、コーディングAIは一日中動かすので使用量の上限に余裕のあるプランが必要で、それが全体の3分の2を占めます。</p>
+<p>同じコーディングをAPIで行うと約2億5千万トークン、Claude Sonnet 5.5で約$163です。毎日長く使う個人開発なら、サブスクのほうが安くなります。</p>
+<h2>ジャンルでどれだけ変わるか</h2>
+<p>同じ小規模でも、ジャンルによって画像とコードの量が大きく変わります。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>ジャンル（小規模）</th>
+<th>期間</th>
+<th>画像数</th>
+<th>コスパ重視</th>
+<th>標準</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ハイパーカジュアル</td>
+<td>6〜10日</td>
+<td>47枚</td>
+<td>$46〜65</td>
+<td>$128〜181</td>
+</tr>
+<tr>
+<td>マージ</td>
+<td>14〜22日</td>
+<td>86枚</td>
+<td>$53〜75</td>
+<td>$128〜181</td>
+</tr>
+<tr>
+<td>RPG</td>
+<td>19〜31日</td>
+<td>119枚</td>
+<td>$59〜107</td>
+<td>$128〜313</td>
+</tr>
+</tbody>
+</table></div>
+<p>RPGはキャラクターとアニメーションのフレームが多いため、マージより画像が約38%多く、期間が延びるとサブスクが1か月分増えることがあります。</p>
+<h2>コスパ重視・標準・最高性能の組み合わせ</h2>
+<p>計算機でワンクリックで切り替えられる3つの組み合わせです。</p>
+<ul>
+<li><strong>コスパ重視</strong>：Gemini（Nano Banana 2）の画像 + Pixabayの無料音楽・効果音 + Google AI Pro（Gemini CLI）でコーディング。小規模マージで$53〜75</li>
+<li><strong>標準</strong>：Midjourney + Suno + ElevenLabs + Claude Max 5×。$128〜181</li>
+<li><strong>最高性能</strong>：Midjourney + AIVA Pro + ElevenLabs + Claude Max 20×。$235〜332</li>
+</ul>
+<p>コスパ重視は標準の約40%の費用です。無料素材は選ぶのに時間がかかり、コーディングAIの品質にも差があるので、自分のプロジェクトで試してみてください。</p>
+<h2>忘れがちな費用</h2>
+<ul>
+<li><strong>ストア登録料</strong>：Google Play $25（1回）、Apple 年$99、Steam 1作品$100。Webは無料</li>
+<li><strong>サーバー代</strong>：オンライン対戦があるとPhoton・Firebaseなどのサーバー代がかかります。計算機では開発期間中は月$12としています</li>
+<li><strong>iOS同時リリース</strong>：ビルドと審査対応で約3日増えます</li>
+<li><strong>多言語対応</strong>：1言語増えるごとに約半日増えます</li>
+</ul>
+<p>リリース後の運営費とマーケティング費は含めていません。実際にはこちらのほうが大きいことが多いです。</p>
+<h2>その他のゲーム向けAIツール</h2>
+<p>計算機で選べるツールです。</p>
+<ul>
+<li><strong>画像</strong>：Midjourney、Leonardo、Gemini、GPT Image、PixelLab（ドット絵・アニメーション）、Scenario、Ludo.ai、God Mode AI、AutoSprite、Layer.ai</li>
+<li><strong>音楽・効果音</strong>：Suno、Stable Audio、Soundraw、AIVA、ElevenLabs、Pixabay・Kenney・Freesound（無料）</li>
+<li><strong>3Dモデル</strong>：Meshy、Tripo</li>
+<li><strong>コード</strong>：Claude Pro・Max、Cursor、Windsurf、GitHub Copilot、Gemini、API直接利用</li>
+</ul>
+<h2>プロンプトもそのまま使える</h2>
+<p>計算機は費用を出すだけではありません。ジャンル・規模・エンジン・プラットフォームを選ぶと、<strong>開発開始プロンプト、画像プロンプト、音楽・効果音プロンプト、トレーラーの絵コンテ</strong>を作ってくれます。コピーしてClaude CodeやMidjourneyに貼り付ければ、すぐに始められます。ジャンルは33種類、エンジンはUnity、Godot、Unreal、GameMakerなど21種類から選べます。</p>

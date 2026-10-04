@@ -12,15 +12,17 @@
   })(window,document,'script','dataLayer','GTM-KCGSDH87');</script>
   <!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Cost per User: How to Price an App Built on an LLM | TokenSave</title>
-  <meta name="description" content="Estimate AI cost per user per month, plan for heavy users and free tiers, and the levers that bring the number down." />
-  <link rel="canonical" href="https://tokensave.app/blog/ai-cost-per-user" />
-  <link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-cost-per-user" />
-  <link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-cost-per-user" />
+  <title>How Much Does It Cost to Make a Game with AI? (2026) | TokenSave</title>
+  <meta name="description" content="Making a 2D game solo with AI: about $130–180 and 2–3 weeks for a small mobile game. Cost by size and genre, where the money goes, and tools." />
+  <link rel="canonical" href="https://tokensave.app/blog/ai-game-development-cost" />
+  <link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-game-development-cost" />
+  <link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-game-jejakbi" />
+  <link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-game-seisakuhi" />
+  <link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tokensave.app/blog/ai-cost-per-user" />
-  <meta property="og:title" content="AI Cost per User: How to Price an App Built on an LLM | TokenSave" />
-  <meta property="og:description" content="Estimate AI cost per user per month, plan for heavy users and free tiers, and the levers that bring the number down." />
+  <meta property="og:url" content="https://tokensave.app/blog/ai-game-development-cost" />
+  <meta property="og:title" content="How Much Does It Cost to Make a Game with AI? (2026) | TokenSave" />
+  <meta property="og:description" content="Making a 2D game solo with AI: about $130–180 and 2–3 weeks for a small mobile game. Cost by size and genre, where the money goes, and tools." />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
@@ -31,7 +33,7 @@
   <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "AI Cost per User: How to Price an App Built on an LLM", "description": "Estimate AI cost per user per month, plan for heavy users and free tiers, and the levers that bring the number down.", "inLanguage": "en", "url": "https://tokensave.app/blog/ai-cost-per-user", "mainEntityOfPage": "https://tokensave.app/blog/ai-cost-per-user", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "AI Cost per User: How to Price an App Built on an LLM", "item": "https://tokensave.app/blog/ai-cost-per-user"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "How Much Does It Cost to Make a Game with AI? (2026)", "description": "Making a 2D game solo with AI: about $130–180 and 2–3 weeks for a small mobile game. Cost by size and genre, where the money goes, and tools.", "inLanguage": "en", "url": "https://tokensave.app/blog/ai-game-development-cost", "mainEntityOfPage": "https://tokensave.app/blog/ai-game-development-cost", "datePublished": "2026-10-05", "dateModified": "2026-10-05", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "How Much Does It Cost to Make a Game with AI? (2026)", "item": "https://tokensave.app/blog/ai-game-development-cost"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -93,120 +95,158 @@
     </div>
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
-        <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">AI Cost per User: How to Price an App Built on an LLM</h1>
-        <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
-  <p>If you are building a product on top of an AI model, the most important number in your business plan is not the price per million tokens. It is <strong>AI cost per user per month</strong>. That number decides whether a free tier is affordable, what you can charge, and whether your heaviest users make or lose you money. Here is how to estimate it.</p>
-<h2>Step 1: describe a typical user</h2>
-<p>Start with behavior, not tokens. For a chat-style assistant, for example:</p>
-<ul>
-<li>Active on 15 days a month</li>
-<li>10 messages on each active day, so 150 messages a month</li>
-<li>Each message sends about 2,500 input tokens (system prompt, recent conversation, the new message)</li>
-<li>Each answer is about 400 output tokens</li>
-</ul>
-<p>Measure these from a prototype if you can. Paste a real system prompt and a real conversation into the <a href="/">token counter</a> rather than guessing.</p>
-<h2>Step 2: cost per message</h2>
-<p>At API prices checked October 1, 2026:</p>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">How Much Does It Cost to Make a Game with AI? (2026)</h1>
+        <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 5, 2026</p>
+  <p>How much does it cost to make a 2D game on your own with AI tools? Short answer: <strong>about $130–180 and 2–3 weeks for a small mobile game</strong>. Most of that money goes to an <strong>AI coding subscription</strong>, not to art.</p>
+<p>Every number below comes from the <a href="/ai-game-cost-calculator">AI game cost calculator</a>. Its size anchors are real solo mobile games built with AI coding agents: a small one took about 2 weeks, a medium one about 4 and a large one about 6. Prices are as of October 5, 2026.</p>
+<h2>Cost and time by size (merge game)</h2>
+<p>Tool stack: <strong>Typical</strong> (Midjourney + Suno + ElevenLabs + Claude Max 5×), released on Android.</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
-<th>Model</th>
-<th>Input $/M</th>
-<th>Output $/M</th>
-<th>Cost per message</th>
+<th>Size</th>
+<th>Time</th>
+<th>Images</th>
+<th>Cost</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>GPT-6 Luna</td>
-<td>0.10</td>
-<td>0.50</td>
-<td>$0.00045</td>
+<td>Small</td>
+<td>14–22 days</td>
+<td>86</td>
+<td>$128–181</td>
 </tr>
 <tr>
-<td>Gemini 3.8 Flash</td>
-<td>0.75</td>
-<td>3.75</td>
-<td>$0.0034</td>
+<td>Medium</td>
+<td>26–43 days</td>
+<td>196</td>
+<td>$128–313</td>
 </tr>
 <tr>
-<td>GPT-6 Sol</td>
-<td>2.00</td>
-<td>10.00</td>
-<td>$0.0090</td>
+<td>Large</td>
+<td>38–62 days</td>
+<td>358</td>
+<td>$235–464</td>
 </tr>
 <tr>
-<td>Claude Opus 5.5</td>
-<td>4.00</td>
-<td>20.00</td>
-<td>$0.0180</td>
+<td>Extra large</td>
+<td>81–131 days</td>
+<td>675</td>
+<td>$329–728</td>
 </tr>
 </tbody>
 </table></div>
-<h2>Step 3: cost per user per month</h2>
-<p>Multiply by 150 messages:</p>
+<p>The medium range is wide because a project that runs past one month pays a second month of subscriptions. Finish in 26 days and you pay one month; take 43 days and you pay two.</p>
+<h2>Where the money goes</h2>
+<p>A small merge game with the Typical stack:</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
-<th>Model</th>
-<th>Typical user / month</th>
+<th>Item</th>
+<th>Cost</th>
+<th>Share</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>GPT-6 Luna</td>
-<td>$0.07</td>
+<td>Code (Claude Max 5×, 1 month)</td>
+<td>$100</td>
+<td>~66%</td>
 </tr>
 <tr>
-<td>Gemini 3.8 Flash</td>
-<td>$0.51</td>
+<td>Store fee (Google Play, once)</td>
+<td>$25</td>
+<td>~17%</td>
 </tr>
 <tr>
-<td>GPT-6 Sol</td>
-<td>$1.35</td>
+<td>Art (Midjourney)</td>
+<td>$10</td>
+<td>~7%</td>
 </tr>
 <tr>
-<td>Claude Opus 5.5</td>
-<td>$2.70</td>
+<td>Music (Suno)</td>
+<td>$10</td>
+<td>~7%</td>
+</tr>
+<tr>
+<td>SFX (ElevenLabs)</td>
+<td>$6</td>
+<td>~4%</td>
 </tr>
 </tbody>
 </table></div>
-<p>On a $9.99 monthly subscription, even the most expensive model leaves room for a profit on a typical user. But typical users are not the problem.</p>
-<h2>Step 4: plan for the heavy tail</h2>
-<p>Usage in AI products is very uneven. A small share of users often accounts for a large share of messages. Suppose the top 5% of users send ten times as much as the typical user, with longer conversations that double input size:</p>
+<p>86 images is cheaper than most people expect. Even generating three for every one you keep, it fits in Midjourney's basic plan. An AI coding agent, on the other hand, runs all day, so you need a plan with generous usage limits, and that is two-thirds of the bill.</p>
+<p>The same coding on the API would be about 250 million tokens, roughly $163 on Claude Sonnet 5.5. For a solo developer coding every day, the subscription is cheaper.</p>
+<h2>How much genre changes it</h2>
+<p>Same small size, very different amounts of art and code:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Genre (small)</th>
+<th>Time</th>
+<th>Images</th>
+<th>Best value stack</th>
+<th>Typical stack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hyper-casual</td>
+<td>6–10 days</td>
+<td>47</td>
+<td>$46–65</td>
+<td>$128–181</td>
+</tr>
+<tr>
+<td>Merge</td>
+<td>14–22 days</td>
+<td>86</td>
+<td>$53–75</td>
+<td>$128–181</td>
+</tr>
+<tr>
+<td>RPG</td>
+<td>19–31 days</td>
+<td>119</td>
+<td>$59–107</td>
+<td>$128–313</td>
+</tr>
+</tbody>
+</table></div>
+<p>An RPG has more characters and animation frames, so it needs about 38% more images than a merge game, and the longer schedule can add a month of subscriptions.</p>
+<h2>Best value, Typical and Top tier stacks</h2>
+<p>The calculator switches between three stacks with one click:</p>
 <ul>
-<li>1,500 messages a month at 5,000 input and 400 output tokens</li>
-<li>On GPT-6 Sol: 1,500 × ($0.010 + $0.004) = <strong>$21 a month</strong></li>
+<li><strong>Best value</strong>: Gemini (Nano Banana 2) images + free Pixabay music and SFX + Google AI Pro (Gemini CLI) for code. $53–75 for a small merge game</li>
+<li><strong>Typical</strong>: Midjourney + Suno + ElevenLabs + Claude Max 5×. $128–181</li>
+<li><strong>Top tier</strong>: Midjourney + AIVA Pro + ElevenLabs + Claude Max 20×. $235–332</li>
 </ul>
-<p>On a $9.99 plan, that user loses you money every month. This is why most AI products have usage limits, even on paid plans.</p>
-<h2>Step 5: price the free tier</h2>
-<p>Free users cost money too. If free users average 30 messages a month on Gemini 3.8 Flash, each costs about $0.10. With 10,000 free users that is around $1,000 a month, before any of them pay. Decide what conversion rate makes that worthwhile.</p>
-<h2>Levers that change the numbers</h2>
-<ol>
-<li><strong>Model routing.</strong> Send most messages to a small model and only hard ones to a large model. If 80% of messages can go to a model a tenth of the price, the blended cost drops by roughly 70%.</li>
-<li><strong>Prompt caching.</strong> If your system prompt is long, caching can cut the cost of that part by around 90%. See <a href="/blog/prompt-caching-explained">Prompt caching explained</a>.</li>
-<li><strong>History limits.</strong> Summarize old turns instead of resending whole conversations. Input per message stops growing.</li>
-<li><strong>Output limits.</strong> Shorter default answers, with "tell me more" for people who want detail.</li>
-<li><strong>Usage caps per plan.</strong> Generous enough for typical users, firm enough to protect against the heavy tail.</li>
-<li><strong>Language.</strong> If most of your users write in Japanese or Korean, expect 1.4–1.8 times the tokens of English for the same conversations.</li>
-</ol>
-<h2>A simple model to start from</h2>
-<pre><code>monthly cost per user = messages per month
-                      × (input tokens × input price + output tokens × output price) / 1,000,000
-</code></pre>
-<p>Calculate it for a typical user, a heavy user and a free user, and check each one against what that user pays. Then revisit the numbers every few months: model prices tend to fall, and your users' behavior will change.</p>
-<h2>Related</h2>
+<p>Best value costs about 40% of Typical. Free audio takes time to pick, and coding quality differs between agents, so try them on your own project.</p>
+<h2>Costs people forget</h2>
 <ul>
-<li><a href="/blog/how-to-estimate-ai-api-cost">How to estimate your AI API bill before you build</a></li>
-<li><a href="/blog/chatgpt-subscription-vs-api">ChatGPT Plus or the API: which is cheaper?</a></li>
-<li><a href="/blog/why-output-tokens-cost-more">Why output tokens cost more</a></li>
+<li><strong>Store fees</strong>: Google Play $25 once, Apple $99 a year, Steam $100 per game. Web is free</li>
+<li><strong>Servers</strong>: online play needs Photon, Firebase or a small server. The calculator uses $12 a month during development</li>
+<li><strong>iOS too</strong>: about 3 extra days for builds and review</li>
+<li><strong>Languages</strong>: about half a day per extra language</li>
 </ul>
+<p>Running costs after launch and marketing are not included, and they are often the bigger number.</p>
+<h2>Other AI tools for games</h2>
+<p>Tools you can pick in the calculator:</p>
+<ul>
+<li><strong>Art</strong>: Midjourney, Leonardo, Gemini, GPT Image, PixelLab (pixel art and animation), Scenario, Ludo.ai, God Mode AI, AutoSprite, Layer.ai</li>
+<li><strong>Music and SFX</strong>: Suno, Stable Audio, Soundraw, AIVA, ElevenLabs, Pixabay / Kenney / Freesound (free)</li>
+<li><strong>3D models</strong>: Meshy, Tripo</li>
+<li><strong>Code</strong>: Claude Pro and Max, Cursor, Windsurf, GitHub Copilot, Gemini, or the API directly</li>
+</ul>
+<h2>Get the prompts too</h2>
+<p>The calculator does more than price the project. Pick a genre, size, engine and platform and it writes a <strong>dev kickoff prompt, art prompts, music and SFX prompts and a trailer storyboard</strong> you can paste straight into Claude Code or Midjourney. It covers 33 genres and 21 engines, including Unity, Godot, Unreal and GameMaker.</p>
 
         <h2>More articles</h2>
-        <ul><li><a href="/blog/ai-game-development-cost">How Much Does It Cost to Make a Game with AI? (2026)</a></li><li><a href="/blog/best-value-llm-october-2026">Best Value LLM in October 2026: AI Capability vs Price</a></li><li><a href="/blog/ai-cost-glossary">AI Cost Glossary: 30 Terms Explained in Plain Language</a></li><li><a href="/blog/ai-coding-agent-cost">What Does an AI Coding Agent Really Cost per Task?</a></li><li><a href="/blog/chatgpt-pro-100-vs-200-vs-500">ChatGPT Pro 100 vs 200 vs 500: Which Plan Is Worth It?</a></li></ul>
+        <ul><li><a href="/blog/best-value-llm-october-2026">Best Value LLM in October 2026: AI Capability vs Price</a></li><li><a href="/blog/gemini-4-argon-api-pricing">Gemini 4 Argon API Pricing: Cost vs GPT-6 and Claude</a></li><li><a href="/blog/write-shorter-prompts">Write Shorter Prompts Without Losing Quality: Measured Before and After</a></li><li><a href="/blog/why-output-tokens-cost-more">Why Output Tokens Cost More (and 6 Ways to Use Fewer)</a></li><li><a href="/blog/what-is-a-token">What Is a Token? A Plain-English Guide for AI Users</a></li></ul>
         <div class="not-prose mt-8 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 text-center">
-          <p class="text-zinc-200">Compare what heavy chat use costs on the API with every subscription plan.</p>
-          <a href="/plans" class="mt-3 inline-block tab-active rounded-lg px-4 py-2 font-semibold no-underline" style="text-decoration:none">Open the Subscription vs API calculator →</a>
+          <p class="text-zinc-200">Pick a genre, size, engine and platform to get your own cost, schedule and ready-to-use prompts.</p>
+          <a href="/ai-game-cost-calculator" class="mt-3 inline-block tab-active rounded-lg px-4 py-2 font-semibold no-underline" style="text-decoration:none">Open the AI game cost calculator →</a>
         </div>
       </article>
 
