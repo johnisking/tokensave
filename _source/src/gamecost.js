@@ -24,6 +24,26 @@ const GENRE = {
   rpg:        { chars: 1.8, bg: 1.8, items: 1.8, loc: 1.6, days: 1.6 },
   novel:      { chars: 1.2, bg: 2.0, items: 0.4, loc: 0.6, days: 0.9 },
   shooter:    { chars: 1.3, bg: 1.2, items: 1.0, loc: 1.2, days: 1.2 },
+  match3:     { chars: 0.3, bg: 1.0, items: 1.0, loc: 0.9, days: 0.9 },
+  tower:      { chars: 1.5, bg: 1.2, items: 1.2, loc: 1.2, days: 1.2 },
+  card:       { chars: 1.0, bg: 0.8, items: 3.0, loc: 1.3, days: 1.3 },
+  survivor:   { chars: 1.6, bg: 1.0, items: 1.5, loc: 1.2, days: 1.2 },
+  tycoon:     { chars: 0.8, bg: 1.2, items: 2.0, loc: 1.3, days: 1.3 },
+  hyper:      { chars: 0.3, bg: 0.5, items: 0.5, loc: 0.4, days: 0.4 },
+  runner:     { chars: 0.7, bg: 1.3, items: 0.8, loc: 0.8, days: 0.9 },
+  rhythm:     { chars: 0.5, bg: 1.0, items: 0.5, loc: 0.9, days: 1.0 },
+  word:       { chars: 0.2, bg: 0.6, items: 0.3, loc: 0.6, days: 0.7 },
+  farming:    { chars: 1.0, bg: 1.5, items: 2.5, loc: 1.5, days: 1.5 },
+  escape:     { chars: 0.4, bg: 2.2, items: 1.5, loc: 0.8, days: 0.9 },
+  board:      { chars: 0.2, bg: 0.4, items: 0.6, loc: 1.0, days: 0.9 },
+  autobattler:{ chars: 1.8, bg: 0.8, items: 1.5, loc: 1.4, days: 1.4 },
+  survival:   { chars: 1.2, bg: 1.5, items: 2.5, loc: 1.6, days: 1.6 },
+  fishing:    { chars: 0.6, bg: 1.2, items: 2.0, loc: 0.9, days: 1.0 },
+  sports:     { chars: 1.0, bg: 0.8, items: 0.6, loc: 1.1, days: 1.1 },
+  fighting:   { chars: 1.5, bg: 0.8, items: 0.3, loc: 1.3, days: 1.4 },
+  pet:        { chars: 0.6, bg: 1.0, items: 2.0, loc: 1.0, days: 1.0 },
+  minigames:  { chars: 0.8, bg: 1.5, items: 1.0, loc: 1.5, days: 1.4 },
+  metroidvania:{ chars: 1.5, bg: 2.0, items: 1.2, loc: 1.5, days: 1.6 },
 };
 const ANIM = { none: { actions: 1, frames: 1 }, simple: { actions: 3, frames: 4 }, full: { actions: 6, frames: 8 } };
 const SFXLV = { few: 0.6, normal: 1, many: 1.6 };
@@ -149,10 +169,16 @@ const STYLE_EN = {
   illust: 'cute 2D hand-drawn illustration, soft cel shading, bold clean outlines, bright friendly colors',
   simple: 'minimal flat vector style, simple geometric shapes, solid colors, no gradients',
 };
-const GENRE_EN = { puzzle: 'puzzle', racing: 'racing', merge: 'merge', idle: 'idle / incremental', platformer: 'platformer', rpg: 'RPG', novel: 'visual novel', shooter: 'shooter' };
+const GENRE_EN = { puzzle: 'puzzle', racing: 'racing', merge: 'merge', idle: 'idle / incremental', platformer: 'platformer', rpg: 'RPG', novel: 'visual novel', shooter: 'shooter',
+  match3: 'match-3', tower: 'tower defense', card: 'card / deckbuilder', survivor: 'survivor-like roguelite', tycoon: 'tycoon / management sim', hyper: 'hyper-casual', runner: 'endless runner', rhythm: 'rhythm', word: 'word / quiz', farming: 'farming / life sim',
+  escape: 'escape room / hidden object', board: 'board game', autobattler: 'auto battler', survival: 'survival crafting', fishing: 'fishing', sports: 'sports', fighting: 'fighting', pet: 'pet raising / virtual pet', minigames: 'mini-game collection', metroidvania: 'metroidvania' };
 const MOOD = {
   puzzle: ['calm, playful', 95], racing: ['energetic, driving', 140], merge: ['cozy, cheerful', 100], idle: ['relaxed, uplifting', 90],
   platformer: ['bouncy, adventurous', 128], rpg: ['epic, orchestral', 110], novel: ['gentle, emotional piano', 80], shooter: ['intense, electronic', 150],
+  match3: ['bright, playful', 105], tower: ['tense, strategic', 120], card: ['mysterious, focused', 95], survivor: ['driving, dark synth', 140], tycoon: ['upbeat, jazzy', 110],
+  hyper: ['upbeat, catchy', 120], runner: ['fast, energetic', 150], rhythm: ['danceable, catchy electronic', 128], word: ['calm, light', 90], farming: ['peaceful, acoustic', 90],
+  escape: ['mysterious, ambient', 85], board: ['calm, thoughtful', 90], autobattler: ['epic, tactical', 115], survival: ['tense, atmospheric', 100], fishing: ['relaxed, breezy', 92],
+  sports: ['energetic, stadium rock', 135], fighting: ['aggressive, fast rock', 155], pet: ['cute, cheerful', 105], minigames: ['playful, varied', 115], metroidvania: ['dark, atmospheric', 105],
 };
 const ENGINE = { unity: 'Unity (C#)', godot: 'Godot 4 (GDScript)', phaser: 'Phaser 3 (TypeScript, web)', flutter: 'Flutter + Flame (Dart)' };
 
@@ -273,9 +299,23 @@ function num(id, key) {
   });
 }
 
-seg('gcGenre', 'genre'); seg('gcScale', 'scale'); seg('gcStyle', 'style'); seg('gcAnim', 'anim'); seg('gcSfx', 'sfx');
+seg('gcScale', 'scale'); seg('gcStyle', 'style'); seg('gcAnim', 'anim'); seg('gcSfx', 'sfx');
 seg('gcDim', 'dim'); seg('gcEngine', 'engine'); seg('gcImg', 'imgTool'); seg('gcCodeTool', 'codeTool'); seg('gcMusicTool', 'musicTool'); seg('gcSfxTool', 'sfxTool');
 seg('gcTrailer', 'trailer', v => v === 'true');
+// Genre: popular ones as buttons, the rest in the "other" dropdown
+{
+  const box = document.getElementById('gcGenre'), sel = document.getElementById('gcGenreOther');
+  const popular = [...box.querySelectorAll('button')].map(b => b.dataset.v).filter(v => v !== 'other');
+  const paint = () => {
+    const cur = popular.includes(state.genre) ? state.genre : 'other';
+    box.querySelectorAll('button').forEach(b => { const on = b.dataset.v === cur; b.classList.toggle('tab-active', on); b.classList.toggle('text-zinc-400', !on); b.setAttribute('aria-pressed', on); });
+    sel.hidden = cur !== 'other';
+  };
+  const pick = g => { state.genre = g; state.chars = null; state.music = null; syncNums(); paint(); render(); };
+  box.addEventListener('click', ev => { const b = ev.target.closest('button'); if (b) pick(b.dataset.v === 'other' ? sel.value : b.dataset.v); });
+  sel.addEventListener('change', () => pick(sel.value));
+  paint();
+}
 num('gcChars', 'chars'); num('gcMusic', 'music'); num('gcVoice', 'voice');
 document.getElementById('gcLangs').addEventListener('input', ev => { state.langs = Math.max(1, Math.min(41, parseInt(ev.target.value, 10) || 1)); render(); });
 document.getElementById('gcFeats').addEventListener('change', ev => {

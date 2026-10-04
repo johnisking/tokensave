@@ -11,7 +11,8 @@ SLUG = "ai-game-cost-calculator"
 PATH = {"en": f"/{SLUG}", "ko": f"/ko/{SLUG}", "ja": f"/ja/{SLUG}"}
 CHECKED = "2026-10-05"
 
-GENRES = ["merge", "puzzle", "racing", "idle", "platformer", "rpg", "novel", "shooter"]
+GENRES = ["merge", "match3", "puzzle", "idle", "tycoon", "hyper", "runner", "survivor", "rpg", "tower", "card"]
+OTHER_GENRES = ["farming", "racing", "platformer", "shooter", "rhythm", "novel", "word", "escape", "board", "autobattler", "survival", "fishing", "sports", "fighting", "pet", "minigames", "metroidvania"]
 FEATS = ["ads", "iap", "save", "rank", "online"]
 
 T = {
@@ -41,7 +42,7 @@ T = {
        ("How many tokens does it take to code a game with Claude Code?", "Agents re-read your project a lot, so a 2-week build can pass a few hundred million tokens, mostly cached. On a Claude Max plan you pay a flat monthly fee; on the API the calculator shows the cost for the model you choose."),
        ("Are the prompts free to use?", "Yes. Copy them or download the whole pack as a Markdown file and paste them into your tools. Nothing you type is uploaded.")],
   defName="My Game", defIdea="a {genre} game for mobile",
-  g_merge="Merge", g_puzzle="Puzzle", g_racing="Racing", g_idle="Idle", g_platformer="Platformer", g_rpg="RPG", g_novel="Visual novel", g_shooter="Shooter",
+  g_merge="Merge", g_puzzle="Puzzle", g_racing="Racing", g_idle="Idle", g_platformer="Platformer", g_rpg="RPG", g_novel="Visual novel", g_shooter="Shooter", g_match3="Match-3", g_tower="Tower defense", g_card="Card / deckbuilder", g_survivor="Survivor-like", g_tycoon="Tycoon / sim", g_hyper="Hyper-casual", g_runner="Runner", g_rhythm="Rhythm", g_word="Word / quiz", g_farming="Farming / life sim", g_escape="Escape room / hidden object", g_board="Board game", g_autobattler="Auto battler", g_survival="Survival / crafting", g_fishing="Fishing", g_sports="Sports", g_fighting="Fighting", g_pet="Pet raising", g_minigames="Mini-game collection", g_metroidvania="Metroidvania", gOther="Other ▾",
   f_ads="Ads", f_iap="In-app purchases", f_save="Save / load", f_rank="Leaderboard", f_online="Online multiplayer",
   devIntro="You are a senior game developer. Help me build \"{name}\", a 2D {genre} mobile game in {engine}.",
   devIdea="Idea:", devScope="Scope: {chars} characters, {bg} backgrounds, {items} items, {music} music tracks, {sfx} sound effects, {langs} language(s).",
@@ -85,7 +86,7 @@ T = {
        ("Claude Code로 게임을 만들면 토큰이 얼마나 드나요?", "에이전트는 프로젝트를 반복해서 읽기 때문에 2주짜리 개발에도 수억 토큰이 오가고, 대부분은 캐시입니다. Claude Max 구독이면 월 정액이고, API로 쓰면 고른 모델 기준 비용을 계산기가 보여 줍니다."),
        ("프롬프트는 무료로 써도 되나요?", "네. 복사하거나 전체를 Markdown 파일로 받아 각 도구에 붙여 넣으면 됩니다. 입력한 내용은 어디에도 업로드되지 않습니다.")],
   defName="내 게임", defIdea="모바일 {genre} 게임",
-  g_merge="머지", g_puzzle="퍼즐", g_racing="레이싱", g_idle="방치형", g_platformer="플랫포머", g_rpg="RPG", g_novel="비주얼노벨", g_shooter="슈팅",
+  g_merge="머지", g_puzzle="퍼즐", g_racing="레이싱", g_idle="방치형", g_platformer="플랫포머", g_rpg="RPG", g_novel="비주얼노벨", g_shooter="슈팅", g_match3="3매치", g_tower="타워디펜스", g_card="카드·덱빌딩", g_survivor="뱀서류", g_tycoon="경영·시뮬", g_hyper="하이퍼캐주얼", g_runner="러너", g_rhythm="리듬", g_word="단어·퀴즈", g_farming="농장·생활", g_escape="방탈출·숨은그림", g_board="보드게임", g_autobattler="오토배틀러", g_survival="생존·크래프팅", g_fishing="낚시", g_sports="스포츠", g_fighting="격투", g_pet="육성", g_minigames="미니게임 모음", g_metroidvania="메트로배니아", gOther="그 외 ▾",
   f_ads="광고", f_iap="인앱 결제", f_save="저장·불러오기", f_rank="랭킹", f_online="온라인 대전",
   devIntro="당신은 숙련된 게임 개발자입니다. {engine}로 2D 모바일 {genre} 게임 \"{name}\"을 함께 만들어 주세요.",
   devIdea="아이디어:", devScope="규모: 캐릭터 {chars}종, 배경 {bg}장, 아이템 {items}개, 배경음악 {music}곡, 효과음 {sfx}개, 지원 언어 {langs}개.",
@@ -129,7 +130,7 @@ T = {
        ("Claude Codeでゲームを作るとトークンはどれくらい？", "エージェントはプロジェクトを何度も読み直すため、2週間の開発でも数億トークンが流れ、その大半はキャッシュです。Claude Maxなら月額固定、APIなら選んだモデルでの費用を計算機が表示します。"),
        ("プロンプトは無料で使えますか？", "はい。コピーするか、まとめてMarkdownファイルでダウンロードして各ツールに貼り付けてください。入力内容はどこにもアップロードされません。")],
   defName="マイゲーム", defIdea="モバイル向け{genre}ゲーム",
-  g_merge="マージ", g_puzzle="パズル", g_racing="レース", g_idle="放置", g_platformer="アクション", g_rpg="RPG", g_novel="ノベル", g_shooter="シューティング",
+  g_merge="マージ", g_puzzle="パズル", g_racing="レース", g_idle="放置", g_platformer="アクション", g_rpg="RPG", g_novel="ノベル", g_shooter="シューティング", g_match3="マッチ3", g_tower="タワーディフェンス", g_card="カード・デッキ構築", g_survivor="サバイバー系", g_tycoon="経営シミュ", g_hyper="ハイパーカジュアル", g_runner="ランナー", g_rhythm="リズム", g_word="単語・クイズ", g_farming="農場・生活", g_escape="脱出・隠し絵探し", g_board="ボードゲーム", g_autobattler="オートバトラー", g_survival="サバイバル・クラフト", g_fishing="釣り", g_sports="スポーツ", g_fighting="格闘", g_pet="育成", g_minigames="ミニゲーム集", g_metroidvania="メトロイドヴァニア", gOther="その他 ▾",
   f_ads="広告", f_iap="アプリ内課金", f_save="セーブ・ロード", f_rank="ランキング", f_online="オンライン対戦",
   devIntro="あなたは経験豊富なゲーム開発者です。{engine}で2Dモバイル{genre}ゲーム「{name}」を一緒に作ってください。",
   devIdea="アイデア：", devScope="規模：キャラクター{chars}種、背景{bg}枚、アイテム{items}個、BGM{music}曲、効果音{sfx}個、対応言語{langs}。",
@@ -185,7 +186,9 @@ H2 = "text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-4"
 def build_page(lang, llm):
     t = T[lang]
     e = lambda k: esc(t[k])
-    genre_btns = "".join(f'<button data-v="{g}" class="tab py-1.5 px-2 rounded-md text-xs font-semibold text-zinc-400">{esc(t["g_" + g])}</button>' for g in GENRES)
+    genre_btns = "".join(f'<button data-v="{g}" class="tab py-1.5 px-2 rounded-md text-xs font-semibold text-zinc-400">{esc(t["g_" + g])}</button>' for g in GENRES + ["other"] if g != "other") + \
+        f'<button data-v="other" class="tab py-1.5 px-2 rounded-md text-xs font-semibold text-zinc-400">{e("gOther")}</button>'
+    other_opts = "".join(f'<option value="{g}">{esc(t["g_" + g])}</option>' for g in OTHER_GENRES)
     scale = "".join(f'<button data-v="{v}" class="tab py-2 px-2 rounded-md text-xs font-semibold text-zinc-400 leading-tight">{e(a)}<span class="block text-[10px] font-normal text-zinc-500">{e(b)}</span></button>'
                     for v, a, b in [("s", "sS", "sSsub"), ("m", "sM", "sMsub"), ("l", "sL", "sLsub")])
     feats = "".join(f'<label class="inline-flex items-center gap-1.5 text-xs bg-zinc-950/70 border border-zinc-800 rounded-lg px-2.5 py-1.5 cursor-pointer"><input type="checkbox" data-f="{f}" class="accent-violet-500"{" checked" if f in ("ads", "save") else ""}>{esc(t["f_" + f])}</label>' for f in FEATS)
@@ -214,9 +217,9 @@ def build_page(lang, llm):
         <div><label for="gcName" class="block text-xs text-zinc-400 font-semibold mb-2">{e("name")}</label><input id="gcName" maxlength="60" placeholder="{e("namePh")}" {TXT_IN}></div>
         <div><label for="gcIdea" class="block text-xs text-zinc-400 font-semibold mb-2">{e("idea")}</label><input id="gcIdea" maxlength="160" placeholder="{e("ideaPh")}" {TXT_IN}></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {_field(e("qGenre"), f'<div id="gcGenre" class="grid grid-cols-4 p-1 bg-zinc-950/70 border border-zinc-800 rounded-lg gap-1">{genre_btns}</div>')}
-        {_field(e("qScale"), f'<div id="gcScale" class="grid grid-cols-3 p-1 bg-zinc-950/70 border border-zinc-800 rounded-lg gap-1">{scale}</div>')}
+      <div class="grid grid-cols-1 gap-4">
+        {_field(e("qGenre"), f'<div id="gcGenre" class="grid grid-cols-3 sm:grid-cols-6 p-1 bg-zinc-950/70 border border-zinc-800 rounded-lg gap-1">{genre_btns}</div><select id="gcGenreOther" hidden class="mt-2 w-full sm:w-72 bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py-2 text-sm">{other_opts}</select>')}
+        <div class="max-w-xl">{_field(e("qScale"), f'<div id="gcScale" class="grid grid-cols-3 p-1 bg-zinc-950/70 border border-zinc-800 rounded-lg gap-1">{scale}</div>')}</div>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
         {_field(e("qStyle"), _seg("gcStyle", [("pixel", e("stPixel")), ("illust", e("stIllust")), ("simple", e("stSimple"))]))}
