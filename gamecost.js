@@ -121,10 +121,11 @@ function estimate() {
   const gens = images * attempts;
   const codeDays = days * CODE_SHARE;
   const tokIn = codeDays * DAY_IN, tokOut = codeDays * DAY_OUT;
-  const months = Math.max(1, Math.ceil(days / 30));
+  const monthsOf = d => Math.max(1, Math.ceil(d / 30));
+  const months = monthsOf(days), mLo = monthsOf(days * 0.8), mHi = monthsOf(days * 1.3);
 
   // --- AI tool costs (scenario 2 = default stack, scenario 3 = user's picks) ---
-  const imgCost = tool => {
+  const imgCost = (tool, months) => {
     const T = TOOLS.img[tool];
     if (T.flat) return T.flat * months;
     if (T.plans && T.perGen) return plan(T.plans, Math.ceil(gens / T.perGen / months)).price * months;
@@ -144,9 +145,9 @@ function estimate() {
   };
   const p = PRICES[state.model] || { in: 2, out: 10 };
   const apiCode = (tokIn * ((1 - CACHE_HIT) + CACHE_HIT * CACHE_RATE) * p.in + tokOut * p.out) / 1e6;
-  const codeCost = tool => {
+  const codeCost = (tool, months, scale = 1) => {
     const C = TOOLS.code[tool];
-    if (tool === 'api') return { cost: apiCode, months: 0, fits: true };
+    if (tool === 'api') return { cost: apiCode * scale, months: 0, fits: true };
     const perDay = (DAY_IN + DAY_OUT);
     return { cost: C.monthly * months, months, fits: perDay <= C.capPerDay };
   };
@@ -156,13 +157,19 @@ function estimate() {
   const trailerCost = clips ? plan(TOOLS.video.higgs.plans, clips * TOOLS.video.higgs.perClip).price : 0;
 
   const ai = (img, code, mt, st, d3 = 'meshy') => {
-    const c = codeCost(code), [musicCost, sfxCost] = audio(mt, st);
-    const lines = [
-      ['art', imgCost(img)], ['music', musicCost], ['sfx', sfxCost], ['code', c.cost],
-      ...(models3d ? [['d3', d3Cost(d3)]] : []), ...(state.trailer ? [['trailer', trailerCost]] : []),
-    ];
-    const total = lines.reduce((s, [, v]) => s + v, 0);
-    return { lines, total, lo: total * 0.7, hi: total * 1.5, codeFits: c.fits };
+    const [musicCost, sfxCost] = audio(mt, st);
+    const at = (m, scale = 1) => {   // cost lines if the project takes m calendar months (API usage scales with days)
+      const c = codeCost(code, m, scale);
+      const sub = TOOLS.code[code].monthly ? t('monthsN', { n: m }) : '';
+      return { c, lines: [
+        ['art', imgCost(img, m)], ['music', musicCost], ['sfx', sfxCost], ['code', c.cost, sub],
+        ...(models3d ? [['d3', d3Cost(d3)]] : []), ...(state.trailer ? [['trailer', trailerCost]] : []),
+      ] };
+    };
+    const sum = ls => ls.reduce((s, [, v]) => s + v, 0);
+    const base = at(months), low = at(mLo, 0.8), high = at(mHi, 1.3);
+    // range: shorter/longer schedule (subscription months) plus ±20% for re-generations and plan choices
+    return { lines: base.lines, total: sum(base.lines), lo: sum(low.lines) * 0.85, hi: sum(high.lines) * 1.2, codeFits: base.c.fits };
   };
 
   return {
@@ -262,7 +269,7 @@ function render() {
       <div class="text-sm font-bold">${title}</div><div class="text-xs text-zinc-500 mb-3">${sub}</div>
       <div class="text-2xl font-extrabold tabular-nums ${hl ? 'text-violet-200' : ''}">${range(lo, hi)}</div>
       <div class="text-sm text-zinc-400 mb-3">⏱ ${time}</div>
-      <table class="w-full text-xs mt-auto"><tbody>${lines.map(([k, v]) => `<tr class="border-t border-zinc-800/70"><td class="py-1.5 text-zinc-400">${lineName(k)}</td><td class="py-1.5 text-end tabular-nums">${Array.isArray(v) ? range(v[0], v[1]) : usd(v)}</td></tr>`).join('')}</tbody></table>
+      <table class="w-full text-xs mt-auto"><tbody>${lines.map(([k, v, note]) => `<tr class="border-t border-zinc-800/70"><td class="py-1.5 text-zinc-400">${lineName(k)}${note ? ` <span class="text-zinc-500">(${note})</span>` : ''}</td><td class="py-1.5 text-end tabular-nums">${Array.isArray(v) ? range(v[0], v[1]) : usd(v)}</td></tr>`).join('')}</tbody></table>
       ${note ? `<p class="text-[11px] text-amber-300/80 mt-2">${note}</p>` : ''}
     </div>`;
   const days = n => t('days', { n });
