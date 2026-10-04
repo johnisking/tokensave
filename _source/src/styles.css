@@ -45,3 +45,14 @@ input[type=number]::-webkit-inner-spin-button { opacity: .4; }
 .tokview .nl{opacity:.35}
 .toklegend i{display:inline-block;width:10px;height:10px;border-radius:2px}
 .toklegend .t0{background:rgba(139,92,246,.50)}.toklegend .t1{background:rgba(16,185,129,.42)}.toklegend .t2{background:rgba(245,158,11,.42)}.toklegend .t3{background:rgba(236,72,153,.42)}.toklegend .t4{background:rgba(14,165,233,.45)}
+
+/* Capability page view switcher */
+.perf-tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.25rem 0 .75rem; }
+.perf-tabs button { flex: 1 1 0; min-width: 0; padding: .55rem .4rem; border-radius: .75rem; border: 1px solid #3f3f46; background: #18181b; color: #d4d4d8; font-weight: 600; font-size: .9rem; cursor: pointer; }
+.perf-tabs button[aria-selected="true"] { background: #7c3aed; border-color: #8b5cf6; color: #fff; }
+.perf-pick { border: 1px solid rgba(52,211,153,.35); background: rgba(52,211,153,.08); border-radius: 1rem; padding: .9rem 1.1rem; margin-bottom: 1rem; }
+.perf-pick-k { font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: #34d399; font-weight: 700; }
+.perf-pick-n { font-size: 1.35rem; font-weight: 800; color: #fff; margin-top: .15rem; }
+.perf-pick-v { font-size: .85rem; color: #a1a1aa; }
+.prose-ts .perf-pick p { margin: .4rem 0 0; font-size: .9rem; }
+@media (max-width: 480px) { .perf-tabs button { font-size: .78rem; } }

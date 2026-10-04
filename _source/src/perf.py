@@ -95,6 +95,33 @@ def build_page(models, llm):
     w, h = charts.size_of(svg)
     fig = charts.figure(src, "Scatter chart of AI model capability (Epoch Capabilities Index) against API price per million tokens, with the best-value frontier highlighted",
                         f"Capability (ECI) vs blended API price per 1M tokens, {len(pts)} models. Frontier models are the best value at their price.", w, h)
+    top_svg, cheap_svg = charts.rank_chart(pts, "top", checked), charts.rank_chart(pts, "cheap", checked)
+    top_src, cheap_src = "/img/most-capable-ai-models.svg", "/img/cheapest-ai-models.svg"
+    top_fig = charts.figure(top_src, "Ranking of AI models by Epoch Capabilities Index score with 90% ranges",
+                            "AI models ranked by capability (ECI), with the 90% range of each estimate.", *charts.size_of(top_svg))
+    cheap_fig = charts.figure(cheap_src, "Ranking of AI models by blended API price per million tokens, cheapest first, with capability scores",
+                              "AI models ranked by blended API price, cheapest first, with each model's capability score.", *charts.size_of(cheap_svg))
+    # one pick per view
+    top_p = max(pts, key=lambda p: p["y"])
+    val_p = max((p for p in pts if p["front"] and p["x"] <= top_p["x"] * 0.6), key=lambda p: p["y"], default=top_p)
+    cheap_p = min((p for p in pts if p["y"] >= top_p["y"] - 15), key=lambda p: p["x"])
+    def card(p, label, why):
+        return (f'<div class="perf-pick"><div class="perf-pick-k">{label}</div><div class="perf-pick-n">{esc(p["name"])}</div>'
+                f'<div class="perf-pick-v">ECI {p["y"]:.1f} · ${p["x"]:.2f} per 1M tokens</div><p>{why}</p></div>')
+    top_card = card(top_p, "Top capability", "The highest score on the Epoch Capabilities Index among the models priced here.")
+    val_card = card(val_p, "Best value", f"{top_p['y'] - val_p['y']:.1f} points below the top model for {val_p['x'] / top_p['x'] * 100:.0f}% of its price, and on the best-value frontier.")
+    cheap_card = card(cheap_p, "Lowest price", f"The cheapest model within 15 points of the top score: {cheap_p['x'] / top_p['x'] * 100:.0f}% of the top model's price.")
+    views = f"""<div class="perf-tabs not-prose" role="tablist">
+        <button type="button" role="tab" data-v="top" aria-selected="false">🏆 Top capability</button>
+        <button type="button" role="tab" data-v="value" aria-selected="true">💎 Best value</button>
+        <button type="button" role="tab" data-v="cheap" aria-selected="false">💸 Lowest price</button>
+      </div>
+      <div class="perf-view" data-v="top" hidden>{top_card}{top_fig}</div>
+      <div class="perf-view" data-v="value">{val_card}{fig}</div>
+      <div class="perf-view" data-v="cheap" hidden>{cheap_card}{cheap_fig}</div>
+      <script>(function(){{var b=document.querySelectorAll('.perf-tabs button'),v=document.querySelectorAll('.perf-view');
+      b.forEach(function(x){{x.addEventListener('click',function(){{b.forEach(function(y){{y.setAttribute('aria-selected',y===x)}});
+      v.forEach(function(w){{w.hidden=w.dataset.v!==x.dataset.v}})}})}})}})();</script>"""
     rows = []
     for p in sorted(pts, key=lambda p: -p["y"]):
         m = models[p["id"]]
@@ -117,7 +144,7 @@ def build_page(models, llm):
       <p class="text-xs text-zinc-500"><a href="/compare/">All comparisons</a> · Scores checked {esc(checked)} · Prices {esc(llm.get('checked', ''))}</p>
       <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">AI model capability vs price</h1>
       <p>A more expensive model is not always a smarter one. This chart puts each model's general capability, measured by the Epoch Capabilities Index (ECI), against what its API costs. The highest score is {esc(top['name'])} at {top['y']:.1f}.{alt_txt}</p>
-      {fig}
+      {views}
       <h2>The best-value models</h2>
       <p>A model is on the <strong>best-value frontier</strong> when no other model is both cheaper and more capable. From cheapest to most capable: {front_names}. Anything below the line costs more than a frontier model with the same or higher score.</p>
       <h2>All scores and prices</h2>
@@ -137,4 +164,5 @@ def build_page(models, llm):
     ]
     faq_ld = {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
     return dict(path="/compare/performance", title=title, desc=desc, body=body, faq_ld=faq_ld,
-                chart=(src, svg), image_caption="AI model capability (ECI) vs API price"), sc
+                chart=(src, svg), image_caption="AI model capability (ECI) vs API price",
+                extra_images=[(top_src, top_svg, "Most capable AI models (ECI)"), (cheap_src, cheap_svg, "Cheapest AI models by API price")]), sc

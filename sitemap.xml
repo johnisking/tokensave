@@ -12288,5 +12288,11 @@
     <image:image>
       <image:loc>https://tokensave.app/img/ai-model-capability-vs-price.svg</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/img/most-capable-ai-models.svg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/img/cheapest-ai-models.svg</image:loc>
+    </image:image>
   </url>
 </urlset>

@@ -359,6 +359,9 @@ def build():
     for cp in cmp_pages:
         write_img(*cp["chart"])
         IMAGES[cp["path"]] = [(BASE + cp["chart"][0], cp["image_caption"])]
+        for src_, svg_, cap_ in cp.get("extra_images", []):
+            write_img(src_, svg_)
+            IMAGES[cp["path"]].append((BASE + src_, cap_))
     for cp in [cmp_hub] + cmp_pages:
         url = BASE + cp["path"]
         ld = {"@context": "https://schema.org", "@graph": [

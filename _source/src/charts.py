@@ -170,3 +170,49 @@ def scatter_chart(points, checked):
             f'<title>AI model capability vs API price</title><desc>{esc(desc)}</desc>'
             f'<rect width="{WS}" height="{HS}" rx="16" fill="{BG}"/>{body}'
             f'<text x="{WS - 24}" y="{HS - 6}" text-anchor="end" font-size="12" font-weight="600" fill="{MUTED}">tokensave.app</text></svg>\n')
+
+def rank_chart(points, mode, checked):
+    """mode 'top': capability dot plot with 90% range, sorted by ECI.
+    mode 'cheap': blended price bars (log scale), sorted cheapest first, ECI shown."""
+    import math
+    WS = 760; rowh = 26; T = 96; L = 190; R = 90
+    pts = sorted(points, key=(lambda p: -p["y"]) if mode == "top" else (lambda p: p["x"]))
+    HS = T + rowh * len(pts) + 56
+    pw = WS - L - R
+    if mode == "top":
+        lo = math.floor((min(p["lo"] for p in pts) - 1) / 10) * 10; hi = math.ceil((max(p["hi"] for p in pts) + 1) / 5) * 5
+        X = lambda v: L + (v - lo) / (hi - lo) * pw
+        ticks = [(v, f"{v}") for v in range(int(lo), int(hi) + 1, 10)]
+        title, sub = "Most capable AI models", "Epoch Capabilities Index with 90% range (Epoch AI, CC BY)"
+    else:
+        x0 = 10 ** math.floor(math.log10(min(p["x"] for p in pts))); x1 = 10 ** math.ceil(math.log10(max(p["x"] for p in pts)))
+        X = lambda v: L + (math.log10(v) - math.log10(x0)) / (math.log10(x1) - math.log10(x0)) * pw
+        ticks = []
+        d = x0
+        while d <= x1 * 1.0001:
+            for m in (1, 2, 5):
+                if x0 <= d * m <= x1 * 1.0001: ticks.append((d * m, f"${d * m:g}"))
+            d *= 10
+        title, sub = "Cheapest AI models", "Blended API price per 1M tokens (log scale), with capability score"
+    out = [f'<text x="24" y="40" font-size="21" font-weight="700" fill="{FG}">{title}</text>',
+           f'<text x="24" y="64" font-size="14" fill="{MUTED}">{sub} · {esc(checked)}</text>']
+    for v, lab in ticks:
+        gx = X(v)
+        out.append(f'<line x1="{gx:.1f}" y1="{T - 8}" x2="{gx:.1f}" y2="{T + rowh * len(pts)}" stroke="{GRID}" stroke-width="0.6"/>'
+                   f'<text x="{gx:.1f}" y="{T + rowh * len(pts) + 18}" text-anchor="middle" font-size="12" fill="{MUTED}">{lab}</text>')
+    for i, p in enumerate(pts):
+        cy = T + i * rowh + rowh / 2
+        col = C_B if p.get("front") else C_A
+        out.append(f'<text x="{L - 12}" y="{cy + 4:.1f}" text-anchor="end" font-size="13" font-weight="{700 if p.get("front") else 400}" fill="{FG}">{esc(p["name"])}</text>')
+        if mode == "top":
+            out.append(f'<line x1="{X(p["lo"]):.1f}" y1="{cy:.1f}" x2="{X(p["hi"]):.1f}" y2="{cy:.1f}" stroke="{col}" stroke-width="3" opacity="0.35" stroke-linecap="round"/>'
+                       f'<circle cx="{X(p["y"]):.1f}" cy="{cy:.1f}" r="5.5" fill="{col}"/>'
+                       f'<text x="{X(p["hi"]) + 8:.1f}" y="{cy + 4:.1f}" font-size="12" fill="{FG}">{p["y"]:.1f}</text>')
+        else:
+            w = max(3, X(p["x"]) - L)
+            out.append(f'<rect x="{L}" y="{cy - 8:.1f}" width="{w:.1f}" height="16" rx="4" fill="{col}"/>'
+                       f'<text x="{L + w + 8:.1f}" y="{cy + 4:.1f}" font-size="12" fill="{FG}">${p["x"]:.2f} · ECI {p["y"]:.0f}</text>')
+    desc = "; ".join(f"{p['name']}: ECI {p['y']:.1f}, ${p['x']:.2f}" for p in pts)
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {WS} {HS}" width="{WS}" height="{HS}" role="img" font-family="{FONT}">'
+            f'<title>{title}</title><desc>{esc(desc)}</desc><rect width="{WS}" height="{HS}" rx="16" fill="{BG}"/>{"".join(out)}'
+            f'<text x="{WS - 24}" y="{HS - 10}" text-anchor="end" font-size="12" font-weight="600" fill="{MUTED}">tokensave.app</text></svg>\n')

@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=590ec7c0" />
+  <link rel="stylesheet" href="/styles.css?v=443b1c63" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -93,7 +93,17 @@
       <p class="text-xs text-zinc-500"><a href="/compare/">All comparisons</a> · Scores checked 2026-10-04 · Prices 2026-10-01</p>
       <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">AI model capability vs price</h1>
       <p>A more expensive model is not always a smarter one. This chart puts each model's general capability, measured by the Epoch Capabilities Index (ECI), against what its API costs. The highest score is Claude Opus 5.5 at 167.3. Claude Sonnet 5.5 comes within 2.2 points for 50% of the price.</p>
-      <figure class="chart-fig"><img class="chart" src="/img/ai-model-capability-vs-price.svg" alt="Scatter chart of AI model capability (Epoch Capabilities Index) against API price per million tokens, with the best-value frontier highlighted" width="760" height="600" loading="lazy" decoding="async" /><figcaption>Capability (ECI) vs blended API price per 1M tokens, 23 models. Frontier models are the best value at their price.</figcaption></figure>
+      <div class="perf-tabs not-prose" role="tablist">
+        <button type="button" role="tab" data-v="top" aria-selected="false">🏆 Top capability</button>
+        <button type="button" role="tab" data-v="value" aria-selected="true">💎 Best value</button>
+        <button type="button" role="tab" data-v="cheap" aria-selected="false">💸 Lowest price</button>
+      </div>
+      <div class="perf-view" data-v="top" hidden><div class="perf-pick"><div class="perf-pick-k">Top capability</div><div class="perf-pick-n">Claude Opus 5.5</div><div class="perf-pick-v">ECI 167.3 · $10.40 per 1M tokens</div><p>The highest score on the Epoch Capabilities Index among the models priced here.</p></div><figure class="chart-fig"><img class="chart" src="/img/most-capable-ai-models.svg" alt="Ranking of AI models by Epoch Capabilities Index score with 90% ranges" width="760" height="750" loading="lazy" decoding="async" /><figcaption>AI models ranked by capability (ECI), with the 90% range of each estimate.</figcaption></figure></div>
+      <div class="perf-view" data-v="value"><div class="perf-pick"><div class="perf-pick-k">Best value</div><div class="perf-pick-n">Claude Sonnet 5.5</div><div class="perf-pick-v">ECI 165.2 · $5.20 per 1M tokens</div><p>2.2 points below the top model for 50% of its price, and on the best-value frontier.</p></div><figure class="chart-fig"><img class="chart" src="/img/ai-model-capability-vs-price.svg" alt="Scatter chart of AI model capability (Epoch Capabilities Index) against API price per million tokens, with the best-value frontier highlighted" width="760" height="600" loading="lazy" decoding="async" /><figcaption>Capability (ECI) vs blended API price per 1M tokens, 23 models. Frontier models are the best value at their price.</figcaption></figure></div>
+      <div class="perf-view" data-v="cheap" hidden><div class="perf-pick"><div class="perf-pick-k">Lowest price</div><div class="perf-pick-n">DeepSeek V4 Flash</div><div class="perf-pick-v">ECI 154.5 · $0.52 per 1M tokens</div><p>The cheapest model within 15 points of the top score: 5% of the top model's price.</p></div><figure class="chart-fig"><img class="chart" src="/img/cheapest-ai-models.svg" alt="Ranking of AI models by blended API price per million tokens, cheapest first, with capability scores" width="760" height="750" loading="lazy" decoding="async" /><figcaption>AI models ranked by blended API price, cheapest first, with each model&#x27;s capability score.</figcaption></figure></div>
+      <script>(function(){var b=document.querySelectorAll('.perf-tabs button'),v=document.querySelectorAll('.perf-view');
+      b.forEach(function(x){x.addEventListener('click',function(){b.forEach(function(y){y.setAttribute('aria-selected',y===x)});
+      v.forEach(function(w){w.hidden=w.dataset.v!==x.dataset.v})})})})();</script>
       <h2>The best-value models</h2>
       <p>A model is on the <strong>best-value frontier</strong> when no other model is both cheaper and more capable. From cheapest to most capable: GPT-5 nano, DeepSeek V4 Flash, Gemini 3.8 Flash, Claude Sonnet 5.5, Claude Opus 5.5. Anything below the line costs more than a frontier model with the same or higher score.</p>
       <h2>All scores and prices</h2>
@@ -121,6 +131,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=590ec7c0"></script>
+  <script type="module" src="/common.js?v=443b1c63"></script>
 </body>
 </html>
