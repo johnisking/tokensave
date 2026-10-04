@@ -11532,8 +11532,6 @@
     <loc>https://tokensave.app/fr/blog/mistral-chatgpt-cout-prompt-francais</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/mistral-chatgpt-cout-prompt-francais"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/compteur-de-tokens-pourquoi"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/souverainete-ia-tokens"/>
     <image:image>
       <image:loc>https://tokensave.app/blog-mistral-francais.png</image:loc>
     </image:image>
@@ -11541,9 +11539,7 @@
   <url>
     <loc>https://tokensave.app/fr/blog/compteur-de-tokens-pourquoi</loc>
     <lastmod>2026-10-03</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/mistral-chatgpt-cout-prompt-francais"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/compteur-de-tokens-pourquoi"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/souverainete-ia-tokens"/>
     <image:image>
       <image:loc>https://tokensave.app/blog-compteur-tokens-fr.png</image:loc>
     </image:image>
@@ -11551,8 +11547,6 @@
   <url>
     <loc>https://tokensave.app/fr/blog/souverainete-ia-tokens</loc>
     <lastmod>2026-10-03</lastmod>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/mistral-chatgpt-cout-prompt-francais"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/compteur-de-tokens-pourquoi"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/souverainete-ia-tokens"/>
     <image:image>
       <image:loc>https://tokensave.app/blog-souverainete-ia-fr.png</image:loc>
@@ -11562,7 +11556,6 @@
     <loc>https://tokensave.app/pl/blog/ile-kosztuje-prompt-po-polsku</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-prompt-po-polsku"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/jak-skrocic-prompt-po-polsku"/>
     <image:image>
       <image:loc>https://tokensave.app/blog-prompt-polski.png</image:loc>
     </image:image>
@@ -11570,7 +11563,6 @@
   <url>
     <loc>https://tokensave.app/pl/blog/jak-skrocic-prompt-po-polsku</loc>
     <lastmod>2026-10-03</lastmod>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-prompt-po-polsku"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/jak-skrocic-prompt-po-polsku"/>
     <image:image>
       <image:loc>https://tokensave.app/blog-prompt-pl-skracanie.png</image:loc>

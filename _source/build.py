@@ -575,8 +575,11 @@ def build():
             ([g], og_by_key.get(g["tool"], "og-token.jpg"), tool_by_key[g["tool"]]) for g in GUIDES] + [
             (G, "og-token.jpg", tool_by_key["agents"]) for G in CC] + [(CMP, "og-token.jpg", plans_tool), (GPT6, "og-token.jpg", TOOLS[0]), (GEM4, "og-token.jpg", TOOLS[0]), (RANK, "og-token.jpg", TOOLS[0]), (API_CMP, "og-token.jpg", TOOLS[0]), (TPW, "og-token.jpg", TOOLS[0]), (COUNT, "og-token.jpg", TOOLS[0]), (CHLIM, "og-token.jpg", plans_tool), (AISITE, "og-token.jpg", TOOLS[0]), (GAME, "og-token.jpg", {"page": "ai-game-cost-calculator"})]:
       blog_en = next((b for b in GROUP if b["tag"] == "en"), None)
-      blog_alts = "\n".join(f'  <link rel="alternate" hreflang="{b["tag"]}" href="{BASE}{b["path"]}" />' for b in GROUP) + (
-          f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{blog_en["path"]}" />' if blog_en else "")
+      def _alts_for(me):  # hreflang: one URL per language, and a same-language sibling is never this page's alternate
+          grp = [x for x in GROUP if x["tag"] != me["tag"] or x is me]
+          xd = blog_en if blog_en in grp else None
+          return "\n".join(f'  <link rel="alternate" hreflang="{x["tag"]}" href="{BASE}{x["path"]}" />' for x in grp) + (
+              f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{xd["path"]}" />' if xd else "")
       tag_slug = {tag: slug for slug, tag, *_ in LANGS}
       tag_og = {tag: og for slug, tag, _, og, _ in LANGS}
       tag_dir = {tag: d for slug, tag, _, _, d in LANGS}
@@ -627,7 +630,7 @@ def build():
           values = dict(
               htmlLang=tag, dir=tag_dir[tag], url=url, ogLocale=tag_og[tag], ogImage=f"{BASE}/{gimg}",
               title=esc(b["title"] + " | TokenSave"), desc=esc(b["desc"]), lang=esc(S[tag]["lang"]),
-              homeUrl=tool_home, hreflang=blog_alts, langOptions=opts, langAll=opts_all, toolNav=nav, ver=ver, adsHead=extras, faq="", guide="",
+              homeUrl=tool_home, hreflang=_alts_for(b), langOptions=opts, langAll=opts_all, toolNav=nav, ver=ver, adsHead=extras, faq="", guide="",
               f1="", f2="", fAbout=esc(SITE[tag]["fAbout"]), fPrivacy=esc(SITE[tag]["fPrivacy"]),
               ldjson=js(ld), tjson=js({"static": True}),
               scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>',
@@ -680,11 +683,12 @@ def build():
         if pg["path"]:
             entries.append(f"\n  <url>\n    <loc>{BASE}{pg['path']}</loc>\n    <lastmod>{LASTMOD}</lastmod>\n  </url>")
     for GROUP in (BLOG, PRO, MISTRAL_FR, PROMPT_PL, *MULTI, *([g] for g in GUIDES)):
-      b_alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{b["tag"]}" href="{BASE}{b["path"]}"/>' for b in GROUP)
       b_en = next((b for b in GROUP if b["tag"] == "en"), None)
-      if b_en:
-          b_alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}{b_en["path"]}"/>'
       for b in GROUP:
+        grp = [x for x in GROUP if x["tag"] != b["tag"] or x is b]  # same-language siblings are separate articles, not alternates
+        b_alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{x["tag"]}" href="{BASE}{x["path"]}"/>' for x in grp)
+        if b_en and b_en in grp:
+            b_alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}{b_en["path"]}"/>'
         entries.append(f"\n  <url>\n    <loc>{BASE}{b['path']}</loc>\n    <lastmod>{b.get('date', BLOG_DATE)}</lastmod>{b_alts}{img_tags(b['path'])}\n  </url>")
     perf_x = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{BASE}{PERF.PATH[l]}"/>' for l in PERF_LANGS)
     for cp in [cmp_hub] + cmp_pages:
