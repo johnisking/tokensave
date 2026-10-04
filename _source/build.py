@@ -261,7 +261,32 @@ FEEDBACK = {"en": "Ideas or a bug? Email", "ko": "개선 제안·오류 제보",
     "sk": "Nápad alebo chyba? Napíšte na", "mr": "सूचना किंवा त्रुटी? ईमेल करा", "gu": "સૂચન કે ભૂલ? ઇમેઇલ કરો", "kn": "ಸಲಹೆ ಅಥವಾ ದೋಷ? ಇಮೇಲ್ ಮಾಡಿ",
     "ml": "നിർദേശമോ പിശകോ? ഇമെയിൽ ചെയ്യൂ", "ta": "யோசனை அல்லது பிழை? மின்னஞ்சல்", "te": "సూచన లేదా లోపం? ఇమెయిల్ చేయండి", "pa": "ਸੁਝਾਅ ਜਾਂ ਗਲਤੀ? ਈਮੇਲ ਕਰੋ"}
 
+# Search-result titles: shorter versions for pages whose full headline would be cut off (~60 chars)
+SHORT_TITLES = {
+    "/el/blog/tokens-ellinika-gpt": "Ελληνικά στο GPT: πόσα tokens θέλουν σε σχέση με τα αγγλικά",
+    "/pa/blog/punjabi-tokens-gpt": "GPT ਵਿੱਚ ਪੰਜਾਬੀ ਟੋਕਨ: ਅੰਗਰੇਜ਼ੀ ਨਾਲ ਤੁਲਨਾ",
+    "/fr/blog/souverainete-ia-tokens": "Souveraineté de l'IA : l'impact sur vos prompts",
+    "/blog/llm-api-pricing-comparison": "LLM API Pricing Compared: 22 Models (GPT-6, Claude, Gemini)",
+    "/fr/blog/compteur-de-tokens-pourquoi": "Pourquoi utiliser un compteur de tokens ? 5 raisons",
+    "/pl/blog/jak-skrocic-prompt-po-polsku": "Jak pisać tańsze prompty po polsku? 7 wersji zmierzone",
+    "/blog/write-shorter-prompts": "Write Shorter Prompts Without Losing Quality (Measured)",
+    "/blog/rag-vs-long-context-cost": "RAG vs Long Context: Cost of Asking About Big Documents",
+    "/blog/how-many-tokens-does-code-use": "How Many Tokens Does Code Use? Indentation & Comments",
+    "/blog/chatgpt-usage-limits": "ChatGPT Usage Limits in 2026: Caps and Reset Times",
+    "/uk/blog/tokeny-ukrainska-gpt": "Українська в GPT: скільки токенів порівняно з англійською",
+    "/compare/performance": "AI Model Capability vs Price: Best LLM for the Money",
+    "/fr/blog/mistral-chatgpt-cout-prompt-francais": "Mistral ou ChatGPT : le coût d'un prompt en français",
+    "/fil/blog/token-filipino-gpt": "Filipino sa GPT: ilang token kumpara sa English",
+    "/blog/codex-usage-limits": "Codex Usage Limits: 5-Hour Window, Weekly Cap, Resets",
+}
+
 def render(base, body, values):
+    _u = values.get("url", "").replace(BASE, "")
+    if "title" in values:
+        if _u in SHORT_TITLES:
+            values = dict(values, title=esc(SHORT_TITLES[_u]))
+        elif values["title"].endswith(" | TokenSave") and len(html.unescape(values["title"])) > 62:
+            values = dict(values, title=values["title"][: -len(" | TokenSave")])
     lab_fb = FEEDBACK.get(values.get("htmlLang", "en"), FEEDBACK["en"])
     values = dict(values, feedback=f'✉️ {esc(lab_fb)} → <a href="mailto:contact@jonhisking.com" class="text-zinc-400 hover:text-zinc-200 select-all">contact@jonhisking.com</a>')
     if "toolNav" in values:  # every page's top menu gets the capability/price ranking
