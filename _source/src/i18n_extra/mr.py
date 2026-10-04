@@ -109,7 +109,7 @@ NAV = dict(navToken="टोकन काउंटर", navVideo="व्हिड
 SITE = dict(fAbout="आमच्याबद्दल", fPrivacy="गोपनीयता", viewIn="हे पृष्ठ मराठीत पाहा")
 
 META = {
-    "token": ("AI टोकन काउंटर – GPT, Claude, Gemini", "GPT, Claude व Gemini साठी टोकन, अक्षरे आणि API खर्च मोजा. मोफत."),
+    "token": ("एआय टोकन काउंटर – GPT, Claude, Gemini", "GPT, Claude व Gemini साठी टोकन, अक्षरे आणि API खर्च मोजा. मोफत."),
     "video": ("AI व्हिडिओ खर्च – Veo, Kling, Runway", "Veo 3.1, Kling, Runway, Luma इ. च्या प्रति सेकंद API किमतींची तुलना करा."),
     "image": ("AI इमेज खर्च – Nano Banana, GPT Image", "प्रति इमेज API किमती: Nano Banana, GPT Image, FLUX, Grok आणि इतर."),
 }

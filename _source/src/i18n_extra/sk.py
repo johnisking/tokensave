@@ -110,6 +110,6 @@ SITE = dict(fAbout="O nás", fPrivacy="Súkromie", viewIn="Zobraziť stránku po
 
 META = {
     "token": ("Počítadlo tokenov – GPT, Claude, Gemini", "Spočítajte tokeny, znaky a cenu API pre GPT, Claude a Gemini. Zadarmo."),
-    "video": ("Cena AI videa – Veo, Kling, Runway", "Porovnajte ceny API Veo 3.1, Kling, Runway, Luma a ďalších za sekundu a klip."),
+    "video": ("Cena videa z AI – Veo, Kling, Runway", "Porovnajte ceny API Veo 3.1, Kling, Runway, Luma a ďalších za sekundu a klip."),
     "image": ("Cena AI obrázkov – Nano Banana, GPT", "Porovnajte ceny API za obrázok: Nano Banana, GPT Image, FLUX, Grok a ďalšie."),
 }

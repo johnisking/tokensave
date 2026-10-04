@@ -116,7 +116,7 @@ SITE = dict(
 )
 
 META = {
-    "token": ("AI Token Counter – GPT, Claude, Gemini", "Bilangin ang tokens at API cost ng GPT, Claude at Gemini. Libre at pribado."),
+    "token": ("Pambilang ng Token – GPT, Claude, Gemini", "Bilangin ang tokens at API cost ng GPT, Claude at Gemini. Libre at pribado."),
     "video": ("Presyo ng AI Video – Veo, Kling, Runway", "Ikumpara ang API prices ng Veo 3.1, Kling, Runway, Luma kada segundo at clip."),
     "image": ("Presyo ng AI Image – Nano Banana, FLUX", "Ikumpara ang presyo kada image ng Nano Banana, GPT Image, FLUX, Grok at iba pa."),
 }

@@ -11,7 +11,7 @@ META["token"] = {
   "zh-CN": ("AI Token 计算器 – GPT、Claude、Gemini", "即时计算 GPT、Claude、Gemini 的 Token 数和 API 费用。免费，不上传。"),
   "zh-TW": ("AI Token 計算器 – GPT、Claude、Gemini", "即時計算 GPT、Claude、Gemini 的 Token 數與 API 費用。免費，不上傳。"),
   "es":    ("Contador de tokens IA – GPT, Claude", "Cuenta tokens y coste de API de GPT, Claude y Gemini. Gratis y sin subir nada."),
-  "pt":    ("Contador de tokens IA – GPT, Claude", "Conte tokens e o custo de API do GPT, Claude e Gemini. Grátis e sem upload."),
+  "pt":    ("Contador de tokens de IA – GPT, Claude", "Conte tokens e o custo de API do GPT, Claude e Gemini. Grátis e sem upload."),
   "fr":    ("Compteur de tokens IA – GPT, Claude", "Comptez les tokens et le coût API de GPT, Claude et Gemini. Gratuit, sans envoi."),
   "de":    ("KI-Token-Zähler – GPT, Claude, Gemini", "Tokens und API-Kosten für GPT, Claude und Gemini sofort zählen. Gratis, lokal."),
   "it":    ("Contatore token IA – GPT, Claude", "Conta token e costo API di GPT, Claude e Gemini. Gratis, senza caricare nulla."),

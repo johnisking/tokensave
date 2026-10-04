@@ -412,6 +412,25 @@ def build():
         return CH.figure(src, alt.format(n=len(_pm), hl=h), cap.format(hl=h, d=LLM.get("checked", "")), w_, h_), (BASE + src, cap.format(hl=h, d=LLM.get("checked", "")))
     PRICE_GROUP = {id(GEM4): "gem4", id(GPT6): "gpt6", id(API_CMP): "api"}
 
+    # Related articles: every article links to up to 5 newer/other articles in the same language
+    ALL_ART = [b for G in (BLOG, PRO, MISTRAL_FR, PROMPT_PL, *MULTI) for b in G] + list(GUIDES)
+    REL_H = {"en": "More articles", "ko": "다른 글", "ja": "関連記事", "es": "Más artículos", "fr": "Autres articles",
+             "pl": "Więcej artykułów", "de": "Weitere Artikel", "pt": "Mais artigos", "it": "Altri articoli",
+             "uk": "Інші статті", "ru": "Другие статьи", "zh-CN": "更多文章", "zh-TW": "更多文章"}
+    def related_html(b):
+        ring = sorted((x for x in ALL_ART if x["tag"] == b["tag"]), key=lambda x: (x.get("date", BLOG_DATE), x["path"]), reverse=True)
+        if len(ring) < 2:
+            return ""
+        i = next(k for k, x in enumerate(ring) if x["path"] == b["path"])
+        # the newest two, plus the next ones around the ring, so every article gets inbound links
+        pick = [x for x in ring[:2] if x["path"] != b["path"]]
+        for k in range(1, len(ring)):
+            x = ring[(i + k) % len(ring)]
+            if len(pick) >= 5: break
+            if x["path"] != b["path"] and x not in pick: pick.append(x)
+        items = "".join(f'<li><a href="{x["path"]}">{esc(x["title"])}</a></li>' for x in pick)
+        return f'\n        <h2>{esc(REL_H.get(b["tag"], "More articles"))}</h2>\n        <ul>{items}</ul>'
+
     # Articles (/<slug>/blog/...): each group is one article in several languages, linked with hreflang
     plans_tool = next(t for t in TOOLS if t["key"] == "plans")
     tool_by_key = {t["key"]: t for t in TOOLS}
@@ -444,7 +463,7 @@ def build():
           body = f"""    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">{esc(b["title"])}</h1>
         <p class="mt-2 text-xs text-zinc-500">{esc(b["byline"])}</p>
-  {article}
+  {article}{related_html(b)}
         <div class="not-prose mt-8 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 text-center">
           <p class="text-zinc-200">{esc(b["cta"])}</p>
           <a href="{cta_url}" class="mt-3 inline-block tab-active rounded-lg px-4 py-2 font-semibold no-underline" style="text-decoration:none">{esc(b["ctaBtn"])} →</a>

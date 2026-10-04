@@ -109,7 +109,7 @@ NAV = dict(navToken="Tokenteller", navVideo="Videokostnad", navImage="Bildekostn
 SITE = dict(fAbout="Om oss", fPrivacy="Personvern", viewIn="Vis siden på norsk")
 
 META = {
-    "token": ("AI-tokenteller – GPT, Claude, Gemini", "Tell tokens, tegn og API-kostnad for GPT, Claude og Gemini. Gratis og privat."),
-    "video": ("AI-videokostnad – Veo, Kling, Runway", "Sammenlign API-priser for Veo 3.1, Kling, Runway, Luma m.fl. per sekund."),
+    "token": ("Tokenteller for KI – GPT, Claude, Gemini", "Tell tokens, tegn og API-kostnad for GPT, Claude og Gemini. Gratis og privat."),
+    "video": ("KI-videokostnad – Veo, Kling, Runway", "Sammenlign API-priser for Veo 3.1, Kling, Runway, Luma m.fl. per sekund."),
     "image": ("AI-bildekostnad – Nano Banana, GPT", "Sammenlign API-priser per bilde: Nano Banana, GPT Image, FLUX, Grok m.fl."),
 }

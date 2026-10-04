@@ -228,7 +228,7 @@ def build_all(llm):
     for x, y in PAIRS:
         a, b = models[x], models[y]
         related = [(path(models[p], models[q]), f"{models[p]['name']} vs {models[q]['name']}")
-                   for p, q in PAIRS if (p, q) != (x, y) and ({p, q} & {x, y})][:6]
+                   for p, q in PAIRS if (p, q) != (x, y) and ({p, q} & {x, y})][:8]
         pages.append(build_page(a, b, models, checked, related))
     hub_items = "".join(f'<li><a href="{p["path"]}">{esc(p["title"].split(":")[0])}</a></li>' for p in pages)
     hub = f"""    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
