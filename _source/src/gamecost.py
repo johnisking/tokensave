@@ -213,7 +213,9 @@ for _tag, (_slug, _t) in _EXTRA.items():
     T[_tag] = _t
     PATH[_tag] = f"/{_slug}/{SLUG}"
 
-READ2 = {"ja": ("/ja/blog/ai-game-tsukurikata", "AIでスマホゲームを作る方法：手順とツール")}
+READ2 = {"ja": [("/ja/blog/ai-game-tsukurikata", "AIでスマホゲームを作る方法：手順とツール"), ("/ja/blog/ai-game-gazou-hikaku", "ゲーム素材の画像生成AI比較：1枚いくら？")],
+         "en": [("/blog/ai-game-art-cost", "AI game art cost per sprite: Midjourney vs Gemini vs PixelLab")],
+         "ko": [("/ko/blog/ai-game-graphic-bigyo", "게임 그래픽 AI 비교: 스프라이트 1장에 얼마?")]}
 
 SUM = {"hyper": {"s": [6, 10, 46, 181, 47], "m": [10, 17, 55, 181, 99], "l": [15, 25, 66, 200, 165]}, "puzzle": {"s": [12, 20, 50, 181, 71], "m": [22, 35, 63, 313, 144], "l": [32, 52, 99, 332, 254]}, "merge": {"s": [14, 22, 53, 181, 86], "m": [26, 43, 72, 313, 196], "l": [38, 62, 116, 464, 358]}, "idle": {"s": [13, 21, 51, 181, 75], "m": [24, 39, 67, 313, 166], "l": [35, 57, 106, 332, 298]}, "novel": {"s": [12, 20, 53, 181, 87], "m": [22, 35, 67, 313, 170], "l": [32, 52, 105, 332, 292]}, "card": {"s": [16, 26, 57, 181, 109], "m": [30, 49, 98, 313, 250], "l": [46, 74, 133, 464, 454]}, "platformer": {"s": [14, 22, 52, 181, 82], "m": [26, 43, 68, 313, 177], "l": [38, 62, 108, 464, 307]}, "rpg": {"s": [19, 31, 59, 313, 119], "m": [38, 61, 102, 445, 272], "l": [55, 90, 136, 464, 472]}}
 SUM_G = ["hyper", "puzzle", "merge", "idle", "novel", "card", "platformer", "rpg"]
@@ -321,7 +323,7 @@ def build_page(lang, llm):
       <h2>{e("howTitle")}</h2>
       <ul>{how}</ul>
       {f'<p><a href="{READ[lang][0]}">{esc(READ[lang][1])} →</a></p>' if lang in READ else ""}
-      {f'<p><a href="{READ2[lang][0]}">{esc(READ2[lang][1])} →</a></p>' if lang in READ2 else ""}
+      {"".join(f'<p><a href="{u}">{esc(n)} →</a></p>' for u, n in READ2.get(lang, []))}
       <h2>{e("srcTitle")}</h2>
       <div class="overflow-x-auto"><table class="text-sm w-full"><tbody>{prices}</tbody></table></div>
       <p class="text-xs text-zinc-500">{e("srcNote")}</p>
