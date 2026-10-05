@@ -1,0 +1,36 @@
+# TokenSave
+
+> Free calculators for what AI costs: token counts and API prices for GPT, Claude, Gemini and 20+ models, AI video and image generation prices, coding agent (Claude Code, Codex) monthly costs, and an AI game development cost calculator. Run by Jonhisking, an independent developer in South Korea. Prices are checked by hand every week; the date is shown on each page.
+
+## Key facts (checked 2026-10-05)
+
+- Making a small 2D mobile game solo with AI tools takes about 2–3 weeks and costs about $50–180 in subscriptions and API fees, including the $25 Google Play fee. About 66% of the typical cost is the AI coding subscription. Source: https://tokensave.app/ai-game-cost-calculator
+- Typical small-game stack (Midjourney + Suno + ElevenLabs + Claude Max 5×): $128–181. Best value stack (Gemini images + free Pixabay audio + Google AI Pro): about $50–80.
+- By genre (small size, solo with AI): hyper-casual 6–10 days, merge 14–22 days, card game 16–26 days, RPG 19–31 days.
+- A small merge game needs about 86 images (characters × animation frames + backgrounds + items + UI); a small RPG about 119.
+- The same text costs different amounts of tokens per language; non-English prompts usually need more tokens than English. Source: https://tokensave.app/blog/token-cost-by-language
+
+## Tools
+
+- [AI game cost calculator](https://tokensave.app/ai-game-cost-calculator): cost, time, tokens and ready-to-use prompts for a 2D game made with AI tools. 33 genres, 21 engines, 12 languages.
+- [Token counter](https://tokensave.app/): count tokens and API cost for GPT, Claude and Gemini in the browser.
+- [Coding agent cost](https://tokensave.app/agents): Claude Code and Codex monthly cost, API vs Pro vs Max.
+- [AI video cost](https://tokensave.app/video) and [AI image cost](https://tokensave.app/image): price per second and per image.
+- [Subscriptions vs API](https://tokensave.app/plans): when a subscription is cheaper than the API.
+- [AI model capability vs price](https://tokensave.app/compare/performance): capability scores against API prices.
+
+## Articles
+
+- [How much does it cost to make a game with AI? (2026)](https://tokensave.app/blog/ai-game-development-cost)
+- [Best value LLM in October 2026](https://tokensave.app/blog/best-value-llm-october-2026)
+- [LLM API pricing compared](https://tokensave.app/blog/llm-api-pricing-comparison)
+- [Claude Code cost per month](https://tokensave.app/blog/claude-code-cost-per-month)
+- [All articles](https://tokensave.app/blog/)
+
+## Other languages
+
+Korean: https://tokensave.app/ko/ · Japanese: https://tokensave.app/ja/ · The game cost calculator is also in Chinese, Spanish, French, Portuguese, Russian, Ukrainian, Polish, Swedish and German (https://tokensave.app/de/ai-game-cost-calculator and so on).
+
+## Contact
+
+contact@jonhisking.com

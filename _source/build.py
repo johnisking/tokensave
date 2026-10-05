@@ -524,7 +524,7 @@ def build():
         opts, opts_all = lang_menu(slug, gl, lambda sl: path_for(sl, TOOLS[0]))
         ld = {"@context": "https://schema.org", "@graph": [
             {"@type": "WebApplication", "name": gp["h1"], "url": url, "inLanguage": gl, "applicationCategory": "DeveloperApplication",
-             "operatingSystem": "Any", "isAccessibleForFree": True, "description": gp["desc"],
+             "operatingSystem": "Any", "isAccessibleForFree": True, "description": gp["desc"], "dateModified": GC.CHECKED,
              "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
              "publisher": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"}},
             {"@type": "BreadcrumbList", "itemListElement": [

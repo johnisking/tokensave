@@ -19,7 +19,7 @@ FEATS = ["ads", "iap", "save", "rank", "online"]
 
 T = {
 "en": dict(
-  title="AI Game Cost Calculator – 2D Game Budget", desc="How much does it cost to make a 2D game with AI? Answer 8 questions and get the asset list, cost, time, tokens and ready-to-use prompts.",
+  title="AI Game Cost Calculator – 2D Game Budget", desc="How much does a 2D game cost to make with AI, and how long does it take? Answer 8 questions for the asset list, cost, time, tokens and prompts.",
   badge="New · free · no sign-up", h1="AI Game Cost Calculator",
   sub="Answer a few questions about your 2D game. Get the asset list, the cost and time to build it with AI tools, the tokens, and a prompt pack to start building today.",
   qProject="Your game", name="Game name", namePh="e.g. Cat Merge Café", idea="One-line idea", ideaPh="e.g. merge cat furniture to decorate a café",
@@ -58,6 +58,7 @@ T = {
   l_art="Art", l_music="Music", l_sfx="SFX / voice", l_code="Code", l_d3="3D models", l_trailer="Trailer",
   p_value="💰 Best value", p_normal="⚖️ Typical", p_max="🚀 Top tier", pCustom="Your mix", tier_value="budget", tier_normal="typical", tier_max="premium", pHint="Click a combo to switch every tool at once, or change tools one by one below.",
   days="{n} days", monthsN="{n} mo", capWarn="This plan's usage limit is likely too low for daily agent coding — expect waits or extra usage.",
+  qa='Quick answer: making a small 2D mobile game on your own with AI tools takes about 2–3 weeks and costs about $50–180 in subscriptions and API fees (October 2026). Most of it is the AI coding plan.', sumTitle='Cost and time by genre and size', sumNote='Each cell: build time · cost from the Best value stack to the Typical stack. One person with AI tools, USD before tax, store fee included. Checked {date}.',
   cTax="Tax included ({pct}%)", cFx="Rates as of {date}, approximate",
   hireRef="For reference: hiring freelancers for a game this size usually starts at <b>{min}+</b>, and quotes can differ by 10× or more depending on country and quality.",
   noTrailer="Turn on “Promo trailer” to get trailer prompts.",
@@ -104,6 +105,7 @@ T = {
   l_art="그림", l_music="음악", l_sfx="효과음·음성", l_code="코딩", l_d3="3D 모델", l_trailer="트레일러",
   p_value="💰 가성비", p_normal="⚖️ 보통", p_max="🚀 최고 성능", pCustom="내 조합", tier_value="가성비형", tier_normal="보통", tier_max="고급형", pHint="조합을 누르면 도구가 한 번에 바뀝니다. 아래에서 하나씩 바꿀 수도 있습니다.",
   days="{n}일", monthsN="{n}개월", capWarn="이 요금제의 사용량 한도는 매일 에이전트로 코딩하기엔 부족할 가능성이 큽니다. 대기 시간이나 추가 사용료를 예상하세요.",
+  qa='한 줄 답: AI 도구로 소형 2D 모바일 게임을 혼자 만들면 약 2~3주, 구독료와 API 비용으로 약 $50~180가 듭니다(2026년 10월 기준). 대부분은 코딩 AI 요금제입니다.', sumTitle='장르·규모별 비용과 기간', sumNote='칸마다: 제작 기간 · 가성비 조합부터 보통 조합까지의 비용. 1인 + AI 도구, 세금 제외 달러, 스토어 등록비 포함. {date} 기준.',
   cTax="부가세 포함 ({pct}%)", cFx="환율 {date} 기준, 대략",
   hireRef="참고: 같은 규모를 외주로 맡기면 보통 <b>{min} 이상</b>이 들며, 나라와 퀄리티에 따라 10배 넘게 차이 납니다.",
   noTrailer="'홍보 트레일러'를 켜면 트레일러 프롬프트가 나옵니다.",
@@ -150,6 +152,7 @@ T = {
   l_art="画像", l_music="音楽", l_sfx="効果音・ボイス", l_code="コード", l_d3="3Dモデル", l_trailer="トレーラー",
   p_value="💰 コスパ", p_normal="⚖️ 標準", p_max="🚀 最上位", pCustom="自分の組み合わせ", tier_value="節約型", tier_normal="標準", tier_max="高級型", pHint="組み合わせを押すとツールが一括で切り替わります。下で1つずつ変えることもできます。",
   days="{n}日", monthsN="{n}か月", capWarn="このプランの利用上限は、毎日エージェントでコーディングするには足りない可能性が高いです。待ち時間や追加料金を見込んでください。",
+  qa='結論：AIツールを使って小規模な2Dスマホゲームを1人で作ると、期間は約2〜3週間、サブスクとAPI代で約$50〜180です（2026年10月時点）。大半はコーディングAIのプラン代です。', sumTitle='ジャンル・規模別の費用と期間', sumNote='各セル：制作期間 · コスパ重視〜標準の組み合わせの費用。1人＋AIツール、税抜きドル、ストア登録料込み。{date}時点。',
   cTax="消費税込み（{pct}%）", cFx="為替レートは{date}時点の概算",
   hireRef="参考：同じ規模を外注すると通常<b>{min}以上</b>かかり、国や品質によって10倍以上の差があります。",
   noTrailer="「PRトレーラー」をオンにするとトレーラー用プロンプトが出ます。",
@@ -212,6 +215,10 @@ for _tag, (_slug, _t) in _EXTRA.items():
 
 READ2 = {"ja": ("/ja/blog/ai-game-tsukurikata", "AIでスマホゲームを作る方法：手順とツール")}
 
+SUM = {"hyper": {"s": [6, 10, 46, 181, 47], "m": [10, 17, 55, 181, 99], "l": [15, 25, 66, 200, 165]}, "puzzle": {"s": [12, 20, 50, 181, 71], "m": [22, 35, 63, 313, 144], "l": [32, 52, 99, 332, 254]}, "merge": {"s": [14, 22, 53, 181, 86], "m": [26, 43, 72, 313, 196], "l": [38, 62, 116, 464, 358]}, "idle": {"s": [13, 21, 51, 181, 75], "m": [24, 39, 67, 313, 166], "l": [35, 57, 106, 332, 298]}, "novel": {"s": [12, 20, 53, 181, 87], "m": [22, 35, 67, 313, 170], "l": [32, 52, 105, 332, 292]}, "card": {"s": [16, 26, 57, 181, 109], "m": [30, 49, 98, 313, 250], "l": [46, 74, 133, 464, 454]}, "platformer": {"s": [14, 22, 52, 181, 82], "m": [26, 43, 68, 313, 177], "l": [38, 62, 108, 464, 307]}, "rpg": {"s": [19, 31, 59, 313, 119], "m": [38, 61, 102, 445, 272], "l": [55, 90, 136, 464, 472]}}
+SUM_G = ["hyper", "puzzle", "merge", "idle", "novel", "card", "platformer", "rpg"]
+FAQ_ADD = {'en': [('How long does it take to make a game with AI?', 'Solo with AI coding agents: a small 2D mobile game takes about 2–3 weeks, a medium one about 4–6 weeks, a large one 6–9 weeks and an extra large one 3 months or more. A hyper-casual game can be done in 6–10 days; an RPG takes longer.'), ('How many images does a 2D game need?', 'Count characters × animation frames + backgrounds + items + UI. A small merge game needs about 86 images, a small card game about 109 and a small RPG about 119. Plan on generating about three times that many.'), ('What is the cheapest way to make a game with AI?', 'Use Gemini or another per-image API for art, free music and sound effects from Pixabay, Kenney or Freesound, and a low-cost coding plan such as Google AI Pro. A small game then costs about $50–80 including the $25 Google Play fee.')], 'ko': [('AI로 게임 하나 만드는 데 얼마나 걸리나요?', 'AI 코딩 에이전트로 혼자 만들면 소형 2D 모바일 게임은 약 2~3주, 중형 약 4~6주, 대형 6~9주, 초대형은 3개월 이상입니다. 하이퍼캐주얼은 6~10일이면 되고 RPG는 더 걸립니다.'), ('2D 게임에 이미지가 몇 장 필요한가요?', '캐릭터 × 애니메이션 프레임 + 배경 + 아이템 + UI로 셉니다. 소형 머지 게임은 약 86장, 소형 카드 게임은 약 109장, 소형 RPG는 약 119장입니다. 생성은 그 3배 정도 한다고 보면 됩니다.'), ('AI로 게임을 가장 싸게 만드는 방법은?', '그림은 Gemini 같은 장당 과금 API, 음악·효과음은 Pixabay·Kenney·Freesound 무료 소스, 코딩은 Google AI Pro 같은 저렴한 요금제를 쓰면 됩니다. 소형 게임이면 Google Play 등록비 $25 포함 약 $50~80입니다.')], 'ja': [('AIでゲームを1本作るのにどれくらいかかりますか？', 'AIコーディングエージェントで1人で作る場合、小規模な2Dスマホゲームで約2〜3週間、中規模で約4〜6週間、大規模で6〜9週間、超大型は3か月以上です。ハイパーカジュアルなら6〜10日、RPGはもっとかかります。'), ('2Dゲームには画像が何枚必要ですか？', 'キャラクター × アニメーションのコマ + 背景 + アイテム + UI で数えます。小規模なマージゲームで約86枚、カードゲームで約109枚、RPGで約119枚です。生成はその3倍ほどを見込みます。'), ('AIでいちばん安くゲームを作る方法は？', '画像は Gemini など1枚単位のAPI、音楽と効果音は Pixabay・Kenney・Freesound の無料素材、コーディングは Google AI Pro のような安いプランを使います。小規模なら Google Play 登録料$25込みで約$50〜80です。')]}
+
 def build_page(lang, llm):
     t = T[lang]
     e = lambda k: esc(t[k])
@@ -231,13 +238,17 @@ def build_page(lang, llm):
         <pre id="gcP_{k}" class="ltr whitespace-pre-wrap break-words text-xs sm:text-[13px] leading-relaxed bg-zinc-950/80 border border-zinc-800 rounded-xl p-4 max-h-[28rem] overflow-auto text-zinc-200"></pre></div>''' for k, _ in tabs)
     how = "".join(f"<li>{esc(x)}</li>" for x in t["how"])
     prices = "".join(f'<tr class="border-t border-zinc-800"><td class="py-1.5 pe-3 font-semibold"><a href="{u}" rel="nofollow noopener" target="_blank" class="hover:text-violet-300">{esc(n)}</a></td><td class="py-1.5 text-zinc-400">{esc(p)}</td></tr>' for n, p, u in PRICE_ROWS)
-    faq = "".join(f'<details class="border-t border-zinc-800 py-3"><summary class="cursor-pointer font-semibold text-zinc-200">{esc(q)}</summary><p class="mt-2 text-zinc-400">{esc(a)}</p></details>' for q, a in t["faq"])
+    dd = lambda a, b: esc(t["days"].replace("{n}", f"{a}–{b}"))
+    sum_rows = "".join(f'<tr><td class="font-semibold">{esc(t["g_" + gg])}</td>' + "".join(f'<td class="tabular-nums whitespace-nowrap">{dd(v[0], v[1])} · ${v[2]}–{v[3]}</td>' for v in (SUM[gg][s] for s in "sml")) + "</tr>" for gg in SUM_G)
+    faq_all = list(t["faq"]) + FAQ_ADD.get(lang, [])
+    faq = "".join(f'<details class="border-t border-zinc-800 py-3"><summary class="cursor-pointer font-semibold text-zinc-200">{esc(q)}</summary><p class="mt-2 text-zinc-400">{esc(a)}</p></details>' for q, a in faq_all)
     rel = " · ".join(f'<a href="{p}" class="text-violet-300 hover:text-white underline underline-offset-2">{esc(n)}</a>' for p, n in t["rel"])
 
     body = f'''    <header class="text-center mb-8">
       <div class="flex justify-center"><div class="inline-flex items-center gap-2 text-xs font-medium text-violet-300 bg-violet-500/10 border border-violet-500/20 rounded-full px-3 py-1 mb-4"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>{e("badge")}</div></div>
       <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-white via-violet-200 to-indigo-300 bg-clip-text text-transparent leading-tight pb-1">{e("h1")}</h1>
       <p class="mt-3 text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">{e("sub")}</p>
+      <p class="mt-4 text-sm text-zinc-300 max-w-2xl mx-auto border border-violet-500/30 bg-violet-500/5 rounded-xl px-4 py-3 text-start">{e("qa")}</p>
     </header>
 
     <section class="{CARD}">
@@ -304,7 +315,10 @@ def build_page(lang, llm):
     </section>
 
     <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
-      <h2 style="margin-top:0">{e("howTitle")}</h2>
+      <h2 style="margin-top:0">{e("sumTitle")}</h2>
+      <div class="overflow-x-auto"><table class="text-sm w-full"><thead><tr><th class="text-start">{e("qGenre")}</th><th class="text-start">{e("sS")}</th><th class="text-start">{e("sM")}</th><th class="text-start">{e("sL")}</th></tr></thead><tbody>{sum_rows}</tbody></table></div>
+      <p class="text-xs text-zinc-500">{esc(t["sumNote"].format(date=CHECKED))}</p>
+      <h2>{e("howTitle")}</h2>
       <ul>{how}</ul>
       {f'<p><a href="{READ[lang][0]}">{esc(READ[lang][1])} →</a></p>' if lang in READ else ""}
       {f'<p><a href="{READ2[lang][0]}">{esc(READ2[lang][1])} →</a></p>' if lang in READ2 else ""}
@@ -316,7 +330,7 @@ def build_page(lang, llm):
       <p class="text-sm mt-6">{e("related")}: {rel}</p>
     </section>'''
     faq_ld = {"@type": "FAQPage", "inLanguage": lang, "mainEntity": [
-        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in t["faq"]]}
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq_all]}
     runtime_keys = [k for k in t if k.startswith(("g_", "f_", "st", "dev", "r", "l_", "c", "p_", "p", "tier_")) or k in
                     ("defName", "defIdea", "days", "monthsN", "capWarn", "hireRef", "noTrailer", "copied", "packTitle", "tDev", "tArt", "tMusic", "tSfx", "tTrailer")]
     gc = {k: t[k] for k in runtime_keys if isinstance(t[k], str)}
