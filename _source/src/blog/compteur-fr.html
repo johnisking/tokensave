@@ -1,6 +1,6 @@
 <p>Quand on utilise ChatGPT, Claude, Gemini ou Mistral, on ne paie ni au mot ni au message, mais au <strong>token</strong>. C'est l'unité qui sert à facturer l'API, à remplir la fenêtre de contexte et à épuiser les limites des abonnements. Le problème, c'est qu'on ne voit jamais ces tokens. Un compteur de tokens sert à les rendre visibles avant d'envoyer quoi que ce soit.</p>
 <p>J'ai mesuré un vrai texte en français pour montrer à quel point les estimations « à vue de nez » peuvent tromper.</p>
-<p><img loading="lazy" width="960" height="1430" alt="Le même e-mail coûte 21 % de tokens en plus en français" src="/blog-compteur-tokens-fr.png" /></p>
+<p><img loading="lazy" width="1200" height="630" alt="Le même e-mail coûte 21 % de tokens en plus en français" src="/blog-compteur-tokens-fr.png" /></p>
 <h2>Un token, c'est quoi ?</h2>
 <p>Un token est un morceau de texte : parfois un mot entier, parfois une partie de mot, une ponctuation ou un espace. Le découpage dépend du tokeniseur de chaque modèle. Par exemple, chez OpenAI :</p>
 <ul>

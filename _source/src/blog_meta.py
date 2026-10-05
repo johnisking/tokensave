@@ -424,3 +424,10 @@ GAME_HOWTO = [
 ]
 GAME_HOWTO[0]["src"] = "game-howto-ja"
 
+DEVLOG1 = [
+ _gm("ko", "/ko/blog/spermrace-devlog-1", "AI로 게임 하나 만드는 데 $45 — 스펌레이스 개발 일지 ①",
+     "Claude Pro 한 달 $20 + 구글 플레이 $25. 이미지 AI 없이 코드로 그린 그래픽, Pixabay 무료 음원으로 3일 만에 첫 버전을 만든 실제 기록입니다.",
+     "Jonhisking · 2026년 10월 5일"),
+]
+DEVLOG1[0]["src"] = "devlog-spermrace-1-ko"
+

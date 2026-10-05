@@ -16,7 +16,18 @@ for f in sorted(os.listdir(SRC_DIR)):
     md = open(os.path.join(SRC_DIR, f), encoding="utf-8").read()
     out = markdown.markdown(md, extensions=["tables", "fenced_code"])
     size = ("1200", "630") if ("blog-chatgpt-pro-tiers" in out or "blog-mistral-francais" in out or "blog-prompt-polski" in out) else ("960", "1430")
-    out = out.replace("<img ", f'<img loading="lazy" width="{size[0]}" height="{size[1]}" ')
+    def _img(m, size=size):
+        w, h = size
+        src = re.search(r'src="([^"]+)"', m.group(0))
+        p = os.path.join(ROOT, "src", "static", src.group(1).lstrip("/")) if src else ""
+        if p and os.path.exists(p):
+            try:
+                from PIL import Image
+                w, h = Image.open(p).size
+            except Exception:
+                pass
+        return m.group(0).replace("<img ", f'<img loading="lazy" width="{w}" height="{h}" ', 1)
+    out = re.sub(r'<img [^>]*>', _img, out)
     out = re.sub(r'<a href="(https?://(?!tokensave\.app)[^"]+)"', r'<a href="\1" target="_blank" rel="noopener"', out)
     out = out.replace("<table>", '<div class="overflow-x-auto"><table>').replace("</table>", "</table></div>")
     out = out.replace("{{", "{ {")  # never collide with template placeholders
