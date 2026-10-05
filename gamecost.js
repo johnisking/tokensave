@@ -4,7 +4,21 @@ const G = (window.T && window.T.gc) || {};
 const PRICES = (window.T && window.T.prices) || {};
 const $ = s => document.querySelector(s);
 const t = (k, v = {}) => (G[k] || k).replace(/\{(\w+)\}/g, (_, x) => (x in v ? v[x] : ''));
-const usd = n => Number.isInteger(n) && n < 1000 ? '$' + n : n >= 1000 ? '$' + Math.round(n).toLocaleString('en-US') : n >= 100 ? '$' + Math.round(n) : '$' + n.toFixed(n < 10 ? 2 : 0);
+// Local currency + VAT by page language (rates checked 2026-10-05: XE, Wise, Bank of Russia; refresh with the weekly price check)
+const FX_DATE = '2026-10-05';
+const CUR = ({ ko: ['KRW', 1345, 0.10, 'ko-KR'], ja: ['JPY', 158, 0.10, 'ja-JP'], de: ['EUR', 0.885, 0.19, 'de-DE'], fr: ['EUR', 0.885, 0.20, 'fr-FR'],
+  es: ['EUR', 0.885, 0.21, 'es-ES'], pl: ['PLN', 3.90, 0.23, 'pl-PL'], sv: ['SEK', 10.0, 0.25, 'sv-SE'], pt: ['BRL', 5.21, 0, 'pt-BR'],
+  'zh-CN': ['CNY', 6.72, 0, 'zh-CN'], ru: ['RUB', 83.5, 0.20, 'ru-RU'], uk: ['UAH', 44.6, 0.20, 'uk-UA'] })[document.documentElement.lang] || null;
+const money = { local: !!CUR, tax: !!(CUR && CUR[2]) };
+const usdRaw = n => Number.isInteger(n) && n < 1000 ? '$' + n : n >= 1000 ? '$' + Math.round(n).toLocaleString('en-US') : n >= 100 ? '$' + Math.round(n) : '$' + n.toFixed(n < 10 ? 2 : 0);
+const usd = n => {
+  const v0 = n * (money.tax && CUR ? 1 + CUR[2] : 1);
+  if (!CUR || !money.local) return usdRaw(Math.round(v0 * 100) / 100);
+  const v = v0 * CUR[1], whole = ['KRW', 'JPY', 'RUB', 'UAH'].includes(CUR[0]);
+  const step = CUR[0] === 'KRW' ? (v >= 100000 ? 1000 : 100) : CUR[0] === 'JPY' ? (v >= 10000 ? 100 : 10) : whole ? 10 : v >= 100 ? 1 : 0.01;
+  const r = Math.round(v / step) * step;
+  return new Intl.NumberFormat(CUR[3], { style: 'currency', currency: CUR[0], maximumFractionDigits: step < 1 ? 2 : 0, minimumFractionDigits: step < 1 ? 2 : 0 }).format(r);
+};
 const range = (a, b) => `${usd(a)} – ${usd(b)}`;
 const fmtTok = n => n >= 1e9 ? (n / 1e9).toFixed(1) + 'B' : n >= 1e6 ? Math.round(n / 1e6) + 'M' : Math.round(n / 1e3) + 'K';
 
@@ -278,6 +292,17 @@ function prompts(e) {
 }
 
 // ---------------- Render ----------------
+function curControls() {
+  const box = document.getElementById('gcCur'); if (!box || !CUR) return;
+  const pct = Math.round(CUR[2] * 100);
+  box.innerHTML = `<select id="gcCurSel" class="bg-zinc-950/70 border border-zinc-800 rounded-md px-2 py-1 text-xs"><option value="local">${CUR[0]}</option><option value="usd">USD</option></select>` +
+    (pct ? `<label class="inline-flex items-center gap-1.5 cursor-pointer"><input id="gcTax" type="checkbox" class="accent-violet-500" ${money.tax ? 'checked' : ''}> ${t('cTax', { pct })}</label>` : '') +
+    `<span class="text-zinc-500">${t('cFx', { date: FX_DATE })}</span>`;
+  const sel = document.getElementById('gcCurSel'); sel.value = money.local ? 'local' : 'usd';
+  sel.addEventListener('change', () => { money.local = sel.value === 'local'; render(); });
+  const tx = document.getElementById('gcTax'); if (tx) tx.addEventListener('change', () => { money.tax = tx.checked; render(); });
+}
+
 function render() {
   const e = estimate();
   const big = (lab, val, sub = '') => `<div class="rounded-xl bg-zinc-950/60 border border-zinc-800 p-3"><div class="text-[11px] uppercase tracking-wider text-zinc-500 font-semibold">${lab}</div><div class="text-xl font-extrabold tabular-nums mt-0.5">${val}</div>${sub ? `<div class="text-xs text-zinc-500 mt-0.5">${sub}</div>` : ''}</div>`;
@@ -429,4 +454,5 @@ document.getElementById('gcDownload').addEventListener('click', () => {
 });
 
 syncNums();
+curControls();
 render();

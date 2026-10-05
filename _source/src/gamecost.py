@@ -58,6 +58,7 @@ T = {
   l_art="Art", l_music="Music", l_sfx="SFX / voice", l_code="Code", l_d3="3D models", l_trailer="Trailer",
   p_value="💰 Best value", p_normal="⚖️ Typical", p_max="🚀 Top tier", pCustom="Your mix", tier_value="budget", tier_normal="typical", tier_max="premium", pHint="Click a combo to switch every tool at once, or change tools one by one below.",
   days="{n} days", monthsN="{n} mo", capWarn="This plan's usage limit is likely too low for daily agent coding — expect waits or extra usage.",
+  cTax="Tax included ({pct}%)", cFx="Rates as of {date}, approximate",
   hireRef="For reference: hiring freelancers for a game this size usually starts at <b>{min}+</b>, and quotes can differ by 10× or more depending on country and quality.",
   noTrailer="Turn on “Promo trailer” to get trailer prompts.",
   copied="Copied ✓", packTitle="prompt pack",
@@ -103,6 +104,7 @@ T = {
   l_art="그림", l_music="음악", l_sfx="효과음·음성", l_code="코딩", l_d3="3D 모델", l_trailer="트레일러",
   p_value="💰 가성비", p_normal="⚖️ 보통", p_max="🚀 최고 성능", pCustom="내 조합", tier_value="가성비형", tier_normal="보통", tier_max="고급형", pHint="조합을 누르면 도구가 한 번에 바뀝니다. 아래에서 하나씩 바꿀 수도 있습니다.",
   days="{n}일", monthsN="{n}개월", capWarn="이 요금제의 사용량 한도는 매일 에이전트로 코딩하기엔 부족할 가능성이 큽니다. 대기 시간이나 추가 사용료를 예상하세요.",
+  cTax="부가세 포함 ({pct}%)", cFx="환율 {date} 기준, 대략",
   hireRef="참고: 같은 규모를 외주로 맡기면 보통 <b>{min} 이상</b>이 들며, 나라와 퀄리티에 따라 10배 넘게 차이 납니다.",
   noTrailer="'홍보 트레일러'를 켜면 트레일러 프롬프트가 나옵니다.",
   copied="복사됨 ✓", packTitle="프롬프트 묶음",
@@ -148,6 +150,7 @@ T = {
   l_art="画像", l_music="音楽", l_sfx="効果音・ボイス", l_code="コード", l_d3="3Dモデル", l_trailer="トレーラー",
   p_value="💰 コスパ", p_normal="⚖️ 標準", p_max="🚀 最上位", pCustom="自分の組み合わせ", tier_value="節約型", tier_normal="標準", tier_max="高級型", pHint="組み合わせを押すとツールが一括で切り替わります。下で1つずつ変えることもできます。",
   days="{n}日", monthsN="{n}か月", capWarn="このプランの利用上限は、毎日エージェントでコーディングするには足りない可能性が高いです。待ち時間や追加料金を見込んでください。",
+  cTax="消費税込み（{pct}%）", cFx="為替レートは{date}時点の概算",
   hireRef="参考：同じ規模を外注すると通常<b>{min}以上</b>かかり、国や品質によって10倍以上の差があります。",
   noTrailer="「PRトレーラー」をオンにするとトレーラー用プロンプトが出ます。",
   copied="コピーしました ✓", packTitle="プロンプト集",
@@ -285,6 +288,7 @@ def build_page(lang, llm):
 
     <section class="{CARD} mt-5">
       <h2 class="{H2}">{e("cmpTitle")}</h2>
+      <div id="gcCur" class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-zinc-400 mb-3"></div>
       <div id="gcCompare"></div>
       <p id="gcRef" class="mt-4 text-center text-xs sm:text-sm text-zinc-400"></p>
     </section>
