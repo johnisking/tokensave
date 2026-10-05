@@ -1,11 +1,11 @@
 // TokenSave — AI Video Cost Calculator page (tokensave.app/video)
-// Prices: USD list prices, checked 2026-09-30.
+// Prices: USD list prices, checked 2026-10-05.
 //   official = the model maker's own API pricing page
 //   runway   = Runway API pricing page (1 credit = $0.01), used where the maker has no public per-second API price
 // Sources:
 //   Veo 3.1 ........ ai.google.dev/gemini-api/docs/pricing (audio included by default)
 //   Kling .......... kling.ai/dev/pricing (1 unit = $0.14 list)
-//   Runway, Seedance, Hailuo, Wan, Gemini Omni Flash ... docs.dev.runwayml.com/guides/pricing
+//   Runway, Seedance, Hailuo, Wan, HappyHorse, Gemini Omni Flash ... docs.dev.runwayml.com/guides/pricing
 //   Luma Ray 3.2 ... lumalabs.ai/api/pricing (billed per 5 s / 10 s clip)
 //   Grok Imagine ... docs.x.ai/developers/pricing (Imagine API)
 //   FLUX 3 Video ... bfl.ai/pricing (text/image-to-video; HD=720p, FHD=1080p, UHD=4K; audio included)
@@ -38,6 +38,8 @@ const MODELS = [
     p: { '480': { a: null, n: [0.15, 0.45], label: '540p' }, '720': { a: null, n: [0.30, 0.90] }, '1080': { a: null, n: [1.20, 3.60] } } },
   { name: 'Grok Imagine Video 1.5', by: 'xAI',   src: 'official',
     p: { '480': both(0.08), '720': both(0.14), '1080': both(0.25) } },
+  { name: 'Grok Imagine Video 1.5 Lite', by: 'xAI', src: 'official',
+    p: { '480': both(0.02), '720': both(0.03), '1080': both(0.14) } },
   { name: 'Grok Imagine Video', by: 'xAI',       src: 'official',
     p: { '480': both(0.05), '720': both(0.07) } },
   { name: 'FLUX 3 Video',       by: 'Black Forest Labs', src: 'official', audioIncl: true,
@@ -48,10 +50,18 @@ const MODELS = [
     p: { '480': both(0.36), '720': both(0.36), '1080': both(0.40), '4k': both(1.50) } },
   { name: 'Seedance 2.0 Fast',  by: 'ByteDance', src: 'runway',
     p: { '480': both(0.29), '720': both(0.29) } },
+  { name: 'Seedance 2.5',       by: 'ByteDance', src: 'runway',
+    p: { '480': both(0.20), '720': both(0.30), '1080': both(0.68) } },
+  { name: 'Seedance 2 Mini',    by: 'ByteDance', src: 'runway',
+    p: { '480': both(0.16), '720': both(0.16) } },
   { name: 'Hailuo 3',           by: 'MiniMax',   src: 'runway',
     p: { '720': both(0.10, '768p'), '1080': both(0.15, '2K') } },
   { name: 'Wan 3.0',            by: 'Alibaba',   src: 'runway',
     p: { '480': both(0.05), '720': both(0.10), '1080': both(0.20) } },
+  { name: 'Wan 3.0 Prime',      by: 'Alibaba',   src: 'runway',
+    p: { '480': both(0.068), '720': both(0.14), '1080': both(0.28) } },
+  { name: 'HappyHorse 1.0',     by: 'Alibaba',   src: 'runway',
+    p: { '720': both(0.15), '1080': both(0.30) } },
   { name: 'Gemini Omni Flash',  by: 'Google',    src: 'runway',
     p: { '720': both(0.10), '1080': both(0.15), '4k': both(0.30) } },
 ];

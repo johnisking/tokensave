@@ -42,7 +42,7 @@ V["en"] = dict(
   q1="How is AI video priced?", a1="Most video APIs charge per second of generated video. Higher resolutions and native audio cost more, so a 1080p or 4K clip can cost several times a 720p clip.",
   q2="What is the cheapest AI video model?", a2="It depends on the resolution. Light models such as Veo 3.1 Lite, Grok Imagine and Wan start around $0.05 per second, while premium models at 4K can cost $0.40 per second or more.",
   q3="Is Sora included?", a3="No. OpenAI removed the Sora 2 video models from its API on September 24, 2026, so Sora is no longer available to developers.",
-  f1="Official list prices from each provider's API pricing page, checked September 30, 2026. Models without a public per-second API price are shown at Runway API rates.",
+  f1="Official list prices from each provider's API pricing page, checked October 5, 2026. Models without a public per-second API price are shown at Runway API rates.",
   f2="Prices change often — confirm on the provider's page before large jobs.",
 )
 
@@ -61,7 +61,7 @@ V["ko"] = dict(
   q1="AI 영상은 어떻게 과금되나요?", a1="대부분의 영상 API는 생성된 영상 1초당 요금을 받습니다. 해상도가 높거나 오디오가 들어가면 더 비싸서, 1080p·4K 클립은 720p보다 몇 배 비쌀 수 있습니다.",
   q2="가장 싼 AI 영상 모델은?", a2="해상도에 따라 다릅니다. Veo 3.1 Lite, Grok Imagine, Wan 같은 가벼운 모델은 초당 약 $0.05부터 시작하고, 고급 모델로 4K를 만들면 초당 $0.40 이상 들 수 있습니다.",
   q3="Sora는 왜 없나요?", a3="OpenAI가 2026년 9월 24일에 Sora 2 영상 모델을 API에서 종료했기 때문에, 이제 개발자가 쓸 수 없습니다.",
-  f1="각 회사 API 요금 페이지의 공식 가격이며 2026년 9월 30일에 확인했습니다. 공개된 초당 API 가격이 없는 모델은 Runway API 가격으로 표시합니다.",
+  f1="각 회사 API 요금 페이지의 공식 가격이며 2026년 10월 5일에 확인했습니다. 공개된 초당 API 가격이 없는 모델은 Runway API 가격으로 표시합니다.",
   f2="가격은 자주 바뀝니다. 대량 작업 전에는 각 회사 페이지에서 꼭 확인하세요.",
 )
 
@@ -80,7 +80,7 @@ V["ja"] = dict(
   q1="AI動画の料金はどう決まる?", a1="多くの動画APIは生成した動画1秒ごとに課金します。解像度が高いほど、また音声付きほど高くなり、1080pや4Kのクリップは720pの数倍になることもあります。",
   q2="一番安いAI動画モデルは?", a2="解像度によります。Veo 3.1 Lite、Grok Imagine、Wanなどの軽量モデルは1秒約$0.05から、上位モデルで4Kを作ると1秒$0.40以上かかることもあります。",
   q3="Soraは含まれていますか?", a3="いいえ。OpenAIは2026年9月24日にSora 2動画モデルをAPIから削除したため、開発者は利用できなくなりました。",
-  f1="各社APIの料金ページに掲載された公式価格で、2026年9月30日に確認しました。1秒単位の公開API価格がないモデルはRunway APIの料金で表示しています。",
+  f1="各社APIの料金ページに掲載された公式価格で、2026年10月5日に確認しました。1秒単位の公開API価格がないモデルはRunway APIの料金で表示しています。",
   f2="料金は頻繁に変わります。大量に生成する前に各社のページでご確認ください。",
 )
 
@@ -99,7 +99,7 @@ V["zh-CN"] = dict(
   q1="AI 视频如何收费？", a1="大多数视频 API 按生成视频的秒数收费。分辨率越高、带原生音频越贵，1080p 或 4K 片段可能是 720p 的好几倍。",
   q2="最便宜的 AI 视频模型是哪个？", a2="取决于分辨率。Veo 3.1 Lite、Grok Imagine、Wan 等轻量模型每秒约 $0.05 起，高端模型生成 4K 则可能每秒 $0.40 以上。",
   q3="为什么没有 Sora？", a3="OpenAI 已于 2026 年 9 月 24 日将 Sora 2 视频模型从 API 下线，开发者已无法使用。",
-  f1="价格来自各服务商 API 价格页面的官方标价，核对于 2026 年 9 月 30 日。没有公开按秒 API 价格的模型按 Runway API 价格显示。",
+  f1="价格来自各服务商 API 价格页面的官方标价，核对于 2026 年 10 月 5 日。没有公开按秒 API 价格的模型按 Runway API 价格显示。",
   f2="价格经常变动，大批量生成前请在服务商页面确认。",
 )
 
@@ -118,7 +118,7 @@ V["zh-TW"] = dict(
   q1="AI 影片如何收費？", a1="大多數影片 API 依生成影片的秒數收費。解析度越高、含原生音訊越貴，1080p 或 4K 片段可能是 720p 的好幾倍。",
   q2="最便宜的 AI 影片模型是哪個？", a2="取決於解析度。Veo 3.1 Lite、Grok Imagine、Wan 等輕量模型每秒約 $0.05 起，高階模型生成 4K 則可能每秒 $0.40 以上。",
   q3="為什麼沒有 Sora？", a3="OpenAI 已於 2026 年 9 月 24 日將 Sora 2 影片模型從 API 下架，開發者已無法使用。",
-  f1="價格來自各服務商 API 價格頁面的官方定價，核對於 2026 年 9 月 30 日。沒有公開按秒 API 價格的模型以 Runway API 價格顯示。",
+  f1="價格來自各服務商 API 價格頁面的官方定價，核對於 2026 年 10 月 5 日。沒有公開按秒 API 價格的模型以 Runway API 價格顯示。",
   f2="價格經常變動，大量生成前請到服務商頁面確認。",
 )
 
@@ -137,7 +137,7 @@ V["es"] = dict(
   q1="¿Cómo se cobra el vídeo con IA?", a1="La mayoría de las API de vídeo cobran por segundo de vídeo generado. Más resolución y audio nativo cuestan más, así que un clip en 1080p o 4K puede costar varias veces uno en 720p.",
   q2="¿Cuál es el modelo de vídeo con IA más barato?", a2="Depende de la resolución. Modelos ligeros como Veo 3.1 Lite, Grok Imagine o Wan empiezan en unos $0,05 por segundo, mientras que los modelos premium en 4K pueden superar los $0,40 por segundo.",
   q3="¿Por qué no aparece Sora?", a3="OpenAI retiró los modelos de vídeo Sora 2 de su API el 24 de septiembre de 2026, por lo que ya no están disponibles para desarrolladores.",
-  f1="Precios oficiales de la página de precios de la API de cada proveedor, revisados el 30 de septiembre de 2026. Los modelos sin precio público por segundo se muestran con las tarifas de la API de Runway.",
+  f1="Precios oficiales de la página de precios de la API de cada proveedor, revisados el 5 de octubre de 2026. Los modelos sin precio público por segundo se muestran con las tarifas de la API de Runway.",
   f2="Los precios cambian a menudo: confírmalos en la página del proveedor antes de trabajos grandes.",
 )
 
@@ -156,7 +156,7 @@ V["pt"] = dict(
   q1="Como o vídeo com IA é cobrado?", a1="A maioria das APIs de vídeo cobra por segundo de vídeo gerado. Resoluções maiores e áudio nativo custam mais, então um clipe em 1080p ou 4K pode custar várias vezes um em 720p.",
   q2="Qual é o modelo de vídeo com IA mais barato?", a2="Depende da resolução. Modelos leves como Veo 3.1 Lite, Grok Imagine e Wan começam em cerca de US$ 0,05 por segundo, enquanto modelos premium em 4K podem passar de US$ 0,40 por segundo.",
   q3="Por que o Sora não aparece?", a3="A OpenAI removeu os modelos de vídeo Sora 2 da sua API em 24 de setembro de 2026, então eles não estão mais disponíveis para desenvolvedores.",
-  f1="Preços oficiais da página de preços da API de cada provedor, verificados em 30 de setembro de 2026. Modelos sem preço público por segundo aparecem com as tarifas da API da Runway.",
+  f1="Preços oficiais da página de preços da API de cada provedor, verificados em 5 de outubro de 2026. Modelos sem preço público por segundo aparecem com as tarifas da API da Runway.",
   f2="Os preços mudam com frequência — confirme na página do provedor antes de grandes volumes.",
 )
 
@@ -175,7 +175,7 @@ V["fr"] = dict(
   q1="Comment la vidéo IA est-elle facturée ?", a1="La plupart des API vidéo facturent à la seconde de vidéo générée. Une résolution plus élevée et l'audio natif coûtent plus cher : un clip en 1080p ou 4K peut coûter plusieurs fois un clip en 720p.",
   q2="Quel est le modèle vidéo IA le moins cher ?", a2="Cela dépend de la résolution. Les modèles légers comme Veo 3.1 Lite, Grok Imagine ou Wan démarrent autour de 0,05 $ par seconde, tandis que les modèles premium en 4K peuvent dépasser 0,40 $ par seconde.",
   q3="Pourquoi Sora n'apparaît-il pas ?", a3="OpenAI a retiré les modèles vidéo Sora 2 de son API le 24 septembre 2026 ; ils ne sont donc plus accessibles aux développeurs.",
-  f1="Prix officiels tirés de la page tarifaire API de chaque fournisseur, vérifiés le 30 septembre 2026. Les modèles sans prix public à la seconde sont affichés aux tarifs de l'API Runway.",
+  f1="Prix officiels tirés de la page tarifaire API de chaque fournisseur, vérifiés le 5 octobre 2026. Les modèles sans prix public à la seconde sont affichés aux tarifs de l'API Runway.",
   f2="Les prix changent souvent : vérifiez sur la page du fournisseur avant de gros volumes.",
 )
 
@@ -194,7 +194,7 @@ V["de"] = dict(
   q1="Wie wird KI-Video abgerechnet?", a1="Die meisten Video-APIs rechnen pro Sekunde generiertes Video ab. Höhere Auflösung und natives Audio kosten mehr – ein Clip in 1080p oder 4K kann ein Vielfaches eines 720p-Clips kosten.",
   q2="Welches KI-Videomodell ist am günstigsten?", a2="Das hängt von der Auflösung ab. Leichte Modelle wie Veo 3.1 Lite, Grok Imagine oder Wan starten bei etwa 0,05 $ pro Sekunde, Premium-Modelle in 4K können über 0,40 $ pro Sekunde kosten.",
   q3="Warum fehlt Sora?", a3="OpenAI hat die Sora-2-Videomodelle am 24. September 2026 aus seiner API entfernt – für Entwickler sind sie nicht mehr verfügbar.",
-  f1="Offizielle Listenpreise von der API-Preisseite des jeweiligen Anbieters, geprüft am 30. September 2026. Modelle ohne öffentlichen Sekundenpreis werden mit den Tarifen der Runway-API angezeigt.",
+  f1="Offizielle Listenpreise von der API-Preisseite des jeweiligen Anbieters, geprüft am 5. Oktober 2026. Modelle ohne öffentlichen Sekundenpreis werden mit den Tarifen der Runway-API angezeigt.",
   f2="Preise ändern sich oft – vor großen Aufträgen bitte beim Anbieter prüfen.",
 )
 
@@ -213,7 +213,7 @@ V["it"] = dict(
   q1="Come si paga il video IA?", a1="La maggior parte delle API video addebita per secondo di video generato. Risoluzioni più alte e audio nativo costano di più: una clip in 1080p o 4K può costare diverse volte una in 720p.",
   q2="Qual è il modello video IA più economico?", a2="Dipende dalla risoluzione. Modelli leggeri come Veo 3.1 Lite, Grok Imagine e Wan partono da circa 0,05 $ al secondo, mentre i modelli premium in 4K possono superare 0,40 $ al secondo.",
   q3="Perché non c'è Sora?", a3="OpenAI ha rimosso i modelli video Sora 2 dalla sua API il 24 settembre 2026, quindi non sono più disponibili per gli sviluppatori.",
-  f1="Prezzi di listino ufficiali dalla pagina prezzi API di ciascun fornitore, verificati il 30 settembre 2026. I modelli senza un prezzo pubblico al secondo sono mostrati con le tariffe dell'API Runway.",
+  f1="Prezzi di listino ufficiali dalla pagina prezzi API di ciascun fornitore, verificati il 5 ottobre 2026. I modelli senza un prezzo pubblico al secondo sono mostrati con le tariffe dell'API Runway.",
   f2="I prezzi cambiano spesso: verifica sulla pagina del fornitore prima di lavori grandi.",
 )
 
@@ -232,7 +232,7 @@ V["ru"] = dict(
   q1="Как оплачивается ИИ-видео?", a1="Большинство видео-API берут плату за секунду сгенерированного видео. Высокое разрешение и собственный звук стоят дороже, поэтому ролик в 1080p или 4K может стоить в разы больше, чем в 720p.",
   q2="Какая видеомодель ИИ самая дешёвая?", a2="Зависит от разрешения. Лёгкие модели вроде Veo 3.1 Lite, Grok Imagine и Wan стоят примерно от $0,05 за секунду, а премиальные модели в 4K — от $0,40 за секунду и выше.",
   q3="Почему здесь нет Sora?", a3="OpenAI удалила видеомодели Sora 2 из своего API 24 сентября 2026 года, поэтому разработчикам они больше недоступны.",
-  f1="Официальные цены со страниц тарифов API каждого провайдера, проверены 30 сентября 2026 года. Модели без публичной посекундной цены показаны по тарифам API Runway.",
+  f1="Официальные цены со страниц тарифов API каждого провайдера, проверены 5 октября 2026 года. Модели без публичной посекундной цены показаны по тарифам API Runway.",
   f2="Цены часто меняются — перед крупными заказами уточняйте на странице провайдера.",
 )
 
@@ -251,7 +251,7 @@ V["uk"] = dict(
   q1="Як оплачується ШІ-відео?", a1="Більшість відео-API беруть плату за секунду згенерованого відео. Вища роздільність і власний звук коштують дорожче, тож ролик у 1080p чи 4K може коштувати в кілька разів більше, ніж у 720p.",
   q2="Яка відеомодель ШІ найдешевша?", a2="Залежить від роздільності. Легкі моделі, як-от Veo 3.1 Lite, Grok Imagine і Wan, коштують приблизно від $0,05 за секунду, а преміальні моделі в 4K — від $0,40 за секунду й більше.",
   q3="Чому тут немає Sora?", a3="OpenAI видалила відеомоделі Sora 2 зі свого API 24 вересня 2026 року, тож для розробників вони більше недоступні.",
-  f1="Офіційні ціни зі сторінок тарифів API кожного постачальника, перевірено 30 вересня 2026 року. Моделі без публічної посекундної ціни показано за тарифами API Runway.",
+  f1="Офіційні ціни зі сторінок тарифів API кожного постачальника, перевірено 5 жовтня 2026 року. Моделі без публічної посекундної ціни показано за тарифами API Runway.",
   f2="Ціни часто змінюються — перед великими замовленнями перевіряйте на сторінці постачальника.",
 )
 
@@ -270,7 +270,7 @@ V["tr"] = dict(
   q1="Yapay zekâ videosu nasıl ücretlendirilir?", a1="Çoğu video API'si üretilen videonun saniyesi başına ücret alır. Yüksek çözünürlük ve yerel ses daha pahalıdır; 1080p veya 4K bir klip, 720p'nin birkaç katına mal olabilir.",
   q2="En ucuz yapay zekâ video modeli hangisi?", a2="Çözünürlüğe bağlıdır. Veo 3.1 Lite, Grok Imagine ve Wan gibi hafif modeller saniyede yaklaşık 0,05 $'dan başlar; premium modellerle 4K üretmek saniyede 0,40 $'ı geçebilir.",
   q3="Sora neden yok?", a3="OpenAI, Sora 2 video modellerini 24 Eylül 2026'da API'sinden kaldırdı; artık geliştiriciler tarafından kullanılamıyor.",
-  f1="Her sağlayıcının API fiyat sayfasındaki resmî liste fiyatları, 30 Eylül 2026'da kontrol edildi. Saniye başına herkese açık API fiyatı olmayan modeller Runway API ücretleriyle gösterilir.",
+  f1="Her sağlayıcının API fiyat sayfasındaki resmî liste fiyatları, 5 Ekim 2026'da kontrol edildi. Saniye başına herkese açık API fiyatı olmayan modeller Runway API ücretleriyle gösterilir.",
   f2="Fiyatlar sık değişir; büyük işlerden önce sağlayıcının sayfasından doğrulayın.",
 )
 
@@ -289,7 +289,7 @@ V["ar"] = dict(
   q1="كيف يُسعَّر فيديو الذكاء الاصطناعي؟", a1="تحتسب معظم واجهات الفيديو السعر لكل ثانية من الفيديو المُنشأ. الدقة الأعلى والصوت الأصلي أغلى، لذا قد يكلّف مقطع بدقة 1080p أو 4K أضعاف مقطع بدقة 720p.",
   q2="ما أرخص نموذج فيديو بالذكاء الاصطناعي؟", a2="يعتمد ذلك على الدقة. النماذج الخفيفة مثل Veo 3.1 Lite وGrok Imagine وWan تبدأ من نحو 0.05 دولار للثانية، بينما قد تتجاوز النماذج المتقدمة بدقة 4K 0.40 دولار للثانية.",
   q3="لماذا لا يوجد Sora؟", a3="أزالت OpenAI نماذج فيديو Sora 2 من واجهتها البرمجية في 24 سبتمبر 2026، لذا لم تعد متاحة للمطوّرين.",
-  f1="أسعار رسمية من صفحة أسعار API لدى كل مزوّد، تم التحقق منها في 30 سبتمبر 2026. النماذج التي لا تملك سعرًا علنيًا لكل ثانية تُعرض بأسعار Runway API.",
+  f1="أسعار رسمية من صفحة أسعار API لدى كل مزوّد، تم التحقق منها في 5 أكتوبر 2026. النماذج التي لا تملك سعرًا علنيًا لكل ثانية تُعرض بأسعار Runway API.",
   f2="تتغير الأسعار كثيرًا، فتحقّق من صفحة المزوّد قبل الأعمال الكبيرة.",
 )
 
@@ -308,7 +308,7 @@ V["fa"] = dict(
   q1="ویدیوی هوش مصنوعی چطور قیمت‌گذاری می‌شود؟", a1="بیشتر APIهای ویدیو به ازای هر ثانیه ویدیوی ساخته‌شده هزینه می‌گیرند. کیفیت بالاتر و صدای داخلی گران‌تر است، پس یک کلیپ 1080p یا 4K می‌تواند چند برابر یک کلیپ 720p هزینه داشته باشد.",
   q2="ارزان‌ترین مدل ویدیوی هوش مصنوعی کدام است؟", a2="به کیفیت بستگی دارد. مدل‌های سبک مانند Veo 3.1 Lite، Grok Imagine و Wan از حدود ۰٫۰۵ دلار در ثانیه شروع می‌شوند، اما مدل‌های پیشرفته در 4K ممکن است بیش از ۰٫۴۰ دلار در ثانیه باشند.",
   q3="چرا Sora نیست؟", a3="OpenAI مدل‌های ویدیوی Sora 2 را در ۲۴ سپتامبر ۲۰۲۶ از API خود حذف کرد، بنابراین دیگر برای توسعه‌دهندگان در دسترس نیست.",
-  f1="قیمت‌های رسمی از صفحه قیمت API هر ارائه‌دهنده که در ۳۰ سپتامبر ۲۰۲۶ بررسی شده‌اند. مدل‌هایی که قیمت عمومی ثانیه‌ای ندارند با نرخ Runway API نمایش داده می‌شوند.",
+  f1="قیمت‌های رسمی از صفحه قیمت API هر ارائه‌دهنده که در ۵ اکتبر ۲۰۲۶ بررسی شده‌اند. مدل‌هایی که قیمت عمومی ثانیه‌ای ندارند با نرخ Runway API نمایش داده می‌شوند.",
   f2="قیمت‌ها زیاد تغییر می‌کنند؛ پیش از کارهای بزرگ در صفحه ارائه‌دهنده بررسی کنید.",
 )
 
@@ -327,7 +327,7 @@ V["hi"] = dict(
   q1="AI वीडियो का शुल्क कैसे लगता है?", a1="ज़्यादातर वीडियो API बनाए गए वीडियो के हर सेकंड का शुल्क लेते हैं। ऊँचा रेज़ोल्यूशन और अपना ऑडियो महँगा होता है, इसलिए 1080p या 4K क्लिप 720p से कई गुना महँगी हो सकती है।",
   q2="सबसे सस्ता AI वीडियो मॉडल कौन-सा है?", a2="यह रेज़ोल्यूशन पर निर्भर करता है। Veo 3.1 Lite, Grok Imagine और Wan जैसे हल्के मॉडल लगभग $0.05 प्रति सेकंड से शुरू होते हैं, जबकि 4K में प्रीमियम मॉडल $0.40 प्रति सेकंड से भी ज़्यादा ले सकते हैं।",
   q3="Sora क्यों नहीं है?", a3="OpenAI ने 24 सितंबर 2026 को Sora 2 वीडियो मॉडल अपने API से हटा दिए, इसलिए अब वे डेवलपर्स के लिए उपलब्ध नहीं हैं।",
-  f1="हर प्रदाता के API मूल्य पृष्ठ की आधिकारिक सूची कीमतें, 30 सितंबर 2026 को जाँची गईं। जिन मॉडलों की सार्वजनिक प्रति-सेकंड API कीमत नहीं है, उन्हें Runway API दरों पर दिखाया गया है।",
+  f1="हर प्रदाता के API मूल्य पृष्ठ की आधिकारिक सूची कीमतें, 5 अक्टूबर 2026 को जाँची गईं। जिन मॉडलों की सार्वजनिक प्रति-सेकंड API कीमत नहीं है, उन्हें Runway API दरों पर दिखाया गया है।",
   f2="कीमतें अक्सर बदलती हैं — बड़े काम से पहले प्रदाता के पृष्ठ पर पुष्टि करें।",
 )
 
@@ -346,7 +346,7 @@ V["id"] = dict(
   q1="Bagaimana video AI ditagih?", a1="Sebagian besar API video menagih per detik video yang dihasilkan. Resolusi lebih tinggi dan audio bawaan lebih mahal, jadi klip 1080p atau 4K bisa beberapa kali lipat harga klip 720p.",
   q2="Model video AI mana yang paling murah?", a2="Tergantung resolusinya. Model ringan seperti Veo 3.1 Lite, Grok Imagine, dan Wan mulai sekitar $0,05 per detik, sedangkan model premium di 4K bisa lebih dari $0,40 per detik.",
   q3="Kenapa Sora tidak ada?", a3="OpenAI menghapus model video Sora 2 dari API-nya pada 24 September 2026, sehingga tidak lagi tersedia bagi developer.",
-  f1="Harga resmi dari halaman harga API setiap penyedia, diperiksa pada 30 September 2026. Model tanpa harga API per detik yang publik ditampilkan dengan tarif API Runway.",
+  f1="Harga resmi dari halaman harga API setiap penyedia, diperiksa pada 5 Oktober 2026. Model tanpa harga API per detik yang publik ditampilkan dengan tarif API Runway.",
   f2="Harga sering berubah — konfirmasi di halaman penyedia sebelum pekerjaan besar.",
 )
 
@@ -365,7 +365,7 @@ V["vi"] = dict(
   q1="Video AI được tính phí thế nào?", a1="Hầu hết API video tính phí theo mỗi giây video được tạo. Độ phân giải cao hơn và âm thanh gốc đắt hơn, nên clip 1080p hoặc 4K có thể đắt gấp nhiều lần clip 720p.",
   q2="Mô hình video AI nào rẻ nhất?", a2="Tùy vào độ phân giải. Các mô hình nhẹ như Veo 3.1 Lite, Grok Imagine và Wan bắt đầu khoảng $0,05 mỗi giây, còn mô hình cao cấp ở 4K có thể trên $0,40 mỗi giây.",
   q3="Vì sao không có Sora?", a3="OpenAI đã gỡ các mô hình video Sora 2 khỏi API vào ngày 24/9/2026, nên nhà phát triển không còn dùng được nữa.",
-  f1="Giá niêm yết chính thức từ trang giá API của từng nhà cung cấp, kiểm tra ngày 30/9/2026. Mô hình không có giá API công khai theo giây được hiển thị theo mức giá của API Runway.",
+  f1="Giá niêm yết chính thức từ trang giá API của từng nhà cung cấp, kiểm tra ngày 5/10/2026. Mô hình không có giá API công khai theo giây được hiển thị theo mức giá của API Runway.",
   f2="Giá thay đổi thường xuyên — hãy xác nhận trên trang của nhà cung cấp trước khi làm số lượng lớn.",
 )
 
@@ -384,7 +384,7 @@ V["th"] = dict(
   q1="วิดีโอ AI คิดราคาอย่างไร?", a1="API วิดีโอส่วนใหญ่คิดเงินตามวินาทีของวิดีโอที่สร้าง ความละเอียดสูงและเสียงในตัวมีราคาแพงกว่า คลิป 1080p หรือ 4K จึงอาจแพงกว่า 720p หลายเท่า",
   q2="โมเดลวิดีโอ AI ตัวไหนถูกที่สุด?", a2="ขึ้นอยู่กับความละเอียด โมเดลเบาอย่าง Veo 3.1 Lite, Grok Imagine และ Wan เริ่มราว $0.05 ต่อวินาที ส่วนโมเดลระดับสูงที่ 4K อาจเกิน $0.40 ต่อวินาที",
   q3="ทำไมไม่มี Sora?", a3="OpenAI นำโมเดลวิดีโอ Sora 2 ออกจาก API เมื่อวันที่ 24 กันยายน 2026 นักพัฒนาจึงใช้งานไม่ได้อีกแล้ว",
-  f1="ราคาตามประกาศทางการจากหน้าราคา API ของผู้ให้บริการแต่ละราย ตรวจสอบเมื่อ 30 กันยายน 2026 โมเดลที่ไม่มีราคา API ต่อวินาทีแบบเปิดเผยจะแสดงตามอัตราของ Runway API",
+  f1="ราคาตามประกาศทางการจากหน้าราคา API ของผู้ให้บริการแต่ละราย ตรวจสอบเมื่อ 5 ตุลาคม 2026 โมเดลที่ไม่มีราคา API ต่อวินาทีแบบเปิดเผยจะแสดงตามอัตราของ Runway API",
   f2="ราคาเปลี่ยนบ่อย โปรดตรวจสอบที่หน้าของผู้ให้บริการก่อนงานปริมาณมาก",
 )
 
@@ -403,7 +403,7 @@ V["pl"] = dict(
   q1="Jak rozliczane jest wideo AI?", a1="Większość API wideo nalicza opłatę za sekundę wygenerowanego wideo. Wyższa rozdzielczość i własny dźwięk kosztują więcej, więc klip w 1080p lub 4K może być kilka razy droższy niż w 720p.",
   q2="Który model wideo AI jest najtańszy?", a2="To zależy od rozdzielczości. Lekkie modele, takie jak Veo 3.1 Lite, Grok Imagine i Wan, zaczynają się od ok. 0,05 $ za sekundę, a modele premium w 4K mogą przekraczać 0,40 $ za sekundę.",
   q3="Dlaczego nie ma Sory?", a3="OpenAI usunęło modele wideo Sora 2 ze swojego API 24 września 2026 roku, więc nie są już dostępne dla programistów.",
-  f1="Oficjalne ceny z cennika API każdego dostawcy, sprawdzone 30 września 2026. Modele bez publicznej ceny za sekundę pokazano według stawek API Runway.",
+  f1="Oficjalne ceny z cennika API każdego dostawcy, sprawdzone 5 października 2026. Modele bez publicznej ceny za sekundę pokazano według stawek API Runway.",
   f2="Ceny często się zmieniają — przed dużymi zleceniami sprawdź stronę dostawcy.",
 )
 
@@ -422,7 +422,7 @@ V["nl"] = dict(
   q1="Hoe wordt AI-video afgerekend?", a1="De meeste video-API's rekenen per seconde gegenereerde video. Hogere resolutie en eigen audio kosten meer, dus een clip in 1080p of 4K kan een veelvoud kosten van een 720p-clip.",
   q2="Wat is het goedkoopste AI-videomodel?", a2="Dat hangt af van de resolutie. Lichte modellen zoals Veo 3.1 Lite, Grok Imagine en Wan beginnen rond $0,05 per seconde, terwijl premiummodellen in 4K meer dan $0,40 per seconde kunnen kosten.",
   q3="Waarom staat Sora er niet bij?", a3="OpenAI heeft de Sora 2-videomodellen op 24 september 2026 uit de API gehaald, dus ontwikkelaars kunnen ze niet meer gebruiken.",
-  f1="Officiële prijzen van de API-prijspagina van elke aanbieder, gecontroleerd op 30 september 2026. Modellen zonder openbare prijs per seconde worden getoond tegen de tarieven van de Runway-API.",
+  f1="Officiële prijzen van de API-prijspagina van elke aanbieder, gecontroleerd op 5 oktober 2026. Modellen zonder openbare prijs per seconde worden getoond tegen de tarieven van de Runway-API.",
   f2="Prijzen veranderen vaak — controleer de pagina van de aanbieder voor grote opdrachten.",
 )
 

@@ -14,7 +14,7 @@ I["en"] = dict(
   q1="How is AI image generation priced?", a1="Most image APIs charge a fixed price per image that rises with resolution. OpenAI models also charge more for higher quality settings, and FLUX bills by megapixel.",
   q2="What is the cheapest AI image model?", a2="Small models such as FLUX.2 [klein], Grok Imagine and GPT Image at low quality cost around $0.01–0.02 per image. Premium models at 4K can cost $0.15–0.40 per image.",
   q3="What is Nano Banana?", a3="Nano Banana is the nickname for Google's Gemini image models. Nano Banana 2 is Gemini 3.1 Flash Image and Nano Banana Pro is Gemini 3 Pro Image.",
-  f1="Official list prices from each provider's API pricing page, checked September 30, 2026. OpenAI and Nano Banana Pro are shown at Runway API rates.",
+  f1="Official list prices from each provider's API pricing page, checked October 5, 2026. OpenAI and Nano Banana Pro are shown at Runway API rates.",
 )
 
 I["ko"] = dict(
@@ -28,7 +28,7 @@ I["ko"] = dict(
   q1="AI 이미지는 어떻게 과금되나요?", a1="대부분의 이미지 API는 장당 고정 가격을 받고, 해상도가 높을수록 비싸집니다. OpenAI 모델은 품질 설정이 높을수록 더 비싸고, FLUX는 메가픽셀 단위로 과금합니다.",
   q2="가장 싼 AI 이미지 모델은?", a2="FLUX.2 [klein], Grok Imagine, 낮은 품질의 GPT Image 같은 모델은 장당 약 $0.01–0.02입니다. 고급 모델로 4K를 만들면 장당 $0.15–0.40까지 들 수 있습니다.",
   q3="나노바나나가 뭔가요?", a3="나노바나나는 구글 Gemini 이미지 모델의 별명입니다. 나노바나나 2는 Gemini 3.1 Flash Image, 나노바나나 프로는 Gemini 3 Pro Image입니다.",
-  f1="각 회사 API 요금 페이지의 공식 가격이며 2026년 9월 30일에 확인했습니다. OpenAI와 나노바나나 프로는 Runway API 가격으로 표시합니다.",
+  f1="각 회사 API 요금 페이지의 공식 가격이며 2026년 10월 5일에 확인했습니다. OpenAI와 나노바나나 프로는 Runway API 가격으로 표시합니다.",
 )
 
 I["ja"] = dict(
@@ -42,7 +42,7 @@ I["ja"] = dict(
   q1="AI画像生成の料金体系は？", a1="多くの画像APIは1枚ごとの固定料金で、解像度が上がるほど高くなります。OpenAIのモデルは品質設定が高いほど高く、FLUXはメガピクセル単位で課金されます。",
   q2="いちばん安いAI画像モデルは？", a2="FLUX.2 [klein]、Grok Imagine、低品質のGPT Imageなどは1枚あたり約$0.01〜0.02です。上位モデルで4Kを作ると1枚$0.15〜0.40かかることもあります。",
   q3="Nano Bananaとは？", a3="Nano BananaはGoogleのGemini画像モデルの愛称です。Nano Banana 2はGemini 3.1 Flash Image、Nano Banana ProはGemini 3 Pro Imageです。",
-  f1="各社API料金ページの公式価格（2026年9月30日確認）。OpenAIとNano Banana ProはRunway APIの料金で表示しています。",
+  f1="各社API料金ページの公式価格（2026年10月5日確認）。OpenAIとNano Banana ProはRunway APIの料金で表示しています。",
 )
 
 I["zh-CN"] = dict(
@@ -56,7 +56,7 @@ I["zh-CN"] = dict(
   q1="AI 图片生成如何计费？", a1="多数图片 API 按张收取固定费用，分辨率越高越贵。OpenAI 模型的质量设置越高越贵，FLUX 则按百万像素计费。",
   q2="最便宜的 AI 图片模型是哪个？", a2="FLUX.2 [klein]、Grok Imagine 和低质量档的 GPT Image 每张约 $0.01–0.02。高端模型生成 4K 图片每张可能要 $0.15–0.40。",
   q3="Nano Banana 是什么？", a3="Nano Banana 是 Google Gemini 图片模型的昵称。Nano Banana 2 即 Gemini 3.1 Flash Image，Nano Banana Pro 即 Gemini 3 Pro Image。",
-  f1="价格来自各家 API 定价页的官方标价，于 2026 年 9 月 30 日核对。OpenAI 和 Nano Banana Pro 按 Runway API 价格显示。",
+  f1="价格来自各家 API 定价页的官方标价，于 2026 年 10 月 5 日核对。OpenAI 和 Nano Banana Pro 按 Runway API 价格显示。",
 )
 
 I["zh-TW"] = dict(
@@ -70,7 +70,7 @@ I["zh-TW"] = dict(
   q1="AI 圖片生成如何計費？", a1="多數圖片 API 按張收取固定費用，解析度越高越貴。OpenAI 模型的品質設定越高越貴，FLUX 則以百萬像素計費。",
   q2="最便宜的 AI 圖片模型是哪個？", a2="FLUX.2 [klein]、Grok Imagine 與低品質檔的 GPT Image 每張約 $0.01–0.02。高階模型生成 4K 圖片每張可能要 $0.15–0.40。",
   q3="Nano Banana 是什麼？", a3="Nano Banana 是 Google Gemini 圖片模型的暱稱。Nano Banana 2 即 Gemini 3.1 Flash Image，Nano Banana Pro 即 Gemini 3 Pro Image。",
-  f1="價格來自各家 API 定價頁的官方牌價，於 2026 年 9 月 30 日核對。OpenAI 與 Nano Banana Pro 以 Runway API 價格顯示。",
+  f1="價格來自各家 API 定價頁的官方牌價，於 2026 年 10 月 5 日核對。OpenAI 與 Nano Banana Pro 以 Runway API 價格顯示。",
 )
 
 I["es"] = dict(
@@ -84,7 +84,7 @@ I["es"] = dict(
   q1="¿Cómo se cobra la generación de imágenes con IA?", a1="La mayoría de las API cobran un precio fijo por imagen que sube con la resolución. Los modelos de OpenAI cobran más en calidades altas y FLUX factura por megapíxel.",
   q2="¿Cuál es el modelo de imagen IA más barato?", a2="Modelos pequeños como FLUX.2 [klein], Grok Imagine o GPT Image en calidad baja cuestan unos $0,01–0,02 por imagen. Los modelos premium en 4K pueden costar $0,15–0,40 por imagen.",
   q3="¿Qué es Nano Banana?", a3="Nano Banana es el apodo de los modelos de imagen Gemini de Google. Nano Banana 2 es Gemini 3.1 Flash Image y Nano Banana Pro es Gemini 3 Pro Image.",
-  f1="Precios oficiales de la página de precios de la API de cada proveedor, revisados el 30 de septiembre de 2026. OpenAI y Nano Banana Pro se muestran con tarifas de la API de Runway.",
+  f1="Precios oficiales de la página de precios de la API de cada proveedor, revisados el 5 de octubre de 2026. OpenAI y Nano Banana Pro se muestran con tarifas de la API de Runway.",
 )
 
 I["pt"] = dict(
@@ -98,7 +98,7 @@ I["pt"] = dict(
   q1="Como é cobrada a geração de imagens com IA?", a1="A maioria das APIs cobra um preço fixo por imagem que aumenta com a resolução. Os modelos da OpenAI cobram mais em qualidades altas, e o FLUX cobra por megapixel.",
   q2="Qual é o modelo de imagem com IA mais barato?", a2="Modelos pequenos como FLUX.2 [klein], Grok Imagine e GPT Image em qualidade baixa custam cerca de $0,01–0,02 por imagem. Modelos premium em 4K podem custar $0,15–0,40 por imagem.",
   q3="O que é Nano Banana?", a3="Nano Banana é o apelido dos modelos de imagem Gemini do Google. Nano Banana 2 é o Gemini 3.1 Flash Image e Nano Banana Pro é o Gemini 3 Pro Image.",
-  f1="Preços oficiais da página de preços da API de cada fornecedor, verificados em 30 de setembro de 2026. OpenAI e Nano Banana Pro aparecem com tarifas da API da Runway.",
+  f1="Preços oficiais da página de preços da API de cada fornecedor, verificados em 5 de outubro de 2026. OpenAI e Nano Banana Pro aparecem com tarifas da API da Runway.",
 )
 
 I["fr"] = dict(
@@ -112,7 +112,7 @@ I["fr"] = dict(
   q1="Comment la génération d'images IA est-elle facturée ?", a1="La plupart des API facturent un prix fixe par image qui augmente avec la résolution. Les modèles OpenAI coûtent plus cher en qualité élevée, et FLUX facture au mégapixel.",
   q2="Quel est le modèle d'image IA le moins cher ?", a2="Les petits modèles comme FLUX.2 [klein], Grok Imagine ou GPT Image en qualité basse coûtent environ 0,01–0,02 $ par image. Les modèles premium en 4K peuvent coûter 0,15–0,40 $ par image.",
   q3="Qu'est-ce que Nano Banana ?", a3="Nano Banana est le surnom des modèles d'image Gemini de Google. Nano Banana 2 correspond à Gemini 3.1 Flash Image et Nano Banana Pro à Gemini 3 Pro Image.",
-  f1="Prix officiels issus de la page tarifaire API de chaque fournisseur, vérifiés le 30 septembre 2026. OpenAI et Nano Banana Pro sont affichés aux tarifs de l'API Runway.",
+  f1="Prix officiels issus de la page tarifaire API de chaque fournisseur, vérifiés le 5 octobre 2026. OpenAI et Nano Banana Pro sont affichés aux tarifs de l'API Runway.",
 )
 
 I["de"] = dict(
@@ -126,7 +126,7 @@ I["de"] = dict(
   q1="Wie wird KI-Bildgenerierung abgerechnet?", a1="Die meisten Bild-APIs berechnen einen festen Preis pro Bild, der mit der Auflösung steigt. OpenAI-Modelle kosten bei höherer Qualität mehr, FLUX rechnet pro Megapixel ab.",
   q2="Welches KI-Bildmodell ist am günstigsten?", a2="Kleine Modelle wie FLUX.2 [klein], Grok Imagine oder GPT Image in niedriger Qualität kosten etwa 0,01–0,02 $ pro Bild. Premium-Modelle in 4K können 0,15–0,40 $ pro Bild kosten.",
   q3="Was ist Nano Banana?", a3="Nano Banana ist der Spitzname für Googles Gemini-Bildmodelle. Nano Banana 2 ist Gemini 3.1 Flash Image, Nano Banana Pro ist Gemini 3 Pro Image.",
-  f1="Offizielle Listenpreise von der API-Preisseite des jeweiligen Anbieters, geprüft am 30. September 2026. OpenAI und Nano Banana Pro werden mit Runway-API-Preisen angezeigt.",
+  f1="Offizielle Listenpreise von der API-Preisseite des jeweiligen Anbieters, geprüft am 5. Oktober 2026. OpenAI und Nano Banana Pro werden mit Runway-API-Preisen angezeigt.",
 )
 
 I["it"] = dict(
@@ -140,7 +140,7 @@ I["it"] = dict(
   q1="Come viene fatturata la generazione di immagini IA?", a1="La maggior parte delle API applica un prezzo fisso per immagine che cresce con la risoluzione. I modelli OpenAI costano di più con qualità alta, e FLUX fattura per megapixel.",
   q2="Qual è il modello di immagini IA più economico?", a2="Modelli piccoli come FLUX.2 [klein], Grok Imagine o GPT Image a bassa qualità costano circa $0,01–0,02 per immagine. I modelli premium in 4K possono costare $0,15–0,40 per immagine.",
   q3="Cos'è Nano Banana?", a3="Nano Banana è il soprannome dei modelli di immagini Gemini di Google. Nano Banana 2 è Gemini 3.1 Flash Image e Nano Banana Pro è Gemini 3 Pro Image.",
-  f1="Prezzi di listino ufficiali dalla pagina prezzi API di ciascun fornitore, verificati il 30 settembre 2026. OpenAI e Nano Banana Pro sono mostrati con le tariffe dell'API Runway.",
+  f1="Prezzi di listino ufficiali dalla pagina prezzi API di ciascun fornitore, verificati il 5 ottobre 2026. OpenAI e Nano Banana Pro sono mostrati con le tariffe dell'API Runway.",
 )
 
 I["ru"] = dict(
@@ -154,7 +154,7 @@ I["ru"] = dict(
   q1="Как тарифицируется генерация изображений ИИ?", a1="Большинство API берут фиксированную цену за изображение, которая растёт с разрешением. У моделей OpenAI высокое качество стоит дороже, а FLUX тарифицирует по мегапикселям.",
   q2="Какая ИИ-модель для изображений самая дешёвая?", a2="Небольшие модели — FLUX.2 [klein], Grok Imagine и GPT Image на низком качестве — стоят около $0,01–0,02 за изображение. Премиальные модели в 4K могут стоить $0,15–0,40 за изображение.",
   q3="Что такое Nano Banana?", a3="Nano Banana — прозвище моделей изображений Google Gemini. Nano Banana 2 — это Gemini 3.1 Flash Image, а Nano Banana Pro — Gemini 3 Pro Image.",
-  f1="Официальные цены со страниц тарифов API каждого провайдера, проверено 30 сентября 2026 г. OpenAI и Nano Banana Pro показаны по тарифам Runway API.",
+  f1="Официальные цены со страниц тарифов API каждого провайдера, проверено 5 октября 2026 г. OpenAI и Nano Banana Pro показаны по тарифам Runway API.",
 )
 
 I["uk"] = dict(
@@ -168,7 +168,7 @@ I["uk"] = dict(
   q1="Як тарифікується генерація зображень ШІ?", a1="Більшість API беруть фіксовану ціну за зображення, яка зростає з роздільністю. У моделей OpenAI висока якість коштує дорожче, а FLUX тарифікує за мегапікселі.",
   q2="Яка ШІ-модель для зображень найдешевша?", a2="Невеликі моделі — FLUX.2 [klein], Grok Imagine і GPT Image на низькій якості — коштують близько $0,01–0,02 за зображення. Преміальні моделі в 4K можуть коштувати $0,15–0,40 за зображення.",
   q3="Що таке Nano Banana?", a3="Nano Banana — прізвисько моделей зображень Google Gemini. Nano Banana 2 — це Gemini 3.1 Flash Image, а Nano Banana Pro — Gemini 3 Pro Image.",
-  f1="Офіційні ціни зі сторінок тарифів API кожного постачальника, перевірено 30 вересня 2026 р. OpenAI і Nano Banana Pro показано за тарифами Runway API.",
+  f1="Офіційні ціни зі сторінок тарифів API кожного постачальника, перевірено 5 жовтня 2026 р. OpenAI і Nano Banana Pro показано за тарифами Runway API.",
 )
 
 I["tr"] = dict(
@@ -182,7 +182,7 @@ I["tr"] = dict(
   q1="Yapay zekâ görsel üretimi nasıl ücretlendirilir?", a1="Çoğu görsel API'si görsel başına sabit bir fiyat alır ve bu fiyat çözünürlükle artar. OpenAI modelleri yüksek kalitede daha pahalıdır, FLUX ise megapiksel başına ücretlendirir.",
   q2="En ucuz yapay zekâ görsel modeli hangisi?", a2="FLUX.2 [klein], Grok Imagine ve düşük kalitede GPT Image gibi küçük modeller görsel başına yaklaşık $0,01–0,02 tutar. Premium modellerle 4K görsel başına $0,15–0,40 olabilir.",
   q3="Nano Banana nedir?", a3="Nano Banana, Google'ın Gemini görsel modellerinin takma adıdır. Nano Banana 2, Gemini 3.1 Flash Image; Nano Banana Pro ise Gemini 3 Pro Image'dır.",
-  f1="Her sağlayıcının API fiyat sayfasındaki resmi liste fiyatları, 30 Eylül 2026'da kontrol edildi. OpenAI ve Nano Banana Pro, Runway API fiyatlarıyla gösterilir.",
+  f1="Her sağlayıcının API fiyat sayfasındaki resmi liste fiyatları, 5 Ekim 2026'da kontrol edildi. OpenAI ve Nano Banana Pro, Runway API fiyatlarıyla gösterilir.",
 )
 
 I["ar"] = dict(
@@ -196,7 +196,7 @@ I["ar"] = dict(
   q1="كيف تُسعَّر صور الذكاء الاصطناعي؟", a1="تفرض معظم واجهات الصور سعرًا ثابتًا لكل صورة يرتفع مع الدقة. نماذج OpenAI أغلى في إعدادات الجودة العالية، وFLUX يحاسب لكل ميغابكسل.",
   q2="ما أرخص نموذج صور بالذكاء الاصطناعي؟", a2="النماذج الصغيرة مثل FLUX.2 [klein] وGrok Imagine وGPT Image بجودة منخفضة تكلّف نحو 0.01–0.02 دولار للصورة. أما النماذج المتقدمة بدقة 4K فقد تكلّف 0.15–0.40 دولار للصورة.",
   q3="ما هو Nano Banana؟", a3="Nano Banana هو اللقب الشائع لنماذج الصور Gemini من Google. ‏Nano Banana 2 هو Gemini 3.1 Flash Image، وNano Banana Pro هو Gemini 3 Pro Image.",
-  f1="أسعار رسمية من صفحة أسعار API لدى كل مزوّد، تم التحقق منها في 30 سبتمبر 2026. تُعرض OpenAI وNano Banana Pro بأسعار Runway API.",
+  f1="أسعار رسمية من صفحة أسعار API لدى كل مزوّد، تم التحقق منها في 5 أكتوبر 2026. تُعرض OpenAI وNano Banana Pro بأسعار Runway API.",
 )
 
 I["fa"] = dict(
@@ -210,7 +210,7 @@ I["fa"] = dict(
   q1="تولید تصویر با هوش مصنوعی چطور قیمت‌گذاری می‌شود؟", a1="بیشتر APIهای تصویر برای هر تصویر قیمت ثابتی می‌گیرند که با وضوح بالاتر می‌رود. مدل‌های OpenAI در کیفیت بالاتر گران‌ترند و FLUX بر اساس مگاپیکسل حساب می‌کند.",
   q2="ارزان‌ترین مدل تصویر هوش مصنوعی کدام است؟", a2="مدل‌های کوچک مانند FLUX.2 [klein]، Grok Imagine و GPT Image با کیفیت پایین حدود ۰٫۰۱ تا ۰٫۰۲ دلار برای هر تصویر هزینه دارند. مدل‌های پیشرفته با وضوح 4K ممکن است ۰٫۱۵ تا ۰٫۴۰ دلار برای هر تصویر باشند.",
   q3="Nano Banana چیست؟", a3="Nano Banana لقب مدل‌های تصویر Gemini گوگل است. Nano Banana 2 همان Gemini 3.1 Flash Image و Nano Banana Pro همان Gemini 3 Pro Image است.",
-  f1="قیمت‌های رسمی از صفحه قیمت API هر ارائه‌دهنده، بررسی‌شده در ۳۰ سپتامبر ۲۰۲۶. OpenAI و Nano Banana Pro با نرخ Runway API نمایش داده می‌شوند.",
+  f1="قیمت‌های رسمی از صفحه قیمت API هر ارائه‌دهنده، بررسی‌شده در ۵ اکتبر ۲۰۲۶. OpenAI و Nano Banana Pro با نرخ Runway API نمایش داده می‌شوند.",
 )
 
 I["hi"] = dict(
@@ -224,7 +224,7 @@ I["hi"] = dict(
   q1="AI इमेज बनाने की कीमत कैसे तय होती है?", a1="ज़्यादातर इमेज API प्रति इमेज तय कीमत लेते हैं, जो रेज़ोल्यूशन के साथ बढ़ती है। OpenAI मॉडल ऊँची क्वालिटी पर महँगे हैं और FLUX प्रति मेगापिक्सल चार्ज करता है।",
   q2="सबसे सस्ता AI इमेज मॉडल कौन-सा है?", a2="FLUX.2 [klein], Grok Imagine और कम क्वालिटी वाला GPT Image जैसे छोटे मॉडल प्रति इमेज लगभग $0.01–0.02 के हैं। प्रीमियम मॉडल पर 4K इमेज $0.15–0.40 तक की पड़ सकती है।",
   q3="Nano Banana क्या है?", a3="Nano Banana, Google के Gemini इमेज मॉडल का उपनाम है। Nano Banana 2 यानी Gemini 3.1 Flash Image और Nano Banana Pro यानी Gemini 3 Pro Image।",
-  f1="हर प्रदाता के API मूल्य पेज की आधिकारिक कीमतें, 30 सितंबर 2026 को जाँची गईं। OpenAI और Nano Banana Pro को Runway API दरों पर दिखाया गया है।",
+  f1="हर प्रदाता के API मूल्य पेज की आधिकारिक कीमतें, 5 अक्टूबर 2026 को जाँची गईं। OpenAI और Nano Banana Pro को Runway API दरों पर दिखाया गया है।",
 )
 
 I["id"] = dict(
@@ -238,7 +238,7 @@ I["id"] = dict(
   q1="Bagaimana pembuatan gambar AI ditagih?", a1="Sebagian besar API gambar mengenakan harga tetap per gambar yang naik seiring resolusi. Model OpenAI lebih mahal pada kualitas tinggi, dan FLUX menagih per megapiksel.",
   q2="Model gambar AI apa yang paling murah?", a2="Model kecil seperti FLUX.2 [klein], Grok Imagine, dan GPT Image kualitas rendah sekitar $0,01–0,02 per gambar. Model premium pada 4K bisa $0,15–0,40 per gambar.",
   q3="Apa itu Nano Banana?", a3="Nano Banana adalah julukan model gambar Gemini dari Google. Nano Banana 2 adalah Gemini 3.1 Flash Image dan Nano Banana Pro adalah Gemini 3 Pro Image.",
-  f1="Harga resmi dari halaman harga API setiap penyedia, dicek 30 September 2026. OpenAI dan Nano Banana Pro ditampilkan dengan tarif Runway API.",
+  f1="Harga resmi dari halaman harga API setiap penyedia, dicek 5 Oktober 2026. OpenAI dan Nano Banana Pro ditampilkan dengan tarif Runway API.",
 )
 
 I["vi"] = dict(
@@ -252,7 +252,7 @@ I["vi"] = dict(
   q1="Tạo ảnh AI được tính phí thế nào?", a1="Hầu hết API ảnh thu giá cố định cho mỗi ảnh và tăng theo độ phân giải. Mô hình OpenAI đắt hơn ở mức chất lượng cao, còn FLUX tính theo megapixel.",
   q2="Mô hình ảnh AI nào rẻ nhất?", a2="Các mô hình nhỏ như FLUX.2 [klein], Grok Imagine và GPT Image chất lượng thấp khoảng $0,01–0,02 mỗi ảnh. Mô hình cao cấp ở 4K có thể $0,15–0,40 mỗi ảnh.",
   q3="Nano Banana là gì?", a3="Nano Banana là biệt danh của các mô hình ảnh Gemini của Google. Nano Banana 2 là Gemini 3.1 Flash Image, còn Nano Banana Pro là Gemini 3 Pro Image.",
-  f1="Giá niêm yết chính thức từ trang giá API của từng nhà cung cấp, kiểm tra ngày 30/9/2026. OpenAI và Nano Banana Pro hiển thị theo giá Runway API.",
+  f1="Giá niêm yết chính thức từ trang giá API của từng nhà cung cấp, kiểm tra ngày 5/10/2026. OpenAI và Nano Banana Pro hiển thị theo giá Runway API.",
 )
 
 I["th"] = dict(
@@ -266,7 +266,7 @@ I["th"] = dict(
   q1="การสร้างภาพ AI คิดเงินอย่างไร?", a1="API ภาพส่วนใหญ่คิดราคาคงที่ต่อภาพและแพงขึ้นตามความละเอียด โมเดลของ OpenAI แพงขึ้นเมื่อตั้งคุณภาพสูง ส่วน FLUX คิดตามเมกะพิกเซล",
   q2="โมเดลภาพ AI ตัวไหนถูกที่สุด?", a2="โมเดลเล็กอย่าง FLUX.2 [klein], Grok Imagine และ GPT Image คุณภาพต่ำ ราคาประมาณ $0.01–0.02 ต่อภาพ ส่วนโมเดลระดับสูงที่ 4K อาจถึง $0.15–0.40 ต่อภาพ",
   q3="Nano Banana คืออะไร?", a3="Nano Banana เป็นชื่อเล่นของโมเดลภาพ Gemini ของ Google โดย Nano Banana 2 คือ Gemini 3.1 Flash Image และ Nano Banana Pro คือ Gemini 3 Pro Image",
-  f1="ราคาทางการจากหน้าราคา API ของผู้ให้บริการแต่ละราย ตรวจสอบเมื่อ 30 กันยายน 2026 OpenAI และ Nano Banana Pro แสดงตามราคา Runway API",
+  f1="ราคาทางการจากหน้าราคา API ของผู้ให้บริการแต่ละราย ตรวจสอบเมื่อ 5 ตุลาคม 2026 OpenAI และ Nano Banana Pro แสดงตามราคา Runway API",
 )
 
 I["pl"] = dict(
@@ -280,7 +280,7 @@ I["pl"] = dict(
   q1="Jak rozliczane jest generowanie obrazów AI?", a1="Większość API pobiera stałą cenę za obraz, która rośnie z rozdzielczością. Modele OpenAI są droższe przy wyższej jakości, a FLUX rozlicza za megapiksel.",
   q2="Który model obrazów AI jest najtańszy?", a2="Małe modele, takie jak FLUX.2 [klein], Grok Imagine czy GPT Image w niskiej jakości, kosztują ok. 0,01–0,02 USD za obraz. Modele premium w 4K mogą kosztować 0,15–0,40 USD za obraz.",
   q3="Co to jest Nano Banana?", a3="Nano Banana to przydomek modeli obrazów Gemini od Google. Nano Banana 2 to Gemini 3.1 Flash Image, a Nano Banana Pro to Gemini 3 Pro Image.",
-  f1="Oficjalne ceny z cenników API poszczególnych dostawców, sprawdzone 30 września 2026 r. OpenAI i Nano Banana Pro pokazano według stawek Runway API.",
+  f1="Oficjalne ceny z cenników API poszczególnych dostawców, sprawdzone 5 października 2026 r. OpenAI i Nano Banana Pro pokazano według stawek Runway API.",
 )
 
 I["nl"] = dict(
@@ -294,7 +294,7 @@ I["nl"] = dict(
   q1="Hoe wordt AI-beeldgeneratie afgerekend?", a1="De meeste beeld-API's rekenen een vaste prijs per afbeelding die stijgt met de resolutie. OpenAI-modellen kosten meer bij hogere kwaliteit en FLUX rekent per megapixel.",
   q2="Wat is het goedkoopste AI-beeldmodel?", a2="Kleine modellen zoals FLUX.2 [klein], Grok Imagine en GPT Image op lage kwaliteit kosten ongeveer $0,01–0,02 per afbeelding. Premiummodellen in 4K kunnen $0,15–0,40 per afbeelding kosten.",
   q3="Wat is Nano Banana?", a3="Nano Banana is de bijnaam voor de Gemini-beeldmodellen van Google. Nano Banana 2 is Gemini 3.1 Flash Image en Nano Banana Pro is Gemini 3 Pro Image.",
-  f1="Officiële prijzen van de API-prijspagina van elke aanbieder, gecontroleerd op 30 september 2026. OpenAI en Nano Banana Pro worden getoond tegen Runway API-tarieven.",
+  f1="Officiële prijzen van de API-prijspagina van elke aanbieder, gecontroleerd op 5 oktober 2026. OpenAI en Nano Banana Pro worden getoond tegen Runway API-tarieven.",
 )
 
 # Extra languages (i18n_extra/*.py)

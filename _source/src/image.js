@@ -1,11 +1,12 @@
 // TokenSave — AI Image Cost Calculator page (tokensave.app/image)
-// Prices: USD per generated image, checked 2026-09-30.
+// Prices: USD per generated image, checked 2026-10-05.
 //   official = the model maker's own API pricing page
 //   runway   = Runway API pricing page (1 credit = $0.01)
 // Sources:
 //   Nano Banana 2 / 2 Lite .... ai.google.dev/gemini-api/docs/pricing
 //   Grok Imagine .............. docs.x.ai/developers/pricing (Imagine API)
 //   FLUX.2 .................... bfl.ai/pricing (first MP + each additional MP; 1 MP = 1024x1024, max 4 MP)
+//   Luma Uni-1.1 .............. lumalabs.ai/api/pricing (text-to-image at 2048px)
 //   GPT Image, Nano Banana Pro, Nano Banana (2.5 Flash), Seedream 5, Runway Gen-4 Image ... docs.dev.runwayml.com/guides/pricing
 // Resolutions: 0.5k = 512px, 1k = 1024px, 2k = 2048px (4 MP), 4k = 4096px (16 MP)
 
@@ -26,6 +27,8 @@ const MODELS = [
   { name: 'GPT Image 2.5 · low',         by: 'OpenAI', src: 'runway', p: { '1k': 0.01, '2k': 0.01, '4k': 0.02 } },
   { name: 'GPT Image 2.5 · medium',      by: 'OpenAI', src: 'runway', p: { '1k': 0.05, '2k': 0.05, '4k': 0.11 } },
   { name: 'GPT Image 2.5 · high',        by: 'OpenAI', src: 'runway', p: { '1k': 0.16, '2k': 0.16, '4k': 0.19 } },
+  { name: 'GPT Image 2.5 · xhigh',       by: 'OpenAI', src: 'runway', p: { '1k': 0.28, '2k': 0.28, '4k': 0.34 } },
+  { name: 'GPT Image 2.5 · max',         by: 'OpenAI', src: 'runway', p: { '1k': 0.63, '2k': 0.63, '4k': 0.76 } },
   { name: 'GPT Image 2 · medium',        by: 'OpenAI', src: 'runway', p: { '1k': 0.05, '2k': 0.05, '4k': 0.11 } },
   { name: 'GPT Image 2 · high',          by: 'OpenAI', src: 'runway', p: { '1k': 0.20, '2k': 0.20, '4k': 0.41 } },
   { name: 'FLUX.2 [max]',                by: 'Black Forest Labs', src: 'official', p: flux(0.07, 0.03) },
@@ -39,6 +42,8 @@ const MODELS = [
   { name: 'Grok Imagine Image',          by: 'xAI', src: 'official', p: { '1k': 0.02, '2k': 0.02 } },
   { name: 'Seedream 5 Pro',              by: 'ByteDance', src: 'runway', p: { '1k': 0.05, '2k': 0.09 } },
   { name: 'Seedream 5 Lite',             by: 'ByteDance', src: 'runway', p: { '1k': 0.04, '2k': 0.04 } },
+  { name: 'Luma Uni-1.1',                by: 'Luma AI', src: 'official', p: { '2k': 0.0404 } },
+  { name: 'Luma Uni-1.1 Max',            by: 'Luma AI', src: 'official', p: { '2k': 0.10 } },
   { name: 'Runway Gen-4 Image',          by: 'Runway', src: 'official', p: { '0.5k': 0.05, '1k': 0.08 },
     label: { '0.5k': '720p', '1k': '1080p' } },
   { name: 'Runway Gen-4 Image Turbo',    by: 'Runway', src: 'official', p: { '0.5k': 0.02, '1k': 0.02 } },
