@@ -1,0 +1,94 @@
+<p>I had zero coding experience. I didn't even know what a "game engine" was. Still, by describing what I wanted to an AI in plain words, I made a game in 3 days, and getting it to launch cost <strong>$45</strong>.</p>
+<p><img loading="lazy" width="1024" height="500" alt="Sperm Race Google Play feature graphic" src="/blog-spermrace-feature-en.jpg" /></p>
+<p>This is part 1 of the dev log for Sperm Race, a silly sperm-racing game.</p>
+<ul>
+<li><strong>Google Play</strong>: <a href="https://play.google.com/store/apps/details?id=com.spermrace.game&amp;hl=en" target="_blank" rel="noopener">Sperm Race</a></li>
+<li><strong>Web version (itch.io)</strong>: <a href="https://johnisking.itch.io/sperm-race" target="_blank" rel="noopener">Sperm Race</a> — it came out on itch.io first, then on Google Play.</li>
+</ul>
+<h2>"Let's make an easy game" took me all the way back to sperm</h2>
+<p>My goal at the start was simple: <strong>"Just make an easy game."</strong></p>
+<p>But the more I thought about what "easy" means, the more primal my ideas got. A game with one rule. A game that needs no explanation. A game everyone already knows. Following that line all the way back, I ended up at <strong>sperm</strong>. Swim forward, reach the egg, done. When you think about it, it's the one race every one of us has already won once.</p>
+<p>The moment that thought hit me, I laughed out loud. <strong>"Wait, this is funny."</strong></p>
+<p>That one reaction set the direction. Not a serious game, but a goofy one that makes you smirk the second you see it.</p>
+<h2>I didn't know what a game engine was</h2>
+<p>I had never written code. I didn't know engines like Unity or Godot existed, let alone what they do.</p>
+<p>So I started without one. I told Claude (Sonnet) in Korean, "I want to make a game like this," and what came back was a single HTML file that ran right in the browser. Later I wrapped that same file into an Android app and put it on Google Play. Building by describing what you want to an AI instead of writing code yourself has a name now: <strong>vibe coding</strong>. Looking back, starting without knowing anything was actually faster. No engine to install, nothing to study, and I could play it on day one.</p>
+<h2>The first prompt: "I want to make a game where a sperm swims to meet the egg"</h2>
+<p>That one sentence produced the first version. A sperm appeared on screen, and I could move it with my finger.</p>
+<p>The problem was the tail. It was stiff as a stick, more matchstick than sperm. So the second thing I said was:</p>
+<p><strong>"Add a wave to the tail."</strong></p>
+<p><img loading="lazy" width="900" height="315" alt="Left: the first version with a stiff tail. Right: the next version with a wave" src="/blog-spermrace-tail.gif" /></p>
+<p>On the left is the stiff tail from the first version; on the right is the next version with the wave. Just making the tail wiggle finally made it look like a living sperm. That's how the main character was born.</p>
+<h2>Three days of adding, cutting and adding again</h2>
+<p>After that I couldn't stop. Every time I played a build, the next idea showed up. If it came to mind, I added it. If it didn't work, I cut it. Then I added again.</p>
+<ol>
+<li><strong>"Make a map."</strong> Now there was somewhere to swim.</li>
+<li><strong>"Add obstacles too."</strong> Once there was something to dodge, it became a game. This is today's Adventure mode.</li>
+<li><strong>"Add sperm racing, like real car racing."</strong> A Racing mode with 3 laps around a track.</li>
+<li><strong>"Make a mode where they run on their own like horse racing, and I place obstacles."</strong> Pick a sperm to root for and help it win with obstacles. This is Derby mode.</li>
+<li><strong>"Make a survival mode where you run away, with cancer as the motif."</strong> Dodge cancer cells in a maze and survive for 1 minute 30 seconds.</li>
+</ol>
+<p>The file dates left in my Downloads folder show how fast it went. I got the first HTML file in the early hours of August 19, and by the next afternoon I had downloaded a new version <strong>16 times</strong>. That's "fix this → download the new file → play" four or five times every half day. Meanwhile the code grew from 47 KB to 149 KB. By August 21 I was already taking screenshots for the store.</p>
+<p><img loading="lazy" width="525" height="1058" alt="Sperm Race main menu (current version — the Play with friends button was added after launch)" src="/blog-spermrace-menu-en.jpg" /></p>
+<h2>Graphics and sound effects, all in code</h2>
+<p>There isn't a single image file in this game. The character, backgrounds, tracks and mazes were all drawn in code by Sonnet.</p>
+<p><img loading="lazy" width="1260" height="380" alt="Four modes drawn entirely in code: Adventure, Racing, Derby, Survival" src="/blog-spermrace-modes.jpg" /></p>
+<p>From left: Adventure, Racing, Derby, Survival. The sperm is one ellipse and a wiggling line, the track is a thick curve, and the maze is glowing straight lines. For a silly game, that simplicity actually worked.</p>
+<p>Same with sound effects. There are no sound files; Sonnet synthesized the sounds in code. The only audio file in the game folder is free background music from Pixabay.</p>
+<h2>The testers' first reaction: "That's so original"</h2>
+<p>Before launch I showed it to testers. What came back was: <strong>"That's so original."</strong></p>
+<p>The idea that started with "wait, this is funny" wasn't funny only to me.</p>
+<p>Here's what was in the game at launch:</p>
+<ul>
+<li>4 modes: Adventure (120 stages), Racing (3 laps), Derby, Survival (last 1 minute 30 seconds)</li>
+<li>13 languages</li>
+<li>Controls: drag, arrow keys/WASD, gamepad</li>
+</ul>
+<p>Multiplayer with friends (up to 10 players in Derby, 4 in the other modes) came later, in an update after launch.</p>
+<h2>So what did it cost? $45</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>What I used</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code</td>
+<td>Claude Pro subscription (Sonnet)</td>
+<td>$20 (one month)</td>
+</tr>
+<tr>
+<td>Graphics</td>
+<td>Drawn in code</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>Background music</td>
+<td>Free tracks from Pixabay</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>Sound effects</td>
+<td>Made in code</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>Launch</td>
+<td>Google Play developer registration</td>
+<td>$25 (one-time)</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>$45</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>I use Claude Max 20× now, but Sperm Race was built <strong>entirely on the Pro plan.</strong> It was done within a month, so I only paid for one month.</p>
+<p>For comparison, if you run a small game through the <a href="/ai-game-cost-calculator">AI game cost calculator</a>, the standard stack (image and music AI plus Claude Max) comes out at $128–181. Sperm Race came in at about 25–35% of that.</p>
+<h2>Next time</h2>
+<p>So far it looks like "AI made a game in 3 days, easy." But the real struggle came after. Building took 3 days; fixing bugs took 14.</p>
+<p><strong>Next: 3 days to build, 14 days to fix bugs</strong> — why AI pokes at the wrong code when you ask it to "find the bug," and how I ended up finding bugs myself and having the AI fix them.</p>

@@ -424,3 +424,18 @@ GAME_HOWTO = [
 ]
 GAME_HOWTO[0]["src"] = "game-howto-ja"
 
+DEVLOG1 = [
+ _gm("en", "/blog/vibe-coding-a-game-beginner", "A Beginner Vibe-Codes a Game — Zero Coding, 3 Days, $45",
+     "No coding experience, no idea what a game engine was. How I vibe-coded a sperm racing game with Claude in 3 days and launched it for $45.",
+     "Jonhisking · October 5, 2026"),
+ _gm("ko", "/ko/blog/vibe-coding-game-mandeulgi", "초보자가 바이브 코딩으로 게임 만들기 — 코딩 0, 3일, $45",
+     "코딩 경험도, 게임 엔진 개념도 없던 초보자가 Claude에게 말로만 설명해 3일 만에 정자 레이싱 게임을 만들고 $45로 출시한 개발 일지입니다.",
+     "Jonhisking · 2026년 10월 5일"),
+ _gm("ja", "/ja/blog/vibe-coding-game-shoshinsha", "初心者がバイブコーディングでゲームを作ってみた — コード経験ゼロ、3日、$45",
+     "プログラミング経験ゼロ、ゲームエンジンも知らなかった初心者が、Claude に言葉で説明するだけで3日でゲームを作り、$45でリリースした開発日誌です。",
+     "Jonhisking · 2026年10月5日"),
+]
+for _d, _l in zip(DEVLOG1, ["en", "ko", "ja"]):
+    _d["src"] = "devlog-spermrace-1-" + _l
+    _d["og"] = "blog-spermrace-feature.jpg" if _l == "ko" else f"blog-spermrace-feature-{_l}.jpg"
+
