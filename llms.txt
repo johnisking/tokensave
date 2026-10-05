@@ -22,7 +22,6 @@
 ## Articles
 
 - [How much does it cost to make a game with AI? (2026)](https://tokensave.app/blog/ai-game-development-cost)
-- [AI game art cost per sprite: Midjourney vs Gemini vs PixelLab](https://tokensave.app/blog/ai-game-art-cost)
 - [Best value LLM in October 2026](https://tokensave.app/blog/best-value-llm-october-2026)
 - [LLM API pricing compared](https://tokensave.app/blog/llm-api-pricing-comparison)
 - [Claude Code cost per month](https://tokensave.app/blog/claude-code-cost-per-month)

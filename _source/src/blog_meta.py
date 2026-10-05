@@ -424,16 +424,3 @@ GAME_HOWTO = [
 ]
 GAME_HOWTO[0]["src"] = "game-howto-ja"
 
-# Game art tools compared (blog_src/art-<tag>.md), CTA -> game cost calculator
-GAME_ART = [
- _gm("en", "/blog/ai-game-art-cost", "AI Game Art Cost per Sprite: Midjourney vs Gemini vs PixelLab",
-     "What game sprites cost on Midjourney, Leonardo, Gemini, GPT Image, PixelLab and FLUX: per image, per usable sprite and for a whole 2D game.",
-     "Jonhisking · October 5, 2026"),
- _gm("ko", "/ko/blog/ai-game-graphic-bigyo", "게임 그래픽 AI 비교: Midjourney·Gemini·PixelLab, 1장에 얼마?",
-     "Midjourney, Leonardo, Gemini, GPT Image, PixelLab, FLUX로 게임 스프라이트를 만들 때 장당 비용과 게임 1개 전체 비용을 비교했습니다.",
-     "Jonhisking · 2026년 10월 5일"),
- _gm("ja", "/ja/blog/ai-game-gazou-hikaku", "ゲーム素材の画像生成AI比較：Midjourney・Gemini・PixelLab、1枚いくら？",
-     "Midjourney、Leonardo、Gemini、GPT Image、PixelLab、FLUX でゲーム素材を作るときの1枚あたりの費用と、ゲーム1本分の費用を比較しました。",
-     "Jonhisking · 2026年10月5日"),
-]
-for _a in GAME_ART: _a["src"] = "art-" + _a["tag"]
