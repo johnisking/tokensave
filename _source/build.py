@@ -330,6 +330,7 @@ def build():
     import variants as VAR
     VAR_ALTS = "\n".join(f'  <link rel="alternate" hreflang="{l}" href="{BASE}{p}" />' for l, p in VAR.PATHS.items()) + \
         f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{VAR.PATHS["en"]}" />'
+    import og_tool
     count = 0
     for tool in TOOLS:
         body = open(os.path.join(SRC, tool["body"]), encoding="utf-8").read()
@@ -373,10 +374,12 @@ def build():
             if tool["key"] == "token":
                 runtime["prices"] = {k: {"in": v["in"], "out": v["out"], "ctx": v.get("ctx")} for k, v in LLM["models"].items()}
             runtime["viewIn"] = VIEW_IN
+            og_file = f"og-{tool['key']}-{tag}.jpg"
+            og_tool.render(tag, tool["key"], s["h1"], s["desc"], os.path.join(DIST, og_file), os.path.join(SRC, "static", "apple-touch-icon.png"))
             values = {k: esc(v) for k, v in s.items()}
             values.update({k: esc(v) for k, v in SITE[tag].items()})
             values.update(
-                htmlLang=tag, dir=direction, url=url, ogLocale=og, ogImage=f"{BASE}/{tool['og']}",
+                htmlLang=tag, dir=direction, url=url, ogLocale=og, ogImage=f"{BASE}/{og_file}",
                 homeUrl=path_for(slug, TOOLS[0]), hreflang=hreflang, langOptions=options, langAll=lang_all, toolNav=nav,
                 ver=ver, adsHead=extras, faq=faq_html(s),
                 guide=(open(os.path.join(SRC, "guides", *([tag] if tag in ("ko", "ja") else []), tool["key"] + ".html"), encoding="utf-8").read() if tag in ("en", "ko", "ja")
@@ -530,8 +533,10 @@ def build():
             {"@type": "BreadcrumbList", "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + path_for(slug, TOOLS[0])},
                 {"@type": "ListItem", "position": 2, "name": gp["h1"], "item": url}]}, gp["faq_ld"]]}
+        og_name = f"og-game-{gl}.jpg"
+        og_tool.render(gl, "game", gp["h1"], gp["desc"], os.path.join(DIST, og_name), os.path.join(SRC, "static", "apple-touch-icon.png"))
         values = dict(
-            htmlLang=gl, dir="ltr", url=url, ogLocale=tag_og_[gl], ogImage=f"{BASE}/og-token.jpg",
+            htmlLang=gl, dir="ltr", url=url, ogLocale=tag_og_[gl], ogImage=f"{BASE}/{og_name}",
             title=esc(gp["title"]), desc=esc(gp["desc"]), lang=esc(S[gl]["lang"]),
             homeUrl=path_for(slug, TOOLS[0]), hreflang=GC_ALTS, langOptions=opts, langAll=opts_all, toolNav=nav, ver=ver, adsHead=extras,
             faq="", guide="", f1="", f2="", fAbout=esc(SITE[gl]["fAbout"]), fPrivacy=esc(SITE[gl]["fPrivacy"]),
