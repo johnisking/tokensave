@@ -97,8 +97,8 @@ EXT_NOTE = {"en": "Scores on a different scale cannot go on this chart, but one 
 PATH = {"en": "/compare/performance", "ko": "/ko/compare/performance", "ja": "/ja/compare/performance"}
 HOME = {"en": "/", "ko": "/ko/", "ja": "/ja/"}
 READ = {"en": 'What the chart means, model by model: <a href="/blog/best-value-llm-october-2026">Best value LLM in October 2026</a>.',
-        "ko": '모델별로 자세히 풀어 쓴 글: <a href="/ko/blog/ai-gaseongbi-sunwi-2026-10">2026년 10월 AI 가성비 순위</a>.',
-        "ja": 'モデルごとの詳しい解説：<a href="/ja/blog/ai-cospa-ranking-2026-10">2026年10月 AIコスパランキング</a>。'}
+        "ko": '모델별로 자세히 풀어 쓴 글: <a href="/ko/blog/ai-gaseongbi-sunwi-2026-10">2026년 10월 AI 가성비 순위</a>. 구독료는 <a href="/ko/blog/ai-gudokryo-bigyo">AI 구독료 원화 비교</a>에 있습니다.',
+        "ja": 'モデルごとの詳しい解説：<a href="/ja/blog/ai-cospa-ranking-2026-10">2026年10月 AIコスパランキング</a>。サブスクの料金は<a href="/ja/blog/ai-subscription-ryoukin-hikaku">生成AIのサブスク料金比較（日本円）</a>へ。'}
 
 T = {
  "en": dict(

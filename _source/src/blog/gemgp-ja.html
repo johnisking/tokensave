@@ -1,0 +1,100 @@
+<p>Google が Gemini アプリでプランごとに使えるモデルを変えます。<strong>10月9日から無料ユーザーは一番小さいモデルの Flash-Lite だけ</strong>になり、月725円の AI Plus もまもなく Pro モデルが使えなくなります。これまで無料でも Pro モデルや Deep Research をかなり使えたので、体感の変化は大きいはずです。何が変わるのか、プラン別の日本円の料金、そして無料のまま Pro 級を安く使う方法まで、日本語のトークン数で計算してまとめました。</p>
+<h2>プラン別に使えるモデル</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>プラン</th>
+<th style="text-align: right;">月額</th>
+<th style="text-align: center;">Flash-Lite</th>
+<th style="text-align: center;">Flash</th>
+<th style="text-align: center;">Pro</th>
+<th style="text-align: center;">Deep Think</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>無料</td>
+<td style="text-align: right;">0円</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+<td style="text-align: center;">✗</td>
+</tr>
+<tr>
+<td>AI Plus</td>
+<td style="text-align: right;">725円</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"><strong>✗（廃止）</strong></td>
+<td style="text-align: center;">✗</td>
+</tr>
+<tr>
+<td>AI Pro</td>
+<td style="text-align: right;">2,900円</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>AI Ultra 5x</td>
+<td style="text-align: right;">14,500円</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>AI Ultra 20x</td>
+<td style="text-align: right;">32,000円</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+</tbody>
+</table></div>
+<p>日本の月額は2026年10月6日時点で確認したものです。個人の Google アカウントが対象で、仕事用・学校用アカウントは別のルールになります。</p>
+<h2>いつから変わる？</h2>
+<ul>
+<li><strong>無料:</strong> 10月9日から Flash-Lite のみになります。</li>
+<li><strong>AI Plus:</strong> 一斉の切り替え日はなく、加入者ごとに適用日がメールで届きます。</li>
+<li><strong>AI Pro・Ultra:</strong> Flash-Lite・Flash・Pro をすべて使え、Deep Think も使えます。</li>
+</ul>
+<p>使えるモデルでは、考える深さを「低・中・高」から選べます。ただし高くするほど上限を早く使い切ります。上限はメッセージ数ではなく計算量で決まり、5時間ごとに回復します。Pro モデル、Deep Research、画像や動画の生成は、簡単な質問より多く上限を消費します。報道によると、無料プランのコンテキストウィンドウは32,000トークンです。</p>
+<h2>なぜ変えるのか</h2>
+<p>Google は9月30日に最上位モデル「Gemini 4 Argon」を公開しました。計算量の多い高性能モデルを有料プラン中心に回し、上位プランへの加入を増やす狙いだと見られています。</p>
+<h2>どうすればいい？</h2>
+<ul>
+<li><strong>ちょっとした検索・翻訳・要約が中心:</strong> 無料（Flash-Lite）で足りることが多いです。まず使ってみて、答えに物足りなさを感じてから決めても遅くありません。</li>
+<li><strong>Pro モデル目当てで AI Plus にしていた人:</strong> 適用日以降は725円では Pro を使えません。Pro が必要なら AI Pro（2,900円）に上げることになります。</li>
+<li><strong>学生:</strong> 18歳以上の大学生は、2026年12月31日までの申し込みで AI Plus を1年間無料で使えます。支払い方法の登録が必要で、期間後は自動で課金されるので注意してください。</li>
+<li><strong>月2,900円が高いと感じるなら:</strong> 同じ価格帯の ChatGPT Plus（3,000円）や Claude Pro（月$22・税込、約3,480円）と比べてみる価値があります。ChatGPT は無料でも GPT-5.6 Luna で普段の会話は無制限です。プラン別の料金は<a href="/ja/blog/ai-subscription-ryoukin-hikaku">生成AIのサブスク料金比較</a>にまとめました。</li>
+</ul>
+<h2>Pro 級を安く使う方法：API</h2>
+<p>Gemini のモデルは、Google AI Studio や API から使った分だけ払うこともできます。日本語は英語よりトークンが約79%多く出るので、日本語のトークン数で計算しました。1回の質問を入力1,500トークン・出力700トークンとして、<strong>1日20回・30日使った場合</strong>:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>モデル</th>
+<th style="text-align: right;">1か月の API 料金</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gemini 3.5 Flash-Lite</td>
+<td style="text-align: right;">約210円</td>
+</tr>
+<tr>
+<td>Gemini 3.8 Flash</td>
+<td style="text-align: right;">約360円</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td style="text-align: right;">約1,080円</td>
+</tr>
+</tbody>
+</table></div>
+<p>1ドル＝158円で計算。会話が長くなると、毎回それまでの会話も送るので料金は増えます。</p>
+<p><strong>Pro モデルでも1日20回なら AI Pro（2,900円）より安く済みます。</strong> ただしアプリの便利な機能（画像生成、Deep Research、Gmail や Docs との連携など）は使えず、API キーに対応したチャットアプリが別に必要です。自分の使い方だとどちらが安いかは、<a href="/ja/plans">サブスク vs API 計算機</a>ですぐ比べられます。日本語のトークンについては<a href="/ja/blog/nihongo-tokens-gpt">日本語は英語よりトークンが多い？</a>で詳しく測っています。</p>
+<p><em>出典: <a href="https://helentech.jp/news-gemini-app-limits-model-access-by-plan-92116/" target="_blank" rel="noopener">Helentech</a>、<a href="https://thebridge.jp/2026/10/google-gemini-app-model-access-flash-lite-october" target="_blank" rel="noopener">THE BRIDGE</a>、<a href="https://www.notebookcheck.net/Google-Gemini-drops-Flash-and-Pro-for-free-users-on-October-9.1415964.0.html" target="_blank" rel="noopener">Notebookcheck</a>、日本の月額は<a href="https://www.aitool-ryokin.com/tools/gemini" target="_blank" rel="noopener">AIツール料金</a>・<a href="https://hatenabase.jp/blog/gemini-pricing-guide-2026/" target="_blank" rel="noopener">はてなベース</a>の確認値。2026年10月6日確認。適用日や上限は変わることがあるので、契約前に Google の公式ページを確認してください。</em></p>

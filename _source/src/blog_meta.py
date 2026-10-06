@@ -484,3 +484,20 @@ KO6 = [
      "챗GPT Go(13,000원)와 Plus(29,000원) 비교: Luna와 Sol 모델 차이, 추론 단계, Codex, 광고, 누구에게 어느 쪽이 맞는지, API가 더 싼 경우까지.",
      *_CTA_PL["ko"]),
 ]
+_BY6J = "Jonhisking · 2026年10月6日"
+def _j6(path, src, title, desc, cta, btn):
+    d = _cc("ja", path, src, title, desc, _BY6J, cta, btn); d["date"] = "2026-10-06"; return d
+JA6 = [
+ _j6("/ja/blog/gemini-muryou-flash-lite", "gemgp-ja", "Gemini無料版は10月9日からFlash-Liteのみに：プラン別の変更と料金",
+     "10月9日からGemini無料版はFlash-Liteのみ、AI Plus（725円）もProが使えなくなります。プラン別の日本円の料金と、APIでPro級を安く使う方法まで。",
+     *_CTA_PL["ja"]),
+ _j6("/ja/blog/ai-subscription-ryoukin-hikaku", "subs-ja", "生成AIのサブスク料金比較：ChatGPT・Claude・Gemini・Grok【日本円】",
+     "ChatGPT・Claude・Gemini・Grokの有料プランを、日本で実際に払う金額（税込）で比較。725円から3万円台まで、誰にどのプランが向いているか。",
+     *_CTA_PL["ja"]),
+ _j6("/ja/blog/chatgpt-go-vs-plus", "gogo-ja", "ChatGPT GoとPlusの違い：1,400円と3,000円で何が変わる？",
+     "ChatGPT Go（1,400円）とPlus（3,000円）の違い：LunaとSolのモデル差、推論レベル、Codex、広告、どちらが向いているか、APIのほうが安いケースまで。",
+     *_CTA_PL["ja"]),
+]
+RBX_JA = [_j6("/ja/blog/roblox-game-tsukurikata", "rbx-ja", "AIでRobloxゲームを作る方法：手順・費用・今伸びているジャンル【2026年】",
+     "Roblox AssistantとAIでロブロックスのゲームを作る6つの手順、今チャートで伸びている8ジャンル、費用（約4,000円〜）、DevExでの収益化まで。",
+     *_CTA_GM["ja"])]

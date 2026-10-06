@@ -16,9 +16,9 @@ from i18n_video import NAV, V
 from i18n_image import I
 from i18n_site import SITE
 from seo_meta import META
-from blog_meta import BLOG, BLOG_DATE, PRO, MISTRAL_FR, PROMPT_PL, GUIDES, CC_COST, CC_LIMITS, CC_SAVE, CMP, GPT6, API_CMP, TPW, COUNT, CHLIM, CXLIM, CMAX, AISITE, GEM4, RANK, GAME, GAME_HOWTO, DEVLOG1, CHEAP, CTOK, SUBS, GPT61, DS41, AGCMP, GOPLUS, RBX, KO6
+from blog_meta import BLOG, BLOG_DATE, PRO, MISTRAL_FR, PROMPT_PL, GUIDES, CC_COST, CC_LIMITS, CC_SAVE, CMP, GPT6, API_CMP, TPW, COUNT, CHLIM, CXLIM, CMAX, AISITE, GEM4, RANK, GAME, GAME_HOWTO, DEVLOG1, CHEAP, CTOK, SUBS, GPT61, DS41, AGCMP, GOPLUS, RBX, KO6, JA6, RBX_JA
 CC = (CC_COST, CC_LIMITS, CC_SAVE, CXLIM, CMAX)
-MULTI = (CC_COST, CC_LIMITS, CC_SAVE, CMP, GPT6, API_CMP, TPW, COUNT, CHLIM, CXLIM, CMAX, AISITE, GEM4, RANK, GAME, GAME_HOWTO, DEVLOG1, CHEAP, CTOK, SUBS, GPT61, DS41, AGCMP, GOPLUS, RBX, KO6)
+MULTI = (CC_COST, CC_LIMITS, CC_SAVE, CMP, GPT6, API_CMP, TPW, COUNT, CHLIM, CXLIM, CMAX, AISITE, GEM4, RANK, GAME, GAME_HOWTO, DEVLOG1, CHEAP, CTOK, SUBS, GPT61, DS41, AGCMP, GOPLUS, RBX, KO6, JA6, RBX_JA)
 PRO_BY_TAG = {b["tag"]: b for b in PRO}
 from i18n_view import MORE_LANGS
 from i18n_plans_all import PL, PNAV, PMETA
@@ -405,6 +405,14 @@ def build():
             os.makedirs(folder, exist_ok=True)
             open(os.path.join(folder, tool["file"]), "w", encoding="utf-8").write(render(base, body, values))
             count += 1
+            if tool["key"] == "token" and tag == "ja":  # Japanese tokens <-> characters converter
+                import tokens_moji_ja as TMJ
+                jurl = BASE + TMJ.PATH
+                jv = dict(values)
+                jv.update(title=esc(TMJ.TITLE), desc=esc(TMJ.DESC), url=jurl, hreflang="", faq="", guide="", moreLink="", proLink="",
+                          ldjson=js(TMJ.ld(jurl)), tjson=js({"static": True}),
+                          scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>')
+                open(os.path.join(DIST, TMJ.PATH.lstrip("/") + ".html"), "w", encoding="utf-8").write(render(base, TMJ.body(), jv))
             for sp in (VAR.SPECS if tool["key"] == "token" else []):  # provider token counter landing pages
               if tag in sp["paths"]:
                   vt = sp["txt"][tag]
@@ -611,7 +619,7 @@ def build():
     og_by_key = {"video": "og-video.jpg", "image": "og-image.jpg"}
     for GROUP, gimg, gtool in [(BLOG, "blog-language-tax-chart-v4.png", TOOLS[0]), (PRO, "blog-chatgpt-pro-tiers.png", plans_tool), (MISTRAL_FR, "blog-mistral-francais.png", TOOLS[0]), (PROMPT_PL, "blog-prompt-polski.png", TOOLS[0])] + [
             ([g], og_by_key.get(g["tool"], "og-token.jpg"), tool_by_key[g["tool"]]) for g in GUIDES] + [
-            (G, "og-token.jpg", tool_by_key["agents"]) for G in CC] + [(CMP, "og-token.jpg", plans_tool), (GPT6, "og-token.jpg", TOOLS[0]), (GEM4, "og-token.jpg", TOOLS[0]), (RANK, "og-token.jpg", TOOLS[0]), (API_CMP, "og-token.jpg", TOOLS[0]), (TPW, "og-token.jpg", TOOLS[0]), (COUNT, "og-token.jpg", TOOLS[0]), (CHLIM, "og-token.jpg", plans_tool), (AISITE, "og-token.jpg", TOOLS[0]), (GAME, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (GAME_HOWTO, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (DEVLOG1, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (CHEAP, "og-token.jpg", TOOLS[0]), (CTOK, "og-token.jpg", tool_by_key["agents"]), (SUBS, "og-token.jpg", plans_tool), (GPT61, "og-token.jpg", TOOLS[0]), (DS41, "og-token.jpg", TOOLS[0]), (AGCMP, "og-token.jpg", tool_by_key["agents"]), (GOPLUS, "og-token.jpg", plans_tool), (RBX, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (KO6, "og-token.jpg", plans_tool)]:
+            (G, "og-token.jpg", tool_by_key["agents"]) for G in CC] + [(CMP, "og-token.jpg", plans_tool), (GPT6, "og-token.jpg", TOOLS[0]), (GEM4, "og-token.jpg", TOOLS[0]), (RANK, "og-token.jpg", TOOLS[0]), (API_CMP, "og-token.jpg", TOOLS[0]), (TPW, "og-token.jpg", TOOLS[0]), (COUNT, "og-token.jpg", TOOLS[0]), (CHLIM, "og-token.jpg", plans_tool), (AISITE, "og-token.jpg", TOOLS[0]), (GAME, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (GAME_HOWTO, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (DEVLOG1, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (CHEAP, "og-token.jpg", TOOLS[0]), (CTOK, "og-token.jpg", tool_by_key["agents"]), (SUBS, "og-token.jpg", plans_tool), (GPT61, "og-token.jpg", TOOLS[0]), (DS41, "og-token.jpg", TOOLS[0]), (AGCMP, "og-token.jpg", tool_by_key["agents"]), (GOPLUS, "og-token.jpg", plans_tool), (RBX, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (KO6, "og-token.jpg", plans_tool), (JA6, "og-token.jpg", plans_tool), (RBX_JA, "og-token.jpg", {"page": "ai-game-cost-calculator"})]:
       blog_en = next((b for b in GROUP if b["tag"] == "en"), None)
       def _alts_for(me):  # hreflang: one URL per language, and a same-language sibling is never this page's alternate
           grp = [x for x in GROUP if x["tag"] != me["tag"] or x is me]
@@ -717,6 +725,7 @@ def build():
         ) + f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{url_for("", tool)}"/>'
         for slug, *_ in LANGS:
             entries.append(f"\n  <url>\n    <loc>{url_for(slug, tool)}</loc>\n    <lastmod>{LASTMOD}</lastmod>{alts}\n  </url>")
+    entries.append(f"\n  <url>\n    <loc>{BASE}/ja/token-moji-henkan</loc>\n    <lastmod>2026-10-06</lastmod>\n  </url>")
     for pg in PAGES:
         if pg["path"]:
             entries.append(f"\n  <url>\n    <loc>{BASE}{pg['path']}</loc>\n    <lastmod>{LASTMOD}</lastmod>\n  </url>")
