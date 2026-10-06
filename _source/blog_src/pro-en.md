@@ -1,5 +1,7 @@
 On September 29, 2026 OpenAI split ChatGPT Pro into three plans: **Pro 100**, **Pro 200** and a new **Pro 500**. It also quietly cut how much you get on Pro 200. If you are deciding between them, or wondering whether you need Pro at all, here is what actually changed and how to pick.
 
+**Short answer:** pick the smallest plan you don't hit the limit on. Pro 100, 200 and 500 all cost the same $20 per Plus-worth of usage; the only differences are how much usage you get (5x, 10x, 25x Plus) and Ultrafast, which is Pro 500 only.
+
 ![ChatGPT plans compared by usage and price](/blog-chatgpt-pro-tiers.png)
 
 ## The plans side by side
