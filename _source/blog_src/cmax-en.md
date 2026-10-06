@@ -58,6 +58,10 @@ At this level, the API would usually cost far more. On our cost model, a heavy u
 
 More in [How to save tokens in Claude Code](/blog/claude-code-save-tokens).
 
+## Can you get Claude Max for free?
+
+Only in one case. In February 2026 Anthropic opened **Claude for Open Source**: six months of free Claude Max 20× for maintainers and core contributors of large open-source projects. The bar is high: a project with 5,000+ GitHub stars or 1 million+ monthly npm downloads, active maintenance in the last three months, and a primary or core-team role. Anthropic said it would accept up to 10,000 contributors and review applications on a rolling basis; check [claude.com](https://claude.com/contact-sales/claude-for-oss) to see whether it is still open.
+
 ## Claude Max or ChatGPT Pro?
 
 At $200, Claude Max 20× is now 20× its base plan, while ChatGPT Pro 200 is 10× its base plan for new subscribers. The two companies' base plans are not the same size, so compare what you actually use. See [ChatGPT Pro vs Claude Max](/blog/chatgpt-pro-vs-claude-max).
