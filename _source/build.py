@@ -219,7 +219,7 @@ def head_extras():
     return "\n".join(out)
 
 def faq_html(s):
-    qs = [(s[f"q{i}"], s[f"a{i}"]) for i in (1, 2, 3, 4) if f"q{i}" in s]
+    qs = [(s[f"q{i}"], s[f"a{i}"]) for i in range(1, 7) if f"q{i}" in s]
     if not qs:
         return ""
     cards = "\n".join(
@@ -328,8 +328,8 @@ def build():
             assert tag in NAV and tag in SITE, f"NAV/SITE missing {tag}"
 
     import variants as VAR
-    VAR_ALTS = "\n".join(f'  <link rel="alternate" hreflang="{l}" href="{BASE}{p}" />' for l, p in VAR.PATHS.items()) + \
-        f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{VAR.PATHS["en"]}" />'
+    VAR_ALTS = {sp["key"]: "\n".join(f'  <link rel="alternate" hreflang="{l}" href="{BASE}{p}" />' for l, p in sp["paths"].items()) +
+        f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{sp["paths"]["en"]}" />' for sp in VAR.SPECS}
     import og_tool
     count = 0
     for tool in TOOLS:
@@ -389,7 +389,10 @@ def build():
                 tjson=js(runtime),
                 scriptTag=f'<script type="module" src="/{tool["script"]}?v={ver}"></script>',
             )
-            if tool["key"] == "token" and tag in VAR.PATHS and "</section>" in values["guide"]:
+            if tool["key"] == "token" and tag == "en" and "</section>" in values["guide"]:
+                lk = "Using one provider? Open a counter with its models preselected: " + ", ".join(f'<a href="{sp["paths"]["en"]}">{sp["nav"]["en"]}</a>' for sp in VAR.SPECS) + "."
+                values["guide"] = values["guide"].replace("</section>", f"      <p>{lk}</p>\n    </section>", 1)
+            elif tool["key"] == "token" and tag in VAR.PATHS and "</section>" in values["guide"]:
                 lk = {"en": "Using Claude? Open the <a href=\"{p}\">Claude token counter</a> with Opus, Sonnet and Haiku preselected.",
                       "ko": "Claude를 쓰시나요? Opus·Sonnet·Haiku가 바로 선택된 <a href=\"{p}\">Claude 토큰 계산기</a>를 열어 보세요.",
                       "ja": "Claude をお使いですか？ Opus・Sonnet・Haiku が最初から選ばれた<a href=\"{p}\">Claude トークンカウンター</a>をどうぞ。"}[tag].format(p=VAR.PATHS[tag])
@@ -398,28 +401,29 @@ def build():
             os.makedirs(folder, exist_ok=True)
             open(os.path.join(folder, tool["file"]), "w", encoding="utf-8").write(render(base, body, values))
             count += 1
-            if tool["key"] == "token" and tag in VAR.PATHS:  # Claude token counter landing page
-                vt = VAR.TXT[tag]
-                vguide, vfaq = VAR.guide_and_faq(tag, LLM)
-                vurl = BASE + VAR.PATHS[tag]
-                vs = dict(s, title=vt["title"], desc=vt["desc"], h1=vt["h1"], sub=vt["sub"])
-                for i in (1, 2, 3, 4):
-                    vs.pop(f"q{i}", None); vs.pop(f"a{i}", None)
-                for i, (q_, a_) in enumerate(vfaq, 1):
-                    vs[f"q{i}"], vs[f"a{i}"] = q_, a_
-                vgraph = [dict(graph[0], name=vt["h1"], url=vurl, description=vt["desc"]),
-                          {"@type": "FAQPage", "inLanguage": tag, "mainEntity": [{"@type": "Question", "name": q_, "acceptedAnswer": {"@type": "Answer", "text": a_}} for q_, a_ in vfaq]},
-                          {"@type": "BreadcrumbList", "itemListElement": [
-                              {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": url_for(slug, TOOLS[0])},
-                              {"@type": "ListItem", "position": 2, "name": vt["h1"], "item": vurl}]}]
-                vvalues = dict(values)
-                vvalues.update({k: esc(v) for k, v in vs.items()})
-                vvalues.update(url=vurl, hreflang=VAR_ALTS, guide=vguide, faq=faq_html(vs),
-                               ldjson=js({"@context": "https://schema.org", "@graph": vgraph}),
-                               tjson=js(dict(runtime, defaultProvider="claude", defaultModel="claude-sonnet-5-5")))
-                vfile = os.path.join(DIST, VAR.PATHS[tag].lstrip("/") + ".html")
-                os.makedirs(os.path.dirname(vfile), exist_ok=True)
-                open(vfile, "w", encoding="utf-8").write(render(base, body, vvalues))
+            for sp in (VAR.SPECS if tool["key"] == "token" else []):  # provider token counter landing pages
+              if tag in sp["paths"]:
+                  vt = sp["txt"][tag]
+                  vguide, vfaq = VAR.guide_and_faq(tag, LLM, sp)
+                  vurl = BASE + sp["paths"][tag]
+                  vs = dict(s, title=vt["title"], desc=vt["desc"], h1=vt["h1"], sub=vt["sub"])
+                  for i in range(1, 7):
+                      vs.pop(f"q{i}", None); vs.pop(f"a{i}", None)
+                  for i, (q_, a_) in enumerate(vfaq, 1):
+                      vs[f"q{i}"], vs[f"a{i}"] = q_, a_
+                  vgraph = [dict(graph[0], name=vt["h1"], url=vurl, description=vt["desc"]),
+                            {"@type": "FAQPage", "inLanguage": tag, "mainEntity": [{"@type": "Question", "name": q_, "acceptedAnswer": {"@type": "Answer", "text": a_}} for q_, a_ in vfaq]},
+                            {"@type": "BreadcrumbList", "itemListElement": [
+                                {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": url_for(slug, TOOLS[0])},
+                                {"@type": "ListItem", "position": 2, "name": vt["h1"], "item": vurl}]}]
+                  vvalues = dict(values)
+                  vvalues.update({k: esc(v) for k, v in vs.items()})
+                  vvalues.update(url=vurl, hreflang=VAR_ALTS[sp["key"]], guide=vguide, faq=faq_html(vs),
+                                 ldjson=js({"@context": "https://schema.org", "@graph": vgraph}),
+                                 tjson=js(dict(runtime, defaultProvider=sp["provider"], defaultModel=sp["model"])))
+                  vfile = os.path.join(DIST, sp["paths"][tag].lstrip("/") + ".html")
+                  os.makedirs(os.path.dirname(vfile), exist_ok=True)
+                  open(vfile, "w", encoding="utf-8").write(render(base, body, vvalues))
 
     # English site pages
     en_nav = "\n".join(f'          <a href="{path_for("", t)}" class="{NAV_OFF}">{esc(NAV["en"][t["nav"]])}</a>' for t in TOOLS)
@@ -724,8 +728,9 @@ def build():
     for cp in [cmp_hub] + cmp_pages:
         alts_ = perf_x if cp["path"] == "/compare/performance" else ""
         entries.append(f"\n  <url>\n    <loc>{BASE}{cp['path']}</loc>\n    <lastmod>{LLM.get('checked', LASTMOD)}</lastmod>{alts_}{img_tags(cp['path'])}\n  </url>")
-    var_x = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{BASE}{p}"/>' for l, p in VAR.PATHS.items())
-    for p_ in VAR.PATHS.values():
+    for sp in VAR.SPECS:
+      var_x = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{BASE}{p}"/>' for l, p in sp["paths"].items()) if len(sp["paths"]) > 1 else ""
+      for p_ in sp["paths"].values():
         entries.append(f"\n  <url>\n    <loc>{BASE}{p_}</loc>\n    <lastmod>{LLM.get('checked', LASTMOD)}</lastmod>{var_x}\n  </url>")
     for pl in PERF_LANGS[1:]:
         entries.append(f"\n  <url>\n    <loc>{BASE}{PERF.PATH[pl]}</loc>\n    <lastmod>{LLM.get('checked', LASTMOD)}</lastmod>{perf_x}{img_tags(PERF.PATH[pl])}\n  </url>")
