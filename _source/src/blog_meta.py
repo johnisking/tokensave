@@ -439,6 +439,22 @@ for _d, _l in zip(DEVLOG1, ["en", "ko", "ja"]):
     _d["src"] = "devlog-spermrace-1-" + _l
     _d["og"] = "blog-spermrace-feature.jpg" if _l == "ko" else f"blog-spermrace-feature-{_l}.jpg"
 
+DEVLOG2 = [
+ _gm("en", "/blog/google-play-closed-testing-14-days", "Google Play Closed Testing: 14 Bugs I Fixed in 14 Days (Vibe-Coded Game)",
+     "Google Play's 14-day closed test with 12+ testers, used to fix 14 bugs in a game I vibe-coded with AI. Reproduced in the real game, plus a checklist.",
+     "Jonhisking · October 6, 2026"),
+ _gm("ko", "/ko/blog/google-play-bigonggae-teseuteu-14il", "구글 플레이 비공개 테스트 14일, AI로 만든 게임 버그 14개 잡은 기록",
+     "구글 플레이 비공개 테스트(12명·14일) 동안 바이브 코딩으로 만든 게임의 버그 14개를 잡은 기록. 실제 재현 화면과 AI에게 버그를 설명하는 법까지 정리했습니다.",
+     "Jonhisking · 2026년 10월 6일"),
+ _gm("ja", "/ja/blog/google-play-closed-test-14nichi", "Google Play クローズドテスト14日間で、AIで作ったゲームのバグ14個を直した記録",
+     "Google Play のクローズドテスト(12人・14日)の間に、バイブコーディングで作ったゲームのバグ14個を直した記録。実際の再現画面とAIへのバグの伝え方も。",
+     "Jonhisking · 2026年10月6日"),
+]
+for _d, _l in zip(DEVLOG2, ["en", "ko", "ja"]):
+    _d["src"] = "devlog-spermrace-2-" + _l
+    _d["date"] = "2026-10-06"
+    _d["og"] = "blog-spermrace-2-hero.jpg" if _l == "ko" else f"blog-spermrace-2-hero-{_l}.jpg"
+
 
 _BY6 = "Jonhisking · October 6, 2026"
 def _n6(path, src, title, desc, cta, btn):
