@@ -44,7 +44,10 @@ jobs:
       - name: Rebuild site
         if: steps.check.outputs.changed == 'true'
         run: |
-          python3 _source/build.py
+          if ! python3 _source/build.py > build.log 2>&1; then
+            tail -n 25 build.log | while IFS= read -r l; do echo "::error::$l"; done
+            exit 1
+          fi
           cp -r _source/dist/* .
           rm -rf _source/dist
 
