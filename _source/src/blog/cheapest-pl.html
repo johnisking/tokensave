@@ -1,0 +1,122 @@
+<p>Jeśli liczy się tylko najniższy rachunek, najtańsze API AI w październiku 2026 to <strong>GPT-5 nano</strong>, a za nim <strong>GPT-6 Luna</strong> i <strong>Qwen 3.8 Flash</strong>. Najtańszy model rzadko jednak nadaje się do każdego zadania. Poniżej cennik API wszystkich głównych modeli ułożony według kosztu prawdziwego zapytania, koszt 1 mln tokenów na wejściu i wyjściu, tanie modele, których warto używać, oraz sytuacje, w których droższy model wychodzi taniej.</p>
+<p><strong>Krótko:</strong> najtańszym API AI jest GPT-5 nano (0,05 / 0,40 USD za 1 mln tokenów wejściowych / wyjściowych, ok. 3 USD za 10 000 typowych zapytań), ale na start lepiej wypróbować GPT-6 Luna, która kosztuje niewiele więcej.</p>
+<h2>Jak porównaliśmy ceny?</h2>
+<p>Porównaliśmy koszt jednego typowego zapytania, a nie samą cenę za milion tokenów, bo ta bywa myląca z dwóch powodów:</p>
+<ul>
+<li><strong>Wyjście kosztuje od 3 do 8 razy więcej niż wejście</strong> w większości modeli, więc model z tanim wejściem i drogim wyjściem może przegrać z modelem odwrotnym.</li>
+<li><strong>Tokenizery się różnią.</strong> Ten sam angielski tekst to w Claude Opus i Sonnet około 30% więcej tokenów niż w GPT, a w Gemini około 5% mniej. Model Claude za „2 USD za milion” kosztuje więc więcej na zapytanie niż model GPT za „2 USD za milion”.</li>
+</ul>
+<p>Dlatego wyceniliśmy jedno typowe zapytanie: <strong>2000 tokenów wejściowych i 500 wyjściowych po angielsku</strong>, policzonych tak, jak policzyłby je tokenizer danego modelu, według oficjalnych cenników sprawdzonych 1 października 2026. Bez cache'owania i rabatów za batch.</p>
+<h2>Najtańsze API AI – cennik i koszt 1 mln tokenów</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Firma</th>
+<th>Wejście / wyjście za 1 mln (USD)</th>
+<th style="text-align: right;">1 zapytanie (USD)</th>
+<th style="text-align: right;">10 000 zapytań (USD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-5 nano</td>
+<td>OpenAI</td>
+<td>0,05 / 0,40</td>
+<td style="text-align: right;">0,00030</td>
+<td style="text-align: right;">3,00</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td>OpenAI</td>
+<td>0,10 / 0,50</td>
+<td style="text-align: right;">0,00045</td>
+<td style="text-align: right;">4,50</td>
+</tr>
+<tr>
+<td>Qwen 3.8 Flash</td>
+<td>Qwen</td>
+<td>0,15 / 0,47</td>
+<td style="text-align: right;">0,00053</td>
+<td style="text-align: right;">5,35</td>
+</tr>
+<tr>
+<td>GPT-4o mini</td>
+<td>OpenAI</td>
+<td>0,15 / 0,60</td>
+<td style="text-align: right;">0,00060</td>
+<td style="text-align: right;">6,00</td>
+</tr>
+<tr>
+<td>Mistral Small</td>
+<td>Mistral</td>
+<td>0,15 / 0,60</td>
+<td style="text-align: right;">0,00063</td>
+<td style="text-align: right;">6,30</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Flash-Lite</td>
+<td>Google</td>
+<td>0,25 / 1,50</td>
+<td style="text-align: right;">0,00119</td>
+<td style="text-align: right;">11,88</td>
+</tr>
+<tr>
+<td>DeepSeek V4.1 Flash (szczyt)</td>
+<td>DeepSeek</td>
+<td>0,30 / 1,20</td>
+<td style="text-align: right;">0,00120</td>
+<td style="text-align: right;">12,00</td>
+</tr>
+<tr>
+<td>GPT-5 mini</td>
+<td>OpenAI</td>
+<td>0,25 / 2,00</td>
+<td style="text-align: right;">0,00150</td>
+<td style="text-align: right;">15,00</td>
+</tr>
+<tr>
+<td>GPT-4.1 mini</td>
+<td>OpenAI</td>
+<td>0,40 / 1,60</td>
+<td style="text-align: right;">0,00160</td>
+<td style="text-align: right;">16,00</td>
+</tr>
+<tr>
+<td>Gemini 3.5 Flash-Lite</td>
+<td>Google</td>
+<td>0,30 / 2,50</td>
+<td style="text-align: right;">0,00176</td>
+<td style="text-align: right;">17,57</td>
+</tr>
+<tr>
+<td>Mistral Large 3</td>
+<td>Mistral</td>
+<td>0,50 / 1,50</td>
+<td style="text-align: right;">0,00184</td>
+<td style="text-align: right;">18,38</td>
+</tr>
+</tbody>
+</table></div>
+<p>Dla porównania te same 10 000 zapytań kosztuje <strong>90 USD</strong> w GPT-6 Sol, <strong>117 USD</strong> w Claude Sonnet 5.5, <strong>234 USD</strong> w Claude Opus 5.5 i <strong>450 USD</strong> w GPT-6 Astra. Najtańszy model z tabeli kosztuje mniej niż 1% tego, co GPT-6 Astra.</p>
+<p>Ceny są w dolarach. Przy płatnościach w dolarach z polskiej karty bank lub karta zwykle doliczają 3–6% za przewalutowanie, a przy subskrypcjach Claude osoby prywatne płacą do tego 23% VAT – szczegóły w tekście <a href="/pl/blog/ceny-subskrypcji-ai">ceny subskrypcji AI w Polsce</a>.</p>
+<h2>Który tani model wybrać?</h2>
+<p>Na start wybierz GPT-6 Luna, a do najprostszych zadań na masową skalę – GPT-5 nano.</p>
+<ul>
+<li><strong>GPT-6 Luna</strong> warto wypróbować jako pierwszy. To najnowszy mały model OpenAI (wrzesień 2026), droższy od GPT-5 nano tylko o 1,50 USD na 10 000 zapytań. Dobry do klasyfikacji, wyciągania danych, routingu, krótkich odpowiedzi i streszczeń.</li>
+<li><strong>GPT-5 nano</strong> do najprostszej pracy na największą skalę, gdzie liczy się każdy ułamek centa: tagowanie, sprawdzanie tak/nie, filtrowanie spamu.</li>
+<li><strong>Qwen 3.8 Flash</strong> i <strong>Mistral Small</strong> to najtańsze opcje spoza OpenAI – przydatne, jeśli chcesz mieć drugiego dostawcę albo modele open-weight, które później możesz hostować sam.</li>
+<li><strong>Gemini 3.1 Flash-Lite</strong> i <strong>DeepSeek V4.1 Flash</strong> kosztują mniej więcej dwa razy więcej niż Luna, ale są o krok lepsze w pisaniu i rozumowaniu, a i tak wychodzą o około 87% taniej na zapytanie niż GPT-6 Sol. DeepSeek V4.1 Flash poza godzinami szczytu kosztuje połowę (0,15 / 0,60 USD), co stawia go tuż za GPT-6 Luna; zobacz <a href="/blog/deepseek-v4-1-flash-api-pricing">cennik DeepSeek V4.1 Flash</a> (po angielsku). O darmowym dostępie do Gemini piszę w tekście <a href="/pl/blog/gemini-za-darmo-flash-lite">Gemini za darmo: Flash-Lite</a>.</li>
+<li><strong>Claude Haiku 4.5</strong> to najtańszy model Claude: 0,0047 USD za zapytanie, czyli około 10 razy więcej niż Luna. Wybierz go, gdy potrzebujesz konkretnie zachowania Claude, a nie ze względu na cenę.</li>
+</ul>
+<h2>Kiedy najtańszy model kosztuje więcej?</h2>
+<p>Wtedy, gdy się myli: tani model, który zawodzi, kosztuje Cię dwa razy – raz za złą odpowiedź i drugi raz za ponowienie w lepszym modelu, plus Twój czas. Dwa sposoby oszczędzają więcej niż wybieranie wszędzie najtańszego modelu:</p>
+<ol>
+<li><strong>Kieruj zapytania według trudności.</strong> Wysyłaj wszystko najpierw do małego modelu, a do GPT-6 Sol, Claude Sonnet lub Gemini 3.1 Pro przekazuj tylko zapytania, z którymi sobie nie poradził (albo które oznaczysz jako trudne). Jeśli 80% zapytań zostaje w GPT-6 Luna, a 20% idzie do GPT-6 Sol, średni koszt spada o około 75% w porównaniu z wysyłaniem wszystkiego do Sol.</li>
+<li><strong>Tnij tokeny, nie tylko cenę.</strong> Prompt caching u większości dostawców nalicza powtarzane instrukcje i dokumenty po około jednej dziesiątej ceny wejścia, a API batch bierze mniej więcej połowę ceny za zadania, które mogą poczekać. Zobacz <a href="/blog/prompt-caching-explained">prompt caching</a> i <a href="/blog/batch-api-half-price">API batch za pół ceny</a> (po angielsku) oraz <a href="/pl/blog/jak-skrocic-prompt-po-polsku">jak skrócić prompt po polsku</a>.</li>
+</ol>
+<h2>Czy język zmienia ranking najtańszych API?</h2>
+<p>Ranking zostaje ten sam, ale rachunek rośnie. Wszystkie koszty powyżej dotyczą angielskiego, a inne języki zużywają więcej tokenów na tę samą treść: w GPT koreański około 44% więcej, a japoński około 79% więcej, więc każda cena w tabeli rośnie o tyle samo. <strong>Polski tekst zużywa około 88% więcej tokenów niż angielski</strong> (<a href="/pl/blog/polski-tokeny-gpt">pomiar</a>), a Claude liczy polskie teksty na jeszcze więcej tokenów niż modele OpenAI. Zobacz też <a href="/blog/token-cost-by-language">ten sam prompt w 41 językach</a> (po angielsku) i <a href="/pl/blog/ile-kosztuje-prompt-po-polsku">ile kosztuje prompt po polsku</a>.</p>
+<h2>Jak sprawdzić koszt własnego promptu?</h2>
+<p>Wklej prawdziwy prompt do <a href="/pl/">licznika tokenów</a>, a zobaczysz jego dokładną liczbę tokenów i koszt w każdym modelu. Możesz też otworzyć licznik dla <a href="/openai-token-counter">OpenAI</a>, <a href="/claude-token-counter">Claude</a> lub <a href="/gemini-token-counter">Gemini</a>. Pełne zestawienie możliwości i ceny znajdziesz w porównaniu <a href="/compare/performance">możliwości modeli AI a cena</a>.</p>
+<p><em>Ceny według oficjalnych cenników, sprawdzone 1 października 2026. Polska prowizja za przewalutowanie i VAT wg <a href="https://www.ssdnodes.com/learn/lang/pl/claude-plans-in-poland-what-you-pay" target="_blank" rel="noopener">SSD Nodes</a>, podatek tokenowy wg <a href="https://promptowy.com/podatek-tokenowy-2026-polski-tekst-osiem-modeli/" target="_blank" rel="noopener">Promptowy</a>. Ceny często się zmieniają – przed wyborem modelu sprawdź cennik dostawcy.</em></p>

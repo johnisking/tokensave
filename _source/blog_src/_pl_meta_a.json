@@ -1,0 +1,20 @@
+[
+  {
+    "src": "pro-pl.md",
+    "path": "/pl/blog/chatgpt-pro-100-200-500",
+    "title": "ChatGPT Pro cena: Pro 100, 200 czy 500 – który plan i czy warto?",
+    "desc": "ChatGPT Pro 100, 200 i 500 kosztują tyle samo za jednostkę limitu. Co zmieniło się 29 września 2026, który plan wybrać i kiedy API wychodzi taniej."
+  },
+  {
+    "src": "cheapest-pl.md",
+    "path": "/pl/blog/najtansze-api-ai",
+    "title": "Najtańsze API AI 2026: cennik API i koszt 1 mln tokenów",
+    "desc": "Najtańsze API AI w październiku 2026: GPT-5 nano, GPT-6 Luna, Qwen 3.8 Flash. Cennik API, koszt 1 mln tokenów i 10 000 zapytań dla 11 modeli."
+  },
+  {
+    "src": "ctok-pl.md",
+    "path": "/pl/blog/limity-claude-pro-max",
+    "title": "Limit Claude: ile tokenów daje Claude Pro i Max? (pomiary)",
+    "desc": "Claude Pro limity i ile tokenów Claude Max: ok. 39 mln na 5 godzin w Max 5×, ok. 1,9 mld tygodniowo w Max 20×. Skąd te liczby i co szybciej zużywa limit."
+  }
+]

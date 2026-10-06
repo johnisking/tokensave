@@ -14,8 +14,8 @@ BLOG = [
          cta="Změřte si vlastní text: kolik tokenů a peněz stojí váš prompt v češtině oproti angličtině.",
          ctaBtn="Otevřít počítadlo tokenů"),
     dict(tag="pl", path="/pl/blog/polski-tokeny-gpt",
-         title="Polski w GPT zużywa 1,88× więcej tokenów niż angielski",
-         desc="Ten sam prompt w 41 językach: polski prawie 2× droższy od angielskiego. Dlaczego i jak oszczędzać.",
+         title="Polski w GPT zużywa o 88% więcej tokenów niż angielski",
+         desc="Ten sam prompt w 41 językach: polski zużywa o 88% więcej tokenów niż angielski. Licznik tokenów, dlaczego tak jest i jak oszczędzać.",
          byline="Jonhisking · 30.09.2026",
          cta="Sprawdź własny tekst: ile tokenów i pieniędzy kosztuje twój prompt po polsku w porównaniu z angielskim.",
          ctaBtn="Otwórz licznik tokenów"),
@@ -579,3 +579,12 @@ EU6 = []
 for _tag, (_by, _cta, _btn, _items) in _EU6.items():
     for _p, _src, _ti, _de in _items:
         _d = _cc(_tag, _p, _src, _ti, _de, _by, _cta, _btn); _d["date"] = "2026-10-06"; EU6.append([_d])
+
+
+# Polish localizations (2026-10-06)
+PRO.append(dict(tag="pl", path='/pl/blog/chatgpt-pro-100-200-500', src='pro-pl', title='ChatGPT Pro cena: Pro 100, 200 czy 500 – który plan i czy warto?', desc='ChatGPT Pro 100, 200 i 500 kosztują tyle samo za jednostkę limitu. Co zmieniło się 29 września 2026, który plan wybrać i kiedy API wychodzi taniej.', byline='Jonhisking · 6 października 2026', cta='Sprawdź, czy przy Twoim sposobie korzystania taniej wychodzi abonament, czy płacenie za tokeny — w złotówkach i na polskich tokenach.', ctaBtn='Porównaj subskrypcję i API', date="2026-10-06"))
+CHEAP.append(dict(tag="pl", path='/pl/blog/najtansze-api-ai', src='cheapest-pl', title='Najtańsze API AI 2026: cennik API i koszt 1 mln tokenów', desc='Najtańsze API AI w październiku 2026: GPT-5 nano, GPT-6 Luna, Qwen 3.8 Flash. Cennik API, koszt 1 mln tokenów i 10 000 zapytań dla 11 modeli.', byline='Jonhisking · 6 października 2026', cta='Wklej swój prompt i zobacz, ile tokenów zużywa i ile kosztuje w każdym modelu — także po polsku.', ctaBtn='Otwórz licznik tokenów', date="2026-10-06"))
+CTOK.append(dict(tag="pl", path='/pl/blog/limity-claude-pro-max', src='ctok-pl', title='Limit Claude: ile tokenów daje Claude Pro i Max? (pomiary)', desc='Claude Pro limity i ile tokenów Claude Max: ok. 39 mln na 5 godzin w Max 5×, ok. 1,9 mld tygodniowo w Max 20×. Skąd te liczby i co szybciej zużywa limit.', byline='Jonhisking · 6 października 2026', cta='Wpisz, jak korzystasz z Claude Code i Codex, i porównaj miesięczny koszt API z planami Pro i Max.', ctaBtn='Otwórz kalkulator agentów AI', date="2026-10-06"))
+CC_LIMITS.append(dict(tag="pl", path='/pl/blog/limity-claude-code', src='cc-limits-pl', title='Claude Code limity: limit 5 godzin i limit tygodniowy (2026)', desc='Claude Code limity w 2026: jak działa limit 5 godzin i limit tygodniowy, ile daje Pro i Max, co zmieniło się we wrześniu i co zrobić przy limicie.', byline='Jonhisking · 6 października 2026', cta='Wpisz, jak korzystasz z Claude Code i Codex, i porównaj miesięczny koszt API z planami Pro i Max.', ctaBtn='Otwórz kalkulator agentów AI', date="2026-10-06"))
+CXLIM.append(dict(tag="pl", path='/pl/blog/limity-codex', src='cxlim-pl', title='Codex limity: okno 5 godzin, limit tygodniowy i Codex limit Plus', desc='Codex limity w 2026: okno 5-godzinne, limit tygodniowy, ile wiadomości daje Plus i Pro dla każdego modelu GPT i co zrobić, gdy limit się skończy.', byline='Jonhisking · 6 października 2026', cta='Wpisz, jak korzystasz z Claude Code i Codex, i porównaj miesięczny koszt API z planami Pro i Max.', ctaBtn='Otwórz kalkulator agentów AI', date="2026-10-06"))
+DEVLOG2.append(dict(tag="pl", path='/pl/blog/testy-zamkniete-google-play-14-dni', src='devlog-spermrace-2-pl', title='Testy zamknięte Google Play: 12 testerów, 14 dni i 14 błędów', desc='Testy zamknięte Google Play z 12 testerami przez 14 dni: jak vibe coding gra Sperm Race przeszła test, 14 naprawionych błędów i lista kontrolna.', byline='Jonhisking · 6 października 2026', cta='Wybierz gatunek, rozmiar, silnik i platformę, a dostaniesz koszt, czas i gotowe prompty dla swojej gry.', ctaBtn='Otwórz kalkulator kosztu gry z AI', date="2026-10-06", og="blog-spermrace-2-hero-en.jpg"))

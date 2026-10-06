@@ -136,8 +136,8 @@ B["pl"] = dict(
     a2="Każdy krok wysyła ponownie cały kontekst: prompt systemowy, definicje narzędzi, przeczytane pliki i wszystkie wcześniejsze kroki. Zadanie z 25 kroków może wysłać ponad milion tokenów wejściowych, nawet jeśli kodu jest mało.",
     q3="Abonament czy API dla agentów kodujących?",
     a3="Przy kilku małych zadaniach dziennie API zwykle jest tańsze. Przy intensywnej codziennej pracy plan za 100–200 $ często wychodzi taniej, o ile mieścisz się w limitach.",
-    nav="Koszt agentów", title="Kalkulator kosztów agentów AI",
-    desc="Miesięczny koszt Claude Code, Codex i Gemini CLI: API czy abonament.",
+    nav="Koszt agentów", title="Ile kosztuje AI dla programisty?",
+    desc="Miesięczny koszt Claude Code, Codex i Gemini CLI: API czy abonament Pro i Max.",
 )
 
 B["nl"] = dict(

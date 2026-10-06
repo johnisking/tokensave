@@ -32,4 +32,4 @@ P = dict(
     more="Jak mierzyliśmy",
 )
 NAV = "Plan czy API"
-META = ("ChatGPT Plus czy API? Kalkulator kosztów", "Czy ChatGPT Plus, Claude Pro lub Google AI Pro się opłaca, czy API jest tańsze?")
+META = ("Subskrypcja czy API – co się opłaca?", "Subskrypcja czy API: sprawdź, czy ChatGPT Plus lub Claude Pro się opłaca.")

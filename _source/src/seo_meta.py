@@ -24,7 +24,7 @@ META["token"] = {
   "id":    ("Penghitung Token AI – GPT, Claude", "Hitung token dan biaya API GPT, Claude, dan Gemini. Gratis, tanpa unggah."),
   "vi":    ("Đếm token AI – GPT, Claude, Gemini", "Đếm token và chi phí API của GPT, Claude, Gemini ngay. Miễn phí, không tải lên."),
   "th":    ("ตัวนับโทเค็น AI – GPT, Claude, Gemini", "นับโทเค็นและค่า API ของ GPT, Claude, Gemini ทันที ฟรี ไม่ต้องอัปโหลด"),
-  "pl":    ("Licznik tokenów AI – GPT, Claude", "Policz tokeny i koszt API dla GPT, Claude i Gemini. Za darmo, bez wysyłania."),
+  "pl":    ("Licznik tokenów – kalkulator tokenów AI", "Licznik tokenów: ile tokenów ma polski tekst i ile to kosztuje w GPT i Claude."),
   "nl":    ("AI-tokenteller – GPT, Claude, Gemini", "Tel tokens en API-kosten voor GPT, Claude en Gemini. Gratis, zonder upload."),
 }
 

@@ -1,23 +1,23 @@
-Przetłumaczyłem jeden zwykły prompt na 41 języków i policzyłem tokeny tokenizerem, którego używają obecne modele OpenAI (o200k_base, GPT-4o i nowsze). Spodziewałem się, że najdrożej wyjdą japoński albo tajski. Tymczasem na samym końcu znalazły się języki europejskie: **polski (razem z ukraińskim) ma 1,88×**, a z Europy drożej wypadają tylko czeski i słowacki (2,00×) oraz grecki (2,06×). Najdroższy w całym zestawieniu okazał się pendżabski (2,44×).
+Przetłumaczyłem jeden zwykły prompt na 41 języków i policzyłem tokeny tokenizerem, którego używają obecne modele OpenAI (o200k_base, GPT-4o i nowsze). Spodziewałem się, że najdrożej wyjdą japoński albo tajski. Tymczasem na samym końcu znalazły się języki europejskie: **polski (razem z ukraińskim) zużywa o 88% więcej tokenów niż angielski**, a z Europy drożej wypadają tylko czeski i słowacki (o 100% więcej) oraz grecki (o 106% więcej). Najdroższy w całym zestawieniu okazał się pendżabski (o 144% więcej).
 
 Prompt (po angielsku 34 tokeny):
 
 > Podsumuj poniższy e-mail od klienta w trzech punktach i zaproponuj uprzejmą odpowiedź. Klient twierdzi, że zamówienie dotarło z dwudniowym opóźnieniem, a w paczce brakowało jednego produktu.
 
-| Język | Tokeny | Względem angielskiego | Oszczędność przy wysłaniu po angielsku |
+| Język | Tokeny | Więcej niż po angielsku | Oszczędność przy wysłaniu po angielsku |
 |---|---:|---:|---:|
-| Angielski | 34 | 1,00× | – |
-| Chiński (uproszczony) | 35 | 1,03× | 3% |
-| Niemiecki | 43 | 1,26× | 21% |
-| Rosyjski | 45 | 1,32× | 24% |
-| Koreański | 49 | 1,44× | 31% |
-| Japoński | 61 | 1,79× | 44% |
-| **Polski** | **64** | **1,88×** | **47%** |
-| Ukraiński | 64 | 1,88× | 47% |
-| Czeski | 68 | 2,00× | 50% |
-| Słowacki | 68 | 2,00× | 50% |
-| Grecki | 70 | 2,06× | 51% |
-| Pendżabski | 83 | 2,44× | 59% |
+| Angielski | 34 | – | – |
+| Chiński (uproszczony) | 35 | +3% | 3% |
+| Niemiecki | 43 | +26% | 21% |
+| Rosyjski | 45 | +32% | 24% |
+| Koreański | 49 | +44% | 31% |
+| Japoński | 61 | +79% | 44% |
+| **Polski** | **64** | **+88%** | **47%** |
+| Ukraiński | 64 | +88% | 47% |
+| Czeski | 68 | +100% | 50% |
+| Słowacki | 68 | +100% | 50% |
+| Grecki | 70 | +106% | 51% |
+| Pendżabski | 83 | +144% | 59% |
 
 ![Wykres](/blog-language-tax-chart-v4.png)
 

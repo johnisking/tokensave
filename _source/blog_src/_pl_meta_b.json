@@ -1,0 +1,20 @@
+[
+  {
+    "src": "cc-limits-pl.md",
+    "path": "/pl/blog/limity-claude-code",
+    "title": "Claude Code limity: limit 5 godzin i limit tygodniowy (2026)",
+    "desc": "Claude Code limity w 2026: jak działa limit 5 godzin i limit tygodniowy, ile daje Pro i Max, co zmieniło się we wrześniu i co zrobić przy limicie."
+  },
+  {
+    "src": "cxlim-pl.md",
+    "path": "/pl/blog/limity-codex",
+    "title": "Codex limity: okno 5 godzin, limit tygodniowy i Codex limit Plus",
+    "desc": "Codex limity w 2026: okno 5-godzinne, limit tygodniowy, ile wiadomości daje Plus i Pro dla każdego modelu GPT i co zrobić, gdy limit się skończy."
+  },
+  {
+    "src": "devlog-spermrace-2-pl.md",
+    "path": "/pl/blog/testy-zamkniete-google-play-14-dni",
+    "title": "Testy zamknięte Google Play: 12 testerów, 14 dni i 14 błędów",
+    "desc": "Testy zamknięte Google Play z 12 testerami przez 14 dni: jak vibe coding gra Sperm Race przeszła test, 14 naprawionych błędów i lista kontrolna."
+  }
+]

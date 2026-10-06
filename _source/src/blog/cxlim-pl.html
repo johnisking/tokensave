@@ -1,0 +1,69 @@
+<p>Codex, agent kodujący OpenAI, jest wliczony w plany ChatGPT Plus, Pro i Business i to właśnie na nim większość osób najczęściej trafia na limity. Codex limity dzieli z ChatGPT Work, korzysta z okna 5-godzinnego i limitu tygodniowego, a tempo ich zużycia bardzo zależy od wybranego modelu. Poniżej wyjaśniam, jak to działa, ile daje Codex limit Plus i jak wycisnąć z niego więcej.</p>
+<p><strong>Krótko:</strong> Codex ma dwa limity naraz – kroczące okno 5-godzinne i limit tygodniowy, wspólne z ChatGPT Work – a w planie Plus daje szacunkowo od ok. 5–45 wiadomości na 5 godzin (GPT-6 Astra) do ok. 250–2000 (GPT-5.6 Luna), zależnie od modelu.</p>
+<h2>Które plany obejmują Codex?</h2>
+<p>Użycie Codex (i ChatGPT Work) jest wliczone w plany <strong>Plus</strong> (20 USD), <strong>Pro</strong> (100, 200 lub 500 USD) oraz stanowiska <strong>Business</strong> Standard i Premium. Użycie nie jest nielimitowane: każdy plan dostaje pulę, mierzoną w dwóch oknach czasowych. Polskie ceny tych planów znajdziesz w artykułach <a href="/pl/blog/ceny-subskrypcji-ai">Ceny subskrypcji AI w Polsce</a> i <a href="/pl/blog/chatgpt-pro-100-200-500">ChatGPT Pro za 100, 200 i 500 USD</a>.</p>
+<h2>Jakie limity ma Codex?</h2>
+<p>Dwa jednocześnie: okno 5-godzinne i limit tygodniowy.</p>
+<p><strong>Okno 5-godzinne.</strong> Krocząca pula, która zaczyna się od Twojego pierwszego zapytania. Gdy ją wyczerpiesz, czekasz na reset okna. OpenAI przywróciło okno 5-godzinne w planie Plus pod koniec sierpnia 2026 roku; zapowiedziało wtedy, że Pro 100 i Pro 200 nie będą go miały przez najbliższe miesiące.</p>
+<p><strong>Limit tygodniowy.</strong> Do tego dochodzi kroczący, siedmiodniowy limit. Gdy go osiągniesz, czekasz na reset tygodniowy, nawet jeśli okno 5-godzinne jest jeszcze świeże.</p>
+<p>Codex i ChatGPT Work korzystają z <strong>tej samej puli</strong>.</p>
+<h2>Ile daje Codex limit Plus i Pro?</h2>
+<p>Centrum pomocy OpenAI podaje szacunkową liczbę wiadomości na jedno okno 5-godzinne. Wybrany model zmienia ją ogromnie:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Plus</th>
+<th>Pro (poziom 5×)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Astra</td>
+<td>ok. 5–45</td>
+<td>ok. 25–225</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td>ok. 10–100</td>
+<td>ok. 50–500</td>
+</tr>
+<tr>
+<td>GPT-5.6 Terra</td>
+<td>ok. 25–200</td>
+<td>ok. 125–1000</td>
+</tr>
+<tr>
+<td>GPT-5.6 Luna</td>
+<td>ok. 250–2000</td>
+<td>ok. 1250–10 000</td>
+</tr>
+</tbody>
+</table></div>
+<p>Dolna granica każdego przedziału to długie, wieloetapowe zadania na dużej bazie kodu; górna – krótkie, proste prośby. Wyższe poziomy Pro skalują się w górę: Pro 200 daje 10× Plus dla nowych subskrybentów od 29 września 2026 roku, a Pro 500 – 25×.</p>
+<p><strong>Ultrafast</strong>, dostępny tylko w Pro 500, to szybszy tryb, który szybciej zużywa wliczone użycie i kredyty.</p>
+<h2>Dlaczego Codex tak szybko zużywa limit?</h2>
+<p>Jak każdy agent kodujący, Codex pracuje krokami i przy każdym kroku wysyła do modelu cały kontekst roboczy: instrukcje, definicje narzędzi, przeczytane pliki i wcześniejsze kroki. Typowe zadanie polegające na dodaniu funkcji, liczące 25 kroków, wysyła ok. 1,6 mln tokenów wejściowych. Przez API takie zadanie kosztowałoby ok. 0,72 USD na modelu klasy Sol i ok. 3,60 USD na GPT-6 Astra – dlatego pula dla Astry jest o tyle mniejsza. Zobacz <a href="/blog/ai-coding-agent-cost">What does an AI coding agent cost per task?</a> (po angielsku) albo policz to sam w <a href="/pl/agents">kalkulatorze kosztów agentów kodujących</a>.</p>
+<h2>Jak sprawdzić zużycie?</h2>
+<p>Centrum pomocy OpenAI wskazuje <strong>Ustawienia → Użycie</strong> (Settings → Usage) w ChatGPT, gdzie widać pozostałą pulę i godziny resetu. Codex ostrzega też, gdy zbliżasz się do limitu.</p>
+<h2>Co zrobić, gdy trafisz na limit?</h2>
+<ol>
+<li><strong>Poczekaj na reset.</strong> Okno 5-godzinne odnawia się w ciągu kilku godzin.</li>
+<li><strong>Użyj zachowanego resetu albo kup natychmiastowy reset</strong> – dostępne na uprawnionych kontach Plus i Pro.</li>
+<li><strong>Skorzystaj z kredytów</strong>, żeby pracować dalej w planach, które je obsługują.</li>
+<li><strong>Przejdź na wyższy poziom</strong> Pro.</li>
+<li><strong>Użyj klucza API</strong> z rozliczeniem pay-as-you-go do pracy ponad limit. Ceny API różnych modeli porównuję w artykule <a href="/pl/blog/najtansze-api-ai">Najtańsze API AI</a>.</li>
+</ol>
+<h2>Jak wydłużyć limit Codex?</h2>
+<ul>
+<li><strong>Domyślnie używaj GPT-5.6 Sol lub Terra.</strong> GPT-6 Astra zostaw na trudne problemy, w których widać różnicę: zużywa kilkukrotnie więcej puli.</li>
+<li><strong>Do prostych zmian używaj Luny</strong> – zmian nazw i powtarzalnego kodu.</li>
+<li><strong>Dawaj małe, konkretne zadania.</strong> Mniej kroków to mniej ponownie wysyłanego kontekstu.</li>
+<li><strong>Zaczynaj od nowa między niepowiązanymi zadaniami</strong>, żeby nie ciągnąć starej historii.</li>
+<li><strong>Wskazuj Codexowi właściwe pliki</strong>, zamiast pozwalać mu przeszukiwać całe repozytorium.</li>
+<li><strong>Trzymaj plik instrukcji krótko</strong> i pisz go po angielsku, jeśli na co dzień używasz innego języka: w tokenizerze GPT koreański zajmuje ok. 44% więcej tokenów niż angielski, a japoński ok. 79% więcej. Jak wypada polski, opisuję w artykule <a href="/pl/blog/polski-tokeny-gpt">Ile tokenów zajmuje polski w GPT</a>, a swój tekst sprawdzisz w <a href="/pl/">liczniku tokenów</a>.</li>
+</ul>
+<p>Wiele z tych nawyków sprawdza się też w Claude Code: zobacz <a href="/blog/claude-code-save-tokens">How to save tokens in Claude Code</a> (po angielsku) oraz <a href="/pl/blog/limity-claude-code">Limity Claude Code</a>.</p>
+<h2>Codex czy Claude Code?</h2>
+<p>Oba są wliczone w plany za 20, 100 i 200 USD i mają podobne systemy limitów. Różnice omawia porównanie <a href="/blog/chatgpt-pro-vs-claude-max">ChatGPT Pro vs Claude Max</a> (po angielsku), a <a href="/pl/agents">kalkulator kosztów agentów kodujących</a> zestawia miesięczne koszty API z każdym planem. Same plany porównasz w <a href="/pl/plans">kalkulatorze planów</a>.</p>
+<p><em>Limity często się zmieniają. Aktualne liczby znajdziesz na stronie pomocy OpenAI <a href="https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex" target="_blank" rel="noopener">o użyciu Codex i Work</a>.</em></p>
