@@ -44,7 +44,7 @@ const PROVIDERS = {
   // Other providers: their tokenizers are not o200k, so counts are estimates
   other: [
     { id: 'deepseek-v4-pro',    group: 'DeepSeek', name: 'DeepSeek V4 Pro',    in: 1.32, out: 3.96,  ratio: 1.00 },
-    { id: 'deepseek-v4-flash',  group: 'DeepSeek', name: 'DeepSeek V4 Flash',  in: 0.30, out: 1.20,  ratio: 1.00 },
+    { id: 'deepseek-v4-flash',  group: 'DeepSeek', name: 'DeepSeek V4.1 Flash', in: 0.30, out: 1.20,  ratio: 1.00 }, // peak price; off-peak is half (/blog/deepseek-v4-1-flash-api-pricing)
     { id: 'grok-4-7',           group: 'xAI',      name: 'Grok 4.7',           in: 2.00, out: 6.00,  ratio: 1.00 },
     { id: 'grok-4-20',          group: 'xAI',      name: 'Grok 4.20',          in: 1.25, out: 2.50,  ratio: 1.00 },
     { id: 'grok-code-fast-1',   group: 'xAI',      name: 'Grok Code Fast 1',   in: 1.00, out: 2.00,  ratio: 1.00 },

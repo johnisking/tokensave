@@ -452,3 +452,9 @@ CTOK = [_n6("/blog/claude-pro-max-how-many-tokens", "ctok-en", "How Many Tokens 
 SUBS = [_n6("/blog/ai-subscription-price-comparison", "subs-en", "AI Subscription Price Comparison: ChatGPT vs Claude vs Gemini vs Grok (2026)",
     "Every ChatGPT, Claude, Google AI and Grok plan side by side, from $4.99 to $500 a month: price, usage per tier, limits, and when the API is cheaper.",
     *_CTA_PL["en"])]
+GPT61 = [_n6("/blog/gpt-6-1-sol-api-pricing", "gpt61-en", "GPT-6.1 Sol API Pricing: Cost vs GPT-6 Sol, Claude Opus 5.5 and Sonnet 5.5",
+    "GPT-6.1 Sol is $2 / $10 per million tokens with cached input cut to $0.10. Real costs, what improved, and how it compares with Claude Opus and Sonnet 5.5.",
+    *_CTA_TK["en"])]
+DS41 = [_n6("/blog/deepseek-v4-1-flash-api-pricing", "ds41-en", "DeepSeek V4.1 Flash API Pricing: Peak vs Off-Peak, and How It Compares",
+    "DeepSeek V4.1 Flash is $0.15 / $0.60 per million tokens off-peak, $0.003 cached. Peak hours in your time zone and how it compares with GPT-6 Luna and Gemini.",
+    *_CTA_TK["en"])]

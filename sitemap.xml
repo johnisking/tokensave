@@ -12127,6 +12127,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
   </url>
   <url>
+    <loc>https://tokensave.app/blog/gpt-6-1-sol-api-pricing</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/gpt-6-1-sol-api-pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gpt-6-1-sol-api-pricing"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/deepseek-v4-1-flash-api-pricing</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/deepseek-v4-1-flash-api-pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/deepseek-v4-1-flash-api-pricing"/>
+  </url>
+  <url>
     <loc>https://tokensave.app/blog/what-is-a-token</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/what-is-a-token"/>
@@ -12416,6 +12428,20 @@
     <lastmod>2026-10-01</lastmod>
     <image:image>
       <image:loc>https://tokensave.app/img/compare/gpt-5-6-vs-gpt-6-sol-api-cost.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/compare/gpt-6-1-sol-vs-claude-sonnet-5-5</loc>
+    <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gpt-6-1-sol-vs-claude-sonnet-5-5-api-cost.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/compare/gpt-6-1-sol-vs-claude-opus-5-5</loc>
+    <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gpt-6-1-sol-vs-claude-opus-5-5-api-cost.svg</image:loc>
     </image:image>
   </url>
   <url>

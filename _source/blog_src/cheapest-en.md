@@ -19,7 +19,7 @@ So we priced one typical request: **2,000 input tokens and 500 output tokens of 
 | GPT-4o mini | OpenAI | $0.15 / $0.60 | $0.00060 | $6.00 |
 | Mistral Small | Mistral | $0.15 / $0.60 | $0.00063 | $6.30 |
 | Gemini 3.1 Flash-Lite | Google | $0.25 / $1.50 | $0.00119 | $11.88 |
-| DeepSeek V4 Flash | DeepSeek | $0.30 / $1.20 | $0.00120 | $12.00 |
+| DeepSeek V4.1 Flash (peak) | DeepSeek | $0.30 / $1.20 | $0.00120 | $12.00 |
 | GPT-5 mini | OpenAI | $0.25 / $2.00 | $0.00150 | $15.00 |
 | GPT-4.1 mini | OpenAI | $0.40 / $1.60 | $0.00160 | $16.00 |
 | Gemini 3.5 Flash-Lite | Google | $0.30 / $2.50 | $0.00176 | $17.57 |
@@ -32,7 +32,7 @@ For comparison, the same 10,000 requests cost **$90** on GPT-6 Sol, **$117** on 
 - **GPT-6 Luna** is the one to try first. It is the newest small model from OpenAI (September 2026), and only $1.50 per 10,000 requests more than GPT-5 nano. Good for classification, extraction, routing, short answers and summaries.
 - **GPT-5 nano** for the very simplest, highest-volume work, where every fraction of a cent matters: tagging, yes/no checks, spam filtering.
 - **Qwen 3.8 Flash** and **Mistral Small** are the cheapest non-OpenAI options, useful if you want a second provider or open-weight models you could later host yourself.
-- **Gemini 3.1 Flash-Lite** and **DeepSeek V4 Flash** cost about twice as much as Luna but are a step up for writing and reasoning, and still about 87% cheaper than GPT-6 Sol per request.
+- **Gemini 3.1 Flash-Lite** and **DeepSeek V4.1 Flash** cost about twice as much as Luna but are a step up for writing and reasoning, and still about 87% cheaper than GPT-6 Sol per request. DeepSeek V4.1 Flash is half price outside peak hours ($0.15 / $0.60), which puts it right behind GPT-6 Luna; see [DeepSeek V4.1 Flash pricing](/blog/deepseek-v4-1-flash-api-pricing).
 - **Claude Haiku 4.5** is the cheapest Claude model at $0.0047 per request, around 10 times Luna. Pick it when you need Claude's behavior specifically, not for price.
 
 ## When the cheapest model costs more

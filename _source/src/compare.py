@@ -40,6 +40,7 @@ PAIRS = [
     ("claude-haiku-4-5", "claude-sonnet-5-5"), ("claude-opus-5-5", "claude-fable-5-1"), ("deepseek-v4-pro", "gpt-6-sol"),
     ("deepseek-v4-pro", "claude-sonnet-5-5"), ("deepseek-v4-flash", "gpt-6-luna"), ("grok-4-7", "gpt-6-sol"),
     ("kimi-k3", "claude-sonnet-5-5"), ("qwen3-8-max", "gpt-6-sol"), ("gpt-5-6", "gpt-6-sol"),
+    ("gpt-6-1-sol", "claude-sonnet-5-5"), ("gpt-6-1-sol", "claude-opus-5-5"),
 ]
 
 # Typical workloads: (label, what it is, input tokens, output tokens) — English-text token counts
