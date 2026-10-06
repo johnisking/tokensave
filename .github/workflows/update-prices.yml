@@ -44,6 +44,9 @@ jobs:
       - name: Rebuild site
         if: steps.check.outputs.changed == 'true'
         run: |
+          # build.py renders OG images with Pillow and the Noto CJK fonts
+          pip install --quiet pillow
+          sudo apt-get install -y -qq fonts-noto-cjk > /dev/null
           if ! python3 _source/build.py > build.log 2>&1; then
             tail -n 25 build.log | while IFS= read -r l; do echo "::error::$l"; done
             exit 1
