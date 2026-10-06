@@ -64,10 +64,18 @@ const GENRE = {
   horror:     { chars: 0.6, bg: 1.8, items: 1.0, loc: 1.0, days: 1.1 },
   sandbox:    { chars: 1.0, bg: 1.2, items: 3.0, loc: 1.7, days: 1.7 },
   mmo:        { chars: 2.0, bg: 2.0, items: 2.5, loc: 2.5, days: 2.5 },
+  // Roblox chart formulas (see roblox_trends.py)
+  steal:      { chars: 0.6, bg: 1.0, items: 1.5, loc: 1.2, days: 1.1 },
+  plus1:      { chars: 0.4, bg: 1.2, items: 1.0, loc: 0.6, days: 0.6 },
+  verbsim:    { chars: 0.3, bg: 0.8, items: 1.2, loc: 0.6, days: 0.6 },
+  coophorror: { chars: 0.8, bg: 2.0, items: 1.0, loc: 1.2, days: 1.3 },
+  duels:      { chars: 0.8, bg: 0.6, items: 1.0, loc: 1.0, days: 0.9 },
+  rng:        { chars: 1.0, bg: 0.8, items: 2.5, loc: 0.9, days: 0.9 },
+  coopobby:   { chars: 0.3, bg: 1.8, items: 0.6, loc: 0.7, days: 0.8 },
 };
 const ANIM = { none: { actions: 1, frames: 1 }, simple: { actions: 3, frames: 4 }, full: { actions: 6, frames: 8 } };
 const SFXLV = { few: 0.6, normal: 1, many: 1.6 };
-const PLATFORM = { android: { fee: 25, days: 0 }, mobile: { fee: 124, days: 3 }, pc: { fee: 100, days: 2 }, web: { fee: 0, days: 0 } }; // store fees: Google Play $25 once, Apple $99/yr, Steam Direct $100
+const PLATFORM = { android: { fee: 25, days: 0 }, mobile: { fee: 124, days: 3 }, pc: { fee: 100, days: 2 }, web: { fee: 0, days: 0 }, roblox: { fee: 0, days: 0 } }; // Roblox: free to publish, Roblox hosts the servers // store fees: Google Play $25 once, Apple $99/yr, Steam Direct $100
 const SERVER_MONTH = 12; // online play: Photon / Firebase / small VPS during development
 const FEAT = { ads: { loc: 300, days: 1 }, iap: { loc: 600, days: 2 }, save: { loc: 300, days: 1 }, rank: { loc: 500, days: 2 }, online: { loc: 3000, days: 10 } };
 
@@ -108,7 +116,8 @@ const TOOLS = {
     api:   { name: 'API', monthly: 0 },
   },
   d3:    { meshy: { name: 'Meshy', plans: [[20, 1000], [40, 3000], [100, 8000]], perModel: 20 },
-           tripo: { name: 'Tripo', plans: [[20, 3000], [90, 25000]], perModel: 15 } },
+           tripo: { name: 'Tripo', plans: [[20, 3000], [90, 25000]], perModel: 15 },
+           cube:  { name: 'Roblox Cube', free: true } },                                          // Roblox Assistant in Studio, free with a daily limit
   video: { higgs: { name: 'Higgsfield', plans: [[15, 200], [39, 1000], [99, 3000]], perClip: 75 } },
 };
 // Coding with an agent: tokens per active day (mostly cached context re-reads)
@@ -121,6 +130,8 @@ const PRESETS = {
   max:    { imgTool: 'mj', codeTool: 'max20', musicTool: 'aiva', sfxTool: 'eleven', d3Tool: 'meshy' },
 };
 const KEYS = ['imgTool', 'codeTool', 'musicTool', 'sfxTool', 'd3Tool'];
+const isRbx = () => state.platform === 'roblox';
+const presetOf = k => isRbx() ? { ...PRESETS[k], d3Tool: 'cube' } : PRESETS[k];
 const PAINTS = [];
 
 const state = {
@@ -145,10 +156,12 @@ function estimate() {
   let loc = S.loc * g.loc, days = S.days * g.days;
   for (const f of state.feats) { loc += FEAT[f].loc; days += FEAT[f].days; }
   days += PLATFORM[state.platform].days;
+  const rbx = isRbx();
+  if (rbx && state.feats.has('online')) { loc -= 2000; days -= 7; } // Roblox handles servers, matchmaking and replication
   if (state.langs > 1) { days += 0.5 * (state.langs - 1); loc += 150; }
-  if (state.dim === '3d') { days *= 1.25; loc *= 1.15; }
-  const frames = chars * a.actions * a.frames;
-  const images = frames + bg + items + ui;
+  if (state.dim === '3d' && !rbx) { days *= 1.25; loc *= 1.15; }
+  const frames = rbx ? 0 : chars * a.actions * a.frames;            // Roblox: avatars + built-in animations, no sprite sheets
+  const images = rbx ? items + ui + 4 : frames + bg + items + ui;   // Roblox: icons + UI + game icon + 3 thumbnails
   const attempts = 3;                                   // keep about 1 of 3 generations
   const gens = images * attempts;
   const codeDays = days * CODE_SHARE;
@@ -183,8 +196,8 @@ function estimate() {
     const perDay = (DAY_IN + DAY_OUT);
     return { cost: C.monthly * months, months, fits: perDay <= C.capPerDay };
   };
-  const models3d = state.dim === '3d' ? chars + Math.round(items / 2) + bg : 0;
-  const d3Cost = tool => models3d ? plan(TOOLS.d3[tool].plans, models3d * attempts * TOOLS.d3[tool].perModel).price : 0;
+  const models3d = rbx ? chars + Math.round(items / 2) + bg * 3 : state.dim === '3d' ? chars + Math.round(items / 2) + bg : 0;
+  const d3Cost = tool => TOOLS.d3[tool].free ? 0 : models3d ? plan(TOOLS.d3[tool].plans, models3d * attempts * TOOLS.d3[tool].perModel).price : 0;
   const clips = state.trailer ? 8 * attempts : 0;
   const trailerCost = clips ? plan(TOOLS.video.higgs.plans, clips * TOOLS.video.higgs.perClip).price : 0;
 
@@ -196,7 +209,7 @@ function estimate() {
       return { c, lines: [
         ['art', imgCost(img, m)], ['music', musicCost], ['sfx', sfxCost], ['code', c.cost, sub],
         ...(models3d ? [['d3', d3Cost(d3)]] : []), ...(state.trailer ? [['trailer', trailerCost]] : []),
-        ...(state.feats.has('online') ? [['server', SERVER_MONTH * m, t('monthsN', { n: m })]] : []),
+        ...(state.feats.has('online') && !rbx ? [['server', SERVER_MONTH * m, t('monthsN', { n: m })]] : []),
         ...(PLATFORM[state.platform].fee ? [['store', PLATFORM[state.platform].fee, t('pls_' + state.platform)]] : []),
       ] };
     };
@@ -208,8 +221,8 @@ function estimate() {
 
   return {
     chars, bg, items, ui, frames, images, gens, music, sfx, loc: Math.round(loc / 100) * 100, days: Math.round(days),
-    tokIn, tokOut, months, models3d,
-    presets: Object.fromEntries(Object.entries(PRESETS).map(([k, P]) => [k, ai(P.imgTool, P.codeTool, P.musicTool, P.sfxTool, P.d3Tool)])),
+    tokIn, tokOut, months, models3d, rbx,
+    presets: Object.fromEntries(Object.keys(PRESETS).map(k => [k, presetOf(k)]).map(([k, P]) => [k, ai(P.imgTool, P.codeTool, P.musicTool, P.sfxTool, P.d3Tool)])),
     mine: ai(state.imgTool, state.codeTool, state.musicTool, state.sfxTool, state.d3Tool), apiCode,
   };
 }
@@ -222,7 +235,8 @@ const STYLE_EN = {
 };
 const GENRE_EN = { puzzle: 'puzzle', racing: 'racing', merge: 'merge', idle: 'idle / incremental', platformer: 'platformer', rpg: 'RPG', novel: 'visual novel', shooter: 'shooter',
   match3: 'match-3', tower: 'tower defense', card: 'card / deckbuilder', survivor: 'survivor-like roguelite', tycoon: 'tycoon / management sim', hyper: 'hyper-casual', runner: 'endless runner', rhythm: 'rhythm', word: 'word / quiz', farming: 'farming / life sim',
-  escape: 'escape room / hidden object', board: 'board game', autobattler: 'auto battler', survival: 'survival crafting', fishing: 'fishing', sports: 'sports', fighting: 'fighting', pet: 'pet raising / virtual pet', minigames: 'mini-game collection', metroidvania: 'metroidvania', strategy: 'strategy / 4X', gacha: 'gacha character-collection RPG', horror: 'horror', sandbox: 'sandbox', mmo: 'online multiplayer RPG' };
+  escape: 'escape room / hidden object', board: 'board game', autobattler: 'auto battler', survival: 'survival crafting', fishing: 'fishing', sports: 'sports', fighting: 'fighting', pet: 'pet raising / virtual pet', minigames: 'mini-game collection', metroidvania: 'metroidvania', strategy: 'strategy / 4X', gacha: 'gacha character-collection RPG', horror: 'horror', sandbox: 'sandbox', mmo: 'online multiplayer RPG',
+  steal: '"Steal a ___" base-raiding tycoon', plus1: '"+1 per second" escape / speed', verbsim: 'simple-action clicker sim', coophorror: 'co-op horror survival', duels: '1v1 arena duels', rng: 'RNG / luck-based collecting', coopobby: '2-player co-op obby' };
 const MOOD = {
   puzzle: ['calm, playful', 95], racing: ['energetic, driving', 140], merge: ['cozy, cheerful', 100], idle: ['relaxed, uplifting', 90],
   platformer: ['bouncy, adventurous', 128], rpg: ['epic, orchestral', 110], novel: ['gentle, emotional piano', 80], shooter: ['intense, electronic', 150],
@@ -231,9 +245,10 @@ const MOOD = {
   escape: ['mysterious, ambient', 85], board: ['calm, thoughtful', 90], autobattler: ['epic, tactical', 115], survival: ['tense, atmospheric', 100], fishing: ['relaxed, breezy', 92],
   sports: ['energetic, stadium rock', 135], fighting: ['aggressive, fast rock', 155], pet: ['cute, cheerful', 105], minigames: ['playful, varied', 115], metroidvania: ['dark, atmospheric', 105],
   strategy: ['epic, strategic orchestral', 100], gacha: ['heroic, anime-style orchestral', 120], horror: ['eerie, dark ambient', 70], sandbox: ['calm, wondrous', 95], mmo: ['epic fantasy orchestral', 110],
+  steal: ['sneaky, playful', 120], plus1: ['upbeat, hyped', 140], verbsim: ['quirky, cheerful', 110], coophorror: ['eerie, tense ambient', 75], duels: ['intense, competitive electronic', 145], rng: ['bright, suspenseful', 115], coopobby: ['bouncy, cheerful', 125],
 };
-const PLAT_EN = { android: 'Android phones', mobile: 'mobile (Android + iOS)', pc: 'PC (Steam)', web: 'web browsers' };
-const END_CARD = { android: 'Free on Google Play', mobile: 'Free on Google Play & App Store', pc: 'Wishlist now on Steam', web: 'Play free in your browser' };
+const PLAT_EN = { android: 'Android phones', mobile: 'mobile (Android + iOS)', pc: 'PC (Steam)', web: 'web browsers', roblox: 'Roblox (PC, mobile, console)' };
+const END_CARD = { android: 'Free on Google Play', mobile: 'Free on Google Play & App Store', pc: 'Wishlist now on Steam', web: 'Play free in your browser', roblox: 'Play free on Roblox' };
 const ENGINE = { unity: 'Unity (C#)', godot: 'Godot 4 (GDScript)', unreal: 'Unreal Engine 5 (C++ / Blueprints, Paper2D)', gamemaker: 'GameMaker (GML)', cocos: 'Cocos Creator 3 (TypeScript)', defold: 'Defold (Lua)', phaser: 'Phaser 3 (TypeScript, web)', flutter: 'Flutter + Flame (Dart)',
   construct: 'Construct 3 (event sheets + JavaScript)', gdevelop: 'GDevelop (events + JavaScript)', rpgmaker: 'RPG Maker MZ (JavaScript plugins)', renpy: "Ren'Py (Python)", love: 'LÖVE (Lua)', solar2d: 'Solar2D (Lua)', pixi: 'PixiJS (TypeScript, web)', monogame: 'MonoGame (C#)', bevy: 'Bevy (Rust)', pygame: 'Pygame (Python)', roblox: 'Roblox Studio (Luau)', native: 'native Android/iOS (Kotlin / Swift)', rn: 'React Native (TypeScript)' };
 
@@ -242,17 +257,42 @@ function prompts(e) {
   const idea = state.idea.trim() || t('defIdea', { genre: t('g_' + state.genre), plat: t('pl_' + state.platform) });
   const style = STYLE_EN[state.style] + (state.dim === '3d' ? ', 2.5D low-poly look' : '');
   const feats = [...state.feats].map(f => t('f_' + f)).join(', ') || '-';
-  const steps = [t('st1'), t('st2'), t('st3'), t('st4'), ...(state.feats.size ? [t('st5', { feats })] : []), t('st6'), t('st7')];
+  const rbx = e.rbx;
+  const steps = [t('st1'), t('st2'), t('st3'), t('st4'), ...(state.feats.size ? [t('st5', { feats })] : []), t('st6'), rbx ? t('rbxPublish') : t('st7')];
   const dev = [
-    t('devIntro', { name, genre: t('g_' + state.genre), engine: ENGINE[state.engine], plat: t('pl_' + state.platform) }),
+    rbx ? t('devIntroRbx', { name, genre: t('g_' + state.genre) }) : t('devIntro', { name, genre: t('g_' + state.genre), engine: ENGINE[state.engine], plat: t('pl_' + state.platform) }),
     '', t('devIdea') + ' ' + idea,
     t('devScope', { chars: e.chars, bg: e.bg, items: e.items, music: e.music, sfx: e.sfx, langs: state.langs }),
     t('devFeats') + ' ' + feats,
-    '', t('devRules'),
+    '', t('devRules'), ...(rbx ? ['', t('rbxDev')] : []),
     '', t('devSteps'), ...steps.map((s, i) => `${i + 1}. ${s}`),
     '', t('devStart'),
   ].join('\n');
 
+  if (rbx) return { dev, art: robloxArt(e), ...audioPrompts(e, name, style) };
+  return { dev, art: art2d(e, style), ...audioPrompts(e, name, style) };
+}
+
+const RBX_STYLE = { pixel: 'blocky voxel style, chunky shapes', illust: 'stylized cartoon look, bright saturated colors, soft rounded shapes', simple: 'minimal flat-shaded low-poly, solid colors' };
+function robloxArt(e) {
+  const look = RBX_STYLE[state.style];
+  const head = `Roblox-ready low-poly 3D model, ${look}, game: ${GENRE_EN[state.genre]} experience on Roblox. Single mesh, under 10,000 triangles, simple textures, centered on the origin, no text.`;
+  const icon = `Style: ${STYLE_EN[state.style]}. Transparent background, centered, no text.`;
+  const out = [`# 3D STYLE (use in every model prompt)\n${head}\n`];
+  for (let i = 1; i <= e.chars; i++) out.push(`NPC / enemy ${i} — full-body character, T-pose, R15-style proportions so it can use Roblox animations. ${head}`);
+  for (let i = 1; i <= e.bg; i++) out.push(`Map kit ${i} — modular props for one area of the map, one prompt each: a floor or terrain piece, a wall or obstacle, a decoration. Same palette. ${head}`);
+  out.push(`3D items (${Math.round(e.items / 2)}) — collectible / tool models, one per prompt, readable from far away. ${head}`);
+  out.push(`# 2D (icons and store art)\nItem and game pass icons (${e.items}) — 512×512 icons with a soft drop shadow. ${icon}`);
+  out.push(`UI kit (${e.ui} elements) — buttons, panels, currency icon, shop and close icons for ScreenGui. ${icon}`);
+  out.push(`Game icon — 512×512, bold readable subject, bright background, no text, matches the style.`);
+  out.push(`Thumbnails (3) — 1920×1080 action scenes of players in the game world, bright and readable at small size.`);
+  out.push(state.d3Tool === 'cube'
+    ? '\nRoblox Assistant (Cube): in Studio, open Assistant and type  /generate_mesh  followed by one line above per request (keep the STYLE line in each). It is free, with daily generation limits.'
+    : `\n${TOOLS.d3[state.d3Tool].name}: generate each model, export as FBX or OBJ under 10,000 triangles, then import with Studio's 3D Importer.`);
+  return out.join('\n\n');
+}
+
+function art2d(e, style) {
   const head = `Style: ${style}. Game: 2D ${GENRE_EN[state.genre]} game for ${PLAT_EN[state.platform]}. Transparent background, centered, consistent proportions, no text.`;
   const art = [`# STYLE (use in every prompt)\n${head}\n`];
   const a = ANIM[state.anim];
@@ -270,6 +310,10 @@ function prompts(e) {
   if (state.imgTool === 'leonardo') art.push('\nLeonardo: use a game-asset model with "Transparency" on, and train or pick one Element/style reference from your first approved image to keep every asset consistent.');
   if (state.imgTool === 'gemini') art.push('\nGemini (Nano Banana): paste the STYLE line first, then each asset; attach your first approved image and say "same style as the attached image" to keep it consistent.');
   if (state.imgTool === 'pixel') art.push('\nPixelLab: generate characters at 64×64 or 128×128 with "8 directions" for top-down games, then use "Animate" with the action names above.');
+  return art.join('\n\n');
+}
+
+function audioPrompts(e, name, style) {
 
   const [mood, bpm] = MOOD[state.genre];
   const tracks = ['Main menu theme', 'Gameplay loop', 'Gameplay loop (intense)', 'Boss / challenge', 'Shop / break', 'Victory jingle', 'Game over sting', 'Ending theme', 'World 2 theme', 'World 3 theme', 'Cutscene / story', 'Credits'].slice(0, e.music);
@@ -281,14 +325,14 @@ function prompts(e) {
     (!freeLib && e.sfx > 40 ? `\n… +${e.sfx - 40} more in the same format` : '');
 
   const trailer = state.trailer ? [
-    `15-second vertical (9:16) trailer for "${name}", ${GENRE_EN[state.genre]} game. Style: ${style}.`,
+    `15-second vertical (9:16) trailer for "${name}", ${GENRE_EN[state.genre]} game${isRbx() ? ' on Roblox' : ''}. Style: ${style}.`,
     '1. 0–2 s: hook — the most satisfying moment of gameplay, fast zoom in',
     '2. 2–5 s: core loop shown in 2 quick cuts',
     '3. 5–9 s: progression — bigger rewards, new characters/areas',
     '4. 9–12 s: challenge moment, camera shake',
     `5. 12–15 s: logo + "${END_CARD[state.platform]}" end card`,
   ].join('\n') : '';
-  return { dev, art: art.join('\n\n'), music, sfx, trailer };
+  return { music, sfx, trailer };
 }
 
 // ---------------- Render ----------------
@@ -326,13 +370,13 @@ function render() {
   const aiTime = `${days(Math.round(e.days * 0.8))} – ${days(Math.round(e.days * 1.3))}`;
   const toolNames = P => [...new Set([TOOLS.img[P.imgTool].name, TOOLS.music[P.musicTool].name.split(' (')[0], TOOLS.sfx[P.sfxTool].name.split(' (')[0],
     TOOLS.code[P.codeTool].name + (P.codeTool === 'api' ? ` (${(window.T.modelNames || {})[state.model] || state.model})` : '')])].join(' + ');
-  const matched = Object.keys(PRESETS).find(k => KEYS.every(x => PRESETS[k][x] === state[x]));
+  const matched = Object.keys(PRESETS).find(k => KEYS.every(x => presetOf(k)[x] === state[x]));
   const cards = Object.keys(PRESETS).map(k => {
     const r = e.presets[k], on = k === matched;
     return `<button data-preset="${k}" class="text-start rounded-xl border ${on ? 'border-violet-500/60 bg-violet-500/10' : 'border-zinc-800 bg-zinc-950/40 hover:border-zinc-600'} p-3">
       <div class="text-sm font-bold">${t('p_' + k)}</div>
       <div class="text-lg font-extrabold tabular-nums ${on ? 'text-violet-200' : ''}">${range(r.lo, r.hi)}</div>
-      <div class="text-[11px] text-zinc-500 leading-snug">${toolNames(PRESETS[k])}</div></button>`;
+      <div class="text-[11px] text-zinc-500 leading-snug">${toolNames(presetOf(k))}</div></button>`;
   }).join('');
   // Tier of a custom combo: compare with the three presets
   const mid = r => (r.lo + r.hi) / 2, m = mid(e.mine);
@@ -344,7 +388,8 @@ function render() {
     col(title, toolNames(state), e.mine.lines, e.mine.lo, e.mine.hi, aiTime, true, e.mine.codeFits ? '' : t('capWarn'));
 
   const HIRE_MIN = { s: 5000, m: 15000, l: 30000, xl: 80000 };
-  $('#gcRef').innerHTML = t('hireRef', { min: usd(HIRE_MIN[state.scale] * (state.dim === '3d' ? 1.5 : 1)) });
+  $('#gcRef').innerHTML = (e.rbx ? `<span class="block mb-3 text-start text-zinc-300 border border-emerald-500/30 bg-emerald-500/5 rounded-xl px-4 py-3">💰 ${t('rbxMoney')}</span>` : '') +
+    t('hireRef', { min: usd(HIRE_MIN[state.scale] * (state.dim === '3d' ? 1.5 : 1)) });
   const P = prompts(e);
   window.__gcPrompts = P;
   for (const k of ['dev', 'art', 'music', 'sfx', 'trailer']) {
@@ -364,7 +409,7 @@ document.querySelector('main')?.addEventListener('click', ev => { if (ev.target.
 document.querySelector('main')?.addEventListener('input', engage);
 
 // ---------------- Wire up ----------------
-function seg(id, key, cast = v => v) {
+function seg(id, key, cast = v => v, onPick = null) {
   const box = document.getElementById(id);
   if (!box) return;
   const paint = () => box.querySelectorAll('button').forEach(b => {
@@ -374,6 +419,7 @@ function seg(id, key, cast = v => v) {
   box.addEventListener('click', ev => {
     const b = ev.target.closest('button'); if (!b) return;
     state[key] = cast(b.dataset.v);
+    if (onPick) onPick();
     if (key === 'scale' || key === 'genre') { state.chars = null; state.music = null; syncNums(); }
     paint(); render();
   });
@@ -392,7 +438,15 @@ function num(id, key) {
 }
 
 seg('gcScale', 'scale'); seg('gcStyle', 'style'); seg('gcAnim', 'anim'); seg('gcSfx', 'sfx');
-seg('gcDim', 'dim'); seg('gcPlat', 'platform'); seg('gcImg', 'imgTool'); seg('gcCodeTool', 'codeTool'); seg('gcMusicTool', 'musicTool'); seg('gcSfxTool', 'sfxTool'); seg('gcD3Tool', 'd3Tool');
+// Roblox: Studio + Luau, 3D, free Cube models; leaving Roblox restores the usual defaults
+let lastPlat = state.platform;
+function platChanged() {
+  if (isRbx() && lastPlat !== 'roblox') Object.assign(state, { engine: 'roblox', dim: '3d', d3Tool: 'cube' });
+  if (!isRbx() && lastPlat === 'roblox') Object.assign(state, { engine: state.engine === 'roblox' ? 'unity' : state.engine, dim: '2d', d3Tool: state.d3Tool === 'cube' ? 'meshy' : state.d3Tool });
+  lastPlat = state.platform;
+  PAINTS.forEach(f => f());
+}
+seg('gcDim', 'dim'); seg('gcPlat', 'platform', v => v, platChanged); seg('gcImg', 'imgTool'); seg('gcCodeTool', 'codeTool'); seg('gcMusicTool', 'musicTool'); seg('gcSfxTool', 'sfxTool'); seg('gcD3Tool', 'd3Tool');
 seg('gcTrailer', 'trailer', v => v === 'true');
 // Popular choices as buttons, the rest in an "other" dropdown (genre, engine)
 function popOther(boxId, selId, key, onPick) {
@@ -404,6 +458,7 @@ function popOther(boxId, selId, key, onPick) {
     sel.hidden = cur !== 'other';
     if (cur === 'other' && sel.value !== state[key]) sel.value = state[key];
   };
+  PAINTS.push(paint);
   const pick = v => { state[key] = v; if (onPick) onPick(); paint(); render(); };
   box.addEventListener('click', ev => { const b = ev.target.closest('button'); if (b) pick(b.dataset.v === 'other' ? sel.value : b.dataset.v); });
   sel.addEventListener('change', () => pick(sel.value));
@@ -420,9 +475,17 @@ document.getElementById('gcFeats').addEventListener('change', ev => {
 document.getElementById('gcModel').addEventListener('change', ev => { state.model = ev.target.value; render(); });
 for (const id of ['gcName', 'gcIdea']) document.getElementById(id).addEventListener('input', ev => { state[id === 'gcName' ? 'name' : 'idea'] = ev.target.value; render(); });
 
+document.getElementById('gcTrends')?.addEventListener('click', ev => {
+  const b = ev.target.closest('[data-rbx]'); if (!b) return;
+  state.platform = 'roblox'; platChanged();
+  state.genre = b.dataset.rbx; state.chars = null; state.music = null; syncNums();
+  PAINTS.forEach(f => f()); render(); track('gc_rbx_trend', { gc_trend: b.dataset.rbx });
+  document.getElementById('gcForm')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
 document.getElementById('gcCompare').addEventListener('click', ev => {
   const b = ev.target.closest('[data-preset]'); if (!b) return;
-  Object.assign(state, PRESETS[b.dataset.preset]); PAINTS.forEach(f => f()); render(); track('gc_preset', { gc_preset: b.dataset.preset });
+  Object.assign(state, presetOf(b.dataset.preset)); PAINTS.forEach(f => f()); render(); track('gc_preset', { gc_preset: b.dataset.preset });
 });
 
 // Prompt tabs, copy, download

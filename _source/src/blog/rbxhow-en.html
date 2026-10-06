@@ -1,0 +1,68 @@
+<p>You can make a Roblox game in 2026 without knowing how to code. Roblox Studio has a built-in AI, Roblox Assistant, that plans the game, builds it, writes the Luau scripts and makes 3D models, and you can connect an outside coding agent such as Claude Code or Cursor for bigger jobs. Here is the whole process, what each tool does, what it costs, and how you get paid.</p>
+<h2>What you need</h2>
+<ul>
+<li><strong>Roblox Studio</strong> (free, Windows or Mac) and a Roblox account.</li>
+<li><strong>A game idea.</strong> If you don't have one, start from what is climbing the charts: <a href="/blog/roblox-trending-games">What's trending on Roblox right now</a>.</li>
+<li><strong>Optional:</strong> an AI coding agent for larger changes (Claude Code, Cursor, Codex), and an image tool for icons and thumbnails.</li>
+</ul>
+<p>Publishing is free and Roblox runs the servers, so unlike a mobile or Steam game there is no store fee and no server bill.</p>
+<h2>Step 1: Plan with Assistant</h2>
+<p>Open a new Baseplate in Studio, open the Assistant window and switch it to <strong>Plan</strong> mode. Describe the game in a few sentences: the goal, what the player does every minute, and how they progress. Assistant writes a step-by-step build plan. Roblox's own guide recommends a plan that starts with the core world and gameplay before adding scripts and behavior, so edit the plan until it does.</p>
+<p>Tip: keep version one small. One map, one core action, one way to progress. You can add the shop and the second map once people are playing.</p>
+<h2>Step 2: Let Assistant build the first version</h2>
+<p>Press <strong>Build</strong> and Assistant works through the plan, creating parts, models and scripts in your place. If it stops at a response limit, press <strong>Continue</strong>. The result is a rough but playable prototype.</p>
+<h2>Step 3: Make the 3D models</h2>
+<p>Assistant generates 3D models from a text prompt (or a reference image), powered by Roblox's Cube model:</p>
+<ul>
+<li><code>/generate_mesh</code> makes a textured 3D model, for example <code>/generate_mesh a cartoon treasure chest with gold trim</code>.</li>
+<li><code>/generate_procedural_model</code> makes a model built from parts that scales cleanly (up to 50 in a rolling 24 hours).</li>
+<li><code>/generate_material</code> makes a custom material and applies it.</li>
+</ul>
+<p>It is free, with daily limits. Keep one style line at the start of every prompt ("low-poly, stylized cartoon, bright colors…") so the models match. If you need more models or a specific look, Meshy or Tripo export FBX or OBJ files you can bring in with Studio's 3D Importer.</p>
+<h2>Step 4: Playtest and fix, again and again</h2>
+<p>Press Play, go through the whole game, and tell Assistant what went wrong the way Roblox suggests: what you expected to happen and what actually happened. Test with 2 or more players in Studio, because most Roblox bugs only appear when several players are in the same server. Playtest after every round of changes, whether Assistant made them or you did.</p>
+<h2>Step 5: Use a coding agent for the big pieces</h2>
+<p>Assistant is best at quick edits inside Studio. For larger systems such as saving, a shop, rounds or matchmaking, many creators connect an outside agent like Claude Code or Cursor to Studio through MCP and give it the whole task. Whichever AI writes the code, ask it to follow the Roblox basics:</p>
+<ul>
+<li>Game logic in <strong>ServerScriptService</strong>; client UI and input in <strong>StarterPlayerScripts</strong> and <strong>StarterGui</strong>.</li>
+<li>Client and server talk only through <strong>RemoteEvents</strong>, and the server never trusts the client. Otherwise exploiters can give themselves anything.</li>
+<li>Save progress with <strong>DataStoreService</strong>, with retries.</li>
+<li>Sell game passes and developer products through <strong>MarketplaceService</strong>.</li>
+</ul>
+<p>Our <a href="/ai-game-cost-calculator">AI game cost calculator</a> writes a ready-to-paste kickoff prompt with these rules for your genre: choose Roblox under "Release on", or press "Use this" on a trend.</p>
+<h2>Step 6: Icon, thumbnails and publishing</h2>
+<p>Make a 512×512 game icon and a few 1920×1080 thumbnails (any image AI works; keep text out of the picture and add it yourself). In Studio, use File → Publish to Roblox, fill in the name and description, set the game to public, and share the link with friends for the first players.</p>
+<h2>What it costs</h2>
+<p>From our calculator, for a small Roblox game built solo:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Stack</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cheapest: Gemini, free audio, Google AI Pro, Roblox Assistant</td>
+<td>about $25–40</td>
+</tr>
+<tr>
+<td>Typical: Midjourney, Suno, ElevenLabs, Claude Max 5×</td>
+<td>about $110–150</td>
+</tr>
+</tbody>
+</table></div>
+<p>Either way, a small game takes about 1–3 weeks depending on the genre.</p>
+<p>Most of the cost is the AI coding plan. A simple "+1 per second" game or a simple-action sim is the fastest, at about 1–2 weeks; co-op horror is the slowest small game, at 2–4 weeks.</p>
+<h2>How you get paid</h2>
+<p>You earn <strong>Robux</strong> by selling game passes, developer products, subscriptions and private servers, and from Premium Payouts (Roblox pays you for time Premium members spend in your game). On game pass and developer product sales you keep 70%.</p>
+<p>To turn Robux into money, use the <strong>Developer Exchange (DevEx)</strong>:</p>
+<ul>
+<li>Rate: <strong>$0.0038 per Robux</strong>, so 30,000 Robux = $114. Since 2026, Robux from purchases in eligible games by US players who verified they are 18+ cash out at $0.0054.</li>
+<li>Minimum: 30,000 earned Robux.</li>
+<li>You must be at least 13, have a verified email, file tax forms, and follow Roblox's rules. You can cash out once a month.</li>
+</ul>
+<p>Example: 10,000 Robux of game pass sales → you keep 7,000 Robux → about $27 through DevEx.</p>
+<h2>Start with your own numbers</h2>
+<p>Open the <a href="/ai-game-cost-calculator">AI game cost calculator</a>, choose Roblox, and you get the cost, the time and a prompt pack for Roblox: the Studio kickoff prompt, 3D model prompts for Assistant, icons, thumbnails, music and sound effects.</p>
+<p><em>Sources: Roblox Creator Hub guides <a href="https://create.roblox.com/docs/ai/build-with-assistant" target="_blank" rel="noopener">Build your first game with Assistant</a>, <a href="https://create.roblox.com/docs/assistant/guide" target="_blank" rel="noopener">Assistant for Studio</a> and <a href="https://create.roblox.com/docs/production/monetization/developer-exchange" target="_blank" rel="noopener">Developer Exchange</a>, checked October 6, 2026.</em></p>

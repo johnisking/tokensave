@@ -464,3 +464,9 @@ AGCMP = [_n6("/blog/claude-code-vs-codex-vs-cursor-cost", "agentcmp-en", "Claude
 GOPLUS = [_n6("/blog/chatgpt-go-vs-plus", "gogo-en", "ChatGPT Go vs Plus: Is the $20 Plan Worth $12 More?",
     "ChatGPT Go ($8) vs Plus ($20) in 2026: Luna vs Sol, thinking levels, Codex, ads and limits, who needs which, and when the API is cheaper than both.",
     *_CTA_PL["en"])]
+RBX = [_n6("/blog/roblox-trending-games", "rbxtrend-en", "What's Trending on Roblox Right Now (October 2026): 8 Game Types",
+    "The 8 game formulas climbing the Roblox charts in October 2026, with real examples and player counts, why each works, and what it takes to build one with AI.",
+    *_CTA_GM["en"]),
+       _n6("/blog/how-to-make-a-roblox-game-with-ai", "rbxhow-en", "How to Make a Roblox Game with AI (2026): Steps, Tools, Cost",
+    "Make a Roblox game with Roblox Assistant, Cube 3D models and Claude Code: the steps from idea to publishing, what it costs, and how DevEx pays you.",
+    *_CTA_GM["en"])]

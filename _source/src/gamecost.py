@@ -14,7 +14,7 @@ CHECKED = "2026-10-05"
 GENRES = ["merge", "match3", "puzzle", "idle", "tycoon", "hyper", "runner", "survivor", "rpg", "tower", "card"]
 ENGINES = [("unity", "Unity"), ("godot", "Godot"), ("unreal", "Unreal"), ("gamemaker", "GameMaker"), ("cocos", "Cocos Creator"), ("defold", "Defold"), ("phaser", "Phaser"), ("flutter", "Flutter")]
 OTHER_ENGINES = [("construct", "Construct 3"), ("gdevelop", "GDevelop"), ("rpgmaker", "RPG Maker MZ"), ("renpy", "Ren'Py"), ("love", "LÖVE (Lua)"), ("solar2d", "Solar2D"), ("pixi", "PixiJS"), ("monogame", "MonoGame"), ("bevy", "Bevy (Rust)"), ("pygame", "Pygame"), ("roblox", "Roblox Studio"), ("native", "Kotlin / Swift"), ("rn", "React Native")]
-OTHER_GENRES = ["farming", "racing", "platformer", "shooter", "rhythm", "novel", "word", "escape", "board", "autobattler", "survival", "fishing", "sports", "fighting", "pet", "minigames", "metroidvania", "strategy", "gacha", "horror", "sandbox", "mmo"]
+OTHER_GENRES = ["farming", "racing", "platformer", "shooter", "rhythm", "novel", "word", "escape", "board", "autobattler", "survival", "fishing", "sports", "fighting", "pet", "minigames", "metroidvania", "strategy", "gacha", "horror", "sandbox", "mmo", "steal", "plus1", "verbsim", "coophorror", "duels", "rng", "coopobby"]
 FEATS = ["ads", "iap", "save", "rank", "online"]
 
 T = {
@@ -161,6 +161,11 @@ T = {
 ),
 }
 
+from roblox_i18n import RBX
+import roblox_trends as RBXT
+for _k in ("en", "ko", "ja"):
+    T[_k].update(RBX[_k])
+
 PRICE_ROWS = [
     ("Midjourney", "Basic $10 · Standard $30 · Pro $60 / month", "https://docs.midjourney.com/docs/plans"),
     ("Leonardo", "Essential $12 · Premium $30 · Ultimate $60 / month (≈ 10 tokens per image)", "https://leonardo.ai/pricing"),
@@ -181,6 +186,8 @@ PRICE_ROWS = [
     ("Kenney · Freesound", "Free (Kenney is CC0; check each Freesound license)", "https://kenney.nl/assets"),
     ("Meshy", "Pro $20 (1,000 credits) · Premium $40 · Ultra $100 / month", "https://www.meshy.ai/pricing"),
     ("Tripo", "Pro $20 (3,000 credits ≈ 200 models) · Max $90 / month", "https://www.tripo3d.ai/pricing"),
+    ("Roblox", "Publishing and servers free · creators keep 70% of game pass sales · DevEx $0.0038 per Robux (min. 30,000)", "https://create.roblox.com/docs/production/monetization/developer-exchange"),
+    ("Roblox Assistant (Cube)", "Free in Roblox Studio (/generate_mesh), with daily generation limits", "https://create.roblox.com/docs/assistant/guide"),
     ("Higgsfield", "Starter $15 · Plus $39 · Ultra $99 / month", "https://higgsfield.ai/pricing"),
     ("Claude", "Pro $20 · Max 5× $100 · Max 20× $200 / month", "https://claude.com/pricing"),
     ("Cursor", "Pro $20 / month", "https://cursor.com/pricing"),
@@ -209,11 +216,12 @@ READ = {"en": ("/blog/ai-game-development-cost", "How much does it cost to make 
 
 from gamecost_i18n import EXTRA as _EXTRA, NAV as NAV_EXTRA
 for _tag, (_slug, _t) in _EXTRA.items():
+    _t.update(RBX[_tag])
     assert set(_t) == set(T["en"]), (_tag, set(T["en"]) ^ set(_t))
     T[_tag] = _t
     PATH[_tag] = f"/{_slug}/{SLUG}"
 
-READ2 = {"ja": [("/ja/blog/ai-game-tsukurikata", "AIでスマホゲームを作る方法：手順とツール")]}
+READ2 = {"en": [("/blog/how-to-make-a-roblox-game-with-ai", "How to make a Roblox game with AI: steps, tools, cost"), ("/blog/roblox-trending-games", "What's trending on Roblox right now (October 2026)")], "ja": [("/ja/blog/ai-game-tsukurikata", "AIでスマホゲームを作る方法：手順とツール")]}
 
 SUM = {"hyper": {"s": [6, 10, 46, 181, 47], "m": [10, 17, 55, 181, 99], "l": [15, 25, 66, 200, 165]}, "puzzle": {"s": [12, 20, 50, 181, 71], "m": [22, 35, 63, 313, 144], "l": [32, 52, 99, 332, 254]}, "merge": {"s": [14, 22, 53, 181, 86], "m": [26, 43, 72, 313, 196], "l": [38, 62, 116, 464, 358]}, "idle": {"s": [13, 21, 51, 181, 75], "m": [24, 39, 67, 313, 166], "l": [35, 57, 106, 332, 298]}, "novel": {"s": [12, 20, 53, 181, 87], "m": [22, 35, 67, 313, 170], "l": [32, 52, 105, 332, 292]}, "card": {"s": [16, 26, 57, 181, 109], "m": [30, 49, 98, 313, 250], "l": [46, 74, 133, 464, 454]}, "platformer": {"s": [14, 22, 52, 181, 82], "m": [26, 43, 68, 313, 177], "l": [38, 62, 108, 464, 307]}, "rpg": {"s": [19, 31, 59, 313, 119], "m": [38, 61, 102, 445, 272], "l": [55, 90, 136, 464, 472]}}
 SUM_G = ["hyper", "puzzle", "merge", "idle", "novel", "card", "platformer", "rpg"]
@@ -244,6 +252,16 @@ def build_page(lang, llm):
     faq = "".join(f'<details class="border-t border-zinc-800 py-3"><summary class="cursor-pointer font-semibold text-zinc-200">{esc(q)}</summary><p class="mt-2 text-zinc-400">{esc(a)}</p></details>' for q, a in faq_all)
     rel = " · ".join(f'<a href="{p}" class="text-violet-300 hover:text-white underline underline-offset-2">{esc(n)}</a>' for p, n in t["rel"])
 
+    trend_tiles = "".join(
+        f'<div class="rounded-xl bg-zinc-950/60 border border-zinc-800 p-3 flex flex-col gap-2 min-w-0"><div class="text-sm font-bold text-zinc-100">{esc(t["g_" + tr["key"]])}</div>'
+        f'<ul class="text-xs text-zinc-400 space-y-0.5">' + "".join(f'<li class="flex justify-between gap-2"><span class="truncate">{esc(n)}</span><span class="tabular-nums text-zinc-500 shrink-0">{c}</span></li>' for n, c in tr["games"][:3]) + '</ul>'
+        f'<button data-rbx="{tr["key"]}" class="mt-auto self-start text-xs font-semibold px-2.5 py-1 rounded-md border border-violet-500/40 bg-violet-500/10 text-violet-200 hover:bg-violet-500/20">{e("rbxUse")}</button></div>'
+        for tr in RBXT.TRENDS)
+    trends = f'''<section id="gcTrends" class="{CARD} mb-5">
+      <h2 class="text-sm font-bold text-zinc-100 mb-1">{e("rbxTitle")}</h2>
+      <p class="text-xs text-zinc-500 mb-3">{esc(t["rbxSub"].format(date=RBXT.CHECKED))} <a href="{RBXT.SOURCE}" rel="nofollow noopener" target="_blank" class="underline underline-offset-2 hover:text-zinc-300">roblox.com/charts</a></p>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">{trend_tiles}</div>
+    </section>'''
     body = f'''    <header class="text-center mb-8">
       <div class="flex justify-center"><div class="inline-flex items-center gap-2 text-xs font-medium text-violet-300 bg-violet-500/10 border border-violet-500/20 rounded-full px-3 py-1 mb-4"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>{e("badge")}</div></div>
       <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-white via-violet-200 to-indigo-300 bg-clip-text text-transparent leading-tight pb-1">{e("h1")}</h1>
@@ -251,7 +269,8 @@ def build_page(lang, llm):
       <p class="mt-4 text-sm text-zinc-300 max-w-2xl mx-auto border border-violet-500/30 bg-violet-500/5 rounded-xl px-4 py-3 text-start">{e("qa")}</p>
     </header>
 
-    <section class="{CARD}">
+    {trends}
+    <section id="gcForm" class="{CARD} scroll-mt-20">
       <h2 class="{H2}">{e("qProject")}</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
         <div><label for="gcName" class="block text-xs text-zinc-400 font-semibold mb-2">{e("name")}</label><input id="gcName" maxlength="60" placeholder="{e("namePh")}" {TXT_IN}></div>
@@ -273,7 +292,7 @@ def build_page(lang, llm):
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-4">
         <div class="lg:col-span-2">{_field(e("qFeats"), f'<div id="gcFeats" class="flex flex-wrap gap-1.5">{feats}</div>')}</div>
-        {_field(e("qPlat"), _seg("gcPlat", [("android", e("pl_android")), ("mobile", e("pl_mobile")), ("pc", e("pl_pc")), ("web", e("pl_web"))], 2))}
+        {_field(e("qPlat"), _seg("gcPlat", [("android", e("pl_android")), ("mobile", e("pl_mobile")), ("pc", e("pl_pc")), ("web", e("pl_web")), ("roblox", e("pl_roblox"))], 3))}
         {_field(e("qTrailer"), _seg("gcTrailer", [("false", e("no")), ("true", e("yes"))]))}
       </div>
       <div class="mt-4">{_field(e("qEngine"), _seg("gcEngine", ENGINES + [("other", e("gOther"))], "grid-cols-3 sm:grid-cols-9") + '<select id="gcEngineOther" hidden class="mt-2 w-full sm:w-72 bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py-2 text-sm">' + "".join(f'<option value="{v}">{esc(l)}</option>' for v, l in OTHER_ENGINES) + '</select>')}</div>
@@ -288,7 +307,7 @@ def build_page(lang, llm):
         {_field(e("qSfxTool"), _seg("gcSfxTool", [("eleven", "ElevenLabs"), ("stable", "Stable Audio"), ("free", e("freeLib"))]))}
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
-        {_field(e("q3dTool"), _seg("gcD3Tool", [("meshy", "Meshy"), ("tripo", "Tripo")]))}
+        {_field(e("q3dTool"), _seg("gcD3Tool", [("meshy", "Meshy"), ("tripo", "Tripo"), ("cube", "Roblox Cube")]))}
       </div>
     </section>
 
