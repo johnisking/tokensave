@@ -1,4 +1,4 @@
-Ik vertaalde dezelfde klantenservice-prompt naar 41 talen en telde de tokens met o200k_base, de huidige tokenizer van OpenAI (GPT-4o en nieuwer). Engels heeft 34 tokens nodig, Nederlands **44 — 1,29× zoveel**, plaats 10 van 41 (1 = goedkoopst).
+Ik vertaalde dezelfde klantenservice-prompt naar 41 talen en telde de tokens met o200k_base, de huidige tokenizer van OpenAI (GPT-4o en nieuwer). Engels heeft 34 tokens nodig, Nederlands **44 — 29% meer**, plaats 10 van 41 (1 = goedkoopst).
 
 De Nederlandse versie:
 
@@ -6,19 +6,19 @@ De Nederlandse versie:
 
 ## Resultaten
 
-| Taal | Tokens | Ten opzichte van Engels | Besparing bij versturen in het Engels |
+| Taal | Tokens | Meer dan in het Engels | Besparing bij versturen in het Engels |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | – |
-| 简体中文 | 35 | 1,03× | 3% |
-| Español | 40 | 1,18× | 15% |
-| Deutsch | 43 | 1,26× | 21% |
-| **Nederlands** | **44** | **1,29×** | **22%** |
-| 한국어 | 49 | 1,44× | 31% |
-| हिन्दी | 51 | 1,50× | 33% |
-| 日本語 | 61 | 1,79× | 44% |
-| Čeština | 68 | 2,00× | 50% |
-| Ελληνικά | 70 | 2,06× | 51% |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
+| English | 34 | – | – |
+| 简体中文 | 35 | +3% | 3% |
+| Español | 40 | +18% | 15% |
+| Deutsch | 43 | +26% | 21% |
+| **Nederlands** | **44** | **+29%** | **22%** |
+| 한국어 | 49 | +44% | 31% |
+| हिन्दी | 51 | +50% | 33% |
+| 日本語 | 61 | +79% | 44% |
+| Čeština | 68 | +100% | 50% |
+| Ελληνικά | 70 | +106% | 51% |
+| ਪੰਜਾਬੀ | 83 | +144% | 59% |
 
 ![Resultaten](/blog-language-tax-chart-v4.png)
 
@@ -36,7 +36,7 @@ De grootste besparing haal je door je prompt in het Engels te sturen: ongeveer 2
 
 ## In geld
 
-Bij een model van $2 per miljoen inputtokens kost het 68 dollar in het Engels en 88 dollar in het Nederlands om deze prompt een miljoen keer te versturen. Antwoordt het model ook in het Nederlands, dan geldt dezelfde factor voor de outputtokens, die meestal 4–5× duurder zijn.
+Bij een model van $2 per miljoen inputtokens kost het 68 dollar in het Engels en 88 dollar in het Nederlands om deze prompt een miljoen keer te versturen. Antwoordt het model ook in het Nederlands, dan geldt dezelfde 29% extra voor de outputtokens, die meestal 300–400% duurder zijn dan inputtokens.
 
 ## Zo bespaar je
 

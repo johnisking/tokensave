@@ -1,4 +1,4 @@
-<p>Ik vertaalde dezelfde klantenservice-prompt naar 41 talen en telde de tokens met o200k_base, de huidige tokenizer van OpenAI (GPT-4o en nieuwer). Engels heeft 34 tokens nodig, Nederlands <strong>44 — 1,29× zoveel</strong>, plaats 10 van 41 (1 = goedkoopst).</p>
+<p>Ik vertaalde dezelfde klantenservice-prompt naar 41 talen en telde de tokens met o200k_base, de huidige tokenizer van OpenAI (GPT-4o en nieuwer). Engels heeft 34 tokens nodig, Nederlands <strong>44 — 29% meer</strong>, plaats 10 van 41 (1 = goedkoopst).</p>
 <p>De Nederlandse versie:</p>
 <blockquote>
 <p>Vat de onderstaande e-mail van de klant samen in drie punten en stel een beleefd antwoord voor. De klant zegt dat de bestelling twee dagen te laat aankwam en dat er één artikel in de doos ontbrak.</p>
@@ -9,7 +9,7 @@
 <tr>
 <th>Taal</th>
 <th style="text-align: right;">Tokens</th>
-<th style="text-align: right;">Ten opzichte van Engels</th>
+<th style="text-align: right;">Meer dan in het Engels</th>
 <th style="text-align: right;">Besparing bij versturen in het Engels</th>
 </tr>
 </thead>
@@ -17,67 +17,67 @@
 <tr>
 <td>English</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">1,00×</td>
+<td style="text-align: right;">–</td>
 <td style="text-align: right;">–</td>
 </tr>
 <tr>
 <td>简体中文</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">1,03×</td>
+<td style="text-align: right;">+3%</td>
 <td style="text-align: right;">3%</td>
 </tr>
 <tr>
 <td>Español</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;">1,18×</td>
+<td style="text-align: right;">+18%</td>
 <td style="text-align: right;">15%</td>
 </tr>
 <tr>
 <td>Deutsch</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">1,26×</td>
+<td style="text-align: right;">+26%</td>
 <td style="text-align: right;">21%</td>
 </tr>
 <tr>
 <td><strong>Nederlands</strong></td>
 <td style="text-align: right;"><strong>44</strong></td>
-<td style="text-align: right;"><strong>1,29×</strong></td>
+<td style="text-align: right;"><strong>+29%</strong></td>
 <td style="text-align: right;"><strong>22%</strong></td>
 </tr>
 <tr>
 <td>한국어</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">+44%</td>
 <td style="text-align: right;">31%</td>
 </tr>
 <tr>
 <td>हिन्दी</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;">1,50×</td>
+<td style="text-align: right;">+50%</td>
 <td style="text-align: right;">33%</td>
 </tr>
 <tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">1,79×</td>
+<td style="text-align: right;">+79%</td>
 <td style="text-align: right;">44%</td>
 </tr>
 <tr>
 <td>Čeština</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">2,00×</td>
+<td style="text-align: right;">+100%</td>
 <td style="text-align: right;">50%</td>
 </tr>
 <tr>
 <td>Ελληνικά</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">+106%</td>
 <td style="text-align: right;">51%</td>
 </tr>
 <tr>
 <td>ਪੰਜਾਬੀ</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">+144%</td>
 <td style="text-align: right;">59%</td>
 </tr>
 </tbody>
@@ -93,7 +93,7 @@
 <h2>Met één knop naar het Engels</h2>
 <p>De grootste besparing haal je door je prompt in het Engels te sturen: ongeveer 22% minder tokens dan in het Nederlands. Huidige modellen begrijpen Engelse instructies uitstekend en antwoorden in het Nederlands als je daarom vraagt. Plak je prompt in de TokenSave-tokenteller en druk op <strong>💸 Tokens besparen</strong>: spaties worden opgeschoond, de tekst wordt naar het Engels vertaald, overbodige tekst wordt weggehaald en "Reply in Dutch." wordt toegevoegd, zodat het antwoord in jouw taal blijft. Er wordt gebruikgemaakt van de ingebouwde vertaler van Chrome 138+ / Edge 148+ op desktop; de vertaling gebeurt op je eigen apparaat en je tekst wordt nooit geüpload. Druk op <strong>↩ Origineel</strong> om het origineel terug te krijgen.</p>
 <h2>In geld</h2>
-<p>Bij een model van $2 per miljoen inputtokens kost het 68 dollar in het Engels en 88 dollar in het Nederlands om deze prompt een miljoen keer te versturen. Antwoordt het model ook in het Nederlands, dan geldt dezelfde factor voor de outputtokens, die meestal 4–5× duurder zijn.</p>
+<p>Bij een model van $2 per miljoen inputtokens kost het 68 dollar in het Engels en 88 dollar in het Nederlands om deze prompt een miljoen keer te versturen. Antwoordt het model ook in het Nederlands, dan geldt dezelfde 29% extra voor de outputtokens, die meestal 300–400% duurder zijn dan inputtokens.</p>
 <h2>Zo bespaar je</h2>
 <ul>
 <li>Schrijf de systeemprompt en vaste instructies in het Engels; houd alleen de invoer van gebruikers in het Nederlands.</li>

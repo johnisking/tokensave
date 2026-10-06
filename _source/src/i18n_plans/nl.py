@@ -32,4 +32,4 @@ P = dict(
     more="Hoe we meten",
 )
 NAV = "Plan of API"
-META = ("ChatGPT Plus of API? Kostencalculator", "Is ChatGPT Plus, Claude Pro of Google AI Pro het waard, of is de API goedkoper?")
+META = ("ChatGPT Plus of API: wat is goedkoper?", "Is ChatGPT Plus, Claude Pro of Google AI Pro het waard, of is de API goedkoper?")

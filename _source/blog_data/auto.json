@@ -173,8 +173,8 @@
   "tag": "nl",
   "path": "/nl/blog/tokens-nederlands-gpt",
   "date": "2026-10-02",
-  "title": "Nederlands kost in GPT 1,29× zoveel tokens als Engels",
-  "desc": "Dezelfde prompt gemeten in 41 talen: het Nederlands gebruikt 1,29× zoveel tokens als het Engels. Stuur hem in het Engels en bespaar ongeveer 22%.",
+  "title": "Nederlands in GPT: 29% meer tokens dan Engels (41 talen gemeten)",
+  "desc": "Dezelfde prompt in 41 talen gemeten: Nederlands gebruikt 29% meer tokens dan Engels. Stuur hem in het Engels en bespaar ongeveer 22%. Tokenteller erbij.",
   "byline": "Jonhisking · 2026-10-02",
   "cta": "Meet je eigen tekst: hoeveel tokens en geld je Nederlandse prompt kost vergeleken met Engels.",
   "ctaBtn": "Tokenteller openen"

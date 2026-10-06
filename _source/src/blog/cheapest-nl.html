@@ -1,0 +1,124 @@
+<p><strong>Kort:</strong> de goedkoopste AI API in oktober 2026 is GPT-5 nano ($0,05 / $0,40 per 1 miljoen input- / outputtokens, zo'n $3 voor 10.000 gewone verzoeken). Begin wel liever met GPT-6 Luna: die kost maar een fractie meer.</p>
+<p>Gaat het je alleen om de laagste rekening? Dan is <strong>GPT-5 nano</strong> de goedkoopste AI API, gevolgd door <strong>GPT-6 Luna</strong> en <strong>Qwen 3.8 Flash</strong>. Maar het goedkoopste model past zelden bij elke taak. Hieronder vergelijk je de API-prijzen van alle grote modellen op basis van wat een echt verzoek kost. Je ziet de kosten per 1 miljoen tokens, welke goedkope modellen de moeite waard zijn en wanneer een duurder model je juist geld bespaart.</p>
+<h2>Hoe hebben we de API-prijzen vergeleken?</h2>
+<p>We keken naar de kosten van één gewoon verzoek, niet alleen naar de prijs per miljoen tokens. Die prijs alleen is om twee redenen misleidend:</p>
+<ul>
+<li><strong>Output is bij de meeste modellen 200% tot 700% duurder dan input.</strong> Een model met goedkope input en dure output kan dus verliezen van een model waarbij het andersom is.</li>
+<li><strong>Tokenizers verschillen.</strong> Dezelfde Engelse tekst levert bij Claude Opus en Sonnet ongeveer 30% meer tokens op dan bij GPT, en bij Gemini ongeveer 5% minder. Een Claude-model van "$2 per miljoen" kost per verzoek dus meer dan een GPT-model van "$2 per miljoen".</li>
+</ul>
+<p>Daarom hebben we één gewoon verzoek doorgerekend: <strong>2.000 inputtokens en 500 outputtokens Engelse tekst</strong>, geteld zoals de tokenizer van elk model ze telt. We gebruikten de officiële prijslijsten, gecontroleerd op 1 oktober 2026. Zonder caching- of batchkorting.</p>
+<h2>Wat zijn de goedkoopste AI API's?</h2>
+<p>GPT-5 nano, GPT-6 Luna en Qwen 3.8 Flash. Alle drie kosten minder dan $6 per 10.000 verzoeken.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Maker</th>
+<th>Input / output per 1 miljoen</th>
+<th style="text-align: right;">1 verzoek</th>
+<th style="text-align: right;">10.000 verzoeken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-5 nano</td>
+<td>OpenAI</td>
+<td>$0,05 / $0,40</td>
+<td style="text-align: right;">$0,00030</td>
+<td style="text-align: right;">$3,00</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td>OpenAI</td>
+<td>$0,10 / $0,50</td>
+<td style="text-align: right;">$0,00045</td>
+<td style="text-align: right;">$4,50</td>
+</tr>
+<tr>
+<td>Qwen 3.8 Flash</td>
+<td>Qwen</td>
+<td>$0,15 / $0,47</td>
+<td style="text-align: right;">$0,00053</td>
+<td style="text-align: right;">$5,35</td>
+</tr>
+<tr>
+<td>GPT-4o mini</td>
+<td>OpenAI</td>
+<td>$0,15 / $0,60</td>
+<td style="text-align: right;">$0,00060</td>
+<td style="text-align: right;">$6,00</td>
+</tr>
+<tr>
+<td>Mistral Small</td>
+<td>Mistral</td>
+<td>$0,15 / $0,60</td>
+<td style="text-align: right;">$0,00063</td>
+<td style="text-align: right;">$6,30</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Flash-Lite</td>
+<td>Google</td>
+<td>$0,25 / $1,50</td>
+<td style="text-align: right;">$0,00119</td>
+<td style="text-align: right;">$11,88</td>
+</tr>
+<tr>
+<td>DeepSeek V4.1 Flash (piek)</td>
+<td>DeepSeek</td>
+<td>$0,30 / $1,20</td>
+<td style="text-align: right;">$0,00120</td>
+<td style="text-align: right;">$12,00</td>
+</tr>
+<tr>
+<td>GPT-5 mini</td>
+<td>OpenAI</td>
+<td>$0,25 / $2,00</td>
+<td style="text-align: right;">$0,00150</td>
+<td style="text-align: right;">$15,00</td>
+</tr>
+<tr>
+<td>GPT-4.1 mini</td>
+<td>OpenAI</td>
+<td>$0,40 / $1,60</td>
+<td style="text-align: right;">$0,00160</td>
+<td style="text-align: right;">$16,00</td>
+</tr>
+<tr>
+<td>Gemini 3.5 Flash-Lite</td>
+<td>Google</td>
+<td>$0,30 / $2,50</td>
+<td style="text-align: right;">$0,00176</td>
+<td style="text-align: right;">$17,57</td>
+</tr>
+<tr>
+<td>Mistral Large 3</td>
+<td>Mistral</td>
+<td>$0,50 / $1,50</td>
+<td style="text-align: right;">$0,00184</td>
+<td style="text-align: right;">$18,38</td>
+</tr>
+</tbody>
+</table></div>
+<p>Ter vergelijking: dezelfde 10.000 verzoeken kosten <strong>$90</strong> op GPT-6 Sol, <strong>$117</strong> op Claude Sonnet 5.5, <strong>$234</strong> op Claude Opus 5.5 en <strong>$450</strong> op GPT-6 Astra. Het goedkoopste model in de tabel kost minder dan 1% van wat GPT-6 Astra kost.</p>
+<h2>Welk goedkoop model kies je?</h2>
+<p>Begin met GPT-6 Luna. Voor het allersimpelste werk op grote schaal neem je GPT-5 nano.</p>
+<ul>
+<li><strong>GPT-6 Luna</strong> probeer je als eerste. Het is het nieuwste kleine model van OpenAI (september 2026) en kost maar $1,50 per 10.000 verzoeken meer dan GPT-5 nano. Goed voor classificatie, gegevens uit tekst halen, routering, korte antwoorden en samenvattingen.</li>
+<li><strong>GPT-5 nano</strong> voor het eenvoudigste werk in de grootste volumes, waar elke fractie van een cent telt: taggen, ja/nee-controles, spamfilters.</li>
+<li><strong>Qwen 3.8 Flash</strong> en <strong>Mistral Small</strong> zijn de goedkoopste opties buiten OpenAI. Handig als je een tweede aanbieder wilt, of open-weight modellen die je later zelf kunt hosten.</li>
+<li><strong>Gemini 3.1 Flash-Lite</strong> en <strong>DeepSeek V4.1 Flash</strong> zijn ruim 160% duurder dan Luna, maar een stap beter in schrijven en redeneren. Toch zijn ze per verzoek nog zo'n 87% goedkoper dan GPT-6 Sol. DeepSeek V4.1 Flash kost buiten de piekuren de helft ($0,15 / $0,60). Daarmee komt hij vlak achter GPT-6 Luna; zie <a href="/blog/deepseek-v4-1-flash-api-pricing">DeepSeek V4.1 Flash-prijzen</a> (in het Engels).</li>
+<li><strong>Claude Haiku 4.5</strong> is het goedkoopste Claude-model: $0,0047 per verzoek, ruim 900% duurder dan Luna. Kies het als je specifiek het gedrag van Claude nodig hebt, niet om de prijs.</li>
+</ul>
+<h2>Wanneer kost het goedkoopste model juist meer?</h2>
+<p>Als het fouten maakt. Een goedkoop model dat faalt, betaal je twee keer: een keer voor het slechte antwoord en nog een keer voor de nieuwe poging op een beter model. Plus je eigen tijd. Twee aanpakken besparen meer dan overal het goedkoopste model kiezen:</p>
+<ol>
+<li><strong>Verdeel op moeilijkheid.</strong> Stuur alles eerst naar een klein model. Alleen de verzoeken die het fout doet (of die jij als lastig markeert) gaan door naar GPT-6 Sol, Claude Sonnet of Gemini 3.1 Pro. Blijft 80% van de verzoeken op GPT-6 Luna en gaat 20% naar GPT-6 Sol, dan dalen de gemiddelde kosten met ongeveer 75% vergeleken met alles naar Sol sturen.</li>
+<li><strong>Snij in tokens, niet alleen in de prijs.</strong> Met prompt caching betaal je bij de meeste aanbieders voor herhaalde instructies en documenten ongeveer een tiende van de inputprijs. Batch-API's rekenen ongeveer de helft voor werk dat kan wachten. Zie <a href="/blog/prompt-caching-explained">prompt caching uitgelegd</a> en <a href="/blog/batch-api-half-price">batch-API's voor de halve prijs</a> (beide in het Engels).</li>
+</ol>
+<h2>Verandert je taal de ranglijst?</h2>
+<p>De ranglijst blijft gelijk, maar de rekening niet. Alle kosten hierboven gelden voor Engels. Andere talen gebruiken meer tokens voor dezelfde inhoud: op GPT Koreaans ongeveer 44% meer en Japans ongeveer 79% meer. Elke prijs in de tabel stijgt dan met hetzelfde percentage.</p>
+<p><strong>Nederlandse tekst gebruikt op GPT (o200k) ongeveer 29% meer tokens dan Engels</strong> (<a href="/nl/blog/tokens-nederlands-gpt">meting</a>). Elk bedrag in de tabel ligt voor Nederlandse prompts dus zo'n 29% hoger. Wil je dat terugwinnen? Stuur je instructies in het Engels en vraag om een antwoord in het Nederlands. Zie ook <a href="/blog/token-cost-by-language">dezelfde prompt in 41 talen</a> (in het Engels).</p>
+<h2>Hoe check je de kosten van je eigen prompt?</h2>
+<p>Plak een echte prompt in de <a href="/nl/">tokenteller</a>. Je ziet dan het exacte aantal tokens en de kosten op elk model. Je kunt ook de teller voor <a href="/openai-token-counter">OpenAI</a>, <a href="/claude-token-counter">Claude</a> of <a href="/gemini-token-counter">Gemini</a> openen (in het Engels). Een volledig overzicht van kunnen tegenover prijs vind je bij <a href="/compare/performance">AI-modellen: prestaties vs. prijs</a> (in het Engels).</p>
+<p>Betaal je liever een vast bedrag per maand? Bekijk dan de <a href="/nl/plans">AI-abonnementen</a> en het artikel over <a href="/nl/blog/ai-abonnement-prijzen">AI-abonnement prijzen</a>.</p>
+<p><em>Prijzen volgens de officiële prijslijsten, gecontroleerd op 1 oktober 2026. Prijzen veranderen vaak. Check de prijspagina van de aanbieder voordat je een model kiest.</em></p>

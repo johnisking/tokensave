@@ -1,0 +1,20 @@
+[
+  {
+    "src": "ctok-nl.md",
+    "path": "/nl/blog/claude-limiet",
+    "title": "Claude limiet: hoeveel tokens geven Claude Pro en Claude Max?",
+    "desc": "Claude limiet in tokens: Max 5x geeft zo'n 39 miljoen tokens per 5 uur, Max 20x zo'n 1,9 miljard per week. Pro-schatting, prijzen in euro en API-kosten."
+  },
+  {
+    "src": "cc-limits-nl.md",
+    "path": "/nl/blog/claude-code-limiet",
+    "title": "Claude Code limiet: de 5 uur limiet en de weeklimiet uitgelegd",
+    "desc": "Claude Code limiet uitgelegd: hoe de 5 uur limiet en de weeklimiet werken, wat er in 2026 veranderde en wat je doet als je tegen een limiet aanloopt."
+  },
+  {
+    "src": "cxlim-nl.md",
+    "path": "/nl/blog/codex-limiet",
+    "title": "Codex limiet: hoeveel geeft Codex in ChatGPT Plus en Pro?",
+    "desc": "Codex limiet in Plus en Pro: het 5-uursvenster, de weeklimiet en berichten per model, van GPT-6 Astra tot GPT-5.6 Luna. Plus tips om langer door te werken."
+  }
+]

@@ -25,7 +25,7 @@ META["token"] = {
   "vi":    ("Đếm token AI – GPT, Claude, Gemini", "Đếm token và chi phí API của GPT, Claude, Gemini ngay. Miễn phí, không tải lên."),
   "th":    ("ตัวนับโทเค็น AI – GPT, Claude, Gemini", "นับโทเค็นและค่า API ของ GPT, Claude, Gemini ทันที ฟรี ไม่ต้องอัปโหลด"),
   "pl":    ("Licznik tokenów – kalkulator tokenów AI", "Licznik tokenów: ile tokenów ma polski tekst i ile to kosztuje w GPT i Claude."),
-  "nl":    ("AI-tokenteller – GPT, Claude, Gemini", "Tel tokens en API-kosten voor GPT, Claude en Gemini. Gratis, zonder upload."),
+  "nl":    ("Tokenteller: tokens tellen voor GPT", "Gratis tokenteller: tokens en API-kosten van je tekst in GPT, Claude, Gemini."),
 }
 
 META["video"] = {
@@ -49,7 +49,7 @@ META["video"] = {
   "vi":    ("Chi phí video AI – Veo, Kling, Runway", "So sánh giá API của Veo 3.1, Kling, Runway, Luma và khác theo giây, theo clip."),
   "th":    ("ค่าสร้างวิดีโอ AI – Veo, Kling, Runway", "เทียบราคา API ของ Veo 3.1, Kling, Runway, Luma และอื่น ๆ ต่อวินาทีและต่อคลิป"),
   "pl":    ("Koszt wideo AI – Veo, Kling, Runway", "Porównaj ceny API Veo 3.1, Kling, Runway, Luma i innych za sekundę i klip."),
-  "nl":    ("AI-videokosten – Veo, Kling, Runway", "Vergelijk API-prijzen van Veo 3.1, Kling, Runway, Luma en meer per seconde."),
+  "nl":    ("Kosten AI-video per seconde: Veo, Kling", "Wat kost een AI-video? Prijs per seconde van Veo 3.1, Kling, Runway en Luma."),
 }
 
 META["image"] = {
@@ -73,7 +73,7 @@ META["image"] = {
   "vi":    ("Chi phí ảnh AI – Nano Banana, GPT Image", "So sánh giá mỗi ảnh của Nano Banana, GPT Image, FLUX, Grok và các mô hình khác."),
   "th":    ("ค่าสร้างภาพ AI – Nano Banana, GPT", "เทียบราคาต่อภาพของ Nano Banana, GPT Image, FLUX, Grok และอื่น ๆ"),
   "pl":    ("Koszt obrazów AI – Nano Banana, GPT", "Porównaj cenę za obraz w Nano Banana, GPT Image, FLUX, Grok i innych."),
-  "nl":    ("AI-beeldkosten – Nano Banana, GPT Image", "Vergelijk de prijs per afbeelding van Nano Banana, GPT Image, FLUX en Grok."),
+  "nl":    ("Kosten AI-afbeelding: prijs per beeld", "Wat kost een AI-afbeelding? Prijs per beeld van Nano Banana, GPT Image en FLUX."),
 }
 
 # Extra languages (i18n_extra/*.py)

@@ -1,0 +1,73 @@
+<p>"Claude usage limit reached" is een van de meest voorkomende meldingen in Claude Code. Ook een van de meest verwarrende. De Claude Code limiet bestaat namelijk uit twee limieten die tegelijk gelden: een 5 uur limiet en een weeklimiet. Hieronder lees je hoe ze werken, wat er in 2026 veranderde en wat je doet als je er een raakt.</p>
+<p><strong>Kort:</strong> Claude Code heeft twee limieten tegelijk, een 5 uur limiet vanaf je eerste bericht en een weeklimiet, en die deel je met de Claude-app; zit je aan een van beide, dan wacht je op de reset, zet je extra gebruik aan of stap je over op de API.</p>
+<h2>Welke limieten heeft Claude Code?</h2>
+<p>Twee: een sessielimiet van 5 uur en een weeklimiet. Ze lopen naast elkaar, en elk van de twee kan je tegenhouden.</p>
+<p><strong>1. De Claude Code 5 uur limiet.</strong> Je gebruik wordt gemeten over een schuivend venster van vijf uur dat begint bij je eerste bericht. Is je tegoed voor dat venster op, dan wacht je tot het wordt gereset.</p>
+<p><strong>2. De weeklimiet.</strong> Bovenop de sessielimiet geldt een maximum voor je totale gebruik per week. Die kwam er in augustus 2025, om te voorkomen dat een klein deel van de accounts Claude Code dag en nacht liet draaien. Raak je hem, dan wacht je op de wekelijkse reset, ook als je 5-uursvenster nog vers is.</p>
+<p>Beide limieten worden <strong>gedeeld tussen Claude Code en de Claude-app</strong> (web, desktop en mobiel). Een lang gesprek in de app gaat van hetzelfde tegoed af als je codeersessie.</p>
+<h2>Hoeveel gebruik krijg je per plan?</h2>
+<p>Anthropic beschrijft de limieten van de plannen ten opzichte van elkaar, niet in exacte aantallen tokens:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>Prijs</th>
+<th>Gebruik</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pro</td>
+<td>$20/maand</td>
+<td>Basisniveau</td>
+</tr>
+<tr>
+<td>Max 5x</td>
+<td>$100/maand</td>
+<td>Vijf keer Pro</td>
+</tr>
+<tr>
+<td>Max 20x</td>
+<td>$200/maand</td>
+<td>Twintig keer Pro</td>
+</tr>
+</tbody>
+</table></div>
+<p>Hoe ver je daarmee komt, hangt sterk af van wat je doet. Grote bestanden, lange sessies en Opus gaan veel sneller door je tegoed dan korte taken op Sonnet. Elke stap stuurt namelijk de hele werkcontext opnieuw mee. In Nederland en België kosten de plannen €21,78, €108,90 en €217,80 per maand inclusief 21% btw. Meer prijzen in <a href="/nl/blog/ai-abonnement-prijzen">AI-abonnementen: prijzen</a>, en hoeveel tokens de plannen ongeveer geven lees je in <a href="/nl/blog/claude-limiet">Claude limiet</a>.</p>
+<h2>Wat veranderde er in 2026?</h2>
+<ul>
+<li><strong>6 mei 2026:</strong> Anthropic <strong>verdubbelde de 5-uurslimieten van Claude Code</strong> voor Pro, Max, Team en Enterprise met seats, en schrapte voor Pro en Max de extra verlaging van de limieten tijdens piekuren.</li>
+<li><strong>Zomer 2026:</strong> er gold tijdelijk een <strong>verhoging van 50%</strong> op de weeklimieten.</li>
+<li><strong>14 september 2026:</strong> Anthropic <strong>verhoogde de standaard weeklimieten blijvend met 25%</strong> voor Pro, Max, Team en Enterprise met seats. Dat verving de tijdelijke verhoging van 50%. Daardoor liggen de weeklimieten zo'n 17% lager dan in de zomer, maar nog steeds 25% boven het oorspronkelijke niveau.</li>
+</ul>
+<p>Heb je het gevoel dat je sinds half september sneller tegen de weeklimiet aanloopt? Dat klopt.</p>
+<h2>Hoe zie je hoeveel limiet je nog hebt?</h2>
+<p>In Claude Code toont het commando <strong>/status</strong> hoeveel tegoed je nog hebt. Claude Code waarschuwt je ook als je een limiet nadert. Kijk dit na voordat je aan een lange taak begint, niet halverwege.</p>
+<h2>Wat doe je als je een limiet raakt?</h2>
+<ol>
+<li><strong>Wacht op de reset.</strong> Bij de 5 uur limiet is dat meestal een kwestie van uren.</li>
+<li><strong>Zet extra gebruik aan (extra usage).</strong> Betaalde plannen kunnen doorwerken met los gefactureerde tegoeden in plaats van te stoppen.</li>
+<li><strong>Stap over op API-tegoed.</strong> Claude Code kan draaien op pay-as-you-go-facturering via de API. Het vraagt eerst je toestemming.</li>
+<li><strong>Kies een hoger plan.</strong> Van Pro naar Max 5x, of van Max 5x naar Max 20x.</li>
+<li><strong>Gebruik minder tokens per taak.</strong> Vaak de goedkoopste oplossing. Zie hieronder.</li>
+</ol>
+<h2>Waarom raak je je limiet sneller dan verwacht?</h2>
+<p>Meestal door lange sessies en een grote context die bij elke stap terug naar het model gaat.</p>
+<ul>
+<li><strong>Lange sessies.</strong> Elke stap stuurt alles wat eerder gebeurde opnieuw mee. Een sessie van twee uur sleept een enorme context mee in elke nieuwe stap.</li>
+<li><strong>Opus.</strong> Gaat sneller door je tegoed dan Sonnet.</li>
+<li><strong>Grote bestanden en logs.</strong> Een bestand van 3.000 regels of een volledig testlog inlezen kost tienduizenden tokens.</li>
+<li><strong>Vage taken.</strong> "Ruim het project op" kan tientallen stappen kosten; "fix de falende test in auth.py" maar een paar.</li>
+<li><strong>Tegelijk de Claude-app gebruiken.</strong> Beide putten uit dezelfde pot.</li>
+</ul>
+<h2>Hoe rek je je Claude Code limiet op?</h2>
+<ul>
+<li>Begin een nieuwe sessie (<strong>/clear</strong>) tussen taken die niets met elkaar te maken hebben, en vat een lange sessie samen met <strong>/compact</strong>.</li>
+<li>Wijs Claude de juiste bestanden aan in plaats van hem te laten zoeken.</li>
+<li>Houd je instructies in CLAUDE.md kort: ze gaan bij elke stap mee.</li>
+<li>Gebruik Sonnet voor routinewerk en bewaar Opus voor lastige problemen.</li>
+</ul>
+<p>Meer details en cijfers vind je in <a href="/blog/claude-code-save-tokens">How to save tokens in Claude Code</a> (in het Engels). Hoeveel tokens je tekst of code kost, zie je in de <a href="/nl/">token counter</a>. Let op: Nederlands kost zo'n 29% meer tokens dan Engels (<a href="/nl/blog/tokens-nederlands-gpt">meting</a>).</p>
+<h2>Abonnement of API?</h2>
+<p>Loop je regelmatig tegen de weeklimiet aan? Vergelijk dan wat dat extra gebruik via de API zou kosten met de prijs van het volgende plan. Onze gids <a href="/blog/claude-code-cost-per-month">Claude Code cost per month</a> (in het Engels) en de <a href="/nl/agents">kostencalculator voor coding agents</a> rekenen het voor je uit. Plannen van verschillende aanbieders vergelijk je met de <a href="/nl/plans">plannencalculator</a>. De limieten van de concurrent van OpenAI staan in <a href="/nl/blog/codex-limiet">Codex limiet</a>.</p>
+<p><em>Limieten veranderen. De <a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">helppagina van Anthropic over Claude Code met Pro of Max</a> en de <a href="https://claude.com/pricing" target="_blank" rel="noopener">prijspagina</a> geven de actuele regels.</em></p>

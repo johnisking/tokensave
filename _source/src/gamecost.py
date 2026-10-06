@@ -213,7 +213,8 @@ H2 = "text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-4"
 READ = {"en": ("/blog/ai-game-development-cost", "How much does it cost to make a game with AI? Full breakdown"),
         "ko": ("/ko/blog/ai-game-jejakbi", "AI로 게임 만들기 비용 자세히 보기"),
         "ja": ("/ja/blog/ai-game-seisakuhi", "AIでゲームを作る費用の詳しい解説"),
-        "pl": ("/pl/blog/ile-kosztuje-gra-z-ai", "Ile kosztuje stworzenie gry z AI? Pełne zestawienie")}
+        "pl": ("/pl/blog/ile-kosztuje-gra-z-ai", "Ile kosztuje stworzenie gry z AI? Pełne zestawienie"),
+        "nl": ("/nl/blog/wat-kost-een-game-maken-met-ai", "Wat kost een game maken met AI? Volledig overzicht")}
 
 from gamecost_i18n import EXTRA as _EXTRA, NAV as NAV_EXTRA
 for _tag, (_slug, _t) in _EXTRA.items():

@@ -159,8 +159,8 @@ B["nl"] = dict(
     a2="Elke stap stuurt de hele context opnieuw: systeemprompt, tooldefinities, gelezen bestanden en alle eerdere stappen. Een taak van 25 stappen kan meer dan een miljoen inputtokens versturen, ook als de geschreven code kort is.",
     q3="Abonnement of API voor coding agents?",
     a3="Bij een paar kleine taken per dag is de API meestal goedkoper. Bij intensief dagelijks gebruik is een abonnement van $100–200 vaak goedkoper, zolang je binnen de limieten blijft.",
-    nav="Agentkosten", title="Kosten van coding agents",
-    desc="Maandkosten van Claude Code, Codex en Gemini CLI: API of abonnement.",
+    nav="Agentkosten", title="Claude Code & Codex kosten berekenen",
+    desc="Wat kosten Claude Code, Codex en Gemini CLI per maand: API of abonnement?",
 )
 
 B["bn"] = dict(

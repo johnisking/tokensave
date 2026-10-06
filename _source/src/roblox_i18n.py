@@ -124,5 +124,15 @@ RBX = {
   rbxDev="Roblox-Besonderheiten: Spiellogik gehört in ServerScriptService, Client-UI und Eingabe in StarterPlayerScripts / StarterGui; verbinde beide nur über RemoteEvents und vertraue nie dem Client. Fortschritt mit DataStoreService speichern (mit Wiederholungen). Game Passes und Developer Products über MarketplaceService verkaufen. Nutze Roblox Assistant in Studio für kleine Änderungen und 3D-Modelle, und mach jeden Schritt im Play-Modus testbar.",
   rbxPublish="Feinschliff, in Studio mit 2+ Spielern testen, Icon und Thumbnails setzen, auf Roblox veröffentlichen",
 ),
+"nl": dict(
+  pl_roblox="Roblox", pls_roblox="",
+  g_steal="Steal a ___ (bases plunderen)", g_plus1="+1 per seconde (ontsnappen / snelheid)", g_verbsim="Simpele-handeling-sim (type aardappel schillen)",
+  g_coophorror="Co-op-horror", g_duels="1-tegen-1-duels", g_rng="RNG / verzamelen op geluk", g_coopobby="Co-op-obby voor 2",
+  rbxTitle="🔥 Nu trending op Roblox", rbxSub="Gametypes die stijgen in de Roblox-hitlijsten, met gelijktijdige spelers. Gecontroleerd op {date} in Roblox Charts.", rbxUse="Gebruiken →",
+  rbxMoney="Op Roblox zijn er geen storekosten en Roblox draait de servers gratis. Je verdient Robux met game passes en developer products (je houdt 70%) en met Premium Payouts, en wisselt ze via DevEx in tegen $0,0038 per Robux (minimaal 30.000 Robux). Voorbeeld: 10.000 Robux omzet → 7.000 Robux → ongeveer $27.",
+  devIntroRbx="Je bent een ervaren Roblox-ontwikkelaar. Help me \"{name}\" te bouwen, een game in het genre {genre} op Roblox, in Roblox Studio met Luau.",
+  rbxDev="Roblox-specifiek: zet de gamelogica in ServerScriptService en de UI en invoer van de client in StarterPlayerScripts / StarterGui; laat ze alleen via RemoteEvents communiceren en vertrouw nooit de client. Sla voortgang op met DataStoreService (met nieuwe pogingen). Verkoop game passes en developer products via MarketplaceService. Gebruik Roblox Assistant in Studio voor kleine aanpassingen en 3D-modellen, en maak elke stap testbaar in Play-modus.",
+  rbxPublish="Afwerken, in Studio testen met 2+ spelers, icoon en thumbnails instellen en publiceren op Roblox",
+),
 }
 assert all(set(d) == set(RBX["en"]) for d in RBX.values())
