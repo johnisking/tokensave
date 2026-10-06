@@ -1,0 +1,98 @@
+<p>Nie miałem żadnego doświadczenia w programowaniu. Nie wiedziałem nawet, czym jest „silnik gry”. Mimo to, opisując AI zwykłymi słowami, czego chcę, zrobiłem grę w 3 dni, a doprowadzenie jej do premiery kosztowało mnie <strong>45 USD</strong>. Tak wygląda vibe coding gra w praktyce – i odpowiedź na pytanie, jak zrobić grę bez programowania.</p>
+<p><img loading="lazy" width="1024" height="500" alt="Grafika promocyjna Sperm Race w Google Play" src="/blog-spermrace-feature-en.jpg" /></p>
+<p>To część 1 dziennika dewelopera Sperm Race – głupiej gry o wyścigu plemników.</p>
+<ul>
+<li><strong>Google Play</strong>: <a href="https://play.google.com/store/apps/details?id=com.spermrace.game&amp;hl=pl" target="_blank" rel="noopener">Sperm Race</a></li>
+<li><strong>Wersja webowa (itch.io)</strong>: <a href="https://johnisking.itch.io/sperm-race" target="_blank" rel="noopener">Sperm Race</a> – gra najpierw ukazała się na itch.io, a potem w Google Play.</li>
+</ul>
+<h2>Jak „zróbmy prostą grę” zaprowadziło mnie aż do plemników?</h2>
+<p>Szukałem gry z jedną zasadą, którą każdy zna bez tłumaczenia – i tak doszedłem do plemnika płynącego do komórki jajowej.</p>
+<p>Na początku cel był prosty: <strong>„Po prostu zrób prostą grę”.</strong></p>
+<p>Ale im dłużej myślałem o tym, co znaczy „prosta”, tym bardziej pierwotne stawały się moje pomysły. Gra z jedną zasadą. Gra, której nie trzeba tłumaczyć. Gra, którą wszyscy już znają. Idąc tym tropem do samego końca, dotarłem do <strong>plemnika</strong>. Płyń do przodu, dotrzyj do komórki jajowej, koniec. Jak się nad tym zastanowić, to jedyny wyścig, który każdy z nas już raz wygrał.</p>
+<p>W chwili, gdy ta myśl przyszła mi do głowy, roześmiałem się na głos. <strong>„Chwila, to jest zabawne”.</strong></p>
+<p>Ta jedna reakcja wyznaczyła kierunek. Nie poważna gra, tylko głupkowata – taka, przy której uśmiechasz się pod nosem, gdy tylko ją zobaczysz.</p>
+<h2>Czy trzeba znać silnik gry, żeby zrobić grę z AI?</h2>
+<p>Nie – ja zacząłem bez żadnego silnika i grę dało się uruchomić w przeglądarce już pierwszego dnia.</p>
+<p>Nigdy nie napisałem ani linijki kodu. Nie wiedziałem, że istnieją silniki takie jak Unity czy Godot, nie mówiąc już o tym, do czego służą.</p>
+<p>Zacząłem więc bez silnika. Napisałem do Claude (Sonnet) po koreańsku: „Chcę zrobić taką grę”, a w odpowiedzi dostałem jeden plik HTML, który działał od razu w przeglądarce. Później zapakowałem ten sam plik w aplikację na Androida i wrzuciłem do Google Play. Tworzenie przez opisywanie AI tego, czego chcesz, zamiast samodzielnego pisania kodu, ma dziś swoją nazwę: <strong>vibe coding</strong>. Z perspektywy czasu start bez żadnej wiedzy okazał się nawet szybszy. Nie było silnika do instalowania ani niczego do nauki, a grać mogłem już pierwszego dnia.</p>
+<h2>Pierwszy prompt: „Chcę zrobić grę, w której plemnik płynie na spotkanie z komórką jajową”</h2>
+<p>To jedno zdanie dało pierwszą wersję. Na ekranie pojawił się plemnik, którym mogłem sterować palcem.</p>
+<p>Problemem był ogonek. Sztywny jak patyk – bardziej zapałka niż plemnik. Więc drugą rzeczą, którą powiedziałem, było:</p>
+<p><strong>„Dodaj falowanie ogonka”.</strong></p>
+<p><img loading="lazy" width="900" height="315" alt="Po lewej: pierwsza wersja ze sztywnym ogonkiem. Po prawej: kolejna wersja z falującym ogonkiem" src="/blog-spermrace-tail.gif" /></p>
+<p>Po lewej sztywny ogonek z pierwszej wersji, po prawej kolejna wersja z falowaniem. Samo to, że ogonek zaczął się wić, sprawiło, że plemnik w końcu wyglądał na żywego. Tak narodził się główny bohater.</p>
+<h2>Trzy dni dodawania, wycinania i dodawania od nowa</h2>
+<p>Potem nie mogłem przestać. Za każdym razem, gdy grałem w nową wersję, pojawiał się kolejny pomysł. Jeśli coś przyszło mi do głowy – dodawałem. Jeśli nie działało – wycinałem. A potem znowu dodawałem.</p>
+<ol>
+<li><strong>„Zrób mapę”.</strong> Teraz było gdzie pływać.</li>
+<li><strong>„Dodaj też przeszkody”.</strong> Kiedy pojawiło się coś do omijania, zrobiła się z tego gra. To dzisiejszy tryb Adventure.</li>
+<li><strong>„Dodaj wyścigi plemników, jak prawdziwe wyścigi samochodowe”.</strong> Tryb Racing z 3 okrążeniami toru.</li>
+<li><strong>„Zrób tryb, w którym biegną same jak na wyścigach konnych, a ja ustawiam przeszkody”.</strong> Wybierasz plemnika, któremu kibicujesz, i pomagasz mu wygrać przeszkodami. To tryb Derby.</li>
+<li><strong>„Zrób tryb przetrwania, w którym uciekasz, z motywem raka”.</strong> Omijasz komórki nowotworowe w labiryncie i przetrwasz 1 minutę i 30 sekund.</li>
+</ol>
+<p>Daty plików, które zostały w moim folderze Pobrane, pokazują, jak szybko to szło. Pierwszy plik HTML dostałem we wczesnych godzinach 19 sierpnia, a do popołudnia następnego dnia pobrałem nową wersję <strong>16 razy</strong>. To „popraw to → pobierz nowy plik → zagraj” cztery lub pięć razy co pół dnia. W tym czasie kod urósł z 47 KB do 149 KB. 21 sierpnia robiłem już zrzuty ekranu do sklepu.</p>
+<p><img loading="lazy" width="525" height="1058" alt="Menu główne Sperm Race (obecna wersja – przycisk gry ze znajomymi doszedł po premierze)" src="/blog-spermrace-menu-en.jpg" /></p>
+<h2>Skąd wziąć grafikę i dźwięki, jeśli nie umiesz rysować?</h2>
+<p>Nie musisz – w tej grze całą grafikę i efekty dźwiękowe napisała w kodzie AI.</p>
+<p>W tej grze nie ma ani jednego pliku graficznego. Postać, tła, tory i labirynty – wszystko narysował w kodzie Sonnet.</p>
+<p><img loading="lazy" width="1260" height="380" alt="Cztery tryby narysowane w całości w kodzie: Adventure, Racing, Derby, Survival" src="/blog-spermrace-modes.jpg" /></p>
+<p>Od lewej: Adventure, Racing, Derby, Survival. Plemnik to jedna elipsa i wijąca się linia, tor to gruba krzywa, a labirynt to świecące proste linie. W głupiej grze ta prostota naprawdę się sprawdziła.</p>
+<p>Tak samo z efektami dźwiękowymi. Nie ma żadnych plików dźwiękowych – Sonnet zsyntetyzował dźwięki w kodzie. Jedyny plik audio w folderze gry to darmowa muzyka w tle z Pixabay.</p>
+<h2>Pierwsza reakcja testerów: „To jest bardzo oryginalne”</h2>
+<p>Przed premierą pokazałem grę testerom. Usłyszałem: <strong>„To jest bardzo oryginalne”.</strong></p>
+<p>Pomysł, który zaczął się od „chwila, to jest zabawne”, okazał się zabawny nie tylko dla mnie.</p>
+<p>Oto co było w grze w dniu premiery:</p>
+<ul>
+<li>4 tryby: Adventure (120 etapów), Racing (3 okrążenia), Derby, Survival (przetrwaj 1 minutę i 30 sekund)</li>
+<li>13 języków</li>
+<li>Sterowanie: przeciąganie, strzałki/WASD, gamepad</li>
+</ul>
+<p>Gra wieloosobowa ze znajomymi (do 10 graczy w Derby, do 4 w pozostałych trybach) pojawiła się później, w aktualizacji po premierze.</p>
+<h2>Ile kosztowała gra z AI? 45 USD</h2>
+<p>Łącznie 45 USD: 20 USD za miesiąc Claude Pro i 25 USD za rejestrację w Google Play – reszta była darmowa.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Pozycja</th>
+<th>Czego użyłem</th>
+<th>Koszt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kod</td>
+<td>Subskrypcja Claude Pro (Sonnet)</td>
+<td>20 USD (jeden miesiąc)</td>
+</tr>
+<tr>
+<td>Grafika</td>
+<td>Narysowana w kodzie</td>
+<td>0 USD</td>
+</tr>
+<tr>
+<td>Muzyka w tle</td>
+<td>Darmowe utwory z Pixabay</td>
+<td>0 USD</td>
+</tr>
+<tr>
+<td>Efekty dźwiękowe</td>
+<td>Zrobione w kodzie</td>
+<td>0 USD</td>
+</tr>
+<tr>
+<td>Premiera</td>
+<td>Rejestracja dewelopera Google Play</td>
+<td>25 USD (jednorazowo)</td>
+</tr>
+<tr>
+<td><strong>Razem</strong></td>
+<td></td>
+<td><strong>45 USD</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Teraz używam Claude Max 20×, ale Sperm Race powstała <strong>w całości na planie Pro.</strong> Skończyłem w ciągu miesiąca, więc zapłaciłem tylko za jeden miesiąc. Co dokładnie dają te plany, opisałem w artykule o <a href="/pl/blog/limity-claude-pro-max">limitach Claude Pro i Max</a>.</p>
+<p>Dla porównania: jeśli wpiszesz małą grę do <a href="/pl/ai-game-cost-calculator">kalkulatora kosztów gry z AI</a>, standardowy zestaw (AI do grafiki i muzyki plus Claude Max) wychodzi 128–181 USD. Sperm Race kosztowała ok. 25–35% tej kwoty. Pełne zestawienie znajdziesz w artykule <a href="/pl/blog/ile-kosztuje-gra-z-ai">ile kosztuje stworzenie gry z AI</a>.</p>
+<h2>Następnym razem</h2>
+<p>Na razie wygląda to tak: „AI zrobiła grę w 3 dni, proste”. Ale prawdziwa walka zaczęła się później. Budowanie zajęło 3 dni, naprawianie błędów – 14.</p>
+<p><strong>Dalej: <a href="/pl/blog/testy-zamkniete-google-play-14-dni">3 dni budowania, 14 dni naprawiania błędów</a></strong> – dlaczego AI grzebie w niewłaściwym kodzie, gdy prosisz ją „znajdź błąd”, i jak w końcu sam zacząłem szukać błędów, a AI je naprawiała.</p>

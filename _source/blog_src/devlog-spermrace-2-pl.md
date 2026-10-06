@@ -1,6 +1,6 @@
 ![3 dni budowania, 14 dni debugowania – dziennik dewelopera Sperm Race, część 2 (vibe coding gra)](/blog-spermrace-2-hero-en.jpg)
 
-W [części 1](/blog/vibe-coding-a-game-beginner) (po angielsku) zrobiłem grę w 3 dni bez żadnego doświadczenia w programowaniu – po prostu opisując ją AI. Byłem gotów kliknąć „opublikuj”, kiedy zatrzymało mnie Google Play: nowe osobiste konto dewelopera musi przejść **testy zamknięte Google Play z co najmniej 12 testerami przez 14 dni**, zanim aplikacja trafi do sklepu.
+W [części 1](/pl/blog/vibe-coding-gra) zrobiłem grę w 3 dni bez żadnego doświadczenia w programowaniu – po prostu opisując ją AI. Byłem gotów kliknąć „opublikuj”, kiedy zatrzymało mnie Google Play: nowe osobiste konto dewelopera musi przejść **testy zamknięte Google Play z co najmniej 12 testerami przez 14 dni**, zanim aplikacja trafi do sklepu.
 
 Czternaście dni. Ponad cztery razy dłużej niż budowanie gry. Zamiast po prostu czekać, postanowiłem grać w nią codziennie. I okazało się, że bez tych 14 dni premiera byłaby katastrofą.
 

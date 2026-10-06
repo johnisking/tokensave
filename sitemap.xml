@@ -12076,6 +12076,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-game-development-cost"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-game-jejakbi"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-game-seisakuhi"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
   </url>
   <url>
@@ -12084,6 +12085,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-game-development-cost"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-game-jejakbi"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-game-seisakuhi"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
   </url>
   <url>
@@ -12092,6 +12094,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-game-development-cost"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-game-jejakbi"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-game-seisakuhi"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-game-development-cost"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-game-jejakbi"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-game-seisakuhi"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
   </url>
   <url>
@@ -12105,6 +12117,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/vibe-coding-a-game-beginner"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/vibe-coding-game-mandeulgi"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/vibe-coding-game-shoshinsha"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/vibe-coding-gra"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/vibe-coding-a-game-beginner"/>
     <image:image>
       <image:loc>https://tokensave.app/blog-spermrace-feature-en.jpg</image:loc>
@@ -12125,6 +12138,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/vibe-coding-a-game-beginner"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/vibe-coding-game-mandeulgi"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/vibe-coding-game-shoshinsha"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/vibe-coding-gra"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/vibe-coding-a-game-beginner"/>
     <image:image>
       <image:loc>https://tokensave.app/blog-spermrace-feature.jpg</image:loc>
@@ -12145,6 +12159,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/vibe-coding-a-game-beginner"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/vibe-coding-game-mandeulgi"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/vibe-coding-game-shoshinsha"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/vibe-coding-gra"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/vibe-coding-a-game-beginner"/>
     <image:image>
       <image:loc>https://tokensave.app/blog-spermrace-feature-ja.jpg</image:loc>
@@ -12154,6 +12169,27 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/blog-spermrace-menu-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-spermrace-modes.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/pl/blog/vibe-coding-gra</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/vibe-coding-a-game-beginner"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/vibe-coding-game-mandeulgi"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/vibe-coding-game-shoshinsha"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/vibe-coding-gra"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/vibe-coding-a-game-beginner"/>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-spermrace-feature-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-spermrace-tail.gif</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-spermrace-menu-en.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/blog-spermrace-modes.jpg</image:loc>
@@ -12511,6 +12547,16 @@
     <loc>https://tokensave.app/pl/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/chatgpt-go-vs-plus"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/pl/blog/popularne-gry-roblox</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/popularne-gry-roblox"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/pl/blog/gra-roblox-z-ai</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gra-roblox-z-ai"/>
   </url>
   <url>
     <loc>https://tokensave.app/blog/what-is-a-token</loc>

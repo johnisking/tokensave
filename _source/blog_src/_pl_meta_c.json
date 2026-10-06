@@ -1,0 +1,14 @@
+[
+  {
+    "src": "game-pl.md",
+    "path": "/pl/blog/ile-kosztuje-gra-z-ai",
+    "title": "Ile kosztuje stworzenie gry z AI? Koszt gry mobilnej w 2026",
+    "desc": "Ile kosztuje stworzenie gry z AI: mała gra mobilna to ok. 128–181 USD i 2–3 tygodnie. Koszt według rozmiaru, gatunku i narzędzi – gra bez programowania."
+  },
+  {
+    "src": "devlog-spermrace-1-pl.md",
+    "path": "/pl/blog/vibe-coding-gra",
+    "title": "Vibe coding gra: zrobiłem grę z AI w 3 dni za 45 USD",
+    "desc": "Vibe coding gra Sperm Race: jak zrobić grę bez programowania w 3 dni za 45 USD. Pierwsze prompty, grafika i dźwięk w kodzie, Claude Pro i Google Play."
+  }
+]
