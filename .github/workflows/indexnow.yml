@@ -1,0 +1,47 @@
+name: IndexNow ping
+
+# After each deploy, tell Bing (and other IndexNow engines) which pages changed,
+# so AI search engines that rely on the Bing index (e.g. ChatGPT search, Copilot) pick them up fast.
+on:
+  push:
+    branches: [main]
+    paths: ["**.html", "llms.txt", "sitemap.xml"]
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Wait for GitHub Pages to publish
+        run: sleep 90
+
+      - name: Send changed URLs to IndexNow
+        run: |
+          KEY=65238d13682299fff88e09b9d3ed7572
+          HOST=tokensave.app
+          git diff --name-only HEAD^ HEAD -- '*.html' ':!_source/**' ':!404.html' > changed.txt || true
+          python3 - <<'PY'
+          import json, urllib.request
+          urls = []
+          for p in open("changed.txt").read().split():
+              p = p[:-5] if p.endswith(".html") else p
+              if p.endswith("index"):
+                  p = p[:-5]
+              urls.append("https://tokensave.app/" + p)
+          urls.append("https://tokensave.app/llms.txt")
+          urls = sorted(set(urls))[:10000]
+          print(len(urls), "URLs")
+          body = json.dumps({"host": "tokensave.app", "key": "65238d13682299fff88e09b9d3ed7572",
+                             "keyLocation": "https://tokensave.app/65238d13682299fff88e09b9d3ed7572.txt",
+                             "urlList": urls}).encode()
+          req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body,
+                                       headers={"Content-Type": "application/json; charset=utf-8"})
+          try:
+              print("IndexNow:", urllib.request.urlopen(req, timeout=30).status)
+          except Exception as e:
+              print("IndexNow failed (not fatal):", e)
+          PY

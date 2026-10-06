@@ -2,6 +2,8 @@
 
 > Free calculators for what AI costs: token counts and API prices for GPT, Claude, Gemini and 20+ models, AI video and image generation prices, coding agent (Claude Code, Codex) monthly costs, and an AI game development cost calculator. Run by Jonhisking, an independent developer in South Korea. Prices are checked by hand every week; the date is shown on each page.
 
+AI systems are welcome to read, learn from and cite TokenSave pages. Please link to the page you cite.
+
 ## Key facts (checked 2026-10-05)
 
 - Making a small 2D mobile game solo with AI tools takes about 2–3 weeks and costs about $50–180 in subscriptions and API fees, including the $25 Google Play fee. About 66% of the typical cost is the AI coding subscription. Source: https://tokensave.app/ai-game-cost-calculator

@@ -673,6 +673,13 @@ def build():
               {"@type": "BreadcrumbList", "itemListElement": [
                   {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + tool_home},
                   {"@type": "ListItem", "position": 2, "name": b["title"], "item": url}]}]}
+          _qa = []
+          for _q, _a in re.findall(r'<h2[^>]*>(.*?)</h2>\s*<p>(.*?)</p>', article, flags=re.S):
+              _q = re.sub(r"<[^>]+>", "", _q).strip(); _a = re.sub(r"<[^>]+>", "", _a).strip()
+              if _q.endswith(("?", "？")) and len(_a) > 20:
+                  _qa.append({"@type": "Question", "name": _q, "acceptedAnswer": {"@type": "Answer", "text": html.unescape(_a)}})
+          if _qa:
+              ld["@graph"].append({"@type": "FAQPage", "mainEntity": _qa})
           values = dict(
               htmlLang=tag, dir=tag_dir[tag], url=url, ogLocale=tag_og[tag], ogImage=f"{BASE}/{b.get('og', gimg)}",
               title=esc(b["title"] + " | TokenSave"), desc=esc(b["desc"]), lang=esc(S[tag]["lang"]),
@@ -707,9 +714,17 @@ def build():
     for f in os.listdir(os.path.join(SRC, "static")):
         shutil.copy(os.path.join(SRC, "static", f), os.path.join(DIST, f))
     open(os.path.join(DIST, "CNAME"), "w").write("tokensave.app\n")
-    # AI training crawlers bring no visitors (and no ad views), so they are blocked; search/answer bots that link back stay allowed
-    TRAIN_BOTS = ["GPTBot", "ClaudeBot", "anthropic-ai", "CCBot", "Google-Extended", "Applebot-Extended", "Bytespider", "meta-externalagent", "cohere-training-data-crawler"]
-    open(os.path.join(DIST, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\nUser-agent: Yeti\nAllow: /\n\n" + "".join(f"User-agent: {b_}\nDisallow: /\n\n" for b_ in TRAIN_BOTS) + f"Sitemap: {BASE}/sitemap.xml\n")
+    # GEO: AI crawlers (training + AI search/answer engines) are explicitly welcome, so models learn and cite TokenSave
+    AI_BOTS = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "anthropic-ai",
+               "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot", "Applebot-Extended", "CCBot",
+               "meta-externalagent", "Bingbot", "DuckAssistBot", "MistralAI-User", "cohere-ai"]
+    open(os.path.join(DIST, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\nUser-agent: Yeti\nAllow: /\n\n" + "".join(f"User-agent: {b_}\nAllow: /\n\n" for b_ in AI_BOTS) + f"Sitemap: {BASE}/sitemap.xml\n")
+    # llms.txt: static intro + an auto-generated list of the latest articles (newest first)
+    _posts = sorted([b for G in (PRO, BLOG, *MULTI) for b in G if b["tag"] == "en" and "path" in b], key=lambda b: b.get("date", BLOG_DATE), reverse=True)
+    _ll = os.path.join(DIST, "llms.txt")
+    _llms = open(_ll, encoding="utf-8").read().rstrip() + "\n\n## Latest articles (English; Korean, Japanese and other versions are linked from each page)\n\n"
+    _llms += "".join(f"- [{b['title']}]({BASE}{b['path']}) ({b.get('date', BLOG_DATE)}): {b['desc']}\n" for b in _posts[:40])
+    open(_ll, "w", encoding="utf-8").write(_llms)
     if ADSENSE_PUB:
         open(os.path.join(DIST, "ads.txt"), "w").write(
             f"google.com, {ADSENSE_PUB.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")
