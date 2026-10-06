@@ -53,7 +53,7 @@ Passer le prompt en anglais fait gagner environ 2 $. Demander une réponse deux 
 
 ### 4. Les limites d'abonnement et la fenêtre de contexte
 
-ChatGPT Plus, Claude Pro ou Le Chat Pro ne facturent pas au token, mais leurs limites d'utilisation et la taille maximale d'une conversation sont, elles, calculées en tokens. Un long document collé dans la conversation peut à lui seul consommer une bonne partie de votre quota. Savoir combien de tokens il représente aide à choisir : le coller en entier, n'en garder qu'un extrait, ou le résumer d'abord.
+ChatGPT Plus, Claude Pro ou Mistral Vibe Pro (ex-Le Chat) ne facturent pas au token, mais leurs limites d'utilisation et la taille maximale d'une conversation sont, elles, calculées en tokens. Un long document collé dans la conversation peut à lui seul consommer une bonne partie de votre quota. Savoir combien de tokens il représente aide à choisir : le coller en entier, n'en garder qu'un extrait, ou le résumer d'abord.
 
 ### 5. Chaque modèle compte différemment
 

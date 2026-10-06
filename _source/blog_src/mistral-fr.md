@@ -41,7 +41,7 @@ En face, « invoice », « billing » ou « polite » font un seul token. Les é
 ## Ce que ça change concrètement
 
 - **À l'API**, vous payez à peu près 12 à 30 % de plus pour le même contenu.
-- **Dans un abonnement** (ChatGPT Plus, Claude Pro, Le Chat Pro), les limites d'utilisation sont calculées en tokens : elles s'épuisent plus vite quand on écrit en français.
+- **Dans un abonnement** (ChatGPT Plus, Claude Pro, Mistral Vibe Pro), les limites d'utilisation sont calculées en tokens : elles s'épuisent plus vite quand on écrit en français.
 - **Si la réponse est aussi en français**, le même surcoût s'applique aux tokens de sortie, qui coûtent en général 4 à 5 fois plus cher que ceux d'entrée.
 
 ## L'astuce : écrire en anglais, recevoir en français
@@ -58,7 +58,7 @@ Pour une question courte posée une fois, le gain est négligeable : écrivez co
 
 ## Et le prix des abonnements ?
 
-Le Chat Pro de Mistral est affiché à 14,99 $ par mois, contre 20 $ pour ChatGPT Plus et Claude Pro et 19,99 $ pour Google AI Pro (prix américains, octobre 2026). Le tokeniseur ne rend pas Mistral plus avantageux en français, mais l'abonnement reste le moins cher des quatre.
+L'abonnement de Mistral s'appelle désormais Vibe (ex-Le Chat, renommé le 28 mai 2026) ; Vibe Pro est affiché à 14,99 $ par mois aux États-Unis, contre 20 $ pour ChatGPT Plus et Claude Pro et 19,99 $ pour Google AI Pro (prix américains, octobre 2026). En France, Vibe Pro coûte 17,99 € TTC. Le tokeniseur ne rend pas Mistral plus avantageux en français, mais l'abonnement reste le moins cher des quatre. Tous les prix en euros sont dans notre [comparatif des abonnements IA](/fr/blog/abonnement-ia-prix-comparatif).
 
 Pour savoir si un abonnement ou l'API revient moins cher selon votre usage réel (nombre de messages, longueur, langue), utilisez le [comparateur Abonnement vs API](/fr/plans).
 

@@ -513,3 +513,53 @@ TW6 = [
  _t6("/zh-tw/blog/chatgpt-go-vs-plus", "gogo-zhtw", "ChatGPT Go 與 Plus 差在哪？NT$270 和 NT$690 怎麼選",
      "ChatGPT Go（NT$270）與 Plus（NT$690）比較：台灣開始出現廣告、Luna 與 Sol 模型差異、推理等級、Codex，以及什麼情況用 API 更便宜。"),
 ]
+
+# 2026-10-06: Gemini change / subscription prices / Go vs Plus in fr, es, pt, uk, de, pl
+_EU6 = {
+ "fr": ("Jonhisking · 6 octobre 2026", "Abonnement ou API : entrez votre usage réel et voyez ce qui vous coûte le moins cher, tokens français compris.", "Comparer abonnement et API", [
+   ("/fr/blog/gemini-gratuit-flash-lite", "gemgp-fr", "Gemini gratuit limité à Flash-Lite le 9 octobre : que faire ?",
+    "Dès le 9 octobre 2026, Gemini gratuit passe à Flash-Lite et AI Plus perd le modèle Pro. Prix en euros, offre étudiante et alternative API."),
+   ("/fr/blog/abonnement-ia-prix-comparatif", "subs-fr", "Abonnements IA 2026 : ChatGPT, Claude, Gemini, Mistral en euros TTC",
+    "Tous les prix des abonnements IA en France, TTC : ChatGPT, Claude, Gemini, Mistral Vibe, Grok. Prix par unité et abonnement ou API."),
+   ("/fr/blog/chatgpt-go-vs-plus", "gogo-fr", "ChatGPT Go ou Plus : 8 € ou 23 €, lequel choisir ?",
+    "ChatGPT Go (8 €) affiche de la publicité et utilise GPT-5.6 Luna ; Plus (23 €) passe à Sol, sans pub. Différences et pour qui.")]),
+ "es": ("Jonhisking · 6 de octubre de 2026", "¿Te sale más barato pagar una suscripción o usar la API? Introduce cuánto usas la IA y compáralo con todos los planes.", "Calcular suscripción vs API", [
+   ("/es/blog/gemini-gratis-flash-lite", "gemgp-es", "Gemini gratis pasa a Flash-Lite el 9 de octubre: qué cambia y precios",
+    "Desde el 9 de octubre Gemini gratis solo usa Flash-Lite y AI Plus pierde Pro. Planes en euros y pesos, y cuánto cuesta Gemini Pro por API."),
+   ("/es/blog/precio-suscripciones-ia", "subs-es", "Precio de ChatGPT, Claude, Gemini y Grok en euros y pesos (2026)",
+    "Todos los planes de IA de pago en euros y pesos: ChatGPT, Claude, Google AI y Grok, precio por unidad de uso e impuestos en Argentina."),
+   ("/es/blog/chatgpt-go-vs-plus", "gogo-es", "ChatGPT Go vs Plus: diferencias, precio en euros y pesos, y anuncios",
+    "ChatGPT Go o Plus: modelo Luna o Sol, razonamiento, Codex y anuncios. Precios en España, México y Colombia, y cuándo sale más barata la API.")]),
+ "pt": ("Jonhisking · 6 de outubro de 2026", "Quer saber se compensa assinar ou pagar só pelo que usa? Informe seu uso e compare o custo da API, em reais, com cada plano.", "Calcular assinatura vs API", [
+   ("/pt/blog/gemini-gratis-flash-lite", "gemgp-pt", "Gemini grátis só com Flash-Lite a partir de 9/10: o que muda",
+    "Gemini grátis fica só com o Flash-Lite e o AI Plus perde o Pro. Preços em reais (R$ 24,99 a R$ 779,90) e quanto custa o Pro pela API."),
+   ("/pt/blog/preco-assinaturas-ia", "subs-pt", "Preço do ChatGPT, Claude, Gemini e Grok em reais (com IOF)",
+    "Todos os planos de IA em reais: ChatGPT Go R$ 39,99, Plus R$ 99,90, Google AI Pro R$ 96,99, Claude Pro. Quem paga IOF e qual plano compensa."),
+   ("/pt/blog/chatgpt-go-vs-plus", "gogo-pt", "ChatGPT Go vs Plus: diferença, preço em reais e anúncios",
+    "ChatGPT Go (R$ 39,99) ou Plus (R$ 99,90)? Luna vs Sol, anúncios no Go no Brasil, Codex e quando a API sai mais barata. Comparativo de 2026.")]),
+ "uk": ("Jonhisking · 6 жовтня 2026", "Порівняйте свою підписку з оплатою за токени: введіть, скільки ви користуєтеся ШІ, і побачите ціну API поруч із кожним тарифом.", "Порахувати: підписка чи API", [
+   ("/uk/blog/gemini-bezkoshtovno-flash-lite", "gemgp-uk", "Gemini безкоштовно: з 9 жовтня лише Flash-Lite. Що робити",
+    "З 9 жовтня безкоштовний Gemini — лише Flash-Lite, AI Plus втрачає Pro. Ціни в гривнях, що робити студентам і скільки коштує Pro через API."),
+   ("/uk/blog/tsiny-pidpysok-shi", "subs-uk", "Ціни підписок на ШІ в Україні: ChatGPT, Claude, Gemini, Grok",
+    "Скільки реально коштують ChatGPT, Claude, Gemini і Grok в Україні з 20% ПДВ: таблиця в гривнях, ціна за одиницю і чи потрібна підписка."),
+   ("/uk/blog/chatgpt-go-vs-plus", "gogo-uk", "ChatGPT Go чи Plus: різниця і ціна в Україні з ПДВ",
+    "ChatGPT Go за $8,40 чи Plus за $24 з ПДВ: Luna проти Sol, Codex, реклама і коли дешевше API. Порівняння для України.")]),
+ "de": ("Jonhisking · 6. Oktober 2026", "Trag ein, wie oft du KI nutzt, und sieh sofort, ob ein Abo oder die API für dich günstiger ist.", "Abo vs. API berechnen", [
+   ("/de/blog/gemini-kostenlos-flash-lite", "gemgp-de", "Gemini kostenlos nur noch mit Flash-Lite: Was sich ab 9. Oktober ändert",
+    "Ab 9. Oktober 2026 gibt es Gemini gratis nur noch mit Flash-Lite, AI Plus verliert Pro. Alle Tarife in Euro und die günstige API-Alternative."),
+   ("/de/blog/ki-abo-preisvergleich", "subs-de", "KI-Abos im Preisvergleich 2026: ChatGPT, Claude, Gemini in Euro",
+    "Alle KI-Abos von ChatGPT, Claude, Gemini und Grok mit Preisen inkl. MwSt, Preis pro Einheit bei Max und Ultra und wann die API günstiger ist."),
+   ("/de/blog/chatgpt-go-vs-plus", "gogo-de", "ChatGPT Go vs. Plus: Lohnen sich 15 € mehr im Monat?",
+    "ChatGPT Go für 7,99 € oder Plus für 22,99 €: Luna gegen Sol, Werbung seit August und für wen sich welcher Tarif lohnt. Plus die API-Alternative.")]),
+ "pl": ("Jonhisking · 6 października 2026", "Sprawdź, czy przy Twoim sposobie korzystania taniej wychodzi abonament, czy płacenie za tokeny — w złotówkach i na polskich tokenach.", "Porównaj subskrypcję i API", [
+   ("/pl/blog/gemini-za-darmo-flash-lite", "gemgp-pl", "Gemini za darmo od 9 października: tylko Flash-Lite. Co dalej?",
+    "Od 9.10 darmowe Gemini ma tylko Flash-Lite, a AI Plus traci model Pro. Ceny planów w zł, oferta dla studentów i tańszy Pro przez API."),
+   ("/pl/blog/ceny-subskrypcji-ai", "subs-pl", "Ceny subskrypcji AI w Polsce: ChatGPT, Claude, Gemini, Grok w zł",
+    "Wszystkie plany ChatGPT, Claude, Gemini i Grok w złotówkach z VAT, cena za jednostkę limitu, faktura na firmę i kiedy taniej wychodzi API."),
+   ("/pl/blog/chatgpt-go-vs-plus", "gogo-pl", "ChatGPT Go czy Plus: co daje 65 zł więcej (i brak reklam)",
+    "ChatGPT Go za 34,99 zł czy Plus za 99,99 zł? Luna kontra Sol, reklamy od sierpnia, Codex i kiedy taniej wyjdzie API po polsku.")]),
+}
+EU6 = []
+for _tag, (_by, _cta, _btn, _items) in _EU6.items():
+    for _p, _src, _ti, _de in _items:
+        _d = _cc(_tag, _p, _src, _ti, _de, _by, _cta, _btn); _d["date"] = "2026-10-06"; EU6.append([_d])
