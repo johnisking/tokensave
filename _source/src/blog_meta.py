@@ -439,3 +439,16 @@ for _d, _l in zip(DEVLOG1, ["en", "ko", "ja"]):
     _d["src"] = "devlog-spermrace-1-" + _l
     _d["og"] = "blog-spermrace-feature.jpg" if _l == "ko" else f"blog-spermrace-feature-{_l}.jpg"
 
+
+_BY6 = "Jonhisking · October 6, 2026"
+def _n6(path, src, title, desc, cta, btn):
+    return dict(tag="en", path=path, src=src, title=title, desc=desc, byline=_BY6, cta=cta, ctaBtn=btn, date="2026-10-06")
+CHEAP = [_n6("/blog/cheapest-llm-api", "cheapest-en", "The Cheapest LLM APIs in 2026, Ranked by Real Cost per Request",
+    "Every major LLM API ranked by what a typical request costs, after tokenizer differences: GPT-5 nano, GPT-6 Luna, Qwen, Gemini Flash-Lite, DeepSeek and more.",
+    *_CTA_TK["en"])]
+CTOK = [_n6("/blog/claude-pro-max-how-many-tokens", "ctok-en", "How Many Tokens Do You Get with Claude Pro and Max?",
+    "Anthropic doesn't publish token limits. Measured numbers for Claude Pro, Max 5x and Max 20x per 5-hour window and per week, and what they mean in API dollars.",
+    *_CTA["en"])]
+SUBS = [_n6("/blog/ai-subscription-price-comparison", "subs-en", "AI Subscription Price Comparison: ChatGPT vs Claude vs Gemini vs Grok (2026)",
+    "Every ChatGPT, Claude, Google AI and Grok plan side by side, from $4.99 to $500 a month: price, usage per tier, limits, and when the API is cheaper.",
+    *_CTA_PL["en"])]

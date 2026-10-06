@@ -16,9 +16,9 @@ from i18n_video import NAV, V
 from i18n_image import I
 from i18n_site import SITE
 from seo_meta import META
-from blog_meta import BLOG, BLOG_DATE, PRO, MISTRAL_FR, PROMPT_PL, GUIDES, CC_COST, CC_LIMITS, CC_SAVE, CMP, GPT6, API_CMP, TPW, COUNT, CHLIM, CXLIM, CMAX, AISITE, GEM4, RANK, GAME, GAME_HOWTO, DEVLOG1
+from blog_meta import BLOG, BLOG_DATE, PRO, MISTRAL_FR, PROMPT_PL, GUIDES, CC_COST, CC_LIMITS, CC_SAVE, CMP, GPT6, API_CMP, TPW, COUNT, CHLIM, CXLIM, CMAX, AISITE, GEM4, RANK, GAME, GAME_HOWTO, DEVLOG1, CHEAP, CTOK, SUBS
 CC = (CC_COST, CC_LIMITS, CC_SAVE, CXLIM, CMAX)
-MULTI = (CC_COST, CC_LIMITS, CC_SAVE, CMP, GPT6, API_CMP, TPW, COUNT, CHLIM, CXLIM, CMAX, AISITE, GEM4, RANK, GAME, GAME_HOWTO, DEVLOG1)
+MULTI = (CC_COST, CC_LIMITS, CC_SAVE, CMP, GPT6, API_CMP, TPW, COUNT, CHLIM, CXLIM, CMAX, AISITE, GEM4, RANK, GAME, GAME_HOWTO, DEVLOG1, CHEAP, CTOK, SUBS)
 PRO_BY_TAG = {b["tag"]: b for b in PRO}
 from i18n_view import MORE_LANGS
 from i18n_plans_all import PL, PNAV, PMETA
@@ -111,6 +111,9 @@ PAGES = [
     dict(file="blog/index.html", path="/blog/", body=None,
          title="Blog: AI tokens, prices and costs | TokenSave",
          desc="Guides to AI tokens, API prices, video and image costs, and how to spend less."),
+    dict(file="tokens-to-words.html", path="/tokens-to-words", body=None,
+         title="Tokens to Words Converter (GPT, Claude, Gemini)",
+         desc="Convert tokens to words and words to tokens for GPT, Claude and Gemini, in 41 languages. Based on measured text, free, in your browser."),
     dict(file="404.html", path=None, body="404_body.html",
          title="Page not found | TokenSave", desc="This page does not exist."),
 ]
@@ -429,7 +432,7 @@ def build():
     en_nav = "\n".join(f'          <a href="{path_for("", t)}" class="{NAV_OFF}">{esc(NAV["en"][t["nav"]])}</a>' for t in TOOLS)
     en_opts, en_all = lang_menu("", "en", lambda sl: path_for(sl, TOOLS[0]))
     for pg in PAGES:
-        body = languages_html() if pg["path"] == "/languages" else blog_index_html() if pg["path"] == "/blog/" else open(os.path.join(SRC, pg["body"]), encoding="utf-8").read()
+        body = languages_html() if pg["path"] == "/languages" else blog_index_html() if pg["path"] == "/blog/" else __import__("tokens_words").body(LANG_RATIOS) if pg["path"] == "/tokens-to-words" else open(os.path.join(SRC, pg["body"]), encoding="utf-8").read()
         url = BASE + (pg["path"] or "/404")
         values = dict(
             htmlLang="en", dir="ltr", url=url, ogLocale="en_US", ogImage=f"{BASE}/og-token.jpg",
@@ -607,7 +610,7 @@ def build():
     og_by_key = {"video": "og-video.jpg", "image": "og-image.jpg"}
     for GROUP, gimg, gtool in [(BLOG, "blog-language-tax-chart-v4.png", TOOLS[0]), (PRO, "blog-chatgpt-pro-tiers.png", plans_tool), (MISTRAL_FR, "blog-mistral-francais.png", TOOLS[0]), (PROMPT_PL, "blog-prompt-polski.png", TOOLS[0])] + [
             ([g], og_by_key.get(g["tool"], "og-token.jpg"), tool_by_key[g["tool"]]) for g in GUIDES] + [
-            (G, "og-token.jpg", tool_by_key["agents"]) for G in CC] + [(CMP, "og-token.jpg", plans_tool), (GPT6, "og-token.jpg", TOOLS[0]), (GEM4, "og-token.jpg", TOOLS[0]), (RANK, "og-token.jpg", TOOLS[0]), (API_CMP, "og-token.jpg", TOOLS[0]), (TPW, "og-token.jpg", TOOLS[0]), (COUNT, "og-token.jpg", TOOLS[0]), (CHLIM, "og-token.jpg", plans_tool), (AISITE, "og-token.jpg", TOOLS[0]), (GAME, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (GAME_HOWTO, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (DEVLOG1, "og-token.jpg", {"page": "ai-game-cost-calculator"})]:
+            (G, "og-token.jpg", tool_by_key["agents"]) for G in CC] + [(CMP, "og-token.jpg", plans_tool), (GPT6, "og-token.jpg", TOOLS[0]), (GEM4, "og-token.jpg", TOOLS[0]), (RANK, "og-token.jpg", TOOLS[0]), (API_CMP, "og-token.jpg", TOOLS[0]), (TPW, "og-token.jpg", TOOLS[0]), (COUNT, "og-token.jpg", TOOLS[0]), (CHLIM, "og-token.jpg", plans_tool), (AISITE, "og-token.jpg", TOOLS[0]), (GAME, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (GAME_HOWTO, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (DEVLOG1, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (CHEAP, "og-token.jpg", TOOLS[0]), (CTOK, "og-token.jpg", tool_by_key["agents"]), (SUBS, "og-token.jpg", plans_tool)]:
       blog_en = next((b for b in GROUP if b["tag"] == "en"), None)
       def _alts_for(me):  # hreflang: one URL per language, and a same-language sibling is never this page's alternate
           grp = [x for x in GROUP if x["tag"] != me["tag"] or x is me]

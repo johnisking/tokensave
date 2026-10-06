@@ -64,3 +64,5 @@ These numbers are for OpenAI's o200k tokenizer. Claude and Gemini use their own 
 ## Count your own text
 
 Rules of thumb are fine for rough planning. For anything you will pay for, paste your real text into the [token counter](/): it runs the actual tokenizer in your browser and shows the cost on every model.
+
+Convert any token count to words and pages for GPT, Claude and Gemini with the [tokens to words converter](/tokens-to-words).

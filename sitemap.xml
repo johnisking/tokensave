@@ -9455,6 +9455,10 @@
     <lastmod>2026-10-02</lastmod>
   </url>
   <url>
+    <loc>https://tokensave.app/tokens-to-words</loc>
+    <lastmod>2026-10-02</lastmod>
+  </url>
+  <url>
     <loc>https://tokensave.app/cs/blog/cestina-tokeny-gpt</loc>
     <lastmod>2026-09-30</lastmod>
     <xhtml:link rel="alternate" hreflang="cs" href="https://tokensave.app/cs/blog/cestina-tokeny-gpt"/>
@@ -12103,6 +12107,24 @@
     <image:image>
       <image:loc>https://tokensave.app/blog-spermrace-modes.jpg</image:loc>
     </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/cheapest-llm-api</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/cheapest-llm-api"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/cheapest-llm-api"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/claude-pro-max-how-many-tokens</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-pro-max-how-many-tokens"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-pro-max-how-many-tokens"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/ai-subscription-price-comparison</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
   </url>
   <url>
     <loc>https://tokensave.app/blog/what-is-a-token</loc>

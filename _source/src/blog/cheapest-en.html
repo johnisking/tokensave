@@ -1,0 +1,119 @@
+<p>If you only need the lowest bill, the cheapest LLM API in October 2026 is <strong>GPT-5 nano</strong>, followed by <strong>GPT-6 Luna</strong> and <strong>Qwen 3.8 Flash</strong>. But the cheapest model is rarely the right one for every job. Here is every major model ranked by what a real request costs, which cheap models are worth using, and where paying more saves money.</p>
+<h2>How we ranked them</h2>
+<p>Price per million tokens is misleading on its own, for two reasons:</p>
+<ul>
+<li><strong>Output costs 3 to 8 times more than input</strong> on most models, so a model with cheap input and expensive output can lose to one with the opposite.</li>
+<li><strong>Tokenizers differ.</strong> The same English text is about 30% more tokens on Claude Opus and Sonnet than on GPT, and about 5% fewer on Gemini. A "$2 per million" Claude model costs more per request than a "$2 per million" GPT model.</li>
+</ul>
+<p>So we priced one typical request: <strong>2,000 input tokens and 500 output tokens of English</strong>, counted the way each model's tokenizer would count it, at official list prices checked October 1, 2026. No caching or batch discounts.</p>
+<h2>The cheapest LLM APIs</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Maker</th>
+<th>Input / output per 1M</th>
+<th style="text-align: right;">1 request</th>
+<th style="text-align: right;">10,000 requests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-5 nano</td>
+<td>OpenAI</td>
+<td>$0.05 / $0.40</td>
+<td style="text-align: right;">$0.00030</td>
+<td style="text-align: right;">$3.00</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td>OpenAI</td>
+<td>$0.10 / $0.50</td>
+<td style="text-align: right;">$0.00045</td>
+<td style="text-align: right;">$4.50</td>
+</tr>
+<tr>
+<td>Qwen 3.8 Flash</td>
+<td>Qwen</td>
+<td>$0.15 / $0.47</td>
+<td style="text-align: right;">$0.00053</td>
+<td style="text-align: right;">$5.35</td>
+</tr>
+<tr>
+<td>GPT-4o mini</td>
+<td>OpenAI</td>
+<td>$0.15 / $0.60</td>
+<td style="text-align: right;">$0.00060</td>
+<td style="text-align: right;">$6.00</td>
+</tr>
+<tr>
+<td>Mistral Small</td>
+<td>Mistral</td>
+<td>$0.15 / $0.60</td>
+<td style="text-align: right;">$0.00063</td>
+<td style="text-align: right;">$6.30</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Flash-Lite</td>
+<td>Google</td>
+<td>$0.25 / $1.50</td>
+<td style="text-align: right;">$0.00119</td>
+<td style="text-align: right;">$11.88</td>
+</tr>
+<tr>
+<td>DeepSeek V4 Flash</td>
+<td>DeepSeek</td>
+<td>$0.30 / $1.20</td>
+<td style="text-align: right;">$0.00120</td>
+<td style="text-align: right;">$12.00</td>
+</tr>
+<tr>
+<td>GPT-5 mini</td>
+<td>OpenAI</td>
+<td>$0.25 / $2.00</td>
+<td style="text-align: right;">$0.00150</td>
+<td style="text-align: right;">$15.00</td>
+</tr>
+<tr>
+<td>GPT-4.1 mini</td>
+<td>OpenAI</td>
+<td>$0.40 / $1.60</td>
+<td style="text-align: right;">$0.00160</td>
+<td style="text-align: right;">$16.00</td>
+</tr>
+<tr>
+<td>Gemini 3.5 Flash-Lite</td>
+<td>Google</td>
+<td>$0.30 / $2.50</td>
+<td style="text-align: right;">$0.00176</td>
+<td style="text-align: right;">$17.57</td>
+</tr>
+<tr>
+<td>Mistral Large 3</td>
+<td>Mistral</td>
+<td>$0.50 / $1.50</td>
+<td style="text-align: right;">$0.00184</td>
+<td style="text-align: right;">$18.38</td>
+</tr>
+</tbody>
+</table></div>
+<p>For comparison, the same 10,000 requests cost <strong>$90</strong> on GPT-6 Sol, <strong>$117</strong> on Claude Sonnet 5.5, <strong>$234</strong> on Claude Opus 5.5 and <strong>$450</strong> on GPT-6 Astra. The cheapest model in the table costs less than 1% of what GPT-6 Astra does.</p>
+<h2>Which cheap model to pick</h2>
+<ul>
+<li><strong>GPT-6 Luna</strong> is the one to try first. It is the newest small model from OpenAI (September 2026), and only $1.50 per 10,000 requests more than GPT-5 nano. Good for classification, extraction, routing, short answers and summaries.</li>
+<li><strong>GPT-5 nano</strong> for the very simplest, highest-volume work, where every fraction of a cent matters: tagging, yes/no checks, spam filtering.</li>
+<li><strong>Qwen 3.8 Flash</strong> and <strong>Mistral Small</strong> are the cheapest non-OpenAI options, useful if you want a second provider or open-weight models you could later host yourself.</li>
+<li><strong>Gemini 3.1 Flash-Lite</strong> and <strong>DeepSeek V4 Flash</strong> cost about twice as much as Luna but are a step up for writing and reasoning, and still about 87% cheaper than GPT-6 Sol per request.</li>
+<li><strong>Claude Haiku 4.5</strong> is the cheapest Claude model at $0.0047 per request, around 10 times Luna. Pick it when you need Claude's behavior specifically, not for price.</li>
+</ul>
+<h2>When the cheapest model costs more</h2>
+<p>A cheap model that fails costs you twice: once for the bad answer, and again for the retry on a better model, plus your time. Two patterns save more than picking the cheapest model everywhere:</p>
+<ol>
+<li><strong>Route by difficulty.</strong> Send everything to a small model first and escalate only the requests it gets wrong (or that you flag as hard) to GPT-6 Sol, Claude Sonnet or Gemini 3.1 Pro. If 80% of requests stay on GPT-6 Luna and 20% go to GPT-6 Sol, the average cost drops by about 75% compared with sending all of them to Sol.</li>
+<li><strong>Cut the tokens, not just the price.</strong> Prompt caching bills repeated instructions and documents at about a tenth of the input price on most providers, and batch APIs charge about half for work that can wait. See <a href="/blog/prompt-caching-explained">Prompt caching explained</a> and <a href="/blog/batch-api-half-price">Batch APIs: half-price AI</a>.</li>
+</ol>
+<h2>Your language changes the ranking</h2>
+<p>All the costs above are for English. Other languages use more tokens for the same meaning: Korean about 44% more and Japanese about 79% more on GPT, so every price in the table rises by the same share. The ranking stays the same; the bill does not. See <a href="/blog/token-cost-by-language">the same prompt in 41 languages</a>.</p>
+<h2>Check your own prompt</h2>
+<p>Paste a real prompt into the <a href="/">token counter</a> to see its exact token count and cost on every model, or open the <a href="/openai-token-counter">OpenAI</a>, <a href="/claude-token-counter">Claude</a> or <a href="/gemini-token-counter">Gemini</a> counter. For a full side-by-side of capability against price, see <a href="/compare/performance">AI model capability vs price</a>.</p>
+<p><em>Prices change often. Check the provider's pricing page before you commit to a model.</em></p>
