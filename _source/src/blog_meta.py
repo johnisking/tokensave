@@ -470,3 +470,17 @@ RBX = [_n6("/blog/roblox-trending-games", "rbxtrend-en", "What's Trending on Rob
        _n6("/blog/how-to-make-a-roblox-game-with-ai", "rbxhow-en", "How to Make a Roblox Game with AI (2026): Steps, Tools, Cost",
     "Make a Roblox game with Roblox Assistant, Cube 3D models and Claude Code: the steps from idea to publishing, what it costs, and how DevEx pays you.",
     *_CTA_GM["en"])]
+_BY6K = "Jonhisking · 2026년 10월 6일"
+def _k6(path, src, title, desc, cta, btn):
+    d = _cc("ko", path, src, title, desc, _BY6K, cta, btn); d["date"] = "2026-10-06"; return d
+KO6 = [
+ _k6("/ko/blog/gemini-yogeumje-gaepyeon", "gemgp-ko", "제미나이 요금제 개편 정리: 10월 9일부터 무료는 Flash-Lite만",
+     "10월 9일부터 제미나이 무료는 Flash-Lite만, AI Plus(7,500원)도 Pro 모델을 못 씁니다. 요금제별 원화 가격과 쓸 수 있는 모델, 어떻게 하면 좋은지 정리했습니다.",
+     *_CTA_PL["ko"]),
+ _k6("/ko/blog/ai-gudokryo-bigyo", "subs-ko", "AI 구독료 원화 비교: 챗GPT·클로드·제미나이·그록 (2026)",
+     "챗GPT·클로드·제미나이·그록 유료 요금제를 한국에서 실제로 내는 원화 금액으로 비교했습니다. 7,500원부터 30만 원까지, 누구에게 어떤 요금제가 맞는지.",
+     *_CTA_PL["ko"]),
+ _k6("/ko/blog/chatgpt-go-vs-plus", "gogo-ko", "챗GPT Go vs Plus: 13,000원과 29,000원, 무엇이 다를까",
+     "챗GPT Go(13,000원)와 Plus(29,000원) 비교: Luna와 Sol 모델 차이, 추론 단계, Codex, 광고, 누구에게 어느 쪽이 맞는지, API가 더 싼 경우까지.",
+     *_CTA_PL["ko"]),
+]
