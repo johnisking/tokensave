@@ -501,3 +501,15 @@ JA6 = [
 RBX_JA = [_j6("/ja/blog/roblox-game-tsukurikata", "rbx-ja", "AIでRobloxゲームを作る方法：手順・費用・今伸びているジャンル【2026年】",
      "Roblox AssistantとAIでロブロックスのゲームを作る6つの手順、今チャートで伸びている8ジャンル、費用（約4,000円〜）、DevExでの収益化まで。",
      *_CTA_GM["ja"])]
+_CTA_PL_TW = ("輸入你的使用方式，看每月 API 費用和 ChatGPT・Claude・Gemini 各方案並排比較。", "開啟訂閱 vs API 計算機")
+_BY6T = "Jonhisking · 2026年10月6日"
+def _t6(path, src, title, desc):
+    d = _cc("zh-TW", path, src, title, desc, _BY6T, *_CTA_PL_TW); d["date"] = "2026-10-06"; return d
+TW6 = [
+ _t6("/zh-tw/blog/gemini-mianfei-flash-lite", "gemgp-zhtw", "Gemini 免費版 10/9 起只剩 Flash-Lite：各方案變動與價格",
+     "10 月 9 日起 Gemini 免費版只能用 Flash-Lite，AI Plus（NT$260）也不能再用 Pro。各方案價格、可用模型，以及用 API 便宜用到 Pro 級的方法。"),
+ _t6("/zh-tw/blog/ai-dingyue-jiage-bijiao", "subs-zhtw", "AI 訂閱價格比較：ChatGPT・Claude・Gemini・Grok（台灣 2026）",
+     "ChatGPT、Claude、Gemini、Grok 付費方案的台灣實際價格一次比較：從 NT$260 到 US$300，誰適合哪個方案，香港用戶注意事項。"),
+ _t6("/zh-tw/blog/chatgpt-go-vs-plus", "gogo-zhtw", "ChatGPT Go 與 Plus 差在哪？NT$270 和 NT$690 怎麼選",
+     "ChatGPT Go（NT$270）與 Plus（NT$690）比較：台灣開始出現廣告、Luna 與 Sol 模型差異、推理等級、Codex，以及什麼情況用 API 更便宜。"),
+]

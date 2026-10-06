@@ -49,3 +49,6 @@
 - 譯文以機器翻譯為基礎並經過檢查。
 
 全部 41 種語言的結果（英文）：[41 種語言比較](/blog/token-cost-by-language)
+
+
+想知道各家 AI 訂閱在台灣要付多少？請看[AI 訂閱價格比較](/zh-tw/blog/ai-dingyue-jiage-bijiao)。
