@@ -5,7 +5,8 @@
   <meta charset="UTF-8" />
   <script>/* shared text lives in the #fragment: take it out of the URL before any third-party script can read it */if(/[#&]t=/.test(location.hash)){window.__share=location.hash.slice(1);history.replaceState(null,"",location.pathname+location.search)}</script>
   <!-- Google Tag Manager (loaded after the line above, so a shared text in the #fragment never reaches it) -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  <script>/* owner opt-out: open any page once with ?notrack=1 (undo with ?notrack=0) and this browser is never counted in analytics */var __nt=false;try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem('ts_notrack','1');if(/[?&]notrack=0/.test(location.search))localStorage.removeItem('ts_notrack');__nt=localStorage.getItem('ts_notrack')==='1'}catch(e){}
+  if(!__nt)(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
