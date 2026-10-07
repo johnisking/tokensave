@@ -136,3 +136,8 @@ RBX = {
 ),
 }
 assert all(set(d) == set(RBX["en"]) for d in RBX.values())
+
+# European game-calculator languages (2026-10-07)
+import importlib as _il
+for _k in ['it', 'cs', 'sk', 'el', 'ro', 'hu', 'da', 'fi', 'no']:
+    RBX[_k] = _il.import_module('gc_eu.' + _k).RBX
