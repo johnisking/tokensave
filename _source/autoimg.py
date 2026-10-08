@@ -38,6 +38,7 @@ def groups():
     return [b for g in G for b in g]
 
 def ascii_slug(s, n=48):
+    s = s.replace('ı', 'i').replace('İ', 'I')
     s = unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode()
     s = re.sub(r'[^a-zA-Z0-9]+', '-', s).strip('-').lower()
     return s[:n].strip('-')

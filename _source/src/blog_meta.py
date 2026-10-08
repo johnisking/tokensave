@@ -644,3 +644,19 @@ INDIECOST = [_gm("ko", "/ko/blog/indie-game-gaebal-biyong", "인디게임 개발
      "인디게임 개발 비용 총정리: Unity·Godot·Unreal 엔진 비용과 장단점, Steam·Google Play·Apple 등록비와 준비물, 외주 vs AI로 혼자 만들기 비용 비교.",
      "Jonhisking · 2026년 10월 8일")]
 INDIECOST[0].update(src="indiecost-ko", date="2026-10-08")
+
+# 2026-10-09: Turkish localizations (subs, gogo, gemgp, freepaid)
+_TR_BY = "Jonhisking · 9 Ekim 2026"
+_TR_CTA = ("Yapay zekâyı ne kadar kullandığınızı girin; abonelik mi yoksa API mi daha ucuz, Türkçe tokenlarla birlikte görün.", "Abonelik vs API hesapla")
+for _p, _src, _ti, _de in [
+    ("/tr/blog/yapay-zeka-abonelik-fiyatlari", "subs-tr", "Yapay zeka abonelik fiyatları 2026: ChatGPT, Claude, Gemini TL fiyatları",
+     "ChatGPT Go 249,99 TL, Plus 999,99 TL, Google AI Pro 869,99 TL, Claude Pro $20 + KDV. Türkiye'deki tüm yapay zeka abonelik fiyatları ve API ile karşılaştırma."),
+    ("/tr/blog/chatgpt-go-vs-plus", "gogo-tr", "ChatGPT Go vs Plus: 249,99 TL mi 999,99 TL mi? Farklar ve kime uygun",
+     "ChatGPT Go vs Plus: Go 249,99 TL ve reklamlı, Plus 999,99 TL ve reklamsız. Model, düşünme modu, Codex farkları ve hangi planın size uygun olduğu."),
+    ("/tr/blog/gemini-ucretsiz-flash-lite", "gemgp-tr", "Gemini ücretsiz artık Flash-Lite: 9 Ekim değişikliği ve Google AI fiyatları",
+     "9 Ekim 2026'dan itibaren Gemini ücretsiz sadece Flash-Lite kullanıyor. Google AI Plus 199,99 TL, Pro 869,99 TL. Ne değişti ve API ile ucuz alternatif."),
+]:
+    _d = _cc("tr", _p, _src, _ti, _de, _TR_BY, *_TR_CTA); _d["date"] = "2026-10-09"; EU6.append([_d])
+FREEPAID.append(dict(_cc("tr", "/tr/blog/chatgpt-ucretsiz-mi-ucretli-mi", "freepaid-tr", "ChatGPT ücretsiz mi ücretli mi? Ücretsiz, Go, Plus, Pro farkları ve TL fiyatları",
+     "ChatGPT ücretsiz mi ücretli mi? Ağustos 2026'dan beri sohbet ücretsizde de sınırsız. Go 249,99 TL, Plus 999,99 TL, Pro farkları ve ne zaman yükseltmeli.",
+     _TR_BY, *_TR_CTA), date="2026-10-09"))
