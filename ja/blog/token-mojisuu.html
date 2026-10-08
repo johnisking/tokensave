@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -154,7 +154,7 @@
 <p>昔ながらの「1トークン＝単語の¾」（1単語あたり1.33トークン）は技術文書と一致するので、少し控えめで安全な見積もりです。ふつうの文章なら、実際にはそれより15%ほど少ないトークンで済むことが多いでしょう。</p>
 <p>コードはもっと密度が高く、私たちの測定では Python と JavaScript は平均で1トークンあたり約3.5文字でした。<a href="/blog/how-many-tokens-does-code-use">コードは何トークン使う？</a>（英語）をご覧ください。</p>
 <h2>他の言語：1トークンあたりの文字数</h2>
-<p><img loading="lazy" width="1200" height="997" alt="他の言語：1トークンあたりの文字数: 言語, 文字数, トークン数, 1トークンあたりの文字数, 英語比のトークン数" src="/token-mojisuu-ja-3.jpg" /></p>
+<p><img loading="lazy" width="1200" height="997" alt="他の言語：1トークンあたりの文字数: 言語, 文字数, トークン数, 1トークンあたりの文字数, 英語比" src="/token-mojisuu-ja-3.jpg" /></p>
 <p>言語をまたいで比べるとき、単語はあまり良い単位ではありません。中国語、日本語、タイ語は単語の間にスペースを入れませんし、フィンランド語やトルコ語のように一つの長い単語にフレーズ全体を詰め込む言語もあります。そこで役に立つのが「1トークンあたりの文字数」です。同じカスタマーサポート用のプロンプトを複数の言語で比べました。</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -163,7 +163,7 @@
 <th>文字数</th>
 <th>トークン数</th>
 <th>1トークンあたりの文字数</th>
-<th>英語比のトークン数</th>
+<th>英語比</th>
 </tr>
 </thead>
 <tbody>
@@ -172,91 +172,91 @@
 <td>181</td>
 <td>34</td>
 <td>5.3</td>
-<td>1.00×</td>
+<td>±0%</td>
 </tr>
 <tr>
 <td>スペイン語</td>
 <td>183</td>
 <td>40</td>
 <td>4.6</td>
-<td>1.18×</td>
+<td>+18%</td>
 </tr>
 <tr>
 <td>ドイツ語</td>
 <td>194</td>
 <td>43</td>
 <td>4.5</td>
-<td>1.26×</td>
+<td>+26%</td>
 </tr>
 <tr>
 <td>フランス語</td>
 <td>197</td>
 <td>44</td>
 <td>4.5</td>
-<td>1.29×</td>
+<td>+29%</td>
 </tr>
 <tr>
 <td>ロシア語</td>
 <td>165</td>
 <td>45</td>
 <td>3.7</td>
-<td>1.32×</td>
+<td>+32%</td>
 </tr>
 <tr>
 <td>アラビア語</td>
 <td>136</td>
 <td>43</td>
 <td>3.2</td>
-<td>1.26×</td>
+<td>+26%</td>
 </tr>
 <tr>
 <td>ヒンディー語</td>
 <td>161</td>
 <td>51</td>
 <td>3.2</td>
-<td>1.50×</td>
+<td>+50%</td>
 </tr>
 <tr>
 <td>ポーランド語</td>
 <td>190</td>
 <td>64</td>
 <td>3.0</td>
-<td>1.88×</td>
+<td>+88%</td>
 </tr>
 <tr>
 <td>タイ語</td>
 <td>132</td>
 <td>59</td>
 <td>2.2</td>
-<td>1.74×</td>
+<td>+74%</td>
 </tr>
 <tr>
 <td>韓国語</td>
 <td>87</td>
 <td>49</td>
 <td>1.8</td>
-<td>1.44×</td>
+<td>+44%</td>
 </tr>
 <tr>
 <td>中国語（簡体字）</td>
 <td>50</td>
 <td>35</td>
 <td>1.4</td>
-<td>1.03×</td>
+<td>+3%</td>
 </tr>
 <tr>
 <td>日本語</td>
 <td>73</td>
 <td>61</td>
 <td>1.2</td>
-<td>1.79×</td>
+<td>+79%</td>
 </tr>
 </tbody>
 </table></div>
 <p>ポイントは2つです。</p>
 <ul>
 <li><strong>1トークンあたりの文字数だけでは、費用はほとんどわかりません。</strong> 中国語は1トークンあたり1.4文字しかありませんが、1文字に込められる意味が多いため、費用は英語とほぼ同じです。請求額に効くのは最後の列、つまり同じ意味を伝えるのに必要なトークン数です。</li>
-<li><strong>韓国語と日本語は、1.2〜1.8文字ごとに約1トークンと考えておきましょう。</strong> 同じ内容の英語と比べて、韓国語は約1.4倍、日本語は約1.8倍のトークンになります。日本語のプロンプトを英語で送ればトークンは約44%減り、<a href="/ja/">トークンカウンター</a>の 💸 トークン節約 ボタンを使うと、自分の端末の中でプロンプトを英語に変換できます（デスクトップ版 Chrome 138以降 / Edge 148以降）。</li>
+<li><strong>韓国語と日本語は、1.2〜1.8文字ごとに約1トークンと考えておきましょう。</strong> 同じ内容の英語と比べて、韓国語は約40%、日本語は約80%トークンが多くなります。日本語のプロンプトを英語で送ればトークンは約44%減り、<a href="/ja/">トークンカウンター</a>の 💸 トークン節約 ボタンを使うと、自分の端末の中でプロンプトを英語に変換できます（デスクトップ版 Chrome 138以降 / Edge 148以降）。</li>
 </ul>
 <p>トークン数と日本語の文字数をすぐ換算したいときは<a href="/ja/token-moji-henkan">トークン⇔文字数 変換ツール</a>をどうぞ。</p>
 <p>41言語の結果は<a href="/ja/blog/nihongo-tokens-gpt">日本語は GPT で何トークン？41言語のトークン比較</a>にまとめています。</p>
@@ -295,6 +295,14 @@
 <p>ここまでの数字は OpenAI の o200k トークナイザーのものです。Claude と Gemini は独自のトークナイザーを使っており、同じテキストでもトークン数がはっきり多くなることがあります。特に Anthropic の新しい Claude モデルは、同じテキストに GPT より多くのトークンを使います。<a href="/ja/blog/token-kazoekata">GPT・Claude・Gemini のトークンの数え方</a>をご覧ください。</p>
 <h2>自分のテキストを数える</h2>
 <p>大まかな計画なら目安で十分です。お金がかかる処理では、実際のテキストを<a href="/ja/">トークンカウンター</a>に貼り付けてください。本物のトークナイザーがブラウザの中で動き、すべてのモデルでの費用を表示します。</p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken（OpenAI）：o200k_base トークナイザー</a></li>
+<li><a href="https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them" target="_blank" rel="noopener">トークンとは何か、その数え方（OpenAI ヘルプセンター）</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/token-counting" target="_blank" rel="noopener">トークンのカウント（Anthropic ドキュメント）</a></li>
+<li><a href="https://developer.chrome.com/docs/ai/translator-api" target="_blank" rel="noopener">Translator API（Chrome for Developers）</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/microsoft-edge/web-platform/translator-api" target="_blank" rel="noopener">Translator API を使用してテキストを翻訳する（Microsoft Edge）</a></li>
+</ul>
 <!-- autoimg -->
 
         <h2>関連記事</h2>
@@ -321,6 +329,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

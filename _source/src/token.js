@@ -382,15 +382,15 @@ function render() {
   });
   els.effPct.textContent = tr('efficient', { p: e.pct });
   els.effText.textContent = e.pct >= 80 ? tr('great') : e.pct >= 55 ? tr('moderate') : tr('high');
-  els.waste.textContent = tr('waste', { x: e.waste.toFixed(1) });
+  els.waste.textContent = tr('waste', { p: Math.round((e.waste - 1) * 100) });
   els.waste.className = 'text-xs font-bold ' + { emerald: 'text-emerald-400', amber: 'text-amber-400', rose: 'text-rose-400' }[tone];
   els.mix.textContent = tr('share', { p: Math.round(e.share * 100) });
 
   // Language overhead badge next to the cost: amber from 1.15x, red from 2x
   if (e.waste >= 1.15) {
-    const x = e.waste.toFixed(1);
-    els.overhead.textContent = '⚠ ' + tr('overhead', { x });
-    els.overhead.title = tr('overheadTip', { x });
+    const p = Math.round((e.waste - 1) * 100), q = Math.round((1 - 1 / e.waste) * 100);
+    els.overhead.textContent = '⚠ ' + tr('overhead', { p });
+    els.overhead.title = tr('overheadTip', { q });
     els.overhead.className = 'text-[11px] font-bold px-2 py-0.5 rounded-full ' +
       (e.waste >= 1.6 ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40' : 'bg-amber-400/15 text-amber-300 border border-amber-400/40');
   } else {

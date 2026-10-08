@@ -57,7 +57,7 @@ At $0.003 per million cached tokens off-peak, re-reading context is practically 
 - **Agents and long conversations,** which re-send the same context at every step.
 - **Chat over a fixed document set,** where the same reference text leads every request.
 
-Example: an agent step that re-reads 24,000 cached tokens, adds 1,000 new tokens and writes 800 costs about **$0.0007 off-peak** on V4.1 Flash. The same step costs $0.0124 on GPT-6.1 Sol with its own cache discount, about 18 times as much. DeepSeek also says cached context now stays stored for at least 72 hours, so the discount survives long gaps between requests.
+Example: an agent step that re-reads 24,000 cached tokens, adds 1,000 new tokens and writes 800 costs about **$0.0007 off-peak** on V4.1 Flash. The same step costs $0.0124 on GPT-6.1 Sol with its own cache discount. DeepSeek also says cached context now stays stored for at least 72 hours, so the discount survives long gaps between requests.
 
 ## Should you use it?
 
@@ -72,4 +72,12 @@ Example: an agent step that re-reads 24,000 cached tokens, adds 1,000 new tokens
 Paste a prompt into the [token counter](/) and pick DeepSeek under "Others" to see its cost next to GPT, Claude and Gemini. More: [The cheapest LLM APIs, ranked](/blog/cheapest-llm-api) · [DeepSeek V4 Flash vs GPT-6 Luna](/compare/deepseek-v4-flash-vs-gpt-6-luna) · [Batch APIs: half-price AI](/blog/batch-api-half-price).
 
 *Prices from DeepSeek's September 2026 announcement as reported by [TechBriefly](https://techbriefly.com/2026/09/11/deepseek-v4-1-flash-api-pricing/) and [Yotta Labs](https://www.yottalabs.ai/post/deepseek-v4-1-flash-pricing-specs-v4-pro-routing-2026). Check DeepSeek's pricing page before you commit.*
+
+## Sources
+
+- [DeepSeek API models and pricing](https://api-docs.deepseek.com/quick_start/pricing/)
+- [DeepSeek: V4.1 Flash release (September 10, 2026)](https://api-docs.deepseek.com/news/news260910/)
+- [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)
+- [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing)
+- [Claude API pricing](https://platform.claude.com/docs/en/about-claude/pricing)
 <!-- autoimg -->

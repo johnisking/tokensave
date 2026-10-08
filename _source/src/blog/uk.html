@@ -1,5 +1,5 @@
-<p><img fetchpriority="high" width="1200" height="630" alt="Українська в GPT потребує в 1,88 раза більше токенів, ніж англійська" src="/tokeny-ukrainska-gpt-uk.jpg" /></p>
-<p>Я переклав той самий промпт служби підтримки 41 мовою й порахував токени токенізатором o200k_base, який використовують сучасні моделі OpenAI (GPT-4o і новіші). Англійською виходить 34 токени, українською <strong>64 — у 1,88 раза більше</strong>, 34-те місце з 41 (1 — найдешевша).</p>
+<p><img fetchpriority="high" width="1200" height="630" alt="Українській у GPT потрібно на 88% більше токенів, ніж англійській" src="/tokeny-ukrainska-gpt-uk.jpg" /></p>
+<p>Я переклав той самий промпт служби підтримки 41 мовою й порахував токени токенізатором o200k_base, який використовують сучасні моделі OpenAI (GPT-4o і новіші). Англійською виходить 34 токени, українською <strong>64 — на 88% більше</strong>, 34-те місце з 41 (1 — найдешевша).</p>
 <p>Українська версія:</p>
 <blockquote>
 <p>Коротко викладіть лист клієнта нижче у трьох пунктах і запропонуйте ввічливу відповідь. Клієнт пише, що замовлення прийшло на два дні пізніше і в коробці бракувало одного товару.</p>
@@ -18,72 +18,72 @@
 <tr>
 <td>English</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">1,00×</td>
+<td style="text-align: right;">±0%</td>
 <td style="text-align: right;">–</td>
 </tr>
 <tr>
 <td>简体中文</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">1,03×</td>
+<td style="text-align: right;">+3%</td>
 <td style="text-align: right;">3%</td>
 </tr>
 <tr>
 <td>Español</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;">1,18×</td>
+<td style="text-align: right;">+18%</td>
 <td style="text-align: right;">15%</td>
 </tr>
 <tr>
 <td>Deutsch</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">1,26×</td>
+<td style="text-align: right;">+26%</td>
 <td style="text-align: right;">21%</td>
 </tr>
 <tr>
 <td>한국어</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">+44%</td>
 <td style="text-align: right;">31%</td>
 </tr>
 <tr>
 <td>हिन्दी</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;">1,50×</td>
+<td style="text-align: right;">+50%</td>
 <td style="text-align: right;">33%</td>
 </tr>
 <tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">1,79×</td>
+<td style="text-align: right;">+79%</td>
 <td style="text-align: right;">44%</td>
 </tr>
 <tr>
 <td><strong>Українська</strong></td>
 <td style="text-align: right;"><strong>64</strong></td>
-<td style="text-align: right;"><strong>1,88×</strong></td>
+<td style="text-align: right;"><strong>+88%</strong></td>
 <td style="text-align: right;"><strong>47%</strong></td>
 </tr>
 <tr>
 <td>Čeština</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">2,00×</td>
+<td style="text-align: right;">+100%</td>
 <td style="text-align: right;">50%</td>
 </tr>
 <tr>
 <td>Ελληνικά</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">+106%</td>
 <td style="text-align: right;">51%</td>
 </tr>
 <tr>
 <td>ਪੰਜਾਬੀ</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">+144%</td>
 <td style="text-align: right;">59%</td>
 </tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1430" alt="Результати" src="/blog-language-tax-chart-v4.png" /></p>
+<p><img loading="lazy" width="960" height="1441" alt="Діаграма: скільки зайвих токенів потрібно кожній мові порівняно з англійською в GPT (41 мова)" src="/blog-language-tax-chart-v5.png" /></p>
 <h2>Чому</h2>
 <p><img loading="lazy" width="1200" height="593" alt="Чому: запропонуйте → запр | оп | ону | йте · 4; викладіть → вик | ла | ді | ть · 4; бракувало → бра | ку | в | ало ·" src="/tokeny-ukrainska-gpt-uk-2.jpg" /></p>
 <p>Токенізатор навчений переважно на англійському тексті: слова на кшталт " polite" чи " customer" — один токен, а українські слова з закінченнями розбиваються на шматки:</p>
@@ -93,9 +93,9 @@
 <li>бракувало → <code>бра | ку | в | ало</code> · 4</li>
 </ul>
 <h2>Перехід на англійську однією кнопкою</h2>
-<p>Найбільше заощаджує надсилання промпту англійською: для української це приблизно на 47% менше токенів. Сучасні моделі чудово розуміють інструкції англійською та відповідають українською, якщо попросити. У лічильнику токенів TokenSave вставте промпт і натисніть <strong>💸 Заощадити токени</strong>: кнопка прибере зайві пробіли, перекладе текст англійською, виріже «воду» й додасть «Reply in Ukrainian.», щоб відповідь лишилася вашою мовою. Використовується перекладач, вбудований у Chrome 138+ / Edge 148+ для комп’ютера; переклад виконується на вашому пристрої, і текст нікуди не завантажується. Натисніть <strong>↩ Оригінал</strong>, щоб повернути оригінал.</p>
+<p>Найбільше заощаджує надсилання промпту англійською: для української це приблизно на 47% менше токенів. Сучасні моделі чудово розуміють інструкції англійською та відповідають українською, якщо попросити. У <a href="/uk/">лічильнику токенів TokenSave</a> вставте промпт і натисніть <strong>💸 Заощадити токени</strong>: кнопка прибере зайві пробіли, перекладе текст англійською, виріже «воду» й додасть «Reply in Ukrainian.», щоб відповідь лишилася вашою мовою. Використовується перекладач, вбудований у Chrome 138+ / Edge 148+ для комп’ютера; переклад виконується на вашому пристрої, і текст нікуди не завантажується. Натисніть <strong>↩ Оригінал</strong>, щоб повернути оригінал.</p>
 <h2>У грошах</h2>
-<p>За ціни 2 $ за 1 млн вхідних токенів надсилання цього промпту мільйон разів коштує 68 $ англійською і 128 $ українською. Якщо відповідь теж українською, той самий множник діє й на вихідні токени, які зазвичай у 4–5 разів дорожчі.</p>
+<p>За ціни 2 $ за 1 млн вхідних токенів надсилання цього промпту мільйон разів коштує 68 $ англійською і 128 $ українською. Якщо відповідь теж українською, той самий множник діє й на вихідні токени, які зазвичай на 300–400% дорожчі.</p>
 <h2>Як заощадити</h2>
 <p><img loading="lazy" width="1200" height="658" alt="Як заощадити: Пишіть системний промпт і сталі інструкції англійською, а українською залишайте лише введення користувача.; Пр" src="/tokeny-ukrainska-gpt-uk-3.jpg" /></p>
 <ul>
@@ -110,4 +110,10 @@
 <li>Переклад базується на перевіреному машинному перекладі.</li>
 </ul>
 <p>Повні результати для 41 мови (англійською): <a href="/blog/token-cost-by-language">порівняння 41 мови</a></p>
+<p>Усі 41 мову поруч — у <a href="/languages">таблиці мов</a>.</p>
+<h2>Джерела</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: токенізатор OpenAI (o200k_base) на GitHub</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">Ціни OpenAI API</a></li>
+</ul>
 <!-- autoimg -->

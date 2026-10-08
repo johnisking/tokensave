@@ -82,4 +82,16 @@ RPG는 캐릭터와 애니메이션 프레임이 많아서 이미지가 머지�
 ## 프롬프트까지 바로 받기
 
 계산기는 비용만 알려 주지 않습니다. 장르·규모·엔진·플랫폼을 고르면 **개발 시작 프롬프트, 그림 프롬프트, 음악·효과음 프롬프트, 트레일러 콘티**를 바로 만들어 줍니다. 복사해서 Claude Code나 Midjourney에 붙여 넣으면 그대로 시작할 수 있습니다. 장르 33가지, 엔진 21가지(Unity, Godot, Unreal, GameMaker 등)를 고를 수 있습니다.
+
+엔진·스토어 등록비처럼 AI 밖에서 드는 비용은 [인디게임 개발 비용 정리](/ko/blog/indie-game-gaebal-biyong)에서 볼 수 있습니다.
+
+## 출처
+
+- [Claude 요금제 (Pro·Max)](https://claude.com/pricing)
+- [Midjourney 요금제 비교](https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans)
+- [Suno 요금](https://suno.com/pricing)
+- [ElevenLabs 요금](https://elevenlabs.io/pricing)
+- [Play Console 고객센터: Play Console 시작하기 (등록비 US$25)](https://support.google.com/googleplay/android-developer/answer/6112435)
+- [Apple Developer Program (연간 멤버십)](https://developer.apple.com/programs/)
+- [Steamworks: Steam Direct 수수료](https://partner.steamgames.com/doc/gettingstarted/appfee)
 <!-- autoimg -->

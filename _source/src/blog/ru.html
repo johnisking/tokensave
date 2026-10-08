@@ -1,5 +1,5 @@
-<p><img fetchpriority="high" width="1200" height="630" alt="Русский в GPT требует в 1,32 раза больше токенов, чем английский" src="/tokeny-russkiy-gpt-ru.jpg" /></p>
-<p>Я перевёл один и тот же промпт службы поддержки на 41 язык и посчитал токены токенизатором o200k_base — его используют современные модели OpenAI (GPT-4o и новее). На английском выходит 34 токена, на русском <strong>45 — в 1,32 раза больше</strong>, 11-е место из 41 (1 — самый дешёвый).</p>
+<p><img fetchpriority="high" width="1200" height="630" alt="Русскому в GPT нужно на 32% больше токенов, чем английскому" src="/tokeny-russkiy-gpt-ru.jpg" /></p>
+<p>Я перевёл один и тот же промпт службы поддержки на 41 язык и посчитал токены токенизатором o200k_base — его используют современные модели OpenAI (GPT-4o и новее). На английском выходит 34 токена, на русском <strong>45 — на 32% больше</strong>, 11-е место из 41 (1 — самый дешёвый).</p>
 <p>Русская версия:</p>
 <blockquote>
 <p>Кратко изложите письмо клиента ниже в трёх пунктах и предложите вежливый ответ. Клиент пишет, что заказ пришёл на два дня позже и в коробке не хватало одного товара.</p>
@@ -18,72 +18,72 @@
 <tr>
 <td>English</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">1,00×</td>
+<td style="text-align: right;">±0%</td>
 <td style="text-align: right;">–</td>
 </tr>
 <tr>
 <td>简体中文</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">1,03×</td>
+<td style="text-align: right;">+3%</td>
 <td style="text-align: right;">3%</td>
 </tr>
 <tr>
 <td>Español</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;">1,18×</td>
+<td style="text-align: right;">+18%</td>
 <td style="text-align: right;">15%</td>
 </tr>
 <tr>
 <td>Deutsch</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">1,26×</td>
+<td style="text-align: right;">+26%</td>
 <td style="text-align: right;">21%</td>
 </tr>
 <tr>
 <td><strong>Русский</strong></td>
 <td style="text-align: right;"><strong>45</strong></td>
-<td style="text-align: right;"><strong>1,32×</strong></td>
+<td style="text-align: right;"><strong>+32%</strong></td>
 <td style="text-align: right;"><strong>24%</strong></td>
 </tr>
 <tr>
 <td>한국어</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">+44%</td>
 <td style="text-align: right;">31%</td>
 </tr>
 <tr>
 <td>हिन्दी</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;">1,50×</td>
+<td style="text-align: right;">+50%</td>
 <td style="text-align: right;">33%</td>
 </tr>
 <tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">1,79×</td>
+<td style="text-align: right;">+79%</td>
 <td style="text-align: right;">44%</td>
 </tr>
 <tr>
 <td>Čeština</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">2,00×</td>
+<td style="text-align: right;">+100%</td>
 <td style="text-align: right;">50%</td>
 </tr>
 <tr>
 <td>Ελληνικά</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">+106%</td>
 <td style="text-align: right;">51%</td>
 </tr>
 <tr>
 <td>ਪੰਜਾਬੀ</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">+144%</td>
 <td style="text-align: right;">59%</td>
 </tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1430" alt="Результаты" src="/blog-language-tax-chart-v4.png" /></p>
+<p><img loading="lazy" width="960" height="1441" alt="Диаграмма: сколько лишних токенов нужно каждому языку по сравнению с английским в GPT (41 язык)" src="/blog-language-tax-chart-v5.png" /></p>
 <h2>Почему</h2>
 <p><img loading="lazy" width="1200" height="593" alt="Почему: вежливый → в | еж | лив | ый · 4; Кратко → К | рат | ко · 3; трёх → тр | ё | х · 3" src="/tokeny-russkiy-gpt-ru-2.jpg" /></p>
 <p>Токенизатор обучен в основном на английском тексте: слова вроде " polite" или " customer" — один токен, а русские слова с окончаниями режутся на части:</p>
@@ -93,9 +93,9 @@
 <li>трёх → <code>тр | ё | х</code> · 3</li>
 </ul>
 <h2>Переход на английский одной кнопкой</h2>
-<p>Больше всего экономит отправка промпта на английском: для русского языка это примерно на 24% меньше токенов. Современные модели отлично понимают инструкции на английском и отвечают на русском, если попросить. В счётчике токенов TokenSave вставьте промпт и нажмите <strong>💸 Сэкономить токены</strong>: кнопка уберёт лишние пробелы, переведёт текст на английский, вырежет «воду» и добавит «Reply in Russian.», чтобы ответ остался на вашем языке. Используется переводчик, встроенный в Chrome 138+ / Edge 148+ для компьютера; перевод выполняется на вашем устройстве, и текст никуда не загружается. Нажмите <strong>↩ Оригинал</strong>, чтобы вернуть оригинал.</p>
+<p>Больше всего экономит отправка промпта на английском: для русского языка это примерно на 24% меньше токенов. Современные модели отлично понимают инструкции на английском и отвечают на русском, если попросить. В <a href="/ru/">счётчике токенов TokenSave</a> вставьте промпт и нажмите <strong>💸 Сэкономить токены</strong>: кнопка уберёт лишние пробелы, переведёт текст на английский, вырежет «воду» и добавит «Reply in Russian.», чтобы ответ остался на вашем языке. Используется переводчик, встроенный в Chrome 138+ / Edge 148+ для компьютера; перевод выполняется на вашем устройстве, и текст никуда не загружается. Нажмите <strong>↩ Оригинал</strong>, чтобы вернуть оригинал.</p>
 <h2>В деньгах</h2>
-<p>При цене 2 $ за 1 млн входных токенов отправка этого промпта миллион раз стоит 68 $ на английском и 90 $ на русском. Если ответ тоже на русском, тот же множитель действует и на выходные токены, которые обычно в 4–5 раз дороже.</p>
+<p>При цене 2 $ за 1 млн входных токенов отправка этого промпта миллион раз стоит 68 $ на английском и 90 $ на русском. Если ответ тоже на русском, тот же множитель действует и на выходные токены, которые обычно на 300–400% дороже.</p>
 <h2>Как сэкономить</h2>
 <p><img loading="lazy" width="1200" height="658" alt="Как сэкономить: Пишите системный промпт и постоянные инструкции на английском, а на русском оставляйте только ввод пользовател" src="/tokeny-russkiy-gpt-ru-3.jpg" /></p>
 <ul>
@@ -110,4 +110,10 @@
 <li>Перевод основан на проверенном машинном переводе.</li>
 </ul>
 <p>Полные результаты по 41 языку (на английском): <a href="/blog/token-cost-by-language">сравнение 41 языка</a></p>
+<p>Все 41 язык рядом — в <a href="/languages">таблице языков</a>.</p>
+<h2>Источники</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: токенизатор OpenAI (o200k_base) на GitHub</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">Цены OpenAI API</a></li>
+</ul>
 <!-- autoimg -->

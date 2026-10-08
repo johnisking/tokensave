@@ -27,10 +27,10 @@ Estimate requests per month. For a chat product, that is users × conversations 
 
 ![Step 3: add the multipliers people forget: Conversation history. In a chat, every new message re-sends the whole conversation. Message 10 of a conversati](/how-to-estimate-ai-api-cost-step-3-add-the-multipliers-people-forget-en.jpg)
 
-- **Conversation history.** In a chat, every new message re-sends the whole conversation. Message 10 of a conversation includes messages 1 to 9. Average input per message can be 5–10 times the size of a single message.
+- **Conversation history.** In a chat, every new message re-sends the whole conversation. Message 10 of a conversation includes messages 1 to 9. Average input per message can be 400–900% larger than a single message.
 - **Retries and failures.** Timeouts, validation errors and "regenerate" clicks all cost tokens. Add 5–15%.
-- **Language.** If your users write in Korean, Japanese or Hindi, the same content uses 1.4–1.8 times more tokens than English.
-- **Reasoning.** Reasoning models write hidden thinking that is billed as output. It can be several times longer than the visible answer.
+- **Language.** If your users write in Korean, Japanese or Hindi, the same content uses 40–80% more tokens than English.
+- **Reasoning.** Reasoning models write hidden thinking that is billed as output. It can be much longer than the visible answer.
 
 ## A worked example
 
@@ -48,7 +48,7 @@ That is 15 million input tokens and 3 million output tokens a month. Using API p
 | GPT-6 Sol | 2.00 | 10.00 | $60.00 |
 | Claude Opus 5.5 | 4.00 | 20.00 | $120.00 |
 
-The same workload ranges from $3 to $120 depending on the model. Now apply the multipliers: if conversations average 6 messages and history is re-sent each time, input could easily triple, and the GPT-6 Sol bill moves from $60 toward $150.
+The same workload ranges from $3 to $120 depending on the model. Now apply the multipliers: if conversations average 6 messages and history is re-sent each time, input could easily grow by 200%, and the GPT-6 Sol bill moves from $60 toward $150.
 
 ## Ways to bring the number down
 
@@ -65,4 +65,13 @@ The same workload ranges from $3 to $120 depending on the model. Now apply the m
 The [token counter](/) turns any text into a cost for 30+ models at once, and the [Subscription vs API calculator](/plans) shows whether a monthly plan would be cheaper than paying per token.
 
 *Prices change often. Always confirm on the provider's pricing page before a large job.*
+
+## Sources
+
+- [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)
+- [GPT-6 Sol model page (OpenAI)](https://developers.openai.com/api/docs/models/gpt-6-sol)
+- [Gemini Developer API pricing (Google)](https://ai.google.dev/gemini-api/docs/pricing)
+- [Claude API pricing (Anthropic)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Reasoning models guide (OpenAI)](https://developers.openai.com/api/docs/guides/reasoning)
+- [Prompt caching guide (OpenAI)](https://developers.openai.com/api/docs/guides/prompt-caching)
 <!-- autoimg -->

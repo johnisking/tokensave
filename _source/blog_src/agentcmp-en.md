@@ -62,4 +62,12 @@ On Cursor, the API column is roughly what you would use from your budget: a regu
 Put in your task size and tasks per day in the [coding agent cost calculator](/agents) to see the API cost next to every Claude and ChatGPT plan.
 
 *Cursor plan details from [CloudZero's Cursor pricing guide](https://www.cloudzero.com/blog/cursor-ai-pricing/) (updated September 2026). Prices and limits change often; check each company's pricing page before you subscribe.*
+
+## Sources
+
+- [Claude plans and pricing (Anthropic)](https://claude.com/pricing)
+- [Using Claude Code with your Pro or Max plan (Claude Help Center)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Codex pricing and plans (OpenAI)](https://learn.chatgpt.com/docs/pricing)
+- [About ChatGPT Pro tiers (OpenAI Help Center)](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [Cursor pricing](https://cursor.com/pricing)
 <!-- autoimg -->

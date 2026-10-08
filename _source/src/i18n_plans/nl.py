@@ -19,7 +19,7 @@ P = dict(
     cheaperApi="API is {d} per maand goedkoper",
     cheaperPlan="{plan} is {d} per maand goedkoper",
     breakEven="Boven ongeveer {n} berichten per dag kost de API meer dan {plan}.",
-    langNote="{lang} heeft ongeveer {x}× zoveel tokens nodig als Engels, dus elke API-prijs hier is {x}× hoger.",
+    langNote="{lang} heeft ongeveer {p}% meer tokens nodig dan Engels, dus elke API-prijs hier is {p}% hoger.",
     note="API-kosten tellen het hele gesprek: elk nieuw bericht stuurt de eerdere opnieuw mee, dus lange chats kosten meer. Prompt caching kan dit verlagen. Abonnementen bieden apps, beeldtools en geheugen, maar hebben gebruikslimieten.",
     f1="Abonnementsprijzen zijn officiële maandprijzen in de US, gecontroleerd op 1 oktober 2026. Belastingen en lokale prijzen kunnen verschillen.",
     f2="API-prijzen komen uit openbare prijslijsten en worden dagelijks bijgewerkt. Controleer altijd de pagina van de aanbieder voordat je beslist.",
@@ -28,7 +28,7 @@ P = dict(
     q2="Waarom kosten lange gesprekken meer via de API?",
     a2="Chatmodellen onthouden niets tussen berichten. Elk nieuw bericht stuurt het hele gesprek opnieuw als invoer, dus het 10e bericht van een chat kost veel meer dan het eerste. Abonnementen verbergen deze kosten achter gebruikslimieten.",
     q3="Maakt mijn taal verschil voor de kosten?",
-    a3="Ja. Dezelfde tekst in het Koreaans, Hindi of Grieks heeft meer tokens nodig dan in het Engels, dus de API-kosten stijgen met dezelfde factor. Abonnementen kosten hetzelfde, maar je bereikt hun gebruikslimieten sneller.",
+    a3="Ja. Dezelfde tekst in het Koreaans, Hindi of Grieks heeft meer tokens nodig dan in het Engels, dus de API-kosten stijgen met hetzelfde percentage. Abonnementen kosten hetzelfde, maar je bereikt hun gebruikslimieten sneller.",
     more="Hoe we meten",
 )
 NAV = "Plan of API"

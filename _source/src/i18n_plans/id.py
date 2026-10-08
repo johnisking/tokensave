@@ -19,7 +19,7 @@ P = dict(
     cheaperApi="API lebih murah {d} per bulan",
     cheaperPlan="{plan} lebih murah {d} per bulan",
     breakEven="API lebih mahal daripada {plan} jika lebih dari sekitar {n} pesan per hari.",
-    langNote="{lang} membutuhkan sekitar {x}× token dibanding bahasa Inggris, jadi setiap harga API di sini {x}× lebih tinggi.",
+    langNote="{lang} membutuhkan sekitar {p}% lebih banyak token dibanding bahasa Inggris, jadi setiap harga API di sini {p}% lebih tinggi.",
     note="Biaya API menghitung seluruh percakapan: setiap pesan baru mengirim ulang pesan sebelumnya, jadi obrolan panjang lebih mahal. Prompt caching bisa menurunkannya. Langganan menyertakan aplikasi, alat gambar, dan memori, tetapi punya batas pemakaian.",
     f1="Harga paket adalah harga bulanan resmi di US, dicek pada 1 Oktober 2026. Pajak dan harga lokal bisa berbeda.",
     f2="Harga API diambil dari daftar harga publik dan diperbarui setiap hari. Selalu cek halaman penyedia sebelum memutuskan.",
@@ -28,7 +28,7 @@ P = dict(
     q2="Mengapa percakapan panjang lebih mahal di API?",
     a2="Model chat tidak menyimpan status. Setiap pesan baru mengirim ulang seluruh percakapan sebagai input, jadi pesan ke-10 dalam obrolan jauh lebih mahal daripada yang pertama. Langganan menyembunyikan biaya ini di balik batas pemakaian.",
     q3="Apakah bahasa saya memengaruhi biaya?",
-    a3="Ya. Teks yang sama dalam bahasa Korea, Hindi, atau Yunani membutuhkan lebih banyak token daripada bahasa Inggris, jadi biaya API naik dengan faktor yang sama. Harga langganan tetap sama, tetapi Anda lebih cepat mencapai batas pemakaiannya.",
+    a3="Ya. Teks yang sama dalam bahasa Korea, Hindi, atau Yunani membutuhkan lebih banyak token daripada bahasa Inggris, jadi biaya API naik dengan persentase yang sama. Harga langganan tetap sama, tetapi Anda lebih cepat mencapai batas pemakaiannya.",
     more="Cara kami mengukur",
 )
 NAV = "Paket vs API"

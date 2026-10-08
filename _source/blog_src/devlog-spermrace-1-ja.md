@@ -93,3 +93,8 @@
 ここまでだと「AIで3日でゲームがサクッとできた」ように見えます。でも本当の苦労はそのあとでした。作るのは3日、バグを直すのには14日かかったのです。
 
 **次回：[作るのは3日、バグ直しは14日](/ja/blog/google-play-closed-test-14nichi)** — AIに「バグを探して」と頼むとなぜ関係ないところをいじるのか、最終的に人がバグを見つけてAIに直させるようにした方法をまとめます。
+
+## 出典
+
+- [Play Console ヘルプ：Play Console を使ってみる（登録料 US$25）](https://support.google.com/googleplay/android-developer/answer/6112435)
+- [Claude 料金プラン（Pro）](https://claude.com/pricing)

@@ -22,7 +22,7 @@ De Nederlandse versie:
 | Ελληνικά | 70 | +106% | 51% |
 | ਪੰਜਾਬੀ | 83 | +144% | 59% |
 
-![Resultaten](/blog-language-tax-chart-v4.png)
+![Diagram: extra tokens per taal vergeleken met Engels in GPT (41 talen)](/blog-language-tax-chart-v5.png)
 
 ## Waarom
 
@@ -36,7 +36,7 @@ De tokenizer leert vooral van Engelse tekst: woorden als " polite" of " customer
 
 ## Met één knop naar het Engels
 
-De grootste besparing haal je door je prompt in het Engels te sturen: ongeveer 22% minder tokens dan in het Nederlands. Huidige modellen begrijpen Engelse instructies uitstekend en antwoorden in het Nederlands als je daarom vraagt. Plak je prompt in de TokenSave-tokenteller en druk op **💸 Tokens besparen**: spaties worden opgeschoond, de tekst wordt naar het Engels vertaald, overbodige tekst wordt weggehaald en "Reply in Dutch." wordt toegevoegd, zodat het antwoord in jouw taal blijft. Er wordt gebruikgemaakt van de ingebouwde vertaler van Chrome 138+ / Edge 148+ op desktop; de vertaling gebeurt op je eigen apparaat en je tekst wordt nooit geüpload. Druk op **↩ Origineel** om het origineel terug te krijgen.
+De grootste besparing haal je door je prompt in het Engels te sturen: ongeveer 22% minder tokens dan in het Nederlands. Huidige modellen begrijpen Engelse instructies uitstekend en antwoorden in het Nederlands als je daarom vraagt. Plak je prompt in de [TokenSave-tokenteller](/nl/) en druk op **💸 Tokens besparen**: spaties worden opgeschoond, de tekst wordt naar het Engels vertaald, overbodige tekst wordt weggehaald en "Reply in Dutch." wordt toegevoegd, zodat het antwoord in jouw taal blijft. Er wordt gebruikgemaakt van de ingebouwde vertaler van Chrome 138+ / Edge 148+ op desktop; de vertaling gebeurt op je eigen apparaat en je tekst wordt nooit geüpload. Druk op **↩ Origineel** om het origineel terug te krijgen.
 
 ## In geld
 
@@ -57,4 +57,12 @@ Bij een model van $2 per miljoen inputtokens kost het 68 dollar in het Engels en
 - De vertaling is gebaseerd op een gecontroleerde machinevertaling.
 
 Alle resultaten voor 41 talen (in het Engels): [vergelijking van 41 talen](/blog/token-cost-by-language)
+
+Alle 41 talen naast elkaar staan in de [talentabel](/languages).
+
+## Bronnen
+
+- [tiktoken: de tokenizer van OpenAI (o200k_base) op GitHub](https://github.com/openai/tiktoken)
+- [Prijzen van de OpenAI API](https://developers.openai.com/api/docs/pricing)
+
 <!-- autoimg -->

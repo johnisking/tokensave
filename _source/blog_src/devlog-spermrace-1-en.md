@@ -93,3 +93,8 @@ For comparison, if you run a small game through the [AI game cost calculator](/a
 So far it looks like "AI made a game in 3 days, easy." But the real struggle came after. Building took 3 days; fixing bugs took 14.
 
 **Next: [3 days to build, 14 days to fix bugs](/blog/google-play-closed-testing-14-days)** — why AI pokes at the wrong code when you ask it to "find the bug," and how I ended up finding bugs myself and having the AI fix them.
+
+## Sources
+
+- [Google Play Console Help: get started (US$25 registration fee)](https://support.google.com/googleplay/android-developer/answer/6112435)
+- [Claude pricing (Pro plan)](https://claude.com/pricing)

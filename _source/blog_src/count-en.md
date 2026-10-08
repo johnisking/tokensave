@@ -68,4 +68,11 @@ For English, a rough mental rule also works: about 1.1–1.3 tokens per word on 
 - [What is a token?](/blog/what-is-a-token)
 - [LLM API pricing compared](/blog/llm-api-pricing-comparison)
 - [How to estimate your AI API bill](/blog/how-to-estimate-ai-api-cost)
+
+## Sources
+
+- [tiktoken (OpenAI)](https://github.com/openai/tiktoken)
+- [Counting tokens (OpenAI API docs)](https://developers.openai.com/api/docs/guides/token-counting)
+- [Token counting (Anthropic docs)](https://platform.claude.com/docs/en/build-with-claude/token-counting)
+- [Understand and count tokens (Gemini API docs)](https://ai.google.dev/gemini-api/docs/generate-content/tokens)
 <!-- autoimg -->

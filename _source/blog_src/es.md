@@ -1,6 +1,6 @@
-![El español gasta 1,18× más tokens que el inglés en GPT](/tokens-espanol-gpt-es.jpg)
+![El español gasta un 18% más de tokens que el inglés en GPT](/tokens-espanol-gpt-es.jpg)
 
-Traduje el mismo prompt de atención al cliente a 41 idiomas y conté los tokens con o200k_base, el tokenizador actual de OpenAI (GPT-4o y posteriores). En inglés son 34 tokens; en español, **40: 1,18× el inglés**, puesto 4 de 41 (1 = el más barato).
+Traduje el mismo prompt de atención al cliente a 41 idiomas y conté los tokens con o200k_base, el tokenizador actual de OpenAI (GPT-4o y posteriores). En inglés son 34 tokens; en español, **40: un 18% más que el inglés**, puesto 4 de 41 (1 = el más barato).
 
 La versión en español:
 
@@ -10,18 +10,18 @@ La versión en español:
 
 | Idioma | Tokens | Frente al inglés | Ahorro si se envía en inglés |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | – |
-| 简体中文 | 35 | 1,03× | 3% |
-| **Español** | **40** | **1,18×** | **15%** |
-| Deutsch | 43 | 1,26× | 21% |
-| 한국어 | 49 | 1,44× | 31% |
-| हिन्दी | 51 | 1,50× | 33% |
-| 日本語 | 61 | 1,79× | 44% |
-| Čeština | 68 | 2,00× | 50% |
-| Ελληνικά | 70 | 2,06× | 51% |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
+| English | 34 | ±0% | – |
+| 简体中文 | 35 | +3% | 3% |
+| **Español** | **40** | **+18%** | **15%** |
+| Deutsch | 43 | +26% | 21% |
+| 한국어 | 49 | +44% | 31% |
+| हिन्दी | 51 | +50% | 33% |
+| 日本語 | 61 | +79% | 44% |
+| Čeština | 68 | +100% | 50% |
+| Ελληνικά | 70 | +106% | 51% |
+| ਪੰਜਾਬੀ | 83 | +144% | 59% |
 
-![Resultados](/blog-language-tax-chart-v4.png)
+![Gráfico: tokens adicionales por idioma frente al inglés en GPT](/blog-language-tax-chart-v5.png)
 
 ## Por qué
 
@@ -39,7 +39,7 @@ El mayor ahorro consiste en enviar tu prompt en inglés: alrededor de un 15% men
 
 ## En dinero
 
-Con un modelo a 2 $ por millón de tokens de entrada, enviar este prompt un millón de veces cuesta 68 $ en inglés y 80 $ en español. Si la respuesta también es en español, el mismo multiplicador se aplica a los tokens de salida, que suelen costar 4–5× más.
+Con un modelo a 2 $ por millón de tokens de entrada, enviar este prompt un millón de veces cuesta 68 $ en inglés y 80 $ en español. Si la respuesta también es en español, la misma diferencia se aplica a los tokens de salida, que suelen costar un 300–400% más.
 
 ## Cómo ahorrar
 
@@ -55,5 +55,13 @@ Con un modelo a 2 $ por millón de tokens de entrada, enviar este prompt un mill
 - Claude y Gemini usan otros tokenizadores: estas cifras valen solo para modelos de OpenAI.
 - La traducción parte de una traducción automática revisada.
 
+Prueba con tu propio texto en el [contador de tokens](/es/); todos los idiomas comparados están en la [tabla de idiomas](/languages).
+
 Resultados completos de los 41 idiomas (en inglés): [comparativa de 41 idiomas](/blog/token-cost-by-language)
+
+## Fuentes
+
+- [tiktoken: el tokenizador de OpenAI (o200k_base) en GitHub](https://github.com/openai/tiktoken)
+- [Precios de la API de OpenAI](https://developers.openai.com/api/docs/pricing)
+
 <!-- autoimg -->

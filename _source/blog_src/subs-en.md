@@ -64,4 +64,14 @@ Enter how you actually use AI in the [Subscription vs API calculator](/plans) to
 - **Hitting your plan's limit every week:** go up one tier, not two. On ChatGPT you pay the same per unit at every Pro tier, so buy the smallest one you do not run out on.
 
 *Prices and limits change often. Grok prices are from third-party trackers that checked xAI's plans page; check each company's pricing page before you subscribe.*
+
+## Sources
+
+- [ChatGPT plans and Codex pricing](https://learn.chatgpt.com/docs/pricing)
+- [OpenAI Help: About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [Claude plans and pricing](https://claude.com/pricing)
+- [Claude Help: What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+- [Claude Help: Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Google AI Plus, Pro and Ultra plans](https://gemini.google/subscriptions/)
+- [xAI: Grok plans](https://x.ai/pricing)
 <!-- autoimg -->

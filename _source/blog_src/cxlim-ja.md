@@ -51,14 +51,14 @@ OpenAI のヘルプセンターによると、ChatGPT の **Settings → Usage**
 
 ## 枠を長持ちさせるコツ
 
-![枠を長持ちさせるコツ: 基本は GPT-5.6 Sol か Terra に。 GPT-6 Astra は枠を何倍も使うので、違いが出る難しい問題にだけ使いましょう。; 簡単な編集、名前の変更、定型コードには Luna を。; タスクは小さく具体](/codex-shiyouryou-jougen-ja-4.jpg)
+![枠を長持ちさせるコツ: 基本は GPT-5.6 Sol か Terra に。 GPT-6 Astra は枠を大幅に多く使うので、違いが出る難しい問題にだけ使いましょう。; 簡単な編集、名前の変更、定型コードには Luna を。; タスクは小さく](/codex-shiyouryou-jougen-ja-4.jpg)
 
-- **基本は GPT-5.6 Sol か Terra に。** GPT-6 Astra は枠を何倍も使うので、違いが出る難しい問題にだけ使いましょう。
+- **基本は GPT-5.6 Sol か Terra に。** GPT-6 Astra は枠を大幅に多く使うので、違いが出る難しい問題にだけ使いましょう。
 - **簡単な編集**、名前の変更、定型コードには **Luna を。**
 - **タスクは小さく具体的に。** ステップが少ないほど、送り直すコンテキストも減ります。
 - **関係のないタスクの間では新しく始め直し**、古い履歴を持ち越さないようにしましょう。
 - リポジトリ全体を探させるのではなく、**Codex に該当するファイルを指定しましょう。**
-- **指示ファイルは短く。** 普段ほかの言語を使っているなら英語で書きましょう。GPT のトークナイザーでは、同じ内容が英語に比べて韓国語で約1.44倍、日本語で約1.79倍のトークンになります。
+- **指示ファイルは短く。** 普段ほかの言語を使っているなら英語で書きましょう。GPT のトークナイザーでは、同じ内容が英語に比べて韓国語で約44%、日本語で約79%多いトークンになります。
 
 同じ習慣の多くは Claude Code にも当てはまります。[Claude Code のトークン節約術](/ja/blog/claude-code-token-setsuyaku)をご覧ください。
 
@@ -67,4 +67,11 @@ OpenAI のヘルプセンターによると、ChatGPT の **Settings → Usage**
 どちらも$20・$100・$200のプランに含まれ、上限の仕組みも似ています。違いは [ChatGPT Pro vs Claude Max の比較](/ja/blog/chatgpt-pro-vs-claude-max)で解説しています。[コーディングエージェント費用計算機](/ja/agents)では、月々の API 費用をすべてのプランと比較できます。
 
 *上限は頻繁に変わります。最新の数値は OpenAI の [Codex と Work の使用量ヘルプページ](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)（英語）で確認してください。*
+
+## 出典
+
+- [OpenAI ヘルプ: Work と Codex の使用量管理](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)
+- [OpenAI ヘルプ: Codex の保存済みリセット](https://help.openai.com/en/articles/20001498-how-banked-codex-resets-work)
+- [ChatGPT のプランと Codex 料金](https://learn.chatgpt.com/docs/pricing)
+- [OpenAI ヘルプ: ChatGPT Pro の各プラン](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
 <!-- autoimg -->

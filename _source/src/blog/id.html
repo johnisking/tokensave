@@ -1,5 +1,5 @@
-<p><img fetchpriority="high" width="1200" height="630" alt="Bahasa Indonesia memakai 1,15× token bahasa Inggris di GPT" src="/token-bahasa-indonesia-gpt-id.jpg" /></p>
-<p>Saya menerjemahkan prompt layanan pelanggan yang sama ke 41 bahasa dan menghitung token dengan o200k_base, tokenizer OpenAI saat ini (GPT-4o dan setelahnya). Bahasa Inggris butuh 34 token, bahasa Indonesia <strong>39 token — 1,15× bahasa Inggris</strong>, peringkat 3 dari 41 (1 = paling murah).</p>
+<p><img fetchpriority="high" width="1200" height="630" alt="Bahasa Indonesia pakai 15% token lebih banyak dari bahasa Inggris di GPT" src="/token-bahasa-indonesia-gpt-id.jpg" /></p>
+<p>Saya menerjemahkan prompt layanan pelanggan yang sama ke 41 bahasa dan menghitung token dengan o200k_base, tokenizer OpenAI saat ini (GPT-4o dan setelahnya). Bahasa Inggris butuh 34 token, bahasa Indonesia <strong>39 token — 15% lebih banyak dari bahasa Inggris</strong>, peringkat 3 dari 41 (1 = paling murah).</p>
 <p>Versi bahasa Indonesia:</p>
 <blockquote>
 <p>Ringkas email pelanggan di bawah ini dalam tiga poin dan sarankan balasan yang sopan. Pelanggan mengatakan pesanan tiba dua hari terlambat dan satu barang hilang dari kotak.</p>
@@ -18,72 +18,72 @@
 <tr>
 <td>English</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">1,00×</td>
+<td style="text-align: right;">±0%</td>
 <td style="text-align: right;">–</td>
 </tr>
 <tr>
 <td>简体中文</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">1,03×</td>
+<td style="text-align: right;">+3%</td>
 <td style="text-align: right;">3%</td>
 </tr>
 <tr>
 <td><strong>Bahasa Indonesia</strong></td>
 <td style="text-align: right;"><strong>39</strong></td>
-<td style="text-align: right;"><strong>1,15×</strong></td>
+<td style="text-align: right;"><strong>+15%</strong></td>
 <td style="text-align: right;"><strong>13%</strong></td>
 </tr>
 <tr>
 <td>Español</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;">1,18×</td>
+<td style="text-align: right;">+18%</td>
 <td style="text-align: right;">15%</td>
 </tr>
 <tr>
 <td>Deutsch</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">1,26×</td>
+<td style="text-align: right;">+26%</td>
 <td style="text-align: right;">21%</td>
 </tr>
 <tr>
 <td>한국어</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">+44%</td>
 <td style="text-align: right;">31%</td>
 </tr>
 <tr>
 <td>हिन्दी</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;">1,50×</td>
+<td style="text-align: right;">+50%</td>
 <td style="text-align: right;">33%</td>
 </tr>
 <tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">1,79×</td>
+<td style="text-align: right;">+79%</td>
 <td style="text-align: right;">44%</td>
 </tr>
 <tr>
 <td>Čeština</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">2,00×</td>
+<td style="text-align: right;">+100%</td>
 <td style="text-align: right;">50%</td>
 </tr>
 <tr>
 <td>Ελληνικά</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">+106%</td>
 <td style="text-align: right;">51%</td>
 </tr>
 <tr>
 <td>ਪੰਜਾਬੀ</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">+144%</td>
 <td style="text-align: right;">59%</td>
 </tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1430" alt="Hasil" src="/blog-language-tax-chart-v4.png" /></p>
+<p><img loading="lazy" width="960" height="1441" alt="Grafik: token tambahan tiap bahasa dibanding bahasa Inggris di GPT" src="/blog-language-tax-chart-v5.png" /></p>
 <h2>Mengapa</h2>
 <p><img loading="lazy" width="1200" height="593" alt="Mengapa: terlambat → terl | amb | at · 3; Pelanggan → Pel | anggan · 2; sarankan → sar | ankan · 2" src="/token-bahasa-indonesia-gpt-mengapa-id.jpg" /></p>
 <p>Tokenizer terutama belajar dari teks bahasa Inggris: kata seperti " polite" atau " customer" hanya satu token, sedangkan kata berimbuhan dalam bahasa Indonesia dipecah:</p>
@@ -95,7 +95,7 @@
 <h2>Beralih ke bahasa Inggris dengan satu tombol</h2>
 <p>Penghematan terbesar adalah mengirim prompt dalam bahasa Inggris: sekitar 13% lebih sedikit token dibanding bahasa Indonesia. Model saat ini sangat memahami instruksi berbahasa Inggris dan akan menjawab dalam bahasa Indonesia jika Anda memintanya. Di penghitung token TokenSave, tempel prompt Anda lalu tekan <strong>💸 Hemat token</strong>: tombol ini merapikan spasi, menerjemahkan ke bahasa Inggris, membuang kata yang tidak perlu, dan menambahkan "Reply in Indonesian." agar jawabannya tetap dalam bahasa Anda. Fitur ini memakai penerjemah bawaan Chrome 138+ / Edge 148+ versi desktop; terjemahan berjalan di perangkat Anda sendiri dan teks Anda tidak pernah diunggah. Tekan <strong>↩ Asli</strong> untuk mengembalikan teks asli.</p>
 <h2>Dalam uang</h2>
-<p>Dengan model seharga $2 per 1 juta token input, mengirim prompt ini 1 juta kali menghabiskan $68 dalam bahasa Inggris dan $78 dalam bahasa Indonesia. Jika jawabannya juga berbahasa Indonesia, pengali yang sama berlaku untuk token output yang biasanya 4–5× lebih mahal.</p>
+<p>Dengan model seharga $2 per 1 juta token input, mengirim prompt ini 1 juta kali menghabiskan $68 dalam bahasa Inggris dan $78 dalam bahasa Indonesia. Jika jawabannya juga berbahasa Indonesia, pengali yang sama berlaku untuk token output yang biasanya 300–400% lebih mahal.</p>
 <h2>Cara berhemat</h2>
 <p><img loading="lazy" width="1200" height="658" alt="Cara berhemat: Tulis system prompt dan instruksi tetap dalam bahasa Inggris; biarkan hanya input pengguna dalam bahasa Indone" src="/token-bahasa-indonesia-gpt-cara-berhemat-id.jpg" /></p>
 <ul>
@@ -109,5 +109,11 @@
 <li>Claude dan Gemini memakai tokenizer lain; angka ini hanya berlaku untuk model OpenAI.</li>
 <li>Terjemahan didasarkan pada terjemahan mesin yang sudah diperiksa.</li>
 </ul>
+<p>Coba dengan teks Anda sendiri di <a href="/id/">penghitung token</a>; perbandingan semua bahasa ada di <a href="/languages">tabel bahasa</a>.</p>
 <p>Hasil lengkap 41 bahasa (dalam bahasa Inggris): <a href="/blog/token-cost-by-language">perbandingan 41 bahasa</a></p>
+<h2>Sumber</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: tokenizer OpenAI (o200k_base) di GitHub</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">Harga OpenAI API</a></li>
+</ul>
 <!-- autoimg -->

@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -100,7 +100,7 @@
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">LLM API 料金比較：GPT-6・Claude・Gemini・DeepSeek など22モデル</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026年10月2日</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="LLM API 料金比較：GPT-6・Claude・Gemini・DeepSeek など22モデル" src="/llm-api-ryoukin-hikaku-ja.jpg" /></p>
-<p>API 料金を公開している言語モデルは数十にのぼり、同じリクエストでもモデルによって費用が150倍も違うことがあります。この記事では、OpenAI、Anthropic、Google、xAI、DeepSeek、Mistral、Alibaba、Moonshot の人気モデル22個の現在の定価を並べ、一般的なリクエストが実際にいくらかかるか、どう選べばよいかをまとめました。</p>
+<p>API 料金を公開している言語モデルは数十にのぼり、同じリクエスト1万回が、モデルによって$3で済むことも$450かかることもあります。この記事では、OpenAI、Anthropic、Google、xAI、DeepSeek、Mistral、Alibaba、Moonshot の人気モデル22個の現在の定価を並べ、一般的なリクエストが実際にいくらかかるか、どう選べばよいかをまとめました。</p>
 <figure class="chart-fig"><img class="chart" src="/img/llm-api-price-chart.svg" alt="主要AIモデル15種の100万トークンあたり入力・出力API料金の棒グラフ" width="560" height="806" loading="lazy" decoding="async" /><figcaption>100万トークンあたりのAPI料金（ドル、2026-10-01時点）</figcaption></figure>
 <h2>API 料金の比較</h2>
 <p><img loading="lazy" width="1200" height="1052" alt="API 料金の比較: モデル, 入力 / 100万, 出力 / 100万, 1万リクエスト" src="/llm-api-ryoukin-hikaku-ja-2.jpg" /></p>
@@ -255,9 +255,9 @@
 <p><strong>中価格帯（$1〜3前後）：</strong> Gemini 3.8 Flash、Claude Haiku 4.5、DeepSeek V4 Pro、Grok、Mistral Medium、Qwen3.8 Max、GPT-6 Sol、Claude Sonnet 5.5、Gemini 3.1 Pro、Kimi K3。チャットアシスタント、文章作成、分析、コーディングエージェントの標準的な選択肢です。</p>
 <p><strong>フラッグシップ（$4以上）：</strong> Claude Opus 5.5、GPT-6 Astra、Claude Fable 5.1。長く複数ステップにわたるエージェント作業や難しい推論など、性能の差がはっきり示せる場面で使いましょう。</p>
 <h2>料金表だけではわからないこと</h2>
-<p><strong>高いのは出力のほうです。</strong> ほとんどのモデルで、出力は入力の4〜6倍の料金です。長い回答を生成するアプリなら、まず出力料金を比べてください。詳しくは<a href="/blog/why-output-tokens-cost-more">出力トークンが高い理由</a>（英語）をご覧ください。</p>
+<p><strong>高いのは出力のほうです。</strong> ほとんどのモデルで、出力は入力より300〜500%高い料金です。長い回答を生成するアプリなら、まず出力料金を比べてください。詳しくは<a href="/blog/why-output-tokens-cost-more">出力トークンが高い理由</a>（英語）をご覧ください。</p>
 <p><strong>トークナイザーが違います。</strong> テキストをトークンに分割する方法は会社ごとに異なります。同じテキストでもモデルによってトークン数が10〜30%違うことがあるため、トークン単価が安くても請求額が安くなるとは限りません。料金表だけでなく、自分のテキストでの費用を<a href="/ja/">トークンカウンター</a>で比べてみましょう。詳しくは <a href="/ja/blog/token-kazoekata">GPT・Claude・Gemini のトークンの数え方</a>をどうぞ。</p>
-<p><strong>言語によって変わります。</strong> 英語以外のテキストはトークンを多く使います。GPT のトークナイザーでは、英語と比べて韓国語が約1.44倍、日本語が約1.79倍、チェコ語が約2倍です。日本語のプロンプトを英語で送ればトークンは約44%減り、<a href="/ja/">トークンカウンター</a>の 💸 トークン節約 ボタンを使うと、自分の端末の中でプロンプトを英語に変換できます（デスクトップ版 Chrome 138以降 / Edge 148以降）。</p>
+<p><strong>言語によって変わります。</strong> 英語以外のテキストはトークンを多く使います。GPT のトークナイザーでは、英語と比べて韓国語が約44%、日本語が約79%、チェコ語が約100%多くなります。日本語のプロンプトを英語で送ればトークンは約44%減り、<a href="/ja/">トークンカウンター</a>の 💸 トークン節約 ボタンを使うと、自分の端末の中でプロンプトを英語に変換できます（デスクトップ版 Chrome 138以降 / Edge 148以降）。</p>
 <p><strong>割引で順位が変わります。</strong> 多くの会社が、キャッシュされた入力を通常料金のごく一部で、バッチ処理を約半額で提供しています。長いプロンプトを繰り返し送るアプリでは、キャッシュをうまく使った中価格帯モデルのほうが、キャッシュなしの格安モデルより安くなることがあります。<a href="/blog/prompt-caching-explained">プロンプトキャッシュ</a>（英語）と<a href="/blog/batch-api-half-price">バッチ API</a>（英語）もご覧ください。</p>
 <p><strong>長いプロンプトは割高になることがあります。</strong> 一定のプロンプト長を超えると高い料金がかかるモデルもあります。たとえば GPT-6 の各モデルは、入力が272,000トークンを超えるリクエストに高い料金を適用します。</p>
 <h2>いちばん安い LLM API は？</h2>
@@ -271,6 +271,18 @@
 </ol>
 <h2>自分の請求額を見積もる</h2>
 <p>実際のプロンプトを<a href="/ja/">トークンカウンター</a>に貼り付ければ、すべてのモデルでの費用を一度に確認できます。詳しい方法は <a href="/blog/how-to-estimate-ai-api-cost">AI API の請求額を見積もる方法</a>（英語）をご覧ください。サブスクリプションと API のどちらが得かは、<a href="/ja/plans">サブスク vs API 計算機</a>で比べられます。</p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API 料金</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-5-nano" target="_blank" rel="noopener">OpenAI: GPT-5 nano モデル</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API 料金</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini API 料金</a></li>
+<li><a href="https://docs.x.ai/developers/pricing" target="_blank" rel="noopener">xAI API 料金</a></li>
+<li><a href="https://api-docs.deepseek.com/quick_start/pricing/" target="_blank" rel="noopener">DeepSeek API のモデルと料金</a></li>
+<li><a href="https://docs.mistral.ai/models/mistral-large-3-25-12" target="_blank" rel="noopener">Mistral AI: Mistral Large 3</a></li>
+<li><a href="https://www.alibabacloud.com/help/en/model-studio/qwen3-8-flash" target="_blank" rel="noopener">Alibaba Cloud: qwen3.8-flash の料金</a></li>
+<li><a href="https://www.alibabacloud.com/help/en/model-studio/model-pricing" target="_blank" rel="noopener">Alibaba Cloud Model Studio の料金</a></li>
+</ul>
 <!-- autoimg -->
 
         <h2>関連記事</h2>
@@ -297,6 +309,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

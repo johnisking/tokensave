@@ -1,4 +1,4 @@
-Polski należy do najdroższych języków w promptach: ten sam tekst zajmuje w GPT prawie dwa razy więcej tokenów niż po angielsku. W dyskusji na forum 4programmers padła dobra uwaga: może to wina samego tekstu, a native speaker napisze go krócej? Sprawdziłem to, razem z kilkoma innymi sposobami na tańszy prompt po polsku.
+Polski należy do najdroższych języków w promptach: ten sam tekst zajmuje w GPT o 88% więcej tokenów niż po angielsku. W dyskusji na forum 4programmers padła dobra uwaga: może to wina samego tekstu, a native speaker napisze go krócej? Sprawdziłem to, razem z kilkoma innymi sposobami na tańszy prompt po polsku.
 
 ![Ten sam prompt w różnych wersjach: od 64 do 28 tokenów](/blog-prompt-pl-skracanie.png)
 
@@ -90,4 +90,10 @@ Przy jednym prompcie to niewiele, ale w produkcie prompty systemowe mają częst
 Więcej pomiarów: [Ile naprawdę kosztuje prompt po polsku? GPT i Mistral zmierzone](/pl/blog/ile-kosztuje-prompt-po-polsku)
 
 *Pomiary: październik 2026, o200k_base (OpenAI) i Tekken 2024-09 (Mistral). Cena w przykładzie jest hipotetyczna.*
+
+## Źródła
+
+- [tiktoken (OpenAI): tokenizer o200k_base](https://github.com/openai/tiktoken)
+- [Mistral NeMo i tokenizer Tekken (Mistral AI)](https://mistral.ai/news/mistral-nemo/)
+- [Cennik API OpenAI (ceny za milion tokenów)](https://developers.openai.com/api/docs/pricing)
 <!-- autoimg -->

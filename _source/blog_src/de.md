@@ -1,6 +1,6 @@
-![Deutsch braucht in GPT 1,26× so viele Tokens wie Englisch](/tokens-deutsch-gpt-de.jpg)
+![Deutsch braucht in GPT 26 % mehr Tokens als Englisch](/tokens-deutsch-gpt-de.jpg)
 
-Ich habe denselben Kundenservice-Prompt in 41 Sprachen übersetzt und die Tokens mit o200k_base gezählt, dem aktuellen Tokenizer von OpenAI (GPT-4o und neuer). Englisch braucht 34 Tokens, Deutsch **43 – also 1,26× so viele**, Platz 7 von 41 (1 = am günstigsten).
+Ich habe denselben Kundenservice-Prompt in 41 Sprachen übersetzt und die Tokens mit o200k_base gezählt, dem aktuellen Tokenizer von OpenAI (GPT-4o und neuer). Englisch braucht 34 Tokens, Deutsch **43 – also 26% mehr**, Platz 7 von 41 (1 = am günstigsten).
 
 Die deutsche Fassung:
 
@@ -10,18 +10,18 @@ Die deutsche Fassung:
 
 | Sprache | Tokens | Im Vergleich zu Englisch | Ersparnis auf Englisch |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | – |
-| 简体中文 | 35 | 1,03× | 3% |
-| Español | 40 | 1,18× | 15% |
-| **Deutsch** | **43** | **1,26×** | **21%** |
-| 한국어 | 49 | 1,44× | 31% |
-| हिन्दी | 51 | 1,50× | 33% |
-| 日本語 | 61 | 1,79× | 44% |
-| Čeština | 68 | 2,00× | 50% |
-| Ελληνικά | 70 | 2,06× | 51% |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
+| English | 34 | ±0% | – |
+| 简体中文 | 35 | +3% | 3% |
+| Español | 40 | +18% | 15% |
+| **Deutsch** | **43** | **+26%** | **21%** |
+| 한국어 | 49 | +44% | 31% |
+| हिन्दी | 51 | +50% | 33% |
+| 日本語 | 61 | +79% | 44% |
+| Čeština | 68 | +100% | 50% |
+| Ελληνικά | 70 | +106% | 51% |
+| ਪੰਜਾਬੀ | 83 | +144% | 59% |
 
-![Ergebnisse](/blog-language-tax-chart-v4.png)
+![Diagramm: zusätzliche Tokens pro Sprache im Vergleich zu Englisch in GPT](/blog-language-tax-chart-v5.png)
 
 ## Warum
 
@@ -39,7 +39,7 @@ Am meisten sparst du, wenn du deinen Prompt auf Englisch sendest: rund 21 % weni
 
 ## In Geld
 
-Bei einem Modell mit 2 $ pro 1 Mio. Input-Tokens kostet es 68 $ auf Englisch und 86 $ auf Deutsch, diesen Prompt eine Million Mal zu senden. Antwortet das Modell auch auf Deutsch, gilt derselbe Faktor für die Output-Tokens, die meist 4–5× teurer sind.
+Bei einem Modell mit 2 $ pro 1 Mio. Input-Tokens kostet es 68 $ auf Englisch und 86 $ auf Deutsch, diesen Prompt eine Million Mal zu senden. Antwortet das Modell auch auf Deutsch, gilt derselbe Unterschied für die Output-Tokens, die meist 300–400% teurer sind.
 
 ## So sparst du
 
@@ -55,5 +55,13 @@ Bei einem Modell mit 2 $ pro 1 Mio. Input-Tokens kostet es 68 $ auf Englisch und
 - Claude und Gemini haben andere Tokenizer – die Zahlen gelten nur für OpenAI-Modelle.
 - Die Übersetzung basiert auf einer geprüften maschinellen Übersetzung.
 
+Probier es mit deinem eigenen Text im [Token-Rechner](/de/) aus; alle Sprachen im Vergleich stehen in der [Sprachtabelle](/languages).
+
 Alle Ergebnisse für 41 Sprachen (auf Englisch): [Vergleich von 41 Sprachen](/blog/token-cost-by-language)
+
+## Quellen
+
+- [tiktoken: OpenAI-Tokenizer (o200k_base) auf GitHub](https://github.com/openai/tiktoken)
+- [OpenAI-API-Preise](https://developers.openai.com/api/docs/pricing)
+
 <!-- autoimg -->

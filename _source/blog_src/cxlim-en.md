@@ -53,12 +53,12 @@ OpenAI's help center points to **Settings → Usage** in ChatGPT, which shows yo
 
 ![How to stretch it: Default to GPT-5.6 Sol or Terra. Use GPT-6 Astra only for the hard problems where you can see the difference; ](/codex-usage-limits-how-to-stretch-it-en.jpg)
 
-- **Default to GPT-5.6 Sol or Terra.** Use GPT-6 Astra only for the hard problems where you can see the difference: it uses several times the allowance.
+- **Default to GPT-5.6 Sol or Terra.** Use GPT-6 Astra only for the hard problems where you can see the difference: it uses much more of the allowance.
 - **Use Luna for simple edits**, renames and boilerplate.
 - **Keep tasks small and specific.** Fewer steps means less context resent.
 - **Start fresh between unrelated tasks** so old history is not carried along.
 - **Point Codex at the right files** instead of letting it search the whole repo.
-- **Keep your instruction file short**, and write it in English if you normally use another language: on GPT's tokenizer, Korean takes about 1.44× and Japanese 1.79× the tokens of English.
+- **Keep your instruction file short**, and write it in English if you normally use another language: on GPT's tokenizer, Korean takes about 44% more tokens than English and Japanese 79% more.
 
 Many of the same habits apply to Claude Code: see [How to save tokens in Claude Code](/blog/claude-code-save-tokens).
 
@@ -67,4 +67,11 @@ Many of the same habits apply to Claude Code: see [How to save tokens in Claude 
 Both are included in $20, $100 and $200 plans with similar limit systems. The [ChatGPT Pro vs Claude Max comparison](/blog/chatgpt-pro-vs-claude-max) covers the differences, and the [coding agent calculator](/agents) compares monthly API costs with every plan.
 
 *Limits change often. OpenAI's [Codex and Work usage help page](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex) has the current numbers.*
+
+## Sources
+
+- [OpenAI Help: Managing usage with GPT-6 Astra in Work and Codex](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)
+- [OpenAI Help: How banked Codex resets work](https://help.openai.com/en/articles/20001498-how-banked-codex-resets-work)
+- [ChatGPT plans and Codex pricing](https://learn.chatgpt.com/docs/pricing)
+- [OpenAI Help: About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
 <!-- autoimg -->

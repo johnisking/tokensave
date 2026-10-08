@@ -58,7 +58,15 @@ On Veo 3.1 at 1080p, that turns $24 into roughly $72 for one finished minute. On
 
 ## Price your own project
 
-The [AI video cost calculator](/video) lets you set clip length, number of clips, resolution and audio, and ranks every model by total cost.
+The [AI video cost calculator](/video) lets you set clip length, number of clips, resolution and audio, and ranks every model by total cost. Need still images as well? See [AI image cost per image](/blog/ai-image-cost-per-image) and the [AI image cost calculator](/image).
 
 *Prices change often. Confirm on the provider's pricing page before a large job.*
+
+## Sources
+
+- [Veo pricing on Google Cloud (Gemini Enterprise Agent Platform)](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing)
+- [Generate videos with Veo 3.1 (Gemini API docs)](https://ai.google.dev/gemini-api/docs/veo)
+- [xAI API pricing](https://docs.x.ai/developers/pricing)
+- [Black Forest Labs API pricing](https://docs.bfl.ml/quick_start/pricing)
+- [Runway API pricing](https://docs.dev.runwayml.com/guides/pricing/)
 <!-- autoimg -->

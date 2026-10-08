@@ -22,7 +22,7 @@ Now answer questions about it on GPT-6 Sol, at $2 per million input tokens (chec
 | Long context, with prompt caching (90% off) | ~333,000 (mostly cached) | about $0.07 | about $670 |
 | RAG, 8 chunks of 500 tokens | ~4,500 | $0.009 | $90 |
 
-Even with caching, sending the whole manual costs around seven times more than RAG. Without caching, it is more than 70 times more.
+Even with caching, sending the whole manual costs around 600% more than RAG. Without caching, it is $0.67 per question against $0.009 for RAG.
 
 ## It is not only about money
 
@@ -57,4 +57,10 @@ Many production systems combine both: retrieve generously (say, 20–50 chunks i
 ## Estimate your case
 
 Paste a sample of your document into the [token counter](/) to see how many tokens it uses and what one question would cost on each model. Then multiply by your expected number of questions per month.
+
+## Sources
+
+- [GPT-6 Sol model page (OpenAI)](https://developers.openai.com/api/docs/models/gpt-6-sol)
+- [Prompt caching guide (OpenAI)](https://developers.openai.com/api/docs/guides/prompt-caching)
+- [Liu et al., Lost in the Middle (arXiv, 2023)](https://arxiv.org/abs/2307.03172)
 <!-- autoimg -->

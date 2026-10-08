@@ -75,4 +75,11 @@ Por $200, Claude Max 20× equivale ahora a 20× su plan base, mientras que ChatG
 Usa la [calculadora de agentes de programación](/es/agents) para comparar Pro, Max y la API según cómo usas Claude Code, o la [calculadora de suscripción vs API](/es/plans) para el uso en chat.
 
 *Los precios y los límites cambian. Revisa [claude.com/pricing](https://claude.com/pricing) antes de cambiar de plan.*
+
+## Fuentes
+
+- [Planes y precios de Claude (Anthropic)](https://claude.com/pricing)
+- [Usar Claude Code con tu plan Pro o Max (Centro de ayuda de Claude)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Uso adicional en los planes de pago de Claude (Centro de ayuda de Claude)](https://support.claude.com/en/articles/12429409-extra-usage-for-max-20x-plans)
+- [Precios de la API de Claude (documentación de Anthropic)](https://platform.claude.com/docs/en/about-claude/pricing)
 <!-- autoimg -->

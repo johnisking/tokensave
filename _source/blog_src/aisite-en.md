@@ -48,7 +48,7 @@ You don't need all of them. Pick one for daily use and keep a second for when th
 
 **DeepL** (deepl.com) produces translations that read more naturally than most, and it can translate whole Word or PDF files while keeping the layout.
 
-A tip if you write prompts in a language other than English: most AI models charge more tokens for the same request in other languages. Korean costs about 1.4× and Japanese about 1.8× the tokens of English. [TokenSave's token counter](/) can translate a prompt to English on your device and add "Reply in [your language]" so the answer still comes back in your language.
+A tip if you write prompts in a language other than English: most AI models charge more tokens for the same request in other languages. Korean costs about 40% more tokens than English and Japanese about 80% more. [TokenSave's token counter](/) can translate a prompt to English on your device and add "Reply in [your language]" so the answer still comes back in your language.
 
 ## Images and design
 
@@ -56,7 +56,7 @@ A tip if you write prompts in a language other than English: most AI models char
 
 **remove.bg** (remove.bg) does one thing: drop in a photo and get the subject cut out in seconds.
 
-If you generate a lot of images, prices per image differ by more than 10× between models. The [AI image cost calculator](/image) compares Nano Banana, GPT Image, FLUX and others side by side.
+If you generate a lot of images, prices per image differ by more than 900% between models. The [AI image cost calculator](/image) compares Nano Banana, GPT Image, FLUX and others side by side.
 
 ## Audio, music and video
 
@@ -96,4 +96,21 @@ Everything runs in your browser, there is no sign-up, and it works in 41 languag
 1. **Start with one chat assistant.** ChatGPT, Claude or Gemini covers most needs.
 2. **Add one tool for your main job.** Perplexity for research, DeepL for translation, Canva for design, CapCut for video.
 3. **Pay only when the free plan blocks you.** Check first whether a subscription or the API is cheaper for your usage.
+
+## Sources
+
+- [OpenAI Help: ChatGPT free tier FAQ](https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq)
+- [Claude plans (including Free)](https://claude.com/pricing)
+- [Gemini Apps Help: Connect Google Workspace](https://support.google.com/gemini/answer/15229592?hl=en)
+- [Perplexity Help: What is Perplexity?](https://www.perplexity.ai/help-center/en/articles/10352155-what-is-perplexity)
+- [Google Help: Learn about Gemini Notebook (formerly NotebookLM)](https://support.google.com/gemininotebook/answer/16164461?hl=en&co=GENIE.Platform%3DDesktop)
+- [DeepL: Document translation](https://www.deepl.com/en/features/document-translation)
+- [Canva: AI image generator](https://www.canva.com/ai-image-generator/)
+- [remove.bg: Remove image background](https://www.remove.bg/uploads)
+- [ElevenLabs pricing (free plan)](https://elevenlabs.io/pricing)
+- [Suno: Turn text into a song](https://suno.com/hub/turn-text-to-song)
+- [CapCut: Auto caption generator](https://www.capcut.com/tools/auto-caption-generator)
+- [Arena (formerly LMArena) FAQ](https://arena.ai/faq)
+- [Hugging Face: Spaces](https://huggingface.co/docs/hub/en/spaces)
+- [Google AI Studio: Using Gemini API keys](https://ai.google.dev/gemini-api/docs/api-key)
 <!-- autoimg -->

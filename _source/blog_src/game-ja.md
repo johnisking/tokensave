@@ -82,4 +82,16 @@ RPGはキャラクターとアニメーションのフレームが多いため�
 ## プロンプトもそのまま使える
 
 計算機は費用を出すだけではありません。ジャンル・規模・エンジン・プラットフォームを選ぶと、**開発開始プロンプト、画像プロンプト、音楽・効果音プロンプト、トレーラーの絵コンテ**を作ってくれます。コピーしてClaude CodeやMidjourneyに貼り付ければ、すぐに始められます。ジャンルは33種類、エンジンはUnity、Godot、Unreal、GameMakerなど21種類から選べます。
+
+実際の作り方の手順は[AIでスマホゲームを作る方法](/ja/blog/ai-game-tsukurikata)にまとめています。
+
+## 出典
+
+- [Claude 料金プラン（Pro・Max）](https://claude.com/pricing)
+- [Midjourney プラン比較](https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans)
+- [Suno 料金](https://suno.com/pricing)
+- [ElevenLabs 料金](https://elevenlabs.io/pricing)
+- [Play Console ヘルプ：Play Console を使ってみる（登録料 US$25）](https://support.google.com/googleplay/android-developer/answer/6112435)
+- [Apple Developer Program（年間メンバーシップ）](https://developer.apple.com/programs/)
+- [Steamworks：Steam Direct 手数料](https://partner.steamgames.com/doc/gettingstarted/appfee)
 <!-- autoimg -->

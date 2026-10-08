@@ -1,5 +1,5 @@
-<p><img fetchpriority="high" width="1200" height="630" alt="فارسی در GPT حدود 1.24 برابر انگلیسی توکن مصرف می‌کند" src="/token-farsi-gpt-fa.jpg" /></p>
-<p>یک پرامپت پشتیبانی مشتری را به ۳۴ زبان ترجمه کردیم و توکن‌ها را با o200k_base، توکنایزر فعلی OpenAI (‏GPT-4o و بعد از آن) شمردیم. انگلیسی 34 توکن لازم دارد و فارسی <strong>42 توکن، یعنی 1.24× انگلیسی</strong>؛ رتبه 6 از 41 (۱ = ارزان‌ترین).</p>
+<p><img fetchpriority="high" width="1200" height="630" alt="فارسی در GPT حدود 24% بیشتر از انگلیسی توکن مصرف می‌کند" src="/token-farsi-gpt-fa.jpg" /></p>
+<p>یک پرامپت پشتیبانی مشتری را به ۴۱ زبان ترجمه کردیم و توکن‌ها را با o200k_base، توکنایزر فعلی OpenAI (‏GPT-4o و بعد از آن) شمردیم. انگلیسی 34 توکن لازم دارد و فارسی <strong>42 توکن، یعنی 24% بیشتر از انگلیسی</strong>؛ رتبه 6 از 41 (۱ = ارزان‌ترین).</p>
 <p>نسخه فارسی:</p>
 <blockquote>
 <p>ایمیل مشتری زیر را در سه نکته خلاصه کنید و یک پاسخ مودبانه پیشنهاد دهید. مشتری می‌گوید سفارش دو روز دیر رسید و یکی از اقلام در جعبه نبود.</p>
@@ -18,72 +18,72 @@
 <tr>
 <td>English</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">1.00×</td>
+<td style="text-align: right;">±0%</td>
 <td style="text-align: right;">–</td>
 </tr>
 <tr>
 <td>简体中文</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">1.03×</td>
+<td style="text-align: right;">+3%</td>
 <td style="text-align: right;">3%</td>
 </tr>
 <tr>
 <td>Español</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;">1.18×</td>
+<td style="text-align: right;">+18%</td>
 <td style="text-align: right;">15%</td>
 </tr>
 <tr>
 <td><strong>فارسی</strong></td>
 <td style="text-align: right;"><strong>42</strong></td>
-<td style="text-align: right;"><strong>1.24×</strong></td>
+<td style="text-align: right;"><strong>+24%</strong></td>
 <td style="text-align: right;"><strong>19%</strong></td>
 </tr>
 <tr>
 <td>Deutsch</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">1.26×</td>
+<td style="text-align: right;">+26%</td>
 <td style="text-align: right;">21%</td>
 </tr>
 <tr>
 <td>한국어</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">1.44×</td>
+<td style="text-align: right;">+44%</td>
 <td style="text-align: right;">31%</td>
 </tr>
 <tr>
 <td>हिन्दी</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;">1.50×</td>
+<td style="text-align: right;">+50%</td>
 <td style="text-align: right;">33%</td>
 </tr>
 <tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">1.79×</td>
+<td style="text-align: right;">+79%</td>
 <td style="text-align: right;">44%</td>
 </tr>
 <tr>
 <td>Čeština</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">2.00×</td>
+<td style="text-align: right;">+100%</td>
 <td style="text-align: right;">50%</td>
 </tr>
 <tr>
 <td>Ελληνικά</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">2.06×</td>
+<td style="text-align: right;">+106%</td>
 <td style="text-align: right;">51%</td>
 </tr>
 <tr>
 <td>ਪੰਜਾਬੀ</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">2.44×</td>
+<td style="text-align: right;">+144%</td>
 <td style="text-align: right;">59%</td>
 </tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1430" alt="نتایج" src="/blog-language-tax-chart-v4.png" /></p>
+<p><img loading="lazy" width="960" height="1441" alt="نمودار: توکن‌های اضافی هر زبان در مقایسه با انگلیسی در GPT" src="/blog-language-tax-chart-v5.png" /></p>
 <h2>چرا</h2>
 <p><img loading="lazy" width="1200" height="593" alt="چرا: مودبانه → مود | ب | انه · 3; جعبه → ج | عب | ه · 3; ایمیل → ایم | یل · 2" src="/token-farsi-gpt-fa-2.jpg" /></p>
 <p>توکنایزر بیشتر با متن انگلیسی آموزش دیده است؛ واژه‌هایی مثل " polite" و " customer" یک توکن‌اند، اما بسیاری از واژه‌های فارسی تکه‌تکه می‌شوند:</p>
@@ -95,7 +95,7 @@
 <h2>با یک دکمه به انگلیسی بروید</h2>
 <p>بیشترین صرفه‌جویی، ارسال پرامپت به انگلیسی است: حدود 19% توکن کمتر نسبت به فارسی. مدل‌های امروزی دستورالعمل انگلیسی را خوب می‌فهمند و اگر بخواهید به فارسی پاسخ می‌دهند. مترجم داخلی مرورگر هنوز از فارسی پشتیبانی نمی‌کند، پس دستورالعمل‌های ثابت خود را یک بار به انگلیسی ترجمه کنید و دوباره از آن‌ها استفاده کنید؛ شمارندهٔ توکن TokenSave دقیقاً نشان می‌دهد چند توکن صرفه‌جویی می‌کنید.</p>
 <h2>به پول</h2>
-<p>با مدلی که برای هر یک میلیون توکن ورودی ۲ دلار می‌گیرد، یک میلیون بار ارسال این پرامپت به انگلیسی 68 دلار و به فارسی 84 دلار هزینه دارد. اگر پاسخ هم فارسی باشد، همین ضریب روی توکن‌های خروجی هم اعمال می‌شود که معمولاً ۴ تا ۵ برابر گران‌ترند.</p>
+<p>با مدلی که برای هر یک میلیون توکن ورودی ۲ دلار می‌گیرد، یک میلیون بار ارسال این پرامپت به انگلیسی 68 دلار و به فارسی 84 دلار هزینه دارد. اگر پاسخ هم فارسی باشد، همین ضریب روی توکن‌های خروجی هم اعمال می‌شود که معمولاً ۳۰۰ تا ۴۰۰ درصد گران‌ترند.</p>
 <h2>راه‌های صرفه‌جویی</h2>
 <p><img loading="lazy" width="1200" height="658" alt="راه‌های صرفه‌جویی: پرامپت سیستم و دستورهای ثابت را انگلیسی بنویسید و فقط ورودی کاربر را فارسی نگه دارید.; مراحل میانی (دسته‌بندی،" src="/token-farsi-gpt-fa-3.jpg" /></p>
 <ul>
@@ -109,5 +109,11 @@
 <li>Claude و Gemini توکنایزر دیگری دارند؛ این اعداد فقط برای مدل‌های OpenAI است.</li>
 <li>ترجمه بر پایه ترجمه ماشینی بازبینی‌شده است.</li>
 </ul>
-<p>نتایج کامل ۳۴ زبان (به انگلیسی): <a href="/blog/token-cost-by-language">مقایسه ۳۴ زبان</a></p>
+<p>متن خودتان را در <a href="/fa/">شمارنده توکن</a> امتحان کنید؛ مقایسه همه زبان‌ها در <a href="/languages">جدول زبان‌ها</a> است.</p>
+<p>نتایج کامل ۴۱ زبان (به انگلیسی): <a href="/blog/token-cost-by-language">مقایسه ۴۱ زبان</a></p>
+<h2>منابع</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: توکنایزر OpenAI ‏(o200k_base) در GitHub</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">قیمت‌های API در OpenAI</a></li>
+</ul>
 <!-- autoimg -->

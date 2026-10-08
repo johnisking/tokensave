@@ -20,7 +20,7 @@ P = dict(
     cheaperApi="API:et är {d} billigare i månaden",
     cheaperPlan="{plan} är {d} billigare i månaden",
     breakEven="API:et kostar mer än {plan} över ungefär {n} meddelanden per dag.",
-    langNote="{lang} kräver ungefär {x}× så många tokens som engelska, så varje API-pris här är {x}× högre.",
+    langNote="{lang} kräver ungefär {p} % fler tokens än engelska, så varje API-pris här är {p} % högre.",
     note="API-kostnaden räknar hela konversationen: varje nytt meddelande skickar om de tidigare, så långa chattar kostar mer. Prompt caching kan sänka kostnaden. Abonnemang ger appar, bildverktyg och minne, men har användningsgränser.",
     f1="Planpriserna är officiella månadspriser i US, kontrollerade 1 oktober 2026. Skatter och lokala priser varierar.",
     f2="API-priserna kommer från offentliga prislistor och uppdateras dagligen. Kontrollera alltid leverantörens sida innan du bestämmer dig.",
@@ -29,7 +29,7 @@ P = dict(
     q2="Varför kostar långa konversationer mer via API:et?",
     a2="Chattmodeller minns ingenting mellan anrop. Varje nytt meddelande skickar hela konversationen igen som input, så det 10:e meddelandet i en chatt kostar mycket mer än det första. Abonnemang döljer den kostnaden bakom användningsgränser.",
     q3="Påverkar mitt språk kostnaden?",
-    a3="Ja. Samma text på koreanska, hindi eller grekiska kräver fler tokens än på engelska, så API-kostnaden ökar med samma faktor. Abonnemang kostar lika mycket, men du når deras användningsgränser snabbare.",
+    a3="Ja. Samma text på koreanska, hindi eller grekiska kräver fler tokens än på engelska, så API-kostnaden ökar med samma procentsats. Abonnemang kostar lika mycket, men du når deras användningsgränser snabbare.",
     more="Så mätte vi",
 )
 NAV = "Plan eller API"

@@ -1,8 +1,10 @@
-<p>Přeložil jsem jeden běžný prompt do 41 jazyků a spočítal tokeny tokenizérem, který používají současné modely OpenAI (o200k_base, GPT-4o a novější). Čekal jsem, že nejhůř dopadne japonština nebo thajština. Obě ale vyšly levněji než <strong>čeština</strong> (2,00×): z Evropy je dražší jen řečtina (2,06×), stejně jako čeština vychází slovenština, a z celého srovnání už jen indická telugština (2,03×) a pandžábština (2,44×).</p>
+<p><img fetchpriority="high" width="1200" height="630" alt="Čeština v GPT stojí o 100 % víc tokenů než angličtina" src="/cestina-tokeny-gpt-cs.jpg" /></p>
+<p>Přeložil jsem jeden běžný prompt do 41 jazyků a spočítal tokeny tokenizérem, který používají současné modely OpenAI (o200k_base, GPT-4o a novější). Čekal jsem, že nejhůř dopadne japonština nebo thajština. Obě ale vyšly levněji než <strong>čeština</strong> (+100%): z Evropy je dražší jen řečtina (+106%), stejně jako čeština vychází slovenština, a z celého srovnání už jen indická telugština (+103%) a pandžábština (+144%).</p>
 <p>Prompt (anglicky 34 tokenů):</p>
 <blockquote>
 <p>Shrňte níže uvedený e-mail zákazníka do tří bodů a navrhněte zdvořilou odpověď. Zákazník píše, že objednávka dorazila se dvoudenním zpožděním a v krabici chyběla jedna položka.</p>
 </blockquote>
+<h2>Výsledky: tokeny podle jazyka</h2>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -16,98 +18,110 @@
 <tr>
 <td>Angličtina</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">1,00×</td>
+<td style="text-align: right;">±0%</td>
 <td style="text-align: right;">–</td>
 </tr>
 <tr>
 <td>Čínština (zjednodušená)</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">1,03×</td>
+<td style="text-align: right;">+3%</td>
 <td style="text-align: right;">3%</td>
 </tr>
 <tr>
 <td>Němčina</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">1,26×</td>
+<td style="text-align: right;">+26%</td>
 <td style="text-align: right;">21%</td>
 </tr>
 <tr>
 <td>Ruština</td>
 <td style="text-align: right;">45</td>
-<td style="text-align: right;">1,32×</td>
+<td style="text-align: right;">+32%</td>
 <td style="text-align: right;">24%</td>
 </tr>
 <tr>
 <td>Korejština</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">+44%</td>
 <td style="text-align: right;">31%</td>
 </tr>
 <tr>
 <td>Japonština</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">1,79×</td>
+<td style="text-align: right;">+79%</td>
 <td style="text-align: right;">44%</td>
 </tr>
 <tr>
 <td>Polština</td>
 <td style="text-align: right;">64</td>
-<td style="text-align: right;">1,88×</td>
+<td style="text-align: right;">+88%</td>
 <td style="text-align: right;">47%</td>
 </tr>
 <tr>
 <td>Ukrajinština</td>
 <td style="text-align: right;">64</td>
-<td style="text-align: right;">1,88×</td>
+<td style="text-align: right;">+88%</td>
 <td style="text-align: right;">47%</td>
 </tr>
 <tr>
 <td><strong>Čeština</strong></td>
 <td style="text-align: right;"><strong>68</strong></td>
-<td style="text-align: right;"><strong>2,00×</strong></td>
+<td style="text-align: right;"><strong>+100%</strong></td>
 <td style="text-align: right;"><strong>50%</strong></td>
 </tr>
 <tr>
 <td>Slovenština</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">2,00×</td>
+<td style="text-align: right;">+100%</td>
 <td style="text-align: right;">50%</td>
 </tr>
 <tr>
 <td>Telugština</td>
 <td style="text-align: right;">69</td>
-<td style="text-align: right;">2,03×</td>
+<td style="text-align: right;">+103%</td>
 <td style="text-align: right;">51%</td>
 </tr>
 <tr>
 <td>Řečtina</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">+106%</td>
 <td style="text-align: right;">51%</td>
 </tr>
 <tr>
 <td>Pandžábština</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">+144%</td>
 <td style="text-align: right;">59%</td>
 </tr>
 </tbody>
 </table></div>
-<p><img fetchpriority="high" width="960" height="1430" alt="Graf: kolik tokenů navíc potřebují jednotlivé jazyky oproti angličtině v GPT" src="/blog-language-tax-chart-v4.png" /></p>
-<p><strong>Proč?</strong> Tokenizér zná celá anglická slova (" polite", " customer" = 1 token), ale česká slova skládá z kousků. Háčky a čárky často tvoří samostatný token:</p>
+<p><img loading="lazy" width="960" height="1441" alt="Graf: kolik tokenů navíc potřebují jednotlivé jazyky oproti angličtině v GPT" src="/blog-language-tax-chart-v5.png" /></p>
+<h2>Proč?</h2>
+<p><img loading="lazy" width="1200" height="589" alt="Proč?: &quot; zdvořilou&quot; →  zd | vo | ř | il | ou (5 tokenů); &quot; zpožděním&quot; →  z | po | žd | ě | ním (5 tokenů); &quot; navrhnět" src="/cestina-tokeny-gpt-cs-2.jpg" /></p>
+<p>Tokenizér zná celá anglická slova (" polite", " customer" = 1 token), ale česká slova skládá z kousků. Háčky a čárky často tvoří samostatný token:</p>
 <ul>
 <li>" zdvořilou" → <code>zd | vo | ř | il | ou</code> (5 tokenů)</li>
 <li>" zpožděním" → <code>z | po | žd | ě | ním</code> (5 tokenů)</li>
 <li>" navrhněte" → <code>nav | r | hn | ě | te</code> (5 tokenů)</li>
 </ul>
 <p>Zajímavost: stejný text <strong>bez diakritiky</strong> má 60 tokenů místo 68 (o 12 % méně). Nedoporučuju to jako trik, kvalita odpovědí může utrpět, ale ukazuje to, kolik stojí háčky a čárky.</p>
-<p><strong>Přepněte do angličtiny jedním tlačítkem:</strong> Největší úspora je poslat prompt v angličtině: pro češtinu asi o 50% méně tokenů. Současné modely anglickým instrukcím perfektně rozumí a odpoví česky, když je o to požádáte. V počítadle tokenů TokenSave vložte prompt a stiskněte <strong>💸 Ušetřit tokeny</strong>: odstraní nadbytečné mezery, přeloží text do angličtiny, vypustí výplňová slova a přidá „Reply in Czech.“, aby odpověď zůstala ve vašem jazyce. Využívá překladač vestavěný v Chrome 138+ / Edge 148+ na počítači; překlad probíhá ve vašem zařízení a text se nikam neodesílá. Stiskem <strong>↩ Originál</strong> vrátíte původní text.</p>
-<p><strong>V penězích:</strong> model za 2 $ / 1M vstupních tokenů, prompt poslaný milionkrát: angličtina 68 $, čeština 136 $. A to jen vstup. Pokud model odpovídá česky, stejný násobek platí i pro výstupní tokeny, které bývají 4–5× dražší.</p>
-<p><strong>Co s tím:</strong></p>
+<h2>Přepněte do angličtiny jedním tlačítkem</h2>
+<p>Největší úspora je poslat prompt v angličtině: pro češtinu asi o 50% méně tokenů. Současné modely anglickým instrukcím perfektně rozumí a odpoví česky, když je o to požádáte. V počítadle tokenů TokenSave vložte prompt a stiskněte <strong>💸 Ušetřit tokeny</strong>: odstraní nadbytečné mezery, přeloží text do angličtiny, vypustí výplňová slova a přidá „Reply in Czech.“, aby odpověď zůstala ve vašem jazyce. Využívá překladač vestavěný v Chrome 138+ / Edge 148+ na počítači; překlad probíhá ve vašem zařízení a text se nikam neodesílá. Stiskem <strong>↩ Originál</strong> vrátíte původní text.</p>
+<h2>V penězích</h2>
+<p>model za 2 $ / 1M vstupních tokenů, prompt poslaný milionkrát: angličtina 68 $, čeština 136 $. A to jen vstup. Pokud model odpovídá česky, stejný rozdíl platí i pro výstupní tokeny, které bývají o 300–400% dražší.</p>
+<h2>Co s tím</h2>
+<p><img loading="lazy" width="1200" height="654" alt="Co s tím: Systémový prompt a pevné instrukce psát anglicky, česky jen vstup od uživatele.; Mezikroky (klasifikace, extra" src="/cestina-tokeny-gpt-co-s-tim-cs.jpg" /></p>
 <ul>
 <li>Systémový prompt a pevné instrukce psát anglicky, česky jen vstup od uživatele.</li>
 <li>Mezikroky (klasifikace, extrakce, tool calls) nechat vracet anglicky nebo v JSON, česky jen finální odpověď.</li>
 <li>Využít prompt caching pro pevnou část promptu.</li>
 </ul>
 <p>Omezení: je to jeden prompt, u jiných textů se poměr může lišit o ±0,1–0,2. Claude a Gemini mají jiné tokenizéry, čísla platí jen pro modely OpenAI. Překlad je strojový, pokud v něm najdete chybu, přeměřím to.</p>
+<p>Vyzkoušejte vlastní text v <a href="/cs/">počítadle tokenů</a>; všechny jazyky vedle sebe najdete v <a href="/languages">tabulce jazyků</a>.</p>
 <p>Celé výsledky všech 41 jazyků (anglicky): <a href="/blog/token-cost-by-language">srovnání 41 jazyků</a></p>
+<h2>Zdroje</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: tokenizér OpenAI (o200k_base) na GitHubu</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">Ceník OpenAI API</a></li>
+</ul>
+<!-- autoimg -->

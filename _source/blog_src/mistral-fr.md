@@ -27,7 +27,7 @@ Deux enseignements :
 1. **Le français coûte entre 12 % et 30 % de tokens en plus** que l'anglais. Plus le texte est court et « technique », plus l'écart est grand.
 2. **Mistral n'est pas plus économe en français que ChatGPT.** Sur ces deux textes, Tekken produit même un peu plus de tokens que o200k. Être une entreprise française ne change rien à la façon dont le tokeniseur découpe la langue.
 
-Pour comparer : sur le même prompt court, l'allemand coûte 1,26× l'anglais chez OpenAI, l'italien 1,38×, le polonais 1,88×. Le français fait partie des langues les moins pénalisées, mais il reste pénalisé.
+Pour comparer : sur le même prompt court, l'allemand coûte 26 % de plus que l'anglais chez OpenAI, l'italien 38 %, le polonais 88 %. Le français fait partie des langues les moins pénalisées, mais il reste pénalisé.
 
 ## Pourquoi le français coûte plus
 
@@ -48,7 +48,7 @@ En face, « invoice », « billing » ou « polite » font un seul token. Les é
 
 - **À l'API**, vous payez à peu près 12 à 30 % de plus pour le même contenu.
 - **Dans un abonnement** (ChatGPT Plus, Claude Pro, Mistral Vibe Pro), les limites d'utilisation sont calculées en tokens : elles s'épuisent plus vite quand on écrit en français.
-- **Si la réponse est aussi en français**, le même surcoût s'applique aux tokens de sortie, qui coûtent en général 4 à 5 fois plus cher que ceux d'entrée.
+- **Si la réponse est aussi en français**, le même surcoût s'applique aux tokens de sortie, qui coûtent en général 300 à 400 % plus cher que ceux d'entrée.
 
 ## L'astuce : écrire en anglais, recevoir en français
 
@@ -75,4 +75,12 @@ Chaque texte est différent. [TokenSave](/fr/) compte les tokens et le coût de 
 Le classement complet des 41 langues est ici : [Combien de tokens coûte le français ?](/fr/blog/tokens-francais-gpt)
 
 *Mesures effectuées en octobre 2026 avec o200k_base (OpenAI) et Tekken 2024-09 (Mistral). Les modèles Mistral les plus récents peuvent utiliser une version mise à jour de Tekken.*
+
+## Sources
+
+- [tiktoken (OpenAI) : le tokeniseur o200k_base](https://github.com/openai/tiktoken)
+- [Mistral NeMo et le tokeniseur Tekken (Mistral AI)](https://mistral.ai/news/mistral-nemo/)
+- [Tarifs Mistral Vibe et API](https://mistral.ai/en/pricing)
+- [Le Chat devient Vibe, 28 mai 2026 (Mistral AI)](https://mistral.ai/news/vibe-agent/)
+- [Tarifs de l'API OpenAI](https://developers.openai.com/api/docs/pricing)
 <!-- autoimg -->

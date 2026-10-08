@@ -1,5 +1,5 @@
-<p><img fetchpriority="high" width="1200" height="630" alt="GPT-তে বাংলায় ইংরেজির চেয়ে 1.68× টোকেন লাগে" src="/token-bangla-gpt-bn.jpg" /></p>
-<p>একই কাস্টমার-সাপোর্ট প্রম্পট ৩৪টি ভাষায় অনুবাদ করে OpenAI-এর বর্তমান o200k_base টোকেনাইজার (GPT-4o ও পরের মডেল) দিয়ে টোকেন গোনা হয়েছে। ইংরেজিতে লাগে 34 টোকেন, বাংলায় <strong>57 টোকেন — ইংরেজির 1.68×</strong>; 41টি ভাষার মধ্যে সবচেয়ে সস্তা থেকে গুনলে 28 নম্বরে।</p>
+<p><img fetchpriority="high" width="1200" height="630" alt="GPT-তে বাংলায় ইংরেজির চেয়ে 68% বেশি টোকেন লাগে" src="/token-bangla-gpt-bn.jpg" /></p>
+<p>একই কাস্টমার-সাপোর্ট প্রম্পট ৪১টি ভাষায় অনুবাদ করে OpenAI-এর বর্তমান o200k_base টোকেনাইজার (GPT-4o ও পরের মডেল) দিয়ে টোকেন গোনা হয়েছে। ইংরেজিতে লাগে 34 টোকেন, বাংলায় <strong>57 টোকেন — ইংরেজির চেয়ে 68% বেশি</strong>; 41টি ভাষার মধ্যে সবচেয়ে সস্তা থেকে গুনলে 28 নম্বরে।</p>
 <p>বাংলা সংস্করণ:</p>
 <blockquote>
 <p>নিচের গ্রাহকের ইমেলটি তিনটি পয়েন্টে সংক্ষেপ করুন এবং একটি বিনীত উত্তর প্রস্তাব করুন। গ্রাহক বলছেন অর্ডারটি দুই দিন দেরিতে এসেছে এবং বাক্স থেকে একটি জিনিস অনুপস্থিত ছিল।</p>
@@ -18,72 +18,72 @@
 <tr>
 <td>English</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">1.00×</td>
+<td style="text-align: right;">±0%</td>
 <td style="text-align: right;">–</td>
 </tr>
 <tr>
 <td>简体中文</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">1.03×</td>
+<td style="text-align: right;">+3%</td>
 <td style="text-align: right;">3%</td>
 </tr>
 <tr>
 <td>Español</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;">1.18×</td>
+<td style="text-align: right;">+18%</td>
 <td style="text-align: right;">15%</td>
 </tr>
 <tr>
 <td>Deutsch</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">1.26×</td>
+<td style="text-align: right;">+26%</td>
 <td style="text-align: right;">21%</td>
 </tr>
 <tr>
 <td>한국어</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">1.44×</td>
+<td style="text-align: right;">+44%</td>
 <td style="text-align: right;">31%</td>
 </tr>
 <tr>
 <td>हिन्दी</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;">1.50×</td>
+<td style="text-align: right;">+50%</td>
 <td style="text-align: right;">33%</td>
 </tr>
 <tr>
 <td><strong>বাংলা</strong></td>
 <td style="text-align: right;"><strong>57</strong></td>
-<td style="text-align: right;"><strong>1.68×</strong></td>
+<td style="text-align: right;"><strong>+68%</strong></td>
 <td style="text-align: right;"><strong>40%</strong></td>
 </tr>
 <tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">1.79×</td>
+<td style="text-align: right;">+79%</td>
 <td style="text-align: right;">44%</td>
 </tr>
 <tr>
 <td>Čeština</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">2.00×</td>
+<td style="text-align: right;">+100%</td>
 <td style="text-align: right;">50%</td>
 </tr>
 <tr>
 <td>Ελληνικά</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">2.06×</td>
+<td style="text-align: right;">+106%</td>
 <td style="text-align: right;">51%</td>
 </tr>
 <tr>
 <td>ਪੰਜਾਬੀ</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">2.44×</td>
+<td style="text-align: right;">+144%</td>
 <td style="text-align: right;">59%</td>
 </tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1430" alt="ফলাফল" src="/blog-language-tax-chart-v4.png" /></p>
+<p><img loading="lazy" width="960" height="1441" alt="চার্ট: GPT-তে ইংরেজির তুলনায় প্রতিটি ভাষায় অতিরিক্ত টোকেন" src="/blog-language-tax-chart-v5.png" /></p>
 <h2>কেন</h2>
 <p><img loading="lazy" width="1200" height="593" alt="কেন: পয়েন্টে → প | য় | েন্ট | ে · 4; অর্ডারটি → অ | র্ড | ার | টি · 4; ইমেলটি → ই | ম | েল | টি · 4" src="/token-bangla-gpt-bn-2.jpg" /></p>
 <p>টোকেনাইজার মূলত ইংরেজি লেখা থেকে শেখে: " polite" বা " customer"-এর মতো শব্দ একটিই টোকেন, কিন্তু অনেক বাংলা শব্দ কার-চিহ্নসহ টুকরো হয়ে যায়:</p>
@@ -109,5 +109,11 @@
 <li>Claude ও Gemini-এর টোকেনাইজার আলাদা; এই সংখ্যাগুলো শুধু OpenAI মডেলের জন্য।</li>
 <li>অনুবাদ যাচাই করা মেশিন অনুবাদের ওপর ভিত্তি করে।</li>
 </ul>
-<p>৩৪টি ভাষার পূর্ণ ফলাফল (ইংরেজিতে): <a href="/blog/token-cost-by-language">৩৪ ভাষার তুলনা</a></p>
+<p>নিজের লেখা দিয়ে <a href="/bn/">টোকেন কাউন্টারে</a> পরীক্ষা করুন; সব ভাষার তুলনা দেখুন <a href="/languages">ভাষার টেবিলে</a>।</p>
+<p>৪১টি ভাষার পূর্ণ ফলাফল (ইংরেজিতে): <a href="/blog/token-cost-by-language">৪১ ভাষার তুলনা</a></p>
+<h2>উৎস</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: OpenAI-এর টোকেনাইজার (o200k_base), GitHub</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API-এর মূল্য</a></li>
+</ul>
 <!-- autoimg -->

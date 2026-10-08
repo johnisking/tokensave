@@ -15,7 +15,7 @@ Per million tokens:
 | GPT-6 Astra | $10.00 | $1.00 | $50.00 |
 | GPT-6 Luna | $0.10 | $0.01 | $0.50 |
 
-Prompts with more than 272,000 input tokens are billed at twice the input and cached rates and 1.5 times the output rate. The context window is about 1 million tokens, with up to 128,000 tokens of output. The API model name is `gpt-6.1-sol`.
+Prompts with more than 272,000 input tokens are billed 100% more for input and cached input and 50% more for output. The context window is about 1 million tokens, with up to 128,000 tokens of output. The API model name is `gpt-6.1-sol`.
 
 ## What the cheaper cache means in practice
 
@@ -41,7 +41,7 @@ A typical request of 2,000 input and 500 output tokens of English, at list price
 | Claude Opus 5.5 | $4 / $20 | $0.0234 | $234 |
 | GPT-6 Astra | $10 / $50 | $0.0450 | $450 |
 
-Claude Sonnet 5.5 has the same price per token as GPT-6.1 Sol but costs about 30% more per request, because Claude's tokenizer turns the same English text into about 30% more tokens. **Claude Opus 5.5 costs about 2.6 times as much as GPT-6.1 Sol per request.**
+Claude Sonnet 5.5 has the same price per token as GPT-6.1 Sol but costs about 30% more per request, because Claude's tokenizer turns the same English text into about 30% more tokens. **Claude Opus 5.5 costs about 160% more than GPT-6.1 Sol per request.**
 
 On quality, OpenAI reports GPT-6.1 Sol 2.2 points above Opus 5.5 on AutomationBench (multi-step workflows) at medium effort, and on its Terminal-Bench Science test it spent about $5.47 per task against $23.21 for Opus 5.5. These are OpenAI's own benchmarks; test on your own tasks before you switch a production workload. For an independent view of capability against price, see [AI model capability vs price](/compare/performance).
 
@@ -62,11 +62,20 @@ In ChatGPT it is available in ChatGPT Work and Codex for Plus, Pro, Business, En
 - **On GPT-6 Sol: yes.** Same list price, half the cache price, better scores. Change the model name to `gpt-6.1-sol` and run your tests.
 - **On Claude Sonnet 5.5 for cost reasons:** GPT-6.1 Sol is about 23% cheaper per request for the same English text. Whether it is as good for your work is the real question; compare on a sample first.
 - **On Claude Opus 5.5 or GPT-6 Astra:** GPT-6.1 Sol is worth testing as a cheaper default, keeping the bigger model for the hardest requests.
-- **On GPT-6 Luna:** stay unless Luna's answers are not good enough. GPT-6.1 Sol costs 20 times as much per token.
+- **On GPT-6 Luna:** stay unless Luna's answers are not good enough. GPT-6.1 Sol costs $2 / $10 per million tokens against Luna's $0.10 / $0.50.
 
 ## Check your own prompt
 
-Paste a real prompt into the [OpenAI token counter](/openai-token-counter) to see its cost on GPT-6.1 Sol and every other GPT model, or compare head to head: [GPT-6.1 Sol vs Claude Sonnet 5.5](/compare/gpt-6-1-sol-vs-claude-sonnet-5-5) · [GPT-6.1 Sol vs Claude Opus 5.5](/compare/gpt-6-1-sol-vs-claude-opus-5-5). More on the GPT-6 family: [GPT-6 API pricing](/blog/gpt-6-api-pricing).
+Paste a real prompt into the [OpenAI token counter](/openai-token-counter) to see its cost on GPT-6.1 Sol and every other GPT model, or compare head to head: [GPT-6.1 Sol vs Claude Sonnet 5.5](/compare/gpt-6-1-sol-vs-claude-sonnet-5-5) · [GPT-6.1 Sol vs Claude Opus 5.5](/compare/gpt-6-1-sol-vs-claude-opus-5-5). More on the GPT-6 family: [GPT-6 API pricing](/blog/gpt-6-api-pricing). To compare the same prompt across models from every provider, use the [token counter](/).
 
 *Prices checked October 6, 2026. Check OpenAI's pricing page before you commit.*
+
+## Sources
+
+- [OpenAI: Introducing GPT-6.1 Sol](https://openai.com/index/introducing-gpt-6-1-sol/)
+- [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)
+- [OpenAI: GPT-6 Sol model and pricing](https://developers.openai.com/api/docs/models/gpt-6-sol)
+- [Claude API pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing)
+- [Google: Gemini 4 Argon announcement](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)
 <!-- autoimg -->

@@ -48,7 +48,7 @@ No necesitas todos. Elige uno para el día a día y guarda un segundo para cuand
 
 **DeepL** (deepl.com) ofrece traducciones que suenan más naturales que la mayoría, y puede traducir archivos completos de Word o PDF sin romper el diseño.
 
-Un consejo si escribes tus prompts en español: la mayoría de los modelos de IA cobran más tokens por la misma petición en otros idiomas que en inglés. El español usa alrededor de 1,18× los tokens del inglés, así que enviar el prompt en inglés ahorra cerca de un 15 %. El botón "💸 Ahorrar tokens" del [contador de tokens de TokenSave](/es/) traduce el prompt al inglés en tu dispositivo y añade "Reply in Spanish." para que la respuesta te llegue en español. Más detalles en [por qué el español gasta más tokens en GPT](/es/blog/tokens-espanol-gpt).
+Un consejo si escribes tus prompts en español: la mayoría de los modelos de IA cobran más tokens por la misma petición en otros idiomas que en inglés. El español usa alrededor de un 18 % más de tokens que el inglés, así que enviar el prompt en inglés ahorra cerca de un 15 %. El botón "💸 Ahorrar tokens" del [contador de tokens de TokenSave](/es/) traduce el prompt al inglés en tu dispositivo y añade "Reply in Spanish." para que la respuesta te llegue en español. Más detalles en [por qué el español gasta más tokens en GPT](/es/blog/tokens-espanol-gpt).
 
 ## Imágenes y diseño
 
@@ -56,7 +56,7 @@ Un consejo si escribes tus prompts en español: la mayoría de los modelos de IA
 
 **remove.bg** (remove.bg) hace una sola cosa: subes una foto y en segundos tienes el sujeto recortado.
 
-Si generas muchas imágenes, el precio por imagen puede variar más de 10× entre modelos. La [calculadora de costos de imágenes con IA](/es/image) compara Nano Banana, GPT Image, FLUX y otros lado a lado.
+Si generas muchas imágenes, el precio por imagen puede variar más de un 900 % entre modelos. La [calculadora de costos de imágenes con IA](/es/image) compara Nano Banana, GPT Image, FLUX y otros lado a lado.
 
 ## Audio, música y video
 
@@ -96,4 +96,21 @@ Todo funciona en tu navegador, no hace falta registrarse y está disponible en 4
 1. **Empieza con un asistente de chat.** ChatGPT, Claude o Gemini cubren casi todo.
 2. **Añade una herramienta para tu tarea principal.** Perplexity para investigar, DeepL para traducir, Canva para diseñar, CapCut para video.
 3. **Paga solo cuando el plan gratuito te limite.** Antes, revisa si te sale más barata una suscripción o la API según tu uso.
+
+## Fuentes
+
+- [Ayuda de OpenAI: plan gratuito de ChatGPT](https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq)
+- [Planes de Claude (incluido el gratuito)](https://claude.com/pricing)
+- [Ayuda de Gemini: conectar Google Workspace](https://support.google.com/gemini/answer/15229592?hl=en)
+- [Ayuda de Perplexity: qué es Perplexity](https://www.perplexity.ai/help-center/en/articles/10352155-what-is-perplexity)
+- [Ayuda de Google: Gemini Notebook (antes NotebookLM)](https://support.google.com/gemininotebook/answer/16164461?hl=en&co=GENIE.Platform%3DDesktop)
+- [DeepL: traducción de documentos](https://www.deepl.com/en/features/document-translation)
+- [Canva: generador de imágenes con IA](https://www.canva.com/ai-image-generator/)
+- [remove.bg: quitar el fondo de una imagen](https://www.remove.bg/uploads)
+- [Precios de ElevenLabs (plan gratuito)](https://elevenlabs.io/pricing)
+- [Suno: convertir texto en canción](https://suno.com/hub/turn-text-to-song)
+- [CapCut: generador automático de subtítulos](https://www.capcut.com/tools/auto-caption-generator)
+- [Preguntas frecuentes de Arena (antes LMArena)](https://arena.ai/faq)
+- [Hugging Face: Spaces](https://huggingface.co/docs/hub/en/spaces)
+- [Google AI Studio: claves de la API de Gemini](https://ai.google.dev/gemini-api/docs/api-key)
 <!-- autoimg -->

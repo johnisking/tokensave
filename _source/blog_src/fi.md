@@ -1,6 +1,6 @@
-![Suomi vie GPT:ssä 1,44× englannin tokenmäärän](/tokenit-suomi-gpt-fi.jpg)
+![Suomi vie GPT:ssä 44 % enemmän tokeneita kuin englanti](/tokenit-suomi-gpt-fi.jpg)
 
-Käänsin saman asiakaspalvelupromptin 41 kielelle ja laskin tokenit o200k_basella, OpenAI:n nykyisellä tokenisoijalla (GPT-4o ja uudemmat). Englanniksi tarvitaan 34 tokenia, suomeksi **49 eli 1,44×**, sija 19/41 (1 = halvin).
+Käänsin saman asiakaspalvelupromptin 41 kielelle ja laskin tokenit o200k_basella, OpenAI:n nykyisellä tokenisoijalla (GPT-4o ja uudemmat). Englanniksi tarvitaan 34 tokenia, suomeksi **49 eli 44% enemmän**, sija 19/41 (1 = halvin).
 
 Suomenkielinen versio:
 
@@ -10,19 +10,19 @@ Suomenkielinen versio:
 
 | Kieli | Tokenit | Englantiin verrattuna | Säästö englanniksi lähetettynä |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | – |
-| 简体中文 | 35 | 1,03× | 3% |
-| Español | 40 | 1,18× | 15% |
-| Deutsch | 43 | 1,26× | 21% |
-| **Suomi** | **49** | **1,44×** | **31%** |
-| 한국어 | 49 | 1,44× | 31% |
-| हिन्दी | 51 | 1,50× | 33% |
-| 日本語 | 61 | 1,79× | 44% |
-| Čeština | 68 | 2,00× | 50% |
-| Ελληνικά | 70 | 2,06× | 51% |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
+| English | 34 | ±0% | – |
+| 简体中文 | 35 | +3% | 3% |
+| Español | 40 | +18% | 15% |
+| Deutsch | 43 | +26% | 21% |
+| **Suomi** | **49** | **+44%** | **31%** |
+| 한국어 | 49 | +44% | 31% |
+| हिन्दी | 51 | +50% | 33% |
+| 日本語 | 61 | +79% | 44% |
+| Čeština | 68 | +100% | 50% |
+| Ελληνικά | 70 | +106% | 51% |
+| ਪੰਜਾਬੀ | 83 | +144% | 59% |
 
-![Tulokset](/blog-language-tax-chart-v4.png)
+![Kaavio: kunkin kielen lisätokenit englantiin verrattuna GPT:ssä](/blog-language-tax-chart-v5.png)
 
 ## Miksi
 
@@ -40,7 +40,7 @@ Suurin säästö syntyy, kun lähetät kehotteen englanniksi: suomeen verrattuna
 
 ## Rahana
 
-Mallilla, jonka hinta on 2 $ miljoonaa syötetokenia kohden, tämän promptin lähettäminen miljoona kertaa maksaa englanniksi 68 $ ja suomeksi 98 $. Jos vastauskin on suomeksi, sama kerroin koskee tulostetokeneita, jotka ovat yleensä 4–5 kertaa kalliimpia.
+Mallilla, jonka hinta on 2 $ miljoonaa syötetokenia kohden, tämän promptin lähettäminen miljoona kertaa maksaa englanniksi 68 $ ja suomeksi 98 $. Jos vastauskin on suomeksi, sama kerroin koskee tulostetokeneita, jotka ovat yleensä 300–400% kalliimpia.
 
 ## Miten säästää
 
@@ -56,5 +56,13 @@ Mallilla, jonka hinta on 2 $ miljoonaa syötetokenia kohden, tämän promptin l�
 - Claudella ja Geminillä on eri tokenisoijat – luvut pätevät vain OpenAI:n malleihin.
 - Käännös perustuu tarkistettuun konekäännökseen.
 
+Kokeile omalla tekstilläsi [token-laskurissa](/fi/); kaikki kielet rinnakkain löydät [kielitaulukosta](/languages).
+
 Kaikkien 41 kielen tulokset (englanniksi): [41 kielen vertailu](/blog/token-cost-by-language)
+
+## Lähteet
+
+- [tiktoken: OpenAI:n tokenisaattori (o200k_base) GitHubissa](https://github.com/openai/tiktoken)
+- [OpenAI API:n hinnat](https://developers.openai.com/api/docs/pricing)
+
 <!-- autoimg -->

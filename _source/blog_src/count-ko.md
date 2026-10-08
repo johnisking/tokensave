@@ -70,4 +70,11 @@ Gemini API에는 아무것도 생성하지 않고 프롬프트의 토큰 수만 
 - [토큰이란?](/blog/what-is-a-token) (영어)
 - [LLM API 가격 비교](/ko/blog/llm-api-gagyeok-bigyo)
 - [AI API 청구액 예상하는 법](/blog/how-to-estimate-ai-api-cost) (영어)
+
+## 출처
+
+- [tiktoken (OpenAI)](https://github.com/openai/tiktoken)
+- [토큰 세기 (OpenAI API 문서)](https://developers.openai.com/api/docs/guides/token-counting)
+- [토큰 카운팅 (Anthropic 문서)](https://platform.claude.com/docs/en/build-with-claude/token-counting)
+- [토큰 이해하고 세기 (Gemini API 문서)](https://ai.google.dev/gemini-api/docs/generate-content/tokens)
 <!-- autoimg -->

@@ -14,56 +14,56 @@
 <tbody>
 <tr>
 <td>Thai</td>
-<td>1.74×</td>
+<td>+74%</td>
 <td>about 43%</td>
 </tr>
 <tr>
 <td>Japanese</td>
-<td>1.79×</td>
+<td>+79%</td>
 <td>about 44%</td>
 </tr>
 <tr>
 <td>Hindi</td>
-<td>1.50×</td>
+<td>+50%</td>
 <td>about 33%</td>
 </tr>
 <tr>
 <td>Turkish</td>
-<td>1.47×</td>
+<td>+47%</td>
 <td>about 32%</td>
 </tr>
 <tr>
 <td>Korean</td>
-<td>1.44×</td>
+<td>+44%</td>
 <td>about 31%</td>
 </tr>
 <tr>
 <td>Russian</td>
-<td>1.32×</td>
+<td>+32%</td>
 <td>about 24%</td>
 </tr>
 <tr>
 <td>French</td>
-<td>1.29×</td>
+<td>+29%</td>
 <td>about 22%</td>
 </tr>
 <tr>
 <td>German</td>
-<td>1.26×</td>
+<td>+26%</td>
 <td>about 21%</td>
 </tr>
 <tr>
 <td>Spanish</td>
-<td>1.18×</td>
+<td>+18%</td>
 <td>about 15%</td>
 </tr>
 </tbody>
 </table></div>
-<p>The "saving" column is how many fewer tokens the same content needs in English. The <a href="/blog/token-cost-by-language">full 41-language study</a> has every language, including the ones that cost twice as much as English.</p>
+<p>The "saving" column is how many fewer tokens the same content needs in English. The <a href="/blog/token-cost-by-language">full 41-language study</a> has every language, including the ones that cost 100% more than English.</p>
 <h2>Why it matters</h2>
-<p><img loading="lazy" width="1200" height="658" alt="Why it matters: API cost scales directly with tokens. A team sending Japanese prompts pays roughly 1.8 times what an English-s" src="/cut-token-cost-non-english-prompts-why-it-matters-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="658" alt="Why it matters: API cost scales directly with tokens. A team sending Japanese prompts pays roughly 80% more than an English-sp" src="/cut-token-cost-non-english-prompts-why-it-matters-en.jpg" /></p>
 <ul>
-<li><strong>API cost</strong> scales directly with tokens. A team sending Japanese prompts pays roughly 1.8 times what an English-speaking team pays for the same work.</li>
+<li><strong>API cost</strong> scales directly with tokens. A team sending Japanese prompts pays roughly 80% more than an English-speaking team pays for the same work.</li>
 <li><strong>Usage limits</strong> on many plans and agents are counted in tokens, so you hit them sooner.</li>
 <li><strong>Context windows</strong> fill up faster, so long documents and chats reach the limit earlier.</li>
 </ul>
@@ -77,4 +77,9 @@
 <p>Translate instructions and questions, not material where wording matters: legal text you need quoted exactly, poetry, names, or text the model must correct for grammar. For those, the original language is the content.</p>
 <h2>Try it with your own prompt</h2>
 <p>Paste a prompt into the <a href="/">token counter</a>, press <em>Save tokens</em>, and see the difference in tokens and cost across 30+ models.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken (OpenAI tokenizer, o200k_base)</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API pricing</a></li>
+</ul>
 <!-- autoimg -->

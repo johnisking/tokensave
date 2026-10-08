@@ -43,17 +43,17 @@ Soms, maar let op wat je inlevert.
 
 ## Is €100 of €200 per maand goedkoper per eenheid?
 
-![Is €100 of €200 per maand goedkoper per eenheid?: Abonnement, Gebruik (instapabonnement = 100%), Prijs per eenheid gebruik](/ai-abonnement-prijzen-is-100-of-200-per-maand-goedkoper-per-ee-nl.jpg)
+![Is €100 of €200 per maand goedkoper per eenheid?: Abonnement, Gebruik (t.o.v. instapabonnement), Prijs per eenheid gebruik](/ai-abonnement-prijzen-is-100-of-200-per-maand-goedkoper-per-ee-nl.jpg)
 
 Bij Claude en Google wel, bij ChatGPT niet. Kijk daarom naar de prijs per eenheid gebruik, niet naar het totaalbedrag.
 
-| Abonnement | Gebruik (instapabonnement = 100%) | Prijs per eenheid gebruik |
+| Abonnement | Gebruik (t.o.v. instapabonnement) | Prijs per eenheid gebruik |
 |---|---|---|
-| Claude Max 5x | 500% van Pro | gelijk aan Pro |
-| **Claude Max 20x** | **2000% van Pro** | **50% goedkoper dan Pro** |
-| Google AI Ultra (5x) | 500% van AI Pro | ongeveer 9% goedkoper dan AI Pro |
-| Google AI Ultra (20x) | 2000% van AI Pro | ongeveer 50% goedkoper dan AI Pro |
-| ChatGPT Pro 100 / 200 / 500 | 500% / 1000% / 2500% van Plus | gelijk aan Plus (in dollars) |
+| Claude Max 5x | 5× Pro | gelijk aan Pro |
+| **Claude Max 20x** | **20× Pro** | **50% goedkoper dan Pro** |
+| Google AI Ultra (5x) | 5× AI Pro | ongeveer 9% goedkoper dan AI Pro |
+| Google AI Ultra (20x) | 20× AI Pro | ongeveer 50% goedkoper dan AI Pro |
+| ChatGPT Pro 100 / 200 / 500 | 5× / 10× / 25× Plus | gelijk aan Plus (in dollars) |
 
 Bij Claude Max 20x en Google AI Ultra (20x) daalt de prijs per eenheid hoe hoger je instapt. Werk je de hele dag met Claude Code, dan is Max 20x het voordeligst. Bij ChatGPT betaal je in elk Pro-abonnement $20 per "Plus aan gebruik". Hogerop geeft daar dus geen korting. Wat een coding-agent via de API zou kosten, zie je in de [rekenmachine voor coding-agents](/nl/agents).
 

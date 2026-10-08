@@ -70,4 +70,11 @@ Más detalles y cifras en [How to save tokens in Claude Code](/blog/claude-code-
 Si llegas con frecuencia al límite semanal, compara lo que te costaría ese uso adicional en la API con el siguiente plan. Nuestra guía [Precio de Claude Code al mes](/es/blog/claude-code-precio) y nuestra [calculadora de agentes de programación](/es/agents) hacen las cuentas por ti.
 
 *Los límites cambian. La [página de ayuda sobre los planes de Claude Code](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan) y la [página de precios](https://claude.com/pricing) de Anthropic tienen las reglas actuales.*
+
+## Fuentes
+
+- [Usar Claude Code con tu plan Pro o Max (Centro de ayuda de Claude)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Planes y precios de Claude (Anthropic)](https://claude.com/pricing)
+- [Uso adicional en los planes de pago de Claude (Centro de ayuda de Claude)](https://support.claude.com/en/articles/12429409-extra-usage-for-max-20x-plans)
+- [Gestionar los costes de forma eficaz (documentación de Claude Code)](https://code.claude.com/docs/en/costs)
 <!-- autoimg -->

@@ -49,12 +49,12 @@ S = dict(
     tip="Sfat: scrierile non-latine costă de obicei mai mulți tokeni pentru același sens. Promptul de sistem în engleză poate reduce costul.",
     title="Numărător de tokeni AI pentru GPT, Claude și Gemini – TokenSave",
     tokens="Tokeni",
-    waste="{x}x risipă de tokeni",
+    waste="+{p}% risipă de tokeni",
     words="Cuvinte",
 )
 
 V = dict(
-    a1="Majoritatea API-urilor video taxează fiecare secundă de video generat. Rezoluțiile mai mari și sunetul nativ costă mai mult, așa că un clip 1080p sau 4K poate costa de câteva ori cât unul 720p.",
+    a1="Majoritatea API-urilor video taxează fiecare secundă de video generat. Rezoluțiile mai mari și sunetul nativ costă mai mult, așa că un clip 1080p sau 4K poate costa mult mai mult decât unul 720p.",
     a2="Depinde de rezoluție. Modelele ușoare precum Veo 3.1 Lite, Grok Imagine și Wan pornesc de la circa $0.05 pe secundă, iar modelele premium în 4K pot costa $0.40 pe secundă sau mai mult.",
     a3="Nu. OpenAI a retras modelele video Sora 2 din API pe 24 septembrie 2026, așa că Sora nu mai este disponibil pentru dezvoltatori.",
     audio="Sunet",

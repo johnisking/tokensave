@@ -1,6 +1,6 @@
-![Bahasa Indonesia memakai 1,15× token bahasa Inggris di GPT](/token-bahasa-indonesia-gpt-id.jpg)
+![Bahasa Indonesia pakai 15% token lebih banyak dari bahasa Inggris di GPT](/token-bahasa-indonesia-gpt-id.jpg)
 
-Saya menerjemahkan prompt layanan pelanggan yang sama ke 41 bahasa dan menghitung token dengan o200k_base, tokenizer OpenAI saat ini (GPT-4o dan setelahnya). Bahasa Inggris butuh 34 token, bahasa Indonesia **39 token — 1,15× bahasa Inggris**, peringkat 3 dari 41 (1 = paling murah).
+Saya menerjemahkan prompt layanan pelanggan yang sama ke 41 bahasa dan menghitung token dengan o200k_base, tokenizer OpenAI saat ini (GPT-4o dan setelahnya). Bahasa Inggris butuh 34 token, bahasa Indonesia **39 token — 15% lebih banyak dari bahasa Inggris**, peringkat 3 dari 41 (1 = paling murah).
 
 Versi bahasa Indonesia:
 
@@ -10,19 +10,19 @@ Versi bahasa Indonesia:
 
 | Bahasa | Token | Dibanding bahasa Inggris | Hemat jika dikirim dalam bahasa Inggris |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | – |
-| 简体中文 | 35 | 1,03× | 3% |
-| **Bahasa Indonesia** | **39** | **1,15×** | **13%** |
-| Español | 40 | 1,18× | 15% |
-| Deutsch | 43 | 1,26× | 21% |
-| 한국어 | 49 | 1,44× | 31% |
-| हिन्दी | 51 | 1,50× | 33% |
-| 日本語 | 61 | 1,79× | 44% |
-| Čeština | 68 | 2,00× | 50% |
-| Ελληνικά | 70 | 2,06× | 51% |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
+| English | 34 | ±0% | – |
+| 简体中文 | 35 | +3% | 3% |
+| **Bahasa Indonesia** | **39** | **+15%** | **13%** |
+| Español | 40 | +18% | 15% |
+| Deutsch | 43 | +26% | 21% |
+| 한국어 | 49 | +44% | 31% |
+| हिन्दी | 51 | +50% | 33% |
+| 日本語 | 61 | +79% | 44% |
+| Čeština | 68 | +100% | 50% |
+| Ελληνικά | 70 | +106% | 51% |
+| ਪੰਜਾਬੀ | 83 | +144% | 59% |
 
-![Hasil](/blog-language-tax-chart-v4.png)
+![Grafik: token tambahan tiap bahasa dibanding bahasa Inggris di GPT](/blog-language-tax-chart-v5.png)
 
 ## Mengapa
 
@@ -40,7 +40,7 @@ Penghematan terbesar adalah mengirim prompt dalam bahasa Inggris: sekitar 13% le
 
 ## Dalam uang
 
-Dengan model seharga $2 per 1 juta token input, mengirim prompt ini 1 juta kali menghabiskan $68 dalam bahasa Inggris dan $78 dalam bahasa Indonesia. Jika jawabannya juga berbahasa Indonesia, pengali yang sama berlaku untuk token output yang biasanya 4–5× lebih mahal.
+Dengan model seharga $2 per 1 juta token input, mengirim prompt ini 1 juta kali menghabiskan $68 dalam bahasa Inggris dan $78 dalam bahasa Indonesia. Jika jawabannya juga berbahasa Indonesia, pengali yang sama berlaku untuk token output yang biasanya 300–400% lebih mahal.
 
 ## Cara berhemat
 
@@ -56,5 +56,13 @@ Dengan model seharga $2 per 1 juta token input, mengirim prompt ini 1 juta kali 
 - Claude dan Gemini memakai tokenizer lain; angka ini hanya berlaku untuk model OpenAI.
 - Terjemahan didasarkan pada terjemahan mesin yang sudah diperiksa.
 
+Coba dengan teks Anda sendiri di [penghitung token](/id/); perbandingan semua bahasa ada di [tabel bahasa](/languages).
+
 Hasil lengkap 41 bahasa (dalam bahasa Inggris): [perbandingan 41 bahasa](/blog/token-cost-by-language)
+
+## Sumber
+
+- [tiktoken: tokenizer OpenAI (o200k_base) di GitHub](https://github.com/openai/tiktoken)
+- [Harga OpenAI API](https://developers.openai.com/api/docs/pricing)
+
 <!-- autoimg -->

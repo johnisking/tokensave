@@ -37,7 +37,7 @@ J'ai écrit un e-mail de compte rendu de réunion (161 mots), puis sa traduction
 On lit partout que « 1 token ≈ 4 caractères » ou que « 100 tokens ≈ 75 mots ». Sur cet e-mail français, on obtient plutôt **5 caractères par token** et **81 mots pour 100 tokens**. Et l'écart devient énorme dès qu'on colle autre chose que de la prose :
 
 - un identifiant UUID coûte **18 tokens** à lui seul ;
-- un tableau en JSON indenté coûte **2,9 fois** plus de tokens que le même tableau en CSV ([mesure complète ici](/blog/json-vs-yaml-vs-csv-tokens)).
+- un tableau en JSON indenté coûte **190 % de tokens en plus** que le même tableau en CSV ([mesure complète ici](/blog/json-vs-yaml-vs-csv-tokens)).
 
 Une règle unique ne peut pas couvrir tous ces cas. Compter, si.
 
@@ -47,7 +47,7 @@ Sur cet e-mail, le français demande **21 % de tokens en plus**, chez OpenAI com
 
 ### 3. La réponse coûte souvent plus que la question
 
-Les tokens de sortie (ce que le modèle écrit) sont en général **4 à 5 fois plus chers** que les tokens d'entrée. Prenons un outil qui résume 1 000 e-mails comme celui-ci par jour, soit 30 000 par mois, avec un modèle à 2 $ le million de tokens d'entrée et 8 $ le million de tokens de sortie, et une réponse d'environ 250 tokens :
+Les tokens de sortie (ce que le modèle écrit) sont en général **300 à 400 % plus chers** que les tokens d'entrée. Prenons un outil qui résume 1 000 e-mails comme celui-ci par jour, soit 30 000 par mois, avec un modèle à 2 $ le million de tokens d'entrée et 8 $ le million de tokens de sortie, et une réponse d'environ 250 tokens :
 
 | Poste | Tokens par mois | Coût par mois |
 |---|---:|---:|
@@ -55,7 +55,7 @@ Les tokens de sortie (ce que le modèle écrit) sont en général **4 à 5 fois 
 | Entrée en anglais (165 tokens) | 4,95 M | 9,90 $ |
 | Sortie (250 tokens) | 7,5 M | **60,00 $** |
 
-Passer le prompt en anglais fait gagner environ 2 $. Demander une réponse deux fois plus courte en fait gagner 30. Sans compteur, on optimise souvent le mauvais côté.
+Passer le prompt en anglais fait gagner environ 2 $. Demander une réponse 50 % plus courte en fait gagner 30. Sans compteur, on optimise souvent le mauvais côté.
 
 ### 4. Les limites d'abonnement et la fenêtre de contexte
 
@@ -83,4 +83,13 @@ Tout se passe dans votre navigateur : le texte n'est envoyé à aucun serveur. G
 Pour aller plus loin : [Combien de tokens coûte le français ?](/fr/blog/tokens-francais-gpt) et [Mistral ou ChatGPT : combien coûte vraiment un prompt en français ?](/fr/blog/mistral-chatgpt-cout-prompt-francais)
 
 *Mesures effectuées en octobre 2026 avec o200k_base (OpenAI) et Tekken 2024-09 (Mistral). Les prix utilisés dans l'exemple sont hypothétiques.*
+
+## Sources
+
+- [tiktoken (OpenAI) : le tokeniseur o200k_base](https://github.com/openai/tiktoken)
+- [Mistral NeMo et le tokeniseur Tekken (Mistral AI)](https://mistral.ai/news/mistral-nemo/)
+- [Tarifs de l'API OpenAI (prix au million de tokens)](https://developers.openai.com/api/docs/pricing)
+- [Comprendre et compter les tokens (aide OpenAI)](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them)
+- [Comptage des tokens (documentation Anthropic)](https://platform.claude.com/docs/en/build-with-claude/token-counting)
+- [Le Chat devient Vibe (Mistral AI)](https://mistral.ai/news/vibe-agent/)
 <!-- autoimg -->

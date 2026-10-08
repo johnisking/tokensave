@@ -1,8 +1,8 @@
-I'm a solo developer from Korea with zero coding background. I make games by describing them to an AI. My first one, **Sperm Race** (a silly sperm racing game), is live on Google Play. People kept asking me "how much does it cost to make a game with AI?", so I built a free calculator.
+I'm a solo developer from Korea with zero coding background. I make games by describing them to an AI. My first one, **Sperm Race** (a silly sperm racing game), is live on Google Play. People kept asking me "how much does it cost to make a game with AI?", so I built a free [AI game cost calculator](/ai-game-cost-calculator).
 
 But I didn't actually know if my own calculator was right. So I fed it the exact specs of the game I had already shipped.
 
-![Sperm Race screenshots](/spermrace-screens.jpg)
+![Sperm Race screenshots](/spermrace-screens-en.jpg)
 
 ## What I entered
 
@@ -40,8 +40,10 @@ The cost was right almost to the dollar. The only gap was the $10 for art, and t
 ## How it calculates (roughly)
 
 - **Size** is anchored to real games built solo with AI coding agents: small about 2 weeks, medium about 4, large about 6. Genre, features and number of languages move it up or down.
-- **Images** = characters × animation frames + backgrounds + items + UI. It assumes you keep 1 of every 3 images you generate, so it plans for 3× as many generations.
+- **Images** = characters × animation frames + backgrounds + items + UI. It assumes you keep 1 of every 3 images you generate, so it plans for three generations per image you keep.
 - **Coding tokens** assume about 20 million tokens read per working day (mostly cached context) for 70% of the schedule. The 343M here is that estimate. I was on a subscription, so I never measured my real token count.
+
+For the full breakdown by game size, see [how much it costs to make a game with AI](/blog/ai-game-development-cost).
 
 ## What I learned
 
@@ -51,3 +53,9 @@ The cost was right almost to the dollar. The only gap was the $10 for art, and t
 The calculator is free, no sign-up. Pick a genre and size and you get the list of images and sounds you'll need, a cost and time estimate, and a ready-to-use starter prompt. It also handles 3D and Roblox games now.
 
 If you've shipped something, try your own project and see how far off it is. I'd love to know.
+
+## Sources
+
+- [App testing requirements for new personal developer accounts (Play Console Help)](https://support.google.com/googleplay/android-developer/answer/14151465?hl=en)
+- [Get started with Play Console (Play Console Help)](https://support.google.com/googleplay/android-developer/answer/6112435?hl=en)
+- [Claude plans and pricing](https://claude.com/pricing)

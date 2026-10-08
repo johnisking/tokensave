@@ -35,7 +35,7 @@ const planMoney = n => Number.isInteger(n) ? money(n) : '$' + n.toFixed(2);
 const big = n => n >= 1e9 ? (n / 1e9).toFixed(2) + 'B' : n >= 1e6 ? (n / 1e6).toFixed(1) + 'M' : n >= 1e3 ? Math.round(n / 1e3) + 'K' : String(Math.round(n));
 
 // Language menu: every site language with its measured ratio
-els.lang.innerHTML = LANGS.map(([tag, name, r]) => `<option value="${tag}"${tag === PAGE_TAG ? ' selected' : ''}>${esc(name)} · ${r.toFixed(2)}×</option>`).join('');
+els.lang.innerHTML = LANGS.map(([tag, name, r]) => `<option value="${tag}"${tag === PAGE_TAG ? ' selected' : ''}>${esc(name)} · ${r <= 1.005 ? '±0' : '+' + Math.round((r - 1) * 100)}%</option>`).join('');
 
 // A chat model re-reads the whole conversation on every message:
 // message k sends k of your messages and k-1 replies as input.
@@ -56,7 +56,7 @@ function render() {
   els.tokIn.textContent = big(tin);
   els.tokOut.textContent = big(tout);
   const langName = (LANGS.find(l => l[0] === els.lang.value) || [0, ''])[1];
-  els.langNote.textContent = ratio > 1.05 ? tr('langNote', { lang: langName, x: ratio.toFixed(2) }) : '';
+  els.langNote.textContent = ratio > 1.05 ? tr('langNote', { lang: langName, p: Math.round((ratio - 1) * 100) }) : '';
 
   els.cards.innerHTML = PROVIDERS.map(pv => {
     const api = pv.models.map(([id, name, tokRatio]) => {

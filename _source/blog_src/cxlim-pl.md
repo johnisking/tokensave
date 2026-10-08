@@ -71,4 +71,11 @@ Wiele z tych nawyków sprawdza się też w Claude Code: zobacz [How to save toke
 Oba są wliczone w plany za 20, 100 i 200 USD i mają podobne systemy limitów. Różnice omawia porównanie [ChatGPT Pro vs Claude Max](/blog/chatgpt-pro-vs-claude-max) (po angielsku), a [kalkulator kosztów agentów kodujących](/pl/agents) zestawia miesięczne koszty API z każdym planem. Same plany porównasz w [kalkulatorze planów](/pl/plans).
 
 *Limity często się zmieniają. Aktualne liczby znajdziesz na stronie pomocy OpenAI [o użyciu Codex i Work](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex).*
+
+## Źródła
+
+- [Pomoc OpenAI: użycie w Work i Codex](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)
+- [Pomoc OpenAI: zapisane resety Codex](https://help.openai.com/en/articles/20001498-how-banked-codex-resets-work)
+- [Plany ChatGPT i ceny Codex](https://learn.chatgpt.com/docs/pricing)
+- [Pomoc OpenAI: poziomy ChatGPT Pro](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
 <!-- autoimg -->

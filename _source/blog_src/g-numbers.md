@@ -80,5 +80,11 @@ Common emoji are a single token on the current tokenizer. But some emoji are bui
 
 ## Measure it
 
-The [token counter](/) shows exactly how any text splits into tokens. Open *See how it splits into tokens* under the text box to see each piece highlighted.
+The [token counter](/) shows exactly how any text splits into tokens. Open *See how it splits into tokens* under the text box to see each piece highlighted. Sending whole tables of records? [JSON vs YAML vs CSV](/blog/json-vs-yaml-vs-csv-tokens) compares which format uses the fewest tokens.
+
+## Sources
+
+- [tiktoken (OpenAI tokenizer, o200k_base)](https://github.com/openai/tiktoken)
+- [tiktoken encoding definitions (cl100k_base, o200k_base)](https://github.com/openai/tiktoken/blob/main/tiktoken_ext/openai_public.py)
+- [tiktoken model-to-encoding map](https://github.com/openai/tiktoken/blob/main/tiktoken/model.py)
 <!-- autoimg -->

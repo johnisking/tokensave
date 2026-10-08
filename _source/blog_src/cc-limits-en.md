@@ -70,4 +70,11 @@ More detail and numbers in [How to save tokens in Claude Code](/blog/claude-code
 If you regularly hit the weekly limit, compare what that extra usage would cost on the API with the next plan up. Our [Claude Code cost per month](/blog/claude-code-cost-per-month) guide and [coding agent calculator](/agents) do the maths.
 
 *Limits change. Anthropic's [Claude Code plan help page](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan) and [pricing page](https://claude.com/pricing) have the current rules.*
+
+## Sources
+
+- [Using Claude Code with your Pro or Max plan (Claude Help Center)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Claude plans and pricing (Anthropic)](https://claude.com/pricing)
+- [Extra usage for paid Claude plans (Claude Help Center)](https://support.claude.com/en/articles/12429409-extra-usage-for-max-20x-plans)
+- [Manage costs effectively (Claude Code docs)](https://code.claude.com/docs/en/costs)
 <!-- autoimg -->

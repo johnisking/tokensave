@@ -79,4 +79,11 @@ At $200, Claude Max 20× is now 20× its base plan, while ChatGPT Pro 200 is 10�
 Use the [coding agent calculator](/agents) to compare Pro, Max and the API for the way you use Claude Code, or the [Subscription vs API calculator](/plans) for chat use.
 
 *Prices and limits change. Check [claude.com/pricing](https://claude.com/pricing) before you upgrade.*
+
+## Sources
+
+- [Claude plans and pricing (Anthropic)](https://claude.com/pricing)
+- [Using Claude Code with your Pro or Max plan (Claude Help Center)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Extra usage for paid Claude plans (Claude Help Center)](https://support.claude.com/en/articles/12429409-extra-usage-for-max-20x-plans)
+- [Claude API pricing (Anthropic docs)](https://platform.claude.com/docs/en/about-claude/pricing)
 <!-- autoimg -->

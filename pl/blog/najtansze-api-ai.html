@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -106,12 +106,12 @@
 <h2>Jak porównaliśmy ceny?</h2>
 <p>Porównaliśmy koszt jednego typowego zapytania, a nie samą cenę za milion tokenów, bo ta bywa myląca z dwóch powodów:</p>
 <ul>
-<li><strong>Wyjście kosztuje od 3 do 8 razy więcej niż wejście</strong> w większości modeli, więc model z tanim wejściem i drogim wyjściem może przegrać z modelem odwrotnym.</li>
+<li><strong>Wyjście kosztuje od 200 do 700% więcej niż wejście</strong> w większości modeli, więc model z tanim wejściem i drogim wyjściem może przegrać z modelem odwrotnym.</li>
 <li><strong>Tokenizery się różnią.</strong> Ten sam angielski tekst to w Claude Opus i Sonnet około 30% więcej tokenów niż w GPT, a w Gemini około 5% mniej. Model Claude za „2 USD za milion” kosztuje więc więcej na zapytanie niż model GPT za „2 USD za milion”.</li>
 </ul>
 <p>Dlatego wyceniliśmy jedno typowe zapytanie: <strong>2000 tokenów wejściowych i 500 wyjściowych po angielsku</strong>, policzonych tak, jak policzyłby je tokenizer danego modelu, według oficjalnych cenników sprawdzonych 1 października 2026. Bez cache'owania i rabatów za batch.</p>
 <h2>Najtańsze API AI – cennik i koszt 1 mln tokenów</h2>
-<p><img loading="lazy" width="1200" height="1055" alt="Najtańsze API AI – cennik i koszt 1 mln tokenów: Model, Firma, Wejście / wyjście za 1 mln (USD), 1 zapytanie (USD), 10 000 zapytań (USD)" src="/najtansze-api-ai-najtansze-api-ai-cennik-i-koszt-1-mln-to-pl.jpg" /></p>
+<p><img loading="lazy" width="1200" height="1023" alt="Najtańsze API AI – cennik i koszt 1 mln tokenów: Model, Firma, Wejście / wyjście za 1 mln (USD), 1 zapytanie (USD), 10 000 zapytań (USD)" src="/najtansze-api-ai-najtansze-api-ai-cennik-i-koszt-1-mln-to-pl.jpg" /></p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -205,14 +205,14 @@
 <p>Dla porównania te same 10 000 zapytań kosztuje <strong>90 USD</strong> w GPT-6 Sol, <strong>117 USD</strong> w Claude Sonnet 5.5, <strong>234 USD</strong> w Claude Opus 5.5 i <strong>450 USD</strong> w GPT-6 Astra. Najtańszy model z tabeli kosztuje mniej niż 1% tego, co GPT-6 Astra.</p>
 <p>Ceny są w dolarach. Przy płatnościach w dolarach z polskiej karty bank lub karta zwykle doliczają 3–6% za przewalutowanie, a przy subskrypcjach Claude osoby prywatne płacą do tego 23% VAT – szczegóły w tekście <a href="/pl/blog/ceny-subskrypcji-ai">ceny subskrypcji AI w Polsce</a>.</p>
 <h2>Który tani model wybrać?</h2>
-<p><img loading="lazy" width="1200" height="935" alt="Który tani model wybrać?: GPT-6 Luna warto wypróbować jako pierwszy. To najnowszy mały model OpenAI (wrzesień 2026), droższy od GPT-5 na" src="/najtansze-api-ai-ktory-tani-model-wybrac-pl.jpg" /></p>
+<p><img loading="lazy" width="1200" height="931" alt="Który tani model wybrać?: GPT-6 Luna warto wypróbować jako pierwszy. To najnowszy mały model OpenAI (wrzesień 2026), droższy od GPT-5 na" src="/najtansze-api-ai-ktory-tani-model-wybrac-pl.jpg" /></p>
 <p>Na start wybierz GPT-6 Luna, a do najprostszych zadań na masową skalę – GPT-5 nano.</p>
 <ul>
 <li><strong>GPT-6 Luna</strong> warto wypróbować jako pierwszy. To najnowszy mały model OpenAI (wrzesień 2026), droższy od GPT-5 nano tylko o 1,50 USD na 10 000 zapytań. Dobry do klasyfikacji, wyciągania danych, routingu, krótkich odpowiedzi i streszczeń.</li>
 <li><strong>GPT-5 nano</strong> do najprostszej pracy na największą skalę, gdzie liczy się każdy ułamek centa: tagowanie, sprawdzanie tak/nie, filtrowanie spamu.</li>
 <li><strong>Qwen 3.8 Flash</strong> i <strong>Mistral Small</strong> to najtańsze opcje spoza OpenAI – przydatne, jeśli chcesz mieć drugiego dostawcę albo modele open-weight, które później możesz hostować sam.</li>
-<li><strong>Gemini 3.1 Flash-Lite</strong> i <strong>DeepSeek V4.1 Flash</strong> kosztują mniej więcej dwa razy więcej niż Luna, ale są o krok lepsze w pisaniu i rozumowaniu, a i tak wychodzą o około 87% taniej na zapytanie niż GPT-6 Sol. DeepSeek V4.1 Flash poza godzinami szczytu kosztuje połowę (0,15 / 0,60 USD), co stawia go tuż za GPT-6 Luna; zobacz <a href="/blog/deepseek-v4-1-flash-api-pricing">cennik DeepSeek V4.1 Flash</a> (po angielsku). O darmowym dostępie do Gemini piszę w tekście <a href="/pl/blog/gemini-za-darmo-flash-lite">Gemini za darmo: Flash-Lite</a>.</li>
-<li><strong>Claude Haiku 4.5</strong> to najtańszy model Claude: 0,0047 USD za zapytanie, czyli około 10 razy więcej niż Luna. Wybierz go, gdy potrzebujesz konkretnie zachowania Claude, a nie ze względu na cenę.</li>
+<li><strong>Gemini 3.1 Flash-Lite</strong> i <strong>DeepSeek V4.1 Flash</strong> kosztują mniej więcej o 100% więcej niż Luna, ale są o krok lepsze w pisaniu i rozumowaniu, a i tak wychodzą o około 87% taniej na zapytanie niż GPT-6 Sol. DeepSeek V4.1 Flash poza godzinami szczytu kosztuje połowę (0,15 / 0,60 USD), co stawia go tuż za GPT-6 Luna; zobacz <a href="/blog/deepseek-v4-1-flash-api-pricing">cennik DeepSeek V4.1 Flash</a> (po angielsku). O darmowym dostępie do Gemini piszę w tekście <a href="/pl/blog/gemini-za-darmo-flash-lite">Gemini za darmo: Flash-Lite</a>.</li>
+<li><strong>Claude Haiku 4.5</strong> to najtańszy model Claude: 0,0047 USD za zapytanie, czyli około 900% więcej niż Luna. Wybierz go, gdy potrzebujesz konkretnie zachowania Claude, a nie ze względu na cenę.</li>
 </ul>
 <h2>Kiedy najtańszy model kosztuje więcej?</h2>
 <p>Wtedy, gdy się myli: tani model, który zawodzi, kosztuje Cię dwa razy – raz za złą odpowiedź i drugi raz za ponowienie w lepszym modelu, plus Twój czas. Dwa sposoby oszczędzają więcej niż wybieranie wszędzie najtańszego modelu:</p>
@@ -225,6 +225,16 @@
 <h2>Jak sprawdzić koszt własnego promptu?</h2>
 <p>Wklej prawdziwy prompt do <a href="/pl/">licznika tokenów</a>, a zobaczysz jego dokładną liczbę tokenów i koszt w każdym modelu. Możesz też otworzyć licznik dla <a href="/openai-token-counter">OpenAI</a>, <a href="/claude-token-counter">Claude</a> lub <a href="/gemini-token-counter">Gemini</a>. Pełne zestawienie możliwości i ceny znajdziesz w porównaniu <a href="/compare/performance">możliwości modeli AI a cena</a>.</p>
 <p><em>Ceny według oficjalnych cenników, sprawdzone 1 października 2026. Polska prowizja za przewalutowanie i VAT wg <a href="https://www.ssdnodes.com/learn/lang/pl/claude-plans-in-poland-what-you-pay" target="_blank" rel="noopener">SSD Nodes</a>, podatek tokenowy wg <a href="https://promptowy.com/podatek-tokenowy-2026-polski-tekst-osiem-modeli/" target="_blank" rel="noopener">Promptowy</a>. Ceny często się zmieniają – przed wyborem modelu sprawdź cennik dostawcy.</em></p>
+<h2>Źródła</h2>
+<ul>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">Cennik API OpenAI</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-5-nano" target="_blank" rel="noopener">OpenAI: model GPT-5 nano</a></li>
+<li><a href="https://www.alibabacloud.com/help/en/model-studio/qwen3-8-flash" target="_blank" rel="noopener">Alibaba Cloud: cena qwen3.8-flash</a></li>
+<li><a href="https://docs.mistral.ai/models/mistral-large-3-25-12" target="_blank" rel="noopener">Mistral AI: Mistral Large 3</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Cennik API Gemini</a></li>
+<li><a href="https://api-docs.deepseek.com/quick_start/pricing/" target="_blank" rel="noopener">Modele i cennik API DeepSeek</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Cennik API Claude</a></li>
+</ul>
 <!-- autoimg -->
 
         <h2>Więcej artykułów</h2>
@@ -251,6 +261,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

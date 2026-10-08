@@ -3,7 +3,8 @@
 <h2>Why the tokens add up</h2>
 <p>Claude Code works in steps, and at every step it resends its <strong>whole working context</strong>: your instructions, tool definitions, every file it has read, and everything that happened in earlier steps. A 25-step feature task that starts with 22,000 tokens of context and grows by 3,500 tokens a step sends around <strong>1.6 million input tokens</strong> in total. Anything that makes the context smaller, or the task shorter, pays off at every step.</p>
 <h2>1. Keep tasks small and specific</h2>
-<p>The number of steps is the biggest multiplier. Compare:</p>
+<p><img loading="lazy" width="1200" height="935" alt="Ways 1–5: Keep tasks small and specific; Start fresh between unrelated tasks; Tell Claude where to look" src="/claude-code-save-tokens-ways-15-en.jpg" /></p>
+<p>The number of steps drives the cost more than anything else. Compare:</p>
 <ul>
 <li>"Clean up the auth module" → open-ended, dozens of steps.</li>
 <li>"Fix the failing test in tests/auth_test.py; the token expiry check is off by one" → a handful of steps.</li>
@@ -18,15 +19,23 @@
 <h2>5. Don't paste huge logs</h2>
 <p>A full test run or build log can be thousands of lines. The first error and its stack trace usually carry all the information. Paste that, or ask Claude to run the specific failing test.</p>
 <h2>6. Ask for changes, not whole files</h2>
+<p><img loading="lazy" width="1200" height="829" alt="Ways 6–9: Ask for changes, not whole files; Pick the model for the task; Write instructions in English" src="/claude-code-save-tokens-ways-69-en.jpg" /></p>
 <p>Output tokens are the most expensive kind: $10 per million on Sonnet 5.5 versus $2 for input. Asking for a full file to be rewritten after a two-line fix pays output prices for every unchanged line.</p>
 <h2>7. Pick the model for the task</h2>
-<p>On the API, Claude Opus 5.5 costs twice as much per token as Sonnet 5.5, and on a plan it uses your allowance faster. Use <strong>/model</strong> to switch: Sonnet for most coding, Opus for hard design problems and tricky bugs, Haiku for simple, repetitive edits.</p>
+<p>On the API, Claude Opus 5.5 costs 100% more per token than Sonnet 5.5, and on a plan it uses your allowance faster. Use <strong>/model</strong> to switch: Sonnet for most coding, Opus for hard design problems and tricky bugs, Haiku for simple, repetitive edits.</p>
 <h2>8. Write instructions in English</h2>
-<p>If you normally write prompts in another language, this is an easy win. On GPT's tokenizer the same text takes about 1.44× the tokens in Korean and 1.79× in Japanese compared with English, so instructions written in English use roughly 31% and 44% fewer tokens. Claude's tokenizer is different, but non-English text costs more there too. Write CLAUDE.md and long instructions in English and ask for replies in your language. Our <a href="/">token counter</a> can translate a prompt to English on your device with one click and shows the saving.</p>
+<p>If you normally write prompts in another language, this is an easy win. On GPT's tokenizer the same text takes about 44% more tokens in Korean and 79% more in Japanese than in English, so instructions written in English use roughly 31% and 44% fewer tokens. Claude's tokenizer is different, but non-English text costs more there too. Write CLAUDE.md and long instructions in English and ask for replies in your language. Our <a href="/">token counter</a> can translate a prompt to English on your device with one click and shows the saving.</p>
 <h2>9. Let caching work</h2>
 <p>Claude Code caches the repeated part of its context automatically, and cached input costs about 10% of the normal price. You help it by keeping things stable: don't edit CLAUDE.md mid-session and avoid restarting sessions just to continue the same task. See <a href="/blog/prompt-caching-explained">Prompt caching explained</a>.</p>
 <h2>How much difference does it make?</h2>
 <p>On our <a href="/agents">coding agent cost model</a>, a typical feature task on Sonnet 5.5 costs about $0.72 with caching. Cutting it from 25 steps to 15 by giving a precise task and pointing to the right files brings it to roughly $0.40, and starting each task in a fresh session keeps the starting context small. Across 100 tasks a month, that is the difference between hitting your weekly limit and not.</p>
 <h2>Check your usage</h2>
 <p>Run <strong>/status</strong> in Claude Code to see how much of your allowance is left. To understand the limits themselves, read <a href="/blog/claude-code-usage-limits">Claude Code usage limits explained</a>, and to compare plans with the API, <a href="/blog/claude-code-cost-per-month">Claude Code cost per month</a>.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">Manage costs effectively (Claude Code docs)</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API pricing (Anthropic docs)</a></li>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: OpenAI's tokenizer (o200k_base)</a></li>
+<li><a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Using Claude Code with your Pro or Max plan (Claude Help Center)</a></li>
+</ul>
 <!-- autoimg -->

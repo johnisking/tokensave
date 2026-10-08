@@ -34,7 +34,7 @@ Claude Sonnet 5.5 は165.2。Opus より2.2ポイント低いだけで、料金�
 - **Gemini 3.8 Flash**（156.9）：$0.75 / $3.75。チャット1万回で約 $25
 - **DeepSeek V4 Flash**（154.5）：$0.30 / $1.20。チャット1万回で約 $9、Opus の5%
 
-どちらも1位より10〜13ポイント低い程度です。分類、情報抽出、要約、一般的なチャットボットなら十分なことが多く、費用は7〜20分の1になります。
+どちらも1位より10〜13ポイント低い程度です。分類、情報抽出、要約、一般的なチャットボットなら十分なことが多く、費用は86〜95%安くなります。
 
 ## 4. 料金のわりに物足りないモデル
 
@@ -55,7 +55,7 @@ Claude Sonnet 5.5 は165.2。Opus より2.2ポイント低いだけで、料金�
 
 実際にいちばん使われているのが GPT-6 Sol なので、グラフで最も目立つ空白です。Epoch AI はまだ Sol のスコアを出していませんが、別の尺度での独立した測定結果が1つ出ています。[Artificial Analysis Intelligence Index](https://artificialanalysis.ai/)（v4.3.2、最大推論、9月30日時点）で **GPT-6.1 Sol は 51.8、GPT-6 Astra の 52.7 にほぼ並びました**。
 
-Astra に近い性能を5分の1の料金（$2 / $10 対 $10 / $50）で出しているわけです。Epoch のスコアでも同様なら、Sol は定価が同じ Claude Sonnet 5.5 の隣、コスパのライン上に乗る可能性が高いでしょう。2つのスコアは尺度が違うため、上のグラフには載せていません。
+Astra に近い性能を80%安い料金（$2 / $10 対 $10 / $50）で出しているわけです。Epoch のスコアでも同様なら、Sol は定価が同じ Claude Sonnet 5.5 の隣、コスパのライン上に乗る可能性が高いでしょう。2つのスコアは尺度が違うため、上のグラフには載せていません。
 
 ## 6. まだスコアがないモデル
 
@@ -67,9 +67,17 @@ GPT-6 Sol、GPT-6 Luna、GPT-6.1 Sol、Gemini 4 Argon、Grok 4.7 は新しすぎ
 
 1. コスパのラインから始めましょう。品質重視なら Sonnet 5.5、量が多いなら Gemini 3.8 Flash か DeepSeek V4 Flash です。
 2. そのうち2〜3個を、自分のサービスの実際のプロンプト20個で試してください。総合スコアは一般的な性能で、あなたの作業での性能ではありません。
-3. 自分のプロンプトがモデルごとにいくらかかるかをトークンカウンターで確認しましょう。日本語は英語の約1.79倍のトークンを使うので、上の金額より高くなります。
+3. 自分のプロンプトがモデルごとにいくらかかるかを[トークンカウンター](/ja/)で確認しましょう。日本語は英語より約79%多いトークンを使うので、上の金額より高くなります。
 
-グラフと表は料金とスコアが変わるたびに毎日更新されます。最新の順位は[AIランキングのページ](/ja/compare/performance)でどうぞ。
+グラフと表は料金とスコアが変わるたびに毎日更新されます。最新の順位は[AIランキングのページ](/ja/compare/performance)でどうぞ。モデルごとの料金一覧は[LLM API料金比較](/ja/blog/llm-api-ryoukin-hikaku)にまとめています。
 
 *性能スコア：Epoch AI の Epoch Capabilities Index（CC BY 4.0）を使用。料金：API定価、キャッシュ・バッチ割引なし、2026年10月4日時点。*
+
+## 出典
+
+- [Epoch AI: Epoch Capabilities Index](https://epoch.ai/eci)
+- [Claude API 料金](https://platform.claude.com/docs/en/about-claude/pricing)
+- [OpenAI API 料金](https://developers.openai.com/api/docs/pricing)
+- [Gemini API 料金](https://ai.google.dev/gemini-api/docs/pricing)
+- [DeepSeek API のモデルと料金](https://api-docs.deepseek.com/quick_start/pricing/)
 <!-- autoimg -->

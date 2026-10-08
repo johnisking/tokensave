@@ -20,7 +20,7 @@ P = dict(
     cheaperApi='L’API costa {d} in meno al mese',
     cheaperPlan='{plan} costa {d} in meno al mese',
     breakEven='Oltre circa {n} messaggi al giorno, l’API costa più di {plan}.',
-    langNote='L’{lang} richiede circa {x}× i token dell’inglese, quindi tutti i prezzi API qui sono {x}× più alti.',
+    langNote='L’{lang} richiede circa il {p}% di token in più rispetto all’inglese, quindi tutti i prezzi API qui sono più alti del {p}%.',
     note='Il costo dell’API conta l’intera conversazione: ogni nuovo messaggio reinvia quelli precedenti, quindi le chat lunghe costano di più. Il caching dei prompt può ridurre questo costo. Gli abbonamenti includono app, strumenti per immagini e memoria, ma hanno limiti di utilizzo.',
     f1='I prezzi dei piani sono i prezzi mensili ufficiali negli USA (US), verificati il 1° ottobre 2026. Tasse e prezzi locali variano.',
     f2='I prezzi API provengono da listini pubblici e si aggiornano ogni giorno. Controlla sempre la pagina del fornitore prima di decidere.',
@@ -29,7 +29,7 @@ P = dict(
     q2='Perché le conversazioni lunghe costano di più con l’API?',
     a2='I modelli di chat sono senza stato. Ogni nuovo messaggio reinvia l’intera conversazione come input, quindi il 10° messaggio di una chat costa molto più del primo. Gli abbonamenti nascondono questo costo dietro i limiti di utilizzo.',
     q3='La mia lingua cambia il costo?',
-    a3='Sì. Lo stesso testo in coreano, hindi o greco richiede più token che in inglese, quindi il costo dell’API sale dello stesso fattore. Gli abbonamenti costano uguale, ma raggiungi prima i limiti di utilizzo.',
+    a3='Sì. Lo stesso testo in coreano, hindi o greco richiede più token che in inglese, quindi il costo dell’API sale della stessa percentuale. Gli abbonamenti costano uguale, ma raggiungi prima i limiti di utilizzo.',
     more='Come abbiamo misurato',
 )
 NAV = 'Piano vs API'

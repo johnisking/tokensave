@@ -76,4 +76,11 @@ Więcej szczegółów i liczb znajdziesz w artykule [How to save tokens in Claud
 Jeśli regularnie trafiasz na limit tygodniowy, porównaj, ile to dodatkowe użycie kosztowałoby przez API, z ceną wyższego planu. Obliczenia zrobią za Ciebie poradnik [Claude Code cost per month](/blog/claude-code-cost-per-month) (po angielsku) oraz nasz [kalkulator kosztów agentów kodujących](/pl/agents). Plany różnych dostawców porównasz w [kalkulatorze planów](/pl/plans), a limity konkurencyjnego agenta OpenAI opisuję w tekście [Limity Codex](/pl/blog/limity-codex).
 
 *Limity często się zmieniają. Aktualne zasady znajdziesz na stronie pomocy Anthropic [Claude Code w planie Pro lub Max](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan) oraz na [stronie z cennikiem](https://claude.com/pricing).*
+
+## Źródła
+
+- [Korzystanie z Claude Code w planie Pro lub Max (Centrum pomocy Claude)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Plany i ceny Claude (Anthropic)](https://claude.com/pricing)
+- [Dodatkowe użycie w płatnych planach Claude (Centrum pomocy Claude)](https://support.claude.com/en/articles/12429409-extra-usage-for-max-20x-plans)
+- [Skuteczne zarządzanie kosztami (dokumentacja Claude Code)](https://code.claude.com/docs/en/costs)
 <!-- autoimg -->

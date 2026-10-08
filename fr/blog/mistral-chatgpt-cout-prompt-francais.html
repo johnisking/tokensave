@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -148,7 +148,7 @@
 <li><strong>Le français coûte entre 12 % et 30 % de tokens en plus</strong> que l'anglais. Plus le texte est court et « technique », plus l'écart est grand.</li>
 <li><strong>Mistral n'est pas plus économe en français que ChatGPT.</strong> Sur ces deux textes, Tekken produit même un peu plus de tokens que o200k. Être une entreprise française ne change rien à la façon dont le tokeniseur découpe la langue.</li>
 </ol>
-<p>Pour comparer : sur le même prompt court, l'allemand coûte 1,26× l'anglais chez OpenAI, l'italien 1,38×, le polonais 1,88×. Le français fait partie des langues les moins pénalisées, mais il reste pénalisé.</p>
+<p>Pour comparer : sur le même prompt court, l'allemand coûte 26 % de plus que l'anglais chez OpenAI, l'italien 38 %, le polonais 88 %. Le français fait partie des langues les moins pénalisées, mais il reste pénalisé.</p>
 <h2>Pourquoi le français coûte plus</h2>
 <p><img loading="lazy" width="1200" height="732" alt="Pourquoi le français coûte plus: « facturation » → fact | uration (2 tokens, chez OpenAI comme chez Mistral); « vérifie » → vér | ifie (2 token" src="/mistral-chatgpt-cout-prompt-francais-pourquoi-le-francais-coute-plus-fr.jpg" /></p>
 <p>Les tokeniseurs sont entraînés surtout sur de l'anglais. Les mots anglais courants deviennent un seul token, alors que beaucoup de mots français sont coupés en morceaux :</p>
@@ -164,7 +164,7 @@
 <ul>
 <li><strong>À l'API</strong>, vous payez à peu près 12 à 30 % de plus pour le même contenu.</li>
 <li><strong>Dans un abonnement</strong> (ChatGPT Plus, Claude Pro, Mistral Vibe Pro), les limites d'utilisation sont calculées en tokens : elles s'épuisent plus vite quand on écrit en français.</li>
-<li><strong>Si la réponse est aussi en français</strong>, le même surcoût s'applique aux tokens de sortie, qui coûtent en général 4 à 5 fois plus cher que ceux d'entrée.</li>
+<li><strong>Si la réponse est aussi en français</strong>, le même surcoût s'applique aux tokens de sortie, qui coûtent en général 300 à 400 % plus cher que ceux d'entrée.</li>
 </ul>
 <h2>L'astuce : écrire en anglais, recevoir en français</h2>
 <p>Le plus simple est d'écrire le prompt en anglais et d'ajouter à la fin : <strong>« Reply in French. »</strong> Le modèle comprend aussi bien, la réponse arrive en français, et le prompt coûte moins cher.</p>
@@ -182,6 +182,14 @@
 <p>Chaque texte est différent. <a href="/fr/">TokenSave</a> compte les tokens et le coût de votre prompt pour GPT, Claude et Gemini, puis le traduit en anglais en un clic, directement dans votre navigateur, en ajoutant « Reply in French ». Le code n'est pas touché, seuls les commentaires sont traduits. Gratuit, sans inscription, rien n'est envoyé.</p>
 <p>Le classement complet des 41 langues est ici : <a href="/fr/blog/tokens-francais-gpt">Combien de tokens coûte le français ?</a></p>
 <p><em>Mesures effectuées en octobre 2026 avec o200k_base (OpenAI) et Tekken 2024-09 (Mistral). Les modèles Mistral les plus récents peuvent utiliser une version mise à jour de Tekken.</em></p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken (OpenAI) : le tokeniseur o200k_base</a></li>
+<li><a href="https://mistral.ai/news/mistral-nemo/" target="_blank" rel="noopener">Mistral NeMo et le tokeniseur Tekken (Mistral AI)</a></li>
+<li><a href="https://mistral.ai/en/pricing" target="_blank" rel="noopener">Tarifs Mistral Vibe et API</a></li>
+<li><a href="https://mistral.ai/news/vibe-agent/" target="_blank" rel="noopener">Le Chat devient Vibe, 28 mai 2026 (Mistral AI)</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">Tarifs de l'API OpenAI</a></li>
+</ul>
 <!-- autoimg -->
 
         <h2>Autres articles</h2>
@@ -208,6 +216,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

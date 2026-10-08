@@ -1,5 +1,5 @@
-<p><img fetchpriority="high" width="1200" height="630" alt="Româna folosește 1,53× tokenii englezei în GPT" src="/tokeni-romana-gpt-ro.jpg" /></p>
-<p>Am tradus același prompt de suport pentru clienți în 41 de limbi și am numărat tokenii cu o200k_base, tokenizatorul actual al OpenAI (GPT-4o și ulterioare). În engleză sunt 34 de tokeni; în română <strong>52, adică 1,53× engleza</strong>, locul 23 din 41 (1 = cel mai ieftin).</p>
+<p><img fetchpriority="high" width="1200" height="630" alt="Româna: cu 53% mai mulți tokeni decât engleza în GPT" src="/tokeni-romana-gpt-ro.jpg" /></p>
+<p>Am tradus același prompt de suport pentru clienți în 41 de limbi și am numărat tokenii cu o200k_base, tokenizatorul actual al OpenAI (GPT-4o și ulterioare). În engleză sunt 34 de tokeni; în română <strong>52, adică cu 53% mai mulți decât în engleză</strong>, locul 23 din 41 (1 = cel mai ieftin).</p>
 <p>Versiunea în română:</p>
 <blockquote>
 <p>Rezumați e-mailul clientului de mai jos în trei puncte și propuneți un răspuns politicos. Clientul spune că comanda a sosit cu două zile întârziere și că un articol lipsea din cutie.</p>
@@ -18,72 +18,72 @@
 <tr>
 <td>English</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">1,00×</td>
+<td style="text-align: right;">±0%</td>
 <td style="text-align: right;">–</td>
 </tr>
 <tr>
 <td>简体中文</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">1,03×</td>
+<td style="text-align: right;">+3%</td>
 <td style="text-align: right;">3%</td>
 </tr>
 <tr>
 <td>Español</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;">1,18×</td>
+<td style="text-align: right;">+18%</td>
 <td style="text-align: right;">15%</td>
 </tr>
 <tr>
 <td>Deutsch</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">1,26×</td>
+<td style="text-align: right;">+26%</td>
 <td style="text-align: right;">21%</td>
 </tr>
 <tr>
 <td>한국어</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">+44%</td>
 <td style="text-align: right;">31%</td>
 </tr>
 <tr>
 <td>हिन्दी</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;">1,50×</td>
+<td style="text-align: right;">+50%</td>
 <td style="text-align: right;">33%</td>
 </tr>
 <tr>
 <td><strong>Română</strong></td>
 <td style="text-align: right;"><strong>52</strong></td>
-<td style="text-align: right;"><strong>1,53×</strong></td>
+<td style="text-align: right;"><strong>+53%</strong></td>
 <td style="text-align: right;"><strong>35%</strong></td>
 </tr>
 <tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">1,79×</td>
+<td style="text-align: right;">+79%</td>
 <td style="text-align: right;">44%</td>
 </tr>
 <tr>
 <td>Čeština</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">2,00×</td>
+<td style="text-align: right;">+100%</td>
 <td style="text-align: right;">50%</td>
 </tr>
 <tr>
 <td>Ελληνικά</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">+106%</td>
 <td style="text-align: right;">51%</td>
 </tr>
 <tr>
 <td>ਪੰਜਾਬੀ</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">+144%</td>
 <td style="text-align: right;">59%</td>
 </tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1430" alt="Rezultate" src="/blog-language-tax-chart-v4.png" /></p>
+<p><img loading="lazy" width="960" height="1441" alt="Grafic: tokeni în plus pentru fiecare limbă față de engleză în GPT (41 de limbi)" src="/blog-language-tax-chart-v5.png" /></p>
 <h2>De ce</h2>
 <p><img loading="lazy" width="1200" height="593" alt="De ce: întârziere → înt | âr | zi | ere · 4; propuneți → prop | une | ți · 3; Rezumați → Rez | uma | ți · 3" src="/tokeni-romana-gpt-ro-2.jpg" /></p>
 <p>Tokenizatorul învață mai ales din texte în engleză: cuvinte ca " polite" sau " customer" sunt un singur token, pe când multe cuvinte românești, cu diacritice și terminații, se sparg în bucăți:</p>
@@ -93,9 +93,9 @@
 <li>Rezumați → <code>Rez | uma | ți</code> · 3</li>
 </ul>
 <h2>Treci la engleză cu un singur buton</h2>
-<p>Cea mai mare economie vine din trimiterea promptului în engleză: cu circa 35% mai puțini tokeni pentru limba română. Modelele actuale înțeleg perfect instrucțiunile în engleză și răspund în română dacă le ceri. În contorul de tokeni TokenSave, lipește promptul și apasă <strong>💸 Economisește tokeni</strong>: elimină spațiile inutile, traduce în engleză, taie umplutura și adaugă „Reply in Romanian.”, ca răspunsul să rămână în limba ta. Folosește traducătorul integrat în Chrome 138+ / Edge 148+ pe desktop; traducerea rulează pe dispozitivul tău, iar textul nu este încărcat nicăieri. Apasă <strong>↩ Original</strong> ca să revii la original.</p>
+<p>Cea mai mare economie vine din trimiterea promptului în engleză: cu circa 35% mai puțini tokeni pentru limba română. Modelele actuale înțeleg perfect instrucțiunile în engleză și răspund în română dacă le ceri. În <a href="/ro/">contorul de tokeni TokenSave</a>, lipește promptul și apasă <strong>💸 Economisește tokeni</strong>: elimină spațiile inutile, traduce în engleză, taie umplutura și adaugă „Reply in Romanian.”, ca răspunsul să rămână în limba ta. Folosește traducătorul integrat în Chrome 138+ / Edge 148+ pe desktop; traducerea rulează pe dispozitivul tău, iar textul nu este încărcat nicăieri. Apasă <strong>↩ Original</strong> ca să revii la original.</p>
 <h2>În bani</h2>
-<p>Cu un model de 2 $ per milion de tokeni de intrare, trimiterea acestui prompt de un milion de ori costă 68 $ în engleză și 104 $ în română. Dacă și răspunsul e în română, același multiplicator se aplică tokenilor de ieșire, care costă de obicei de 4–5 ori mai mult.</p>
+<p>Cu un model de 2 $ per milion de tokeni de intrare, trimiterea acestui prompt de un milion de ori costă 68 $ în engleză și 104 $ în română. Dacă și răspunsul e în română, același multiplicator se aplică tokenilor de ieșire, care costă de obicei cu 300–400% mai mult.</p>
 <h2>Cum economisești</h2>
 <p><img loading="lazy" width="1200" height="658" alt="Cum economisești: Scrie promptul de sistem și instrucțiunile fixe în engleză; lasă în română doar ce scrie utilizatorul.; Cere p" src="/tokeni-romana-gpt-cum-economisesti-ro.jpg" /></p>
 <ul>
@@ -110,4 +110,10 @@
 <li>Traducerea pornește de la o traducere automată verificată.</li>
 </ul>
 <p>Rezultatele complete pentru 41 de limbi (în engleză): <a href="/blog/token-cost-by-language">comparație între 41 de limbi</a></p>
+<p>Toate cele 41 de limbi, una lângă alta, sunt în <a href="/languages">tabelul limbilor</a>.</p>
+<h2>Surse</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: tokenizatorul OpenAI (o200k_base) pe GitHub</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">Prețurile API OpenAI</a></li>
+</ul>
 <!-- autoimg -->

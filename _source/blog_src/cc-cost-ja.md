@@ -1,6 +1,6 @@
 ![Claude Code の料金は月いくら？Pro・Max・API を比較](/claude-code-ryoukin-ja.jpg)
 
-Claude Code（クロードコード）は、Claude の Pro・Max プランに含まれているほか、使った分だけ払う API でも使えます。では、実際に月いくらかかるのでしょうか。使う量しだいで、同じ作業でも払い方によって10倍以上の差が出ます。実際の数字でまとめました。
+Claude Code（クロードコード）は、Claude の Pro・Max プランに含まれているほか、使った分だけ払う API でも使えます。では、実際に月いくらかかるのでしょうか。使う量しだいで、同じ作業でも払い方によって900%以上の差が出ます。実際の数字でまとめました。
 
 ## 払い方は2つ
 
@@ -26,7 +26,7 @@ Claude Code（クロードコード）は、Claude の Pro・Max プランに含
 | Claude Sonnet 5.5 | $2 | $10 |
 | Claude Opus 5.5 | $4 | $20 |
 
-プロンプトキャッシュから読み込む入力は、通常の入力価格のおよそ10分の1です。プランの上限はありませんが、使ったトークンはすべて課金されます。
+プロンプトキャッシュから読み込む入力は、通常の入力価格よりおよそ90%安くなります。プランの上限はありませんが、使ったトークンはすべて課金されます。
 
 ## Claude Code がトークンを多く使う理由
 
@@ -74,7 +74,7 @@ Claude Sonnet 5.5 での簡単な目安です。
 - 入力100万トークン = $2（キャッシュからの読み込みなら約$0.20）
 - 出力100万トークン = $10
 
-Claude Code が送る内容の大半はキャッシュされたコンテキストなので、エージェント作業の実質単価は Sonnet で処理トークン100万あたり$1を大きく下回ることが多いです。Opus はその約2倍と考えてください。
+Claude Code が送る内容の大半はキャッシュされたコンテキストなので、エージェント作業の実質単価は Sonnet で処理トークン100万あたり$1を大きく下回ることが多いです。Opus はそれより約100%高いと考えてください。
 
 ## どう選ぶか
 
@@ -83,11 +83,18 @@ Claude Code が送る内容の大半はキャッシュされたコンテキス�
 1. 週に数回使う程度なら、**まず Pro から**。
 2. **上限にどれくらい当たるか**を見ましょう。ほぼ毎週当たるなら、追加分を API で払うより Max 5× のほうが安い可能性が高いです。
 3. 自動化、CI パイプライン、使う量が不規則な場合は **API** が向いています。
-4. **タスクごとにモデルを選ぶ**。多くのコーディングは Sonnet で十分で、Opus はトークン単価が2倍です。
+4. **タスクごとにモデルを選ぶ**。多くのコーディングは Sonnet で十分で、Opus はトークン単価が100%高いです。
 
 ## 自分の1か月を計算する
 
 [コーディングエージェント費用計算機](/ja/agents)で、タスクの大きさ、1日のタスク数、稼働日数を入れると、Claude・GPT・Gemini モデルの API 費用を Claude・ChatGPT の各プランと並べて比較できます。どちらの払い方でもトークンを減らしたいなら、[Claude Code のトークン節約術](/ja/blog/claude-code-token-setsuyaku)をどうぞ。
 
 *料金と上限はよく変わります。決める前に [claude.com/pricing](https://claude.com/pricing) を確認してください。*
+
+## 出典
+
+- [Claude の料金プラン（Anthropic）](https://claude.com/pricing)
+- [Claude API の料金（Anthropic ドキュメント）](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Pro・Max プランで Claude Code を使う（Claude ヘルプセンター）](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [コストを効果的に管理する（Claude Code ドキュメント）](https://code.claude.com/docs/en/costs)
 <!-- autoimg -->

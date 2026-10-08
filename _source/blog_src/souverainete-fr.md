@@ -23,7 +23,7 @@ J'ai écrit une consigne typique d'un assistant de service public, en français 
 
 Le modèle français ne découpe pas le français plus efficacement que le modèle américain : sur ces textes, il produit même un peu plus de tokens. Choisir un fournisseur européen est une décision sur l'hébergement et le droit applicable ; ça ne supprime pas le surcoût linguistique.
 
-Ce surcoût reste modéré pour le français (de l'ordre de 10 à 30 % selon le texte), bien moins que pour le polonais (50 à 88 % de plus) ou le grec (environ deux fois l'anglais). Mais à l'échelle d'une administration ou d'une entreprise qui envoie des millions de requêtes, il se voit sur la facture.
+Ce surcoût reste modéré pour le français (de l'ordre de 10 à 30 % selon le texte), bien moins que pour le polonais (50 à 88 % de plus) ou le grec (environ 100 % de plus que l'anglais). Mais à l'échelle d'une administration ou d'une entreprise qui envoie des millions de requêtes, il se voit sur la facture.
 
 ## 2. Les données : où part votre prompt ?
 
@@ -68,4 +68,13 @@ Ce résumé n'est pas un avis juridique : pour un projet précis, vérifiez aupr
 À lire aussi : [Mistral ou ChatGPT : combien coûte vraiment un prompt en français ?](/fr/blog/mistral-chatgpt-cout-prompt-francais) et [Pourquoi utiliser un compteur de tokens ?](/fr/blog/compteur-de-tokens-pourquoi)
 
 *Mesures effectuées en octobre 2026 avec o200k_base (OpenAI) et Tekken 2024-09 (Mistral). Les modèles Mistral les plus récents peuvent utiliser une version mise à jour de Tekken.*
+
+## Sources
+
+- [tiktoken (OpenAI) : le tokeniseur o200k_base](https://github.com/openai/tiktoken)
+- [Mistral NeMo, tokeniseur Tekken et poids sous licence Apache 2.0 (Mistral AI)](https://mistral.ai/news/mistral-nemo/)
+- [Livre blanc du ministère américain de la Justice sur le CLOUD Act (2019)](https://www.justice.gov/d9/press-releases/attachments/2019/04/10/department_of_justice_cloud_act_white_paper_2019_04_10_final_0.pdf)
+- [AI Act : calendrier d'application (Commission européenne)](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
+- [Calendrier de l'AI Act et omnibus numérique (Conseil de l'UE)](https://www.consilium.europa.eu/en/policies/artificial-intelligence-act/timeline-artificial-intelligence/)
+- [Omnibus numérique sur l'IA : vote du Parlement européen](https://www.europarl.europa.eu/legislative-train/package-digital-package/file-digital-omnibus-on-ai)
 <!-- autoimg -->

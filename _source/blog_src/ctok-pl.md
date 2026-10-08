@@ -30,9 +30,9 @@ Dlatego sama liczba tokenów mówi mniej, niż mogłoby się wydawać. Dwie sesj
 
 ## Co najszybciej zużywa limit Claude?
 
-![Co najszybciej zużywa limit Claude?: Opus zamiast Sonnet. Opus 5.5 kosztuje w API dwa razy więcej za token niż Sonnet 5.5 i szybciej zużywa też lim](/limity-claude-pro-max-co-najszybciej-zuzywa-limit-claude-pl.jpg)
+![Co najszybciej zużywa limit Claude?: Opus zamiast Sonnet. Opus 5.5 kosztuje w API o 100% więcej za token niż Sonnet 5.5 i szybciej zużywa też lim](/limity-claude-pro-max-co-najszybciej-zuzywa-limit-claude-pl.jpg)
 
-- **Opus zamiast Sonnet.** Opus 5.5 kosztuje w API dwa razy więcej za token niż Sonnet 5.5 i szybciej zużywa też limit planu.
+- **Opus zamiast Sonnet.** Opus 5.5 kosztuje w API o 100% więcej za token niż Sonnet 5.5 i szybciej zużywa też limit planu.
 - **Długie sesje.** Każdy krok wysyła ponownie cały kontekst. Sesja, która urosła do 150 000 tokenów, kosztuje na krok dużo więcej niż świeża. Używaj **/clear** między niepowiązanymi zadaniami i **/compact** przy długich.
 - **Duży CLAUDE.md albo wiele narzędzi.** Są wysyłane z każdym krokiem.
 - **Pisanie w innym języku.** Koreański zużywa około 44% więcej tokenów niż angielski na tę samą treść, japoński około 79% więcej. Polski tekst zużywa około 88% więcej tokenów niż angielski ([pomiar](/pl/blog/polski-tokeny-gpt)), a Claude liczy polskie teksty na jeszcze więcej tokenów niż modele OpenAI. Jak to ograniczyć: [jak skrócić prompt po polsku](/pl/blog/jak-skrocic-prompt-po-polsku).
@@ -52,4 +52,10 @@ Prawie na pewno tak, jeśli intensywnie korzystasz z Claude Code: tydzień w Max
 Powiązane: [Claude Max vs Pro](/blog/claude-max-vs-pro) (po angielsku) · [limity Claude Code](/pl/blog/limity-claude-code) · [limity Codex](/pl/blog/limity-codex) · [jak oszczędzać tokeny w Claude Code](/blog/claude-code-save-tokens) (po angielsku) · [licznik tokenów Claude](/claude-token-counter) · [licznik tokenów po polsku](/pl/)
 
 *Anthropic często zmienia limity i nie publikuje limitów tokenów. Wpisz **/status** w Claude Code, żeby sprawdzić, ile Ci zostało. Polskie ceny wg [SSD Nodes](https://www.ssdnodes.com/learn/lang/pl/claude-plans-in-poland-what-you-pay) (kurs NBP z 16 września 2026), podatek tokenowy wg [Promptowy](https://promptowy.com/podatek-tokenowy-2026-polski-tekst-osiem-modeli/).*
+
+## Źródła
+
+- [Korzystanie z Claude Code w planie Pro lub Max (Centrum pomocy Claude)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Plany i ceny Claude (Anthropic)](https://claude.com/pricing)
+- [Cennik API Claude (dokumentacja Anthropic)](https://platform.claude.com/docs/en/about-claude/pricing)
 <!-- autoimg -->

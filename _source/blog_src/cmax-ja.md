@@ -1,6 +1,6 @@
 ![Claude Max vs Pro 比較：$100・$200プランにする価値はある？](/claude-max-vs-pro-ja.jpg)
 
-Claude Pro は月$20、Claude Max は$100か$200です。どちらも Claude アプリと Claude Code が使えるので、問題はシンプルです。増える使用量は、5倍や10倍の料金に見合うのか。多くの人にとっては見合いません。ただし Claude Code をヘビーに使う人にとっては、Max 20× が Anthropic のプランの中でいちばんお得です。
+Claude Pro は月$20、Claude Max は$100か$200です。どちらも Claude アプリと Claude Code が使えるので、問題はシンプルです。増える使用量は、400%や900%高い料金に見合うのか。多くの人にとっては見合いません。ただし Claude Code をヘビーに使う人にとっては、Max 20× が Anthropic のプランの中でいちばんお得です。
 
 ## プラン一覧
 
@@ -20,15 +20,15 @@ Claude Pro は月$20、Claude Max は$100か$200です。どちらも Claude ア
 
 ## ポイント：Max 5× は単価が安くならず、Max 20× は安くなる
 
-Max 5× は、5倍の料金で Pro の5倍の使用量です。条件は同じで、量が増えるだけです。
+Max 5× は、400%高い料金で Pro の5倍の使用量です。条件は同じで、量が増えるだけです。
 
-Max 20× は、10倍の料金で Pro の20倍の使用量です。**使用量あたりの単価は Pro の半分です。** Pro 10個分を超える使用量が必要なら、迷わずこちらです。Max 5× の枠では足りないことが多いなら、API クレジットを追加するよりお得です。
+Max 20× は、900%高い料金で Pro の20倍の使用量です。**使用量あたりの単価は Pro の半分です。** Pro 10個分を超える使用量が必要なら、迷わずこちらです。Max 5× の枠では足りないことが多いなら、API クレジットを追加するよりお得です。
 
 ## 上限の仕組み
 
 どのプランにも、2つの上限が同時にかかります。
 
-- **5時間のセッション上限**。最初のメッセージから始まるローリング方式の枠です。Anthropic は2026年5月6日に Claude Code の5時間上限を2倍にしました。
+- **5時間のセッション上限**。最初のメッセージから始まるローリング方式の枠です。Anthropic は2026年5月6日に Claude Code の5時間上限を100%引き上げました。
 - **週の上限**。すべての使用量の合計にかかります。2026年9月14日、Anthropic は Claude Code の標準の週上限を恒久的に25%引き上げ、一時的な50%増量を置き換えました。
 
 Max では、この両方がプランの倍率分だけ増えます。今の状況は Claude Code で **/status** を実行すると確認できます。詳しくは [Claude Code の使用量上限](/ja/blog/claude-code-shiyouryou-jougen)をご覧ください。
@@ -77,4 +77,11 @@ $200のプランで比べると、Claude Max 20× は基本プランの20倍、C
 Claude Code の使い方に合わせて Pro・Max・API を比べるなら[コーディングエージェント費用計算機](/ja/agents)を、チャット中心なら[サブスク vs API 計算機](/ja/plans)を使ってください。
 
 *料金と上限は変わります。アップグレードする前に [claude.com/pricing](https://claude.com/pricing)（英語）で確認してください。*
+
+## 出典
+
+- [Claude の料金プラン（Anthropic）](https://claude.com/pricing)
+- [Pro・Max プランで Claude Code を使う（Claude ヘルプセンター）](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [有料 Claude プランの追加使用量（Claude ヘルプセンター）](https://support.claude.com/en/articles/12429409-extra-usage-for-max-20x-plans)
+- [Claude API の料金（Anthropic ドキュメント）](https://platform.claude.com/docs/en/about-claude/pricing)
 <!-- autoimg -->

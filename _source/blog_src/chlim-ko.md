@@ -63,4 +63,10 @@ OpenAI 고객센터는 **Settings → Usage**를 안내합니다. 여기서 Work
 주로 대화만 한다면 8월 변경 덕분에 $20 요금제의 가성비가 예전보다 훨씬 좋아졌습니다. Codex나 GPT-6 Astra를 많이 쓴다면 [구독 vs API 계산기](/ko/plans)와 [코딩 에이전트 계산기](/ko/agents)로 요금제 가격과 같은 작업을 API로 했을 때의 비용을 비교해 보세요. 한국어로 쓰는 지시문을 영어로 바꾸면 토큰을 약 31% 아낄 수 있는데, [토큰 계산기](/ko/)의 💸 토큰 절약 버튼을 누르면 내 기기 안에서 바로 번역해 줍니다(PC용 Chrome 138 이상 또는 Edge 148 이상).
 
 *한도는 자주 바뀝니다. 최신 수치는 OpenAI의 [GPT-6 Astra 사용량 도움말](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)에서 확인하세요.*
+
+## 출처
+
+- [Work·Codex에서 GPT-6 Astra 사용량 관리 (OpenAI 도움말 센터)](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)
+- [ChatGPT Pro 요금제 안내 (OpenAI 도움말 센터)](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [GPT-6 Astra 모델·API 가격 (OpenAI 문서)](https://developers.openai.com/api/docs/models/gpt-6-astra)
 <!-- autoimg -->

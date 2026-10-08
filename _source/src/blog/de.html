@@ -1,5 +1,5 @@
-<p><img fetchpriority="high" width="1200" height="630" alt="Deutsch braucht in GPT 1,26× so viele Tokens wie Englisch" src="/tokens-deutsch-gpt-de.jpg" /></p>
-<p>Ich habe denselben Kundenservice-Prompt in 41 Sprachen übersetzt und die Tokens mit o200k_base gezählt, dem aktuellen Tokenizer von OpenAI (GPT-4o und neuer). Englisch braucht 34 Tokens, Deutsch <strong>43 – also 1,26× so viele</strong>, Platz 7 von 41 (1 = am günstigsten).</p>
+<p><img fetchpriority="high" width="1200" height="630" alt="Deutsch braucht in GPT 26 % mehr Tokens als Englisch" src="/tokens-deutsch-gpt-de.jpg" /></p>
+<p>Ich habe denselben Kundenservice-Prompt in 41 Sprachen übersetzt und die Tokens mit o200k_base gezählt, dem aktuellen Tokenizer von OpenAI (GPT-4o und neuer). Englisch braucht 34 Tokens, Deutsch <strong>43 – also 26% mehr</strong>, Platz 7 von 41 (1 = am günstigsten).</p>
 <p>Die deutsche Fassung:</p>
 <blockquote>
 <p>Fasse die folgende Kunden-E-Mail in drei Stichpunkten zusammen und schlage eine höfliche Antwort vor. Der Kunde sagt, dass die Bestellung zwei Tage zu spät ankam und ein Artikel im Paket fehlte.</p>
@@ -18,66 +18,66 @@
 <tr>
 <td>English</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">1,00×</td>
+<td style="text-align: right;">±0%</td>
 <td style="text-align: right;">–</td>
 </tr>
 <tr>
 <td>简体中文</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">1,03×</td>
+<td style="text-align: right;">+3%</td>
 <td style="text-align: right;">3%</td>
 </tr>
 <tr>
 <td>Español</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;">1,18×</td>
+<td style="text-align: right;">+18%</td>
 <td style="text-align: right;">15%</td>
 </tr>
 <tr>
 <td><strong>Deutsch</strong></td>
 <td style="text-align: right;"><strong>43</strong></td>
-<td style="text-align: right;"><strong>1,26×</strong></td>
+<td style="text-align: right;"><strong>+26%</strong></td>
 <td style="text-align: right;"><strong>21%</strong></td>
 </tr>
 <tr>
 <td>한국어</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">+44%</td>
 <td style="text-align: right;">31%</td>
 </tr>
 <tr>
 <td>हिन्दी</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;">1,50×</td>
+<td style="text-align: right;">+50%</td>
 <td style="text-align: right;">33%</td>
 </tr>
 <tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">1,79×</td>
+<td style="text-align: right;">+79%</td>
 <td style="text-align: right;">44%</td>
 </tr>
 <tr>
 <td>Čeština</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">2,00×</td>
+<td style="text-align: right;">+100%</td>
 <td style="text-align: right;">50%</td>
 </tr>
 <tr>
 <td>Ελληνικά</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">+106%</td>
 <td style="text-align: right;">51%</td>
 </tr>
 <tr>
 <td>ਪੰਜਾਬੀ</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">+144%</td>
 <td style="text-align: right;">59%</td>
 </tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1430" alt="Ergebnisse" src="/blog-language-tax-chart-v4.png" /></p>
+<p><img loading="lazy" width="960" height="1441" alt="Diagramm: zusätzliche Tokens pro Sprache im Vergleich zu Englisch in GPT" src="/blog-language-tax-chart-v5.png" /></p>
 <h2>Warum</h2>
 <p><img loading="lazy" width="1200" height="593" alt="Warum: Kunden-E-Mail → Kunden | -E | -Mail · 3; Stichpunkten → Stich | punk | ten · 3; höfliche → höf | liche · 2" src="/tokens-deutsch-gpt-de-2.jpg" /></p>
 <p>Der Tokenizer lernt vor allem aus englischem Text: Wörter wie „ polite“ oder „ customer“ sind ein einziger Token, deutsche Wörter – besonders Komposita – werden dagegen zerlegt:</p>
@@ -89,7 +89,7 @@
 <h2>Mit einem Klick auf Englisch umstellen</h2>
 <p>Am meisten sparst du, wenn du deinen Prompt auf Englisch sendest: rund 21 % weniger Tokens als auf Deutsch. Aktuelle Modelle verstehen englische Anweisungen bestens und antworten auf Deutsch, wenn du darum bittest. Füge deinen Prompt im TokenSave-Tokenzähler ein und drück <strong>💸 Tokens sparen</strong>: Er bereinigt Leerzeichen, übersetzt ins Englische, streicht Füllwörter und fügt "Reply in German." hinzu, damit die Antwort in deiner Sprache bleibt. Genutzt wird der integrierte Übersetzer von Desktop-Chrome 138+ / Edge 148+; die Übersetzung läuft auf deinem eigenen Gerät, und dein Text wird nie hochgeladen. Mit <strong>↩ Original</strong> bekommst du das Original zurück.</p>
 <h2>In Geld</h2>
-<p>Bei einem Modell mit 2 $ pro 1 Mio. Input-Tokens kostet es 68 $ auf Englisch und 86 $ auf Deutsch, diesen Prompt eine Million Mal zu senden. Antwortet das Modell auch auf Deutsch, gilt derselbe Faktor für die Output-Tokens, die meist 4–5× teurer sind.</p>
+<p>Bei einem Modell mit 2 $ pro 1 Mio. Input-Tokens kostet es 68 $ auf Englisch und 86 $ auf Deutsch, diesen Prompt eine Million Mal zu senden. Antwortet das Modell auch auf Deutsch, gilt derselbe Unterschied für die Output-Tokens, die meist 300–400% teurer sind.</p>
 <h2>So sparst du</h2>
 <p><img loading="lazy" width="1200" height="658" alt="So sparst du: System-Prompt und feste Anweisungen auf Englisch schreiben; nur die Eingaben der Nutzer bleiben auf Deutsch.; " src="/tokens-deutsch-gpt-so-sparst-du-de.jpg" /></p>
 <ul>
@@ -103,5 +103,11 @@
 <li>Claude und Gemini haben andere Tokenizer – die Zahlen gelten nur für OpenAI-Modelle.</li>
 <li>Die Übersetzung basiert auf einer geprüften maschinellen Übersetzung.</li>
 </ul>
+<p>Probier es mit deinem eigenen Text im <a href="/de/">Token-Rechner</a> aus; alle Sprachen im Vergleich stehen in der <a href="/languages">Sprachtabelle</a>.</p>
 <p>Alle Ergebnisse für 41 Sprachen (auf Englisch): <a href="/blog/token-cost-by-language">Vergleich von 41 Sprachen</a></p>
+<h2>Quellen</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: OpenAI-Tokenizer (o200k_base) auf GitHub</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI-API-Preise</a></li>
+</ul>
 <!-- autoimg -->

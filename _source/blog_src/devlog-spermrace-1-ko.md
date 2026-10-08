@@ -93,3 +93,8 @@
 여기까지만 보면 "AI로 3일 만에 게임 뚝딱"처럼 보입니다. 하지만 진짜 고생은 그다음이었습니다. 만드는 건 3일이었는데, 버그를 잡는 데는 14일이 걸렸습니다.
 
 **다음 편: [만드는 건 3일, 버그 잡는 데 14일](/ko/blog/google-play-bigonggae-teseuteu-14il)** — AI에게 "버그 찾아 줘"라고 하면 왜 엉뚱한 곳을 고치는지, 결국 사람이 찾고 AI가 고치게 만든 방법을 정리합니다.
+
+## 출처
+
+- [Play Console 고객센터: Play Console 시작하기 (등록비 US$25)](https://support.google.com/googleplay/android-developer/answer/6112435)
+- [Claude 요금제 (Pro)](https://claude.com/pricing)

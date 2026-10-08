@@ -1,6 +1,6 @@
 <p><img fetchpriority="high" width="1200" height="630" alt="日本語プロンプトは英語で送るとトークン44%節約：41言語で実測" src="/nihongo-tokens-gpt-ja.jpg" /></p>
 <p>同じことを聞いても、日本語で書くと英語よりトークンが多くかかります。APIはトークン単位で課金されるので、そのぶん料金も高くなります。どのくらい差があるのかを実際に測り、その差をボタンひとつで縮める方法もまとめました。</p>
-<p>結論から言うと、<strong>日本語は英語の1.79倍</strong>。41言語中で高いほうから11番目です。そしてプロンプトを英語にして送ると、<strong>トークンが約44%減ります</strong>。</p>
+<p>結論から言うと、<strong>日本語は英語よりトークンが79%多い</strong>。41言語中で高いほうから11番目です。そしてプロンプトを英語にして送ると、<strong>トークンが約44%減ります</strong>。</p>
 <h2>測定方法</h2>
 <p>英語で34トークンになる、ごく普通のカスタマーサポート用プロンプトを使いました。</p>
 <blockquote>
@@ -25,7 +25,7 @@ enc = tiktoken.get_encoding(&quot;o200k_base&quot;)
 print(len(enc.encode(japanese)))  # 61
 </code></pre>
 <h2>結果</h2>
-<p><img loading="lazy" width="960" height="1430" alt="言語ごとの追加トークン（英語比）" src="/blog-language-tax-chart-v4.png" /></p>
+<p><img loading="lazy" width="960" height="1441" alt="言語ごとの追加トークン（英語比）" src="/blog-language-tax-chart-v5.png" /></p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -39,85 +39,85 @@ print(len(enc.encode(japanese)))  # 61
 <tr>
 <td>英語</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;"><strong>1.00倍</strong></td>
+<td style="text-align: right;"><strong>±0%</strong></td>
 <td style="text-align: right;">–</td>
 </tr>
 <tr>
 <td>中国語（簡体字）</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;"><strong>1.03倍</strong></td>
+<td style="text-align: right;"><strong>+3%</strong></td>
 <td style="text-align: right;">約3%</td>
 </tr>
 <tr>
 <td>スペイン語</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;"><strong>1.18倍</strong></td>
+<td style="text-align: right;"><strong>+18%</strong></td>
 <td style="text-align: right;">約15%</td>
 </tr>
 <tr>
 <td>ドイツ語</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;"><strong>1.26倍</strong></td>
+<td style="text-align: right;"><strong>+26%</strong></td>
 <td style="text-align: right;">約21%</td>
 </tr>
 <tr>
 <td>フランス語</td>
 <td style="text-align: right;">44</td>
-<td style="text-align: right;"><strong>1.29倍</strong></td>
+<td style="text-align: right;"><strong>+29%</strong></td>
 <td style="text-align: right;">約22%</td>
 </tr>
 <tr>
 <td>ロシア語</td>
 <td style="text-align: right;">45</td>
-<td style="text-align: right;"><strong>1.32倍</strong></td>
+<td style="text-align: right;"><strong>+32%</strong></td>
 <td style="text-align: right;">約24%</td>
 </tr>
 <tr>
 <td>中国語（繁体字）</td>
 <td style="text-align: right;">46</td>
-<td style="text-align: right;"><strong>1.35倍</strong></td>
+<td style="text-align: right;"><strong>+35%</strong></td>
 <td style="text-align: right;">約26%</td>
 </tr>
 <tr>
 <td>韓国語</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;"><strong>1.44倍</strong></td>
+<td style="text-align: right;"><strong>+44%</strong></td>
 <td style="text-align: right;">約31%</td>
 </tr>
 <tr>
 <td>ヒンディー語</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;"><strong>1.50倍</strong></td>
+<td style="text-align: right;"><strong>+50%</strong></td>
 <td style="text-align: right;">約33%</td>
 </tr>
 <tr>
 <td>タイ語</td>
 <td style="text-align: right;">59</td>
-<td style="text-align: right;"><strong>1.74倍</strong></td>
+<td style="text-align: right;"><strong>+74%</strong></td>
 <td style="text-align: right;">約43%</td>
 </tr>
 <tr>
 <td><strong>日本語</strong></td>
 <td style="text-align: right;"><strong>61</strong></td>
-<td style="text-align: right;"><strong>1.79倍</strong></td>
+<td style="text-align: right;"><strong>+79%</strong></td>
 <td style="text-align: right;"><strong>約44%</strong></td>
 </tr>
 <tr>
 <td>ポーランド語</td>
 <td style="text-align: right;">64</td>
-<td style="text-align: right;"><strong>1.88倍</strong></td>
+<td style="text-align: right;"><strong>+88%</strong></td>
 <td style="text-align: right;">約47%</td>
 </tr>
 <tr>
 <td>チェコ語</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;"><strong>2.00倍</strong></td>
+<td style="text-align: right;"><strong>+100%</strong></td>
 <td style="text-align: right;">約50%</td>
 </tr>
 <tr>
 <td>パンジャブ語</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;"><strong>2.44倍</strong></td>
+<td style="text-align: right;"><strong>+144%</strong></td>
 <td style="text-align: right;">約59%</td>
 </tr>
 </tbody>
@@ -125,7 +125,7 @@ print(len(enc.encode(japanese)))  # 61
 <p>（41言語すべての結果は<a href="/blog/token-cost-by-language">こちらの英語記事</a>にあります）</p>
 <h2>なぜ日本語は多くかかるのか</h2>
 <p>AIは文字や単語をそのまま読むわけではありません。まず<strong>トークナイザー</strong>が文章を決まった断片（トークン）に切り分けます。この断片の辞書は主に英語のテキストから作られているため、英語の単語はほとんどが1トークンですが、日本語は語や文字が複数の断片に分かれることが多くなります。</p>
-<p>面白いのは、同じ漢字を使う中国語（簡体字）は1.03倍で英語とほぼ同じだという点です。日本語の割高さは漢字そのものより、<strong>ひらがな・カタカナと漢字が混ざる書き方</strong>や、学習データに含まれる量の差によるものと考えられます。</p>
+<p>面白いのは、同じ漢字を使う中国語（簡体字）は英語より3%多いだけで、ほぼ同じだという点です。日本語の割高さは漢字そのものより、<strong>ひらがな・カタカナと漢字が混ざる書き方</strong>や、学習データに含まれる量の差によるものと考えられます。</p>
 <h2>コストにするとどのくらいか</h2>
 <p><img loading="lazy" width="1200" height="568" alt="コストにするとどのくらいか: 言語, 入力トークン, 入力コスト" src="/nihongo-tokens-gpt-ja-2.jpg" /></p>
 <p>入力が100万トークンあたり2ドルのモデルで、このプロンプトを100万回送った場合です。</p>
@@ -155,7 +155,7 @@ print(len(enc.encode(japanese)))  # 61
 </tr>
 </tbody>
 </table></div>
-<p>これは入力だけの話です。回答も日本語で返ってくれば、単価が入力より4〜5倍高い出力トークンにも同じ倍率がかかります。コーディングエージェントのように1タスクで数十万〜数百万トークンを使う場合、この差は利用上限と料金にそのまま響きます。</p>
+<p>これは入力だけの話です。回答も日本語で返ってくれば、単価が入力より300〜400%高い出力トークンにも同じ割合の差が生じます。コーディングエージェントのように1タスクで数十万〜数百万トークンを使う場合、この差は利用上限と料金にそのまま響きます。</p>
 <h2>ボタンひとつで英語に：TokenSaveの翻訳機能</h2>
 <p><img loading="lazy" width="1200" height="907" alt="ボタンひとつで英語に：TokenSaveの翻訳機能: プロンプトを貼り付けると、トークン数とモデルごとの料金がすぐに表示されます。; 減らせる余地があると 💸 トークン節約 ボタンが現れ、横に予想節約率（例：−44%）が出ます。; 押すと 空白を整理 → 英語に翻訳 → 冗" src="/nihongo-tokens-gpt-tokensave-ja.jpg" /></p>
 <p>いちばん効く節約は、<strong>プロンプトを英語にして送ること</strong>です。最近のモデルは英語の指示を正確に理解し、「日本語で答えて」と一行添えれば回答は日本語で返してくれます。</p>
@@ -187,9 +187,14 @@ print(len(enc.encode(japanese)))  # 61
 <p>指示や質問は英語にしても問題ありませんが、原文そのものが大事な文章はそのままにしてください。そのまま引用すべき契約書の文言、日本語の添削を頼む文章、詩やコピーのように表現そのものが中身の文章などです。</p>
 <h2>注意点</h2>
 <ul>
-<li>測ったのは1つのプロンプトだけです。文によって倍率は0.1〜0.2倍ほど変わるので、おおまかな目安として見てください。</li>
+<li>測ったのは1つのプロンプトだけです。文によって差は10〜20ポイントほど変わるので、おおまかな目安として見てください。</li>
 <li>翻訳は機械翻訳をベースに確認しました。日本語訳に違和感があれば教えてください。測り直します。</li>
 <li>ClaudeとGeminiはトークナイザーが異なるため、この数字がそのまま当てはまるのはOpenAIのモデルです。ほかのモデルはトークンカウンターで推定値として表示します。</li>
 </ul>
 <p>トークン数と日本語の文字数・原稿用紙の枚数をすぐ換算したいときは、<a href="/ja/token-moji-henkan">トークン⇔文字数 変換ツール</a>が便利です。</p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken：OpenAI のトークナイザー（o200k_base）GitHub</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API の料金</a></li>
+</ul>
 <!-- autoimg -->

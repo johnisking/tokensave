@@ -22,7 +22,7 @@ Policzyłem tokeny dwoma tokenizerami: **o200k_base** (GPT-4o i nowsze modele Op
 | Długi, OpenAI | 110 | 166 | **+51%** |
 | Długi, Mistral | 110 | 165 | **+50%** |
 
-Polski zużywa **od 1,5 do prawie 1,9 raza więcej tokenów** niż angielski. W rankingu 41 języków na tokenizerze GPT-4o polski (1,88×, razem z ukraińskim) jest w ścisłej czołówce najdroższych: z Europy drożej wypadają tylko czeski, słowacki i grecki. Dla porównania niemiecki to 1,26×, francuski 1,29×, a hiszpański 1,18×.
+Polski zużywa **od 50% do prawie 90% więcej tokenów** niż angielski. W rankingu 41 języków na tokenizerze GPT-4o polski (+88%, razem z ukraińskim) jest w ścisłej czołówce najdroższych: z Europy drożej wypadają tylko czeski, słowacki i grecki. Dla porównania niemiecki to +26%, francuski +29%, a hiszpański +18%.
 
 ## Dlaczego tak drogo
 
@@ -43,7 +43,7 @@ Odmiana przez przypadki i polskie znaki (ą, ę, ł, ż…) sprawiają, że toke
 
 - **W API** płacisz za ten sam tekst o 50–90% więcej.
 - **W abonamencie** (ChatGPT Plus, Claude Pro, Gemini) limity liczone są w tokenach, więc kończą się szybciej, gdy piszesz po polsku.
-- **Jeśli odpowiedź też jest po polsku**, ten sam mnożnik dotyczy tokenów wyjściowych, które zwykle są 4–5 razy droższe od wejściowych.
+- **Jeśli odpowiedź też jest po polsku**, ten sam mnożnik dotyczy tokenów wyjściowych, które zwykle są o 300–400% droższe od wejściowych.
 
 ## Jak płacić mniej: pisz po angielsku, odbieraj po polsku
 
@@ -67,4 +67,10 @@ Każdy tekst jest inny. [TokenSave](/pl/) liczy tokeny i koszt promptu dla GPT, 
 Pełny ranking 41 języków: [Ile tokenów kosztuje polski?](/pl/blog/polski-tokeny-gpt)
 
 *Pomiary z października 2026: o200k_base (OpenAI) i Tekken 2024-09 (Mistral). Wynik zależy od tekstu; najnowsze modele mogą używać zaktualizowanych tokenizerów.*
+
+## Źródła
+
+- [tiktoken (OpenAI): tokenizer o200k_base](https://github.com/openai/tiktoken)
+- [Mistral NeMo i tokenizer Tekken (Mistral AI)](https://mistral.ai/news/mistral-nemo/)
+- [Cennik API OpenAI (ceny za milion tokenów)](https://developers.openai.com/api/docs/pricing)
 <!-- autoimg -->

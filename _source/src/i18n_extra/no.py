@@ -49,12 +49,12 @@ S = dict(
     tip="Tips: Ikke-latinske skriftsystemer koster vanligvis flere tokens for samme innhold. En systemprompt på engelsk kan senke kostnaden.",
     title="AI-tokenteller for GPT, Claude og Gemini – TokenSave",
     tokens="Tokens",
-    waste="{x}x tokensløsing",
+    waste="+{p} % tokensløsing",
     words="Ord",
 )
 
 V = dict(
-    a1="De fleste video-API-er tar betalt per sekund generert video. Høyere oppløsning og innebygd lyd koster mer, så et klipp i 1080p eller 4K kan koste flere ganger så mye som et i 720p.",
+    a1="De fleste video-API-er tar betalt per sekund generert video. Høyere oppløsning og innebygd lyd koster mer, så et klipp i 1080p eller 4K kan koste langt mer enn et i 720p.",
     a2="Det avhenger av oppløsningen. Lette modeller som Veo 3.1 Lite, Grok Imagine og Wan starter rundt $0.05 per sekund, mens premiummodeller i 4K kan koste $0.40 per sekund eller mer.",
     a3="Nei. OpenAI fjernet Sora 2-videomodellene fra API-et sitt 24. september 2026, så Sora er ikke lenger tilgjengelig for utviklere.",
     audio="Lyd",

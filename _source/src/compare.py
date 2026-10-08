@@ -75,15 +75,16 @@ def ctx_txt(c):
     if not c: return "—"
     return f"{round(c / 1e6, 2):g}M tokens" if c >= 1e6 else f"{round(c / 1000):,}K tokens"
 
-def times(x):
-    return f"{x:.1f}×" if x < 10 else f"{x:.0f}×"
+def pct_less(r):
+    """price ratio r (>1) -> how much cheaper the low one is, in percent"""
+    return f"{round((1 - 1 / r) * 100)}%"
 
 def cheaper_line(a, b, ca, cb):
     if abs(ca - cb) / max(ca, cb) < 0.03:
         return f"about the same as {b['name']}"
     lo, hi = (a, b) if ca < cb else (b, a)
     r = max(ca, cb) / min(ca, cb)
-    return f"{lo['name']} is {times(r)} cheaper" if r >= 1.5 else f"{lo['name']} is {round((1 - min(ca, cb) / max(ca, cb)) * 100)}% cheaper"
+    return f"{lo['name']} is {pct_less(r)} cheaper"
 
 def build_page(a, b, models, checked, related):
     title = f"{a['name']} vs {b['name']}: API Cost Comparison"
@@ -102,7 +103,7 @@ def build_page(a, b, models, checked, related):
                  + row("Maker", esc(a["maker"]), esc(b["maker"]))
                  + row("Input / 1M tokens", per_m(a["inp"]), per_m(b["inp"]))
                  + row("Output / 1M tokens", per_m(a["out"]), per_m(b["out"]))
-                 + row("Output vs input price", f"{a['out'] / a['inp']:.1f}×", f"{b['out'] / b['inp']:.1f}×")
+                 + row("Output vs input price", f"+{round((a['out'] / a['inp'] - 1) * 100)}%", f"+{round((b['out'] / b['inp'] - 1) * 100)}%")
                  + row("Context window", ctx_txt(a["ctx"]), ctx_txt(b["ctx"]))
                  + row("Tokens for the same English text", tok_note(a), tok_note(b))
                  + "</tbody></table>")
@@ -114,7 +115,7 @@ def build_page(a, b, models, checked, related):
         if ca < cb * 0.97: wins_a += 1
         elif cb < ca * 0.97: wins_b += 1
         r = max(ca, cb) / min(ca, cb)
-        verdict = "≈ same" if r < 1.03 else f"{esc((a if ca < cb else b)['name'])} {times(r)} cheaper" if r >= 1.5 else f"{esc((a if ca < cb else b)['name'])} {round((1 - 1 / r) * 100)}% cheaper"
+        verdict = "≈ same" if r < 1.03 else f"{esc((a if ca < cb else b)['name'])} {pct_less(r)} cheaper"
         wl_rows.append(f"<tr><td><strong>{label}</strong><br><span class=\"text-xs\">{what} · {i:,} in / {o:,} out</span></td>"
                        f"<td>{money(ca)}</td><td>{money(cb)}</td><td>{verdict}</td></tr>")
     chart_rows = [(label, cost(a, i, o) * 1000, cost(b, i, o) * 1000) for label, what, i, o in WORKLOADS]
@@ -141,7 +142,7 @@ def build_page(a, b, models, checked, related):
     else:
         lo, hi = (a, b) if ea_in <= eb_in else (b, a)
         cross = (f"<p>{esc(lo['name'])} is cheaper on both input and output, so it costs less for every kind of request. "
-                 f"The gap is {times(max(ea_in, eb_in) / min(ea_in, eb_in))} on input and {times(max(ea_out, eb_out) / min(ea_out, eb_out))} on output"
+                 f"It is {pct_less(max(ea_in, eb_in) / min(ea_in, eb_in))} cheaper on input and {pct_less(max(ea_out, eb_out) / min(ea_out, eb_out))} cheaper on output"
                  f"{' once the tokenizer difference is included' if a['ratio'] != b['ratio'] else ''}.</p>")
 
     tok_p = ""

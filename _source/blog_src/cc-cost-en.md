@@ -81,11 +81,18 @@ Because most of what Claude Code sends is cached context, a realistic blended pr
 1. **Start on Pro** if you code with it a few times a week.
 2. **Watch how often you hit the limit.** If you hit it most weeks, Max 5× is likely cheaper than paying the API rate for the extra work.
 3. **Use the API** for automation, CI pipelines, or very irregular use, where predictable per-token billing beats a monthly fee.
-4. **Choose the model per task.** Sonnet handles most coding work; Opus costs twice as much per token.
+4. **Choose the model per task.** Sonnet handles most coding work; Opus costs 100% more per token.
 
 ## Estimate your own month
 
 The [coding agent cost calculator](/agents) lets you set task size, tasks per day and working days, and compares API costs for Claude, GPT and Gemini models with every Claude and ChatGPT plan. To spend fewer tokens either way, see [How to save tokens in Claude Code](/blog/claude-code-save-tokens).
 
 *Prices and limits change often. Check [claude.com/pricing](https://claude.com/pricing) before you decide.*
+
+## Sources
+
+- [Claude plans and pricing (Anthropic)](https://claude.com/pricing)
+- [Claude API pricing (Anthropic docs)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Using Claude Code with your Pro or Max plan (Claude Help Center)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Manage costs effectively (Claude Code docs)](https://code.claude.com/docs/en/costs)
 <!-- autoimg -->

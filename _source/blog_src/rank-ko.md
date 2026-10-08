@@ -34,7 +34,7 @@ Claude Sonnet 5.5는 165.2점입니다. Opus보다 2.2점 낮은데 가격은 �
 - **Gemini 3.8 Flash**(156.9점): $0.75 / $3.75. 대화 1만 번에 약 $25
 - **DeepSeek V4 Flash**(154.5점): $0.30 / $1.20. 대화 1만 번에 약 $9, Opus의 5%
 
-둘 다 1위보다 10~13점 낮습니다. 분류, 정보 추출, 요약, 일반 챗봇 트래픽이라면 이 정도로 충분한 경우가 많고, 비용은 7~20배 줄어듭니다.
+둘 다 1위보다 10~13점 낮습니다. 분류, 정보 추출, 요약, 일반 챗봇 트래픽이라면 이 정도로 충분한 경우가 많고, 비용은 86~95% 줄어듭니다.
 
 ## 4. 가격에 비해 아쉬운 모델
 
@@ -55,7 +55,7 @@ Claude Sonnet 5.5는 165.2점입니다. Opus보다 2.2점 낮은데 가격은 �
 
 실제로 가장 많이 쓰는 모델이 GPT-6 Sol이라, 그래프에서 가장 눈에 띄는 빈자리입니다. Epoch AI는 아직 Sol 점수를 내지 않았지만, 다른 척도의 독립 측정 결과가 하나 나와 있습니다. [Artificial Analysis Intelligence Index](https://artificialanalysis.ai/)(v4.3.2, 최대 추론, 9월 30일 기준)에서 **GPT-6.1 Sol은 51.8점으로 GPT-6 Astra(52.7점)에 거의 근접**했습니다.
 
-Astra에 가까운 성능을 1/5 가격($2 / $10 vs $10 / $50)에 내는 셈입니다. Epoch 점수가 나와도 비슷하다면, Sol은 정가가 같은 Claude Sonnet 5.5 옆, 가성비 라인 위에 올라갈 가능성이 큽니다. 두 점수는 척도가 달라서 위 그래프에는 넣지 않았습니다.
+Astra에 가까운 성능을 80% 싼 가격($2 / $10 vs $10 / $50)에 내는 셈입니다. Epoch 점수가 나와도 비슷하다면, Sol은 정가가 같은 Claude Sonnet 5.5 옆, 가성비 라인 위에 올라갈 가능성이 큽니다. 두 점수는 척도가 달라서 위 그래프에는 넣지 않았습니다.
 
 ## 6. 아직 점수가 없는 모델
 
@@ -67,9 +67,17 @@ GPT-6 Sol, GPT-6 Luna, GPT-6.1 Sol, Gemini 4 Argon, Grok 4.7은 너무 새로 �
 
 1. 가성비 라인에서 시작하세요. 품질이 중요하면 Sonnet 5.5, 양이 많으면 Gemini 3.8 Flash나 DeepSeek V4 Flash입니다.
 2. 그중 2~3개를 내 서비스의 실제 프롬프트 20개로 시험해 보세요. 종합 점수는 일반 성능이지 내 작업 성능이 아닙니다.
-3. 내 프롬프트가 모델마다 실제로 얼마인지 토큰 계산기로 확인하세요. 한국어는 영어보다 토큰을 약 1.44배 쓰니 위 금액보다 더 나옵니다.
+3. 내 프롬프트가 모델마다 실제로 얼마인지 [토큰 계산기](/ko/)로 확인하세요. 한국어는 영어보다 토큰을 약 44% 더 쓰니 위 금액보다 더 나옵니다.
 
-그래프와 표는 가격과 점수가 바뀔 때마다 매일 갱신됩니다. 최신 순위는 [AI 순위 페이지](/ko/compare/performance)에서 보세요.
+그래프와 표는 가격과 점수가 바뀔 때마다 매일 갱신됩니다. 최신 순위는 [AI 순위 페이지](/ko/compare/performance)에서 보세요. 모델별 가격 전체는 [LLM API 가격 비교](/ko/blog/llm-api-gagyeok-bigyo)에 정리했습니다.
 
 *성능 점수: Epoch AI의 Epoch Capabilities Index, CC BY 4.0 라이선스로 사용. 가격: API 정가, 캐싱·배치 할인 미포함, 2026년 10월 4일 기준.*
+
+## 출처
+
+- [Epoch AI: Epoch Capabilities Index](https://epoch.ai/eci)
+- [Claude API 가격](https://platform.claude.com/docs/en/about-claude/pricing)
+- [OpenAI API 가격](https://developers.openai.com/api/docs/pricing)
+- [Gemini API 가격](https://ai.google.dev/gemini-api/docs/pricing)
+- [DeepSeek API 모델·가격](https://api-docs.deepseek.com/quick_start/pricing/)
 <!-- autoimg -->

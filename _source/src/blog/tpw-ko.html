@@ -53,7 +53,7 @@
 <p>흔히 말하는 "토큰당 ¾단어"(단어당 1.33토큰)는 기술 문서에 맞는 숫자라, 약간 넉넉하게 잡는 안전한 추정치입니다. 일반적인 글이라면 보통 이보다 15% 정도 적게 나옵니다.</p>
 <p>코드는 더 촘촘합니다. 저희 측정에서 Python과 JavaScript는 평균 토큰당 약 3.5글자였습니다. <a href="/blog/how-many-tokens-does-code-use">코드는 토큰을 얼마나 쓸까?</a> (영어)를 참고하세요.</p>
 <h2>다른 언어: 글자당 토큰</h2>
-<p><img loading="lazy" width="1200" height="997" alt="다른 언어: 글자당 토큰: 언어, 글자, 토큰, 토큰당 글자, 영어 대비 토큰" src="/token-dangeo-geulja-ko-3.jpg" /></p>
+<p><img loading="lazy" width="1200" height="997" alt="다른 언어: 글자당 토큰: 언어, 글자, 토큰, 토큰당 글자, 영어 대비" src="/token-dangeo-geulja-ko-3.jpg" /></p>
 <p>언어끼리 비교할 때 단어는 좋은 단위가 아닙니다. 중국어, 일본어, 태국어는 단어 사이를 띄우지 않고, 핀란드어나 튀르키예어 같은 언어는 한 구절을 긴 단어 하나에 담습니다. 그래서 토큰당 글자 수가 더 쓸모 있습니다. 다음은 같은 고객 지원 프롬프트를 여러 언어로 잰 결과입니다.</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -62,7 +62,7 @@
 <th>글자</th>
 <th>토큰</th>
 <th>토큰당 글자</th>
-<th>영어 대비 토큰</th>
+<th>영어 대비</th>
 </tr>
 </thead>
 <tbody>
@@ -71,93 +71,93 @@
 <td>181</td>
 <td>34</td>
 <td>5.3</td>
-<td>1.00×</td>
+<td>±0%</td>
 </tr>
 <tr>
 <td>스페인어</td>
 <td>183</td>
 <td>40</td>
 <td>4.6</td>
-<td>1.18×</td>
+<td>+18%</td>
 </tr>
 <tr>
 <td>독일어</td>
 <td>194</td>
 <td>43</td>
 <td>4.5</td>
-<td>1.26×</td>
+<td>+26%</td>
 </tr>
 <tr>
 <td>프랑스어</td>
 <td>197</td>
 <td>44</td>
 <td>4.5</td>
-<td>1.29×</td>
+<td>+29%</td>
 </tr>
 <tr>
 <td>러시아어</td>
 <td>165</td>
 <td>45</td>
 <td>3.7</td>
-<td>1.32×</td>
+<td>+32%</td>
 </tr>
 <tr>
 <td>아랍어</td>
 <td>136</td>
 <td>43</td>
 <td>3.2</td>
-<td>1.26×</td>
+<td>+26%</td>
 </tr>
 <tr>
 <td>힌디어</td>
 <td>161</td>
 <td>51</td>
 <td>3.2</td>
-<td>1.50×</td>
+<td>+50%</td>
 </tr>
 <tr>
 <td>폴란드어</td>
 <td>190</td>
 <td>64</td>
 <td>3.0</td>
-<td>1.88×</td>
+<td>+88%</td>
 </tr>
 <tr>
 <td>태국어</td>
 <td>132</td>
 <td>59</td>
 <td>2.2</td>
-<td>1.74×</td>
+<td>+74%</td>
 </tr>
 <tr>
 <td>한국어</td>
 <td>87</td>
 <td>49</td>
 <td>1.8</td>
-<td>1.44×</td>
+<td>+44%</td>
 </tr>
 <tr>
 <td>중국어(간체)</td>
 <td>50</td>
 <td>35</td>
 <td>1.4</td>
-<td>1.03×</td>
+<td>+3%</td>
 </tr>
 <tr>
 <td>일본어</td>
 <td>73</td>
 <td>61</td>
 <td>1.2</td>
-<td>1.79×</td>
+<td>+79%</td>
 </tr>
 </tbody>
 </table></div>
 <p>눈에 띄는 점이 두 가지 있습니다.</p>
 <ul>
 <li><strong>토큰당 글자 수만으로는 비용을 알기 어렵습니다.</strong> 중국어는 토큰당 1.4글자밖에 안 되지만, 한 글자에 담긴 의미가 훨씬 많아서 비용은 영어와 거의 같습니다. 청구액에 중요한 건 마지막 열, 즉 같은 의미를 전달하는 데 드는 토큰 수입니다.</li>
-<li><strong>한국어와 일본어는 대략 1.2–1.8글자당 1토큰으로 잡으세요.</strong> 같은 내용을 영어로 쓸 때보다 한국어는 약 1.4배, 일본어는 약 1.8배 토큰이 듭니다. 한국어 프롬프트를 영어로 바꿔 보내면 토큰이 약 31% 줄어드는데, <a href="/ko/">토큰 계산기</a>의 💸 토큰 절약 버튼이 내 기기 안에서 바로 번역해 줍니다(PC용 Chrome 138 이상 또는 Edge 148 이상).</li>
+<li><strong>한국어와 일본어는 대략 1.2–1.8글자당 1토큰으로 잡으세요.</strong> 같은 내용을 영어로 쓸 때보다 한국어는 약 40%, 일본어는 약 80% 토큰이 더 듭니다. 한국어 프롬프트를 영어로 바꿔 보내면 토큰이 약 31% 줄어드는데, <a href="/ko/">토큰 계산기</a>의 💸 토큰 절약 버튼이 내 기기 안에서 바로 번역해 줍니다(PC용 Chrome 138 이상 또는 Edge 148 이상).</li>
 </ul>
-<p>41개 언어 전체 결과는 <a href="/ko/blog/korean-tokens-gpt">한국어 토큰은 영어의 몇 배? 41개 언어 비교</a>에 있습니다.</p>
+<p>41개 언어 전체 결과는 <a href="/ko/blog/korean-tokens-gpt">한국어 프롬프트, 영어로 보내면 토큰 31% 절약: 41개 언어 실측</a>에 있습니다.</p>
 <h2>빠른 환산표 (영어, 현재 GPT 모델)</h2>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -193,4 +193,11 @@
 <p>위 숫자는 OpenAI의 o200k 토크나이저 기준입니다. Claude와 Gemini는 자체 토크나이저를 쓰기 때문에, 같은 텍스트도 토큰 수가 눈에 띄게 많을 수 있습니다. 특히 Anthropic의 최신 Claude 모델은 같은 텍스트에 GPT보다 토큰을 더 씁니다. <a href="/ko/blog/token-segi-bangbeop">GPT·Claude·Gemini 토큰 세는 방법</a>을 참고하세요.</p>
 <h2>내 텍스트 직접 세어 보기</h2>
 <p>대략적인 계획에는 경험칙으로도 충분합니다. 하지만 돈이 드는 일이라면 실제 텍스트를 <a href="/ko/">토큰 계산기</a>에 붙여 넣어 보세요. 브라우저에서 실제 토크나이저를 돌리고, 모든 모델의 비용을 보여 줍니다.</p>
+<h2>출처</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken (OpenAI): o200k_base 토크나이저</a></li>
+<li><a href="https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them" target="_blank" rel="noopener">토큰이란 무엇이며 어떻게 세는가 (OpenAI 도움말 센터)</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/token-counting" target="_blank" rel="noopener">토큰 카운팅 (Anthropic 문서)</a></li>
+<li><a href="https://developer.chrome.com/docs/ai/translator-api" target="_blank" rel="noopener">Translator API (Chrome for Developers)</a></li>
+</ul>
 <!-- autoimg -->

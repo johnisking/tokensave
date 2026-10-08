@@ -45,14 +45,14 @@ What stands out:
 
 - **The standard price matches Claude Opus 5.5 exactly:** $4 in, $20 out.
 - **The introductory price matches GPT-6 Sol and Claude Sonnet 5.5.** A top model at a mid-tier price, for now.
-- **Even at the standard price it is 2.5x cheaper than GPT-6 Astra and Claude Fable 5.1.** If Google's benchmark claims hold, it is the best value among the top models.
-- **It costs more than Gemini 3.1 Pro**, about 1.8x per request at the standard price. If 3.1 Pro already does the job, there is no reason to switch.
+- **Even at the standard price it is 60% cheaper than GPT-6 Astra and Claude Fable 5.1.** If Google's benchmark claims hold, it is the best value among the top models.
+- **It costs more than Gemini 3.1 Pro**, about 80% more per request at the standard price. If 3.1 Pro already does the job, there is no reason to switch.
 
 ## When to use it
 
 **Good fit:** large code changes and migrations, security reviews, long multi-step agent runs, and analysis of long videos or charts. The more a mistake costs you, the more it is worth paying for.
 
-**Overkill:** summaries, translation, classification and short answers. Gemini 3.8 Flash handles those at about a fifth of the cost per request.
+**Overkill:** summaries, translation, classification and short answers. Gemini 3.8 Flash handles those at about 80% less cost per request.
 
 A common setup is to send everyday requests to Flash or 3.1 Pro and route only the hard ones to Argon.
 
@@ -62,7 +62,7 @@ A common setup is to send everyday requests to Flash or 3.1 Pro and route only t
 
 1. **Test during the introductory period.** It is half the standard price, the best time to see if it fits your workload.
 2. **Use caching.** Cached input is 95% off, so keep fixed instructions and documents at the start of the prompt.
-3. **Cap the output.** It can write up to 1 million tokens, and output costs 5x input. Ask for only what you need.
+3. **Cap the output.** It can write up to 1 million tokens, and output costs 400% more than input. Ask for only what you need.
 4. **Write prompts in English.** Most other languages take more tokens for the same text. The 💸 Save tokens button in the [token counter](/) rewrites a prompt in English on your own device.
 
 ## Check your own cost
@@ -70,4 +70,11 @@ A common setup is to send everyday requests to Flash or 3.1 Pro and route only t
 Gemini 4 Argon is now in the [token counter](/) at the standard price. Paste a prompt you actually use and compare Argon, GPT-6 and Claude side by side.
 
 *Prices and rollout dates can change. Check the [Gemini API pricing page](https://ai.google.dev/gemini-api/docs/pricing) before large jobs.*
+
+## Sources
+
+- [Google: Gemini 4 Argon announcement](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)
+- [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing)
+- [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)
+- [Claude API pricing](https://platform.claude.com/docs/en/about-claude/pricing)
 <!-- autoimg -->

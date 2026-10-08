@@ -70,4 +70,13 @@ Gemini API には `countTokens` メソッドがあり、何も生成せずにプ
 - [トークンとは？](/blog/what-is-a-token)（英語）
 - [LLM API 料金比較](/ja/blog/llm-api-ryoukin-hikaku)
 - [AI API の請求額を見積もる方法](/blog/how-to-estimate-ai-api-cost)（英語）
+
+## 出典
+
+- [tiktoken（OpenAI）](https://github.com/openai/tiktoken)
+- [トークンのカウント（OpenAI API ドキュメント）](https://developers.openai.com/api/docs/guides/token-counting)
+- [トークンのカウント（Anthropic ドキュメント）](https://platform.claude.com/docs/en/build-with-claude/token-counting)
+- [トークンを理解してカウントする（Gemini API ドキュメント）](https://ai.google.dev/gemini-api/docs/generate-content/tokens)
+- [Translator API（Chrome for Developers）](https://developer.chrome.com/docs/ai/translator-api)
+- [Translator API を使用してテキストを翻訳する（Microsoft Edge）](https://learn.microsoft.com/ja-jp/microsoft-edge/web-platform/translator-api)
 <!-- autoimg -->

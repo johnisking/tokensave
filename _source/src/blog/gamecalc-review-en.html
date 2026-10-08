@@ -1,6 +1,6 @@
-<p>I'm a solo developer from Korea with zero coding background. I make games by describing them to an AI. My first one, <strong>Sperm Race</strong> (a silly sperm racing game), is live on Google Play. People kept asking me "how much does it cost to make a game with AI?", so I built a free calculator.</p>
+<p>I'm a solo developer from Korea with zero coding background. I make games by describing them to an AI. My first one, <strong>Sperm Race</strong> (a silly sperm racing game), is live on Google Play. People kept asking me "how much does it cost to make a game with AI?", so I built a free <a href="/ai-game-cost-calculator">AI game cost calculator</a>.</p>
 <p>But I didn't actually know if my own calculator was right. So I fed it the exact specs of the game I had already shipped.</p>
-<p><img fetchpriority="high" width="505" height="530" alt="Sperm Race screenshots" src="/spermrace-screens.jpg" /></p>
+<p><img fetchpriority="high" width="505" height="530" alt="Sperm Race screenshots" src="/spermrace-screens-en.jpg" /></p>
 <h2>What I entered</h2>
 <ul>
 <li><strong>Genre:</strong> racing · <strong>Size:</strong> small · <strong>Art:</strong> simple vector · <strong>2D</strong></li>
@@ -59,9 +59,10 @@
 <h2>How it calculates (roughly)</h2>
 <ul>
 <li><strong>Size</strong> is anchored to real games built solo with AI coding agents: small about 2 weeks, medium about 4, large about 6. Genre, features and number of languages move it up or down.</li>
-<li><strong>Images</strong> = characters × animation frames + backgrounds + items + UI. It assumes you keep 1 of every 3 images you generate, so it plans for 3× as many generations.</li>
+<li><strong>Images</strong> = characters × animation frames + backgrounds + items + UI. It assumes you keep 1 of every 3 images you generate, so it plans for three generations per image you keep.</li>
 <li><strong>Coding tokens</strong> assume about 20 million tokens read per working day (mostly cached context) for 70% of the schedule. The 343M here is that estimate. I was on a subscription, so I never measured my real token count.</li>
 </ul>
+<p>For the full breakdown by game size, see <a href="/blog/ai-game-development-cost">how much it costs to make a game with AI</a>.</p>
 <h2>What I learned</h2>
 <ol>
 <li><strong>With AI subscriptions, money goes out by the month, not by the token.</strong> Every month you slip is another bill.</li>
@@ -69,3 +70,9 @@
 </ol>
 <p>The calculator is free, no sign-up. Pick a genre and size and you get the list of images and sounds you'll need, a cost and time estimate, and a ready-to-use starter prompt. It also handles 3D and Roblox games now.</p>
 <p>If you've shipped something, try your own project and see how far off it is. I'd love to know.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/14151465?hl=en" target="_blank" rel="noopener">App testing requirements for new personal developer accounts (Play Console Help)</a></li>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/6112435?hl=en" target="_blank" rel="noopener">Get started with Play Console (Play Console Help)</a></li>
+<li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude plans and pricing</a></li>
+</ul>

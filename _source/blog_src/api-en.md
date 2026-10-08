@@ -1,6 +1,6 @@
 ![LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek](/llm-api-pricing-comparison-en.jpg)
 
-There are now dozens of language models with public API prices, and the same request can cost 150 times more on one than on another. This page lists the current list prices of 22 popular models from OpenAI, Anthropic, Google, xAI, DeepSeek, Mistral, Alibaba and Moonshot side by side, with what a typical request actually costs, and how to choose.
+There are now dozens of language models with public API prices, and 10,000 of the same request can cost $3 on one and $450 on another. This page lists the current list prices of 22 popular models from OpenAI, Anthropic, Google, xAI, DeepSeek, Mistral, Alibaba and Moonshot side by side, with what a typical request actually costs, and how to choose.
 
 ## API prices compared
 
@@ -45,11 +45,11 @@ List prices in US dollars, checked October 1, 2026. Prices change often, sometim
 
 ## The price list is not the whole story
 
-**Output is the expensive side.** On most models, output costs 4–6 times as much as input. If your app writes long answers, compare output prices first. See [Why output tokens cost more](/blog/why-output-tokens-cost-more).
+**Output is the expensive side.** On most models, output costs 300–500% more than input. If your app writes long answers, compare output prices first. See [Why output tokens cost more](/blog/why-output-tokens-cost-more).
 
 **Tokenizers differ.** Each provider splits text into tokens differently. The same text can be 10–30% more tokens on one model than another, so a lower price per token does not always mean a lower bill. Compare the cost of your own text in the [token counter](/), not just the price list. More in [How to count tokens for GPT, Claude and Gemini](/blog/how-to-count-tokens-gpt-claude-gemini).
 
-**Your language matters.** Non-English text uses more tokens: on GPT's tokenizer, about 1.44× for Korean, 1.79× for Japanese and 2× for Czech compared with English.
+**Your language matters.** Non-English text uses more tokens: on GPT's tokenizer, about 44% more for Korean, 79% more for Japanese and 100% more for Czech than English.
 
 **Discounts change the ranking.** Most providers offer cached input at a fraction of the normal price and batch processing at around half price. A mid-range model with good caching can cost less than a budget model without it for apps with long, repeated prompts. See [Prompt caching](/blog/prompt-caching-explained) and [Batch APIs](/blog/batch-api-half-price).
 
@@ -69,4 +69,16 @@ On list price, GPT-5 nano and GPT-6 Luna are the cheapest of the models above, a
 ## Estimate your own bill
 
 Paste a real prompt into the [token counter](/) to see its cost on every model at once, or read [How to estimate your AI API bill](/blog/how-to-estimate-ai-api-cost) for the full method. For subscriptions versus the API, use the [Subscription vs API calculator](/plans).
+
+## Sources
+
+- [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)
+- [OpenAI: GPT-5 nano model](https://developers.openai.com/api/docs/models/gpt-5-nano)
+- [Claude API pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing)
+- [xAI API pricing](https://docs.x.ai/developers/pricing)
+- [DeepSeek API models and pricing](https://api-docs.deepseek.com/quick_start/pricing/)
+- [Mistral AI: Mistral Large 3](https://docs.mistral.ai/models/mistral-large-3-25-12)
+- [Alibaba Cloud: qwen3.8-flash pricing](https://www.alibabacloud.com/help/en/model-studio/qwen3-8-flash)
+- [Alibaba Cloud Model Studio pricing](https://www.alibabacloud.com/help/en/model-studio/model-pricing)
 <!-- autoimg -->

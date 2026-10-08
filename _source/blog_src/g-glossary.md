@@ -4,6 +4,8 @@ AI pricing pages and documentation are full of terms that are rarely explained. 
 
 ## Tokens and text
 
+![Tokens and text: Token; Tokenizer; Vocabulary](/ai-cost-glossary-tokens-and-text-en.jpg)
+
 **Token.** A piece of text from the model's vocabulary: a word, part of a word, a number chunk or a symbol. In English, about 4 characters on average. AI usage is measured and billed in tokens. [Full guide](/blog/what-is-a-token).
 
 **Tokenizer.** The program that cuts text into tokens before the model reads it. Each model family has its own, so the same text can be a different number of tokens on different models.
@@ -14,19 +16,21 @@ AI pricing pages and documentation are full of terms that are rarely explained. 
 
 **o200k / cl100k.** OpenAI's two most recent tokenizers. cl100k was used by GPT-3.5 and GPT-4; o200k by GPT-4o and later models.
 
-**Token ratio.** How many tokens a language needs compared with English for the same meaning. Korean is about 1.44× on o200k, Japanese about 1.79×.
+**Token ratio.** How many tokens a language needs compared with English for the same meaning. Korean needs about 44% more tokens than English on o200k, Japanese about 79% more.
 
 ## Prices and billing
 
+![Prices and billing: Input tokens; Output tokens; Price per million tokens (per 1M, /MTok)](/ai-cost-glossary-prices-and-billing-en.jpg)
+
 **Input tokens.** Everything you send: system prompt, conversation history, documents and the new message.
 
-**Output tokens.** Everything the model writes, including hidden reasoning. Usually 2–6 times the price of input. [Why](/blog/why-output-tokens-cost-more).
+**Output tokens.** Everything the model writes, including hidden reasoning. Usually 100–500% more expensive than input. [Why](/blog/why-output-tokens-cost-more).
 
 **Price per million tokens (per 1M, /MTok).** The standard unit on price lists. $2 per million means $0.000002 per token.
 
 **Cached input.** Input tokens read from the provider's prompt cache, billed at a large discount. [Prompt caching explained](/blog/prompt-caching-explained).
 
-**Batch pricing.** A discounted rate, commonly around half price, for requests you submit as a batch and collect later. [Batch APIs](/blog/batch-api-half-price).
+**Batch pricing.** A discounted rate, commonly around 50% off, for requests you submit as a batch and collect later. [Batch APIs](/blog/batch-api-half-price).
 
 **Reasoning tokens.** Hidden "thinking" a reasoning model does before answering. Billed as output. [When it is worth it](/blog/reasoning-models-cost).
 
@@ -75,4 +79,13 @@ AI pricing pages and documentation are full of terms that are rarely explained. 
 ## Calculate it
 
 The [token counter](/), [video](/video) and [image](/image) cost calculators, [Subscription vs API](/plans) and [agent cost](/agents) tools turn all of these into real numbers for your own use.
+
+## Sources
+
+- [tiktoken (OpenAI tokenizer, o200k_base)](https://github.com/openai/tiktoken)
+- [tiktoken encoding definitions (cl100k_base, o200k_base)](https://github.com/openai/tiktoken/blob/main/tiktoken_ext/openai_public.py)
+- [Claude API pricing (Anthropic)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Batch API guide (OpenAI)](https://developers.openai.com/api/docs/guides/batch)
+- [Reasoning models guide (OpenAI)](https://developers.openai.com/api/docs/guides/reasoning)
+- [Structured model outputs guide (OpenAI)](https://developers.openai.com/api/docs/guides/structured-outputs)
 <!-- autoimg -->

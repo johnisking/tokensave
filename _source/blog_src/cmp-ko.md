@@ -23,7 +23,7 @@
 
 **$200에서는 이제 Claude 쪽 배수가 더 큽니다.** Claude Max 20×는 기본 요금제의 20배, 챗GPT Pro 200은 이제 10배입니다. 두 $200 요금제 사이에서 고민하던 헤비 유저에게는 가장 큰 변화입니다.
 
-**챗GPT는 큰 요금제 할인이 없어졌습니다.** Pro 100·200·500 모두 "Plus 1배치 사용량"당 $20입니다. 반면 Claude Max 20×는 Max 5×의 두 배 가격에 네 배 사용량이라, 바로 아래 요금제보다 1달러당 사용량이 많은 유일한 $200 요금제입니다. 자세한 내용은 [챗GPT Pro 100 vs 200 vs 500 요금제 비교](/ko/blog/chatgpt-pro-yogeumje-bigyo)를 보세요.
+**챗GPT는 큰 요금제 할인이 없어졌습니다.** Pro 100·200·500 모두 "Plus 사용량 1배"당 $20입니다. 반면 Claude Max 20×는 Max 5×보다 가격은 100% 높고 사용량은 300% 많아서, 바로 아래 요금제보다 1달러당 사용량이 많은 유일한 $200 요금제입니다. 자세한 내용은 [챗GPT Pro 100 vs 200 vs 500 요금제 비교](/ko/blog/chatgpt-pro-yogeumje-bigyo)를 보세요.
 
 **Claude는 클로드 코드 주간 한도를 조금 줄였습니다.** 9월 14일, 여름 동안의 주간 한도 50% 임시 증량이 25% 영구 증량으로 바뀌면서 여름보다 약 17% 줄었습니다. [클로드 코드 사용량 한도 정리](/ko/blog/claude-code-sayongnyang-hando)를 참고하세요.
 
@@ -44,7 +44,7 @@ API 가격을 보면 각 최상위 모델을 돌리는 데 드는 비용 차이�
 | GPT-6 Sol | $2 | $10 |
 | Claude Sonnet 5.5 | $2 | $10 |
 
-GPT-6 Astra는 토큰당 Claude Opus 5.5의 2.5배입니다. 주로 최상위 모델을 쓴다면 같은 작업량에서 챗GPT 쪽 한도가 더 빨리 닳는다고 보면 됩니다. GPT-6 Sol과 Claude Sonnet 5.5는 토큰 가격이 똑같습니다.
+GPT-6 Astra는 토큰당 Claude Opus 5.5보다 150% 비쌉니다. 주로 최상위 모델을 쓴다면 같은 작업량에서 챗GPT 쪽 한도가 더 빨리 닳는다고 보면 됩니다. GPT-6 Sol과 Claude Sonnet 5.5는 토큰 가격이 똑같습니다.
 
 ## 코딩 에이전트: Codex vs 클로드 코드
 
@@ -70,7 +70,16 @@ GPT-6 Astra는 토큰당 Claude Opus 5.5의 2.5배입니다. 주로 최상위 �
 
 ## 둘 다 안 쓰는 방법도
 
-하루에 몇 번 쓰는 정도라면 API가 어떤 요금제보다 쌀 수 있습니다. [구독 vs API 계산기](/ko/plans)가 내 사용량의 월 API 비용을 챗GPT·Claude·Gemini 모든 요금제와 나란히 보여줍니다. 한국어로 쓰면 영어보다 토큰이 약 1.44배 들어서 API 비용도 그만큼 늘어난다는 점도 계산에 반영됩니다.
+하루에 몇 번 쓰는 정도라면 API가 어떤 요금제보다 쌀 수 있습니다. [구독 vs API 계산기](/ko/plans)가 내 사용량의 월 API 비용을 챗GPT·Claude·Gemini 모든 요금제와 나란히 보여줍니다. 한국어로 쓰면 영어보다 토큰이 약 44% 더 들어서 API 비용도 그만큼 늘어난다는 점도 계산에 반영됩니다.
 
 *요금제와 한도는 자주 바뀝니다. 가입 전에 [chatgpt.com/pricing](https://chatgpt.com/pricing)과 [claude.com/pricing](https://claude.com/pricing)을 확인하세요.*
+
+## 출처
+
+- [ChatGPT 요금제와 Codex 가격](https://learn.chatgpt.com/docs/pricing)
+- [OpenAI 도움말: ChatGPT Pro 등급 안내](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [Claude 도움말: Max 요금제란](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+- [Claude 도움말: Pro·Max 요금제로 Claude Code 쓰기](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [OpenAI API 가격](https://developers.openai.com/api/docs/pricing)
+- [Claude API 가격](https://platform.claude.com/docs/en/about-claude/pricing)
 <!-- autoimg -->

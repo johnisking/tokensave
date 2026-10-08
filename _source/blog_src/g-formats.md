@@ -1,6 +1,6 @@
 ![JSON vs YAML vs CSV: Which Data Format Uses the Fewest Tokens?](/json-vs-yaml-vs-csv-tokens-en.jpg)
 
-When you send data to an AI model, whether product lists, survey results, database rows or API responses, the format you choose changes how many tokens it takes. We measured the same table in seven common formats on GPT's o200k tokenizer. The most popular choice, pretty-printed JSON with one object per row, uses almost three times as many tokens as the cheapest. The same data as columnar JSON costs about the same as CSV: the expensive part is repeating the keys, not JSON itself.
+When you send data to an AI model, whether product lists, survey results, database rows or API responses, the format you choose changes how many tokens it takes. We measured the same table in seven common formats on GPT's o200k tokenizer. The most popular choice, pretty-printed JSON with one object per row, uses almost 200% more tokens than the cheapest. The same data as columnar JSON costs about the same as CSV: the expensive part is repeating the keys, not JSON itself.
 
 *Updated October 3, 2026: added columnar JSON and header-plus-rows JSON after a reader pointed out they were missing. Same table, same tokenizer.*
 
@@ -18,16 +18,16 @@ A row looks like this in CSV:
 
 | Format | Tokens | vs CSV | Characters |
 |---|---|---|---|
-| TSV (tab-separated) | 296 | 0.99× | 891 |
-| CSV | 300 | 1.00× | 891 |
-| JSON, columnar, minified `{"id":[...],"name":[...]}` | 297 | 0.99× | 993 |
-| JSON, header + row arrays | 320 | 1.07× | 1,044 |
-| Markdown table | 373 | 1.24× | 1,165 |
-| JSON, columnar, pretty-printed | 520 | 1.73× | 1,529 |
-| JSON, one object per row, minified | 525 | 1.75× | 1,821 |
-| YAML | 649 | 2.16× | 1,799 |
-| JSON, one object per row, pretty-printed (2-space indent) | 884 | 2.95× | 2,542 |
-| XML | 1,088 | 3.63× | 3,362 |
+| TSV (tab-separated) | 296 | −1% | 891 |
+| CSV | 300 | ±0% | 891 |
+| JSON, columnar, minified `{"id":[...],"name":[...]}` | 297 | −1% | 993 |
+| JSON, header + row arrays | 320 | +7% | 1,044 |
+| Markdown table | 373 | +24% | 1,165 |
+| JSON, columnar, pretty-printed | 520 | +73% | 1,529 |
+| JSON, one object per row, minified | 525 | +75% | 1,821 |
+| YAML | 649 | +116% | 1,799 |
+| JSON, one object per row, pretty-printed (2-space indent) | 884 | +195% | 2,542 |
+| XML | 1,088 | +263% | 3,362 |
 
 Measured with the o200k tokenizer used by GPT-4o and later. The older cl100k tokenizer gave almost identical results, within 2% for every format.
 
@@ -86,5 +86,12 @@ These numbers come from one table on one tokenizer. Claude and Gemini use differ
 
 ## Measure your own data
 
-Paste a sample of your data into the [token counter](/) in two formats and compare. It runs the same o200k tokenizer in your browser, and nothing you paste is uploaded.
+Paste a sample of your data into the [token counter](/) in two formats and compare. It runs the same o200k tokenizer in your browser, and nothing you paste is uploaded. Sending code instead of data? See [how many tokens code uses](/blog/how-many-tokens-does-code-use).
+
+## Sources
+
+- [tiktoken (OpenAI tokenizer, o200k_base)](https://github.com/openai/tiktoken)
+- [tiktoken model-to-encoding map](https://github.com/openai/tiktoken/blob/main/tiktoken/model.py)
+- [Structured model outputs guide (OpenAI)](https://developers.openai.com/api/docs/guides/structured-outputs)
+- [GPT-6 Sol model page (OpenAI)](https://developers.openai.com/api/docs/models/gpt-6-sol)
 <!-- autoimg -->

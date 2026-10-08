@@ -90,4 +90,14 @@ AI-codeeragents vergelijk je op de pagina [AI-agents](/nl/agents). Voor losse be
 Ja. De calculator doet meer dan alleen je project prijzen. Kies een genre, grootte, engine en platform, en hij schrijft een **startprompt voor de ontwikkeling, prompts voor graphics, prompts voor muziek en geluidseffecten en een storyboard voor de trailer**. Die plak je zo in Claude Code of Midjourney. Er zijn 33 genres en 21 engines, waaronder Unity, Godot, Unreal en GameMaker.
 
 Benieuwd hoe dat in de praktijk gaat? Lees het ontwikkellogboek [een beginner maakt een game met vibe coding: zonder codeerervaring, 3 dagen, $45](/blog/vibe-coding-a-game-beginner) (in het Engels). Je eigen game reken je door in de [AI-game-kostencalculator](/nl/ai-game-cost-calculator).
+
+## Bronnen
+
+- [Claude-prijzen (Pro- en Max-abonnementen)](https://claude.com/pricing)
+- [Midjourney-abonnementen vergeleken](https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans)
+- [Suno-prijzen](https://suno.com/pricing)
+- [ElevenLabs-prijzen](https://elevenlabs.io/pricing)
+- [Play Console Help: aan de slag (eenmalige registratiekosten van US$25)](https://support.google.com/googleplay/android-developer/answer/6112435)
+- [Apple Developer Program (jaarlidmaatschap)](https://developer.apple.com/programs/)
+- [Steamworks: Steam Direct-kosten](https://partner.steamgames.com/doc/gettingstarted/appfee)
 <!-- autoimg -->

@@ -23,7 +23,7 @@ ChatGPT と Claude の料金プランは、いまやほぼ同じ価格帯に並�
 
 **$200では Claude のほうが倍率が大きくなりました。** Claude Max 20× は基準プランの20倍、ChatGPT Pro 200 は10倍になりました。2つの$200プランで迷っていたヘビーユーザーにとって、いちばん大きな変化です。
 
-**ChatGPT は上位プランの割安感がなくなりました。** Pro 100・200・500 はどれも「Plus 1つ分の使用量」あたり$20です。一方 Claude Max 20× は Max 5× の2倍の価格で4倍の使用量なので、1つ下のプランより1ドルあたりの使用量が多い唯一の$200プランです。詳しくは [ChatGPT Pro 料金比較：Pro 100・200・500どれを選ぶ？](/ja/blog/chatgpt-pro-ryokin-hikaku)をご覧ください。
+**ChatGPT は上位プランの割安感がなくなりました。** Pro 100・200・500 はどれも「Plus 1つ分の使用量」あたり$20です。一方 Claude Max 20× は Max 5× より価格が100%高く、使用量が300%多いので、1つ下のプランより1ドルあたりの使用量が多い唯一の$200プランです。詳しくは [ChatGPT Pro 料金比較：Pro 100・200・500どれを選ぶ？](/ja/blog/chatgpt-pro-ryokin-hikaku)をご覧ください。
 
 **Claude は Claude Code の週の上限を少し減らしました。** 9月14日、夏の間の週上限50%の一時増量が25%の恒久的な引き上げに置き換わり、夏より約17%少なくなりました。[Claude Code の使用量上限まとめ](/ja/blog/claude-code-shiyouryou-jougen)もどうぞ。
 
@@ -44,7 +44,7 @@ API 価格を見ると、それぞれの最上位モデルを動かすコスト�
 | GPT-6 Sol | $2 | $10 |
 | Claude Sonnet 5.5 | $2 | $10 |
 
-GPT-6 Astra はトークンあたり Claude Opus 5.5 の2.5倍です。主に最上位モデルを使うなら、同じ作業量で ChatGPT の上限のほうが早く減ると考えてください。GPT-6 Sol と Claude Sonnet 5.5 はトークン単価がまったく同じです。
+GPT-6 Astra はトークンあたり Claude Opus 5.5 より150%高いです。主に最上位モデルを使うなら、同じ作業量で ChatGPT の上限のほうが早く減ると考えてください。GPT-6 Sol と Claude Sonnet 5.5 はトークン単価がまったく同じです。
 
 ## コーディングエージェント：Codex vs Claude Code
 
@@ -70,7 +70,16 @@ GPT-6 Astra はトークンあたり Claude Opus 5.5 の2.5倍です。主に最
 
 ## どちらも使わないという選択も
 
-1日に数回使う程度なら、API がどのプランより安いこともあります。[サブスク vs API 計算機](/ja/plans)で、自分の使い方の月額 API 費用を ChatGPT・Claude・Gemini の全プランと並べて確認できます。日本語は英語よりトークンが約1.79倍かかり、API 費用もそのぶん増えることも計算に入っています。
+1日に数回使う程度なら、API がどのプランより安いこともあります。[サブスク vs API 計算機](/ja/plans)で、自分の使い方の月額 API 費用を ChatGPT・Claude・Gemini の全プランと並べて確認できます。日本語は英語よりトークンが約79%多くかかり、API 費用もそのぶん増えることも計算に入っています。
 
 *プランと上限はよく変わります。加入前に [chatgpt.com/pricing](https://chatgpt.com/pricing) と [claude.com/pricing](https://claude.com/pricing) を確認してください。*
+
+## 出典
+
+- [ChatGPT のプランと Codex 料金](https://learn.chatgpt.com/docs/pricing)
+- [OpenAI ヘルプ: ChatGPT Pro の各プラン](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [Claude ヘルプ: Max プランとは](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+- [Claude ヘルプ: Pro・Max プランで Claude Code を使う](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [OpenAI API 料金](https://developers.openai.com/api/docs/pricing)
+- [Claude API 料金](https://platform.claude.com/docs/en/about-claude/pricing)
 <!-- autoimg -->

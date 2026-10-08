@@ -10,23 +10,23 @@ We sent the same 34-token English prompt through GPT's current o200k tokenizer i
 
 | Language | Tokens vs English | Saving if sent in English |
 |---|---|---|
-| Thai | 1.74× | about 43% |
-| Japanese | 1.79× | about 44% |
-| Hindi | 1.50× | about 33% |
-| Turkish | 1.47× | about 32% |
-| Korean | 1.44× | about 31% |
-| Russian | 1.32× | about 24% |
-| French | 1.29× | about 22% |
-| German | 1.26× | about 21% |
-| Spanish | 1.18× | about 15% |
+| Thai | +74% | about 43% |
+| Japanese | +79% | about 44% |
+| Hindi | +50% | about 33% |
+| Turkish | +47% | about 32% |
+| Korean | +44% | about 31% |
+| Russian | +32% | about 24% |
+| French | +29% | about 22% |
+| German | +26% | about 21% |
+| Spanish | +18% | about 15% |
 
-The "saving" column is how many fewer tokens the same content needs in English. The [full 41-language study](/blog/token-cost-by-language) has every language, including the ones that cost twice as much as English.
+The "saving" column is how many fewer tokens the same content needs in English. The [full 41-language study](/blog/token-cost-by-language) has every language, including the ones that cost 100% more than English.
 
 ## Why it matters
 
-![Why it matters: API cost scales directly with tokens. A team sending Japanese prompts pays roughly 1.8 times what an English-s](/cut-token-cost-non-english-prompts-why-it-matters-en.jpg)
+![Why it matters: API cost scales directly with tokens. A team sending Japanese prompts pays roughly 80% more than an English-sp](/cut-token-cost-non-english-prompts-why-it-matters-en.jpg)
 
-- **API cost** scales directly with tokens. A team sending Japanese prompts pays roughly 1.8 times what an English-speaking team pays for the same work.
+- **API cost** scales directly with tokens. A team sending Japanese prompts pays roughly 80% more than an English-speaking team pays for the same work.
 - **Usage limits** on many plans and agents are counted in tokens, so you hit them sooner.
 - **Context windows** fill up faster, so long documents and chats reach the limit earlier.
 
@@ -49,4 +49,9 @@ Translate instructions and questions, not material where wording matters: legal 
 ## Try it with your own prompt
 
 Paste a prompt into the [token counter](/), press *Save tokens*, and see the difference in tokens and cost across 30+ models.
+
+## Sources
+
+- [tiktoken (OpenAI tokenizer, o200k_base)](https://github.com/openai/tiktoken)
+- [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)
 <!-- autoimg -->

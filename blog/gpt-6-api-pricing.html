@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -135,10 +135,10 @@
 </tr>
 </tbody>
 </table></div>
-<p>Astra is 5 times the price of Sol, and Sol is 20 times the price of Luna. That is a 100× range from the cheapest to the most expensive model in the same family.</p>
+<p>Astra costs 400% more than Sol. Luna is far cheaper again: $0.10 input and $0.50 output per million tokens, against $10 and $50 for Astra, in the same model family.</p>
 <p>Requests with more than 272,000 input tokens are billed at a higher rate, so very long contexts cost more than this table suggests.</p>
 <h2>How that compares with GPT-5.6</h2>
-<p>Sol and Luna launched at half the price of the models they replace. GPT-5.6 Sol was $4 input and $20 output; GPT-5.6 Luna was $0.20 and $1.20. If you are still on GPT-5.6, switching model names alone halves the bill.</p>
+<p>Sol and Luna launched at 50% less than the price of the models they replace. GPT-5.6 Sol was $4 input and $20 output; GPT-5.6 Luna was $0.20 and $1.20. If you are still on GPT-5.6, switching model names alone cuts the bill by 50%.</p>
 <h2>What it costs in practice</h2>
 <p><img loading="lazy" width="1200" height="840" alt="What it costs in practice: Model, One request, 10,000 requests" src="/gpt-6-api-pricing-what-it-costs-in-practice-en.jpg" /></p>
 <p>A typical request with 2,000 input tokens and 500 output tokens:</p>
@@ -189,26 +189,35 @@
 </tbody>
 </table></div>
 <p>Prices for the other models are list API prices checked October 1, 2026.</p>
-<p>GPT-6 Sol costs exactly the same per token as Claude Sonnet 5.5. GPT-6 Astra costs 2.5 times as much as Claude Opus 5.5.</p>
+<p>GPT-6 Sol costs exactly the same per token as Claude Sonnet 5.5. GPT-6 Astra costs 150% more than Claude Opus 5.5.</p>
 <h2>Which GPT-6 model should you use?</h2>
 <p><strong>GPT-6 Luna</strong> for high-volume, simple work: classification, extraction, routing, short answers, summaries of short texts. At $0.10 per million input tokens it is cheap enough to run on every request.</p>
 <p><strong>GPT-6 Sol</strong> as the default for most apps and coding work: chat assistants, writing, analysis, agents. It is the sensible middle.</p>
 <p><strong>GPT-6 Astra</strong> only where you can measure that it does better: long, multi-step agent work, hard reasoning, tasks where a mistake is expensive. Route only those requests to it.</p>
 <p>A common setup is to send everything to Sol or Luna by default and escalate to Astra when a cheaper model fails or the task is flagged as hard.</p>
 <h2>Ways to pay less</h2>
-<p><img loading="lazy" width="1200" height="870" alt="Ways to pay less: Use prompt caching. Cached input is a tenth of the normal price on all three models. Put fixed instructions an" src="/gpt-6-api-pricing-ways-to-pay-less-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="902" alt="Ways to pay less: Use prompt caching. Cached input is 90% cheaper than the normal price on all three models. Put fixed instructi" src="/gpt-6-api-pricing-ways-to-pay-less-en.jpg" /></p>
 <ol>
-<li><strong>Use prompt caching.</strong> Cached input is a tenth of the normal price on all three models. Put fixed instructions and documents at the start of the prompt. See <a href="/blog/prompt-caching-explained">Prompt caching explained</a>.</li>
-<li><strong>Use the Batch API</strong> for work that can wait, typically at half price. See <a href="/blog/batch-api-half-price">Batch APIs</a>.</li>
-<li><strong>Keep output short.</strong> Output costs 5 times input on every GPT-6 model.</li>
+<li><strong>Use prompt caching.</strong> Cached input is 90% cheaper than the normal price on all three models. Put fixed instructions and documents at the start of the prompt. See <a href="/blog/prompt-caching-explained">Prompt caching explained</a>.</li>
+<li><strong>Use the Batch API</strong> for work that can wait, typically at 50% off. See <a href="/blog/batch-api-half-price">Batch APIs</a>.</li>
+<li><strong>Keep output short.</strong> Output costs 400% more than input on every GPT-6 model.</li>
 <li><strong>Watch reasoning.</strong> Hidden reasoning tokens are billed as output. Use the lowest reasoning effort that works. See <a href="/blog/reasoning-models-cost">Reasoning models</a>.</li>
-<li><strong>Write prompts in English.</strong> On the GPT tokenizer, the same prompt uses about 1.44× the tokens in Korean and 1.79× in Japanese.</li>
+<li><strong>Write prompts in English.</strong> On the GPT tokenizer, the same prompt uses about 44% more tokens in Korean and 79% more in Japanese than in English.</li>
 </ol>
 <h2>GPT-6 in ChatGPT plans</h2>
 <p>You do not need the API to use GPT-6. GPT-6 Astra is available to ChatGPT Pro, Business Premium and Enterprise users, and is rolling out to Plus, first in ChatGPT's Work section and Codex. For heavy use, a plan can be much cheaper than paying Astra's API rate. Compare in the <a href="/plans">Subscription vs API calculator</a>.</p>
 <h2>Calculate your own cost</h2>
 <p>Paste a typical prompt into the <a href="/">token counter</a> to see its exact token count on GPT models and its cost on every GPT-6 model, Claude and Gemini side by side.</p>
 <p><em>Prices change. Check <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener">OpenAI's pricing page</a> before a large job.</em></p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener">OpenAI: GPT-6 Astra model and pricing</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-sol" target="_blank" rel="noopener">OpenAI: GPT-6 Sol model and pricing</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-luna" target="_blank" rel="noopener">OpenAI: GPT-6 Luna model and pricing</a></li>
+<li><a href="https://openai.com/index/introducing-gpt-6-sol-and-luna/" target="_blank" rel="noopener">OpenAI: Introducing GPT-6 Sol and Luna</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API pricing</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini API pricing</a></li>
+</ul>
 <!-- autoimg -->
 
         <h2>More articles</h2>
@@ -235,6 +244,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

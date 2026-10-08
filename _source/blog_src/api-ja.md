@@ -1,6 +1,6 @@
 ![LLM API 料金比較：GPT-6・Claude・Gemini・DeepSeek など22モデル](/llm-api-ryoukin-hikaku-ja.jpg)
 
-API 料金を公開している言語モデルは数十にのぼり、同じリクエストでもモデルによって費用が150倍も違うことがあります。この記事では、OpenAI、Anthropic、Google、xAI、DeepSeek、Mistral、Alibaba、Moonshot の人気モデル22個の現在の定価を並べ、一般的なリクエストが実際にいくらかかるか、どう選べばよいかをまとめました。
+API 料金を公開している言語モデルは数十にのぼり、同じリクエスト1万回が、モデルによって$3で済むことも$450かかることもあります。この記事では、OpenAI、Anthropic、Google、xAI、DeepSeek、Mistral、Alibaba、Moonshot の人気モデル22個の現在の定価を並べ、一般的なリクエストが実際にいくらかかるか、どう選べばよいかをまとめました。
 
 ## API 料金の比較
 
@@ -45,11 +45,11 @@ API 料金を公開している言語モデルは数十にのぼり、同じリ�
 
 ## 料金表だけではわからないこと
 
-**高いのは出力のほうです。** ほとんどのモデルで、出力は入力の4〜6倍の料金です。長い回答を生成するアプリなら、まず出力料金を比べてください。詳しくは[出力トークンが高い理由](/blog/why-output-tokens-cost-more)（英語）をご覧ください。
+**高いのは出力のほうです。** ほとんどのモデルで、出力は入力より300〜500%高い料金です。長い回答を生成するアプリなら、まず出力料金を比べてください。詳しくは[出力トークンが高い理由](/blog/why-output-tokens-cost-more)（英語）をご覧ください。
 
 **トークナイザーが違います。** テキストをトークンに分割する方法は会社ごとに異なります。同じテキストでもモデルによってトークン数が10〜30%違うことがあるため、トークン単価が安くても請求額が安くなるとは限りません。料金表だけでなく、自分のテキストでの費用を[トークンカウンター](/ja/)で比べてみましょう。詳しくは [GPT・Claude・Gemini のトークンの数え方](/ja/blog/token-kazoekata)をどうぞ。
 
-**言語によって変わります。** 英語以外のテキストはトークンを多く使います。GPT のトークナイザーでは、英語と比べて韓国語が約1.44倍、日本語が約1.79倍、チェコ語が約2倍です。日本語のプロンプトを英語で送ればトークンは約44%減り、[トークンカウンター](/ja/)の 💸 トークン節約 ボタンを使うと、自分の端末の中でプロンプトを英語に変換できます（デスクトップ版 Chrome 138以降 / Edge 148以降）。
+**言語によって変わります。** 英語以外のテキストはトークンを多く使います。GPT のトークナイザーでは、英語と比べて韓国語が約44%、日本語が約79%、チェコ語が約100%多くなります。日本語のプロンプトを英語で送ればトークンは約44%減り、[トークンカウンター](/ja/)の 💸 トークン節約 ボタンを使うと、自分の端末の中でプロンプトを英語に変換できます（デスクトップ版 Chrome 138以降 / Edge 148以降）。
 
 **割引で順位が変わります。** 多くの会社が、キャッシュされた入力を通常料金のごく一部で、バッチ処理を約半額で提供しています。長いプロンプトを繰り返し送るアプリでは、キャッシュをうまく使った中価格帯モデルのほうが、キャッシュなしの格安モデルより安くなることがあります。[プロンプトキャッシュ](/blog/prompt-caching-explained)（英語）と[バッチ API](/blog/batch-api-half-price)（英語）もご覧ください。
 
@@ -69,4 +69,16 @@ API 料金を公開している言語モデルは数十にのぼり、同じリ�
 ## 自分の請求額を見積もる
 
 実際のプロンプトを[トークンカウンター](/ja/)に貼り付ければ、すべてのモデルでの費用を一度に確認できます。詳しい方法は [AI API の請求額を見積もる方法](/blog/how-to-estimate-ai-api-cost)（英語）をご覧ください。サブスクリプションと API のどちらが得かは、[サブスク vs API 計算機](/ja/plans)で比べられます。
+
+## 出典
+
+- [OpenAI API 料金](https://developers.openai.com/api/docs/pricing)
+- [OpenAI: GPT-5 nano モデル](https://developers.openai.com/api/docs/models/gpt-5-nano)
+- [Claude API 料金](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Gemini API 料金](https://ai.google.dev/gemini-api/docs/pricing)
+- [xAI API 料金](https://docs.x.ai/developers/pricing)
+- [DeepSeek API のモデルと料金](https://api-docs.deepseek.com/quick_start/pricing/)
+- [Mistral AI: Mistral Large 3](https://docs.mistral.ai/models/mistral-large-3-25-12)
+- [Alibaba Cloud: qwen3.8-flash の料金](https://www.alibabacloud.com/help/en/model-studio/qwen3-8-flash)
+- [Alibaba Cloud Model Studio の料金](https://www.alibabacloud.com/help/en/model-studio/model-pricing)
 <!-- autoimg -->

@@ -45,7 +45,7 @@ On a $9.99 monthly subscription, even the most expensive model leaves room for a
 
 ## Step 4: plan for the heavy tail
 
-Usage in AI products is very uneven. A small share of users often accounts for a large share of messages. Suppose the top 5% of users send ten times as much as the typical user, with longer conversations that double input size:
+Usage in AI products is very uneven. A small share of users often accounts for a large share of messages. Suppose the top 5% of users send 900% more than the typical user, with longer conversations that increase input size by 100%:
 
 - 1,500 messages a month at 5,000 input and 400 output tokens
 - On GPT-6 Sol: 1,500 × ($0.010 + $0.004) = **$21 a month**
@@ -58,12 +58,12 @@ Free users cost money too. If free users average 30 messages a month on Gemini 3
 
 ## Levers that change the numbers
 
-1. **Model routing.** Send most messages to a small model and only hard ones to a large model. If 80% of messages can go to a model a tenth of the price, the blended cost drops by roughly 70%.
+1. **Model routing.** Send most messages to a small model and only hard ones to a large model. If 80% of messages can go to a model 90% cheaper, the blended cost drops by roughly 70%.
 2. **Prompt caching.** If your system prompt is long, caching can cut the cost of that part by around 90%. See [Prompt caching explained](/blog/prompt-caching-explained).
 3. **History limits.** Summarize old turns instead of resending whole conversations. Input per message stops growing.
 4. **Output limits.** Shorter default answers, with "tell me more" for people who want detail.
 5. **Usage caps per plan.** Generous enough for typical users, firm enough to protect against the heavy tail.
-6. **Language.** If most of your users write in Japanese or Korean, expect 1.4–1.8 times the tokens of English for the same conversations.
+6. **Language.** If most of your users write in Japanese or Korean, expect 40–80% more tokens than English for the same conversations.
 
 ## A simple model to start from
 
@@ -77,4 +77,12 @@ Calculate it for a typical user, a heavy user and a free user, and check each on
 - [How to estimate your AI API bill before you build](/blog/how-to-estimate-ai-api-cost)
 - [ChatGPT Plus or the API: which is cheaper?](/blog/chatgpt-subscription-vs-api)
 - [Why output tokens cost more](/blog/why-output-tokens-cost-more)
+
+## Sources
+
+- [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)
+- [GPT-6 Sol model page (OpenAI)](https://developers.openai.com/api/docs/models/gpt-6-sol)
+- [Gemini Developer API pricing (Google)](https://ai.google.dev/gemini-api/docs/pricing)
+- [Claude API pricing (Anthropic)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Prompt caching (Claude docs)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
 <!-- autoimg -->

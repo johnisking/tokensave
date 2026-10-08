@@ -83,7 +83,7 @@
 </tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1430" alt="Resultaten" src="/blog-language-tax-chart-v4.png" /></p>
+<p><img loading="lazy" width="960" height="1441" alt="Diagram: extra tokens per taal vergeleken met Engels in GPT (41 talen)" src="/blog-language-tax-chart-v5.png" /></p>
 <h2>Waarom</h2>
 <p><img loading="lazy" width="1200" height="593" alt="Waarom: ontbrak → ont | br | ak · 3; beleefd → bele | efd · 2; aankwam → aank | wam · 2" src="/tokens-nederlands-gpt-waarom-nl.jpg" /></p>
 <p>De tokenizer leert vooral van Engelse tekst: woorden als " polite" of " customer" zijn één token, terwijl veel Nederlandse woorden in stukken worden gehakt:</p>
@@ -93,7 +93,7 @@
 <li>aankwam → <code>aank | wam</code> · 2</li>
 </ul>
 <h2>Met één knop naar het Engels</h2>
-<p>De grootste besparing haal je door je prompt in het Engels te sturen: ongeveer 22% minder tokens dan in het Nederlands. Huidige modellen begrijpen Engelse instructies uitstekend en antwoorden in het Nederlands als je daarom vraagt. Plak je prompt in de TokenSave-tokenteller en druk op <strong>💸 Tokens besparen</strong>: spaties worden opgeschoond, de tekst wordt naar het Engels vertaald, overbodige tekst wordt weggehaald en "Reply in Dutch." wordt toegevoegd, zodat het antwoord in jouw taal blijft. Er wordt gebruikgemaakt van de ingebouwde vertaler van Chrome 138+ / Edge 148+ op desktop; de vertaling gebeurt op je eigen apparaat en je tekst wordt nooit geüpload. Druk op <strong>↩ Origineel</strong> om het origineel terug te krijgen.</p>
+<p>De grootste besparing haal je door je prompt in het Engels te sturen: ongeveer 22% minder tokens dan in het Nederlands. Huidige modellen begrijpen Engelse instructies uitstekend en antwoorden in het Nederlands als je daarom vraagt. Plak je prompt in de <a href="/nl/">TokenSave-tokenteller</a> en druk op <strong>💸 Tokens besparen</strong>: spaties worden opgeschoond, de tekst wordt naar het Engels vertaald, overbodige tekst wordt weggehaald en "Reply in Dutch." wordt toegevoegd, zodat het antwoord in jouw taal blijft. Er wordt gebruikgemaakt van de ingebouwde vertaler van Chrome 138+ / Edge 148+ op desktop; de vertaling gebeurt op je eigen apparaat en je tekst wordt nooit geüpload. Druk op <strong>↩ Origineel</strong> om het origineel terug te krijgen.</p>
 <h2>In geld</h2>
 <p>Bij een model van $2 per miljoen inputtokens kost het 68 dollar in het Engels en 88 dollar in het Nederlands om deze prompt een miljoen keer te versturen. Antwoordt het model ook in het Nederlands, dan geldt dezelfde 29% extra voor de outputtokens, die meestal 300–400% duurder zijn dan inputtokens.</p>
 <h2>Zo bespaar je</h2>
@@ -110,4 +110,10 @@
 <li>De vertaling is gebaseerd op een gecontroleerde machinevertaling.</li>
 </ul>
 <p>Alle resultaten voor 41 talen (in het Engels): <a href="/blog/token-cost-by-language">vergelijking van 41 talen</a></p>
+<p>Alle 41 talen naast elkaar staan in de <a href="/languages">talentabel</a>.</p>
+<h2>Bronnen</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: de tokenizer van OpenAI (o200k_base) op GitHub</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">Prijzen van de OpenAI API</a></li>
+</ul>
 <!-- autoimg -->

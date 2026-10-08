@@ -76,4 +76,11 @@ Meer details en cijfers vind je in [How to save tokens in Claude Code](/blog/cla
 Loop je regelmatig tegen de weeklimiet aan? Vergelijk dan wat dat extra gebruik via de API zou kosten met de prijs van het volgende plan. Onze gids [Claude Code cost per month](/blog/claude-code-cost-per-month) (in het Engels) en de [kostencalculator voor coding agents](/nl/agents) rekenen het voor je uit. Plannen van verschillende aanbieders vergelijk je met de [plannencalculator](/nl/plans). De limieten van de concurrent van OpenAI staan in [Codex limiet](/nl/blog/codex-limiet).
 
 *Limieten veranderen. De [helppagina van Anthropic over Claude Code met Pro of Max](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan) en de [prijspagina](https://claude.com/pricing) geven de actuele regels.*
+
+## Bronnen
+
+- [Claude Code gebruiken met je Pro- of Max-abonnement (Claude Helpcentrum)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Claude-abonnementen en prijzen (Anthropic)](https://claude.com/pricing)
+- [Extra gebruik voor betaalde Claude-abonnementen (Claude Helpcentrum)](https://support.claude.com/en/articles/12429409-extra-usage-for-max-20x-plans)
+- [Kosten effectief beheren (Claude Code-documentatie)](https://code.claude.com/docs/en/costs)
 <!-- autoimg -->

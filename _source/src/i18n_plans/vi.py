@@ -19,7 +19,7 @@ P = dict(
     cheaperApi="API rẻ hơn {d} mỗi tháng",
     cheaperPlan="{plan} rẻ hơn {d} mỗi tháng",
     breakEven="API đắt hơn {plan} khi vượt khoảng {n} tin nhắn mỗi ngày.",
-    langNote="{lang} cần khoảng {x}× số token so với tiếng Anh, nên mọi giá API ở đây cao hơn {x}×.",
+    langNote="{lang} cần nhiều hơn khoảng {p}% số token so với tiếng Anh, nên mọi giá API ở đây cao hơn {p}%.",
     note="Chi phí API tính cả cuộc trò chuyện: mỗi tin nhắn mới gửi lại các tin trước đó, nên cuộc trò chuyện dài tốn hơn. Prompt caching có thể giảm chi phí này. Gói đăng ký có thêm ứng dụng, công cụ hình ảnh và bộ nhớ, nhưng có giới hạn sử dụng.",
     f1="Giá gói là giá hằng tháng chính thức tại US, kiểm tra ngày 1 tháng 10 năm 2026. Thuế và giá địa phương có thể khác.",
     f2="Giá API lấy từ bảng giá công khai và cập nhật hằng ngày. Hãy luôn kiểm tra trang của nhà cung cấp trước khi quyết định.",
@@ -28,7 +28,7 @@ P = dict(
     q2="Vì sao trò chuyện dài tốn hơn trên API?",
     a2="Mô hình chat không lưu trạng thái. Mỗi tin nhắn mới gửi lại toàn bộ cuộc trò chuyện làm đầu vào, nên tin nhắn thứ 10 tốn hơn tin đầu tiên rất nhiều. Gói đăng ký che giấu chi phí này sau giới hạn sử dụng.",
     q3="Ngôn ngữ của tôi có ảnh hưởng đến chi phí không?",
-    a3="Có. Cùng một đoạn văn bằng tiếng Hàn, tiếng Hindi hay tiếng Hy Lạp cần nhiều token hơn tiếng Anh, nên chi phí API tăng theo cùng hệ số. Gói đăng ký giữ nguyên giá, nhưng bạn chạm giới hạn sử dụng sớm hơn.",
+    a3="Có. Cùng một đoạn văn bằng tiếng Hàn, tiếng Hindi hay tiếng Hy Lạp cần nhiều token hơn tiếng Anh, nên chi phí API tăng theo cùng tỷ lệ phần trăm. Gói đăng ký giữ nguyên giá, nhưng bạn chạm giới hạn sử dụng sớm hơn.",
     more="Cách chúng tôi đo",
 )
 NAV = "Gói hay API"

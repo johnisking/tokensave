@@ -63,4 +63,10 @@ OpenAI のヘルプセンターによると、**Settings → Usage** で Work �
 主にチャットで使うなら、8月の変更で$20のプランは以前よりずっとお得になりました。Codex や GPT-6 Astra をヘビーに使うなら、[サブスク vs API 計算機](/ja/plans)や[コーディングエージェント費用計算機](/ja/agents)で、プランの料金と同じ作業を API で行った場合の費用を比べてみてください。料金はドル建てなので、円での支払額は為替によって変わります。
 
 *上限は頻繁に変わります。最新の数値は OpenAI の [GPT-6 Astra 使用量ヘルプページ](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)（英語）で確認してください。*
+
+## 出典
+
+- [Work と Codex での GPT-6 Astra の使用量管理（OpenAI ヘルプセンター）](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)
+- [ChatGPT Pro の各プランについて（OpenAI ヘルプセンター）](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [GPT-6 Astra のモデルと API 料金（OpenAI ドキュメント）](https://developers.openai.com/api/docs/models/gpt-6-astra)
 <!-- autoimg -->

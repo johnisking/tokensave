@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -117,10 +117,10 @@
 <h2>Step 3: add the multipliers people forget</h2>
 <p><img loading="lazy" width="1200" height="796" alt="Step 3: add the multipliers people forget: Conversation history. In a chat, every new message re-sends the whole conversation. Message 10 of a conversati" src="/how-to-estimate-ai-api-cost-step-3-add-the-multipliers-people-forget-en.jpg" /></p>
 <ul>
-<li><strong>Conversation history.</strong> In a chat, every new message re-sends the whole conversation. Message 10 of a conversation includes messages 1 to 9. Average input per message can be 5–10 times the size of a single message.</li>
+<li><strong>Conversation history.</strong> In a chat, every new message re-sends the whole conversation. Message 10 of a conversation includes messages 1 to 9. Average input per message can be 400–900% larger than a single message.</li>
 <li><strong>Retries and failures.</strong> Timeouts, validation errors and "regenerate" clicks all cost tokens. Add 5–15%.</li>
-<li><strong>Language.</strong> If your users write in Korean, Japanese or Hindi, the same content uses 1.4–1.8 times more tokens than English.</li>
-<li><strong>Reasoning.</strong> Reasoning models write hidden thinking that is billed as output. It can be several times longer than the visible answer.</li>
+<li><strong>Language.</strong> If your users write in Korean, Japanese or Hindi, the same content uses 40–80% more tokens than English.</li>
+<li><strong>Reasoning.</strong> Reasoning models write hidden thinking that is billed as output. It can be much longer than the visible answer.</li>
 </ul>
 <h2>A worked example</h2>
 <p><img loading="lazy" width="1200" height="686" alt="A worked example: Model, Input $/1M, Output $/1M, Monthly cost" src="/how-to-estimate-ai-api-cost-a-worked-example-en.jpg" /></p>
@@ -168,7 +168,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>The same workload ranges from $3 to $120 depending on the model. Now apply the multipliers: if conversations average 6 messages and history is re-sent each time, input could easily triple, and the GPT-6 Sol bill moves from $60 toward $150.</p>
+<p>The same workload ranges from $3 to $120 depending on the model. Now apply the multipliers: if conversations average 6 messages and history is re-sent each time, input could easily grow by 200%, and the GPT-6 Sol bill moves from $60 toward $150.</p>
 <h2>Ways to bring the number down</h2>
 <p><img loading="lazy" width="1200" height="902" alt="Ways to bring the number down: Use prompt caching. Many providers bill repeated input (a fixed system prompt, a long document) at a fraction " src="/how-to-estimate-ai-api-cost-ways-to-bring-the-number-down-en.jpg" /></p>
 <ol>
@@ -181,6 +181,15 @@
 <h2>Check your own numbers</h2>
 <p>The <a href="/">token counter</a> turns any text into a cost for 30+ models at once, and the <a href="/plans">Subscription vs API calculator</a> shows whether a monthly plan would be cheaper than paying per token.</p>
 <p><em>Prices change often. Always confirm on the provider's pricing page before a large job.</em></p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API pricing</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-sol" target="_blank" rel="noopener">GPT-6 Sol model page (OpenAI)</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini Developer API pricing (Google)</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API pricing (Anthropic)</a></li>
+<li><a href="https://developers.openai.com/api/docs/guides/reasoning" target="_blank" rel="noopener">Reasoning models guide (OpenAI)</a></li>
+<li><a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener">Prompt caching guide (OpenAI)</a></li>
+</ul>
 <!-- autoimg -->
 
         <h2>More articles</h2>
@@ -207,6 +216,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

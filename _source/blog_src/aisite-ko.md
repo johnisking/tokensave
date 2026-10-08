@@ -48,7 +48,7 @@ AI 사이트는 이미 수천 개가 넘지만, 대부분은 같은 몇 개 모�
 
 **DeepL**(deepl.com)은 번역이 자연스럽기로 유명하고, 워드·PDF 파일을 레이아웃 그대로 통째로 번역할 수 있습니다. **파파고**(papago.naver.com)는 한국어 구어체와 신조어에 강하고 이미지 속 글자도 번역합니다.
 
-**한국어로 프롬프트를 쓰는 분께 팁:** AI는 같은 내용이라도 한국어로 쓰면 영어보다 토큰을 **약 1.44배** 씁니다. [토큰세이브 토큰 계산기](/ko/)의 **💸 토큰 절약** 버튼을 누르면 프롬프트를 내 기기 안에서 영어로 바꾸고 끝에 "Reply in Korean."을 붙여 줍니다. 답은 한국어로 받으면서 토큰은 약 30% 줄일 수 있습니다. 자세한 측정 결과는 [한국어는 영어보다 토큰이 얼마나 더 들까](/ko/blog/korean-tokens-gpt)에 있습니다.
+**한국어로 프롬프트를 쓰는 분께 팁:** AI는 같은 내용이라도 한국어로 쓰면 영어보다 토큰을 **약 44% 더** 씁니다. [토큰세이브 토큰 계산기](/ko/)의 **💸 토큰 절약** 버튼을 누르면 프롬프트를 내 기기 안에서 영어로 바꾸고 끝에 "Reply in Korean."을 붙여 줍니다. 답은 한국어로 받으면서 토큰은 약 30% 줄일 수 있습니다. 자세한 측정 결과는 [한국어는 영어보다 토큰이 얼마나 더 들까](/ko/blog/korean-tokens-gpt)에 있습니다.
 
 ## 이미지·디자인
 
@@ -56,7 +56,7 @@ AI 사이트는 이미 수천 개가 넘지만, 대부분은 같은 몇 개 모�
 
 **remove.bg**(remove.bg)는 딱 한 가지, 사진을 올리면 몇 초 만에 사람이나 물건만 깔끔하게 오려 줍니다.
 
-AI 이미지를 많이 만든다면 모델마다 장당 가격이 10배 넘게 차이 납니다. [AI 이미지 비용 계산기](/ko/image)에서 나노 바나나, GPT Image, FLUX 등을 한 번에 비교해 보세요.
+AI 이미지를 많이 만든다면 모델마다 장당 가격이 900% 넘게 차이 납니다. [AI 이미지 비용 계산기](/ko/image)에서 나노 바나나, GPT Image, FLUX 등을 한 번에 비교해 보세요.
 
 ## 음성·음악·영상
 
@@ -96,4 +96,21 @@ AI 영상 생성은 비용이 가장 빨리 늘어나는 분야입니다. 크레
 1. **AI 채팅은 하나로 시작하세요.** 챗GPT, Claude, Gemini 중 하나면 대부분 해결됩니다.
 2. **주로 하는 일에 맞는 도구를 하나 더하세요.** 자료 조사는 Perplexity, 번역은 DeepL, 디자인은 Canva, 영상은 CapCut입니다.
 3. **무료 플랜이 막힐 때만 결제하세요.** 그때도 구독과 API 중 어느 쪽이 싼지 먼저 확인하세요.
+
+## 출처
+
+- [OpenAI 도움말: ChatGPT 무료 플랜](https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq)
+- [Claude 요금제(무료 플랜 포함)](https://claude.com/pricing)
+- [Gemini 도움말: Google Workspace 연결](https://support.google.com/gemini/answer/15229592?hl=en)
+- [Perplexity 도움말: Perplexity란](https://www.perplexity.ai/help-center/en/articles/10352155-what-is-perplexity)
+- [Google 도움말: Gemini Notebook(옛 NotebookLM)](https://support.google.com/gemininotebook/answer/16164461?hl=en&co=GENIE.Platform%3DDesktop)
+- [DeepL: 문서 번역](https://www.deepl.com/en/features/document-translation)
+- [Canva: AI 이미지 생성기](https://www.canva.com/ai-image-generator/)
+- [remove.bg: 이미지 배경 제거](https://www.remove.bg/uploads)
+- [ElevenLabs 가격(무료 플랜)](https://elevenlabs.io/pricing)
+- [Suno: 텍스트로 노래 만들기](https://suno.com/hub/turn-text-to-song)
+- [CapCut: 자동 자막 생성기](https://www.capcut.com/tools/auto-caption-generator)
+- [Arena(옛 LMArena) FAQ](https://arena.ai/faq)
+- [Hugging Face: Spaces](https://huggingface.co/docs/hub/en/spaces)
+- [Google AI Studio: Gemini API 키 사용법](https://ai.google.dev/gemini-api/docs/api-key)
 <!-- autoimg -->

@@ -35,7 +35,7 @@ T = {
   tDev="Dev kickoff", tArt="Art", tMusic="Music", tSfx="Sound effects", tTrailer="Trailer", copy="Copy", download="Download all (.md)",
   howTitle="How the estimate works",
   how=["Sizes are anchored on real solo builds made with AI coding agents: a small mobile game took about 2 weeks, a medium one about 4 and a large one about 6; extra large is about 3 months. Genre, features, languages and 3D change those numbers.",
-       "Images = characters × animation frames + backgrounds + items + UI. We assume you keep about 1 in 3 generations, so the number of generations is three times the number of images.",
+       "Images = characters × animation frames + backgrounds + items + UI. We assume you keep about 1 in 3 generations, so we plan about 3 generations per image.",
        "Coding tokens assume an agent like Claude Code works about 70% of the days and reads around 20M tokens a day, most of it cached context. The API cost uses today's list price for the model you pick; subscriptions are charged per month."],
   srcTitle="Tool prices used", srcNote=f"Checked {CHECKED}. Prices change often — check each tool's pricing page before you buy.",
   faqTitle="FAQ",
@@ -60,7 +60,7 @@ T = {
   days="{n} days", monthsN="{n} mo", capWarn="This plan's usage limit is likely too low for daily agent coding — expect waits or extra usage.",
   qa='Quick answer: making a small 2D mobile game on your own with AI tools takes about 2–3 weeks and costs about $50–180 in subscriptions and API fees (October 2026). Most of it is the AI coding plan.', sumTitle='Cost and time by genre and size', sumNote='Each cell: build time · cost from the Best value stack to the Typical stack. One person with AI tools, USD before tax, store fee included. Checked {date}.',
   cTax="Tax included ({pct}%)", cFx="Rates as of {date}, approximate",
-  hireRef="For reference: hiring freelancers for a game this size usually starts at <b>{min}+</b>, and quotes can differ by 10× or more depending on country and quality.",
+  hireRef="For reference: hiring freelancers for a game this size usually starts at <b>{min}+</b>, and quotes vary widely depending on country and quality.",
   noTrailer="Turn on “Promo trailer” to get trailer prompts.",
   copied="Copied ✓", packTitle="prompt pack",
   related="Related", rel=[("/agents", "Claude Code monthly cost"), ("/image", "AI image cost per image"), ("/compare/performance", "AI model capability vs price")],
@@ -82,7 +82,7 @@ T = {
   tDev="개발 시작", tArt="그림", tMusic="음악", tSfx="효과음", tTrailer="트레일러", copy="복사", download="전체 받기 (.md)",
   howTitle="계산 방식",
   how=["규모 기준은 AI 코딩 에이전트로 실제 1인 개발한 게임입니다. 소형 모바일 게임 약 2주, 중형 약 4주, 대형 약 6주가 걸렸고 초대형은 약 3개월로 잡았습니다. 장르·기능·언어 수·3D 여부에 따라 늘거나 줄어듭니다.",
-       "이미지 수 = 캐릭터 × 애니메이션 프레임 + 배경 + 아이템 + UI입니다. 생성한 것 중 3장에 1장 정도를 쓴다고 보고, 생성 횟수는 이미지 수의 3배로 잡았습니다.",
+       "이미지 수 = 캐릭터 × 애니메이션 프레임 + 배경 + 아이템 + UI입니다. 생성한 것 중 3장에 1장 정도를 쓴다고 보고, 이미지 1장당 생성 3회 정도로 잡았습니다.",
        "코딩 토큰은 Claude Code 같은 에이전트가 전체 기간의 70% 동안 하루 약 2천만 토큰(대부분 캐시된 맥락)을 읽는다고 가정합니다. API 비용은 고른 모델의 현재 정가, 구독은 월 단위로 계산합니다."],
   srcTitle="사용한 도구 가격", srcNote=f"{CHECKED} 기준. 가격이 자주 바뀌니 결제 전 각 도구의 가격 페이지를 확인하세요.",
   faqTitle="자주 묻는 질문",
@@ -107,7 +107,7 @@ T = {
   days="{n}일", monthsN="{n}개월", capWarn="이 요금제의 사용량 한도는 매일 에이전트로 코딩하기엔 부족할 가능성이 큽니다. 대기 시간이나 추가 사용료를 예상하세요.",
   qa='한 줄 답: AI 도구로 소형 2D 모바일 게임을 혼자 만들면 약 2~3주, 구독료와 API 비용으로 약 $50~180가 듭니다(2026년 10월 기준). 대부분은 코딩 AI 요금제입니다.', sumTitle='장르·규모별 비용과 기간', sumNote='칸마다: 제작 기간 · 가성비 조합부터 보통 조합까지의 비용. 1인 + AI 도구, 세금 제외 달러, 스토어 등록비 포함. {date} 기준.',
   cTax="부가세 포함 ({pct}%)", cFx="환율 {date} 기준, 대략",
-  hireRef="참고: 같은 규모를 외주로 맡기면 보통 <b>{min} 이상</b>이 들며, 나라와 퀄리티에 따라 10배 넘게 차이 납니다.",
+  hireRef="참고: 같은 규모를 외주로 맡기면 보통 <b>{min} 이상</b>이 들며, 나라와 퀄리티에 따라 차이가 큽니다.",
   noTrailer="'홍보 트레일러'를 켜면 트레일러 프롬프트가 나옵니다.",
   copied="복사됨 ✓", packTitle="프롬프트 묶음",
   related="함께 보기", rel=[("/ko/agents", "Claude Code 월 비용 계산기"), ("/ko/image", "AI 이미지 장당 비용"), ("/ko/compare/performance", "AI 모델 성능 vs 가격 순위")],
@@ -129,7 +129,7 @@ T = {
   tDev="開発スタート", tArt="画像", tMusic="音楽", tSfx="効果音", tTrailer="トレーラー", copy="コピー", download="まとめてダウンロード (.md)",
   howTitle="計算の仕組み",
   how=["規模の基準は、AIコーディングエージェントで実際に1人で作ったゲームです。小規模のモバイルゲームで約2週間、中規模で約4週間、大規模で約6週間かかり、超大型は約3か月としています。ジャンル・機能・言語数・3Dの有無で増減します。",
-       "画像数 = キャラクター × アニメーションのフレーム + 背景 + アイテム + UI。生成した3枚に1枚を使う想定で、生成回数は画像数の3倍としています。",
+       "画像数 = キャラクター × アニメーションのフレーム + 背景 + アイテム + UI。生成した3枚に1枚を使う想定で、画像1枚あたり3回ほど生成する計算です。",
        "コーディングのトークンは、Claude Code などのエージェントが期間の70%の日に1日約2,000万トークン（大半はキャッシュされた文脈）を読む想定です。APIは選んだモデルの現在の定価、サブスクは月単位で計算します。"],
   srcTitle="使用したツール料金", srcNote=f"{CHECKED}時点。料金はよく変わるので、購入前に各ツールの料金ページを確認してください。",
   faqTitle="よくある質問",
@@ -154,7 +154,7 @@ T = {
   days="{n}日", monthsN="{n}か月", capWarn="このプランの利用上限は、毎日エージェントでコーディングするには足りない可能性が高いです。待ち時間や追加料金を見込んでください。",
   qa='結論：AIツールを使って小規模な2Dスマホゲームを1人で作ると、期間は約2〜3週間、サブスクとAPI代で約$50〜180です（2026年10月時点）。大半はコーディングAIのプラン代です。', sumTitle='ジャンル・規模別の費用と期間', sumNote='各セル：制作期間 · コスパ重視〜標準の組み合わせの費用。1人＋AIツール、税抜きドル、ストア登録料込み。{date}時点。',
   cTax="消費税込み（{pct}%）", cFx="為替レートは{date}時点の概算",
-  hireRef="参考：同じ規模を外注すると通常<b>{min}以上</b>かかり、国や品質によって10倍以上の差があります。",
+  hireRef="参考：同じ規模を外注すると通常<b>{min}以上</b>かかり、国や品質によって大きな差があります。",
   noTrailer="「PRトレーラー」をオンにするとトレーラー用プロンプトが出ます。",
   copied="コピーしました ✓", packTitle="プロンプト集",
   related="関連ページ", rel=[("/ja/agents", "Claude Code 月額コスト計算機"), ("/ja/image", "AI画像の1枚あたりの費用"), ("/ja/compare/performance", "AIモデルの性能と価格ランキング")],
@@ -227,7 +227,7 @@ READ2 = {"en": [("/blog/ai-game-cost-calculator-review", "I ran my released game
 
 SUM = {"hyper": {"s": [6, 10, 46, 181, 47], "m": [10, 17, 55, 181, 99], "l": [15, 25, 66, 200, 165]}, "puzzle": {"s": [12, 20, 50, 181, 71], "m": [22, 35, 63, 313, 144], "l": [32, 52, 99, 332, 254]}, "merge": {"s": [14, 22, 53, 181, 86], "m": [26, 43, 72, 313, 196], "l": [38, 62, 116, 464, 358]}, "idle": {"s": [13, 21, 51, 181, 75], "m": [24, 39, 67, 313, 166], "l": [35, 57, 106, 332, 298]}, "novel": {"s": [12, 20, 53, 181, 87], "m": [22, 35, 67, 313, 170], "l": [32, 52, 105, 332, 292]}, "card": {"s": [16, 26, 57, 181, 109], "m": [30, 49, 98, 313, 250], "l": [46, 74, 133, 464, 454]}, "platformer": {"s": [14, 22, 52, 181, 82], "m": [26, 43, 68, 313, 177], "l": [38, 62, 108, 464, 307]}, "rpg": {"s": [19, 31, 59, 313, 119], "m": [38, 61, 102, 445, 272], "l": [55, 90, 136, 464, 472]}}
 SUM_G = ["hyper", "puzzle", "merge", "idle", "novel", "card", "platformer", "rpg"]
-FAQ_ADD = {'en': [('How long does it take to make a game with AI?', 'Solo with AI coding agents: a small 2D mobile game takes about 2–3 weeks, a medium one about 4–6 weeks, a large one 6–9 weeks and an extra large one 3 months or more. A hyper-casual game can be done in 6–10 days; an RPG takes longer.'), ('How many images does a 2D game need?', 'Count characters × animation frames + backgrounds + items + UI. A small merge game needs about 86 images, a small card game about 109 and a small RPG about 119. Plan on generating about three times that many.'), ('What is the cheapest way to make a game with AI?', 'Use Gemini or another per-image API for art, free music and sound effects from Pixabay, Kenney or Freesound, and a low-cost coding plan such as Google AI Pro. A small game then costs about $50–80 including the $25 Google Play fee.')], 'ko': [('AI로 게임 하나 만드는 데 얼마나 걸리나요?', 'AI 코딩 에이전트로 혼자 만들면 소형 2D 모바일 게임은 약 2~3주, 중형 약 4~6주, 대형 6~9주, 초대형은 3개월 이상입니다. 하이퍼캐주얼은 6~10일이면 되고 RPG는 더 걸립니다.'), ('2D 게임에 이미지가 몇 장 필요한가요?', '캐릭터 × 애니메이션 프레임 + 배경 + 아이템 + UI로 셉니다. 소형 머지 게임은 약 86장, 소형 카드 게임은 약 109장, 소형 RPG는 약 119장입니다. 생성은 그 3배 정도 한다고 보면 됩니다.'), ('AI로 게임을 가장 싸게 만드는 방법은?', '그림은 Gemini 같은 장당 과금 API, 음악·효과음은 Pixabay·Kenney·Freesound 무료 소스, 코딩은 Google AI Pro 같은 저렴한 요금제를 쓰면 됩니다. 소형 게임이면 Google Play 등록비 $25 포함 약 $50~80입니다.')], 'ja': [('AIでゲームを1本作るのにどれくらいかかりますか？', 'AIコーディングエージェントで1人で作る場合、小規模な2Dスマホゲームで約2〜3週間、中規模で約4〜6週間、大規模で6〜9週間、超大型は3か月以上です。ハイパーカジュアルなら6〜10日、RPGはもっとかかります。'), ('2Dゲームには画像が何枚必要ですか？', 'キャラクター × アニメーションのコマ + 背景 + アイテム + UI で数えます。小規模なマージゲームで約86枚、カードゲームで約109枚、RPGで約119枚です。生成はその3倍ほどを見込みます。'), ('AIでいちばん安くゲームを作る方法は？', '画像は Gemini など1枚単位のAPI、音楽と効果音は Pixabay・Kenney・Freesound の無料素材、コーディングは Google AI Pro のような安いプランを使います。小規模なら Google Play 登録料$25込みで約$50〜80です。')]}
+FAQ_ADD = {'en': [('How long does it take to make a game with AI?', 'Solo with AI coding agents: a small 2D mobile game takes about 2–3 weeks, a medium one about 4–6 weeks, a large one 6–9 weeks and an extra large one 3 months or more. A hyper-casual game can be done in 6–10 days; an RPG takes longer.'), ('How many images does a 2D game need?', 'Count characters × animation frames + backgrounds + items + UI. A small merge game needs about 86 images, a small card game about 109 and a small RPG about 119. Plan on about 3 generations per image.'), ('What is the cheapest way to make a game with AI?', 'Use Gemini or another per-image API for art, free music and sound effects from Pixabay, Kenney or Freesound, and a low-cost coding plan such as Google AI Pro. A small game then costs about $50–80 including the $25 Google Play fee.')], 'ko': [('AI로 게임 하나 만드는 데 얼마나 걸리나요?', 'AI 코딩 에이전트로 혼자 만들면 소형 2D 모바일 게임은 약 2~3주, 중형 약 4~6주, 대형 6~9주, 초대형은 3개월 이상입니다. 하이퍼캐주얼은 6~10일이면 되고 RPG는 더 걸립니다.'), ('2D 게임에 이미지가 몇 장 필요한가요?', '캐릭터 × 애니메이션 프레임 + 배경 + 아이템 + UI로 셉니다. 소형 머지 게임은 약 86장, 소형 카드 게임은 약 109장, 소형 RPG는 약 119장입니다. 생성은 이미지 1장당 3회 정도로 잡으면 됩니다.'), ('AI로 게임을 가장 싸게 만드는 방법은?', '그림은 Gemini 같은 장당 과금 API, 음악·효과음은 Pixabay·Kenney·Freesound 무료 소스, 코딩은 Google AI Pro 같은 저렴한 요금제를 쓰면 됩니다. 소형 게임이면 Google Play 등록비 $25 포함 약 $50~80입니다.')], 'ja': [('AIでゲームを1本作るのにどれくらいかかりますか？', 'AIコーディングエージェントで1人で作る場合、小規模な2Dスマホゲームで約2〜3週間、中規模で約4〜6週間、大規模で6〜9週間、超大型は3か月以上です。ハイパーカジュアルなら6〜10日、RPGはもっとかかります。'), ('2Dゲームには画像が何枚必要ですか？', 'キャラクター × アニメーションのコマ + 背景 + アイテム + UI で数えます。小規模なマージゲームで約86枚、カードゲームで約109枚、RPGで約119枚です。生成は画像1枚あたり3回ほどを見込みます。'), ('AIでいちばん安くゲームを作る方法は？', '画像は Gemini など1枚単位のAPI、音楽と効果音は Pixabay・Kenney・Freesound の無料素材、コーディングは Google AI Pro のような安いプランを使います。小規模なら Google Play 登録料$25込みで約$50〜80です。')]}
 
 def build_page(lang, llm):
     t = T[lang]

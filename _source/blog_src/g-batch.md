@@ -58,4 +58,13 @@ For jobs that run every day or every week, the saving adds up quickly.
 ## Price your job
 
 Measure one typical request and response with the [token counter](/), multiply by the number of items, and halve it for a batch estimate. The [API cost guide](/blog/how-to-estimate-ai-api-cost) walks through the method step by step.
+
+## Sources
+
+- [Batch API guide (OpenAI)](https://developers.openai.com/api/docs/guides/batch)
+- [Batch processing (Claude docs)](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
+- [Gemini Batch API (Google)](https://ai.google.dev/gemini-api/docs/batch-api)
+- [GPT-6 Sol model page (OpenAI)](https://developers.openai.com/api/docs/models/gpt-6-sol)
+- [Claude API pricing (Anthropic)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Gemini Developer API pricing (Google)](https://ai.google.dev/gemini-api/docs/pricing)
 <!-- autoimg -->

@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -149,7 +149,7 @@
 <p>사용량 배수는 각 회사의 $20 요금제를 기준으로 한 것이라, "Plus의 5배"와 "Pro의 5배"가 같은 작업량은 아닙니다. 두 회사 모두 정확한 토큰 수는 공개하지 않습니다.</p>
 <h2>2026년 9월에 달라진 점</h2>
 <p><strong>$200에서는 이제 Claude 쪽 배수가 더 큽니다.</strong> Claude Max 20×는 기본 요금제의 20배, 챗GPT Pro 200은 이제 10배입니다. 두 $200 요금제 사이에서 고민하던 헤비 유저에게는 가장 큰 변화입니다.</p>
-<p><strong>챗GPT는 큰 요금제 할인이 없어졌습니다.</strong> Pro 100·200·500 모두 "Plus 1배치 사용량"당 $20입니다. 반면 Claude Max 20×는 Max 5×의 두 배 가격에 네 배 사용량이라, 바로 아래 요금제보다 1달러당 사용량이 많은 유일한 $200 요금제입니다. 자세한 내용은 <a href="/ko/blog/chatgpt-pro-yogeumje-bigyo">챗GPT Pro 100 vs 200 vs 500 요금제 비교</a>를 보세요.</p>
+<p><strong>챗GPT는 큰 요금제 할인이 없어졌습니다.</strong> Pro 100·200·500 모두 "Plus 사용량 1배"당 $20입니다. 반면 Claude Max 20×는 Max 5×보다 가격은 100% 높고 사용량은 300% 많아서, 바로 아래 요금제보다 1달러당 사용량이 많은 유일한 $200 요금제입니다. 자세한 내용은 <a href="/ko/blog/chatgpt-pro-yogeumje-bigyo">챗GPT Pro 100 vs 200 vs 500 요금제 비교</a>를 보세요.</p>
 <p><strong>Claude는 클로드 코드 주간 한도를 조금 줄였습니다.</strong> 9월 14일, 여름 동안의 주간 한도 50% 임시 증량이 25% 영구 증량으로 바뀌면서 여름보다 약 17% 줄었습니다. <a href="/ko/blog/claude-code-sayongnyang-hando">클로드 코드 사용량 한도 정리</a>를 참고하세요.</p>
 <h2>쓸 수 있는 모델</h2>
 <p><img loading="lazy" width="1200" height="636" alt="쓸 수 있는 모델: 입력 100만 토큰, 출력 100만 토큰" src="/chatgpt-pro-vs-claude-max-ko-3.jpg" /></p>
@@ -187,7 +187,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>GPT-6 Astra는 토큰당 Claude Opus 5.5의 2.5배입니다. 주로 최상위 모델을 쓴다면 같은 작업량에서 챗GPT 쪽 한도가 더 빨리 닳는다고 보면 됩니다. GPT-6 Sol과 Claude Sonnet 5.5는 토큰 가격이 똑같습니다.</p>
+<p>GPT-6 Astra는 토큰당 Claude Opus 5.5보다 150% 비쌉니다. 주로 최상위 모델을 쓴다면 같은 작업량에서 챗GPT 쪽 한도가 더 빨리 닳는다고 보면 됩니다. GPT-6 Sol과 Claude Sonnet 5.5는 토큰 가격이 똑같습니다.</p>
 <h2>코딩 에이전트: Codex vs 클로드 코드</h2>
 <p>둘 다 터미널이나 에디터에서 일하는 에이전트가 들어 있고, 둘 다 단계마다 작업 맥락 전체를 다시 보내서 채팅보다 토큰을 훨씬 많이 씁니다. 25단계짜리 일반적인 기능 작업이면 입력 토큰이 약 160만 개입니다. API로 계산하면 Sonnet 5.5나 GPT-6 Sol로 약 $0.72, Opus 5.5로 $1.43, GPT-6 Astra로 약 $3.60입니다.</p>
 <p>에이전트로 매일 코딩한다면 거의 항상 요금제가 API보다 쌉니다. <a href="/ko/agents">코딩 에이전트 비용 계산기</a>에서 내 사용량으로 두 요금제와 API 비용을 비교해 보세요.</p>
@@ -203,8 +203,17 @@
 - 최상위 모델의 토큰당 가격이 중요하다(Opus 5.5가 Astra보다 싸다).</p>
 <p><strong>$20에서는</strong> 둘 다 괜찮은 출발점입니다. 마음에 드는 모델 쪽으로 시작해서 한도에 얼마나 자주 걸리는지 보고, 자주 걸릴 때만 올리세요.</p>
 <h2>둘 다 안 쓰는 방법도</h2>
-<p>하루에 몇 번 쓰는 정도라면 API가 어떤 요금제보다 쌀 수 있습니다. <a href="/ko/plans">구독 vs API 계산기</a>가 내 사용량의 월 API 비용을 챗GPT·Claude·Gemini 모든 요금제와 나란히 보여줍니다. 한국어로 쓰면 영어보다 토큰이 약 1.44배 들어서 API 비용도 그만큼 늘어난다는 점도 계산에 반영됩니다.</p>
+<p>하루에 몇 번 쓰는 정도라면 API가 어떤 요금제보다 쌀 수 있습니다. <a href="/ko/plans">구독 vs API 계산기</a>가 내 사용량의 월 API 비용을 챗GPT·Claude·Gemini 모든 요금제와 나란히 보여줍니다. 한국어로 쓰면 영어보다 토큰이 약 44% 더 들어서 API 비용도 그만큼 늘어난다는 점도 계산에 반영됩니다.</p>
 <p><em>요금제와 한도는 자주 바뀝니다. 가입 전에 <a href="https://chatgpt.com/pricing" target="_blank" rel="noopener">chatgpt.com/pricing</a>과 <a href="https://claude.com/pricing" target="_blank" rel="noopener">claude.com/pricing</a>을 확인하세요.</em></p>
+<h2>출처</h2>
+<ul>
+<li><a href="https://learn.chatgpt.com/docs/pricing" target="_blank" rel="noopener">ChatGPT 요금제와 Codex 가격</a></li>
+<li><a href="https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers" target="_blank" rel="noopener">OpenAI 도움말: ChatGPT Pro 등급 안내</a></li>
+<li><a href="https://support.claude.com/en/articles/11049741-what-is-the-max-plan" target="_blank" rel="noopener">Claude 도움말: Max 요금제란</a></li>
+<li><a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Claude 도움말: Pro·Max 요금제로 Claude Code 쓰기</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API 가격</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API 가격</a></li>
+</ul>
 <!-- autoimg -->
 
         <h2>다른 글</h2>
@@ -231,6 +240,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

@@ -27,7 +27,7 @@ from i18n_agents_all import AG, AGNAV, AGMETA
 import i18n_guides as GI
 for _t in GI.CTX:
     S[_t]["a4"] = GI.a4(_t)
-S["en"]["a4"] = ("Yes: across 41 languages, the same prompt uses from 1.03× (Simplified Chinese) to 2.44× (Punjabi) the tokens of English "
+S["en"]["a4"] = ("Yes: across 41 languages, the same prompt uses from 3% (Simplified Chinese) to 144% (Punjabi) more tokens than English "
                  "on GPT's o200k tokenizer. Sending the prompt in English avoids most of that: the Save tokens button translates it on your "
                  "device (desktop Chrome / Edge) and asks for the reply in your language.")
 LLM = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "src", "llm_prices.json"), encoding="utf-8"))
@@ -166,7 +166,7 @@ def languages_html():
                 f'<li class="flex items-center justify-between gap-3 bg-zinc-950/60 border border-zinc-800 rounded-xl px-3 py-2.5 hover:border-violet-500/50">'
                 f'<a href="{path_for(slug, TOOLS[0])}" class="min-w-0" lang="{t}" dir="{d}"><span class="block font-semibold text-zinc-100 truncate">{esc(nat)}</span>'
                 f'<span class="block text-[11px] text-zinc-500" dir="ltr" lang="en">{esc(data[t]["name"])}</span></a>'
-                f'<span class="ltr text-end shrink-0"><span class="block text-sm font-bold tabular-nums {tone(r)}">{r:.2f}×</span>{art}</span></li>')
+                f'<span class="ltr text-end shrink-0"><span class="block text-sm font-bold tabular-nums {tone(r)}">{"±0" if r <= 1.005 else "+" + str(round((r - 1) * 100))}%</span>{art}</span></li>')
         parts.append(f'      <h2 class="mt-8 text-sm font-bold uppercase tracking-wider text-zinc-400">{icon} {name}</h2>\n'
                      f'      <ul class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">\n        ' + "\n        ".join(cards) + "\n      </ul>")
     return ('    <section class="max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-5 sm:p-8">\n'
@@ -618,7 +618,7 @@ def build():
     plans_tool = next(t for t in TOOLS if t["key"] == "plans")
     tool_by_key = {t["key"]: t for t in TOOLS}
     og_by_key = {"video": "og-video.jpg", "image": "og-image.jpg"}
-    for GROUP, gimg, gtool in [(BLOG, "blog-language-tax-chart-v4.png", TOOLS[0]), (PRO, "blog-chatgpt-pro-tiers.png", plans_tool), (MISTRAL_FR, "blog-mistral-francais.png", TOOLS[0]), (PROMPT_PL, "blog-prompt-polski.png", TOOLS[0])] + [
+    for GROUP, gimg, gtool in [(BLOG, "blog-language-tax-chart-v5.png", TOOLS[0]), (PRO, "blog-chatgpt-pro-tiers.png", plans_tool), (MISTRAL_FR, "blog-mistral-francais.png", TOOLS[0]), (PROMPT_PL, "blog-prompt-polski.png", TOOLS[0])] + [
             ([g], og_by_key.get(g["tool"], "og-token.jpg"), tool_by_key[g["tool"]]) for g in GUIDES] + [
             (G, "og-token.jpg", tool_by_key["agents"]) for G in CC] + [(CMP, "og-token.jpg", plans_tool), (GPT6, "og-token.jpg", TOOLS[0]), (GEM4, "og-token.jpg", TOOLS[0]), (RANK, "og-token.jpg", TOOLS[0]), (API_CMP, "og-token.jpg", TOOLS[0]), (TPW, "og-token.jpg", TOOLS[0]), (COUNT, "og-token.jpg", TOOLS[0]), (CHLIM, "og-token.jpg", plans_tool), (AISITE, "og-token.jpg", TOOLS[0]), (GAME, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (GAME_HOWTO, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (DEVLOG1, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (DEVLOG2, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (CHEAP, "og-token.jpg", TOOLS[0]), (CTOK, "og-token.jpg", tool_by_key["agents"]), (SUBS, "og-token.jpg", plans_tool), (GPT61, "og-token.jpg", TOOLS[0]), (DS41, "og-token.jpg", TOOLS[0]), (AGCMP, "og-token.jpg", tool_by_key["agents"]), (GOPLUS, "og-token.jpg", plans_tool), (RBX, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (KO6, "og-token.jpg", plans_tool), (JA6, "og-token.jpg", plans_tool), (RBX_JA, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (TW6, "og-token.jpg", plans_tool), (GCREV, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (FREEPAID, "og-token.jpg", plans_tool), (INDIECOST, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (MUSE13, "og-token.jpg", TOOLS[0])] + [(G, "og-token.jpg", plans_tool) for G in EU6] + [(G, "og-token.jpg", plans_tool) for G in NL6] + [(G, "og-token.jpg", {"page": "ai-game-cost-calculator"}) for G in RBX_PL]:
       blog_en = next((b for b in GROUP if b["tag"] == "en"), None)

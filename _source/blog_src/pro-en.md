@@ -2,7 +2,7 @@ On September 29, 2026 OpenAI split ChatGPT Pro into three plans: **Pro 100**, **
 
 **Short answer:** pick the smallest plan you don't hit the limit on. Pro 100, 200 and 500 all cost the same $20 per Plus-worth of usage; the only differences are how much usage you get (5x, 10x, 25x Plus) and Ultrafast, which is Pro 500 only.
 
-![ChatGPT Pro 500 vs 200 vs 100: Pro 500 $500/month, 25 Plus-worths of usage plus Ultrafast; Pro 200 $200, 10 Plus-worths; Pro 100 $100, 5 Plus-worths](/chatgpt-pro-500-200-100-en.jpg)
+![ChatGPT Pro 500 vs 200 vs 100: Pro 500 $500/month, 25× Plus usage plus Ultrafast; Pro 200 $200, 10× Plus; Pro 100 $100, 5× Plus](/chatgpt-pro-500-200-100-en.jpg)
 
 ## The plans side by side
 
@@ -34,7 +34,7 @@ So the rule is simple: **buy the smallest plan you don't hit the limit on.** Pay
 
 **Pros**
 
-- **The most usage:** 25 Plus-worths of usage (as reported from OpenAI's announcement). Running Codex or agents all day rarely hits the limit.
+- **The most usage:** 25× Plus usage (as reported from OpenAI's announcement). Running Codex or agents all day rarely hits the limit.
 - **Ultrafast is Pro 500 only:** a mode that runs GPT-6 Astra at up to 300 tokens per second in ChatGPT Work and Codex (per DevDay).
 - **Computer-use agents:** per DevDay, Pro 500 is the individual plan that gets the computer-use agent in Codex and ChatGPT Work (otherwise Enterprise).
 - **No penalty for buying big:** it costs the same $20 per Plus-worth of usage as Pro 100 and 200.
@@ -46,6 +46,8 @@ So the rule is simple: **buy the smallest plan you don't hit the limit on.** Pay
 - **Ultrafast burns your allowance faster:** faster output uses the limit faster too.
 - **Ultrafast is Astra-only for now:** Ultrafast for GPT-6.1 Sol was only announced as "coming soon."
 - **Exact limits are not published:** OpenAI's help page only says Pro 500 has the most.
+
+How and when each plan's limits reset is covered in [ChatGPT usage limits](/blog/chatgpt-usage-limits).
 
 **Good for:** people who hit the Pro 200 limit every week, who run Codex or agents all day, or for whom waiting time costs money.
 
@@ -74,7 +76,7 @@ If you mostly send short or medium messages, paying per token is often much chea
 
 "Normal" = about 150 tokens in and 500 out per message; "long" = about 2,000 in and 700 out. API prices: Sol $2 / $10 and Astra $10 / $50 per million input / output tokens.
 
-Two things push the numbers up fast. First, every new message re-sends the whole conversation, so long chats cost far more than short ones. Second, languages other than English need more tokens for the same text: Korean about 1.4×, Japanese about 1.8×, so the API bill grows by the same factor.
+Two things push the numbers up fast. First, every new message re-sends the whole conversation, so long chats cost far more than short ones. Second, languages other than English need more tokens for the same text: Korean needs about 44% more tokens than English and Japanese about 79% more, so the API bill grows by the same percentage.
 
 The takeaway: light and medium users of the everyday model are usually better off on Plus or the API. Pro starts to pay off when you use the top models heavily, work with long documents, or live in Codex.
 

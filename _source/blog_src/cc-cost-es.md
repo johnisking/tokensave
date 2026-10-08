@@ -88,4 +88,11 @@ Como la mayor parte de lo que envía Claude Code es contexto en caché, un preci
 La [calculadora de costes de agentes de programación](/es/agents) te permite ajustar el tamaño de las tareas, las tareas por día y los días laborables, y compara los costes de API de los modelos de Claude, GPT y Gemini con todos los planes de Claude y ChatGPT. Para gastar menos tokens en cualquier caso, consulta [How to save tokens in Claude Code](/blog/claude-code-save-tokens) (en inglés).
 
 *Los precios y los límites cambian a menudo. Revisa [claude.com/pricing](https://claude.com/pricing) antes de decidir.*
+
+## Fuentes
+
+- [Planes y precios de Claude (Anthropic)](https://claude.com/pricing)
+- [Precios de la API de Claude (documentación de Anthropic)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Usar Claude Code con tu plan Pro o Max (Centro de ayuda de Claude)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Gestionar los costes de forma eficaz (documentación de Claude Code)](https://code.claude.com/docs/en/costs)
 <!-- autoimg -->

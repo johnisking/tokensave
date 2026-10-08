@@ -23,7 +23,7 @@ Usage multipliers are relative to each company's own $20 plan, so "5× Plus" and
 
 **At $200, Claude now gives a bigger multiplier.** Claude Max 20× is 20 times its base plan; ChatGPT Pro 200 is now 10 times its base plan. For heavy users who were choosing between the two $200 plans, that is the biggest shift.
 
-**ChatGPT has no bulk discount anymore.** Pro 100, 200 and 500 all cost $20 per "Plus-worth" of usage. Claude's Max 20× is the only $200 plan that gives more usage per dollar than the plan below it (20× for twice the price of 5×). Details in [ChatGPT Pro 100 vs 200 vs 500](/blog/chatgpt-pro-100-vs-200-vs-500).
+**ChatGPT has no bulk discount anymore.** Pro 100, 200 and 500 all cost $20 per "Plus-worth" of usage. Claude's Max 20× is the only $200 plan that gives more usage per dollar than the plan below it (20× for a price 100% higher than 5×). Details in [ChatGPT Pro 100 vs 200 vs 500](/blog/chatgpt-pro-100-vs-200-vs-500).
 
 **Claude cut weekly Claude Code limits slightly.** On September 14, a temporary 50% weekly boost was replaced with a permanent 25% increase, which is about 17% less than during the summer. See [Claude Code usage limits explained](/blog/claude-code-usage-limits).
 
@@ -44,7 +44,7 @@ API prices show how expensive each flagship is to run, which is part of why limi
 | GPT-6 Sol | $2 | $10 |
 | Claude Sonnet 5.5 | $2 | $10 |
 
-GPT-6 Astra costs 2.5 times as much per token as Claude Opus 5.5. If you mostly use the top model, expect a ChatGPT allowance to run out faster for the same amount of work. GPT-6 Sol and Claude Sonnet 5.5 cost exactly the same per token.
+GPT-6 Astra costs 150% more per token than Claude Opus 5.5. If you mostly use the top model, expect a ChatGPT allowance to run out faster for the same amount of work. GPT-6 Sol and Claude Sonnet 5.5 cost exactly the same per token.
 
 ## Coding agents: Codex vs Claude Code
 
@@ -73,4 +73,13 @@ If you code with an agent every day, the plan is almost always cheaper than the 
 If you use AI only a few times a day, the API may cost less than any plan. The [Subscription vs API calculator](/plans) shows the monthly API cost of your usage next to every ChatGPT, Claude and Gemini plan.
 
 *Plans and limits change often. Check [chatgpt.com/pricing](https://chatgpt.com/pricing) and [claude.com/pricing](https://claude.com/pricing) before you subscribe.*
+
+## Sources
+
+- [ChatGPT plans and Codex pricing](https://learn.chatgpt.com/docs/pricing)
+- [OpenAI Help: About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [Claude Help: What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+- [Claude Help: Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)
+- [Claude API pricing](https://platform.claude.com/docs/en/about-claude/pricing)
 <!-- autoimg -->

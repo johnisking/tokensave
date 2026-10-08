@@ -1,5 +1,5 @@
-<p><img fetchpriority="high" width="1200" height="630" alt="Le français consomme 1,29× plus de tokens que l’anglais dans GPT" src="/tokens-francais-gpt-fr.jpg" /></p>
-<p>J’ai traduit le même prompt de service client dans 41 langues et compté les tokens avec o200k_base, le tokeniseur actuel d’OpenAI (GPT-4o et suivants). L’anglais demande 34 tokens ; le français <strong>44, soit 1,29× l’anglais</strong>, rang 9 sur 41 (1 = le moins cher).</p>
+<p><img fetchpriority="high" width="1200" height="630" alt="Le français consomme 29 % de tokens de plus que l’anglais dans GPT" src="/tokens-francais-gpt-fr.jpg" /></p>
+<p>J’ai traduit le même prompt de service client dans 41 langues et compté les tokens avec o200k_base, le tokeniseur actuel d’OpenAI (GPT-4o et suivants). L’anglais demande 34 tokens ; le français <strong>44, soit 29% de plus que l’anglais</strong>, rang 9 sur 41 (1 = le moins cher).</p>
 <p>La version française :</p>
 <blockquote>
 <p>Résumez l'e-mail du client ci-dessous en trois points et proposez une réponse polie. Le client indique que la commande est arrivée avec deux jours de retard et qu'un article manquait dans le colis.</p>
@@ -18,72 +18,72 @@
 <tr>
 <td>English</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">1,00×</td>
+<td style="text-align: right;">±0%</td>
 <td style="text-align: right;">–</td>
 </tr>
 <tr>
 <td>简体中文</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">1,03×</td>
+<td style="text-align: right;">+3%</td>
 <td style="text-align: right;">3%</td>
 </tr>
 <tr>
 <td>Español</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;">1,18×</td>
+<td style="text-align: right;">+18%</td>
 <td style="text-align: right;">15%</td>
 </tr>
 <tr>
 <td>Deutsch</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">1,26×</td>
+<td style="text-align: right;">+26%</td>
 <td style="text-align: right;">21%</td>
 </tr>
 <tr>
 <td><strong>Français</strong></td>
 <td style="text-align: right;"><strong>44</strong></td>
-<td style="text-align: right;"><strong>1,29×</strong></td>
+<td style="text-align: right;"><strong>+29%</strong></td>
 <td style="text-align: right;"><strong>22%</strong></td>
 </tr>
 <tr>
 <td>한국어</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">+44%</td>
 <td style="text-align: right;">31%</td>
 </tr>
 <tr>
 <td>हिन्दी</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;">1,50×</td>
+<td style="text-align: right;">+50%</td>
 <td style="text-align: right;">33%</td>
 </tr>
 <tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">1,79×</td>
+<td style="text-align: right;">+79%</td>
 <td style="text-align: right;">44%</td>
 </tr>
 <tr>
 <td>Čeština</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">2,00×</td>
+<td style="text-align: right;">+100%</td>
 <td style="text-align: right;">50%</td>
 </tr>
 <tr>
 <td>Ελληνικά</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">+106%</td>
 <td style="text-align: right;">51%</td>
 </tr>
 <tr>
 <td>ਪੰਜਾਬੀ</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">+144%</td>
 <td style="text-align: right;">59%</td>
 </tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1430" alt="Résultats" src="/blog-language-tax-chart-v4.png" /></p>
+<p><img loading="lazy" width="960" height="1441" alt="Graphique : tokens supplémentaires par langue par rapport à l’anglais dans GPT" src="/blog-language-tax-chart-v5.png" /></p>
 <h2>Pourquoi</h2>
 <p><img loading="lazy" width="1200" height="593" alt="Pourquoi: Résumez → Rés | ume | z · 3; ci-dessous → ci | -dessous · 2; proposez → propose | z · 2" src="/tokens-francais-gpt-pourquoi-fr.jpg" /></p>
 <p>Le tokeniseur apprend surtout sur du texte anglais : des mots comme « polite » ou « customer » tiennent en un seul token, alors que beaucoup de mots français sont découpés en morceaux :</p>
@@ -95,7 +95,7 @@
 <h2>Passer à l'anglais en un clic</h2>
 <p>La plus grosse économie consiste à envoyer votre prompt en anglais : environ 22 % de tokens en moins qu'en français. Les modèles actuels comprennent parfaitement les instructions en anglais et répondent en français si vous le demandez. Dans le compteur de tokens TokenSave, collez votre prompt et appuyez sur <strong>💸 Économiser des tokens</strong> : il nettoie les espaces, traduit en anglais, supprime le superflu et ajoute « Reply in French. » pour que la réponse reste dans votre langue. Il utilise le traducteur intégré à Chrome 138+ / Edge 148+ sur ordinateur ; la traduction s'effectue sur votre propre appareil et votre texte n'est jamais envoyé en ligne. Appuyez sur <strong>↩ Original</strong> pour retrouver l'original.</p>
 <h2>En argent</h2>
-<p>Avec un modèle à 2 $ le million de tokens d’entrée, envoyer ce prompt un million de fois coûte 68 $ en anglais et 88 $ en français. Si la réponse est aussi en français, le même multiplicateur s’applique aux tokens de sortie, généralement 4 à 5× plus chers.</p>
+<p>Avec un modèle à 2 $ le million de tokens d’entrée, envoyer ce prompt un million de fois coûte 68 $ en anglais et 88 $ en français. Si la réponse est aussi en français, le même écart s’applique aux tokens de sortie, généralement 300 à 400% plus chers.</p>
 <h2>Comment économiser</h2>
 <p><img loading="lazy" width="1200" height="658" alt="Comment économiser: Rédigez le prompt système et les consignes fixes en anglais ; gardez en français seulement ce que saisit l’uti" src="/tokens-francais-gpt-comment-economiser-fr.jpg" /></p>
 <ul>
@@ -109,5 +109,11 @@
 <li>Claude et Gemini utilisent d’autres tokeniseurs : ces chiffres ne valent que pour les modèles OpenAI.</li>
 <li>La traduction repose sur une traduction automatique relue.</li>
 </ul>
+<p>Essayez avec votre propre texte dans le <a href="/fr/">compteur de tokens</a> ; toutes les langues sont comparées dans le <a href="/languages">tableau des langues</a>.</p>
 <p>Résultats complets des 41 langues (en anglais) : <a href="/blog/token-cost-by-language">comparaison de 41 langues</a></p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken : le tokeniseur d’OpenAI (o200k_base) sur GitHub</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">Tarifs de l’API OpenAI</a></li>
+</ul>
 <!-- autoimg -->

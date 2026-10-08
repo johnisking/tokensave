@@ -15,7 +15,7 @@ A simple example on a model priced at $10 per million output tokens:
 | Direct answer | 300 | $0.003 |
 | Same answer after 3,000 reasoning tokens | 3,300 | $0.033 |
 
-The visible answer is identical in length. The bill is 11 times higher.
+The visible answer is identical in length. The bill goes from $0.003 to $0.033.
 
 How much a model reasons varies a lot by question. A simple question may use a few hundred reasoning tokens; a hard maths or coding problem can use tens of thousands.
 
@@ -65,5 +65,11 @@ These tasks rarely improve with more thinking. A fast, non-reasoning model at lo
 
 ## Estimate the difference
 
-Paste a typical prompt and answer into the [token counter](/) and set the expected output length several times higher than the visible answer to see what reasoning adds to each request. For coding work, the [agent cost calculator](/agents) shows monthly totals.
+Paste a typical prompt and answer into the [token counter](/) and set the expected output length well above the visible answer to see what reasoning adds to each request. For coding work, the [agent cost calculator](/agents) shows monthly totals.
+
+## Sources
+
+- [Reasoning models guide (OpenAI)](https://developers.openai.com/api/docs/guides/reasoning)
+- [Extended thinking (Claude docs)](https://platform.claude.com/docs/en/build-with-claude/extended-thinking)
+- [Gemini Developer API pricing (Google)](https://ai.google.dev/gemini-api/docs/pricing)
 <!-- autoimg -->

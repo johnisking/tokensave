@@ -166,5 +166,11 @@
 <li><strong>Don't send what the model does not use.</strong> Columns of IDs and timestamps are often there only because they were in the export.</li>
 </ol>
 <h2>Measure it</h2>
-<p>The <a href="/">token counter</a> shows exactly how any text splits into tokens. Open <em>See how it splits into tokens</em> under the text box to see each piece highlighted.</p>
+<p>The <a href="/">token counter</a> shows exactly how any text splits into tokens. Open <em>See how it splits into tokens</em> under the text box to see each piece highlighted. Sending whole tables of records? <a href="/blog/json-vs-yaml-vs-csv-tokens">JSON vs YAML vs CSV</a> compares which format uses the fewest tokens.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken (OpenAI tokenizer, o200k_base)</a></li>
+<li><a href="https://github.com/openai/tiktoken/blob/main/tiktoken_ext/openai_public.py" target="_blank" rel="noopener">tiktoken encoding definitions (cl100k_base, o200k_base)</a></li>
+<li><a href="https://github.com/openai/tiktoken/blob/main/tiktoken/model.py" target="_blank" rel="noopener">tiktoken model-to-encoding map</a></li>
+</ul>
 <!-- autoimg -->

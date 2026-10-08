@@ -25,12 +25,12 @@ On GPT-6 Sol, each message like this costs about $0.011, so $20 buys roughly 1,8
 
 ## What moves the break-even point
 
-![What moves the break-even point: Long chats. Every message re-sends the whole conversation, so a long chat can make each message 5–10 times mor](/chatgpt-subscription-vs-api-what-moves-the-break-even-point-en.jpg)
+![What moves the break-even point: Long chats. Every message re-sends the whole conversation, so a long chat can make each message 400–900% more ](/chatgpt-subscription-vs-api-what-moves-the-break-even-point-en.jpg)
 
-- **Long chats.** Every message re-sends the whole conversation, so a long chat can make each message 5–10 times more expensive. Heavy users of long conversations hit the break-even point much sooner.
+- **Long chats.** Every message re-sends the whole conversation, so a long chat can make each message 400–900% more expensive. Heavy users of long conversations hit the break-even point much sooner.
 - **Documents.** Pasting a 20-page document adds around 10,000 tokens to every message that follows it.
-- **Your language.** Korean uses about 1.44× the tokens of English, Japanese about 1.79×. On the API you pay for that; on a subscription you mostly do not.
-- **The model.** A small model can be 20 times cheaper per token than a flagship one.
+- **Your language.** Korean uses about 44% more tokens than English, Japanese about 79% more. On the API you pay for that; on a subscription you mostly do not.
+- **The model.** A small model can be 95% cheaper per token than a flagship one.
 - **Features.** If you rely on image generation, voice mode or deep research, those are included in the plans and cost extra (or are not available) through a plain chat API.
 
 ## Rules of thumb
@@ -47,4 +47,14 @@ On GPT-6 Sol, each message like this costs about $0.011, so $20 buys roughly 1,8
 The [Subscription vs API calculator](/plans) takes your number of messages, how long they are, how many turns a chat usually has and your language, and shows the monthly API cost next to every plan for ChatGPT, Claude and Gemini.
 
 *Prices change often. Confirm current prices on each provider's pricing page.*
+
+## Sources
+
+- [What is ChatGPT Plus? (OpenAI Help Center)](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus)
+- [About ChatGPT Pro tiers (OpenAI Help Center)](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [Claude plans and pricing](https://claude.com/pricing)
+- [Google AI Plus, Pro and Ultra plans](https://gemini.google/subscriptions/)
+- [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)
+- [GPT-6 Sol model page (OpenAI)](https://developers.openai.com/api/docs/models/gpt-6-sol)
+- [Gemini Developer API pricing (Google)](https://ai.google.dev/gemini-api/docs/pricing)
 <!-- autoimg -->

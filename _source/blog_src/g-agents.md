@@ -60,7 +60,18 @@ The API makes sense when you use an agent occasionally, when you need a model th
 
 ## Estimate your own usage
 
-The [AI coding agent cost calculator](/agents) lets you set task size, tasks per day and working days, toggles caching, and compares the API cost with every Claude and ChatGPT plan.
+The [AI coding agent cost calculator](/agents) lets you set task size, tasks per day and working days, toggles caching, and compares the API cost with every Claude and ChatGPT plan. For Claude Code plans specifically, see [Claude Code cost per month](/blog/claude-code-cost-per-month).
 
 *Prices and plan limits change often. Confirm on each provider's pricing page.*
+
+## Sources
+
+- [Claude API pricing (Anthropic)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [GPT-6 Sol model page (OpenAI)](https://developers.openai.com/api/docs/models/gpt-6-sol)
+- [Gemini Developer API pricing (Google)](https://ai.google.dev/gemini-api/docs/pricing)
+- [DeepSeek API models and pricing](https://api-docs.deepseek.com/quick_start/pricing/)
+- [Prompt caching (Claude docs)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
+- [Prompt caching guide (OpenAI)](https://developers.openai.com/api/docs/guides/prompt-caching)
+- [Claude plans and pricing](https://claude.com/pricing)
+- [About ChatGPT Pro tiers (OpenAI Help Center)](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
 <!-- autoimg -->

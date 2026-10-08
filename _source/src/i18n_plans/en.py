@@ -20,7 +20,7 @@ P = dict(
     cheaperApi="API is cheaper by {d} a month",
     cheaperPlan="{plan} is cheaper by {d} a month",
     breakEven="The API costs more than {plan} above about {n} messages a day.",
-    langNote="{lang} needs about {x}× the tokens of English, so every API price here is {x}× higher.",
+    langNote="{lang} needs about {p}% more tokens than English, so every API price here is {p}% higher.",
     note="API cost counts the whole conversation: every new message resends the earlier ones, so long chats cost more. Prompt caching can lower this. Subscriptions add apps, image tools and memory, but have usage limits.",
     f1="Plan prices are official US monthly prices, checked October 1, 2026. Taxes and local prices differ.",
     f2="API prices come from public price lists and update daily. Always check the provider's page before you decide.",
@@ -29,7 +29,7 @@ P = dict(
     q2="Why do long conversations cost more on the API?",
     a2="Chat models are stateless. Each new message sends the whole conversation again as input, so the 10th message of a chat costs far more than the first. Subscriptions hide this cost behind usage limits.",
     q3="Does my language change the cost?",
-    a3="Yes. The same text in Korean, Hindi or Greek needs more tokens than in English, so API costs rise by the same factor. Subscriptions cost the same, but you reach their usage limits sooner.",
+    a3="Yes. The same text in Korean, Hindi or Greek needs more tokens than in English, so API costs rise by the same percentage. Subscriptions cost the same, but you reach their usage limits sooner.",
     more="How we measured languages",
 )
 NAV = "Plan vs API"

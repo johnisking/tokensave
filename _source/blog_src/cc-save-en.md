@@ -8,7 +8,9 @@ Claude Code works in steps, and at every step it resends its **whole working con
 
 ## 1. Keep tasks small and specific
 
-The number of steps is the biggest multiplier. Compare:
+![Ways 1–5: Keep tasks small and specific; Start fresh between unrelated tasks; Tell Claude where to look](/claude-code-save-tokens-ways-15-en.jpg)
+
+The number of steps drives the cost more than anything else. Compare:
 
 - "Clean up the auth module" → open-ended, dozens of steps.
 - "Fix the failing test in tests/auth_test.py; the token expiry check is off by one" → a handful of steps.
@@ -33,15 +35,17 @@ A full test run or build log can be thousands of lines. The first error and its 
 
 ## 6. Ask for changes, not whole files
 
+![Ways 6–9: Ask for changes, not whole files; Pick the model for the task; Write instructions in English](/claude-code-save-tokens-ways-69-en.jpg)
+
 Output tokens are the most expensive kind: $10 per million on Sonnet 5.5 versus $2 for input. Asking for a full file to be rewritten after a two-line fix pays output prices for every unchanged line.
 
 ## 7. Pick the model for the task
 
-On the API, Claude Opus 5.5 costs twice as much per token as Sonnet 5.5, and on a plan it uses your allowance faster. Use **/model** to switch: Sonnet for most coding, Opus for hard design problems and tricky bugs, Haiku for simple, repetitive edits.
+On the API, Claude Opus 5.5 costs 100% more per token than Sonnet 5.5, and on a plan it uses your allowance faster. Use **/model** to switch: Sonnet for most coding, Opus for hard design problems and tricky bugs, Haiku for simple, repetitive edits.
 
 ## 8. Write instructions in English
 
-If you normally write prompts in another language, this is an easy win. On GPT's tokenizer the same text takes about 1.44× the tokens in Korean and 1.79× in Japanese compared with English, so instructions written in English use roughly 31% and 44% fewer tokens. Claude's tokenizer is different, but non-English text costs more there too. Write CLAUDE.md and long instructions in English and ask for replies in your language. Our [token counter](/) can translate a prompt to English on your device with one click and shows the saving.
+If you normally write prompts in another language, this is an easy win. On GPT's tokenizer the same text takes about 44% more tokens in Korean and 79% more in Japanese than in English, so instructions written in English use roughly 31% and 44% fewer tokens. Claude's tokenizer is different, but non-English text costs more there too. Write CLAUDE.md and long instructions in English and ask for replies in your language. Our [token counter](/) can translate a prompt to English on your device with one click and shows the saving.
 
 ## 9. Let caching work
 
@@ -54,4 +58,11 @@ On our [coding agent cost model](/agents), a typical feature task on Sonnet 5.5 
 ## Check your usage
 
 Run **/status** in Claude Code to see how much of your allowance is left. To understand the limits themselves, read [Claude Code usage limits explained](/blog/claude-code-usage-limits), and to compare plans with the API, [Claude Code cost per month](/blog/claude-code-cost-per-month).
+
+## Sources
+
+- [Manage costs effectively (Claude Code docs)](https://code.claude.com/docs/en/costs)
+- [Claude API pricing (Anthropic docs)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [tiktoken: OpenAI's tokenizer (o200k_base)](https://github.com/openai/tiktoken)
+- [Using Claude Code with your Pro or Max plan (Claude Help Center)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 <!-- autoimg -->

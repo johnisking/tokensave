@@ -63,4 +63,10 @@ Most of the money is the AI coding plan. Roblox Assistant's 3D model generation 
 Our [AI game cost calculator](/ai-game-cost-calculator) now has a Roblox mode: press "Use this" on any trend at the top, and it switches to Roblox Studio with Luau, free 3D models with Roblox Assistant, and a prompt pack written for Roblox (server and client scripts, saving with DataStoreService, game passes). For the step-by-step, read [How to make a Roblox game with AI](/blog/how-to-make-a-roblox-game-with-ai).
 
 *Charts checked October 6, 2026 at [roblox.com/charts](https://www.roblox.com/charts). Game names as Roblox shows them; we update this list as the charts change.*
+
+## Sources
+
+- [Roblox Creator Hub: passes](https://create.roblox.com/docs/production/monetization/passes)
+- [Roblox Creator Hub: data stores (DataStoreService)](https://create.roblox.com/docs/cloud-services/data-stores)
+- [Roblox Creator Hub: Assistant for Studio](https://create.roblox.com/docs/assistant/guide)
 <!-- autoimg -->

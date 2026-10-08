@@ -1,6 +1,6 @@
-![Tiếng Việt dùng gấp 1,35 lần token so với tiếng Anh trong GPT](/token-tieng-viet-gpt-vi.jpg)
+![Tiếng Việt dùng nhiều hơn 35% token so với tiếng Anh trong GPT](/token-tieng-viet-gpt-vi.jpg)
 
-Tôi dịch cùng một prompt chăm sóc khách hàng sang 41 ngôn ngữ và đếm token bằng o200k_base, tokenizer hiện tại của OpenAI (GPT-4o trở về sau). Tiếng Anh cần 34 token, tiếng Việt **46 token — gấp 1,35 lần**, đứng thứ 15/41 (1 = rẻ nhất).
+Tôi dịch cùng một prompt chăm sóc khách hàng sang 41 ngôn ngữ và đếm token bằng o200k_base, tokenizer hiện tại của OpenAI (GPT-4o trở về sau). Tiếng Anh cần 34 token, tiếng Việt **46 token — nhiều hơn 35%**, đứng thứ 15/41 (1 = rẻ nhất).
 
 Bản tiếng Việt:
 
@@ -10,19 +10,19 @@ Bản tiếng Việt:
 
 | Ngôn ngữ | Token | So với tiếng Anh | Tiết kiệm nếu gửi bằng tiếng Anh |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | – |
-| 简体中文 | 35 | 1,03× | 3% |
-| Español | 40 | 1,18× | 15% |
-| Deutsch | 43 | 1,26× | 21% |
-| **Tiếng Việt** | **46** | **1,35×** | **26%** |
-| 한국어 | 49 | 1,44× | 31% |
-| हिन्दी | 51 | 1,50× | 33% |
-| 日本語 | 61 | 1,79× | 44% |
-| Čeština | 68 | 2,00× | 50% |
-| Ελληνικά | 70 | 2,06× | 51% |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
+| English | 34 | ±0% | – |
+| 简体中文 | 35 | +3% | 3% |
+| Español | 40 | +18% | 15% |
+| Deutsch | 43 | +26% | 21% |
+| **Tiếng Việt** | **46** | **+35%** | **26%** |
+| 한국어 | 49 | +44% | 31% |
+| हिन्दी | 51 | +50% | 33% |
+| 日本語 | 61 | +79% | 44% |
+| Čeština | 68 | +100% | 50% |
+| Ελληνικά | 70 | +106% | 51% |
+| ਪੰਜਾਬੀ | 83 | +144% | 59% |
 
-![Kết quả](/blog-language-tax-chart-v4.png)
+![Biểu đồ: số token tăng thêm của từng ngôn ngữ so với tiếng Anh trong GPT (41 ngôn ngữ)](/blog-language-tax-chart-v5.png)
 
 ## Vì sao
 
@@ -36,11 +36,11 @@ Tokenizer học chủ yếu từ văn bản tiếng Anh: những từ như " pol
 
 ## Chuyển sang tiếng Anh chỉ với một nút bấm
 
-Cách tiết kiệm nhiều nhất là gửi prompt bằng tiếng Anh: ít hơn khoảng 26% token so với tiếng Việt. Các mô hình hiện nay hiểu chỉ dẫn tiếng Anh rất tốt và sẽ trả lời bằng tiếng Việt nếu bạn yêu cầu. Trong công cụ đếm token TokenSave, hãy dán prompt và bấm **💸 Tiết kiệm token**: nó dọn khoảng trắng, dịch sang tiếng Anh, lược bỏ phần thừa và thêm "Reply in Vietnamese." để câu trả lời vẫn bằng ngôn ngữ của bạn. Tính năng dùng trình dịch tích hợp trong Chrome 138+ / Edge 148+ trên máy tính; việc dịch chạy trên thiết bị của bạn và văn bản không bao giờ bị tải lên. Bấm **↩ Bản gốc** để lấy lại bản gốc.
+Cách tiết kiệm nhiều nhất là gửi prompt bằng tiếng Anh: ít hơn khoảng 26% token so với tiếng Việt. Các mô hình hiện nay hiểu chỉ dẫn tiếng Anh rất tốt và sẽ trả lời bằng tiếng Việt nếu bạn yêu cầu. Trong [công cụ đếm token TokenSave](/vi/), hãy dán prompt và bấm **💸 Tiết kiệm token**: nó dọn khoảng trắng, dịch sang tiếng Anh, lược bỏ phần thừa và thêm "Reply in Vietnamese." để câu trả lời vẫn bằng ngôn ngữ của bạn. Tính năng dùng trình dịch tích hợp trong Chrome 138+ / Edge 148+ trên máy tính; việc dịch chạy trên thiết bị của bạn và văn bản không bao giờ bị tải lên. Bấm **↩ Bản gốc** để lấy lại bản gốc.
 
 ## Quy ra tiền
 
-Với mô hình giá 2 $ cho 1 triệu token đầu vào, gửi prompt này 1 triệu lần tốn 68 $ bằng tiếng Anh và 92 $ bằng tiếng Việt. Nếu câu trả lời cũng bằng tiếng Việt, hệ số này áp dụng cả cho token đầu ra, vốn thường đắt gấp 4–5 lần.
+Với mô hình giá 2 $ cho 1 triệu token đầu vào, gửi prompt này 1 triệu lần tốn 68 $ bằng tiếng Anh và 92 $ bằng tiếng Việt. Nếu câu trả lời cũng bằng tiếng Việt, hệ số này áp dụng cả cho token đầu ra, vốn thường đắt hơn 300–400%.
 
 ## Cách tiết kiệm
 
@@ -57,4 +57,12 @@ Với mô hình giá 2 $ cho 1 triệu token đầu vào, gửi prompt này 1 tr
 - Bản dịch dựa trên dịch máy đã được kiểm tra.
 
 Kết quả đầy đủ 41 ngôn ngữ (tiếng Anh): [so sánh 41 ngôn ngữ](/blog/token-cost-by-language)
+
+Xem cả 41 ngôn ngữ cạnh nhau trong [bảng ngôn ngữ](/languages).
+
+## Nguồn
+
+- [tiktoken: bộ tách token của OpenAI (o200k_base) trên GitHub](https://github.com/openai/tiktoken)
+- [Bảng giá OpenAI API](https://developers.openai.com/api/docs/pricing)
+
 <!-- autoimg -->

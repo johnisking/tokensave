@@ -51,13 +51,20 @@ Si sueles enviar mensajes cortos o medianos, pagar por token suele salir mucho m
 
 "Normal" = unos 150 tokens de entrada y 500 de salida por mensaje; "largo" = unos 2,000 de entrada y 700 de salida. Precios de la API: Sol $2 / $10 y Astra $10 / $50 por millón de tokens de entrada / salida.
 
-Hay dos cosas que disparan las cifras. Primero, cada mensaje nuevo vuelve a enviar toda la conversación, así que los chats largos cuestan mucho más que los cortos. Segundo, los idiomas distintos del inglés necesitan más tokens para el mismo texto: el español, alrededor de 1.2×; el coreano, alrededor de 1.4×, y el japonés, alrededor de 1.8×. La factura de la API crece en la misma proporción.
+Hay dos cosas que disparan las cifras. Primero, cada mensaje nuevo vuelve a enviar toda la conversación, así que los chats largos cuestan mucho más que los cortos. Segundo, los idiomas distintos del inglés necesitan más tokens para el mismo texto: el español, alrededor de un 20% más; el coreano, alrededor de un 40% más, y el japonés, alrededor de un 80% más. La factura de la API crece en la misma proporción.
 
 En resumen: quienes usan el modelo de todos los días de forma ligera o moderada suelen salir ganando con Plus o con la API. Pro empieza a valer la pena cuando usas mucho los modelos más potentes, trabajas con documentos largos o prácticamente vives en Codex.
 
 ## Calcula tus propios números
 
-Cada persona usa ChatGPT de forma distinta. La [calculadora de suscripción vs API](/es/plans) te permite indicar cuántos mensajes envías, qué tan largos son y en qué idioma escribes, y te muestra cuánto costaría ese mismo mes con la API junto a los planes de ChatGPT, Claude y Gemini.
+Cada persona usa ChatGPT de forma distinta. La [calculadora de suscripción vs API](/es/plans) te permite indicar cuántos mensajes envías, qué tan largos son y en qué idioma escribes, y te muestra cuánto costaría ese mismo mes con la API junto a los planes de ChatGPT, Claude y Gemini. Si te basta con algo más barato que Pro, mira [ChatGPT Go vs Plus](/es/blog/chatgpt-go-vs-plus).
 
 *Precios al 1 de octubre de 2026. OpenAI puede volver a cambiar los límites de uso; revisa chatgpt.com/pricing antes de comprar.*
+
+## Fuentes
+
+- [Ayuda de OpenAI: planes de ChatGPT Pro](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [Planes de ChatGPT y precios de Codex](https://learn.chatgpt.com/docs/pricing)
+- [Ayuda de OpenAI: notas de versión de ChatGPT](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
+- [Precios de la API de OpenAI](https://developers.openai.com/api/docs/pricing)
 <!-- autoimg -->

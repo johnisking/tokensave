@@ -1,18 +1,20 @@
 <p><img fetchpriority="high" width="1200" height="630" alt="AI Cost Glossary: 30 Terms Explained in Plain Language" src="/ai-cost-glossary-en.jpg" /></p>
 <p>AI pricing pages and documentation are full of terms that are rarely explained. This glossary covers the words you need to understand what you are paying for, in plain language, with links to longer guides where they exist.</p>
 <h2>Tokens and text</h2>
+<p><img loading="lazy" width="1200" height="1008" alt="Tokens and text: Token; Tokenizer; Vocabulary" src="/ai-cost-glossary-tokens-and-text-en.jpg" /></p>
 <p><strong>Token.</strong> A piece of text from the model's vocabulary: a word, part of a word, a number chunk or a symbol. In English, about 4 characters on average. AI usage is measured and billed in tokens. <a href="/blog/what-is-a-token">Full guide</a>.</p>
 <p><strong>Tokenizer.</strong> The program that cuts text into tokens before the model reads it. Each model family has its own, so the same text can be a different number of tokens on different models.</p>
 <p><strong>Vocabulary.</strong> The fixed list of tokens a tokenizer knows. GPT's current o200k tokenizer has about 200,000.</p>
 <p><strong>BPE (byte-pair encoding).</strong> The method most tokenizers use to build their vocabulary: start from bytes and repeatedly merge the most common pairs. <a href="/blog/gpt-tokenizer-cl100k-vs-o200k">How it affects languages</a>.</p>
 <p><strong>o200k / cl100k.</strong> OpenAI's two most recent tokenizers. cl100k was used by GPT-3.5 and GPT-4; o200k by GPT-4o and later models.</p>
-<p><strong>Token ratio.</strong> How many tokens a language needs compared with English for the same meaning. Korean is about 1.44× on o200k, Japanese about 1.79×.</p>
+<p><strong>Token ratio.</strong> How many tokens a language needs compared with English for the same meaning. Korean needs about 44% more tokens than English on o200k, Japanese about 79% more.</p>
 <h2>Prices and billing</h2>
+<p><img loading="lazy" width="1200" height="1041" alt="Prices and billing: Input tokens; Output tokens; Price per million tokens (per 1M, /MTok)" src="/ai-cost-glossary-prices-and-billing-en.jpg" /></p>
 <p><strong>Input tokens.</strong> Everything you send: system prompt, conversation history, documents and the new message.</p>
-<p><strong>Output tokens.</strong> Everything the model writes, including hidden reasoning. Usually 2–6 times the price of input. <a href="/blog/why-output-tokens-cost-more">Why</a>.</p>
+<p><strong>Output tokens.</strong> Everything the model writes, including hidden reasoning. Usually 100–500% more expensive than input. <a href="/blog/why-output-tokens-cost-more">Why</a>.</p>
 <p><strong>Price per million tokens (per 1M, /MTok).</strong> The standard unit on price lists. $2 per million means $0.000002 per token.</p>
 <p><strong>Cached input.</strong> Input tokens read from the provider's prompt cache, billed at a large discount. <a href="/blog/prompt-caching-explained">Prompt caching explained</a>.</p>
-<p><strong>Batch pricing.</strong> A discounted rate, commonly around half price, for requests you submit as a batch and collect later. <a href="/blog/batch-api-half-price">Batch APIs</a>.</p>
+<p><strong>Batch pricing.</strong> A discounted rate, commonly around 50% off, for requests you submit as a batch and collect later. <a href="/blog/batch-api-half-price">Batch APIs</a>.</p>
 <p><strong>Reasoning tokens.</strong> Hidden "thinking" a reasoning model does before answering. Billed as output. <a href="/blog/reasoning-models-cost">When it is worth it</a>.</p>
 <p><strong>Rate limit.</strong> The maximum number of requests or tokens you can use per minute or per day on an API account.</p>
 <p><strong>Usage limit.</strong> On a subscription plan, how much you can use in a period before you are slowed down or asked to wait.</p>
@@ -37,4 +39,13 @@
 <p><strong>Per-second pricing.</strong> Video models charge for each second of generated video, often more with audio or at higher resolution. <a href="/blog/ai-video-cost-per-minute">One minute of AI video</a>.</p>
 <h2>Calculate it</h2>
 <p>The <a href="/">token counter</a>, <a href="/video">video</a> and <a href="/image">image</a> cost calculators, <a href="/plans">Subscription vs API</a> and <a href="/agents">agent cost</a> tools turn all of these into real numbers for your own use.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken (OpenAI tokenizer, o200k_base)</a></li>
+<li><a href="https://github.com/openai/tiktoken/blob/main/tiktoken_ext/openai_public.py" target="_blank" rel="noopener">tiktoken encoding definitions (cl100k_base, o200k_base)</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API pricing (Anthropic)</a></li>
+<li><a href="https://developers.openai.com/api/docs/guides/batch" target="_blank" rel="noopener">Batch API guide (OpenAI)</a></li>
+<li><a href="https://developers.openai.com/api/docs/guides/reasoning" target="_blank" rel="noopener">Reasoning models guide (OpenAI)</a></li>
+<li><a href="https://developers.openai.com/api/docs/guides/structured-outputs" target="_blank" rel="noopener">Structured model outputs guide (OpenAI)</a></li>
+</ul>
 <!-- autoimg -->

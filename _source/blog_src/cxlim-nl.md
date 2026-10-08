@@ -71,4 +71,11 @@ Veel van dezelfde gewoontes werken ook in Claude Code: zie [How to save tokens i
 Beide zitten in plannen van $20, $100 en $200, met vergelijkbare limietsystemen. De vergelijking [ChatGPT Pro vs Claude Max](/blog/chatgpt-pro-vs-claude-max) (in het Engels) bespreekt de verschillen. De [kostencalculator voor coding agents](/nl/agents) zet de maandelijkse API-kosten naast elk plan, en met de [plannencalculator](/nl/plans) vergelijk je de abonnementen zelf. Hoe ver je komt met Claude lees je in [Claude limiet](/nl/blog/claude-limiet).
 
 *Limieten veranderen vaak. De [helppagina van OpenAI over gebruik van Codex en Work](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex) heeft de actuele cijfers.*
+
+## Bronnen
+
+- [OpenAI Help: gebruik in Work en Codex](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)
+- [OpenAI Help: opgespaarde Codex-resets](https://help.openai.com/en/articles/20001498-how-banked-codex-resets-work)
+- [ChatGPT-abonnementen en Codex-prijzen](https://learn.chatgpt.com/docs/pricing)
+- [OpenAI Help: ChatGPT Pro-niveaus](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
 <!-- autoimg -->

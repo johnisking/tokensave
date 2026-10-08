@@ -38,7 +38,7 @@
 <h2>The model re-reads the whole chat every time</h2>
 <p>A chat model has no memory between messages. To answer your 30th message, the app sends all 29 earlier messages back to the model together with the new one. The model reads the whole conversation from the top, every single time.</p>
 <p>That has two consequences.</p>
-<p><strong>Cost grows faster than the chat.</strong> On the API, message 30 is billed for the tokens of messages 1 to 30. The total cost of a conversation grows roughly with the square of its length: a chat twice as long costs about four times as much.</p>
+<p><strong>Cost grows faster than the chat.</strong> On the API, message 30 is billed for the tokens of messages 1 to 30. The total cost of a conversation grows roughly with the square of its length: a chat 100% longer costs about 300% more.</p>
 <p><strong>Quality drops in the middle.</strong> Research on long contexts, starting with the 2023 paper <em>Lost in the Middle</em> by Liu and colleagues, found that models use information at the beginning and the end of their input much better than information buried in the middle. Newer models are better at this, but a fact from 40 messages ago, surrounded by unrelated topics, is still easy to miss.</p>
 <h2>Fitting is not the same as using</h2>
 <p>A window of a million tokens means the text fits. It does not mean the model gives every part equal attention. Mixed topics make it worse: if one chat covers a trip plan, a Python bug and an email to your boss, the model has to work out which earlier parts still matter for your new question.</p>
@@ -53,4 +53,13 @@
 </ol>
 <h2>See it in numbers</h2>
 <p>The <a href="/">token counter</a> shows how much of each model's context window your text fills, and the <a href="/plans">Subscription vs API calculator</a> includes the cost of re-sending chat history in its monthly estimate.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://platform.claude.com/docs/en/models/opus-5-5/overview" target="_blank" rel="noopener">Claude Opus 5.5 overview (Claude docs)</a></li>
+<li><a href="https://platform.claude.com/docs/en/models/haiku-4-5/overview" target="_blank" rel="noopener">Claude Haiku 4.5 overview (Claude docs)</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview" target="_blank" rel="noopener">Gemini 3.1 Pro Preview model page (Google)</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-sol" target="_blank" rel="noopener">GPT-6 Sol model page (OpenAI)</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-4o" target="_blank" rel="noopener">GPT-4o model page (OpenAI)</a></li>
+<li><a href="https://arxiv.org/abs/2307.03172" target="_blank" rel="noopener">Liu et al., Lost in the Middle (arXiv, 2023)</a></li>
+</ul>
 <!-- autoimg -->

@@ -51,7 +51,7 @@
 <li><strong>Gemini 3.8 Flash</strong>（156.9）：$0.75 / $3.75。チャット1万回で約 $25</li>
 <li><strong>DeepSeek V4 Flash</strong>（154.5）：$0.30 / $1.20。チャット1万回で約 $9、Opus の5%</li>
 </ul>
-<p>どちらも1位より10〜13ポイント低い程度です。分類、情報抽出、要約、一般的なチャットボットなら十分なことが多く、費用は7〜20分の1になります。</p>
+<p>どちらも1位より10〜13ポイント低い程度です。分類、情報抽出、要約、一般的なチャットボットなら十分なことが多く、費用は86〜95%安くなります。</p>
 <h2>4. 料金のわりに物足りないモデル</h2>
 <p><img loading="lazy" width="1200" height="621" alt="4. 料金のわりに物足りないモデル: モデル, ECI, チャット1万回, もっと安くて同等以上" src="/ai-cospa-ranking-2026-10-ja-2.jpg" /></p>
 <p>次のモデルは、同じかそれ以上のスコアを持つ別のモデルより高くつきます。</p>
@@ -94,7 +94,7 @@
 <p>悪いモデルという意味ではありません。特定の作業では総合スコア以上の力を出すこともあります。ただ、なんとなく使い続けているなら、まず安いモデルを自分のプロンプトで試してみてください。</p>
 <h2>5. GPT-6 Sol は？</h2>
 <p>実際にいちばん使われているのが GPT-6 Sol なので、グラフで最も目立つ空白です。Epoch AI はまだ Sol のスコアを出していませんが、別の尺度での独立した測定結果が1つ出ています。<a href="https://artificialanalysis.ai/" target="_blank" rel="noopener">Artificial Analysis Intelligence Index</a>（v4.3.2、最大推論、9月30日時点）で <strong>GPT-6.1 Sol は 51.8、GPT-6 Astra の 52.7 にほぼ並びました</strong>。</p>
-<p>Astra に近い性能を5分の1の料金（$2 / $10 対 $10 / $50）で出しているわけです。Epoch のスコアでも同様なら、Sol は定価が同じ Claude Sonnet 5.5 の隣、コスパのライン上に乗る可能性が高いでしょう。2つのスコアは尺度が違うため、上のグラフには載せていません。</p>
+<p>Astra に近い性能を80%安い料金（$2 / $10 対 $10 / $50）で出しているわけです。Epoch のスコアでも同様なら、Sol は定価が同じ Claude Sonnet 5.5 の隣、コスパのライン上に乗る可能性が高いでしょう。2つのスコアは尺度が違うため、上のグラフには載せていません。</p>
 <h2>6. まだスコアがないモデル</h2>
 <p>GPT-6 Sol、GPT-6 Luna、GPT-6.1 Sol、Gemini 4 Argon、Grok 4.7 は新しすぎて、まだ性能スコアがありません。Epoch AI がスコアを公開すると<a href="/ja/compare/performance">リアルタイムのランキング</a>に自動で加わります。</p>
 <h2>使い方</h2>
@@ -102,8 +102,16 @@
 <ol>
 <li>コスパのラインから始めましょう。品質重視なら Sonnet 5.5、量が多いなら Gemini 3.8 Flash か DeepSeek V4 Flash です。</li>
 <li>そのうち2〜3個を、自分のサービスの実際のプロンプト20個で試してください。総合スコアは一般的な性能で、あなたの作業での性能ではありません。</li>
-<li>自分のプロンプトがモデルごとにいくらかかるかをトークンカウンターで確認しましょう。日本語は英語の約1.79倍のトークンを使うので、上の金額より高くなります。</li>
+<li>自分のプロンプトがモデルごとにいくらかかるかを<a href="/ja/">トークンカウンター</a>で確認しましょう。日本語は英語より約79%多いトークンを使うので、上の金額より高くなります。</li>
 </ol>
-<p>グラフと表は料金とスコアが変わるたびに毎日更新されます。最新の順位は<a href="/ja/compare/performance">AIランキングのページ</a>でどうぞ。</p>
+<p>グラフと表は料金とスコアが変わるたびに毎日更新されます。最新の順位は<a href="/ja/compare/performance">AIランキングのページ</a>でどうぞ。モデルごとの料金一覧は<a href="/ja/blog/llm-api-ryoukin-hikaku">LLM API料金比較</a>にまとめています。</p>
 <p><em>性能スコア：Epoch AI の Epoch Capabilities Index（CC BY 4.0）を使用。料金：API定価、キャッシュ・バッチ割引なし、2026年10月4日時点。</em></p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://epoch.ai/eci" target="_blank" rel="noopener">Epoch AI: Epoch Capabilities Index</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API 料金</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API 料金</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini API 料金</a></li>
+<li><a href="https://api-docs.deepseek.com/quick_start/pricing/" target="_blank" rel="noopener">DeepSeek API のモデルと料金</a></li>
+</ul>
 <!-- autoimg -->

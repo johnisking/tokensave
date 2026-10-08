@@ -33,23 +33,23 @@ Words are a poor unit across languages: Chinese, Japanese and Thai do not put sp
 
 | Language | Characters | Tokens | Characters per token | Tokens vs English |
 |---|---|---|---|---|
-| English | 181 | 34 | 5.3 | 1.00× |
-| Spanish | 183 | 40 | 4.6 | 1.18× |
-| German | 194 | 43 | 4.5 | 1.26× |
-| French | 197 | 44 | 4.5 | 1.29× |
-| Russian | 165 | 45 | 3.7 | 1.32× |
-| Arabic | 136 | 43 | 3.2 | 1.26× |
-| Hindi | 161 | 51 | 3.2 | 1.50× |
-| Polish | 190 | 64 | 3.0 | 1.88× |
-| Thai | 132 | 59 | 2.2 | 1.74× |
-| Korean | 87 | 49 | 1.8 | 1.44× |
-| Chinese (Simplified) | 50 | 35 | 1.4 | 1.03× |
-| Japanese | 73 | 61 | 1.2 | 1.79× |
+| English | 181 | 34 | 5.3 | ±0% |
+| Spanish | 183 | 40 | 4.6 | +18% |
+| German | 194 | 43 | 4.5 | +26% |
+| French | 197 | 44 | 4.5 | +29% |
+| Russian | 165 | 45 | 3.7 | +32% |
+| Arabic | 136 | 43 | 3.2 | +26% |
+| Hindi | 161 | 51 | 3.2 | +50% |
+| Polish | 190 | 64 | 3.0 | +88% |
+| Thai | 132 | 59 | 2.2 | +74% |
+| Korean | 87 | 49 | 1.8 | +44% |
+| Chinese (Simplified) | 50 | 35 | 1.4 | +3% |
+| Japanese | 73 | 61 | 1.2 | +79% |
 
 Two things stand out:
 
 - **Characters per token tells you little about cost on its own.** Chinese has only 1.4 characters per token, yet costs almost the same as English, because each Chinese character carries much more meaning. The last column, tokens for the same meaning, is what matters for your bill.
-- **For Korean and Japanese, plan on roughly one token per 1.2–1.8 characters,** and expect about 1.4× (Korean) and 1.8× (Japanese) the tokens of the same content in English.
+- **For Korean and Japanese, plan on roughly one token per 1.2–1.8 characters,** and expect about 40% (Korean) and 80% (Japanese) more tokens than the same content in English.
 
 The full results for 41 languages are in our [language comparison](/blog/token-cost-by-language).
 
@@ -72,4 +72,10 @@ These numbers are for OpenAI's o200k tokenizer. Claude and Gemini use their own 
 Rules of thumb are fine for rough planning. For anything you will pay for, paste your real text into the [token counter](/): it runs the actual tokenizer in your browser and shows the cost on every model.
 
 Convert any token count to words and pages for GPT, Claude and Gemini with the [tokens to words converter](/tokens-to-words).
+
+## Sources
+
+- [tiktoken (OpenAI): the o200k_base tokenizer](https://github.com/openai/tiktoken)
+- [What are tokens and how to count them (OpenAI Help Center)](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them)
+- [Token counting (Anthropic docs)](https://platform.claude.com/docs/en/build-with-claude/token-counting)
 <!-- autoimg -->

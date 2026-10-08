@@ -105,22 +105,29 @@
 <ul>
 <li><strong>The standard price matches Claude Opus 5.5 exactly:</strong> $4 in, $20 out.</li>
 <li><strong>The introductory price matches GPT-6 Sol and Claude Sonnet 5.5.</strong> A top model at a mid-tier price, for now.</li>
-<li><strong>Even at the standard price it is 2.5x cheaper than GPT-6 Astra and Claude Fable 5.1.</strong> If Google's benchmark claims hold, it is the best value among the top models.</li>
-<li><strong>It costs more than Gemini 3.1 Pro</strong>, about 1.8x per request at the standard price. If 3.1 Pro already does the job, there is no reason to switch.</li>
+<li><strong>Even at the standard price it is 60% cheaper than GPT-6 Astra and Claude Fable 5.1.</strong> If Google's benchmark claims hold, it is the best value among the top models.</li>
+<li><strong>It costs more than Gemini 3.1 Pro</strong>, about 80% more per request at the standard price. If 3.1 Pro already does the job, there is no reason to switch.</li>
 </ul>
 <h2>When to use it</h2>
 <p><strong>Good fit:</strong> large code changes and migrations, security reviews, long multi-step agent runs, and analysis of long videos or charts. The more a mistake costs you, the more it is worth paying for.</p>
-<p><strong>Overkill:</strong> summaries, translation, classification and short answers. Gemini 3.8 Flash handles those at about a fifth of the cost per request.</p>
+<p><strong>Overkill:</strong> summaries, translation, classification and short answers. Gemini 3.8 Flash handles those at about 80% less cost per request.</p>
 <p>A common setup is to send everyday requests to Flash or 3.1 Pro and route only the hard ones to Argon.</p>
 <h2>How to spend less</h2>
 <p><img loading="lazy" width="1200" height="829" alt="How to spend less: Test during the introductory period. It is half the standard price, the best time to see if it fits your workl" src="/gemini-4-argon-api-pricing-how-to-spend-less-en.jpg" /></p>
 <ol>
 <li><strong>Test during the introductory period.</strong> It is half the standard price, the best time to see if it fits your workload.</li>
 <li><strong>Use caching.</strong> Cached input is 95% off, so keep fixed instructions and documents at the start of the prompt.</li>
-<li><strong>Cap the output.</strong> It can write up to 1 million tokens, and output costs 5x input. Ask for only what you need.</li>
+<li><strong>Cap the output.</strong> It can write up to 1 million tokens, and output costs 400% more than input. Ask for only what you need.</li>
 <li><strong>Write prompts in English.</strong> Most other languages take more tokens for the same text. The 💸 Save tokens button in the <a href="/">token counter</a> rewrites a prompt in English on your own device.</li>
 </ol>
 <h2>Check your own cost</h2>
 <p>Gemini 4 Argon is now in the <a href="/">token counter</a> at the standard price. Paste a prompt you actually use and compare Argon, GPT-6 and Claude side by side.</p>
 <p><em>Prices and rollout dates can change. Check the <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini API pricing page</a> before large jobs.</em></p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" target="_blank" rel="noopener">Google: Gemini 4 Argon announcement</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini API pricing</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API pricing</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API pricing</a></li>
+</ul>
 <!-- autoimg -->

@@ -1,5 +1,5 @@
-<p><img fetchpriority="high" width="1200" height="630" alt="A magyar 1,74× annyi tokent használ a GPT-ben, mint az angol" src="/tokenek-magyar-gpt-hu.jpg" /></p>
-<p>Ugyanazt az ügyfélszolgálati promptot lefordítottam 41 nyelvre, és a tokeneket az o200k_base-szel, az OpenAI jelenlegi tokenizálójával (GPT-4o és újabbak) számoltam meg. Angolul 34 token kell, magyarul <strong>59 — ez 1,74× annyi</strong>, 41 nyelv közül a 30. helyen a legolcsóbbtól számítva.</p>
+<p><img fetchpriority="high" width="1200" height="630" alt="A magyar 74%-kal több tokent használ a GPT-ben, mint az angol" src="/tokenek-magyar-gpt-hu.jpg" /></p>
+<p>Ugyanazt az ügyfélszolgálati promptot lefordítottam 41 nyelvre, és a tokeneket az o200k_base-szel, az OpenAI jelenlegi tokenizálójával (GPT-4o és újabbak) számoltam meg. Angolul 34 token kell, magyarul <strong>59 — ez 74%-kal több</strong>, 41 nyelv közül a 30. helyen a legolcsóbbtól számítva.</p>
 <p>A magyar változat:</p>
 <blockquote>
 <p>Foglald össze az alábbi ügyfél-e-mailt három pontban, és javasolj egy udvarias választ. Az ügyfél azt írja, hogy a rendelés két nap késéssel érkezett, és egy termék hiányzott a dobozból.</p>
@@ -18,74 +18,74 @@
 <tr>
 <td>English</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">1,00×</td>
+<td style="text-align: right;">±0%</td>
 <td style="text-align: right;">–</td>
 </tr>
 <tr>
 <td>简体中文</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">1,03×</td>
+<td style="text-align: right;">+3%</td>
 <td style="text-align: right;">3%</td>
 </tr>
 <tr>
 <td>Español</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;">1,18×</td>
+<td style="text-align: right;">+18%</td>
 <td style="text-align: right;">15%</td>
 </tr>
 <tr>
 <td>Deutsch</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">1,26×</td>
+<td style="text-align: right;">+26%</td>
 <td style="text-align: right;">21%</td>
 </tr>
 <tr>
 <td>한국어</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">1,44×</td>
+<td style="text-align: right;">+44%</td>
 <td style="text-align: right;">31%</td>
 </tr>
 <tr>
 <td>हिन्दी</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;">1,50×</td>
+<td style="text-align: right;">+50%</td>
 <td style="text-align: right;">33%</td>
 </tr>
 <tr>
 <td><strong>Magyar</strong></td>
 <td style="text-align: right;"><strong>59</strong></td>
-<td style="text-align: right;"><strong>1,74×</strong></td>
+<td style="text-align: right;"><strong>+74%</strong></td>
 <td style="text-align: right;"><strong>43%</strong></td>
 </tr>
 <tr>
 <td>日本語</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">1,79×</td>
+<td style="text-align: right;">+79%</td>
 <td style="text-align: right;">44%</td>
 </tr>
 <tr>
 <td>Čeština</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">2,00×</td>
+<td style="text-align: right;">+100%</td>
 <td style="text-align: right;">50%</td>
 </tr>
 <tr>
 <td>Ελληνικά</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">2,06×</td>
+<td style="text-align: right;">+106%</td>
 <td style="text-align: right;">51%</td>
 </tr>
 <tr>
 <td>ਪੰਜਾਬੀ</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">2,44×</td>
+<td style="text-align: right;">+144%</td>
 <td style="text-align: right;">59%</td>
 </tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1430" alt="Eredmények" src="/blog-language-tax-chart-v4.png" /></p>
+<p><img loading="lazy" width="960" height="1441" alt="Diagram: nyelvenkénti többlettokenek az angolhoz képest a GPT-ben" src="/blog-language-tax-chart-v5.png" /></p>
 <h2>Miért</h2>
-<p><img loading="lazy" width="1200" height="593" alt="Miért: ügyfél-e-mailt → ügy | fél | -e | -mail | t · 5; dobozból → do | bo | zb | ól · 4; hiányzott → hi | ány | zott" src="/tokenek-magyar-gpt-hu-2.jpg" /></p>
+<p><img loading="lazy" width="1200" height="589" alt="Miért: ügyfél-e-mailt → ügy | fél | -e | -mail | t · 5; dobozból → do | bo | zb | ól · 4; hiányzott → hi | ány | zott" src="/tokenek-magyar-gpt-hu-2.jpg" /></p>
 <p>A tokenizáló főleg angol szövegből tanul: az olyan szavak, mint a " polite" vagy a " customer", egyetlen tokenek, a toldalékokkal hosszú magyar szavak viszont darabokra esnek:</p>
 <ul>
 <li>ügyfél-e-mailt → <code>ügy | fél | -e | -mail | t</code> · 5</li>
@@ -95,9 +95,9 @@
 <h2>Válts angolra egy gombnyomással</h2>
 <p>A legnagyobb megtakarítás, ha angolul küldöd a promptot: magyar nyelv esetén kb. 43%-kal kevesebb token. A mai modellek tökéletesen értik az angol utasításokat, és magyarul válaszolnak, ha kéred. A TokenSave tokenszámlálójában illeszd be a promptot, és nyomd meg a <strong>💸 Tokenspórolás</strong> gombot: eltávolítja a felesleges szóközöket, angolra fordít, kigyomlálja a töltelékszavakat, és hozzáadja a „Reply in Hungarian.” sort, hogy a válasz a te nyelveden maradjon. Az asztali Chrome 138+ / Edge 148+ beépített fordítóját használja; a fordítás a saját eszközödön fut, a szöveged sosem kerül feltöltésre. Az eredetit a <strong>↩ Eredeti</strong> gombbal kapod vissza.</p>
 <h2>Pénzben</h2>
-<p>Egy 1 millió bemeneti tokenenként 2 dolláros modellnél ezt a promptot egymilliószor elküldeni angolul 68 dollár, magyarul 118 dollár. Ha a válasz is magyarul jön, ugyanez a szorzó érvényes a kimeneti tokenekre, amelyek általában 4–5× drágábbak.</p>
+<p>Egy 1 millió bemeneti tokenenként 2 dolláros modellnél ezt a promptot egymilliószor elküldeni angolul 68 dollár, magyarul 118 dollár. Ha a válasz is magyarul jön, ugyanez a szorzó érvényes a kimeneti tokenekre, amelyek általában 300–400%-kal drágábbak.</p>
 <h2>Hogyan spórolj</h2>
-<p><img loading="lazy" width="1200" height="658" alt="Hogyan spórolj: A rendszerpromptot és az állandó utasításokat írd angolul; csak a felhasználó bemenete maradjon magyarul.; A k" src="/tokenek-magyar-gpt-hogyan-sporolj-hu.jpg" /></p>
+<p><img loading="lazy" width="1200" height="654" alt="Hogyan spórolj: A rendszerpromptot és az állandó utasításokat írd angolul; csak a felhasználó bemenete maradjon magyarul.; A k" src="/tokenek-magyar-gpt-hogyan-sporolj-hu.jpg" /></p>
 <ul>
 <li>A rendszerpromptot és az állandó utasításokat írd angolul; csak a felhasználó bemenete maradjon magyarul.</li>
 <li>A köztes lépéseket (osztályozás, kinyerés, eszközhívások) kérd angolul vagy JSON-ban, és csak a végső választ magyarul.</li>
@@ -109,5 +109,11 @@
 <li>A Claude és a Gemini más tokenizálót használ — ezek a számok csak az OpenAI-modellekre érvényesek.</li>
 <li>A fordítás ellenőrzött gépi fordításon alapul.</li>
 </ul>
+<p>Próbáld ki a saját szövegeddel a <a href="/hu/">tokenszámlálóban</a>; az összes nyelv összevetése a <a href="/languages">nyelvi táblázatban</a> található.</p>
 <p>Mind a 41 nyelv eredménye (angolul): <a href="/blog/token-cost-by-language">41 nyelv összehasonlítása</a></p>
+<h2>Források</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: az OpenAI tokenizálója (o200k_base) a GitHubon</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">Az OpenAI API árai</a></li>
+</ul>
 <!-- autoimg -->

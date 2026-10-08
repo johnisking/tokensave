@@ -49,12 +49,12 @@ S = dict(
     tip="Tip: nelatinské písma zvyčajne stoja viac tokenov pri rovnakom význame. Systémový prompt v angličtine môže znížiť cenu.",
     title="Počítadlo AI tokenov pre GPT, Claude a Gemini – TokenSave",
     tokens="Tokeny",
-    waste="{x}x plytvanie tokenmi",
+    waste="+{p} % plytvanie tokenmi",
     words="Slová",
 )
 
 V = dict(
-    a1="Väčšina video API účtuje za každú sekundu vygenerovaného videa. Vyššie rozlíšenie a vstavaný zvuk stoja viac, takže klip v 1080p alebo 4K môže stáť niekoľkonásobne viac než klip v 720p.",
+    a1="Väčšina video API účtuje za každú sekundu vygenerovaného videa. Vyššie rozlíšenie a vstavaný zvuk stoja viac, takže klip v 1080p alebo 4K môže stáť oveľa viac než klip v 720p.",
     a2="Závisí to od rozlíšenia. Ľahké modely ako Veo 3.1 Lite, Grok Imagine a Wan začínajú okolo $0.05 za sekundu, prémiové modely v 4K môžu stáť $0.40 za sekundu aj viac.",
     a3="Nie. OpenAI 24. septembra 2026 odstránila videomodely Sora 2 zo svojho API, takže Sora už vývojárom nie je dostupná.",
     audio="Zvuk",

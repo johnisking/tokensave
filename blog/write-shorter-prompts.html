@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -125,6 +125,7 @@
 <p>The rewrite keeps every instruction and saves 87 tokens per request.</p>
 <p>At one million requests a month, that is 87 million fewer input tokens. At $2 per million (GPT-6 Sol), about <strong>$174 a month</strong> saved from four lines of editing. With a larger model or longer system prompts, the savings scale up accordingly.</p>
 <h2>What to cut</h2>
+<p><img loading="lazy" width="1200" height="935" alt="What to cut: Greetings and thanks; Hedging; Repetition" src="/write-shorter-prompts-what-to-cut-en.jpg" /></p>
 <p><strong>Greetings and thanks.</strong> Models do not need "Hello", "I hope you're well" or "Thank you so much". They do not change the answer.</p>
 <p><strong>Hedging.</strong> "I was wondering if you could possibly..." becomes "Please..." or just the verb.</p>
 <p><strong>Repetition.</strong> "Be helpful", "be as helpful as possible" and "make sure your answers are complete" say the same thing three times.</p>
@@ -145,7 +146,12 @@
 <h2>Before you ship a shorter prompt</h2>
 <p>Test it. Run the old and new prompts on the same 20–50 real inputs and compare the answers. A shorter prompt that occasionally drops an important behavior is not a saving. Usually, though, the tighter prompt gives the same or better results, because the instructions that matter are no longer buried.</p>
 <h2>Measure your prompts</h2>
-<p>Paste a prompt into the <a href="/">token counter</a> to see its token count and cost per request on 30+ models. The <em>Save tokens</em> button also cleans up extra spaces and filler, and can translate non-English prompts to English on your device.</p>
+<p>Paste a prompt into the <a href="/">token counter</a> to see its token count and cost per request on 30+ models. The <em>Save tokens</em> button also cleans up extra spaces and filler, and can translate non-English prompts to English on your device. Answers cost more per token than prompts, so also read <a href="/blog/why-output-tokens-cost-more">why output tokens cost more</a>.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken (OpenAI tokenizer, o200k_base)</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-sol" target="_blank" rel="noopener">GPT-6 Sol model page (OpenAI)</a></li>
+</ul>
 <!-- autoimg -->
 
         <h2>More articles</h2>
@@ -172,6 +178,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

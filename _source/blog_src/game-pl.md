@@ -90,4 +90,14 @@ Agentów AI do kodowania porównasz na stronie [agentów AI](/pl/agents).
 Tak. Kalkulator robi więcej, niż tylko wycenia projekt. Wybierz gatunek, rozmiar, silnik i platformę, a napisze **prompt startowy do tworzenia gry, prompty do grafiki, prompty do muzyki i efektów dźwiękowych oraz storyboard zwiastuna**, które wkleisz prosto do Claude Code albo Midjourney. Obsługuje 33 gatunki i 21 silników, w tym Unity, Godot, Unreal i GameMaker.
 
 Chcesz zobaczyć, jak to wygląda w praktyce? Przeczytaj, jak [zrobiłem grę w 3 dni za 45 USD bez umiejętności programowania](/pl/blog/vibe-coding-gra). A swoją grę wycenisz w [kalkulatorze kosztów gry z AI](/pl/ai-game-cost-calculator).
+
+## Źródła
+
+- [Cennik Claude (plany Pro i Max)](https://claude.com/pricing)
+- [Porównanie planów Midjourney](https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans)
+- [Cennik Suno](https://suno.com/pricing)
+- [Cennik ElevenLabs](https://elevenlabs.io/pricing)
+- [Pomoc Konsoli Play: pierwsze kroki (jednorazowa opłata rejestracyjna 25 USD)](https://support.google.com/googleplay/android-developer/answer/6112435)
+- [Apple Developer Program (roczne członkostwo)](https://developer.apple.com/programs/)
+- [Steamworks: opłata Steam Direct](https://partner.steamgames.com/doc/gettingstarted/appfee)
 <!-- autoimg -->

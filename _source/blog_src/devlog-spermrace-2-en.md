@@ -158,3 +158,8 @@ Sperm Race is free on Google Play. If you run into a bug, please tap the bug rep
 - **Web version (itch.io)**: [Sperm Race](https://johnisking.itch.io/sperm-race)
 
 Curious what an AI-made game costs in money and time? Plug your genre and size into the [AI game cost calculator](/ai-game-cost-calculator). And put bug-fixing time in your schedule. For me, it took more than four times as long as building.
+
+## Sources
+
+- [Play Console Help: app testing requirements for new personal developer accounts](https://support.google.com/googleplay/android-developer/answer/14151465)
+- [Play Console Help: set up an open, closed, or internal test](https://support.google.com/googleplay/android-developer/answer/9845334)

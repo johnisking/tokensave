@@ -14,14 +14,14 @@
   <!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JSON vs YAML vs CSV: Which Data Format Uses the Fewest Tokens?</title>
-  <meta name="description" content="One table in 9 formats: row-by-row pretty JSON used 2.9x the tokens of CSV, XML 3.6x, columnar JSON about the same as CSV." />
+  <meta name="description" content="One table in 9 formats: row-by-row pretty JSON used 190% more tokens than CSV, XML 260% more, columnar JSON about the same as CSV." />
   <link rel="canonical" href="https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens" />
   <link rel="alternate" hreflang="en" href="https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens" />
   <link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens" />
   <meta property="og:title" content="JSON vs YAML vs CSV: Which Data Format Uses the Fewest Tokens?" />
-  <meta property="og:description" content="One table in 9 formats: row-by-row pretty JSON used 2.9x the tokens of CSV, XML 3.6x, columnar JSON about the same as CSV." />
+  <meta property="og:description" content="One table in 9 formats: row-by-row pretty JSON used 190% more tokens than CSV, XML 260% more, columnar JSON about the same as CSV." />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
@@ -33,11 +33,11 @@
   <meta name="twitter:image" content="https://tokensave.app/json-vs-yaml-vs-csv-tokens-en.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "JSON vs YAML vs CSV: Which Data Format Uses the Fewest Tokens?", "description": "One table in 9 formats: row-by-row pretty JSON used 2.9x the tokens of CSV, XML 3.6x, columnar JSON about the same as CSV.", "inLanguage": "en", "url": "https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens", "mainEntityOfPage": "https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/json-vs-yaml-vs-csv-tokens-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "JSON vs YAML vs CSV: Which Data Format Uses the Fewest Tokens?", "item": "https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which format should you use?", "acceptedAnswer": {"@type": "Answer", "text": "For flat tables you send as input: CSV or TSV. They are the cheapest, and current models read them well. Use TSV if your values contain commas, so you do not need quoting."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "JSON vs YAML vs CSV: Which Data Format Uses the Fewest Tokens?", "description": "One table in 9 formats: row-by-row pretty JSON used 190% more tokens than CSV, XML 260% more, columnar JSON about the same as CSV.", "inLanguage": "en", "url": "https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens", "mainEntityOfPage": "https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/json-vs-yaml-vs-csv-tokens-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "JSON vs YAML vs CSV: Which Data Format Uses the Fewest Tokens?", "item": "https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which format should you use?", "acceptedAnswer": {"@type": "Answer", "text": "For flat tables you send as input: CSV or TSV. They are the cheapest, and current models read them well. Use TSV if your values contain commas, so you do not need quoting."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -98,7 +98,7 @@
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">JSON vs YAML vs CSV: Which Data Format Uses the Fewest Tokens?</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="JSON vs YAML vs CSV: Which Data Format Uses the Fewest Tokens?" src="/json-vs-yaml-vs-csv-tokens-en.jpg" /></p>
-<p>When you send data to an AI model, whether product lists, survey results, database rows or API responses, the format you choose changes how many tokens it takes. We measured the same table in seven common formats on GPT's o200k tokenizer. The most popular choice, pretty-printed JSON with one object per row, uses almost three times as many tokens as the cheapest. The same data as columnar JSON costs about the same as CSV: the expensive part is repeating the keys, not JSON itself.</p>
+<p>When you send data to an AI model, whether product lists, survey results, database rows or API responses, the format you choose changes how many tokens it takes. We measured the same table in seven common formats on GPT's o200k tokenizer. The most popular choice, pretty-printed JSON with one object per row, uses almost 200% more tokens than the cheapest. The same data as columnar JSON costs about the same as CSV: the expensive part is repeating the keys, not JSON itself.</p>
 <p><em>Updated October 3, 2026: added columnar JSON and header-plus-rows JSON after a reader pointed out they were missing. Same table, same tokenizer.</em></p>
 <h2>The test</h2>
 <p>We took a small product table: 20 rows, 5 fields each (an ID, a product name, a price, an in-stock flag and a category). Then we wrote the exact same data in seven formats and counted tokens.</p>
@@ -120,61 +120,61 @@
 <tr>
 <td>TSV (tab-separated)</td>
 <td>296</td>
-<td>0.99×</td>
+<td>−1%</td>
 <td>891</td>
 </tr>
 <tr>
 <td>CSV</td>
 <td>300</td>
-<td>1.00×</td>
+<td>±0%</td>
 <td>891</td>
 </tr>
 <tr>
 <td>JSON, columnar, minified <code>{"id":[...],"name":[...]}</code></td>
 <td>297</td>
-<td>0.99×</td>
+<td>−1%</td>
 <td>993</td>
 </tr>
 <tr>
 <td>JSON, header + row arrays</td>
 <td>320</td>
-<td>1.07×</td>
+<td>+7%</td>
 <td>1,044</td>
 </tr>
 <tr>
 <td>Markdown table</td>
 <td>373</td>
-<td>1.24×</td>
+<td>+24%</td>
 <td>1,165</td>
 </tr>
 <tr>
 <td>JSON, columnar, pretty-printed</td>
 <td>520</td>
-<td>1.73×</td>
+<td>+73%</td>
 <td>1,529</td>
 </tr>
 <tr>
 <td>JSON, one object per row, minified</td>
 <td>525</td>
-<td>1.75×</td>
+<td>+75%</td>
 <td>1,821</td>
 </tr>
 <tr>
 <td>YAML</td>
 <td>649</td>
-<td>2.16×</td>
+<td>+116%</td>
 <td>1,799</td>
 </tr>
 <tr>
 <td>JSON, one object per row, pretty-printed (2-space indent)</td>
 <td>884</td>
-<td>2.95×</td>
+<td>+195%</td>
 <td>2,542</td>
 </tr>
 <tr>
 <td>XML</td>
 <td>1,088</td>
-<td>3.63×</td>
+<td>+263%</td>
 <td>3,362</td>
 </tr>
 </tbody>
@@ -243,7 +243,14 @@
 <h2>Caveats</h2>
 <p>These numbers come from one table on one tokenizer. Claude and Gemini use different tokenizers, so absolute counts will differ, but the ranking (tabular formats cheapest, repeated keys and tags most expensive) follows from how the formats are built and holds generally. If the format affects accuracy for your task, test both: a cheaper prompt that gives worse answers is not cheaper.</p>
 <h2>Measure your own data</h2>
-<p>Paste a sample of your data into the <a href="/">token counter</a> in two formats and compare. It runs the same o200k tokenizer in your browser, and nothing you paste is uploaded.</p>
+<p>Paste a sample of your data into the <a href="/">token counter</a> in two formats and compare. It runs the same o200k tokenizer in your browser, and nothing you paste is uploaded. Sending code instead of data? See <a href="/blog/how-many-tokens-does-code-use">how many tokens code uses</a>.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken (OpenAI tokenizer, o200k_base)</a></li>
+<li><a href="https://github.com/openai/tiktoken/blob/main/tiktoken/model.py" target="_blank" rel="noopener">tiktoken model-to-encoding map</a></li>
+<li><a href="https://developers.openai.com/api/docs/guides/structured-outputs" target="_blank" rel="noopener">Structured model outputs guide (OpenAI)</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-sol" target="_blank" rel="noopener">GPT-6 Sol model page (OpenAI)</a></li>
+</ul>
 <!-- autoimg -->
 
         <h2>More articles</h2>
@@ -270,6 +277,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

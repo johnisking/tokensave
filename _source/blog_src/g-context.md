@@ -26,7 +26,7 @@ A chat model has no memory between messages. To answer your 30th message, the ap
 
 That has two consequences.
 
-**Cost grows faster than the chat.** On the API, message 30 is billed for the tokens of messages 1 to 30. The total cost of a conversation grows roughly with the square of its length: a chat twice as long costs about four times as much.
+**Cost grows faster than the chat.** On the API, message 30 is billed for the tokens of messages 1 to 30. The total cost of a conversation grows roughly with the square of its length: a chat 100% longer costs about 300% more.
 
 **Quality drops in the middle.** Research on long contexts, starting with the 2023 paper *Lost in the Middle* by Liu and colleagues, found that models use information at the beginning and the end of their input much better than information buried in the middle. Newer models are better at this, but a fact from 40 messages ago, surrounded by unrelated topics, is still easy to miss.
 
@@ -47,4 +47,13 @@ A window of a million tokens means the text fits. It does not mean the model giv
 ## See it in numbers
 
 The [token counter](/) shows how much of each model's context window your text fills, and the [Subscription vs API calculator](/plans) includes the cost of re-sending chat history in its monthly estimate.
+
+## Sources
+
+- [Claude Opus 5.5 overview (Claude docs)](https://platform.claude.com/docs/en/models/opus-5-5/overview)
+- [Claude Haiku 4.5 overview (Claude docs)](https://platform.claude.com/docs/en/models/haiku-4-5/overview)
+- [Gemini 3.1 Pro Preview model page (Google)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview)
+- [GPT-6 Sol model page (OpenAI)](https://developers.openai.com/api/docs/models/gpt-6-sol)
+- [GPT-4o model page (OpenAI)](https://developers.openai.com/api/docs/models/gpt-4o)
+- [Liu et al., Lost in the Middle (arXiv, 2023)](https://arxiv.org/abs/2307.03172)
 <!-- autoimg -->

@@ -31,18 +31,18 @@ Tokenizers are trained mostly on English, so the same meaning written in another
 
 | Language | Tokens vs English |
 |---|---|
-| Chinese (Simplified) | 1.03× |
-| Spanish | 1.18× |
-| German | 1.26× |
-| French | 1.29× |
-| Russian | 1.32× |
-| Korean | 1.44× |
-| Hindi | 1.50× |
-| Japanese | 1.79× |
-| Polish | 1.88× |
-| Czech | 2.00× |
+| Chinese (Simplified) | +3% |
+| Spanish | +18% |
+| German | +26% |
+| French | +29% |
+| Russian | +32% |
+| Korean | +44% |
+| Hindi | +50% |
+| Japanese | +79% |
+| Polish | +88% |
+| Czech | +100% |
 
-Because API pricing is per token, a Japanese prompt costs about 1.8 times as much as the same prompt in English. The [full 41-language study](/blog/token-cost-by-language) has every language and how it was measured.
+Because API pricing is per token, a Japanese prompt costs about 80% more than the same prompt in English. The [full 41-language study](/blog/token-cost-by-language) has every language and how it was measured.
 
 ## Different models count differently
 
@@ -50,7 +50,7 @@ Each model family has its own tokenizer. OpenAI, Anthropic and Google all use di
 
 ## Why tokens matter
 
-**Cost.** API prices are quoted per million tokens, with separate prices for input (what you send) and output (what the model writes back). Output is usually 4–6 times more expensive than input.
+**Cost.** API prices are quoted per million tokens, with separate prices for input (what you send) and output (what the model writes back). Output is usually 300–500% more expensive than input.
 
 **Limits.** Every model has a *context window*: the maximum number of tokens it can consider at once, including the whole conversation so far. Plans and APIs also cap how many tokens you can use per minute or per day.
 
@@ -68,4 +68,10 @@ Paste your text into the [TokenSave token counter](/). It runs the real tokenize
 - You pay per token, and output tokens cost more than input tokens.
 - Non-English text, code and numbers use more tokens for the same meaning.
 - Count your real text before you estimate a budget.
+
+## Sources
+
+- [What are tokens and how to count them (OpenAI Help Center)](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them)
+- [tiktoken (OpenAI tokenizer, o200k_base)](https://github.com/openai/tiktoken)
+- [tiktoken model-to-encoding map](https://github.com/openai/tiktoken/blob/main/tiktoken/model.py)
 <!-- autoimg -->

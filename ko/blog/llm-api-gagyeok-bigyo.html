@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -100,7 +100,7 @@
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">LLM API 가격 비교: GPT-6·Claude·Gemini·DeepSeek 등 22개 모델</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026년 10월 2일</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="LLM API 가격 비교: GPT-6·Claude·Gemini·DeepSeek 등 22개 모델" src="/llm-api-gagyeok-bigyo-ko.jpg" /></p>
-<p>이제 API 가격을 공개한 언어 모델이 수십 개나 되고, 같은 요청이라도 모델에 따라 비용이 150배까지 차이 납니다. 이 글에서는 OpenAI, Anthropic, Google, xAI, DeepSeek, Mistral, Alibaba, Moonshot의 인기 모델 22개 정가를 나란히 놓고, 일반적인 요청 하나가 실제로 얼마인지, 그리고 어떻게 고르면 좋은지 정리했습니다.</p>
+<p>이제 API 가격을 공개한 언어 모델이 수십 개나 되고, 같은 요청 1만 번이 모델에 따라 $3로 끝나기도 하고 $450가 들기도 합니다. 이 글에서는 OpenAI, Anthropic, Google, xAI, DeepSeek, Mistral, Alibaba, Moonshot의 인기 모델 22개 정가를 나란히 놓고, 일반적인 요청 하나가 실제로 얼마인지, 그리고 어떻게 고르면 좋은지 정리했습니다.</p>
 <figure class="chart-fig"><img class="chart" src="/img/llm-api-price-chart.svg" alt="주요 AI 모델 15개의 100만 토큰당 입력·출력 API 가격 막대그래프" width="560" height="806" loading="lazy" decoding="async" /><figcaption>100만 토큰당 API 가격 (달러, 2026-10-01 기준)</figcaption></figure>
 <h2>API 가격 비교</h2>
 <p><img loading="lazy" width="1200" height="1052" alt="API 가격 비교: 모델, 입력 / 100만, 출력 / 100만, 요청 10,000건" src="/llm-api-gagyeok-bigyo-ko-2.jpg" /></p>
@@ -255,9 +255,9 @@
 <p><strong>중간형 (약 $1–3):</strong> Gemini 3.8 Flash, Claude Haiku 4.5, DeepSeek V4 Pro, Grok, Mistral Medium, Qwen3.8 Max, GPT-6 Sol, Claude Sonnet 5.5, Gemini 3.1 Pro, Kimi K3. 챗봇, 글쓰기, 분석, 코딩 에이전트의 기본 선택지입니다.</p>
 <p><strong>플래그십 ($4 이상):</strong> Claude Opus 5.5, GPT-6 Astra, Claude Fable 5.1. 길고 여러 단계로 이어지는 에이전트 작업이나 어려운 추론처럼, 확실히 더 잘한다는 게 보이는 곳에 쓰세요.</p>
 <h2>가격표만 보면 안 되는 이유</h2>
-<p><strong>비싼 쪽은 출력입니다.</strong> 대부분의 모델에서 출력이 입력보다 4–6배 비쌉니다. 앱이 긴 답변을 쓴다면 출력 가격부터 비교하세요. <a href="/blog/why-output-tokens-cost-more">출력 토큰이 더 비싼 이유</a> (영어)를 참고하세요.</p>
+<p><strong>비싼 쪽은 출력입니다.</strong> 대부분의 모델에서 출력이 입력보다 300–500% 비쌉니다. 앱이 긴 답변을 쓴다면 출력 가격부터 비교하세요. <a href="/blog/why-output-tokens-cost-more">출력 토큰이 더 비싼 이유</a> (영어)를 참고하세요.</p>
 <p><strong>토크나이저가 다릅니다.</strong> 회사마다 텍스트를 토큰으로 나누는 방식이 달라서, 같은 텍스트라도 모델에 따라 토큰 수가 10–30% 차이 날 수 있습니다. 그래서 토큰당 가격이 싸다고 청구액이 꼭 적은 건 아닙니다. 가격표만 보지 말고 <a href="/ko/">토큰 계산기</a>에서 내 텍스트의 비용을 직접 비교해 보세요. 자세한 내용은 <a href="/ko/blog/token-segi-bangbeop">GPT·Claude·Gemini 토큰 세는 방법</a>에 있습니다.</p>
-<p><strong>언어도 중요합니다.</strong> 영어가 아닌 텍스트는 토큰을 더 씁니다. GPT 토크나이저 기준으로 영어 대비 한국어는 약 1.44배, 일본어는 1.79배, 체코어는 2배입니다. 그래서 프롬프트를 영어로 보내면 한국어보다 토큰이 약 31% 줄어드는데, <a href="/ko/">토큰 계산기</a>의 💸 토큰 절약 버튼을 누르면 내 기기 안에서 바로 영어로 바꿔 줍니다(PC용 Chrome 138 이상 또는 Edge 148 이상).</p>
+<p><strong>언어도 중요합니다.</strong> 영어가 아닌 텍스트는 토큰을 더 씁니다. GPT 토크나이저 기준으로 영어보다 한국어는 약 44%, 일본어는 79%, 체코어는 100% 더 많습니다. 그래서 프롬프트를 영어로 보내면 한국어보다 토큰이 약 31% 줄어드는데, <a href="/ko/">토큰 계산기</a>의 💸 토큰 절약 버튼을 누르면 내 기기 안에서 바로 영어로 바꿔 줍니다(PC용 Chrome 138 이상 또는 Edge 148 이상).</p>
 <p><strong>할인이 순위를 바꿉니다.</strong> 대부분의 회사가 캐시된 입력은 정가의 일부만 받고, 배치 처리는 절반 정도 가격에 제공합니다. 길고 반복되는 프롬프트를 쓰는 앱이라면, 캐싱을 잘 활용한 중간형 모델이 캐싱 없는 저가형 모델보다 쌀 수도 있습니다. <a href="/blog/prompt-caching-explained">프롬프트 캐싱</a> (영어)과 <a href="/blog/batch-api-half-price">배치 API</a> (영어)를 참고하세요.</p>
 <p><strong>긴 프롬프트는 더 비쌀 수 있습니다.</strong> 일부 모델은 프롬프트가 일정 길이를 넘으면 더 높은 요금을 받습니다. 예를 들어 GPT-6 모델은 입력이 272,000토큰을 넘는 요청에 더 높은 요금을 매깁니다.</p>
 <h2>가장 싼 LLM API는?</h2>
@@ -271,6 +271,18 @@
 </ol>
 <h2>내 청구액 예상해 보기</h2>
 <p>실제 프롬프트를 <a href="/ko/">토큰 계산기</a>에 붙여 넣으면 모든 모델의 비용을 한 번에 볼 수 있습니다. 전체 방법은 <a href="/blog/how-to-estimate-ai-api-cost">AI API 청구액 예상하는 법</a> (영어)을 읽어 보세요. 구독과 API 중 무엇이 나은지는 <a href="/ko/plans">구독 vs API 계산기</a>로 비교할 수 있습니다.</p>
+<h2>출처</h2>
+<ul>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API 가격</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-5-nano" target="_blank" rel="noopener">OpenAI: GPT-5 nano 모델</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API 가격</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini API 가격</a></li>
+<li><a href="https://docs.x.ai/developers/pricing" target="_blank" rel="noopener">xAI API 가격</a></li>
+<li><a href="https://api-docs.deepseek.com/quick_start/pricing/" target="_blank" rel="noopener">DeepSeek API 모델·가격</a></li>
+<li><a href="https://docs.mistral.ai/models/mistral-large-3-25-12" target="_blank" rel="noopener">Mistral AI: Mistral Large 3</a></li>
+<li><a href="https://www.alibabacloud.com/help/en/model-studio/qwen3-8-flash" target="_blank" rel="noopener">Alibaba Cloud: qwen3.8-flash 가격</a></li>
+<li><a href="https://www.alibabacloud.com/help/en/model-studio/model-pricing" target="_blank" rel="noopener">Alibaba Cloud Model Studio 가격</a></li>
+</ul>
 <!-- autoimg -->
 
         <h2>다른 글</h2>
@@ -297,6 +309,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

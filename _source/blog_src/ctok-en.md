@@ -26,9 +26,9 @@ That is why a token count tells you less than you would think. Two sessions with
 
 ## What uses your allowance fastest
 
-![What uses your allowance fastest: Opus instead of Sonnet. Opus 5.5 costs twice as much per token as Sonnet 5.5 on the API, and it uses your plan](/claude-pro-max-how-many-tokens-what-uses-your-allowance-fastest-en.jpg)
+![What uses your allowance fastest: Opus instead of Sonnet. Opus 5.5 costs 100% more per token than Sonnet 5.5 on the API, and it uses your plan](/claude-pro-max-how-many-tokens-what-uses-your-allowance-fastest-en.jpg)
 
-- **Opus instead of Sonnet.** Opus 5.5 costs twice as much per token as Sonnet 5.5 on the API, and it uses your plan's allowance faster too.
+- **Opus instead of Sonnet.** Opus 5.5 costs 100% more per token than Sonnet 5.5 on the API, and it uses your plan's allowance faster too.
 - **Long sessions.** Every step re-sends the whole context. A session that has grown to 150,000 tokens costs far more per step than a fresh one. Use **/clear** between unrelated tasks and **/compact** on long ones.
 - **A big CLAUDE.md or many tools.** They are sent with every step.
 - **Writing in another language.** Korean uses about 44% more tokens than English for the same meaning, Japanese about 79% more.
@@ -48,4 +48,10 @@ Almost certainly yes if you use Claude Code heavily: a Max 20× week measured at
 Related: [Claude Max vs Pro](/blog/claude-max-vs-pro) · [Claude Code usage limits explained](/blog/claude-code-usage-limits) · [How to save tokens in Claude Code](/blog/claude-code-save-tokens) · [Claude token counter](/claude-token-counter)
 
 *Anthropic changes limits often and does not publish token quotas. Run **/status** in Claude Code to see where you stand.*
+
+## Sources
+
+- [Using Claude Code with your Pro or Max plan (Claude Help Center)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Claude plans and pricing (Anthropic)](https://claude.com/pricing)
+- [Claude API pricing (Anthropic docs)](https://platform.claude.com/docs/en/about-claude/pricing)
 <!-- autoimg -->

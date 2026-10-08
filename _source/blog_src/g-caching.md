@@ -77,4 +77,11 @@ Caching works differently on each platform, so check the documentation for the o
 - [How to estimate your AI API bill](/blog/how-to-estimate-ai-api-cost)
 - [Context windows explained](/blog/context-window-explained)
 - [What does an AI coding agent cost per task?](/blog/ai-coding-agent-cost)
+
+## Sources
+
+- [Prompt caching guide (OpenAI)](https://developers.openai.com/api/docs/guides/prompt-caching)
+- [Prompt caching (Claude docs)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
+- [Gemini context caching (Google)](https://ai.google.dev/gemini-api/docs/caching)
+- [GPT-6 Sol model page (OpenAI)](https://developers.openai.com/api/docs/models/gpt-6-sol)
 <!-- autoimg -->

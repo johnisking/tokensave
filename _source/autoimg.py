@@ -129,6 +129,14 @@ td b,th b{color:#ffd166}
 #cover .chip{font-size:21px;font-weight:700;color:#d9d3ef;border:2px solid #3a3452;border-radius:999px;padding:7px 18px;background:rgba(20,18,28,.6)}
 """
 
+_FONT_CACHE = {}
+def _furl(name):
+    """fonts as data: URIs (file:// is blocked inside set_content pages, so the old url() silently fell back)"""
+    if name not in _FONT_CACHE:
+        import base64
+        _FONT_CACHE[name] = 'data:font/ttf;base64,' + base64.b64encode(open(f'{FD}/{name}', 'rb').read()).decode()
+    return _FONT_CACHE[name]
+
 def font_css(tag):
     fam = []
     if tag in CJK:
@@ -136,12 +144,12 @@ def font_css(tag):
     if tag in SCRIPT:
         s = SCRIPT[tag]
         fam.append('"Scr"')
-        face = (f'@font-face{{font-family:"Scr";src:url("file://{FD}/{s}-400.ttf");font-weight:400 600}}'
-                f'@font-face{{font-family:"Scr";src:url("file://{FD}/{s}-700.ttf");font-weight:700 900}}')
+        face = (f'@font-face{{font-family:"Scr";src:url("{_furl(s + "-400.ttf")}");font-weight:400 600}}'
+                f'@font-face{{font-family:"Scr";src:url("{_furl(s + "-700.ttf")}");font-weight:700 900}}')
     else:
         face = ''
-    face += (f'@font-face{{font-family:"Base";src:url("file://{FD}/base-400.ttf");font-weight:400 600}}'
-             f'@font-face{{font-family:"Base";src:url("file://{FD}/base-700.ttf");font-weight:700 900}}')
+    face += (f'@font-face{{font-family:"Base";src:url("{_furl("base-400.ttf")}");font-weight:400 600}}'
+             f'@font-face{{font-family:"Base";src:url("{_furl("base-700.ttf")}");font-weight:700 900}}')
     fam = ['"Base"'] + fam + ['"Noto Sans CJK KR"', 'sans-serif'] if tag not in CJK else fam + ['"Base"', 'sans-serif']
     return face + f'body{{font-family:{",".join(fam)}}}' + ('body{word-break:keep-all}' if tag == 'ko' else '')
 

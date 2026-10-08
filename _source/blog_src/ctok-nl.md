@@ -52,4 +52,10 @@ Vrijwel zeker wel als je Claude Code intensief gebruikt. Een Max 20x-week, gemet
 Gerelateerd: [Claude Max vs Pro](/blog/claude-max-vs-pro) (in het Engels) · [Claude Code limiet](/nl/blog/claude-code-limiet) · [Codex limiet](/nl/blog/codex-limiet) · [Tokens besparen in Claude Code](/blog/claude-code-save-tokens) (in het Engels) · [Claude token counter](/claude-token-counter) (in het Engels) · [Nederlandse token counter](/nl/)
 
 *Anthropic past limieten vaak aan en publiceert geen tokenquota. Typ **/status** in Claude Code om te zien hoeveel je nog over hebt.*
+
+## Bronnen
+
+- [Claude Code gebruiken met je Pro- of Max-abonnement (Claude Helpcentrum)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Claude-abonnementen en prijzen (Anthropic)](https://claude.com/pricing)
+- [Prijzen van de Claude API (Anthropic-documentatie)](https://platform.claude.com/docs/en/about-claude/pricing)
 <!-- autoimg -->

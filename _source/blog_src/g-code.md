@@ -58,4 +58,9 @@ In our sample, Python averaged about 3.6 characters per token and the JavaScript
 ## Measure your own code
 
 Paste a file into the [token counter](/) to see its token count and what it costs to send on each model, and use the [coding agent calculator](/agents) to estimate a month of agent use.
+
+## Sources
+
+- [tiktoken (OpenAI tokenizer, o200k_base)](https://github.com/openai/tiktoken)
+- [Prompt caching guide (OpenAI)](https://developers.openai.com/api/docs/guides/prompt-caching)
 <!-- autoimg -->

@@ -53,13 +53,13 @@
 <p>On lit partout que « 1 token ≈ 4 caractères » ou que « 100 tokens ≈ 75 mots ». Sur cet e-mail français, on obtient plutôt <strong>5 caractères par token</strong> et <strong>81 mots pour 100 tokens</strong>. Et l'écart devient énorme dès qu'on colle autre chose que de la prose :</p>
 <ul>
 <li>un identifiant UUID coûte <strong>18 tokens</strong> à lui seul ;</li>
-<li>un tableau en JSON indenté coûte <strong>2,9 fois</strong> plus de tokens que le même tableau en CSV (<a href="/blog/json-vs-yaml-vs-csv-tokens">mesure complète ici</a>).</li>
+<li>un tableau en JSON indenté coûte <strong>190 % de tokens en plus</strong> que le même tableau en CSV (<a href="/blog/json-vs-yaml-vs-csv-tokens">mesure complète ici</a>).</li>
 </ul>
 <p>Une règle unique ne peut pas couvrir tous ces cas. Compter, si.</p>
 <h3>2. Le français coûte plus cher que l'anglais</h3>
 <p>Sur cet e-mail, le français demande <strong>21 % de tokens en plus</strong>, chez OpenAI comme chez Mistral. Sur un prompt de service client court, l'écart monte à <strong>29 %</strong>. Concrètement, à contenu égal, un prompt en français coûte plus cher à l'API et épuise plus vite la limite d'un abonnement. Le compteur montre l'écart sur vos propres textes.</p>
 <h3>3. La réponse coûte souvent plus que la question</h3>
-<p>Les tokens de sortie (ce que le modèle écrit) sont en général <strong>4 à 5 fois plus chers</strong> que les tokens d'entrée. Prenons un outil qui résume 1 000 e-mails comme celui-ci par jour, soit 30 000 par mois, avec un modèle à 2 $ le million de tokens d'entrée et 8 $ le million de tokens de sortie, et une réponse d'environ 250 tokens :</p>
+<p>Les tokens de sortie (ce que le modèle écrit) sont en général <strong>300 à 400 % plus chers</strong> que les tokens d'entrée. Prenons un outil qui résume 1 000 e-mails comme celui-ci par jour, soit 30 000 par mois, avec un modèle à 2 $ le million de tokens d'entrée et 8 $ le million de tokens de sortie, et une réponse d'environ 250 tokens :</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -86,7 +86,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>Passer le prompt en anglais fait gagner environ 2 $. Demander une réponse deux fois plus courte en fait gagner 30. Sans compteur, on optimise souvent le mauvais côté.</p>
+<p>Passer le prompt en anglais fait gagner environ 2 $. Demander une réponse 50 % plus courte en fait gagner 30. Sans compteur, on optimise souvent le mauvais côté.</p>
 <h3>4. Les limites d'abonnement et la fenêtre de contexte</h3>
 <p>ChatGPT Plus, Claude Pro ou Mistral Vibe Pro (ex-Le Chat) ne facturent pas au token, mais leurs limites d'utilisation et la taille maximale d'une conversation sont, elles, calculées en tokens. Un long document collé dans la conversation peut à lui seul consommer une bonne partie de votre quota. Savoir combien de tokens il représente aide à choisir : le coller en entier, n'en garder qu'un extrait, ou le résumer d'abord.</p>
 <h3>5. Chaque modèle compte différemment</h3>
@@ -107,4 +107,13 @@
 </ul>
 <p>Pour aller plus loin : <a href="/fr/blog/tokens-francais-gpt">Combien de tokens coûte le français ?</a> et <a href="/fr/blog/mistral-chatgpt-cout-prompt-francais">Mistral ou ChatGPT : combien coûte vraiment un prompt en français ?</a></p>
 <p><em>Mesures effectuées en octobre 2026 avec o200k_base (OpenAI) et Tekken 2024-09 (Mistral). Les prix utilisés dans l'exemple sont hypothétiques.</em></p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken (OpenAI) : le tokeniseur o200k_base</a></li>
+<li><a href="https://mistral.ai/news/mistral-nemo/" target="_blank" rel="noopener">Mistral NeMo et le tokeniseur Tekken (Mistral AI)</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">Tarifs de l'API OpenAI (prix au million de tokens)</a></li>
+<li><a href="https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them" target="_blank" rel="noopener">Comprendre et compter les tokens (aide OpenAI)</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/token-counting" target="_blank" rel="noopener">Comptage des tokens (documentation Anthropic)</a></li>
+<li><a href="https://mistral.ai/news/vibe-agent/" target="_blank" rel="noopener">Le Chat devient Vibe (Mistral AI)</a></li>
+</ul>
 <!-- autoimg -->

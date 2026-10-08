@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -100,7 +100,7 @@
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek" src="/llm-api-pricing-comparison-en.jpg" /></p>
-<p>There are now dozens of language models with public API prices, and the same request can cost 150 times more on one than on another. This page lists the current list prices of 22 popular models from OpenAI, Anthropic, Google, xAI, DeepSeek, Mistral, Alibaba and Moonshot side by side, with what a typical request actually costs, and how to choose.</p>
+<p>There are now dozens of language models with public API prices, and 10,000 of the same request can cost $3 on one and $450 on another. This page lists the current list prices of 22 popular models from OpenAI, Anthropic, Google, xAI, DeepSeek, Mistral, Alibaba and Moonshot side by side, with what a typical request actually costs, and how to choose.</p>
 <figure class="chart-fig"><img class="chart" src="/img/llm-api-price-chart.svg" alt="Bar chart of API prices per 1M tokens, input and output, for 15 AI models" width="560" height="806" loading="lazy" decoding="async" /><figcaption>API price per 1M tokens vs other major models (USD, checked 2026-10-01).</figcaption></figure>
 <h2>API prices compared</h2>
 <p><img loading="lazy" width="1200" height="1052" alt="API prices compared: Model, Input / 1M, Output / 1M, 10,000 requests" src="/llm-api-pricing-comparison-api-prices-compared-en.jpg" /></p>
@@ -255,9 +255,9 @@
 <p><strong>Mid-range (around $1–3):</strong> Gemini 3.8 Flash, Claude Haiku 4.5, DeepSeek V4 Pro, Grok, Mistral Medium, Qwen3.8 Max, GPT-6 Sol, Claude Sonnet 5.5, Gemini 3.1 Pro, Kimi K3. The default for chat assistants, writing, analysis and coding agents.</p>
 <p><strong>Flagship ($4 and up):</strong> Claude Opus 5.5, GPT-6 Astra, Claude Fable 5.1. Use them where you can show they do better: long, multi-step agent work and hard reasoning.</p>
 <h2>The price list is not the whole story</h2>
-<p><strong>Output is the expensive side.</strong> On most models, output costs 4–6 times as much as input. If your app writes long answers, compare output prices first. See <a href="/blog/why-output-tokens-cost-more">Why output tokens cost more</a>.</p>
+<p><strong>Output is the expensive side.</strong> On most models, output costs 300–500% more than input. If your app writes long answers, compare output prices first. See <a href="/blog/why-output-tokens-cost-more">Why output tokens cost more</a>.</p>
 <p><strong>Tokenizers differ.</strong> Each provider splits text into tokens differently. The same text can be 10–30% more tokens on one model than another, so a lower price per token does not always mean a lower bill. Compare the cost of your own text in the <a href="/">token counter</a>, not just the price list. More in <a href="/blog/how-to-count-tokens-gpt-claude-gemini">How to count tokens for GPT, Claude and Gemini</a>.</p>
-<p><strong>Your language matters.</strong> Non-English text uses more tokens: on GPT's tokenizer, about 1.44× for Korean, 1.79× for Japanese and 2× for Czech compared with English.</p>
+<p><strong>Your language matters.</strong> Non-English text uses more tokens: on GPT's tokenizer, about 44% more for Korean, 79% more for Japanese and 100% more for Czech than English.</p>
 <p><strong>Discounts change the ranking.</strong> Most providers offer cached input at a fraction of the normal price and batch processing at around half price. A mid-range model with good caching can cost less than a budget model without it for apps with long, repeated prompts. See <a href="/blog/prompt-caching-explained">Prompt caching</a> and <a href="/blog/batch-api-half-price">Batch APIs</a>.</p>
 <p><strong>Long prompts can cost more.</strong> Some models charge a higher rate above a certain prompt length; GPT-6 models, for example, charge more for requests over 272,000 input tokens.</p>
 <h2>What is the cheapest LLM API?</h2>
@@ -271,6 +271,18 @@
 </ol>
 <h2>Estimate your own bill</h2>
 <p>Paste a real prompt into the <a href="/">token counter</a> to see its cost on every model at once, or read <a href="/blog/how-to-estimate-ai-api-cost">How to estimate your AI API bill</a> for the full method. For subscriptions versus the API, use the <a href="/plans">Subscription vs API calculator</a>.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API pricing</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-5-nano" target="_blank" rel="noopener">OpenAI: GPT-5 nano model</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API pricing</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini API pricing</a></li>
+<li><a href="https://docs.x.ai/developers/pricing" target="_blank" rel="noopener">xAI API pricing</a></li>
+<li><a href="https://api-docs.deepseek.com/quick_start/pricing/" target="_blank" rel="noopener">DeepSeek API models and pricing</a></li>
+<li><a href="https://docs.mistral.ai/models/mistral-large-3-25-12" target="_blank" rel="noopener">Mistral AI: Mistral Large 3</a></li>
+<li><a href="https://www.alibabacloud.com/help/en/model-studio/qwen3-8-flash" target="_blank" rel="noopener">Alibaba Cloud: qwen3.8-flash pricing</a></li>
+<li><a href="https://www.alibabacloud.com/help/en/model-studio/model-pricing" target="_blank" rel="noopener">Alibaba Cloud Model Studio pricing</a></li>
+</ul>
 <!-- autoimg -->
 
         <h2>More articles</h2>
@@ -297,6 +309,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

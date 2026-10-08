@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -136,7 +136,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>Even with caching, sending the whole manual costs around seven times more than RAG. Without caching, it is more than 70 times more.</p>
+<p>Even with caching, sending the whole manual costs around 600% more than RAG. Without caching, it is $0.67 per question against $0.009 for RAG.</p>
 <h2>It is not only about money</h2>
 <p><strong>Speed.</strong> Reading 330,000 tokens takes time. A long-context request can take many seconds before the first word appears, while a RAG request with 4,500 tokens starts almost immediately.</p>
 <p><strong>Accuracy.</strong> Long context is not automatically more accurate. Models tend to use information at the beginning and end of a long input better than information in the middle. A focused prompt with the right three passages often gets a sharper answer than the entire manual. See <a href="/blog/context-window-explained">Context windows explained</a>.</p>
@@ -161,6 +161,12 @@
 <p>Many production systems combine both: retrieve generously (say, 20–50 chunks instead of 5), use a model with a large context window, and rely on prompt caching for any instructions that repeat. This keeps costs low while making it much less likely that the right passage is missed.</p>
 <h2>Estimate your case</h2>
 <p>Paste a sample of your document into the <a href="/">token counter</a> to see how many tokens it uses and what one question would cost on each model. Then multiply by your expected number of questions per month.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-sol" target="_blank" rel="noopener">GPT-6 Sol model page (OpenAI)</a></li>
+<li><a href="https://developers.openai.com/api/docs/guides/prompt-caching" target="_blank" rel="noopener">Prompt caching guide (OpenAI)</a></li>
+<li><a href="https://arxiv.org/abs/2307.03172" target="_blank" rel="noopener">Liu et al., Lost in the Middle (arXiv, 2023)</a></li>
+</ul>
 <!-- autoimg -->
 
         <h2>More articles</h2>
@@ -187,6 +193,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

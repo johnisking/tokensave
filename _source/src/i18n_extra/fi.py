@@ -49,12 +49,12 @@ S = dict(
     tip="Vinkki: muut kuin latinalaiset kirjoitusjärjestelmät vievät yleensä enemmän tokeneita samalla merkityksellä. Englanninkielinen järjestelmäprompti voi laskea hintaa.",
     title="AI-tokenlaskuri GPT:lle, Claudelle ja Geminille – TokenSave",
     tokens="Tokenit",
-    waste="{x}x tokenhukka",
+    waste="+{p} % tokenhukka",
     words="Sanat",
 )
 
 V = dict(
-    a1="Useimmat video-API:t veloittavat jokaisesta luodun videon sekunnista. Korkeampi resoluutio ja sisäänrakennettu ääni maksavat enemmän, joten 1080p- tai 4K-leike voi maksaa monta kertaa enemmän kuin 720p-leike.",
+    a1="Useimmat video-API:t veloittavat jokaisesta luodun videon sekunnista. Korkeampi resoluutio ja sisäänrakennettu ääni maksavat enemmän, joten 1080p- tai 4K-leike voi maksaa paljon enemmän kuin 720p-leike.",
     a2="Se riippuu resoluutiosta. Kevyet mallit, kuten Veo 3.1 Lite, Grok Imagine ja Wan, alkavat noin $0.05 sekunnilta, kun taas premium-mallit 4K:na voivat maksaa $0.40 sekunnilta tai enemmän.",
     a3="Ei. OpenAI poisti Sora 2 -videomallit API:staan 24. syyskuuta 2026, joten Sora ei ole enää kehittäjien saatavilla.",
     audio="Ääni",

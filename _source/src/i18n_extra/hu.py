@@ -49,12 +49,12 @@ S = dict(
     tip="Tipp: a nem latin írásrendszerek ugyanarra a jelentésre általában több tokent igényelnek. Az angol rendszerprompt csökkentheti a költséget.",
     title="AI-tokenszámláló GPT-hez, Claude-hoz és Geminihez – TokenSave",
     tokens="Tokenek",
-    waste="{x}x tokenpazarlás",
+    waste="+{p}% tokenpazarlás",
     words="Szavak",
 )
 
 V = dict(
-    a1="A legtöbb videó-API a generált videó másodpercei után számláz. A nagyobb felbontás és a beépített hang drágább, így egy 1080p-s vagy 4K-s klip többszörösébe kerülhet egy 720p-snek.",
+    a1="A legtöbb videó-API a generált videó másodpercei után számláz. A nagyobb felbontás és a beépített hang drágább, így egy 1080p-s vagy 4K-s klip jóval többe kerülhet egy 720p-snél.",
     a2="A felbontástól függ. A könnyű modellek, mint a Veo 3.1 Lite, a Grok Imagine és a Wan, nagyjából $0.05/másodperctől indulnak, a prémium modellek 4K-ban $0.40/másodpercbe vagy többe is kerülhetnek.",
     a3="Nem. Az OpenAI 2026. szeptember 24-én kivette a Sora 2 videómodelleket az API-ból, így a Sora már nem érhető el fejlesztőknek.",
     audio="Hang",

@@ -63,4 +63,10 @@ Every model has a context window: the maximum amount of text it can consider at 
 If you mostly chat, the August change makes a $20 plan much better value than before. If you use Codex or GPT-6 Astra heavily, compare the plan price with what the same work costs on the API using the [Subscription vs API calculator](/plans) and the [coding agent calculator](/agents).
 
 *Limits change often. OpenAI's [GPT-6 Astra usage help page](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex) has the current numbers.*
+
+## Sources
+
+- [Managing usage with GPT-6 Astra in Work and Codex (OpenAI Help Center)](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)
+- [About ChatGPT Pro tiers (OpenAI Help Center)](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [GPT-6 Astra model and API pricing (OpenAI docs)](https://developers.openai.com/api/docs/models/gpt-6-astra)
 <!-- autoimg -->

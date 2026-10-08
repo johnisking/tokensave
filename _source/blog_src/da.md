@@ -1,6 +1,6 @@
-![Dansk bruger 1,35× så mange tokens som engelsk i GPT](/tokens-dansk-gpt-da.jpg)
+![Dansk bruger 35 % flere tokens end engelsk i GPT](/tokens-dansk-gpt-da.jpg)
 
-Jeg oversatte den samme kundeserviceprompt til 41 sprog og talte tokens med o200k_base, OpenAI's nuværende tokenizer (GPT-4o og nyere). Engelsk kræver 34 tokens, dansk **46 – altså 1,35× så mange**, plads 16 af 41 (1 = billigst).
+Jeg oversatte den samme kundeserviceprompt til 41 sprog og talte tokens med o200k_base, OpenAI's nuværende tokenizer (GPT-4o og nyere). Engelsk kræver 34 tokens, dansk **46 – altså 35% flere**, plads 16 af 41 (1 = billigst).
 
 Den danske version:
 
@@ -10,19 +10,19 @@ Den danske version:
 
 | Sprog | Tokens | I forhold til engelsk | Sparet ved afsendelse på engelsk |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | – |
-| 简体中文 | 35 | 1,03× | 3% |
-| Español | 40 | 1,18× | 15% |
-| Deutsch | 43 | 1,26× | 21% |
-| **Dansk** | **46** | **1,35×** | **26%** |
-| 한국어 | 49 | 1,44× | 31% |
-| हिन्दी | 51 | 1,50× | 33% |
-| 日本語 | 61 | 1,79× | 44% |
-| Čeština | 68 | 2,00× | 50% |
-| Ελληνικά | 70 | 2,06× | 51% |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
+| English | 34 | ±0% | – |
+| 简体中文 | 35 | +3% | 3% |
+| Español | 40 | +18% | 15% |
+| Deutsch | 43 | +26% | 21% |
+| **Dansk** | **46** | **+35%** | **26%** |
+| 한국어 | 49 | +44% | 31% |
+| हिन्दी | 51 | +50% | 33% |
+| 日本語 | 61 | +79% | 44% |
+| Čeština | 68 | +100% | 50% |
+| Ελληνικά | 70 | +106% | 51% |
+| ਪੰਜਾਬੀ | 83 | +144% | 59% |
 
-![Resultater](/blog-language-tax-chart-v4.png)
+![Diagram: ekstra tokens pr. sprog sammenlignet med engelsk i GPT](/blog-language-tax-chart-v5.png)
 
 ## Hvorfor
 
@@ -40,7 +40,7 @@ Den største besparelse får du ved at sende din prompt på engelsk: ca. 26 % f�
 
 ## I penge
 
-Med en model til 2 $ pr. million input-tokens koster det 68 $ på engelsk og 92 $ på dansk at sende prompten en million gange. Svarer modellen også på dansk, gælder den samme faktor for output-tokens, som typisk er 4–5× dyrere.
+Med en model til 2 $ pr. million input-tokens koster det 68 $ på engelsk og 92 $ på dansk at sende prompten en million gange. Svarer modellen også på dansk, gælder den samme faktor for output-tokens, som typisk er 300–400% dyrere.
 
 ## Sådan sparer du
 
@@ -56,5 +56,13 @@ Med en model til 2 $ pr. million input-tokens koster det 68 $ på engelsk og 92 
 - Claude og Gemini bruger andre tokenizere – tallene gælder kun OpenAI-modeller.
 - Oversættelsen bygger på en gennemgået maskinoversættelse.
 
+Prøv med din egen tekst i [tokentælleren](/da/); alle sprog side om side finder du i [sprogtabellen](/languages).
+
 Alle resultater for 41 sprog (på engelsk): [sammenligning af 41 sprog](/blog/token-cost-by-language)
+
+## Kilder
+
+- [tiktoken: OpenAIs tokenizer (o200k_base) på GitHub](https://github.com/openai/tiktoken)
+- [Priser for OpenAI API](https://developers.openai.com/api/docs/pricing)
+
 <!-- autoimg -->

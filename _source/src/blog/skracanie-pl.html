@@ -1,7 +1,7 @@
-<p>Polski należy do najdroższych języków w promptach: ten sam tekst zajmuje w GPT prawie dwa razy więcej tokenów niż po angielsku. W dyskusji na forum 4programmers padła dobra uwaga: może to wina samego tekstu, a native speaker napisze go krócej? Sprawdziłem to, razem z kilkoma innymi sposobami na tańszy prompt po polsku.</p>
+<p>Polski należy do najdroższych języków w promptach: ten sam tekst zajmuje w GPT o 88% więcej tokenów niż po angielsku. W dyskusji na forum 4programmers padła dobra uwaga: może to wina samego tekstu, a native speaker napisze go krócej? Sprawdziłem to, razem z kilkoma innymi sposobami na tańszy prompt po polsku.</p>
 <p><img fetchpriority="high" width="1200" height="630" alt="Ten sam prompt w różnych wersjach: od 64 do 28 tokenów" src="/blog-prompt-pl-skracanie.png" /></p>
 <h2>Test</h2>
-<p><img loading="lazy" width="1200" height="840" alt="Test: Wersja, GPT (o200k), Mistral (Tekken)" src="/jak-skrocic-prompt-po-polsku-pl-1.jpg" /></p>
+<p><img loading="lazy" width="1200" height="828" alt="Test: Wersja, GPT (o200k), Mistral (Tekken)" src="/jak-skrocic-prompt-po-polsku-pl-1.jpg" /></p>
 <p>Prośba o streszczenie e-maila klienta, w siedmiu wersjach. Tokeny liczyłem dwoma tokenizerami: <strong>o200k_base</strong> (GPT-4o i nowsze modele OpenAI) oraz <strong>Tekken</strong> (Mistral).</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -61,7 +61,7 @@
 <p><strong>3. Angielski nadal wygrywa, ale różnica się kurczy.</strong> Krótki angielski to 28 tokenów, krótki polski 42. Po dopisaniu „Reply in Polish.”, żeby odpowiedź była po polsku, angielski ma 32. Przy krótkich poleceniach w czacie różnica to kilka tokenów, więc pisz, jak ci wygodnie.</p>
 <p><strong>4. Mistral nie jest tańszy dla polskiego.</strong> Przy formalnym tekście Tekken liczy trochę mniej (58 zamiast 64), ale przy krótkich wersjach wyniki są prawie takie same jak w GPT.</p>
 <h2>Dlaczego polski kosztuje więcej</h2>
-<p><img loading="lazy" width="1200" height="699" alt="Dlaczego polski kosztuje więcej: „zaproponuj” → z | apro | pon | uj (4 tokeny); „potwierdzenie” → pot | wier | d | zenie (4); „opóźnieniem” → o" src="/jak-skrocic-prompt-po-polsku-dlaczego-polski-kosztuje-wiecej-pl.jpg" /></p>
+<p><img loading="lazy" width="1200" height="695" alt="Dlaczego polski kosztuje więcej: „zaproponuj” → z | apro | pon | uj (4 tokeny); „potwierdzenie” → pot | wier | d | zenie (4); „opóźnieniem” → o" src="/jak-skrocic-prompt-po-polsku-dlaczego-polski-kosztuje-wiecej-pl.jpg" /></p>
 <p>Tokenizery uczą się głównie na angielskim tekście, więc polskie słowa często są cięte na kawałki:</p>
 <ul>
 <li>„zaproponuj” → <code>z | apro | pon | uj</code> (4 tokeny)</li>
@@ -71,7 +71,7 @@
 </ul>
 <p>Po angielsku „suggest”, „confirmation”, „late” czy „polite” to jeden token. Krótszy polski tekst pomaga głównie dlatego, że zawiera mniej takich długich, odmienionych słów.</p>
 <h2>Prompt systemowy: tu skracanie daje najwięcej</h2>
-<p><img loading="lazy" width="1200" height="568" alt="Prompt systemowy: tu skracanie daje najwięcej: Wersja, GPT (o200k), Mistral (Tekken)" src="/jak-skrocic-prompt-po-polsku-prompt-systemowy-tu-skracanie-daje-najwi-pl.jpg" /></p>
+<p><img loading="lazy" width="1200" height="560" alt="Prompt systemowy: tu skracanie daje najwięcej: Wersja, GPT (o200k), Mistral (Tekken)" src="/jak-skrocic-prompt-po-polsku-prompt-systemowy-tu-skracanie-daje-najwi-pl.jpg" /></p>
 <p>Prompt systemowy wysyłasz z każdym zapytaniem, więc tam liczy się każdy token. Przetestowałem instrukcję dla asystenta obsługi klienta sklepu internetowego:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -143,4 +143,10 @@
 <p><a href="/pl/">TokenSave</a> liczy tokeny i koszt promptu dla GPT, Claude i Gemini bezpośrednio w przeglądarce, bez wysyłania tekstu na serwer. Przycisk <strong>💸 Oszczędź tokeny</strong> tłumaczy prompt na angielski wbudowanym tłumaczem Chrome lub Edge na twoim urządzeniu i dodaje „Reply in Polish.”. Za darmo, bez rejestracji.</p>
 <p>Więcej pomiarów: <a href="/pl/blog/ile-kosztuje-prompt-po-polsku">Ile naprawdę kosztuje prompt po polsku? GPT i Mistral zmierzone</a></p>
 <p><em>Pomiary: październik 2026, o200k_base (OpenAI) i Tekken 2024-09 (Mistral). Cena w przykładzie jest hipotetyczna.</em></p>
+<h2>Źródła</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken (OpenAI): tokenizer o200k_base</a></li>
+<li><a href="https://mistral.ai/news/mistral-nemo/" target="_blank" rel="noopener">Mistral NeMo i tokenizer Tekken (Mistral AI)</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">Cennik API OpenAI (ceny za milion tokenów)</a></li>
+</ul>
 <!-- autoimg -->

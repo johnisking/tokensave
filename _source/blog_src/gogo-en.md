@@ -53,4 +53,12 @@ If you mostly chat, paying per token can be cheaper than either plan. On GPT-6 L
 Google AI Plus is $4.99 and Google AI Pro $19.99; Claude has no plan below Pro at $20; Grok's SuperGrok Lite is $10. The full table is in our [AI subscription price comparison](/blog/ai-subscription-price-comparison).
 
 *Plan details from OpenAI's help center and plan pages as summarized by [Dupple](https://dupple.com/learn/chatgpt-go-vs-plus) (September 2026) and our own [ChatGPT usage limits](/blog/chatgpt-usage-limits) guide. Check chatgpt.com/pricing before you subscribe.*
+
+## Sources
+
+- [OpenAI Help: What is ChatGPT Go?](https://help.openai.com/en/articles/11989085-what-is-chatgpt-go)
+- [ChatGPT plans and Codex pricing](https://learn.chatgpt.com/docs/pricing)
+- [OpenAI Help: ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
+- [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)
+- [Google AI Plus, Pro and Ultra plans](https://gemini.google/subscriptions/)
 <!-- autoimg -->

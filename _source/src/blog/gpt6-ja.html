@@ -33,10 +33,10 @@
 </tr>
 </tbody>
 </table></div>
-<p>Astra は Sol の5倍、Sol は Luna の20倍です。同じ GPT-6 でも、いちばん安いモデルといちばん高いモデルで100倍の差があります。</p>
+<p>Astra は Sol より400%高いです。Luna はさらにずっと安く、100万トークンあたり入力 $0.10、出力 $0.50 です。同じ GPT-6 でも、Astra は入力 $10、出力 $50 です。</p>
 <p>入力が272,000トークンを超えるリクエストには高い料金が適用されるので、非常に長いコンテキストは表より高くなります。</p>
 <h2>GPT-5.6 と比べると</h2>
-<p>Sol と Luna は、置き換える前のモデルの半額で登場しました。GPT-5.6 Sol は入力$4・出力$20、GPT-5.6 Luna は$0.20・$1.20でした。まだ GPT-5.6 を使っているなら、モデル名を変えるだけで費用が半分になります。</p>
+<p>Sol と Luna は、置き換える前のモデルより50%安い価格で登場しました。GPT-5.6 Sol は入力$4・出力$20、GPT-5.6 Luna は$0.20・$1.20でした。まだ GPT-5.6 を使っているなら、モデル名を変えるだけで費用が50%減ります。</p>
 <h2>実際にいくらかかるか</h2>
 <p><img loading="lazy" width="1200" height="840" alt="実際にいくらかかるか: モデル, 1リクエスト, 1万リクエスト" src="/gpt-6-api-ryoukin-ja-3.jpg" /></p>
 <p>入力2,000トークン、出力500トークンの一般的なリクエストの場合です。</p>
@@ -87,19 +87,19 @@
 </tbody>
 </table></div>
 <p>ほかのモデルの料金は2026年10月1日に確認した公式 API 価格です。</p>
-<p>GPT-6 Sol はトークン単価が Claude Sonnet 5.5 とまったく同じで、GPT-6 Astra は Claude Opus 5.5 の2.5倍です。</p>
-<p><strong>日本語だとさらにかかります。</strong> GPT のトークナイザーでは、同じプロンプトが日本語だと英語の約1.79倍のトークンになります。上の表の入力費用にその倍率がかかると考えてください。</p>
+<p>GPT-6 Sol はトークン単価が Claude Sonnet 5.5 とまったく同じで、GPT-6 Astra は Claude Opus 5.5 より150%高いです。</p>
+<p><strong>日本語だとさらにかかります。</strong> GPT のトークナイザーでは、同じプロンプトが日本語だと英語より約79%多いトークンになります。上の表の入力費用もそのぶん増えると考えてください。</p>
 <h2>どの GPT-6 モデルを使うか</h2>
 <p><strong>GPT-6 Luna:</strong> 分類、情報抽出、ルーティング、短い回答、短い文章の要約など、量が多くシンプルな作業に。入力100万トークンあたり$0.10なので、すべてのリクエストに使っても負担が小さいです。</p>
 <p><strong>GPT-6 Sol:</strong> ほとんどのアプリやコーディング作業の標準に。チャットボット、文章作成、分析、エージェントにちょうどいい中間の選択です。</p>
 <p><strong>GPT-6 Astra:</strong> 明らかに良い結果が出ると確認できるところだけに。長く多段階のエージェント作業、難しい推論、ミスのコストが高い作業。そうしたリクエストだけを Astra に送りましょう。</p>
 <p>よくある構成は、普段は Sol か Luna で処理し、安いモデルが失敗したときや難しいタスクと判定されたときだけ Astra に回す方法です。</p>
 <h2>費用を抑える方法</h2>
-<p><img loading="lazy" width="1200" height="941" alt="費用を抑える方法: プロンプトキャッシュを使う。 3モデルともキャッシュ入力は通常価格の10分の1です。固定の指示や文書はプロンプトの先頭に置きましょう。; 急がない作業は Batch API で。 通常は半額です。; 出力を短く。 GPT" src="/gpt-6-api-ryoukin-ja-4.jpg" /></p>
+<p><img loading="lazy" width="1200" height="941" alt="費用を抑える方法: プロンプトキャッシュを使う。 3モデルともキャッシュ入力は通常価格より90%安くなります。固定の指示や文書はプロンプトの先頭に置きましょう。; 急がない作業は Batch API で。 通常は50%引きです。; 出力を短" src="/gpt-6-api-ryoukin-ja-4.jpg" /></p>
 <ol>
-<li><strong>プロンプトキャッシュを使う。</strong> 3モデルともキャッシュ入力は通常価格の10分の1です。固定の指示や文書はプロンプトの先頭に置きましょう。</li>
-<li><strong>急がない作業は Batch API で。</strong> 通常は半額です。</li>
-<li><strong>出力を短く。</strong> GPT-6 はどのモデルも出力が入力の5倍の価格です。</li>
+<li><strong>プロンプトキャッシュを使う。</strong> 3モデルともキャッシュ入力は通常価格より90%安くなります。固定の指示や文書はプロンプトの先頭に置きましょう。</li>
+<li><strong>急がない作業は Batch API で。</strong> 通常は50%引きです。</li>
+<li><strong>出力を短く。</strong> GPT-6 はどのモデルも出力が入力より400%高い価格です。</li>
 <li><strong>推論を抑える。</strong> 見えない推論トークンも出力として課金されます。足りる範囲でいちばん低い推論レベルを使いましょう。</li>
 <li><strong>プロンプトを英語で。</strong> 日本語よりトークンが約44%減ります。<a href="/ja/">トークンカウンター</a>の 💸 トークン節約 ボタンなら、自分の端末の中ですぐに英語へ変換できます。</li>
 </ol>
@@ -108,4 +108,13 @@
 <h2>自分の費用を計算する</h2>
 <p>普段使うプロンプトを<a href="/ja/">トークンカウンター</a>に貼り付けると、GPT モデルでの正確なトークン数と、GPT-6 各モデル・Claude・Gemini の費用を一度に比べられます。</p>
 <p><em>料金は変わります。大きな作業の前に <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener">OpenAI の料金ページ</a>を確認してください。</em></p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener">OpenAI: GPT-6 Astra のモデルと料金</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-sol" target="_blank" rel="noopener">OpenAI: GPT-6 Sol のモデルと料金</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-luna" target="_blank" rel="noopener">OpenAI: GPT-6 Luna のモデルと料金</a></li>
+<li><a href="https://openai.com/index/introducing-gpt-6-sol-and-luna/" target="_blank" rel="noopener">OpenAI: GPT-6 Sol と Luna の発表</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API 料金</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini API 料金</a></li>
+</ul>
 <!-- autoimg -->

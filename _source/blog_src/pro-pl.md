@@ -74,4 +74,11 @@ Wniosek: osoby, które lekko lub średnio korzystają z codziennego modelu, zwyk
 Każdy korzysta z ChatGPT inaczej. W [kalkulatorze subskrypcja vs API](/pl/plans) wpiszesz, ile wiadomości wysyłasz, jak są długie i w jakim języku piszesz, a zobaczysz, ile ten sam miesiąc kosztowałby w API obok planów ChatGPT, Claude i Gemini. Koszt pojedynczego promptu sprawdzisz w [liczniku tokenów](/pl/).
 
 *Ceny na dzień 1 października 2026. Polskie ceny w zł wg [Promptowy](https://promptowy.com/chatgpt-przewodnik/) (25 września 2026). OpenAI może ponownie zmienić limity – przed zakupem sprawdź chatgpt.com/pricing.*
+
+## Źródła
+
+- [Pomoc OpenAI: poziomy ChatGPT Pro](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [Plany ChatGPT i ceny Codex](https://learn.chatgpt.com/docs/pricing)
+- [Pomoc OpenAI: informacje o wersjach ChatGPT](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
+- [Cennik API OpenAI](https://developers.openai.com/api/docs/pricing)
 <!-- autoimg -->

@@ -35,6 +35,8 @@ At one million requests a month, that is 87 million fewer input tokens. At $2 pe
 
 ## What to cut
 
+![What to cut: Greetings and thanks; Hedging; Repetition](/write-shorter-prompts-what-to-cut-en.jpg)
+
 **Greetings and thanks.** Models do not need "Hello", "I hope you're well" or "Thank you so much". They do not change the answer.
 
 **Hedging.** "I was wondering if you could possibly..." becomes "Please..." or just the verb.
@@ -68,5 +70,10 @@ Test it. Run the old and new prompts on the same 20–50 real inputs and compare
 
 ## Measure your prompts
 
-Paste a prompt into the [token counter](/) to see its token count and cost per request on 30+ models. The *Save tokens* button also cleans up extra spaces and filler, and can translate non-English prompts to English on your device.
+Paste a prompt into the [token counter](/) to see its token count and cost per request on 30+ models. The *Save tokens* button also cleans up extra spaces and filler, and can translate non-English prompts to English on your device. Answers cost more per token than prompts, so also read [why output tokens cost more](/blog/why-output-tokens-cost-more).
+
+## Sources
+
+- [tiktoken (OpenAI tokenizer, o200k_base)](https://github.com/openai/tiktoken)
+- [GPT-6 Sol model page (OpenAI)](https://developers.openai.com/api/docs/models/gpt-6-sol)
 <!-- autoimg -->

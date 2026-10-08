@@ -14,13 +14,13 @@ OpenAI가 2026년 9월에 GPT-6 모델 세 개를 내놨습니다. 최상위 모
 | GPT-6 Sol | $2 | $0.20 | $10 |
 | GPT-6 Luna | $0.10 | $0.01 | $0.50 |
 
-Astra는 Sol의 5배, Sol은 Luna의 20배입니다. 같은 GPT-6인데 가장 싼 모델과 가장 비싼 모델이 100배 차이 납니다.
+Astra는 Sol보다 400% 비쌉니다. Luna는 훨씬 더 싸서 100만 토큰당 입력 $0.10, 출력 $0.50입니다. 같은 GPT-6인데 Astra는 입력 $10, 출력 $50입니다.
 
 입력이 272,000토큰을 넘는 요청은 더 높은 요율이 적용되니, 아주 긴 맥락은 표보다 더 비쌉니다.
 
 ## GPT-5.6과 비교하면
 
-Sol과 Luna는 이전 모델의 절반 가격으로 나왔습니다. GPT-5.6 Sol은 입력 $4·출력 $20, GPT-5.6 Luna는 $0.20·$1.20이었습니다. 아직 GPT-5.6을 쓰고 있다면 모델 이름만 바꿔도 비용이 반으로 줄어듭니다.
+Sol과 Luna는 이전 모델보다 50% 싼 가격으로 나왔습니다. GPT-5.6 Sol은 입력 $4·출력 $20, GPT-5.6 Luna는 $0.20·$1.20이었습니다. 아직 GPT-5.6을 쓰고 있다면 모델 이름만 바꿔도 비용이 50% 줄어듭니다.
 
 ## 실제로 얼마나 들까
 
@@ -40,9 +40,9 @@ Sol과 Luna는 이전 모델의 절반 가격으로 나왔습니다. GPT-5.6 Sol
 
 다른 모델 가격은 2026년 10월 1일 확인한 공식 API 가격입니다.
 
-GPT-6 Sol은 토큰당 Claude Sonnet 5.5와 가격이 똑같고, GPT-6 Astra는 Claude Opus 5.5의 2.5배입니다.
+GPT-6 Sol은 토큰당 Claude Sonnet 5.5와 가격이 똑같고, GPT-6 Astra는 Claude Opus 5.5보다 150% 비쌉니다.
 
-**한국어로 쓰면 더 듭니다.** GPT 토크나이저에서 같은 프롬프트가 한국어는 영어의 약 1.44배 토큰입니다. 위 표의 입력 비용에 그만큼 곱해진다고 보면 됩니다.
+**한국어로 쓰면 더 듭니다.** GPT 토크나이저에서 같은 프롬프트가 한국어는 영어보다 토큰이 약 44% 더 많습니다. 위 표의 입력 비용도 그만큼 늘어난다고 보면 됩니다.
 
 ## 어떤 GPT-6 모델을 쓸까
 
@@ -56,11 +56,11 @@ GPT-6 Sol은 토큰당 Claude Sonnet 5.5와 가격이 똑같고, GPT-6 Astra는 
 
 ## 비용 줄이는 방법
 
-![비용 줄이는 방법: 프롬프트 캐싱 쓰기. 세 모델 모두 캐시된 입력은 일반 가격의 10분의 1입니다. 고정 지시문과 문서를 프롬프트 앞부분에 두세요.; 급하지 않은 작업은 배치(Batch) API로. 보통 절반 가격입](/gpt-6-api-gagyeok-ko-4.jpg)
+![비용 줄이는 방법: 프롬프트 캐싱 쓰기. 세 모델 모두 캐시된 입력은 일반 가격보다 90% 저렴합니다. 고정 지시문과 문서를 프롬프트 앞부분에 두세요.; 급하지 않은 작업은 배치(Batch) API로. 보통 50% 할](/gpt-6-api-gagyeok-ko-4.jpg)
 
-1. **프롬프트 캐싱 쓰기.** 세 모델 모두 캐시된 입력은 일반 가격의 10분의 1입니다. 고정 지시문과 문서를 프롬프트 앞부분에 두세요.
-2. **급하지 않은 작업은 배치(Batch) API로.** 보통 절반 가격입니다.
-3. **출력 짧게.** GPT-6 모델은 모두 출력이 입력의 5배 가격입니다.
+1. **프롬프트 캐싱 쓰기.** 세 모델 모두 캐시된 입력은 일반 가격보다 90% 저렴합니다. 고정 지시문과 문서를 프롬프트 앞부분에 두세요.
+2. **급하지 않은 작업은 배치(Batch) API로.** 보통 50% 할인된 가격입니다.
+3. **출력 짧게.** GPT-6 모델은 모두 출력이 입력보다 400% 비쌉니다.
 4. **추론량 줄이기.** 보이지 않는 추론 토큰도 출력으로 과금됩니다. 충분한 가장 낮은 추론 단계를 쓰세요.
 5. **프롬프트를 영어로.** 한국어보다 토큰이 약 31% 줄어듭니다. [토큰 계산기](/ko/)의 💸 토큰 절약 버튼으로 내 기기 안에서 바로 바꿀 수 있습니다.
 
@@ -73,4 +73,13 @@ API 없이도 GPT-6를 쓸 수 있습니다. GPT-6 Astra는 챗GPT Pro, Business
 평소 쓰는 프롬프트를 [토큰 계산기](/ko/)에 붙여 넣으면 GPT 모델 기준 정확한 토큰 수와, GPT-6 각 모델·Claude·Gemini의 비용을 한 번에 비교해 볼 수 있습니다.
 
 *가격은 바뀝니다. 큰 작업 전에는 [OpenAI 가격 페이지](https://openai.com/api/pricing/)를 확인하세요.*
+
+## 출처
+
+- [OpenAI: GPT-6 Astra 모델·가격](https://developers.openai.com/api/docs/models/gpt-6-astra)
+- [OpenAI: GPT-6 Sol 모델·가격](https://developers.openai.com/api/docs/models/gpt-6-sol)
+- [OpenAI: GPT-6 Luna 모델·가격](https://developers.openai.com/api/docs/models/gpt-6-luna)
+- [OpenAI: GPT-6 Sol·Luna 발표](https://openai.com/index/introducing-gpt-6-sol-and-luna/)
+- [Claude API 가격](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Gemini API 가격](https://ai.google.dev/gemini-api/docs/pricing)
 <!-- autoimg -->

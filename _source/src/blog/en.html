@@ -1,5 +1,5 @@
 <p><img fetchpriority="high" width="1200" height="630" alt="Same prompt, 41 languages: GPT token cost compared" src="/token-cost-by-language-en.jpg" /></p>
-<p>I translated one ordinary customer-support prompt into 41 languages and counted tokens with <strong>o200k_base</strong>, the tokenizer behind GPT-4o and every newer OpenAI model English needs 34 tokens. The same request costs anywhere from <strong>1.03×</strong> (Simplified Chinese) to <strong>2.44×</strong> (Punjabi).</p>
+<p>I translated one ordinary customer-support prompt into 41 languages and counted tokens with <strong>o200k_base</strong>, the tokenizer behind GPT-4o and every newer OpenAI model English needs 34 tokens. The same request costs anywhere from <strong>3% more</strong> (Simplified Chinese) to <strong>144% more</strong> (Punjabi).</p>
 <p>The English prompt:</p>
 <blockquote>
 <p>Please summarize the customer email below in three bullet points and suggest a polite reply. The customer says the order arrived two days late and one item was missing from the box.</p>
@@ -18,252 +18,252 @@
 <tr>
 <td>English</td>
 <td style="text-align: right;">34</td>
-<td style="text-align: right;">1.00×</td>
+<td style="text-align: right;">±0%</td>
 <td style="text-align: right;">–</td>
 </tr>
 <tr>
 <td>Chinese (Simplified)</td>
 <td style="text-align: right;">35</td>
-<td style="text-align: right;">1.03×</td>
+<td style="text-align: right;">+3%</td>
 <td style="text-align: right;">3%</td>
 </tr>
 <tr>
 <td>Indonesian</td>
 <td style="text-align: right;">39</td>
-<td style="text-align: right;">1.15×</td>
+<td style="text-align: right;">+15%</td>
 <td style="text-align: right;">13%</td>
 </tr>
 <tr>
 <td>Spanish</td>
 <td style="text-align: right;">40</td>
-<td style="text-align: right;">1.18×</td>
+<td style="text-align: right;">+18%</td>
 <td style="text-align: right;">15%</td>
 </tr>
 <tr>
 <td>Portuguese</td>
 <td style="text-align: right;">41</td>
-<td style="text-align: right;">1.21×</td>
+<td style="text-align: right;">+21%</td>
 <td style="text-align: right;">17%</td>
 </tr>
 <tr>
 <td>Persian</td>
 <td style="text-align: right;">42</td>
-<td style="text-align: right;">1.24×</td>
+<td style="text-align: right;">+24%</td>
 <td style="text-align: right;">19%</td>
 </tr>
 <tr>
 <td>German</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">1.26×</td>
+<td style="text-align: right;">+26%</td>
 <td style="text-align: right;">21%</td>
 </tr>
 <tr>
 <td>Arabic</td>
 <td style="text-align: right;">43</td>
-<td style="text-align: right;">1.26×</td>
+<td style="text-align: right;">+26%</td>
 <td style="text-align: right;">21%</td>
 </tr>
 <tr>
 <td>French</td>
 <td style="text-align: right;">44</td>
-<td style="text-align: right;">1.29×</td>
+<td style="text-align: right;">+29%</td>
 <td style="text-align: right;">22%</td>
 </tr>
 <tr>
 <td>Dutch</td>
 <td style="text-align: right;">44</td>
-<td style="text-align: right;">1.29×</td>
+<td style="text-align: right;">+29%</td>
 <td style="text-align: right;">22%</td>
 </tr>
 <tr>
 <td>Russian</td>
 <td style="text-align: right;">45</td>
-<td style="text-align: right;">1.32×</td>
+<td style="text-align: right;">+32%</td>
 <td style="text-align: right;">24%</td>
 </tr>
 <tr>
 <td>Swedish</td>
 <td style="text-align: right;">45</td>
-<td style="text-align: right;">1.32×</td>
+<td style="text-align: right;">+32%</td>
 <td style="text-align: right;">24%</td>
 </tr>
 <tr>
 <td>Norwegian</td>
 <td style="text-align: right;">45</td>
-<td style="text-align: right;">1.32×</td>
+<td style="text-align: right;">+32%</td>
 <td style="text-align: right;">24%</td>
 </tr>
 <tr>
 <td>Chinese (Traditional)</td>
 <td style="text-align: right;">46</td>
-<td style="text-align: right;">1.35×</td>
+<td style="text-align: right;">+35%</td>
 <td style="text-align: right;">26%</td>
 </tr>
 <tr>
 <td>Vietnamese</td>
 <td style="text-align: right;">46</td>
-<td style="text-align: right;">1.35×</td>
+<td style="text-align: right;">+35%</td>
 <td style="text-align: right;">26%</td>
 </tr>
 <tr>
 <td>Danish</td>
 <td style="text-align: right;">46</td>
-<td style="text-align: right;">1.35×</td>
+<td style="text-align: right;">+35%</td>
 <td style="text-align: right;">26%</td>
 </tr>
 <tr>
 <td>Italian</td>
 <td style="text-align: right;">47</td>
-<td style="text-align: right;">1.38×</td>
+<td style="text-align: right;">+38%</td>
 <td style="text-align: right;">28%</td>
 </tr>
 <tr>
 <td>Korean</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">1.44×</td>
+<td style="text-align: right;">+44%</td>
 <td style="text-align: right;">31%</td>
 </tr>
 <tr>
 <td>Finnish</td>
 <td style="text-align: right;">49</td>
-<td style="text-align: right;">1.44×</td>
+<td style="text-align: right;">+44%</td>
 <td style="text-align: right;">31%</td>
 </tr>
 <tr>
 <td>Turkish</td>
 <td style="text-align: right;">50</td>
-<td style="text-align: right;">1.47×</td>
+<td style="text-align: right;">+47%</td>
 <td style="text-align: right;">32%</td>
 </tr>
 <tr>
 <td>Hindi</td>
 <td style="text-align: right;">51</td>
-<td style="text-align: right;">1.50×</td>
+<td style="text-align: right;">+50%</td>
 <td style="text-align: right;">33%</td>
 </tr>
 <tr>
 <td>Filipino</td>
 <td style="text-align: right;">52</td>
-<td style="text-align: right;">1.53×</td>
+<td style="text-align: right;">+53%</td>
 <td style="text-align: right;">35%</td>
 </tr>
 <tr>
 <td>Romanian</td>
 <td style="text-align: right;">52</td>
-<td style="text-align: right;">1.53×</td>
+<td style="text-align: right;">+53%</td>
 <td style="text-align: right;">35%</td>
 </tr>
 <tr>
 <td>Hebrew</td>
 <td style="text-align: right;">53</td>
-<td style="text-align: right;">1.56×</td>
+<td style="text-align: right;">+56%</td>
 <td style="text-align: right;">36%</td>
 </tr>
 <tr>
 <td>Urdu</td>
 <td style="text-align: right;">54</td>
-<td style="text-align: right;">1.59×</td>
+<td style="text-align: right;">+59%</td>
 <td style="text-align: right;">37%</td>
 </tr>
 <tr>
 <td>Gujarati</td>
 <td style="text-align: right;">54</td>
-<td style="text-align: right;">1.59×</td>
+<td style="text-align: right;">+59%</td>
 <td style="text-align: right;">37%</td>
 </tr>
 <tr>
 <td>Marathi</td>
 <td style="text-align: right;">56</td>
-<td style="text-align: right;">1.65×</td>
+<td style="text-align: right;">+65%</td>
 <td style="text-align: right;">39%</td>
 </tr>
 <tr>
 <td>Bengali</td>
 <td style="text-align: right;">57</td>
-<td style="text-align: right;">1.68×</td>
+<td style="text-align: right;">+68%</td>
 <td style="text-align: right;">40%</td>
 </tr>
 <tr>
 <td>Thai</td>
 <td style="text-align: right;">59</td>
-<td style="text-align: right;">1.74×</td>
+<td style="text-align: right;">+74%</td>
 <td style="text-align: right;">43%</td>
 </tr>
 <tr>
 <td>Hungarian</td>
 <td style="text-align: right;">59</td>
-<td style="text-align: right;">1.74×</td>
+<td style="text-align: right;">+74%</td>
 <td style="text-align: right;">43%</td>
 </tr>
 <tr>
 <td>Japanese</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">1.79×</td>
+<td style="text-align: right;">+79%</td>
 <td style="text-align: right;">44%</td>
 </tr>
 <tr>
 <td>Kannada</td>
 <td style="text-align: right;">61</td>
-<td style="text-align: right;">1.79×</td>
+<td style="text-align: right;">+79%</td>
 <td style="text-align: right;">44%</td>
 </tr>
 <tr>
 <td>Malayalam</td>
 <td style="text-align: right;">63</td>
-<td style="text-align: right;">1.85×</td>
+<td style="text-align: right;">+85%</td>
 <td style="text-align: right;">46%</td>
 </tr>
 <tr>
 <td>Ukrainian</td>
 <td style="text-align: right;">64</td>
-<td style="text-align: right;">1.88×</td>
+<td style="text-align: right;">+88%</td>
 <td style="text-align: right;">47%</td>
 </tr>
 <tr>
 <td>Polish</td>
 <td style="text-align: right;">64</td>
-<td style="text-align: right;">1.88×</td>
+<td style="text-align: right;">+88%</td>
 <td style="text-align: right;">47%</td>
 </tr>
 <tr>
 <td>Tamil</td>
 <td style="text-align: right;">67</td>
-<td style="text-align: right;">1.97×</td>
+<td style="text-align: right;">+97%</td>
 <td style="text-align: right;">49%</td>
 </tr>
 <tr>
 <td>Czech</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">2.00×</td>
+<td style="text-align: right;">+100%</td>
 <td style="text-align: right;">50%</td>
 </tr>
 <tr>
 <td>Slovak</td>
 <td style="text-align: right;">68</td>
-<td style="text-align: right;">2.00×</td>
+<td style="text-align: right;">+100%</td>
 <td style="text-align: right;">50%</td>
 </tr>
 <tr>
 <td>Telugu</td>
 <td style="text-align: right;">69</td>
-<td style="text-align: right;">2.03×</td>
+<td style="text-align: right;">+103%</td>
 <td style="text-align: right;">51%</td>
 </tr>
 <tr>
 <td>Greek</td>
 <td style="text-align: right;">70</td>
-<td style="text-align: right;">2.06×</td>
+<td style="text-align: right;">+106%</td>
 <td style="text-align: right;">51%</td>
 </tr>
 <tr>
 <td>Punjabi</td>
 <td style="text-align: right;">83</td>
-<td style="text-align: right;">2.44×</td>
+<td style="text-align: right;">+144%</td>
 <td style="text-align: right;">59%</td>
 </tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1430" alt="Extra tokens per language vs English" src="/blog-language-tax-chart-v4.png" /></p>
+<p><img loading="lazy" width="960" height="1441" alt="Extra tokens per language vs English" src="/blog-language-tax-chart-v5.png" /></p>
 <h2>Why some languages cost more</h2>
 <p><img loading="lazy" width="1200" height="593" alt="Why some languages cost more: Czech; Polish; Hindi" src="/token-cost-by-language-why-some-languages-cost-more-en.jpg" /></p>
 <p>Tokenizers are trained mostly on English, so common English words are a single token (" polite", " customer"). Words in other languages are split into pieces, and endings or diacritics often become tokens of their own:</p>
@@ -275,7 +275,7 @@
 <h2>Send it in English and save</h2>
 <p>Current models understand English instructions perfectly well and answer in your language if you ask, so the simplest saving is to send the prompt in English: about 31% fewer tokens for Korean, 44% for Japanese and 50% for Czech. In the <a href="/">token counter</a>, paste a prompt and press <strong>💸 Save tokens</strong>: it cleans up spaces, translates to English with the translator built into desktop Chrome 138+ / Edge 148+ (on your device; nothing is uploaded), trims filler and adds a line asking for the reply in your language. How the gap has changed over time is covered in <a href="/blog/gpt-tokenizer-cl100k-vs-o200k">How GPT's new tokenizer cut costs in 40 languages</a>.</p>
 <h2>What it costs</h2>
-<p>With a model at $2 per million input tokens, sending this prompt one million times costs $68 in English, $98 in Korean, $122 in Japanese and $136 in Czech. If the model also answers in that language, the same multiplier applies to output tokens, which usually cost 4–5× more.</p>
+<p>With a model at $2 per million input tokens, sending this prompt one million times costs $68 in English, $98 in Korean, $122 in Japanese and $136 in Czech. If the model also answers in that language, the same difference applies to output tokens, which usually cost 300–400% more.</p>
 <h2>How to spend fewer tokens</h2>
 <p><img loading="lazy" width="1200" height="796" alt="How to spend fewer tokens: Send the prompt in English and ask for the answer in your language (the Save tokens button does this in one cl" src="/token-cost-by-language-how-to-spend-fewer-tokens-en.jpg" /></p>
 <ul>
@@ -293,4 +293,9 @@
 <h2>Read it in your language</h2>
 <p><a href="/cs/blog/cestina-tokeny-gpt">Čeština</a> · <a href="/pl/blog/polski-tokeny-gpt">Polski</a> · <a href="/ja/blog/nihongo-tokens-gpt">日本語</a> · <a href="/ko/blog/korean-tokens-gpt">한국어</a> · <a href="/zh-cn/blog/zhongwen-token-gpt">简体中文</a> · <a href="/zh-tw/blog/zhongwen-fanti-token-gpt">繁體中文</a> · <a href="/es/blog/tokens-espanol-gpt">Español</a> · <a href="/pt/blog/tokens-portugues-gpt">Português</a> · <a href="/fr/blog/tokens-francais-gpt">Français</a> · <a href="/de/blog/tokens-deutsch-gpt">Deutsch</a> · <a href="/it/blog/token-italiano-gpt">Italiano</a> · <a href="/ru/blog/tokeny-russkiy-gpt">Русский</a> · <a href="/uk/blog/tokeny-ukrainska-gpt">Українська</a> · <a href="/tr/blog/token-turkce-gpt">Türkçe</a> · <a href="/ar/blog/tokens-arabic-gpt">العربية</a> · <a href="/fa/blog/token-farsi-gpt">فارسی</a> · <a href="/hi/blog/tokens-hindi-gpt">हिन्दी</a> · <a href="/id/blog/token-bahasa-indonesia-gpt">Bahasa Indonesia</a> · <a href="/vi/blog/token-tieng-viet-gpt">Tiếng Việt</a> · <a href="/th/blog/token-phasa-thai-gpt">ไทย</a> · <a href="/nl/blog/tokens-nederlands-gpt">Nederlands</a> · <a href="/bn/blog/token-bangla-gpt">বাংলা</a> · <a href="/ur/blog/token-urdu-gpt">اردو</a> · <a href="/fil/blog/token-filipino-gpt">Filipino</a> · <a href="/sv/blog/tokens-svenska-gpt">Svenska</a> · <a href="/he/blog/tokens-ivrit-gpt">עברית</a> · <a href="/el/blog/tokens-ellinika-gpt">Ελληνικά</a> · <a href="/ro/blog/tokeni-romana-gpt">Română</a> · <a href="/hu/blog/tokenek-magyar-gpt">Magyar</a> · <a href="/da/blog/tokens-dansk-gpt">Dansk</a> · <a href="/fi/blog/tokenit-suomi-gpt">Suomi</a> · <a href="/no/blog/tokens-norsk-gpt">Norsk</a> · <a href="/sk/blog/tokeny-slovencina-gpt">Slovenčina</a> · <a href="/mr/blog/marathi-tokens-gpt">मराठी</a> · <a href="/gu/blog/gujarati-tokens-gpt">ગુજરાતી</a> · <a href="/kn/blog/kannada-tokens-gpt">ಕನ್ನಡ</a> · <a href="/ml/blog/malayalam-tokens-gpt">മലയാളം</a> · <a href="/ta/blog/tamil-tokens-gpt">தமிழ்</a> · <a href="/te/blog/telugu-tokens-gpt">తెలుగు</a> · <a href="/pa/blog/punjabi-tokens-gpt">ਪੰਜਾਬੀ</a></p>
 <p>The original write-up and discussion are on <a href="https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m" target="_blank" rel="noopener">DEV</a>.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: OpenAI tokenizer (o200k_base) on GitHub</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API pricing</a></li>
+</ul>
 <!-- autoimg -->

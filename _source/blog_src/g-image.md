@@ -39,7 +39,7 @@ If you only need images for the web or social media, 1K is usually enough, and u
 
 ## Quality tiers are the biggest lever
 
-The same model can cost very different amounts depending on the quality setting. GPT Image 2.5 is 16 times more expensive at *high* than at *low*. Use the low or draft tier to find a composition that works, then regenerate only the keepers at higher quality.
+The same model can cost very different amounts depending on the quality setting. GPT Image 2.5 costs $0.16 per image at *high* and $0.01 at *low*. Use the low or draft tier to find a composition that works, then regenerate only the keepers at higher quality.
 
 ## Plan for retries
 
@@ -57,7 +57,14 @@ Quality is subjective, so test your own prompts on two or three models before yo
 
 ## Price your batch
 
-The [AI image cost calculator](/image) compares every model above for your resolution and number of images.
+The [AI image cost calculator](/image) compares every model above for your resolution and number of images. Making video too? See [what one minute of AI video costs](/blog/ai-video-cost-per-minute) and the [AI video cost calculator](/video).
 
 *Prices change often. Confirm on the provider's pricing page before a large job.*
+
+## Sources
+
+- [Gemini Developer API pricing (Google)](https://ai.google.dev/gemini-api/docs/pricing)
+- [Black Forest Labs API pricing](https://docs.bfl.ml/quick_start/pricing)
+- [xAI API pricing](https://docs.x.ai/developers/pricing)
+- [Runway API pricing](https://docs.dev.runwayml.com/guides/pricing/)
 <!-- autoimg -->

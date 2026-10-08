@@ -69,4 +69,10 @@ Większość pieniędzy idzie na plan AI do kodowania. Generowanie modeli 3D w R
 Nasz [kalkulator kosztów gry z AI](/pl/ai-game-cost-calculator) ma teraz tryb Roblox: kliknij „Use this” przy dowolnym trendzie na górze, a kalkulator przełączy się na Roblox Studio z Luau, darmowe modele 3D w Roblox Assistant i zestaw promptów napisanych pod Roblox (skrypty serwera i klienta, zapis przez DataStoreService, game passy). Instrukcję krok po kroku znajdziesz w artykule [jak zrobić grę w Roblox z AI](/pl/blog/gra-roblox-z-ai), a o tworzeniu gier bez kodowania przeczytasz w tekście o [vibe codingu](/pl/blog/vibe-coding-gra).
 
 *Rankingi sprawdzone 6 października 2026 na [roblox.com/charts](https://www.roblox.com/charts). Nazwy gier podajemy tak, jak pokazuje je Roblox; aktualizujemy tę listę, gdy rankingi się zmieniają.*
+
+## Źródła
+
+- [Roblox Creator Hub: passy (game passes)](https://create.roblox.com/docs/production/monetization/passes)
+- [Roblox Creator Hub: magazyny danych (DataStoreService)](https://create.roblox.com/docs/cloud-services/data-stores)
+- [Roblox Creator Hub: Assistant w Studio](https://create.roblox.com/docs/assistant/guide)
 <!-- autoimg -->

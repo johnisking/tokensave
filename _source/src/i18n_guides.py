@@ -22,7 +22,7 @@ def values(tag):
     ro = f"{c['ro']:.2f}"
     if c["decimal"] == ",":
         ro = ro.replace(".", ",")
-    return dict(c["ui"], ro=ro, save=str(c["save"]), Lname=LNAME.get(tag, c["english_name"]))
+    return dict(c["ui"], ro=ro, rp=str(round((c['ro'] - 1) * 100)), save=str(c["save"]), Lname=LNAME.get(tag, c["english_name"]))
 
 
 def fill(tag, key):

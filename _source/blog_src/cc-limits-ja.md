@@ -26,9 +26,9 @@ Anthropic は正確なトークン数ではなく、プラン同士の倍率で�
 
 ## 2026年に変わったこと
 
-![2026年に変わったこと: 2026年5月6日：Anthropic が Pro・Max・Team・シート制 Enterprise プランで Claude Code の5時間上限を2倍にしました。Pro・Max のピーク時間帯の上限引き下げも廃止され](/claude-code-shiyouryou-jougen-ja-3.jpg)
+![2026年に変わったこと: 2026年5月6日：Anthropic が Pro・Max・Team・シート制 Enterprise プランで Claude Code の5時間上限を100%引き上げました。Pro・Max のピーク時間帯の上限引き下げも](/claude-code-shiyouryou-jougen-ja-3.jpg)
 
-- **2026年5月6日**：Anthropic が Pro・Max・Team・シート制 Enterprise プランで **Claude Code の5時間上限を2倍**にしました。Pro・Max のピーク時間帯の上限引き下げも廃止されました。
+- **2026年5月6日**：Anthropic が Pro・Max・Team・シート制 Enterprise プランで **Claude Code の5時間上限を100%引き上げ**ました。Pro・Max のピーク時間帯の上限引き下げも廃止されました。
 - **2026年夏**：週の上限に**50%の一時的な引き上げ**が適用されていました。
 - **2026年9月14日**：Pro・Max・Team・シート制 Enterprise の**標準の週上限を恒久的に25%引き上げ**ました。ただし50%の一時増量を置き換えたものなので、夏と比べると約17%少なくなっています。元の水準よりは25%多い状態です。
 
@@ -55,7 +55,7 @@ Claude Code で **/status** コマンドを実行すると、残りの使用量�
 - **大きなファイルやログ**。3,000行のファイルやテストログ全体を読むと、数万トークンが加わります。
 - **あいまいな指示**。「プロジェクトを整理して」は数十ステップ、「auth.py の失敗しているテストを直して」なら数ステップで終わります。
 - **Claude アプリとの同時利用**。同じ上限から引かれます。
-- **日本語の指示文**。同じ内容でも、日本語は英語よりトークンが多くかかります（GPT のトークナイザーで約1.79倍）。
+- **日本語の指示文**。同じ内容でも、日本語は英語よりトークンが多くかかります（GPT のトークナイザーで約79%多い）。
 
 ## 上限を長持ちさせるには
 
@@ -71,4 +71,11 @@ Claude Code で **/status** コマンドを実行すると、残りの使用量�
 週の上限によく当たるなら、その追加分を API で払った場合と、ひとつ上のプランを比べてみましょう。[Claude Code の月額料金](/ja/blog/claude-code-ryoukin)と[コーディングエージェント費用計算機](/ja/agents)で計算できます。
 
 *上限は変わります。最新のルールは Anthropic の [Claude Code プランのヘルプ](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)と[料金ページ](https://claude.com/pricing)で確認してください。*
+
+## 出典
+
+- [Pro・Max プランで Claude Code を使う（Claude ヘルプセンター）](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Claude の料金プラン（Anthropic）](https://claude.com/pricing)
+- [有料 Claude プランの追加使用量（Claude ヘルプセンター）](https://support.claude.com/en/articles/12429409-extra-usage-for-max-20x-plans)
+- [コストを効果的に管理する（Claude Code ドキュメント）](https://code.claude.com/docs/en/costs)
 <!-- autoimg -->

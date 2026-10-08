@@ -48,7 +48,7 @@ AIサイトはすでに数千を超えますが、その多くは同じいくつ
 
 **DeepL**（deepl.com）は自然な翻訳で知られ、WordやPDFのファイルをレイアウトそのままで丸ごと翻訳できます。
 
-**日本語でプロンプトを書く人へのヒント：** AIは同じ内容でも、日本語で書くと英語より **約1.79倍** のトークンを使います。[TokenSaveのトークンカウンター](/ja/)で **💸 トークン節約** ボタンを押すと、プロンプトを端末の中で英語に翻訳し、最後に "Reply in Japanese." を付けてくれます。回答は日本語のまま、トークンを約44％減らせます。測定の詳細は[日本語は英語よりトークンがどれだけ多いか](/ja/blog/nihongo-tokens-gpt)にあります。
+**日本語でプロンプトを書く人へのヒント：** AIは同じ内容でも、日本語で書くと英語より **約79%多い** トークンを使います。[TokenSaveのトークンカウンター](/ja/)で **💸 トークン節約** ボタンを押すと、プロンプトを端末の中で英語に翻訳し、最後に "Reply in Japanese." を付けてくれます。回答は日本語のまま、トークンを約44％減らせます。測定の詳細は[日本語は英語よりトークンがどれだけ多いか](/ja/blog/nihongo-tokens-gpt)にあります。
 
 ## 画像・デザイン
 
@@ -56,7 +56,7 @@ AIサイトはすでに数千を超えますが、その多くは同じいくつ
 
 **remove.bg**（remove.bg）はひとつのことだけをします。写真をアップすると数秒で人や物だけをきれいに切り抜いてくれます。
 
-AI画像をたくさん作るなら、モデルによって1枚あたりの価格は10倍以上違います。[AI画像コスト計算機](/ja/image)で Nano Banana、GPT Image、FLUX などをまとめて比べてみてください。
+AI画像をたくさん作るなら、モデルによって1枚あたりの価格は900%以上違います。[AI画像コスト計算機](/ja/image)で Nano Banana、GPT Image、FLUX などをまとめて比べてみてください。
 
 ## 音声・音楽・動画
 
@@ -96,4 +96,21 @@ AI動画生成はいちばん費用がかさみやすい分野です。クレジ
 1. **AIチャットはひとつから始める。** ChatGPT、Claude、Gemini のどれかで大半は解決します。
 2. **メインの作業に合うツールをひとつ足す。** 調べものは Perplexity、翻訳は DeepL、デザインは Canva、動画は CapCut。
 3. **無料プランで足りなくなったときだけ払う。** そのときも、サブスクと API のどちらが安いかを先に確認しましょう。
+
+## 出典
+
+- [OpenAI ヘルプ: ChatGPT 無料プラン](https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq)
+- [Claude のプラン（無料プランを含む）](https://claude.com/pricing)
+- [Gemini ヘルプ: Google Workspace との連携](https://support.google.com/gemini/answer/15229592?hl=en)
+- [Perplexity ヘルプ: Perplexity とは](https://www.perplexity.ai/help-center/en/articles/10352155-what-is-perplexity)
+- [Google ヘルプ: Gemini Notebook（旧 NotebookLM）](https://support.google.com/gemininotebook/answer/16164461?hl=en&co=GENIE.Platform%3DDesktop)
+- [DeepL: ドキュメント翻訳](https://www.deepl.com/en/features/document-translation)
+- [Canva: AI 画像生成](https://www.canva.com/ai-image-generator/)
+- [remove.bg: 画像の背景削除](https://www.remove.bg/uploads)
+- [ElevenLabs の料金（無料プラン）](https://elevenlabs.io/pricing)
+- [Suno: テキストから曲を作る](https://suno.com/hub/turn-text-to-song)
+- [CapCut: 自動字幕生成](https://www.capcut.com/tools/auto-caption-generator)
+- [Arena（旧 LMArena）FAQ](https://arena.ai/faq)
+- [Hugging Face: Spaces](https://huggingface.co/docs/hub/en/spaces)
+- [Google AI Studio: Gemini API キーの使い方](https://ai.google.dev/gemini-api/docs/api-key)
 <!-- autoimg -->

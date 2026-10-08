@@ -39,7 +39,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>Prompts with more than 272,000 input tokens are billed at twice the input and cached rates and 1.5 times the output rate. The context window is about 1 million tokens, with up to 128,000 tokens of output. The API model name is <code>gpt-6.1-sol</code>.</p>
+<p>Prompts with more than 272,000 input tokens are billed 100% more for input and cached input and 50% more for output. The context window is about 1 million tokens, with up to 128,000 tokens of output. The API model name is <code>gpt-6.1-sol</code>.</p>
 <h2>What the cheaper cache means in practice</h2>
 <p>For a single request with no repeated text, GPT-6.1 Sol and GPT-6 Sol cost exactly the same. The difference shows up when you resend the same instructions, documents or conversation, which is most real apps and every coding agent:</p>
 <ul>
@@ -98,7 +98,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>Claude Sonnet 5.5 has the same price per token as GPT-6.1 Sol but costs about 30% more per request, because Claude's tokenizer turns the same English text into about 30% more tokens. <strong>Claude Opus 5.5 costs about 2.6 times as much as GPT-6.1 Sol per request.</strong></p>
+<p>Claude Sonnet 5.5 has the same price per token as GPT-6.1 Sol but costs about 30% more per request, because Claude's tokenizer turns the same English text into about 30% more tokens. <strong>Claude Opus 5.5 costs about 160% more than GPT-6.1 Sol per request.</strong></p>
 <p>On quality, OpenAI reports GPT-6.1 Sol 2.2 points above Opus 5.5 on AutomationBench (multi-step workflows) at medium effort, and on its Terminal-Bench Science test it spent about $5.47 per task against $23.21 for Opus 5.5. These are OpenAI's own benchmarks; test on your own tasks before you switch a production workload. For an independent view of capability against price, see <a href="/compare/performance">AI model capability vs price</a>.</p>
 <h2>What improved over GPT-6 Sol</h2>
 <p><img loading="lazy" width="1200" height="593" alt="What improved over GPT-6 Sol: Coding; Accuracy; Computer use" src="/gpt-6-1-sol-api-pricing-what-improved-over-gpt-6-sol-en.jpg" /></p>
@@ -114,9 +114,18 @@
 <li><strong>On GPT-6 Sol: yes.</strong> Same list price, half the cache price, better scores. Change the model name to <code>gpt-6.1-sol</code> and run your tests.</li>
 <li><strong>On Claude Sonnet 5.5 for cost reasons:</strong> GPT-6.1 Sol is about 23% cheaper per request for the same English text. Whether it is as good for your work is the real question; compare on a sample first.</li>
 <li><strong>On Claude Opus 5.5 or GPT-6 Astra:</strong> GPT-6.1 Sol is worth testing as a cheaper default, keeping the bigger model for the hardest requests.</li>
-<li><strong>On GPT-6 Luna:</strong> stay unless Luna's answers are not good enough. GPT-6.1 Sol costs 20 times as much per token.</li>
+<li><strong>On GPT-6 Luna:</strong> stay unless Luna's answers are not good enough. GPT-6.1 Sol costs $2 / $10 per million tokens against Luna's $0.10 / $0.50.</li>
 </ul>
 <h2>Check your own prompt</h2>
-<p>Paste a real prompt into the <a href="/openai-token-counter">OpenAI token counter</a> to see its cost on GPT-6.1 Sol and every other GPT model, or compare head to head: <a href="/compare/gpt-6-1-sol-vs-claude-sonnet-5-5">GPT-6.1 Sol vs Claude Sonnet 5.5</a> · <a href="/compare/gpt-6-1-sol-vs-claude-opus-5-5">GPT-6.1 Sol vs Claude Opus 5.5</a>. More on the GPT-6 family: <a href="/blog/gpt-6-api-pricing">GPT-6 API pricing</a>.</p>
+<p>Paste a real prompt into the <a href="/openai-token-counter">OpenAI token counter</a> to see its cost on GPT-6.1 Sol and every other GPT model, or compare head to head: <a href="/compare/gpt-6-1-sol-vs-claude-sonnet-5-5">GPT-6.1 Sol vs Claude Sonnet 5.5</a> · <a href="/compare/gpt-6-1-sol-vs-claude-opus-5-5">GPT-6.1 Sol vs Claude Opus 5.5</a>. More on the GPT-6 family: <a href="/blog/gpt-6-api-pricing">GPT-6 API pricing</a>. To compare the same prompt across models from every provider, use the <a href="/">token counter</a>.</p>
 <p><em>Prices checked October 6, 2026. Check OpenAI's pricing page before you commit.</em></p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://openai.com/index/introducing-gpt-6-1-sol/" target="_blank" rel="noopener">OpenAI: Introducing GPT-6.1 Sol</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API pricing</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-sol" target="_blank" rel="noopener">OpenAI: GPT-6 Sol model and pricing</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API pricing</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini API pricing</a></li>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" target="_blank" rel="noopener">Google: Gemini 4 Argon announcement</a></li>
+</ul>
 <!-- autoimg -->

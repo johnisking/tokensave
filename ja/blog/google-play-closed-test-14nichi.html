@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -102,7 +102,7 @@
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026年10月6日</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="作るのは3日、バグ取りに14日 — スパームレース開発日誌 第2回" src="/blog-spermrace-2-hero-ja.jpg" /></p>
 <p><a href="/ja/blog/vibe-coding-game-shoshinsha">第1回</a>では、プログラミング経験ゼロの私が、AIに言葉で説明するだけで3日でゲームを作りました。さっそく公開しようとしたら、Google Play に止められました。新しく作った個人のデベロッパーアカウントは、本番公開の前に<strong>テスター12人以上で14日間のクローズドテスト</strong>が必要だというのです。</p>
-<p>14日。ゲームを作った時間の4倍以上です。ただ待つのはもったいないので、毎日自分で遊んでみることにしました。そして分かりました。この14日がなかったら大変なことになっていた、と。</p>
+<p>14日。ゲームを作った時間より300%以上長いのです。ただ待つのはもったいないので、毎日自分で遊んでみることにしました。そして分かりました。この14日がなかったら大変なことになっていた、と。</p>
 <p><strong>作るのは3日、バグ取りに14日。</strong> 今回は、制作中からクローズドテスト、リリース後までに直したバグ14個の話です。</p>
 <h2>Google Play のクローズドテスト14日とは?</h2>
 <p>2023年11月13日以降に作った<strong>個人</strong>の Google Play デベロッパーアカウントは、アプリを本番公開する前にクローズドテストを行う必要があります。</p>
@@ -117,7 +117,7 @@
 <p>パソコンに残っていたバージョンファイルで、コードの量を数えてみました(翻訳ファイルは除外)。</p>
 <p><img loading="lazy" width="1400" height="853" alt="コード行数の推移: 最初の版3,112行、制作完了6,341行、Androidアプリ8,513行、最新版13,822行" src="/blog-spermrace-2-code-ja.jpg" /></p>
 <ul>
-<li>最初の2日間で修正版を<strong>16回</strong>受け取り、コードは<strong>2倍</strong>になりました。</li>
+<li>最初の2日間で修正版を<strong>16回</strong>受け取り、コードは<strong>100%</strong>増えました。</li>
 <li>Androidアプリにする間に<strong>約2,250行</strong>増え、コード内の「以前はバグだった」メモは<strong>8個から17個</strong>に増えました。</li>
 <li>最初の版と最新版を比べると、<strong>約1万900行</strong>が追加されています。ただしここには、バグ修正だけでなくサバイバルモードやフレンド対戦などの新機能も含まれます。</li>
 </ul>
@@ -224,7 +224,12 @@
 <li><strong>Google Play</strong>: <a href="https://play.google.com/store/apps/details?id=com.spermrace.game&amp;hl=ja" target="_blank" rel="noopener">スパームレース</a></li>
 <li><strong>Web版(itch.io)</strong>: <a href="https://johnisking.itch.io/sperm-race" target="_blank" rel="noopener">Sperm Race</a></li>
 </ul>
-<p>AIでゲームを作るとお金と期間がどれくらいかかるか気になるなら、<a href="/ja/ai-game-cost-calculator">AIゲーム制作費計算機</a>にジャンルと規模を入れてみてください。スケジュールにはバグ取りの時間も必ず入れましょう。私の場合は、作る時間の4倍以上かかりました。</p>
+<p>AIでゲームを作るとお金と期間がどれくらいかかるか気になるなら、<a href="/ja/ai-game-cost-calculator">AIゲーム制作費計算機</a>にジャンルと規模を入れてみてください。スケジュールにはバグ取りの時間も必ず入れましょう。私の場合は、作る時間より300%以上長くかかりました。</p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/14151465" target="_blank" rel="noopener">Play Console ヘルプ：新しい個人デベロッパー アカウントのアプリテスト要件</a></li>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/9845334" target="_blank" rel="noopener">Play Console ヘルプ：オープン テスト、クローズド テスト、内部テストを設定する</a></li>
+</ul>
 
         <h2>関連記事</h2>
         <ul><li><a href="/ja/blog/muse-spark-1-3-api-ryoukin">Meta Muse Spark 1.3 の API 料金：Claude・GPT-6・Gemini と費用比較</a></li><li><a href="/ja/blog/chatgpt-pro-ryokin-hikaku">ChatGPT Pro 料金比較：Pro 500・200・100の違いとどれを選ぶか（2026）</a></li><li><a href="/ja/blog/gemini-muryou-flash-lite">Gemini無料版は10月9日からFlash-Liteのみに：プラン別の変更と料金</a></li><li><a href="/ja/blog/chatgpt-go-vs-plus">ChatGPT GoとPlusの違い：1,400円と3,000円で何が変わる？</a></li><li><a href="/ja/blog/ai-subscription-ryoukin-hikaku">生成AIのサブスク料金比較：ChatGPT・Claude・Gemini・Grok【日本円】</a></li></ul>
@@ -250,6 +255,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

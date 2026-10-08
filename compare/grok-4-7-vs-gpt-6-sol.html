@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -98,13 +98,13 @@
       <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">Grok 4.7 vs GPT-6 Sol: API cost comparison</h1>
       <p>For a typical chatbot reply, Grok 4.7 costs <strong>$0.0054</strong> and GPT-6 Sol costs <strong>$0.0070</strong> per request: Grok 4.7 is 23% cheaper. Grok 4.7 is cheaper in every workload below.</p>
       <h2>API prices</h2>
-      <div class="overflow-x-auto"><table><thead><tr><th></th><th>Grok 4.7</th><th>GPT-6 Sol</th></tr></thead><tbody><tr><td>Maker</td><td>xAI</td><td>OpenAI</td></tr><tr><td>Input / 1M tokens</td><td>$2</td><td>$2</td></tr><tr><td>Output / 1M tokens</td><td>$6</td><td>$10</td></tr><tr><td>Output vs input price</td><td>3.0×</td><td>5.0×</td></tr><tr><td>Context window</td><td>500K tokens</td><td>922K tokens</td></tr><tr><td>Tokens for the same English text</td><td>baseline (GPT o200k count)</td><td>baseline (GPT o200k count)</td></tr></tbody></table></div>
+      <div class="overflow-x-auto"><table><thead><tr><th></th><th>Grok 4.7</th><th>GPT-6 Sol</th></tr></thead><tbody><tr><td>Maker</td><td>xAI</td><td>OpenAI</td></tr><tr><td>Input / 1M tokens</td><td>$2</td><td>$2</td></tr><tr><td>Output / 1M tokens</td><td>$6</td><td>$10</td></tr><tr><td>Output vs input price</td><td>+200%</td><td>+400%</td></tr><tr><td>Context window</td><td>500K tokens</td><td>922K tokens</td></tr><tr><td>Tokens for the same English text</td><td>baseline (GPT o200k count)</td><td>baseline (GPT o200k count)</td></tr></tbody></table></div>
       <h2>Capability</h2>
       <p>On the Epoch Capabilities Index, Grok 4.7 scores <strong>153.5</strong> and GPT-6 Sol <strong>162.7</strong>: GPT-6 Sol is 9.2 points higher. See <a href="/compare/performance">capability vs price for all models</a>.</p><p class="text-xs text-zinc-500">Capability scores: <a href="https://epoch.ai/eci" rel="noopener" target="_blank">Epoch Capabilities Index</a> by Epoch AI, used under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a>.</p>
       <h2>Cost by workload</h2>
-      <div class="overflow-x-auto"><table><thead><tr><th>Workload (per 1,000 requests)</th><th>Grok 4.7</th><th>GPT-6 Sol</th><th>Cheaper</th></tr></thead><tbody><tr><td><strong>Chatbot reply</strong><br><span class="text-xs">short question plus some chat history · 1,500 in / 400 out</span></td><td>$5.40</td><td>$7.00</td><td>Grok 4.7 23% cheaper</td></tr><tr><td><strong>Document Q&A (RAG)</strong><br><span class="text-xs">retrieved passages plus a question · 8,000 in / 500 out</span></td><td>$19.00</td><td>$21.00</td><td>Grok 4.7 10% cheaper</td></tr><tr><td><strong>Coding agent step</strong><br><span class="text-xs">large working context, short edit · 25,000 in / 800 out</span></td><td>$54.80</td><td>$58.00</td><td>Grok 4.7 6% cheaper</td></tr><tr><td><strong>Summarize a long report</strong><br><span class="text-xs">long input, short summary · 20,000 in / 300 out</span></td><td>$41.80</td><td>$43.00</td><td>≈ same</td></tr><tr><td><strong>Write an article</strong><br><span class="text-xs">short brief, long draft · 800 in / 2,000 out</span></td><td>$13.60</td><td>$21.60</td><td>Grok 4.7 1.6× cheaper</td></tr></tbody></table></div>
+      <div class="overflow-x-auto"><table><thead><tr><th>Workload (per 1,000 requests)</th><th>Grok 4.7</th><th>GPT-6 Sol</th><th>Cheaper</th></tr></thead><tbody><tr><td><strong>Chatbot reply</strong><br><span class="text-xs">short question plus some chat history · 1,500 in / 400 out</span></td><td>$5.40</td><td>$7.00</td><td>Grok 4.7 23% cheaper</td></tr><tr><td><strong>Document Q&A (RAG)</strong><br><span class="text-xs">retrieved passages plus a question · 8,000 in / 500 out</span></td><td>$19.00</td><td>$21.00</td><td>Grok 4.7 10% cheaper</td></tr><tr><td><strong>Coding agent step</strong><br><span class="text-xs">large working context, short edit · 25,000 in / 800 out</span></td><td>$54.80</td><td>$58.00</td><td>Grok 4.7 6% cheaper</td></tr><tr><td><strong>Summarize a long report</strong><br><span class="text-xs">long input, short summary · 20,000 in / 300 out</span></td><td>$41.80</td><td>$43.00</td><td>≈ same</td></tr><tr><td><strong>Write an article</strong><br><span class="text-xs">short brief, long draft · 800 in / 2,000 out</span></td><td>$13.60</td><td>$21.60</td><td>Grok 4.7 37% cheaper</td></tr></tbody></table></div>
       <figure class="chart-fig"><img class="chart" src="/img/compare/grok-4-7-vs-gpt-6-sol-api-cost.svg" alt="Bar chart: Grok 4.7 vs GPT-6 Sol API cost per 1,000 requests for chatbot, RAG, coding agent, summary and article workloads" width="560" height="636" loading="lazy" decoding="async" /><figcaption>Grok 4.7 vs GPT-6 Sol: cost per 1,000 requests by workload (USD).</figcaption></figure>
-      <p>Grok 4.7 is cheaper on both input and output, so it costs less for every kind of request. The gap is 1.0× on input and 1.7× on output.</p>
+      <p>Grok 4.7 is cheaper on both input and output, so it costs less for every kind of request. It is 0% cheaper on input and 40% cheaper on output.</p>
       
       <h2>Monthly cost</h2>
       <div class="overflow-x-auto"><table><thead><tr><th>Monthly volume</th><th>Grok 4.7</th><th>GPT-6 Sol</th></tr></thead><tbody><tr><td>10,000 chatbot replies / month</td><td>$54.00</td><td>$70.00</td></tr><tr><td>100,000 chatbot replies / month</td><td>$540</td><td>$700</td></tr><tr><td>1,000,000 chatbot replies / month</td><td>$5,400</td><td>$7,000</td></tr></tbody></table></div>
@@ -152,6 +152,6 @@ $('cmpR').innerHTML=[D.a,D.b].map(function(m,k){var best=c[k]===lo&&c[0]!==c[1];
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

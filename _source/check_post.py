@@ -12,12 +12,13 @@ import autoimg as A
 
 CJK = {'ko', 'ja', 'zh-CN', 'zh-TW'}
 TOOL_PATHS = ('/image', '/video', '/plans', '/agents', 'ai-game-cost-calculator', 'claude-token-counter')
-MULT = re.compile(r'(\d+(?:[.,]\d+)?\s*(?:배|倍|×)|\b\d+(?:[.,]\d+)?x\b)')
-MULT_OK = re.compile(r'(Max|Ultra|Pro)\s*\d+\s*[x×]|\d+\s*[x×]\s*(plan|요금제|プラン)|[x×]\s*\d', re.I)
+MULT = re.compile(r'(\d+(?:[.,]\d+)?\s*(?:배|倍|×|گنا|गुना|पट|ಪಟ್ಟು|மடங்கு|రెట్లు|ਗੁਣਾ|katı|razy|raza|fois|veces|vezes|times|krát|kertaa|φορές|gånger|برابر|ضعف|เท่า|lần)|gấp\s*\d|\b\d+(?:[.,]\d+)?x\b)', re.I)
+MULT_OK = re.compile(r'(?-i:Max|Ultra|Pro)\s*\d+\s*[x×]|\d+\s*[x×]\s*(plan|요금제|プラン|Plus)|[x×]\s*\d|(?-i:Plus)|사용량|利用量|usage|^\s*\||\d\s*×\s*\(|(times|razy)\s+(a |per |each |every |dzienn|w |co )|\*\*\d+\s*(times|razy)\*\*', re.I)  # counts and formulas, not ratios
+PLAN_CTX = re.compile(r'(?-i:Plus|Max\b|Ultra)|Pro ?\d|사용량|利用量|倍率|요금제', re.I)
 IMG_WORDS = {'ko': '이미지', 'ja': '画像', 'en': 'image'}
 VID_WORDS = {'ko': '영상', 'ja': '動画', 'en': 'video'}
 FAQ = re.compile(r'^## .*(FAQ|자주 묻는|よくある|Frequently|Preguntas|Perguntas|Sık|Częste|Häufig|Questions)', re.M | re.I)
-SRC = re.compile(r'^(## .*(Sources|출처|出典|Kaynaklar|Fuentes|Fontes|Źródła|Quellen|Bronnen|Джерела)|(Sources|출처|出典)\s*[:：])', re.M | re.I)
+SRC = re.compile(r'^[*_ ]*(## .*(Sources|출처|出典|Kaynaklar|Fuentes|Fontes|Fonti|Źródła|Quellen|Bronnen|Джерела|Источники|Kilder|Lähteet|Källor|Zdroje|Források|Surse|Πηγές|المصادر|منابع|स्रोत|উৎস|ذرائع|מקורות|แหล่งที่มา|Nguồn|Sumber|Mga sanggunian|来源|來源|ಮೂಲಗಳು|സ്രോതസ്സുകൾ|ஆதாரங்கள்|మూలాలు|ਸਰੋਤ|સ્રોતો)|(Sources?|출처|出典|Źródło|Źródła|Fuente|Fuentes|Fonte|Fontes|Quelle|Quellen|Source|Kaynak|Kaynaklar|Bron|Bronnen|Джерело|Джерела|来源|來源|資料來源|Nguồn|Sumber|स्रोत|المصدر|منبع|מקור|แหล่งที่มา|Zdroj|Πηγή|Kilde|Lähde|Källa|Forrás|Sursă|Fonte)\s*[:：])', re.M | re.I)
 
 
 def meta_for(src):
@@ -56,7 +57,7 @@ def check(src):
     r('SEO', '표 1개 이상', 'PASS' if tables else 'WARN', f'{tables}개')
     links = re.findall(r'\]\((/[^)]*)\)', text)
     internal = [l for l in links if not l.endswith(('.jpg', '.png', '.svg'))]
-    tool = [l for l in internal if any(t in l for t in TOOL_PATHS) or re.fullmatch(r'/([a-z]{2}(-[a-z]{2})?/)?', l)]
+    tool = [l for l in internal if any(t in l for t in TOOL_PATHS) or re.fullmatch(r'/([a-z]{2,3}(-[a-z]{2})?/)?', l)]
     r('SEO', '내부 링크 2개 이상', 'PASS' if len(internal) >= 2 else 'FAIL', f'{len(internal)}개')
     r('SEO', '계산기 링크', 'PASS' if tool else 'FAIL', ', '.join(sorted(set(tool)))[:80])
     lw = IMG_WORDS.get(tag); vw = VID_WORDS.get(tag)
@@ -69,7 +70,10 @@ def check(src):
     r('SEO', '외부 출처 링크 2개 이상', 'PASS' if len(ext) >= 2 else 'FAIL', f'{len(ext)}개')
     r('SEO', 'FAQ 섹션', 'PASS' if FAQ.search(md) else 'WARN', '권장')
     bad = []
-    for line in plain.split('\n'):
+    alts = re.findall(r'!\[([^\]]*)\]\(', md)
+    for line in plain.split('\n') + [b['title'], b['desc']] + alts:
+        if PLAN_CTX.search(line):
+            continue  # plan usage tiers (Plus 대비 5배, Max 5x) keep the company's wording
         for m in MULT.finditer(line):
             ctx = line[max(0, m.start() - 12): m.end() + 8]
             if not MULT_OK.search(ctx):
@@ -82,19 +86,21 @@ def check(src):
     og = b.get('og') or A.json.load(open(A.MAPF)).get(b['path']) if os.path.exists(A.MAPF) else b.get('og')
     r('이미지', '공유용 대표 이미지(og)', 'PASS' if og else 'WARN', og or '그룹 기본 이미지 사용')
     for alt, f in imgs:
+        if f.startswith('img/'):
+            continue  # charts generated at build time
         p = os.path.join(ROOT, 'src', 'static', f)
         issues = []
         if not os.path.exists(p):
             issues.append('파일 없음')
         else:
             kb = os.path.getsize(p) // 1024
-            if kb > 200:
+            if kb > (600 if f.endswith('.gif') else 200):
                 issues.append(f'{kb}KB')
         if len(alt) < 15:
             issues.append('alt 짧음')
-        if not re.fullmatch(r'[a-z0-9][a-z0-9\-]*\.(jpg|png|webp|svg)', f):
+        if not re.fullmatch(r'[a-z0-9][a-z0-9\-]*\.(jpg|png|webp|svg|gif)', f):
             issues.append('파일명 형식')
-        if f.endswith(('.jpg', '.png')) and not re.search(r'-(%s)(-\d+)?\.' % re.escape(tag.lower()), f) and 'blog-' not in f:
+        if f.endswith(('.jpg', '.png')) and not re.search(r'-(%s)(-\d+)?\.' % '|'.join(map(re.escape, {tag.lower(), tag.lower().replace('-', '')})), f) and 'blog-' not in f:
             issues.append('언어 코드 없음')
         r('이미지', f[:48], 'PASS' if not issues else 'FAIL', ', '.join(issues))
     # --- Depth

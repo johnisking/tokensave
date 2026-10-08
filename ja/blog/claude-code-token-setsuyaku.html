@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=4e3ba77a" />
+  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -104,7 +104,8 @@
 <h2>トークンが積み上がる理由</h2>
 <p>Claude Code はステップごとに作業し、<strong>ステップのたびに作業コンテキスト全体</strong>を送り直します。指示、ツール定義、読んだファイル、それまでのステップのすべてです。開始時のコンテキストが22,000トークンで、1ステップごとに3,500トークン増える25ステップの機能タスクなら、入力トークンは合計で<strong>約160万</strong>になります。だから、コンテキストを小さくすること、タスクを短くすることは、どんなことでも毎ステップ効いてきます。</p>
 <h2>1. タスクは小さく具体的に</h2>
-<p>ステップ数がいちばん大きな倍率です。比べてみてください。</p>
+<p><img loading="lazy" width="1200" height="1123" alt="節約術 1〜5: タスクは小さく具体的に; 関係のないタスクの間は新しく始める; どこを見ればいいか伝える" src="/claude-code-token-setsuyaku-ja-2.jpg" /></p>
+<p>コストをいちばん大きく左右するのはステップ数です。比べてみてください。</p>
 <ul>
 <li>「認証モジュールを整理して」→ 範囲があいまいで数十ステップ。</li>
 <li>「tests/auth_test.py の失敗しているテストを直して。トークンの有効期限チェックが1つずれている」→ 数ステップ。</li>
@@ -117,19 +118,27 @@
 <h2>4. CLAUDE.md は短く</h2>
 <p>プロジェクトの指示は、<strong>すべてのタスクのすべてのステップ</strong>で一緒に送られます。2,000トークンの CLAUDE.md は、25ステップのタスクで入力トークンを50,000増やします。ビルド・テストのコマンドや、Claude がよく間違えるルールなど本当に必要なものだけ残し、長い背景説明は必要なときに読める別ファイルに移しましょう。</p>
 <h2>5. 指示は英語で書く</h2>
-<p>日本語でプロンプトを書いているなら、いちばん手軽な節約です。GPT のトークナイザーでは、同じ内容が日本語だと英語の約1.79倍のトークンになるため、英語で書けば<strong>約44%</strong>減ります。Claude のトークナイザーは別物ですが、日本語が英語よりトークンを多く使うのは同じです。CLAUDE.md や長い指示は英語で書き、「Reply in Japanese.」で回答だけ日本語にしましょう。TokenSave の<a href="/ja/">トークンカウンター</a>で 💸 トークン節約 ボタンを押すと、自分の端末の中で英語に変換し、何%減ったかを表示します。</p>
+<p>日本語でプロンプトを書いているなら、いちばん手軽な節約です。GPT のトークナイザーでは、同じ内容が日本語だと英語より約79%多いトークンになるため、英語で書けば<strong>約44%</strong>減ります。Claude のトークナイザーは別物ですが、日本語が英語よりトークンを多く使うのは同じです。CLAUDE.md や長い指示は英語で書き、「Reply in Japanese.」で回答だけ日本語にしましょう。TokenSave の<a href="/ja/">トークンカウンター</a>で 💸 トークン節約 ボタンを押すと、自分の端末の中で英語に変換し、何%減ったかを表示します。</p>
 <h2>6. ログを丸ごと貼らない</h2>
+<p><img loading="lazy" width="1200" height="1063" alt="節約術 6〜9: ログを丸ごと貼らない; ファイル全体ではなく変更点だけ; タスクに合ったモデルを選ぶ" src="/claude-code-token-setsuyaku-ja-3.jpg" /></p>
 <p>テスト全体の実行結果やビルドログは数千行になることがあります。最初のエラーとスタックトレースに、必要な情報はほぼ入っています。その部分だけ貼るか、失敗しているテスト1つだけを実行するよう頼みましょう。</p>
 <h2>7. ファイル全体ではなく変更点だけ</h2>
 <p>出力トークンがいちばん高価です。Sonnet 5.5 では出力が100万トークンあたり$10、入力は$2です。2行直したあとにファイル全体を書き直させると、変わっていない行にまで出力料金を払うことになります。</p>
 <h2>8. タスクに合ったモデルを選ぶ</h2>
-<p>API では Claude Opus 5.5 は Sonnet 5.5 の2倍のトークン単価で、プランでは上限を早く消費します。<strong>/model</strong> で切り替えましょう。ほとんどのコーディングは Sonnet、難しい設計や厄介なバグは Opus、単純な繰り返しの修正は Haiku で十分です。</p>
+<p>API では Claude Opus 5.5 は Sonnet 5.5 よりトークン単価が100%高く、プランでは上限を早く消費します。<strong>/model</strong> で切り替えましょう。ほとんどのコーディングは Sonnet、難しい設計や厄介なバグは Opus、単純な繰り返しの修正は Haiku で十分です。</p>
 <h2>9. キャッシュに働いてもらう</h2>
 <p>Claude Code は繰り返し送るコンテキストを自動でキャッシュし、キャッシュされた入力は通常価格の約10%です。セッションの途中で CLAUDE.md を書き換えない、同じ作業を続けるのにわざわざセッションを立ち上げ直さない、それだけでも効果があります。</p>
 <h2>どれくらい差が出るか</h2>
 <p>TokenSave の<a href="/ja/agents">コーディングエージェント費用モデル</a>では、Sonnet 5.5 での一般的な機能タスクはキャッシュありで約$0.72です。正確な指示とファイルの場所を伝えて25ステップを15ステップに減らすと、約$0.40まで下がります。タスクごとに新しいセッションで始めれば、開始時のコンテキストも小さく保てます。月に100タスクなら、週の上限に当たるかどうかが分かれるほどの差です。</p>
 <h2>使用量を確認する</h2>
 <p>Claude Code で <strong>/status</strong> を実行すると、残りの使用量が表示されます。上限そのものの仕組みは <a href="/ja/blog/claude-code-shiyouryou-jougen">Claude Code の使用量上限まとめ</a>、プランと API の比較は <a href="/ja/blog/claude-code-ryoukin">Claude Code の月額料金</a>をご覧ください。</p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">コストを効果的に管理する（Claude Code ドキュメント）</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API の料金（Anthropic ドキュメント）</a></li>
+<li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken：OpenAI のトークナイザー（o200k_base）</a></li>
+<li><a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Pro・Max プランで Claude Code を使う（Claude ヘルプセンター）</a></li>
+</ul>
 <!-- autoimg -->
 
         <h2>関連記事</h2>
@@ -156,6 +165,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=4e3ba77a"></script>
+  <script type="module" src="/common.js?v=6f1a9fdb"></script>
 </body>
 </html>

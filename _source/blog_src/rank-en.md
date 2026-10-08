@@ -34,7 +34,7 @@ Claude Sonnet 5.5 scores 165.2, just 2.2 points under Opus, for half the price (
 - **Gemini 3.8 Flash** (156.9) costs $0.75 / $3.75. 10,000 chat requests: about $25.
 - **DeepSeek V4 Flash** (154.5) costs $0.30 / $1.20. 10,000 chat requests: about $9, or 5% of Opus.
 
-Both sit about 10 to 13 points below the top. For classification, extraction, summaries and most chatbot traffic, that is often enough, and the savings are 7 to 20 times.
+Both sit about 10 to 13 points below the top. For classification, extraction, summaries and most chatbot traffic, that is often enough, and the savings are 86 to 95%.
 
 ## 4. Expensive for what you get
 
@@ -67,9 +67,17 @@ GPT-6 Sol, GPT-6 Luna, GPT-6.1 Sol, Gemini 4 Argon and Grok 4.7 are too new for 
 
 1. Start from the frontier: Sonnet 5.5 for quality, Gemini 3.8 Flash or DeepSeek V4 Flash for volume.
 2. Test two or three of them on 20 real prompts from your app. The overall score is general capability, not your task.
-3. Check what your actual prompts cost on each model with the token counter, including the tokenizer difference.
+3. Check what your actual prompts cost on each model with the [token counter](/), including the tokenizer difference.
 
-The chart and table update every day as prices and scores change: see the [AI model ranking](/compare/performance).
+The chart and table update every day as prices and scores change: see the [AI model ranking](/compare/performance). Full price lists are in [LLM API pricing compared](/blog/llm-api-pricing-comparison).
 
 *Capability scores: Epoch Capabilities Index by Epoch AI, used under CC BY 4.0. Prices: standard API list prices, no caching or batch discounts, checked October 4, 2026.*
+
+## Sources
+
+- [Epoch AI: Epoch Capabilities Index](https://epoch.ai/eci)
+- [Claude API pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+- [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)
+- [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing)
+- [DeepSeek API models and pricing](https://api-docs.deepseek.com/quick_start/pricing/)
 <!-- autoimg -->

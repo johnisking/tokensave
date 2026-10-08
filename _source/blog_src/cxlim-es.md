@@ -53,12 +53,12 @@ El centro de ayuda de OpenAI remite a **Settings → Usage** en ChatGPT, donde v
 
 ![Cómo estirar tu cuota: Usa por defecto GPT-5.6 Sol o Terra. Reserva GPT-6 Astra para los problemas difíciles en los que notes la dife](/codex-limites-de-uso-como-estirar-tu-cuota-es.jpg)
 
-- **Usa por defecto GPT-5.6 Sol o Terra.** Reserva GPT-6 Astra para los problemas difíciles en los que notes la diferencia: consume varias veces más cuota.
+- **Usa por defecto GPT-5.6 Sol o Terra.** Reserva GPT-6 Astra para los problemas difíciles en los que notes la diferencia: consume mucha más cuota.
 - **Usa Luna para ediciones simples**, renombrados y código repetitivo.
 - **Mantén las tareas pequeñas y concretas.** Menos pasos significa menos contexto reenviado.
 - **Empieza de cero entre tareas no relacionadas** para no arrastrar el historial antiguo.
 - **Indica a Codex los archivos correctos** en lugar de dejar que busque en todo el repositorio.
-- **Mantén breve tu archivo de instrucciones** y escríbelo en inglés si normalmente usas otro idioma: con el tokenizador de GPT, el coreano ocupa unas 1,44× y el japonés 1,79× los tokens del inglés.
+- **Mantén breve tu archivo de instrucciones** y escríbelo en inglés si normalmente usas otro idioma: con el tokenizador de GPT, el coreano ocupa un 44 % más de tokens que el inglés y el japonés un 79 % más.
 
 Muchos de estos hábitos también sirven para Claude Code: consulta [Cómo ahorrar tokens en Claude Code](/blog/claude-code-save-tokens) (en inglés).
 
@@ -67,4 +67,11 @@ Muchos de estos hábitos también sirven para Claude Code: consulta [Cómo ahorr
 Ambos están incluidos en planes de $20, $100 y $200 con sistemas de límites parecidos. La [comparativa ChatGPT Pro vs Claude Max](/blog/chatgpt-pro-vs-claude-max) (en inglés) explica las diferencias, y la [calculadora de agentes de programación](/es/agents) compara los costos mensuales de la API con cada plan.
 
 *Los límites cambian a menudo. La [página de ayuda de OpenAI sobre el uso de Codex y Work](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex) tiene las cifras actualizadas.*
+
+## Fuentes
+
+- [Ayuda de OpenAI: uso en Work y Codex](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)
+- [Ayuda de OpenAI: reinicios guardados de Codex](https://help.openai.com/en/articles/20001498-how-banked-codex-resets-work)
+- [Planes de ChatGPT y precios de Codex](https://learn.chatgpt.com/docs/pricing)
+- [Ayuda de OpenAI: planes de ChatGPT Pro](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
 <!-- autoimg -->

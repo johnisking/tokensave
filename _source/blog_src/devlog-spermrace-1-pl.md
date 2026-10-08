@@ -101,3 +101,8 @@ Dla porównania: jeśli wpiszesz małą grę do [kalkulatora kosztów gry z AI](
 Na razie wygląda to tak: „AI zrobiła grę w 3 dni, proste”. Ale prawdziwa walka zaczęła się później. Budowanie zajęło 3 dni, naprawianie błędów – 14.
 
 **Dalej: [3 dni budowania, 14 dni naprawiania błędów](/pl/blog/testy-zamkniete-google-play-14-dni)** – dlaczego AI grzebie w niewłaściwym kodzie, gdy prosisz ją „znajdź błąd”, i jak w końcu sam zacząłem szukać błędów, a AI je naprawiała.
+
+## Źródła
+
+- [Pomoc Konsoli Play: pierwsze kroki (jednorazowa opłata rejestracyjna 25 USD)](https://support.google.com/googleplay/android-developer/answer/6112435)
+- [Cennik Claude (plan Pro)](https://claude.com/pricing)

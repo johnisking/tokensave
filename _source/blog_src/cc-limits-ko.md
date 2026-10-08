@@ -28,7 +28,7 @@ Anthropic은 정확한 토큰 수 대신 요금제끼리의 배수로 설명합�
 
 ![2026년에 바뀐 것: 2026년 5월 6일; 2026년 여름; 2026년 9월 14일](/claude-code-sayongnyang-hando-ko-3.jpg)
 
-- **2026년 5월 6일:** Anthropic이 Pro·Max·Team·좌석형 Enterprise 요금제의 **클로드 코드 5시간 한도를 두 배로** 늘렸습니다. Pro·Max의 피크 시간대 한도 축소도 없앴습니다.
+- **2026년 5월 6일:** Anthropic이 Pro·Max·Team·좌석형 Enterprise 요금제의 **클로드 코드 5시간 한도를 100%** 늘렸습니다. Pro·Max의 피크 시간대 한도 축소도 없앴습니다.
 - **2026년 여름:** 주간 한도에 **50% 임시 증량**이 적용됐습니다.
 - **2026년 9월 14일:** Pro·Max·Team·좌석형 Enterprise의 **기본 주간 한도를 영구적으로 25% 올렸습니다.** 다만 50% 임시 증량을 대체한 것이라, 여름보다는 약 17% 줄어든 셈입니다. 원래 기준보다는 25% 많습니다.
 
@@ -55,7 +55,7 @@ Anthropic은 정확한 토큰 수 대신 요금제끼리의 배수로 설명합�
 - **큰 파일과 로그.** 3,000줄짜리 파일이나 테스트 로그 전체를 읽으면 수만 토큰이 더해집니다.
 - **막연한 지시.** "프로젝트 정리해 줘"는 수십 단계, "auth.py의 실패하는 테스트 고쳐 줘"는 몇 단계면 끝납니다.
 - **Claude 앱 동시 사용.** 같은 한도에서 빠져나갑니다.
-- **한국어 지시문.** 같은 내용이라도 한국어는 영어보다 토큰을 더 씁니다(GPT 토크나이저 기준 약 1.44배).
+- **한국어 지시문.** 같은 내용이라도 한국어는 영어보다 토큰을 더 씁니다(GPT 토크나이저 기준 약 44% 더 많음).
 
 ## 한도를 늘려 쓰는 법
 
@@ -71,4 +71,11 @@ Anthropic은 정확한 토큰 수 대신 요금제끼리의 배수로 설명합�
 주간 한도에 자주 걸린다면, 그 추가분을 API로 냈을 때 비용과 한 단계 위 요금제를 비교해 보세요. [클로드 코드 한 달 요금 계산](/ko/blog/claude-code-yogeum)과 [코딩 에이전트 비용 계산기](/ko/agents)가 계산해 드립니다.
 
 *한도는 바뀝니다. 최신 규칙은 Anthropic의 [클로드 코드 요금제 도움말](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)과 [요금 페이지](https://claude.com/pricing)를 확인하세요.*
+
+## 출처
+
+- [Pro·Max 요금제로 클로드 코드 사용하기 (Claude 도움말 센터)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [Claude 요금제 (Anthropic)](https://claude.com/pricing)
+- [유료 Claude 요금제의 추가 사용량 (Claude 도움말 센터)](https://support.claude.com/en/articles/12429409-extra-usage-for-max-20x-plans)
+- [비용을 효과적으로 관리하기 (Claude Code 문서)](https://code.claude.com/docs/en/costs)
 <!-- autoimg -->

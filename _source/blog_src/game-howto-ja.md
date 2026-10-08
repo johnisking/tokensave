@@ -100,4 +100,15 @@ Steam では、AIで作った素材を使っている場合に申告が必要で
 [AIゲーム制作費計算機](/ja/ai-game-cost-calculator)では、ジャンル（33種類）、規模、エンジン（21種類）、出し先を選ぶと、費用と期間に加えて**開発スタート・画像・音楽・効果音・トレーラー用のプロンプト**がまとめて出ます。気になったジャンルでそのまま試してみてください。
 
 Roblox（ロブロックス）でゲームを作りたい人は、[AIでRobloxゲームを作る方法](/ja/blog/roblox-game-tsukurikata)もどうぞ。
+
+## 出典
+
+- [Claude 料金プラン（Pro・Max）](https://claude.com/pricing)
+- [Midjourney プラン比較](https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans)
+- [Suno 料金](https://suno.com/pricing)
+- [ElevenLabs 料金](https://elevenlabs.io/pricing)
+- [Play Console ヘルプ：Play Console を使ってみる（登録料 US$25）](https://support.google.com/googleplay/android-developer/answer/6112435)
+- [Apple Developer Program（年間メンバーシップ）](https://developer.apple.com/programs/)
+- [Steamworks：Steam Direct 手数料](https://partner.steamgames.com/doc/gettingstarted/appfee)
+- [Steamworks：コンテンツアンケート（AI生成コンテンツの申告）](https://partner.steamgames.com/doc/gettingstarted/contentsurvey)
 <!-- autoimg -->

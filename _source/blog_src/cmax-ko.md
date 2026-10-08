@@ -75,4 +75,11 @@ $200 가격대에서 Claude Max 20×는 이제 기본 요금제의 20배이고, 
 [코딩 에이전트 계산기](/ko/agents)로 내 Claude Code 사용 방식에 맞춰 Pro, Max, API를 비교하거나, 대화 위주라면 [구독 vs API 계산기](/ko/plans)를 써 보세요.
 
 *가격과 한도는 바뀝니다. 업그레이드하기 전에 [claude.com/pricing](https://claude.com/pricing)을 확인하세요.*
+
+## 출처
+
+- [Claude 요금제 (Anthropic)](https://claude.com/pricing)
+- [Pro·Max 요금제로 클로드 코드 사용하기 (Claude 도움말 센터)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [유료 Claude 요금제의 추가 사용량 (Claude 도움말 센터)](https://support.claude.com/en/articles/12429409-extra-usage-for-max-20x-plans)
+- [Claude API 가격 (Anthropic 문서)](https://platform.claude.com/docs/en/about-claude/pricing)
 <!-- autoimg -->

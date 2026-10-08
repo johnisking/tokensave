@@ -67,4 +67,14 @@ Plak een echte prompt in de [tokenteller](/nl/). Je ziet dan het exacte aantal t
 Betaal je liever een vast bedrag per maand? Bekijk dan de [AI-abonnementen](/nl/plans) en het artikel over [AI-abonnement prijzen](/nl/blog/ai-abonnement-prijzen).
 
 *Prijzen volgens de officiële prijslijsten, gecontroleerd op 1 oktober 2026. Prijzen veranderen vaak. Check de prijspagina van de aanbieder voordat je een model kiest.*
+
+## Bronnen
+
+- [OpenAI API-prijzen](https://developers.openai.com/api/docs/pricing)
+- [OpenAI: GPT-5 nano-model](https://developers.openai.com/api/docs/models/gpt-5-nano)
+- [Alibaba Cloud: prijs van qwen3.8-flash](https://www.alibabacloud.com/help/en/model-studio/qwen3-8-flash)
+- [Mistral AI: Mistral Large 3](https://docs.mistral.ai/models/mistral-large-3-25-12)
+- [Gemini API-prijzen](https://ai.google.dev/gemini-api/docs/pricing)
+- [DeepSeek API-modellen en prijzen](https://api-docs.deepseek.com/quick_start/pricing/)
+- [Claude API-prijzen](https://platform.claude.com/docs/en/about-claude/pricing)
 <!-- autoimg -->

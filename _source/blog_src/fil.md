@@ -1,6 +1,6 @@
-![Gumagamit ang Filipino ng 1.53× na token kumpara sa English sa GPT](/token-filipino-gpt-fil.jpg)
+![Gumagamit ang Filipino ng 53% mas maraming token kaysa English sa GPT](/token-filipino-gpt-fil.jpg)
 
-Isinalin ko ang parehong customer-support prompt sa 41 wika at binilang ang token gamit ang o200k_base, ang kasalukuyang tokenizer ng OpenAI (GPT-4o at mas bago). Sa English, 34 token; sa Filipino, **52 token — 1.53× ng English**, ika-22 sa 41 (1 = pinakamura).
+Isinalin ko ang parehong customer-support prompt sa 41 wika at binilang ang token gamit ang o200k_base, ang kasalukuyang tokenizer ng OpenAI (GPT-4o at mas bago). Sa English, 34 token; sa Filipino, **52 token — 53% na mas marami kaysa sa English**, ika-22 sa 41 (1 = pinakamura).
 
 Ang bersyong Filipino:
 
@@ -10,19 +10,19 @@ Ang bersyong Filipino:
 
 | Wika | Token | Kumpara sa English | Matitipid kung ipapadala sa English |
 |---|---:|---:|---:|
-| English | 34 | 1.00× | – |
-| 简体中文 | 35 | 1.03× | 3% |
-| Español | 40 | 1.18× | 15% |
-| Deutsch | 43 | 1.26× | 21% |
-| 한국어 | 49 | 1.44× | 31% |
-| हिन्दी | 51 | 1.50× | 33% |
-| **Filipino** | **52** | **1.53×** | **35%** |
-| 日本語 | 61 | 1.79× | 44% |
-| Čeština | 68 | 2.00× | 50% |
-| Ελληνικά | 70 | 2.06× | 51% |
-| ਪੰਜਾਬੀ | 83 | 2.44× | 59% |
+| English | 34 | ±0% | – |
+| 简体中文 | 35 | +3% | 3% |
+| Español | 40 | +18% | 15% |
+| Deutsch | 43 | +26% | 21% |
+| 한국어 | 49 | +44% | 31% |
+| हिन्दी | 51 | +50% | 33% |
+| **Filipino** | **52** | **+53%** | **35%** |
+| 日本語 | 61 | +79% | 44% |
+| Čeština | 68 | +100% | 50% |
+| Ελληνικά | 70 | +106% | 51% |
+| ਪੰਜਾਬੀ | 83 | +144% | 59% |
 
-![Mga resulta](/blog-language-tax-chart-v4.png)
+![Chart: dagdag na token ng bawat wika kumpara sa English sa GPT](/blog-language-tax-chart-v5.png)
 
 ## Bakit
 
@@ -40,7 +40,7 @@ Pinakamalaki ang matitipid kung sa English mo ipapadala ang prompt: mga 35% na m
 
 ## Sa pera
 
-Sa model na $2 bawat 1 milyong input token, ang pagpapadala ng prompt na ito nang 1 milyong beses ay $68 sa English at $104 sa Filipino. Kung Filipino rin ang sagot, parehong multiplier ang tatama sa output token, na kadalasang 4–5× na mas mahal.
+Sa model na $2 bawat 1 milyong input token, ang pagpapadala ng prompt na ito nang 1 milyong beses ay $68 sa English at $104 sa Filipino. Kung Filipino rin ang sagot, parehong multiplier ang tatama sa output token, na kadalasang 300–400% na mas mahal.
 
 ## Paano makatipid
 
@@ -56,5 +56,13 @@ Sa model na $2 bawat 1 milyong input token, ang pagpapadala ng prompt na ito nan
 - Iba ang tokenizer ng Claude at Gemini; para lang sa mga OpenAI model ang mga numerong ito.
 - Batay ang salin sa sinuring machine translation.
 
+Subukan ang sarili mong text sa [token counter](/fil/); makikita ang lahat ng wika sa [talaan ng mga wika](/languages).
+
 Buong resulta ng 41 wika (sa English): [paghahambing ng 41 wika](/blog/token-cost-by-language)
+
+## Mga sanggunian
+
+- [tiktoken: tokenizer ng OpenAI (o200k_base) sa GitHub](https://github.com/openai/tiktoken)
+- [Presyo ng OpenAI API](https://developers.openai.com/api/docs/pricing)
+
 <!-- autoimg -->

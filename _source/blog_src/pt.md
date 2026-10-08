@@ -1,6 +1,6 @@
-![O português gasta 1,21× mais tokens que o inglês no GPT](/tokens-portugues-gpt-pt.jpg)
+![O português gasta 21% mais tokens que o inglês no GPT](/tokens-portugues-gpt-pt.jpg)
 
-Traduzi o mesmo prompt de atendimento ao cliente para 41 idiomas e contei os tokens com o o200k_base, o tokenizador atual da OpenAI (GPT-4o e posteriores). Em inglês são 34 tokens; em português, **41: 1,21× o inglês**, posição 5 de 41 (1 = o mais barato).
+Traduzi o mesmo prompt de atendimento ao cliente para 41 idiomas e contei os tokens com o o200k_base, o tokenizador atual da OpenAI (GPT-4o e posteriores). Em inglês são 34 tokens; em português, **41: 21% a mais que o inglês**, posição 5 de 41 (1 = o mais barato).
 
 A versão em português:
 
@@ -10,19 +10,19 @@ A versão em português:
 
 | Idioma | Tokens | Em relação ao inglês | Economia se enviado em inglês |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | – |
-| 简体中文 | 35 | 1,03× | 3% |
-| Español | 40 | 1,18× | 15% |
-| **Português** | **41** | **1,21×** | **17%** |
-| Deutsch | 43 | 1,26× | 21% |
-| 한국어 | 49 | 1,44× | 31% |
-| हिन्दी | 51 | 1,50× | 33% |
-| 日本語 | 61 | 1,79× | 44% |
-| Čeština | 68 | 2,00× | 50% |
-| Ελληνικά | 70 | 2,06× | 51% |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
+| English | 34 | ±0% | – |
+| 简体中文 | 35 | +3% | 3% |
+| Español | 40 | +18% | 15% |
+| **Português** | **41** | **+21%** | **17%** |
+| Deutsch | 43 | +26% | 21% |
+| 한국어 | 49 | +44% | 31% |
+| हिन्दी | 51 | +50% | 33% |
+| 日本語 | 61 | +79% | 44% |
+| Čeština | 68 | +100% | 50% |
+| Ελληνικά | 70 | +106% | 51% |
+| ਪੰਜਾਬੀ | 83 | +144% | 59% |
 
-![Resultados](/blog-language-tax-chart-v4.png)
+![Gráfico: tokens extras de cada idioma em relação ao inglês no GPT (41 idiomas)](/blog-language-tax-chart-v5.png)
 
 ## Por quê
 
@@ -36,11 +36,11 @@ O tokenizador aprende principalmente com texto em inglês: palavras como " polit
 
 ## Mude para o inglês com um botão
 
-A maior economia é enviar seu prompt em inglês: cerca de 17% menos tokens do que em português. Os modelos atuais entendem perfeitamente instruções em inglês e respondem em português se você pedir. No contador de tokens do TokenSave, cole seu prompt e pressione **💸 Economizar tokens**: ele limpa os espaços, traduz para o inglês, corta o excesso e adiciona "Reply in Portuguese." para que a resposta continue no seu idioma. Ele usa o tradutor integrado ao Chrome 138+ / Edge 148+ para desktop; a tradução acontece no seu próprio dispositivo e seu texto nunca é enviado. Pressione **↩ Original** para recuperar o original.
+A maior economia é enviar seu prompt em inglês: cerca de 17% menos tokens do que em português. Os modelos atuais entendem perfeitamente instruções em inglês e respondem em português se você pedir. No [contador de tokens do TokenSave](/pt/), cole seu prompt e pressione **💸 Economizar tokens**: ele limpa os espaços, traduz para o inglês, corta o excesso e adiciona "Reply in Portuguese." para que a resposta continue no seu idioma. Ele usa o tradutor integrado ao Chrome 138+ / Edge 148+ para desktop; a tradução acontece no seu próprio dispositivo e seu texto nunca é enviado. Pressione **↩ Original** para recuperar o original.
 
 ## Em dinheiro
 
-Com um modelo a US$ 2 por milhão de tokens de entrada, enviar este prompt um milhão de vezes custa US$ 68 em inglês e US$ 82 em português. Se a resposta também vier em português, o mesmo multiplicador vale para os tokens de saída, que costumam custar 4–5× mais.
+Com um modelo a US$ 2 por milhão de tokens de entrada, enviar este prompt um milhão de vezes custa US$ 68 em inglês e US$ 82 em português. Se a resposta também vier em português, a mesma diferença vale para os tokens de saída, que costumam custar 300–400% mais.
 
 ## Como economizar
 
@@ -57,4 +57,12 @@ Com um modelo a US$ 2 por milhão de tokens de entrada, enviar este prompt um mi
 - A tradução parte de uma tradução automática revisada.
 
 Resultados completos dos 41 idiomas (em inglês): [comparação de 41 idiomas](/blog/token-cost-by-language)
+
+Os 41 idiomas lado a lado estão na [tabela de idiomas](/languages).
+
+## Fontes
+
+- [tiktoken: o tokenizador da OpenAI (o200k_base) no GitHub](https://github.com/openai/tiktoken)
+- [Preços da API da OpenAI](https://developers.openai.com/api/docs/pricing)
+
 <!-- autoimg -->

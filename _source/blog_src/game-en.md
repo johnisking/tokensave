@@ -82,4 +82,16 @@ Tools you can pick in the calculator:
 ## Get the prompts too
 
 The calculator does more than price the project. Pick a genre, size, engine and platform and it writes a **dev kickoff prompt, art prompts, music and SFX prompts and a trailer storyboard** you can paste straight into Claude Code or Midjourney. It covers 33 genres and 21 engines, including Unity, Godot, Unreal and GameMaker.
+
+To see how these estimates hold up on a real release, read [the calculator checked against a shipped game](/blog/ai-game-cost-calculator-review).
+
+## Sources
+
+- [Claude pricing (Pro and Max plans)](https://claude.com/pricing)
+- [Comparing Midjourney plans](https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans)
+- [Suno pricing](https://suno.com/pricing)
+- [ElevenLabs pricing](https://elevenlabs.io/pricing)
+- [Google Play Console Help: get started (US$25 registration fee)](https://support.google.com/googleplay/android-developer/answer/6112435)
+- [Apple Developer Program (annual membership)](https://developer.apple.com/programs/)
+- [Steamworks: Steam Direct fee](https://partner.steamgames.com/doc/gettingstarted/appfee)
 <!-- autoimg -->

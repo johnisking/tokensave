@@ -88,4 +88,11 @@ Claude Sonnet 5.5 기준 간단한 계산법입니다.
 [코딩 에이전트 비용 계산기](/ko/agents)에서 작업 크기, 하루 작업 수, 작업일을 넣으면 Claude·GPT·Gemini 모델의 API 비용을 Claude·ChatGPT 요금제와 나란히 비교해 줍니다. 어떤 방식이든 토큰을 덜 쓰려면 [클로드 코드 토큰 절약 방법](/ko/blog/claude-code-token-jeolyak)을 보세요.
 
 *가격과 한도는 자주 바뀝니다. 결정하기 전에 [claude.com/pricing](https://claude.com/pricing)을 확인하세요.*
+
+## 출처
+
+- [Claude 요금제 (Anthropic)](https://claude.com/pricing)
+- [Claude API 가격 (Anthropic 문서)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Pro·Max 요금제로 클로드 코드 사용하기 (Claude 도움말 센터)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
+- [비용을 효과적으로 관리하기 (Claude Code 문서)](https://code.claude.com/docs/en/costs)
 <!-- autoimg -->

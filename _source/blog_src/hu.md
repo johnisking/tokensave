@@ -1,6 +1,6 @@
-![A magyar 1,74× annyi tokent használ a GPT-ben, mint az angol](/tokenek-magyar-gpt-hu.jpg)
+![A magyar 74%-kal több tokent használ a GPT-ben, mint az angol](/tokenek-magyar-gpt-hu.jpg)
 
-Ugyanazt az ügyfélszolgálati promptot lefordítottam 41 nyelvre, és a tokeneket az o200k_base-szel, az OpenAI jelenlegi tokenizálójával (GPT-4o és újabbak) számoltam meg. Angolul 34 token kell, magyarul **59 — ez 1,74× annyi**, 41 nyelv közül a 30. helyen a legolcsóbbtól számítva.
+Ugyanazt az ügyfélszolgálati promptot lefordítottam 41 nyelvre, és a tokeneket az o200k_base-szel, az OpenAI jelenlegi tokenizálójával (GPT-4o és újabbak) számoltam meg. Angolul 34 token kell, magyarul **59 — ez 74%-kal több**, 41 nyelv közül a 30. helyen a legolcsóbbtól számítva.
 
 A magyar változat:
 
@@ -10,19 +10,19 @@ A magyar változat:
 
 | Nyelv | Tokenek | Az angolhoz képest | Megtakarítás angol nyelvű küldéssel |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | – |
-| 简体中文 | 35 | 1,03× | 3% |
-| Español | 40 | 1,18× | 15% |
-| Deutsch | 43 | 1,26× | 21% |
-| 한국어 | 49 | 1,44× | 31% |
-| हिन्दी | 51 | 1,50× | 33% |
-| **Magyar** | **59** | **1,74×** | **43%** |
-| 日本語 | 61 | 1,79× | 44% |
-| Čeština | 68 | 2,00× | 50% |
-| Ελληνικά | 70 | 2,06× | 51% |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
+| English | 34 | ±0% | – |
+| 简体中文 | 35 | +3% | 3% |
+| Español | 40 | +18% | 15% |
+| Deutsch | 43 | +26% | 21% |
+| 한국어 | 49 | +44% | 31% |
+| हिन्दी | 51 | +50% | 33% |
+| **Magyar** | **59** | **+74%** | **43%** |
+| 日本語 | 61 | +79% | 44% |
+| Čeština | 68 | +100% | 50% |
+| Ελληνικά | 70 | +106% | 51% |
+| ਪੰਜਾਬੀ | 83 | +144% | 59% |
 
-![Eredmények](/blog-language-tax-chart-v4.png)
+![Diagram: nyelvenkénti többlettokenek az angolhoz képest a GPT-ben](/blog-language-tax-chart-v5.png)
 
 ## Miért
 
@@ -40,7 +40,7 @@ A legnagyobb megtakarítás, ha angolul küldöd a promptot: magyar nyelv eseté
 
 ## Pénzben
 
-Egy 1 millió bemeneti tokenenként 2 dolláros modellnél ezt a promptot egymilliószor elküldeni angolul 68 dollár, magyarul 118 dollár. Ha a válasz is magyarul jön, ugyanez a szorzó érvényes a kimeneti tokenekre, amelyek általában 4–5× drágábbak.
+Egy 1 millió bemeneti tokenenként 2 dolláros modellnél ezt a promptot egymilliószor elküldeni angolul 68 dollár, magyarul 118 dollár. Ha a válasz is magyarul jön, ugyanez a szorzó érvényes a kimeneti tokenekre, amelyek általában 300–400%-kal drágábbak.
 
 ## Hogyan spórolj
 
@@ -56,5 +56,13 @@ Egy 1 millió bemeneti tokenenként 2 dolláros modellnél ezt a promptot egymil
 - A Claude és a Gemini más tokenizálót használ — ezek a számok csak az OpenAI-modellekre érvényesek.
 - A fordítás ellenőrzött gépi fordításon alapul.
 
+Próbáld ki a saját szövegeddel a [tokenszámlálóban](/hu/); az összes nyelv összevetése a [nyelvi táblázatban](/languages) található.
+
 Mind a 41 nyelv eredménye (angolul): [41 nyelv összehasonlítása](/blog/token-cost-by-language)
+
+## Források
+
+- [tiktoken: az OpenAI tokenizálója (o200k_base) a GitHubon](https://github.com/openai/tiktoken)
+- [Az OpenAI API árai](https://developers.openai.com/api/docs/pricing)
+
 <!-- autoimg -->

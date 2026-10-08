@@ -48,7 +48,7 @@
 <p>使用量の倍率はそれぞれの会社の$20プランが基準なので、「Plus の5倍」と「Pro の5倍」が同じ作業量というわけではありません。どちらの会社も正確なトークン数は公開していません。</p>
 <h2>2026年9月に変わったこと</h2>
 <p><strong>$200では Claude のほうが倍率が大きくなりました。</strong> Claude Max 20× は基準プランの20倍、ChatGPT Pro 200 は10倍になりました。2つの$200プランで迷っていたヘビーユーザーにとって、いちばん大きな変化です。</p>
-<p><strong>ChatGPT は上位プランの割安感がなくなりました。</strong> Pro 100・200・500 はどれも「Plus 1つ分の使用量」あたり$20です。一方 Claude Max 20× は Max 5× の2倍の価格で4倍の使用量なので、1つ下のプランより1ドルあたりの使用量が多い唯一の$200プランです。詳しくは <a href="/ja/blog/chatgpt-pro-ryokin-hikaku">ChatGPT Pro 料金比較：Pro 100・200・500どれを選ぶ？</a>をご覧ください。</p>
+<p><strong>ChatGPT は上位プランの割安感がなくなりました。</strong> Pro 100・200・500 はどれも「Plus 1つ分の使用量」あたり$20です。一方 Claude Max 20× は Max 5× より価格が100%高く、使用量が300%多いので、1つ下のプランより1ドルあたりの使用量が多い唯一の$200プランです。詳しくは <a href="/ja/blog/chatgpt-pro-ryokin-hikaku">ChatGPT Pro 料金比較：Pro 100・200・500どれを選ぶ？</a>をご覧ください。</p>
 <p><strong>Claude は Claude Code の週の上限を少し減らしました。</strong> 9月14日、夏の間の週上限50%の一時増量が25%の恒久的な引き上げに置き換わり、夏より約17%少なくなりました。<a href="/ja/blog/claude-code-shiyouryou-jougen">Claude Code の使用量上限まとめ</a>もどうぞ。</p>
 <h2>使えるモデル</h2>
 <p><img loading="lazy" width="1200" height="636" alt="使えるモデル: 入力 100万トークン, 出力 100万トークン" src="/chatgpt-pro-vs-claude-max-ja-3.jpg" /></p>
@@ -86,7 +86,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>GPT-6 Astra はトークンあたり Claude Opus 5.5 の2.5倍です。主に最上位モデルを使うなら、同じ作業量で ChatGPT の上限のほうが早く減ると考えてください。GPT-6 Sol と Claude Sonnet 5.5 はトークン単価がまったく同じです。</p>
+<p>GPT-6 Astra はトークンあたり Claude Opus 5.5 より150%高いです。主に最上位モデルを使うなら、同じ作業量で ChatGPT の上限のほうが早く減ると考えてください。GPT-6 Sol と Claude Sonnet 5.5 はトークン単価がまったく同じです。</p>
 <h2>コーディングエージェント：Codex vs Claude Code</h2>
 <p>どちらもターミナルやエディタで動くエージェントが付いていて、どちらもステップごとに作業コンテキスト全体を送り直すため、チャットよりずっと多くのトークンを使います。25ステップの一般的な機能タスクなら入力トークンは約160万です。API で計算すると、Sonnet 5.5 や GPT-6 Sol で約$0.72、Opus 5.5 で$1.43、GPT-6 Astra で約$3.60です。</p>
 <p>毎日エージェントでコーディングするなら、ほぼ必ずプランのほうが API より安くなります。<a href="/ja/agents">コーディングエージェント費用計算機</a>で、自分の使用量で両プランと API を比べてみましょう。</p>
@@ -102,6 +102,15 @@
 - 最上位モデルのトークン単価を重視する（Opus 5.5 は Astra より安い）。</p>
 <p><strong>$20なら</strong>どちらも良いスタート地点です。好きなモデルの方から始め、上限にどれくらい当たるかを見て、頻繁に当たるようになってから上げましょう。</p>
 <h2>どちらも使わないという選択も</h2>
-<p>1日に数回使う程度なら、API がどのプランより安いこともあります。<a href="/ja/plans">サブスク vs API 計算機</a>で、自分の使い方の月額 API 費用を ChatGPT・Claude・Gemini の全プランと並べて確認できます。日本語は英語よりトークンが約1.79倍かかり、API 費用もそのぶん増えることも計算に入っています。</p>
+<p>1日に数回使う程度なら、API がどのプランより安いこともあります。<a href="/ja/plans">サブスク vs API 計算機</a>で、自分の使い方の月額 API 費用を ChatGPT・Claude・Gemini の全プランと並べて確認できます。日本語は英語よりトークンが約79%多くかかり、API 費用もそのぶん増えることも計算に入っています。</p>
 <p><em>プランと上限はよく変わります。加入前に <a href="https://chatgpt.com/pricing" target="_blank" rel="noopener">chatgpt.com/pricing</a> と <a href="https://claude.com/pricing" target="_blank" rel="noopener">claude.com/pricing</a> を確認してください。</em></p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://learn.chatgpt.com/docs/pricing" target="_blank" rel="noopener">ChatGPT のプランと Codex 料金</a></li>
+<li><a href="https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers" target="_blank" rel="noopener">OpenAI ヘルプ: ChatGPT Pro の各プラン</a></li>
+<li><a href="https://support.claude.com/en/articles/11049741-what-is-the-max-plan" target="_blank" rel="noopener">Claude ヘルプ: Max プランとは</a></li>
+<li><a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Claude ヘルプ: Pro・Max プランで Claude Code を使う</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI API 料金</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API 料金</a></li>
+</ul>
 <!-- autoimg -->

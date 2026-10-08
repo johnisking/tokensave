@@ -1,6 +1,6 @@
-![Româna folosește 1,53× tokenii englezei în GPT](/tokeni-romana-gpt-ro.jpg)
+![Româna: cu 53% mai mulți tokeni decât engleza în GPT](/tokeni-romana-gpt-ro.jpg)
 
-Am tradus același prompt de suport pentru clienți în 41 de limbi și am numărat tokenii cu o200k_base, tokenizatorul actual al OpenAI (GPT-4o și ulterioare). În engleză sunt 34 de tokeni; în română **52, adică 1,53× engleza**, locul 23 din 41 (1 = cel mai ieftin).
+Am tradus același prompt de suport pentru clienți în 41 de limbi și am numărat tokenii cu o200k_base, tokenizatorul actual al OpenAI (GPT-4o și ulterioare). În engleză sunt 34 de tokeni; în română **52, adică cu 53% mai mulți decât în engleză**, locul 23 din 41 (1 = cel mai ieftin).
 
 Versiunea în română:
 
@@ -10,19 +10,19 @@ Versiunea în română:
 
 | Limbă | Tokeni | Față de engleză | Economie dacă e trimis în engleză |
 |---|---:|---:|---:|
-| English | 34 | 1,00× | – |
-| 简体中文 | 35 | 1,03× | 3% |
-| Español | 40 | 1,18× | 15% |
-| Deutsch | 43 | 1,26× | 21% |
-| 한국어 | 49 | 1,44× | 31% |
-| हिन्दी | 51 | 1,50× | 33% |
-| **Română** | **52** | **1,53×** | **35%** |
-| 日本語 | 61 | 1,79× | 44% |
-| Čeština | 68 | 2,00× | 50% |
-| Ελληνικά | 70 | 2,06× | 51% |
-| ਪੰਜਾਬੀ | 83 | 2,44× | 59% |
+| English | 34 | ±0% | – |
+| 简体中文 | 35 | +3% | 3% |
+| Español | 40 | +18% | 15% |
+| Deutsch | 43 | +26% | 21% |
+| 한국어 | 49 | +44% | 31% |
+| हिन्दी | 51 | +50% | 33% |
+| **Română** | **52** | **+53%** | **35%** |
+| 日本語 | 61 | +79% | 44% |
+| Čeština | 68 | +100% | 50% |
+| Ελληνικά | 70 | +106% | 51% |
+| ਪੰਜਾਬੀ | 83 | +144% | 59% |
 
-![Rezultate](/blog-language-tax-chart-v4.png)
+![Grafic: tokeni în plus pentru fiecare limbă față de engleză în GPT (41 de limbi)](/blog-language-tax-chart-v5.png)
 
 ## De ce
 
@@ -36,11 +36,11 @@ Tokenizatorul învață mai ales din texte în engleză: cuvinte ca " polite" sa
 
 ## Treci la engleză cu un singur buton
 
-Cea mai mare economie vine din trimiterea promptului în engleză: cu circa 35% mai puțini tokeni pentru limba română. Modelele actuale înțeleg perfect instrucțiunile în engleză și răspund în română dacă le ceri. În contorul de tokeni TokenSave, lipește promptul și apasă **💸 Economisește tokeni**: elimină spațiile inutile, traduce în engleză, taie umplutura și adaugă „Reply in Romanian.”, ca răspunsul să rămână în limba ta. Folosește traducătorul integrat în Chrome 138+ / Edge 148+ pe desktop; traducerea rulează pe dispozitivul tău, iar textul nu este încărcat nicăieri. Apasă **↩ Original** ca să revii la original.
+Cea mai mare economie vine din trimiterea promptului în engleză: cu circa 35% mai puțini tokeni pentru limba română. Modelele actuale înțeleg perfect instrucțiunile în engleză și răspund în română dacă le ceri. În [contorul de tokeni TokenSave](/ro/), lipește promptul și apasă **💸 Economisește tokeni**: elimină spațiile inutile, traduce în engleză, taie umplutura și adaugă „Reply in Romanian.”, ca răspunsul să rămână în limba ta. Folosește traducătorul integrat în Chrome 138+ / Edge 148+ pe desktop; traducerea rulează pe dispozitivul tău, iar textul nu este încărcat nicăieri. Apasă **↩ Original** ca să revii la original.
 
 ## În bani
 
-Cu un model de 2 $ per milion de tokeni de intrare, trimiterea acestui prompt de un milion de ori costă 68 $ în engleză și 104 $ în română. Dacă și răspunsul e în română, același multiplicator se aplică tokenilor de ieșire, care costă de obicei de 4–5 ori mai mult.
+Cu un model de 2 $ per milion de tokeni de intrare, trimiterea acestui prompt de un milion de ori costă 68 $ în engleză și 104 $ în română. Dacă și răspunsul e în română, același multiplicator se aplică tokenilor de ieșire, care costă de obicei cu 300–400% mai mult.
 
 ## Cum economisești
 
@@ -57,4 +57,12 @@ Cu un model de 2 $ per milion de tokeni de intrare, trimiterea acestui prompt de
 - Traducerea pornește de la o traducere automată verificată.
 
 Rezultatele complete pentru 41 de limbi (în engleză): [comparație între 41 de limbi](/blog/token-cost-by-language)
+
+Toate cele 41 de limbi, una lângă alta, sunt în [tabelul limbilor](/languages).
+
+## Surse
+
+- [tiktoken: tokenizatorul OpenAI (o200k_base) pe GitHub](https://github.com/openai/tiktoken)
+- [Prețurile API OpenAI](https://developers.openai.com/api/docs/pricing)
+
 <!-- autoimg -->
