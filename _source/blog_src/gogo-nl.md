@@ -1,8 +1,12 @@
+![ChatGPT Go vs Plus: €8 of €23, welk abonnement past bij jou?](/chatgpt-go-vs-plus-nl.jpg)
+
 **Kort: ChatGPT Go (€8) is genoeg voor alledaagse vragen, maar Plus (€23) geeft je een sterker model, diepere denkstanden, volledige toegang tot Codex en geen advertenties.**
 
 ChatGPT Go kost €8 per maand, ChatGPT Plus €23, allebei inclusief 21% btw. In België betaal je dezelfde prijs. Sinds 6 augustus 2026 is gewone tekstchat in alle abonnementen onbeperkt, ook in de gratis versie. De oude reden om te upgraden, geen berichten meer over hebben, valt dus weg. Sinds 24 augustus toont ChatGPT in Nederland en België bovendien advertenties, in de gratis versie en in Go. Het gaat nu om drie vragen: **welk model antwoordt je, hoe grondig denkt het na, en zie je reclame?** Hieronder lees je wat die €15 extra je oplevert en voor wie dat de moeite waard is.
 
 ## Wat is het verschil tussen ChatGPT Go en Plus?
+
+![Wat is het verschil tussen ChatGPT Go en Plus?: ChatGPT Go, ChatGPT Plus](/chatgpt-go-vs-plus-wat-is-het-verschil-tussen-chatgpt-go-en-nl.jpg)
 
 Het grootste verschil is het model: Go gebruikt het kleine GPT-5.6 Luna, Plus het middelgrote GPT-5.6 Sol. Daarnaast krijg je bij Plus denkstanden, ruimere toegang tot Codex en ChatGPT Work, en geen advertenties.
 
@@ -32,6 +36,8 @@ Ja. Sinds 24 augustus 2026 toont OpenAI advertenties in de gratis versie en in G
 
 ## Voor wie is Go genoeg?
 
+![Voor wie is Go genoeg?: Je gebruikt ChatGPT voor gewone vragen, schrijfhulp en korte samenvattingen.; Codex en ChatGPT Work heb je nie](/chatgpt-go-vs-plus-voor-wie-is-go-genoeg-nl.jpg)
+
 Go past bij je als je ChatGPT vooral voor alledaagse dingen gebruikt en reclame je niet stoort.
 
 - Je gebruikt ChatGPT voor gewone vragen, schrijfhulp en korte samenvattingen.
@@ -40,6 +46,8 @@ Go past bij je als je ChatGPT vooral voor alledaagse dingen gebruikt en reclame 
 - Je wilt iets meer dan gratis, vooral meer geheugen, uploads en afbeeldingen, voor de laagste prijs.
 
 ## Voor wie is Plus de moeite waard?
+
+![Voor wie is Plus de moeite waard?: Je schrijft of analyseert lange documenten, of stelt vragen waarbij precisie belangrijk is.; Je wilt de denkst](/chatgpt-go-vs-plus-voor-wie-is-plus-de-moeite-waard-nl.jpg)
 
 Plus loont als nauwkeurigheid telt, als je programmeert of als je geen reclame wilt.
 
@@ -59,3 +67,4 @@ Als je vooral chat, vaak wel. Met GPT-6 Luna kosten 60 berichten per dag in lope
 Google AI Plus kost €4,99, maar verliest binnenkort het Pro-model ([Gemini gratis: alleen nog Flash-Lite](/nl/blog/gemini-gratis-flash-lite)). Google AI Pro kost €21,99. Claude heeft geen abonnement onder Pro. Anthropic noemt voor Pro een nettoprijs van €18, met 21% btw is dat €21,78. Dat bedrag hebben we zelf berekend, controleer het bij het afrekenen. Alle prijzen op een rij staan in ons [overzicht van AI-abonnementsprijzen](/nl/blog/ai-abonnement-prijzen).
 
 *Bronnen: Nederlandse prijzen volgens [LearnLLM](https://learnllm.nl/kennisbank/chatgpt-handleiding/wat-kost-chatgpt/) (op basis van OpenAI's Nederlandse prijspagina), advertenties volgens [Dagelijkse Standaard](https://www.dagelijksestandaard.nl/economie/gebruik-je-gratis-chatgpt-of-go-van-eur8-vanaf-nu-verschijnt-er-reclame) en [Frankwatching](https://www.frankwatching.com/archive/2026/08/25/chatgpt-ads-zijn-live-in-nederland-adverteren/), abonnementsdetails volgens [Dupple](https://dupple.com/learn/chatgpt-go-vs-plus), Google-prijzen volgens [Google AI-abonnementen (Nederland)](https://gemini.google/nl/subscriptions/), en onze gids over [ChatGPT-gebruikslimieten](/blog/chatgpt-usage-limits) (in het Engels). Stand: 6 oktober 2026. Controleer chatgpt.com/pricing voordat je een abonnement neemt.*
+<!-- autoimg -->

@@ -1,8 +1,12 @@
+![15 páginas de IA gratis que vale la pena guardar en favoritos](/paginas-de-ia-gratis-es.jpg)
+
 Hoy existen miles de páginas de IA, y la mayoría son simples envoltorios de los mismos pocos modelos. Esta es una lista corta de las **mejores páginas de inteligencia artificial** que de verdad merecen un lugar en tus favoritos: cada una hace bien una sola tarea, y todas son **páginas de IA gratis** que puedes probar sin pagar.
 
 Los planes gratuitos y sus límites cambian a menudo. Por eso, entiende "gratis" como "puedes empezar sin pagar" y revisa en cada sitio las condiciones actuales.
 
 ## Lista rápida de herramientas de IA
+
+![Lista rápida de herramientas de IA: Necesidad, Sitio, Por qué vale la pena](/paginas-de-ia-gratis-lista-rapida-de-herramientas-de-ia-es.jpg)
 
 | Necesidad | Sitio | Por qué vale la pena |
 |---|---|---|
@@ -74,6 +78,8 @@ La generación de video con IA es donde los costos suben más rápido. Antes de 
 
 ## Saber cuánto cuesta: TokenSave
 
+![Saber cuánto cuesta: TokenSave: Contador de tokens; Suscripción vs API; Costo de agentes de código](/paginas-de-ia-gratis-saber-cuanto-cuesta-tokensave-es.jpg)
+
 Tarde o temprano, la mayoría de estas herramientas de IA cobran por uso. **[TokenSave](/es/)** es un conjunto de calculadoras gratuitas que te muestran cuánto cuesta ese uso:
 
 - **[Contador de tokens](/es/):** pega un texto y ve los tokens y el costo en modelos GPT, Claude y Gemini. También puede reducir un prompt traduciéndolo al inglés en tu dispositivo.
@@ -85,6 +91,9 @@ Todo funciona en tu navegador, no hace falta registrarse y está disponible en 4
 
 ## Cómo elegir
 
+![Cómo elegir: Empieza con un asistente de chat. ChatGPT, Claude o Gemini cubren casi todo.; Añade una herramienta para tu ta](/paginas-de-ia-gratis-como-elegir-es.jpg)
+
 1. **Empieza con un asistente de chat.** ChatGPT, Claude o Gemini cubren casi todo.
 2. **Añade una herramienta para tu tarea principal.** Perplexity para investigar, DeepL para traducir, Canva para diseñar, CapCut para video.
 3. **Paga solo cuando el plan gratuito te limite.** Antes, revisa si te sale más barata una suscripción o la API según tu uso.
+<!-- autoimg -->

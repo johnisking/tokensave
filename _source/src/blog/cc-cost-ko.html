@@ -1,5 +1,7 @@
+<p><img loading="lazy" width="1200" height="630" alt="클로드 코드 요금 한 달에 얼마? Pro·Max·API 비교" src="/claude-code-yogeum-ko.jpg" /></p>
 <p>클로드 코드(Claude Code)는 Claude Pro·Max 구독에 포함되어 있고, 사용한 만큼 내는 API로도 쓸 수 있습니다. 그럼 한 달에 실제로 얼마가 들까요? 쓰는 양에 따라 다르고, 같은 작업이라도 어떻게 결제하느냐에 따라 10배 넘게 차이가 납니다. 실제 숫자로 정리했습니다.</p>
 <h2>결제 방법은 두 가지</h2>
+<p><img loading="lazy" width="1200" height="568" alt="결제 방법은 두 가지: 요금제, 월 가격, 사용량" src="/claude-code-yogeum-ko-2.jpg" /></p>
 <p><strong>1. 구독 요금제.</strong> 클로드 코드가 포함된 요금제입니다(미국 가격, 2026년 10월 확인).</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -60,6 +62,7 @@
 <p>클로드 코드는 단계별로 일합니다. 파일을 읽고, 고치고, 테스트를 돌리고, 결과를 보고, 다시 시도합니다. 그리고 <strong>단계마다 작업 맥락 전체</strong>(지시문, 도구 정의, 읽은 파일, 이전 단계)를 모델에 다시 보냅니다. 그래서 기능 하나 추가하는 작업에도 입력 토큰이 <strong>160만 개</strong> 정도 쉽게 들어갑니다. 작성하는 코드가 짧아도 그렇습니다.</p>
 <p>이 비용을 감당할 만하게 만드는 게 <strong>프롬프트 캐싱</strong>입니다. 반복되는 맥락은 입력 가격의 약 10%로 계산되고, 클로드 코드는 이걸 자동으로 씁니다.</p>
 <h2>API로 작업 하나에 드는 비용</h2>
+<p><img loading="lazy" width="1200" height="536" alt="API로 작업 하나에 드는 비용: 작업, 단계, Haiku 4.5, Sonnet 5.5, Opus 5.5" src="/claude-code-yogeum-ko-3.jpg" /></p>
 <p>토큰세이브 <a href="/ko/agents">코딩 에이전트 비용 계산기</a> 기준, 캐싱을 켠 경우입니다.</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -154,6 +157,7 @@
 </ul>
 <p>클로드 코드가 보내는 것의 대부분은 캐시된 맥락이라, 에이전트 작업의 실제 평균 단가는 Sonnet 기준 처리 토큰 100만 개당 $1보다 한참 아래인 경우가 많습니다. Opus는 그 두 배로 보면 됩니다.</p>
 <h2>어떻게 고를까</h2>
+<p><img loading="lazy" width="1200" height="732" alt="어떻게 고를까: 일주일에 몇 번 쓰는 정도라면 Pro로 시작하세요.; 한도에 얼마나 자주 걸리는지 보세요. 거의 매주 걸린다면, 추가 작업을 API로 내는 것보다 Max 5×가 쌀 가능성이 큽니다.; 자동화, CI" src="/claude-code-yogeum-ko-4.jpg" /></p>
 <ol>
 <li>일주일에 몇 번 쓰는 정도라면 <strong>Pro로 시작</strong>하세요.</li>
 <li><strong>한도에 얼마나 자주 걸리는지</strong> 보세요. 거의 매주 걸린다면, 추가 작업을 API로 내는 것보다 Max 5×가 쌀 가능성이 큽니다.</li>
@@ -163,3 +167,4 @@
 <h2>내 한 달 비용 계산해 보기</h2>
 <p><a href="/ko/agents">코딩 에이전트 비용 계산기</a>에서 작업 크기, 하루 작업 수, 작업일을 넣으면 Claude·GPT·Gemini 모델의 API 비용을 Claude·ChatGPT 요금제와 나란히 비교해 줍니다. 어떤 방식이든 토큰을 덜 쓰려면 <a href="/ko/blog/claude-code-token-jeolyak">클로드 코드 토큰 절약 방법</a>을 보세요.</p>
 <p><em>가격과 한도는 자주 바뀝니다. 결정하기 전에 <a href="https://claude.com/pricing" target="_blank" rel="noopener">claude.com/pricing</a>을 확인하세요.</em></p>
+<!-- autoimg -->

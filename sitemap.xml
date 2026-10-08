@@ -9606,7 +9606,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/nihongo-tokens-gpt-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nihongo-tokens-gpt-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nihongo-tokens-gpt-tokensave-ja.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -9655,7 +9664,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/korean-tokens-gpt-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/korean-tokens-gpt-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/korean-tokens-gpt-ko-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -9704,7 +9722,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/token-cost-by-language-en.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-cost-by-language-why-some-languages-cost-more-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-cost-by-language-how-to-spend-fewer-tokens-en.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -9753,7 +9780,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/zhongwen-token-gpt-zh-cn.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/zhongwen-token-gpt-zh-cn-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/zhongwen-token-gpt-zh-cn-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -9802,7 +9838,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/zhongwen-fanti-token-gpt-zh-tw.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/zhongwen-fanti-token-gpt-zh-tw-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/zhongwen-fanti-token-gpt-zh-tw-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -9851,7 +9896,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokens-espanol-gpt-es.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-espanol-gpt-por-que-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-espanol-gpt-como-ahorrar-es.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -9900,7 +9954,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokens-portugues-gpt-pt.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-portugues-gpt-por-que-pt.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-portugues-gpt-como-economizar-pt.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -9949,7 +10012,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokens-francais-gpt-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-francais-gpt-pourquoi-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-francais-gpt-comment-economiser-fr.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -9998,7 +10070,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokens-deutsch-gpt-de.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-deutsch-gpt-de-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-deutsch-gpt-so-sparst-du-de.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10047,7 +10128,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/token-italiano-gpt-it.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-italiano-gpt-perche-it.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-italiano-gpt-come-risparmiare-it.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10096,7 +10186,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokeny-russkiy-gpt-ru.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokeny-russkiy-gpt-ru-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokeny-russkiy-gpt-ru-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10145,7 +10244,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokeny-ukrainska-gpt-uk.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokeny-ukrainska-gpt-uk-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokeny-ukrainska-gpt-uk-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10194,7 +10302,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/token-turkce-gpt-tr.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-turkce-gpt-tr-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-turkce-gpt-nasl-tasarruf-edilir-tr.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10243,7 +10360,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokens-arabic-gpt-ar.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-arabic-gpt-ar-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-arabic-gpt-ar-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10292,7 +10418,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/token-farsi-gpt-fa.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-farsi-gpt-fa-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-farsi-gpt-fa-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10341,7 +10476,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokens-hindi-gpt-hi.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-hindi-gpt-hi-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-hindi-gpt-hi-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10390,7 +10534,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/token-bahasa-indonesia-gpt-id.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-bahasa-indonesia-gpt-mengapa-id.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-bahasa-indonesia-gpt-cara-berhemat-id.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10439,7 +10592,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/token-tieng-viet-gpt-vi.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-tieng-viet-gpt-vi-sao-vi.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-tieng-viet-gpt-cach-tiet-kiem-vi.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10488,7 +10650,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/token-phasa-thai-gpt-th.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-phasa-thai-gpt-th-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-phasa-thai-gpt-th-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10537,7 +10708,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokens-nederlands-gpt-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-nederlands-gpt-waarom-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-nederlands-gpt-zo-bespaar-je-nl.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10586,7 +10766,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/token-bangla-gpt-bn.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-bangla-gpt-bn-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-bangla-gpt-bn-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10635,7 +10824,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/token-urdu-gpt-ur.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-urdu-gpt-ur-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-urdu-gpt-ur-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10684,7 +10882,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/token-filipino-gpt-fil.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-filipino-gpt-fil-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-filipino-gpt-paano-makatipid-fil.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10733,7 +10940,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokens-svenska-gpt-sv.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-svenska-gpt-varfor-sv.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-svenska-gpt-sa-sparar-du-sv.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10782,7 +10998,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokens-ivrit-gpt-he.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-ivrit-gpt-he-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-ivrit-gpt-he-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10831,7 +11056,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokens-ellinika-gpt-el.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-ellinika-gpt-el-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-ellinika-gpt-el-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10880,7 +11114,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokeni-romana-gpt-ro.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokeni-romana-gpt-ro-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokeni-romana-gpt-cum-economisesti-ro.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10929,7 +11172,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokenek-magyar-gpt-hu.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokenek-magyar-gpt-hu-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokenek-magyar-gpt-hogyan-sporolj-hu.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -10978,7 +11230,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokens-dansk-gpt-da.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-dansk-gpt-hvorfor-da.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-dansk-gpt-sadan-sparer-du-da.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11027,7 +11288,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokenit-suomi-gpt-fi.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokenit-suomi-gpt-fi-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokenit-suomi-gpt-miten-saastaa-fi.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11076,7 +11346,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokens-norsk-gpt-no.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-norsk-gpt-hvorfor-no.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-norsk-gpt-slik-sparer-du-no.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11125,7 +11404,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tokeny-slovencina-gpt-sk.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokeny-slovencina-gpt-sk-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokeny-slovencina-gpt-ako-usetrit-sk.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11174,7 +11462,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/marathi-tokens-gpt-mr.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/marathi-tokens-gpt-mr-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/marathi-tokens-gpt-mr-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11223,7 +11520,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/gujarati-tokens-gpt-gu.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gujarati-tokens-gpt-gu-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gujarati-tokens-gpt-gu-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11272,7 +11578,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/kannada-tokens-gpt-kn.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/kannada-tokens-gpt-kn-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/kannada-tokens-gpt-kn-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11321,7 +11636,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/malayalam-tokens-gpt-ml.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/malayalam-tokens-gpt-ml-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/malayalam-tokens-gpt-ml-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11370,7 +11694,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/tamil-tokens-gpt-ta.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tamil-tokens-gpt-ta-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tamil-tokens-gpt-ta-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11419,7 +11752,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/telugu-tokens-gpt-te.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/telugu-tokens-gpt-te-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/telugu-tokens-gpt-te-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11468,7 +11810,16 @@
     <xhtml:link rel="alternate" hreflang="pa" href="https://tokensave.app/pa/blog/punjabi-tokens-gpt"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/token-cost-by-language"/>
     <image:image>
+      <image:loc>https://tokensave.app/punjabi-tokens-gpt-pa.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/blog-language-tax-chart-v4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/punjabi-tokens-gpt-pa-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/punjabi-tokens-gpt-pa-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11485,6 +11836,15 @@
     <image:image>
       <image:loc>https://tokensave.app/blog-chatgpt-pro-tiers.png</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-vs-200-vs-500-the-plans-side-by-side-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-vs-200-vs-500-which-one-should-you-pick-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-vs-200-vs-500-what-about-just-using-the-api-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/chatgpt-pro-yogeumje-bigyo</loc>
@@ -11499,6 +11859,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-pro-100-vs-200-vs-500"/>
     <image:image>
       <image:loc>https://tokensave.app/blog-chatgpt-pro-tiers.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-yogeumje-bigyo-ko-1.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-yogeumje-bigyo-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-yogeumje-bigyo-ko-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11515,6 +11884,15 @@
     <image:image>
       <image:loc>https://tokensave.app/blog-chatgpt-pro-tiers.png</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-ryokin-hikaku-ja-1.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-ryokin-hikaku-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-ryokin-hikaku-ja-3.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/chatgpt-pro-100-200-500-precios</loc>
@@ -11529,6 +11907,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-pro-100-vs-200-vs-500"/>
     <image:image>
       <image:loc>https://tokensave.app/blog-chatgpt-pro-tiers.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-200-500-precios-los-planes-uno-al-lado-del-otro-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-200-500-precios-cual-te-conviene-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-200-500-precios-y-si-mejor-usas-la-api-es.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11545,6 +11932,15 @@
     <image:image>
       <image:loc>https://tokensave.app/blog-chatgpt-pro-tiers.png</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-200-500-precos-os-planos-lado-a-lado-pt.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-200-500-precos-qual-plano-escolher-pt.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-200-500-precos-e-se-eu-usar-a-api-direto-pt.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/chatgpt-pro-100-200-500</loc>
@@ -11559,6 +11955,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-pro-100-vs-200-vs-500"/>
     <image:image>
       <image:loc>https://tokensave.app/blog-chatgpt-pro-tiers.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-200-500-chatgpt-pro-100-200-i-500-ile-kosztuje-k-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-200-500-ktory-plan-wybrac-i-czy-chatgpt-pro-jest-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-200-500-czy-api-jest-tansze-niz-chatgpt-pro-pl.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11575,6 +11980,15 @@
     <image:image>
       <image:loc>https://tokensave.app/blog-chatgpt-pro-tiers.png</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-200-500-wat-kost-chatgpt-pro-100-200-en-500-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-200-500-is-chatgpt-pro-het-waard-en-welk-abonnem-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-100-200-500-is-de-api-goedkoper-dan-chatgpt-pro-nl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/fr/blog/mistral-chatgpt-cout-prompt-francais</loc>
@@ -11582,6 +11996,15 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/mistral-chatgpt-cout-prompt-francais"/>
     <image:image>
       <image:loc>https://tokensave.app/blog-mistral-francais.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/mistral-chatgpt-cout-prompt-francais-resultats-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/mistral-chatgpt-cout-prompt-francais-pourquoi-le-francais-coute-plus-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/mistral-chatgpt-cout-prompt-francais-ce-que-ca-change-concretement-fr.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11591,6 +12014,15 @@
     <image:image>
       <image:loc>https://tokensave.app/blog-compteur-tokens-fr.png</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/compteur-de-tokens-pourquoi-un-token-c-est-quoi-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/compteur-de-tokens-pourquoi-le-test-un-e-mail-de-compte-rendu-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/compteur-de-tokens-pourquoi-5-raisons-d-utiliser-un-compteur-de-toke-fr.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/fr/blog/souverainete-ia-tokens</loc>
@@ -11598,6 +12030,15 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/souverainete-ia-tokens"/>
     <image:image>
       <image:loc>https://tokensave.app/blog-souverainete-ia-fr.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/souverainete-ia-tokens-1-la-langue-le-francais-paie-un-suppleme-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/souverainete-ia-tokens-2-les-donnees-ou-part-votre-prompt-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/souverainete-ia-tokens-check-list-pour-un-usage-plus-souverain-fr.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11607,6 +12048,15 @@
     <image:image>
       <image:loc>https://tokensave.app/blog-prompt-polski.png</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ile-kosztuje-prompt-po-polsku-wyniki-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ile-kosztuje-prompt-po-polsku-dlaczego-tak-drogo-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ile-kosztuje-prompt-po-polsku-co-to-oznacza-w-praktyce-pl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/jak-skrocic-prompt-po-polsku</loc>
@@ -11614,6 +12064,15 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/jak-skrocic-prompt-po-polsku"/>
     <image:image>
       <image:loc>https://tokensave.app/blog-prompt-pl-skracanie.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/jak-skrocic-prompt-po-polsku-pl-1.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/jak-skrocic-prompt-po-polsku-dlaczego-polski-kosztuje-wiecej-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/jak-skrocic-prompt-po-polsku-prompt-systemowy-tu-skracanie-daje-najwi-pl.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -11624,6 +12083,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/claude-code-precio"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-cost-per-month"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cost-per-month-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cost-per-month-two-ways-to-pay-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cost-per-month-what-one-task-costs-on-the-api-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cost-per-month-how-to-decide-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/claude-code-yogeum</loc>
@@ -11633,6 +12104,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/claude-code-precio"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-cost-per-month"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-yogeum-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-yogeum-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-yogeum-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-yogeum-ko-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/claude-code-ryoukin</loc>
@@ -11642,6 +12125,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/claude-code-precio"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-cost-per-month"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-ryoukin-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-ryoukin-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-ryoukin-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-ryoukin-ja-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/claude-code-precio</loc>
@@ -11651,6 +12146,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/claude-code-precio"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-cost-per-month"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-precio-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-precio-dos-formas-de-pagar-claude-code-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-precio-cuanto-cuesta-una-tarea-con-la-api-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-precio-como-decidir-es.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/claude-code-usage-limits</loc>
@@ -11662,6 +12169,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-claude-code"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/claude-code-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-usage-limits-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-usage-limits-how-much-each-plan-gets-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-usage-limits-what-changed-in-2026-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-usage-limits-what-to-do-when-you-hit-a-limit-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/claude-code-sayongnyang-hando</loc>
@@ -11673,6 +12192,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-claude-code"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/claude-code-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-sayongnyang-hando-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-sayongnyang-hando-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-sayongnyang-hando-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-sayongnyang-hando-ko-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/claude-code-shiyouryou-jougen</loc>
@@ -11684,6 +12215,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-claude-code"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/claude-code-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-shiyouryou-jougen-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-shiyouryou-jougen-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-shiyouryou-jougen-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-shiyouryou-jougen-ja-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/claude-code-limites-de-uso</loc>
@@ -11695,6 +12238,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-claude-code"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/claude-code-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-limites-de-uso-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-limites-de-uso-cuanto-incluye-cada-plan-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-limites-de-uso-que-cambio-en-2026-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-limites-de-uso-que-hacer-cuando-llegas-a-un-limite-es.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/limity-claude-code</loc>
@@ -11706,6 +12261,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-claude-code"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/claude-code-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/limity-claude-code-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/limity-claude-code-ile-uzycia-daje-kazdy-plan-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/limity-claude-code-co-zmienio-sie-w-2026-roku-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/limity-claude-code-co-zrobic-gdy-trafisz-na-limit-pl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/nl/blog/claude-code-limiet</loc>
@@ -11717,6 +12284,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-claude-code"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/claude-code-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-limiet-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-limiet-hoeveel-gebruik-krijg-je-per-plan-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-limiet-wat-veranderde-er-in-2026-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-limiet-wat-doe-je-als-je-een-limiet-raakt-nl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/claude-code-save-tokens</loc>
@@ -11725,6 +12304,9 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-token-jeolyak"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-token-setsuyaku"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-save-tokens"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-save-tokens-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/claude-code-token-jeolyak</loc>
@@ -11733,6 +12315,9 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-token-jeolyak"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-token-setsuyaku"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-save-tokens"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-token-jeolyak-ko.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/claude-code-token-setsuyaku</loc>
@@ -11741,6 +12326,9 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-token-jeolyak"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-token-setsuyaku"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-save-tokens"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-token-setsuyaku-ja.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/chatgpt-pro-vs-claude-max</loc>
@@ -11749,6 +12337,18 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-pro-vs-claude-max"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-pro-vs-claude-max"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-pro-vs-claude-max"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-vs-claude-max-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-vs-claude-max-the-plans-side-by-side-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-vs-claude-max-models-you-get-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-vs-claude-max-which-should-you-pick-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/chatgpt-pro-vs-claude-max</loc>
@@ -11757,6 +12357,18 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-pro-vs-claude-max"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-pro-vs-claude-max"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-pro-vs-claude-max"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-vs-claude-max-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-vs-claude-max-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-vs-claude-max-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-vs-claude-max-ko-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/chatgpt-pro-vs-claude-max</loc>
@@ -11765,6 +12377,18 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-pro-vs-claude-max"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-pro-vs-claude-max"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-pro-vs-claude-max"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-vs-claude-max-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-vs-claude-max-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-vs-claude-max-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-pro-vs-claude-max-ja-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/gpt-6-api-pricing</loc>
@@ -11773,6 +12397,18 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gpt-6-api-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gpt-6-api-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gpt-6-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-api-pricing-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-api-pricing-gpt-6-api-prices-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-api-pricing-what-it-costs-in-practice-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-api-pricing-ways-to-pay-less-en.jpg</image:loc>
+    </image:image>
     <image:image>
       <image:loc>https://tokensave.app/img/gpt-6-api-price-chart.svg</image:loc>
     </image:image>
@@ -11785,6 +12421,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gpt-6-api-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gpt-6-api-pricing"/>
     <image:image>
+      <image:loc>https://tokensave.app/gpt-6-api-gagyeok-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-api-gagyeok-gpt-6-api-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-api-gagyeok-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-api-gagyeok-ko-4.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/img/gpt-6-api-price-chart.svg</image:loc>
     </image:image>
   </url>
@@ -11795,6 +12443,18 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gpt-6-api-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gpt-6-api-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gpt-6-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-api-ryoukin-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-api-ryoukin-gpt-6-api-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-api-ryoukin-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-api-ryoukin-ja-4.jpg</image:loc>
+    </image:image>
     <image:image>
       <image:loc>https://tokensave.app/img/gpt-6-api-price-chart.svg</image:loc>
     </image:image>
@@ -11807,6 +12467,15 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/llm-api-ryoukin-hikaku"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/llm-api-pricing-comparison"/>
     <image:image>
+      <image:loc>https://tokensave.app/llm-api-pricing-comparison-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/llm-api-pricing-comparison-api-prices-compared-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/llm-api-pricing-comparison-what-is-the-cheapest-llm-api-en.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/img/llm-api-price-chart.svg</image:loc>
     </image:image>
   </url>
@@ -11817,6 +12486,15 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/llm-api-gagyeok-bigyo"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/llm-api-ryoukin-hikaku"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/llm-api-pricing-comparison"/>
+    <image:image>
+      <image:loc>https://tokensave.app/llm-api-gagyeok-bigyo-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/llm-api-gagyeok-bigyo-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/llm-api-gagyeok-bigyo-llm-api-ko.jpg</image:loc>
+    </image:image>
     <image:image>
       <image:loc>https://tokensave.app/img/llm-api-price-chart.svg</image:loc>
     </image:image>
@@ -11829,6 +12507,15 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/llm-api-ryoukin-hikaku"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/llm-api-pricing-comparison"/>
     <image:image>
+      <image:loc>https://tokensave.app/llm-api-ryoukin-hikaku-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/llm-api-ryoukin-hikaku-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/llm-api-ryoukin-hikaku-llm-api-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/img/llm-api-price-chart.svg</image:loc>
     </image:image>
   </url>
@@ -11839,6 +12526,15 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/token-dangeo-geulja"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/token-mojisuu"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/tokens-per-word"/>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-per-word-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-per-word-english-about-1-1-to-1-3-tokens-per-word-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tokens-per-word-other-languages-tokens-per-character-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/token-dangeo-geulja</loc>
@@ -11847,6 +12543,15 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/token-dangeo-geulja"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/token-mojisuu"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/tokens-per-word"/>
+    <image:image>
+      <image:loc>https://tokensave.app/token-dangeo-geulja-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-dangeo-geulja-1-11-3-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-dangeo-geulja-ko-3.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/token-mojisuu</loc>
@@ -11855,6 +12560,15 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/token-dangeo-geulja"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/token-mojisuu"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/tokens-per-word"/>
+    <image:image>
+      <image:loc>https://tokensave.app/token-mojisuu-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-mojisuu-11-11-3-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-mojisuu-ja-3.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini</loc>
@@ -11863,6 +12577,15 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/token-segi-bangbeop"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/token-kazoekata"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini"/>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-count-tokens-gpt-claude-gemini-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-count-tokens-gpt-claude-gemini-quick-estimates-without-code-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-count-tokens-gpt-claude-gemini-which-count-should-you-trust-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/token-segi-bangbeop</loc>
@@ -11871,6 +12594,18 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/token-segi-bangbeop"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/token-kazoekata"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini"/>
+    <image:image>
+      <image:loc>https://tokensave.app/token-segi-bangbeop-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-segi-bangbeop-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-segi-bangbeop-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-segi-bangbeop-ko-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/token-kazoekata</loc>
@@ -11879,6 +12614,15 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/token-segi-bangbeop"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/token-kazoekata"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini"/>
+    <image:image>
+      <image:loc>https://tokensave.app/token-kazoekata-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-kazoekata-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/token-kazoekata-ja-3.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/chatgpt-usage-limits</loc>
@@ -11887,6 +12631,18 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-sayongnyang-hando"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-shiyouryou-jougen"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-usage-limits-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-usage-limits-what-is-still-limited-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-usage-limits-gpt-6-astra-limits-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-usage-limits-how-the-limits-reset-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/chatgpt-sayongnyang-hando</loc>
@@ -11895,6 +12651,18 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-sayongnyang-hando"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-shiyouryou-jougen"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-sayongnyang-hando-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-sayongnyang-hando-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-sayongnyang-hando-gpt-6-astra-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-sayongnyang-hando-ko-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/chatgpt-shiyouryou-jougen</loc>
@@ -11903,6 +12671,18 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-sayongnyang-hando"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-shiyouryou-jougen"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-shiyouryou-jougen-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-shiyouryou-jougen-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-shiyouryou-jougen-gpt-6-astra-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-shiyouryou-jougen-ja-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/codex-usage-limits</loc>
@@ -11914,6 +12694,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-codex"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/codex-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/codex-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-usage-limits-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-usage-limits-how-much-you-get-by-model-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-usage-limits-when-you-hit-the-limit-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-usage-limits-how-to-stretch-it-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/codex-sayongnyang-hando</loc>
@@ -11925,6 +12717,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-codex"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/codex-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/codex-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-sayongnyang-hando-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-sayongnyang-hando-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-sayongnyang-hando-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-sayongnyang-hando-ko-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/codex-shiyouryou-jougen</loc>
@@ -11936,6 +12740,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-codex"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/codex-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/codex-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-shiyouryou-jougen-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-shiyouryou-jougen-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-shiyouryou-jougen-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-shiyouryou-jougen-ja-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/codex-limites-de-uso</loc>
@@ -11947,6 +12763,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-codex"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/codex-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/codex-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-limites-de-uso-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-limites-de-uso-cuanto-uso-tienes-segun-el-modelo-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-limites-de-uso-cuando-llegas-al-limite-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-limites-de-uso-como-estirar-tu-cuota-es.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/limity-codex</loc>
@@ -11958,6 +12786,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-codex"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/codex-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/codex-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/limity-codex-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/limity-codex-ile-daje-codex-limit-plus-i-pro-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/limity-codex-co-zrobic-gdy-trafisz-na-limit-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/limity-codex-jak-wyduzyc-limit-codex-pl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/nl/blog/codex-limiet</loc>
@@ -11969,6 +12809,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-codex"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/codex-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/codex-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-limiet-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-limiet-hoeveel-geeft-de-codex-limiet-in-plus-en-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-limiet-wat-doe-je-als-je-de-limiet-raakt-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-limiet-hoe-rek-je-je-codex-limiet-op-nl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/claude-max-vs-pro</loc>
@@ -11978,6 +12830,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-max-vs-pro"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/claude-max-vs-pro"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-max-vs-pro"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-the-plans-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-who-should-stay-on-pro-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-who-should-get-max-5-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/claude-max-vs-pro</loc>
@@ -11987,6 +12851,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-max-vs-pro"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/claude-max-vs-pro"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-max-vs-pro"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-ko-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/claude-max-vs-pro</loc>
@@ -11996,6 +12872,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-max-vs-pro"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/claude-max-vs-pro"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-max-vs-pro"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-ja-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/claude-max-vs-pro</loc>
@@ -12005,6 +12893,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-max-vs-pro"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/claude-max-vs-pro"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-max-vs-pro"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-los-planes-y-el-precio-de-claude-max-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-quien-deberia-quedarse-en-pro-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-max-vs-pro-quien-deberia-pasarse-a-max-5-es.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/useful-ai-websites</loc>
@@ -12014,6 +12914,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-site-osusume"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/paginas-de-ia-gratis"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/useful-ai-websites"/>
+    <image:image>
+      <image:loc>https://tokensave.app/useful-ai-websites-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/useful-ai-websites-quick-list-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/useful-ai-websites-know-what-it-costs-tokensave-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/useful-ai-websites-how-to-pick-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/ai-site-chucheon</loc>
@@ -12023,6 +12935,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-site-osusume"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/paginas-de-ia-gratis"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/useful-ai-websites"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-site-chucheon-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-site-chucheon-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-site-chucheon-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-site-chucheon-ko-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/ai-site-osusume</loc>
@@ -12032,6 +12956,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-site-osusume"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/paginas-de-ia-gratis"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/useful-ai-websites"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-site-osusume-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-site-osusume-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-site-osusume-ai-tokensave-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-site-osusume-ja-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/paginas-de-ia-gratis</loc>
@@ -12041,6 +12977,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-site-osusume"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/paginas-de-ia-gratis"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/useful-ai-websites"/>
+    <image:image>
+      <image:loc>https://tokensave.app/paginas-de-ia-gratis-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/paginas-de-ia-gratis-lista-rapida-de-herramientas-de-ia-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/paginas-de-ia-gratis-saber-cuanto-cuesta-tokensave-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/paginas-de-ia-gratis-como-elegir-es.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/gemini-4-argon-api-pricing</loc>
@@ -12050,6 +12998,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-4-argon-api-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-4-argon-precio-api"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gemini-4-argon-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-api-pricing-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-api-pricing-gemini-4-argon-api-pricing-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-api-pricing-how-it-compares-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-api-pricing-how-to-spend-less-en.jpg</image:loc>
+    </image:image>
     <image:image>
       <image:loc>https://tokensave.app/img/gemini-4-argon-api-price-chart.svg</image:loc>
     </image:image>
@@ -12063,6 +13023,18 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-4-argon-precio-api"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gemini-4-argon-api-pricing"/>
     <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-api-gagyeok-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-api-gagyeok-gemini-4-argon-api-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-api-gagyeok-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-api-gagyeok-ko-4.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/img/gemini-4-argon-api-price-chart.svg</image:loc>
     </image:image>
   </url>
@@ -12075,6 +13047,18 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-4-argon-precio-api"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gemini-4-argon-api-pricing"/>
     <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-api-ryoukin-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-api-ryoukin-gemini-4-argon-api-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-api-ryoukin-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-api-ryoukin-ja-4.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://tokensave.app/img/gemini-4-argon-api-price-chart.svg</image:loc>
     </image:image>
   </url>
@@ -12086,6 +13070,18 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-4-argon-api-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-4-argon-precio-api"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gemini-4-argon-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-precio-api-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-precio-api-precio-de-la-api-de-gemini-4-argon-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-precio-api-como-se-compara-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-4-argon-precio-api-como-gastar-menos-es.jpg</image:loc>
+    </image:image>
     <image:image>
       <image:loc>https://tokensave.app/img/gemini-4-argon-api-price-chart.svg</image:loc>
     </image:image>
@@ -12100,6 +13096,15 @@
     <image:image>
       <image:loc>https://tokensave.app/img/ai-model-capability-vs-price.svg</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/best-value-llm-october-2026-the-short-version-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/best-value-llm-october-2026-4-expensive-for-what-you-get-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/best-value-llm-october-2026-how-to-use-this-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/ai-gaseongbi-sunwi-2026-10</loc>
@@ -12110,6 +13115,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/best-value-llm-october-2026"/>
     <image:image>
       <image:loc>https://tokensave.app/img/ko-ai-model-capability-vs-price.svg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-gaseongbi-sunwi-2026-10-ko-1.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-gaseongbi-sunwi-2026-10-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-gaseongbi-sunwi-2026-10-ko-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -12122,6 +13136,15 @@
     <image:image>
       <image:loc>https://tokensave.app/img/ja-ai-model-capability-vs-price.svg</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-cospa-ranking-2026-10-ja-1.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-cospa-ranking-2026-10-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-cospa-ranking-2026-10-ja-3.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/ai-game-development-cost</loc>
@@ -12132,6 +13155,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/wat-kost-een-game-maken-met-ai"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-development-cost-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-development-cost-cost-and-time-by-size-merge-game-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-development-cost-where-the-money-goes-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-development-cost-best-value-typical-and-top-tier-stacks-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/ai-game-jejakbi</loc>
@@ -12142,6 +13177,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/wat-kost-een-game-maken-met-ai"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-jejakbi-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-jejakbi-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-jejakbi-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-jejakbi-ko-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/ai-game-seisakuhi</loc>
@@ -12152,6 +13199,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/wat-kost-een-game-maken-met-ai"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-seisakuhi-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-seisakuhi-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-seisakuhi-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-seisakuhi-ja-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai</loc>
@@ -12162,6 +13221,18 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/wat-kost-een-game-maken-met-ai"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ile-kosztuje-gra-z-ai-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ile-kosztuje-gra-z-ai-ile-kosztuje-gra-mobilna-z-ai-w-zaleznos-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ile-kosztuje-gra-z-ai-na-co-ida-pieniadze-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ile-kosztuje-gra-z-ai-ktory-zestaw-narzedzi-wybrac-najtaniej-s-pl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/nl/blog/wat-kost-een-game-maken-met-ai</loc>
@@ -12172,11 +13243,35 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/wat-kost-een-game-maken-met-ai"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/wat-kost-een-game-maken-met-ai-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/wat-kost-een-game-maken-met-ai-wat-kost-een-game-maken-met-ai-per-groot-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/wat-kost-een-game-maken-met-ai-waar-gaat-het-geld-naartoe-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/wat-kost-een-game-maken-met-ai-welke-toolset-kies-je-voordeligst-typisc-nl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/ai-game-tsukurikata</loc>
     <lastmod>2026-10-05</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-game-tsukurikata"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-tsukurikata-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-tsukurikata-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-tsukurikata-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-game-tsukurikata-ja-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/vibe-coding-a-game-beginner</loc>
@@ -12413,6 +13508,15 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/najtansze-api-ai"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/goedkoopste-ai-api"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/cheapest-llm-api"/>
+    <image:image>
+      <image:loc>https://tokensave.app/cheapest-llm-api-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cheapest-llm-api-the-cheapest-llm-apis-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cheapest-llm-api-which-cheap-model-to-pick-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/najtansze-api-ai</loc>
@@ -12421,6 +13525,15 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/najtansze-api-ai"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/goedkoopste-ai-api"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/cheapest-llm-api"/>
+    <image:image>
+      <image:loc>https://tokensave.app/najtansze-api-ai-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/najtansze-api-ai-najtansze-api-ai-cennik-i-koszt-1-mln-to-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/najtansze-api-ai-ktory-tani-model-wybrac-pl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/nl/blog/goedkoopste-ai-api</loc>
@@ -12429,6 +13542,15 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/najtansze-api-ai"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/goedkoopste-ai-api"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/cheapest-llm-api"/>
+    <image:image>
+      <image:loc>https://tokensave.app/goedkoopste-ai-api-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/goedkoopste-ai-api-wat-zijn-de-goedkoopste-ai-api-s-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/goedkoopste-ai-api-welk-goedkoop-model-kies-je-nl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/claude-pro-max-how-many-tokens</loc>
@@ -12437,6 +13559,15 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-claude-pro-max"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/claude-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-pro-max-how-many-tokens"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-pro-max-how-many-tokens-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-pro-max-how-many-tokens-the-short-answer-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-pro-max-how-many-tokens-what-uses-your-allowance-fastest-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/limity-claude-pro-max</loc>
@@ -12445,6 +13576,15 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-claude-pro-max"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/claude-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-pro-max-how-many-tokens"/>
+    <image:image>
+      <image:loc>https://tokensave.app/limity-claude-pro-max-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/limity-claude-pro-max-ile-tokenow-daje-claude-max-i-claude-pro-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/limity-claude-pro-max-co-najszybciej-zuzywa-limit-claude-pl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/nl/blog/claude-limiet</loc>
@@ -12453,212 +13593,695 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/limity-claude-pro-max"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/claude-limiet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-pro-max-how-many-tokens"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-limiet-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-limiet-hoeveel-tokens-geeft-claude-pro-en-claud-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-limiet-wat-verbruikt-je-claude-limiet-het-snels-nl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/ai-subscription-price-comparison</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-subscription-price-comparison-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-subscription-price-comparison-every-plan-one-table-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-subscription-price-comparison-how-much-more-do-you-get-for-100-or-200-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-subscription-price-comparison-what-the-limits-actually-limit-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/gpt-6-1-sol-api-pricing</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/gpt-6-1-sol-api-pricing"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gpt-6-1-sol-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-1-sol-api-pricing-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-1-sol-api-pricing-gpt-6-1-sol-api-pricing-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-1-sol-api-pricing-gpt-6-1-sol-vs-claude-opus-5-5-and-sonne-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-6-1-sol-api-pricing-what-improved-over-gpt-6-sol-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/deepseek-v4-1-flash-api-pricing</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/deepseek-v4-1-flash-api-pricing"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/deepseek-v4-1-flash-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/deepseek-v4-1-flash-api-pricing-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/deepseek-v4-1-flash-api-pricing-deepseek-v4-1-flash-api-pricing-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/deepseek-v4-1-flash-api-pricing-when-are-the-cheap-hours-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/deepseek-v4-1-flash-api-pricing-should-you-use-it-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-vs-codex-vs-cursor-cost-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-vs-codex-vs-cursor-cost-the-plans-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-vs-codex-vs-cursor-cost-which-gives-the-most-for-200-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-vs-codex-vs-cursor-cost-what-a-month-costs-on-the-api-for-refere-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-go-vs-plus-at-a-glance-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-who-should-pick-go-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-who-should-pick-plus-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/roblox-trending-games</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/roblox-trending-games"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/roblox-trending-games"/>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-trending-games-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-trending-games-the-8-formulas-on-the-roblox-charts-octo-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-trending-games-what-it-costs-to-make-one-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/how-to-make-a-roblox-game-with-ai</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/how-to-make-a-roblox-game-with-ai"/>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-what-you-need-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-step-3-make-the-3d-models-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-what-it-costs-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/gemini-yogeumje-gaepyeon</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-yogeumje-gaepyeon"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-yogeumje-gaepyeon-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-yogeumje-gaepyeon-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-yogeumje-gaepyeon-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-yogeumje-gaepyeon-ko-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/ai-gudokryo-bigyo</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-gudokryo-bigyo"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-gudokryo-bigyo-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-gudokryo-bigyo-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-gudokryo-bigyo-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-gudokryo-bigyo-ko-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-go-vs-plus"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-go-vs-plus-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-ko-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/gemini-muryou-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-muryou-flash-lite"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-muryou-flash-lite-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-muryou-flash-lite-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-muryou-flash-lite-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-muryou-flash-lite-pro-api-ja.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-subscription-ryoukin-hikaku-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-subscription-ryoukin-hikaku-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-subscription-ryoukin-hikaku-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-subscription-ryoukin-hikaku-ja-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-go-vs-plus"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-go-plus-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-ja-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/roblox-game-tsukurikata</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/roblox-game-tsukurikata"/>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-roblox-202610-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-ja-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/zh-tw/blog/gemini-mianfei-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/gemini-mianfei-flash-lite"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-mianfei-flash-lite-zh-tw.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-mianfei-flash-lite-zh-tw-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-mianfei-flash-lite-zh-tw-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-mianfei-flash-lite-pro-api-zh-tw.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-dingyue-jiage-bijiao-zh-tw.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-dingyue-jiage-bijiao-zh-tw-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-dingyue-jiage-bijiao-nt-650-690-zh-tw.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-dingyue-jiage-bijiao-us-100-zh-tw.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-zh-tw.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-go-plus-zh-tw.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-zh-tw-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-zh-tw-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/fr/blog/gemini-gratuit-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/gemini-gratuit-flash-lite"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratuit-flash-lite-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratuit-flash-lite-quels-modeles-pour-quelle-formule-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratuit-flash-lite-a-partir-de-quand-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratuit-flash-lite-un-modele-de-niveau-pro-pour-quelques-eu-fr.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif"/>
+    <image:image>
+      <image:loc>https://tokensave.app/abonnement-ia-prix-comparatif-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/abonnement-ia-prix-comparatif-tous-les-prix-en-france-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/abonnement-ia-prix-comparatif-autour-de-20-meme-prix-usages-differents-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/abonnement-ia-prix-comparatif-100-a-220-regardez-le-prix-par-unite-d-u-fr.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/fr/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-go-vs-plus"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-go-et-plus-en-un-coup-d-il-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-go-est-fait-pour-vous-si-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-plus-est-fait-pour-vous-si-fr.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/gemini-gratis-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-gratis-flash-lite"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratis-flash-lite-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratis-flash-lite-que-modelos-incluye-cada-plan-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratis-flash-lite-cuando-cambia-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratis-flash-lite-usar-pro-sin-suscripcion-la-api-es.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/precio-suscripciones-ia</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/precio-suscripciones-ia"/>
+    <image:image>
+      <image:loc>https://tokensave.app/precio-suscripciones-ia-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/precio-suscripciones-ia-precios-en-espana-y-mexico-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/precio-suscripciones-ia-por-20-dolares-lo-que-cambia-es-para-que-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/precio-suscripciones-ia-planes-caros-mira-el-precio-por-unidad-d-es.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-go-vs-plus"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-go-vs-plus-de-un-vistazo-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-quien-deberia-elegir-go-es.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-quien-deberia-elegir-plus-es.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pt/blog/gemini-gratis-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/gemini-gratis-flash-lite"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratis-flash-lite-pt.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratis-flash-lite-quais-modelos-cada-plano-usa-pt.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratis-flash-lite-quando-cada-mudanca-comeca-pt.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratis-flash-lite-usar-o-pro-pagando-pouco-a-api-pt.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pt/blog/preco-assinaturas-ia</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/preco-assinaturas-ia"/>
+    <image:image>
+      <image:loc>https://tokensave.app/preco-assinaturas-ia-pt.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/preco-assinaturas-ia-os-precos-no-brasil-numa-tabela-pt.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/preco-assinaturas-ia-na-faixa-dos-r-100-a-diferenca-esta-no-u-pt.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/preco-assinaturas-ia-planos-caros-olhe-o-preco-por-unidade-de-pt.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pt/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-go-vs-plus"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-pt.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-go-vs-plus-lado-a-lado-pt.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-quem-deve-escolher-o-go-pt.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-quem-deve-escolher-o-plus-pt.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/uk/blog/gemini-bezkoshtovno-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/gemini-bezkoshtovno-flash-lite"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-bezkoshtovno-flash-lite-uk.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-bezkoshtovno-flash-lite-uk-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-bezkoshtovno-flash-lite-uk-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-bezkoshtovno-flash-lite-pro-api-uk.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/uk/blog/tsiny-pidpysok-shi</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/tsiny-pidpysok-shi"/>
+    <image:image>
+      <image:loc>https://tokensave.app/tsiny-pidpysok-shi-uk.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tsiny-pidpysok-shi-uk-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tsiny-pidpysok-shi-uk-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/tsiny-pidpysok-shi-uk-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/uk/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-go-vs-plus"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-uk.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-go-plus-uk.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-uk-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-uk-4.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/de/blog/gemini-kostenlos-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/gemini-kostenlos-flash-lite"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-kostenlos-flash-lite-de.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-kostenlos-flash-lite-welche-modelle-es-in-welchem-tarif-gibt-de.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-kostenlos-flash-lite-ab-wann-gilt-was-de.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-kostenlos-flash-lite-pro-leistung-gunstig-nutzen-uber-die-api-de.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/de/blog/ki-abo-preisvergleich</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/ki-abo-preisvergleich"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ki-abo-preisvergleich-de.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ki-abo-preisvergleich-alle-tarife-auf-einen-blick-de.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ki-abo-preisvergleich-in-der-20-klasse-entscheidet-die-nutzung-de.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ki-abo-preisvergleich-100-oder-200-achte-auf-den-preis-pro-ein-de.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/de/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-go-vs-plus"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-de.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-go-und-plus-im-vergleich-de.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-fur-wen-sich-go-lohnt-de.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-fur-wen-sich-plus-lohnt-de.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/gemini-za-darmo-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gemini-za-darmo-flash-lite"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-za-darmo-flash-lite-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-za-darmo-flash-lite-jakie-modele-w-ktorym-planie-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-za-darmo-flash-lite-od-kiedy-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-za-darmo-flash-lite-model-pro-taniej-przez-api-pl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/ceny-subskrypcji-ai</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ceny-subskrypcji-ai"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ceny-subskrypcji-ai-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ceny-subskrypcji-ai-polskie-ceny-w-jednej-tabeli-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ceny-subskrypcji-ai-za-ok-100-z-dostajesz-cos-innego-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ceny-subskrypcji-ai-drozsze-plany-patrz-na-cene-za-jednostke-pl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/chatgpt-go-vs-plus"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-go-i-plus-w-skrocie-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-reklamy-kto-je-widzi-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-komu-wystarczy-go-pl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/nl/blog/gemini-gratis-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/gemini-gratis-flash-lite"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratis-flash-lite-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratis-flash-lite-welke-modellen-krijg-je-in-welk-abonneme-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratis-flash-lite-vanaf-wanneer-geldt-wat-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gemini-gratis-flash-lite-hoe-gebruik-je-pro-goedkoop-via-de-api-nl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/nl/blog/ai-abonnement-prijzen</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/ai-abonnement-prijzen"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-abonnement-prijzen-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-abonnement-prijzen-wat-kost-chatgpt-claude-en-gemini-per-ma-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-abonnement-prijzen-welk-ai-abonnement-van-20-past-bij-jou-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-abonnement-prijzen-is-100-of-200-per-maand-goedkoper-per-ee-nl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/nl/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/chatgpt-go-vs-plus"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-wat-is-het-verschil-tussen-chatgpt-go-en-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-voor-wie-is-go-genoeg-nl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-go-vs-plus-voor-wie-is-plus-de-moeite-waard-nl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/popularne-gry-roblox</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/popularne-gry-roblox"/>
+    <image:image>
+      <image:loc>https://tokensave.app/popularne-gry-roblox-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/popularne-gry-roblox-jakie-gry-sa-teraz-popularne-w-roblox-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/popularne-gry-roblox-ile-kosztuje-zrobienie-takiej-gry-pl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/gra-roblox-z-ai</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gra-roblox-z-ai"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gra-roblox-z-ai-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gra-roblox-z-ai-czego-potrzebujesz-zeby-zrobic-gre-w-rob-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gra-roblox-z-ai-krok-3-jak-zrobic-modele-3d-z-roblox-stu-pl.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gra-roblox-z-ai-ile-kosztuje-zrobienie-gry-w-roblox-z-ai-pl.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/ai-game-cost-calculator-review</loc>
@@ -12865,124 +14488,357 @@
     </image:image>
   </url>
   <url>
+    <loc>https://tokensave.app/ko/blog/indie-game-gaebal-biyong</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/indie-game-gaebal-biyong"/>
+    <image:image>
+      <image:loc>https://tokensave.app/indie-game-gaebal-biyong-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/indie-game-cost-4-items-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/unity-vs-godot-vs-unreal-cost-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/steam-google-play-apple-fee-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/indie-game-outsourcing-vs-ai-cost-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/indie-game-dev-time-factors-ko.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://tokensave.app/blog/what-is-a-token</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/what-is-a-token"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/what-is-a-token"/>
+    <image:image>
+      <image:loc>https://tokensave.app/what-is-a-token-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/what-is-a-token-rules-of-thumb-for-english-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/what-is-a-token-other-languages-use-more-tokens-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/what-is-a-token-key-takeaways-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/how-to-estimate-ai-api-cost</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/how-to-estimate-ai-api-cost"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/how-to-estimate-ai-api-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-estimate-ai-api-cost-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-estimate-ai-api-cost-step-3-add-the-multipliers-people-forget-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-estimate-ai-api-cost-a-worked-example-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-estimate-ai-api-cost-ways-to-bring-the-number-down-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/why-output-tokens-cost-more</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/why-output-tokens-cost-more"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/why-output-tokens-cost-more"/>
+    <image:image>
+      <image:loc>https://tokensave.app/why-output-tokens-cost-more-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/why-output-tokens-cost-more-how-big-is-the-gap-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/why-output-tokens-cost-more-six-ways-to-use-fewer-output-tokens-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/context-window-explained</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/context-window-explained"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/context-window-explained"/>
+    <image:image>
+      <image:loc>https://tokensave.app/context-window-explained-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/context-window-explained-what-a-context-window-is-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/context-window-explained-what-to-do-instead-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/cut-token-cost-non-english-prompts</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/cut-token-cost-non-english-prompts"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/cut-token-cost-non-english-prompts"/>
+    <image:image>
+      <image:loc>https://tokensave.app/cut-token-cost-non-english-prompts-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cut-token-cost-non-english-prompts-the-language-tax-measured-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cut-token-cost-non-english-prompts-why-it-matters-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/ai-video-cost-per-minute</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-video-cost-per-minute"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-video-cost-per-minute"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-video-cost-per-minute-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-video-cost-per-minute-one-minute-of-1080p-video-with-audio-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-video-cost-per-minute-cheaper-at-720p-or-without-sound-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-video-cost-per-minute-how-to-spend-less-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/ai-image-cost-per-image</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-image-cost-per-image"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-image-cost-per-image"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-image-cost-per-image-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-image-cost-per-image-price-per-1024px-image-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-image-cost-per-image-resolution-changes-the-price-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-image-cost-per-image-which-one-to-pick-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/chatgpt-subscription-vs-api</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-subscription-vs-api"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-subscription-vs-api"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-subscription-vs-api-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-subscription-vs-api-what-a-month-of-chat-costs-on-the-api-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-subscription-vs-api-what-moves-the-break-even-point-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-subscription-vs-api-rules-of-thumb-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/ai-coding-agent-cost</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-coding-agent-cost"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-coding-agent-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-coding-agent-cost-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-coding-agent-cost-why-agents-use-so-many-tokens-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-coding-agent-cost-what-one-task-costs-on-the-api-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-coding-agent-cost-from-one-task-to-a-month-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens"/>
+    <image:image>
+      <image:loc>https://tokensave.app/json-vs-yaml-vs-csv-tokens-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/json-vs-yaml-vs-csv-tokens-results-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/json-vs-yaml-vs-csv-tokens-what-this-costs-at-scale-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/json-vs-yaml-vs-csv-tokens-other-ways-to-shrink-structured-data-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/how-many-tokens-does-code-use</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/how-many-tokens-does-code-use"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/how-many-tokens-does-code-use"/>
+    <image:image>
+      <image:loc>https://tokensave.app/how-many-tokens-does-code-use-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-many-tokens-does-code-use-indentation-is-almost-free-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-many-tokens-does-code-use-where-coding-tokens-really-go-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-many-tokens-does-code-use-a-practical-checklist-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/numbers-dates-emoji-tokens</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/numbers-dates-emoji-tokens"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/numbers-dates-emoji-tokens"/>
+    <image:image>
+      <image:loc>https://tokensave.app/numbers-dates-emoji-tokens-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/numbers-dates-emoji-tokens-numbers-are-split-into-groups-of-three-d-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/numbers-dates-emoji-tokens-dates-and-times-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/numbers-dates-emoji-tokens-how-to-save-tokens-on-this-kind-of-data-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/gpt-tokenizer-cl100k-vs-o200k</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/gpt-tokenizer-cl100k-vs-o200k"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/gpt-tokenizer-cl100k-vs-o200k"/>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-tokenizer-cl100k-vs-o200k-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/gpt-tokenizer-cl100k-vs-o200k-measured-the-same-prompt-in-41-languages-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/prompt-caching-explained</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/prompt-caching-explained"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/prompt-caching-explained"/>
+    <image:image>
+      <image:loc>https://tokensave.app/prompt-caching-explained-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/prompt-caching-explained-the-one-rule-the-cached-part-must-be-an-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/prompt-caching-explained-a-worked-example-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/prompt-caching-explained-details-that-vary-by-provider-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/write-shorter-prompts</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/write-shorter-prompts"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/write-shorter-prompts"/>
+    <image:image>
+      <image:loc>https://tokensave.app/write-shorter-prompts-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/write-shorter-prompts-what-to-keep-or-add-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/reasoning-models-cost</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/reasoning-models-cost"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/reasoning-models-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/reasoning-models-cost-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/reasoning-models-cost-where-the-cost-hides-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/reasoning-models-cost-when-reasoning-is-worth-paying-for-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/reasoning-models-cost-when-it-is-usually-wasted-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/batch-api-half-price</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/batch-api-half-price"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/batch-api-half-price"/>
+    <image:image>
+      <image:loc>https://tokensave.app/batch-api-half-price-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/batch-api-half-price-how-batch-processing-works-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/batch-api-half-price-what-it-saves-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/batch-api-half-price-good-fits-for-batch-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/rag-vs-long-context-cost</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/rag-vs-long-context-cost"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/rag-vs-long-context-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/rag-vs-long-context-cost-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/rag-vs-long-context-cost-the-cost-per-question-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/rag-vs-long-context-cost-when-long-context-is-the-better-choice-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/rag-vs-long-context-cost-when-rag-is-the-better-choice-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/ai-cost-per-user</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-cost-per-user"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-cost-per-user"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-cost-per-user-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-cost-per-user-step-1-describe-a-typical-user-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-cost-per-user-step-2-cost-per-message-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-cost-per-user-step-3-cost-per-user-per-month-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/blog/ai-cost-glossary</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-cost-glossary"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-cost-glossary"/>
+    <image:image>
+      <image:loc>https://tokensave.app/ai-cost-glossary-en.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/</loc>

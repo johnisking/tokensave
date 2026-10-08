@@ -1,6 +1,10 @@
+![Gemini 4 Argon API Pricing: Cost vs GPT-6 and Claude](/gemini-4-argon-api-pricing-en.jpg)
+
 Google announced **Gemini 4 Argon** on September 30, 2026, its new top model. It is built for coding, cybersecurity and long agentic workflows, and Google says it beats GPT-6 Astra and Claude Fable and Opus on a range of benchmarks. Here is what it costs on the API, what a real request costs, and how it compares with GPT and Claude.
 
 ## Gemini 4 Argon API pricing
+
+![Gemini 4 Argon API pricing: Rate, Input, Cached input, Output](/gemini-4-argon-api-pricing-gemini-4-argon-api-pricing-en.jpg)
 
 Prices per million tokens. It starts at an introductory rate and moves to the standard rate later.
 
@@ -18,6 +22,8 @@ Argon can also **output up to 1 million tokens** in a single response. Long outp
 Not yet. For now it is limited to partners in Google's Fairwind cyber-defense program, with a rollout to Google AI Ultra subscribers and paid API customers coming next. The API model ID is reported as `gemini-4-argon`, but it is not in the public docs yet.
 
 ## How it compares
+
+![How it compares: Model, Per 1M tokens (in/out), 1 request, 10,000 requests](/gemini-4-argon-api-pricing-how-it-compares-en.jpg)
 
 A typical request: 2,000 input tokens and 500 output tokens.
 
@@ -52,6 +58,8 @@ A common setup is to send everyday requests to Flash or 3.1 Pro and route only t
 
 ## How to spend less
 
+![How to spend less: Test during the introductory period. It is half the standard price, the best time to see if it fits your workl](/gemini-4-argon-api-pricing-how-to-spend-less-en.jpg)
+
 1. **Test during the introductory period.** It is half the standard price, the best time to see if it fits your workload.
 2. **Use caching.** Cached input is 95% off, so keep fixed instructions and documents at the start of the prompt.
 3. **Cap the output.** It can write up to 1 million tokens, and output costs 5x input. Ask for only what you need.
@@ -62,3 +70,4 @@ A common setup is to send everyday requests to Flash or 3.1 Pro and route only t
 Gemini 4 Argon is now in the [token counter](/) at the standard price. Paste a prompt you actually use and compare Argon, GPT-6 and Claude side by side.
 
 *Prices and rollout dates can change. Check the [Gemini API pricing page](https://ai.google.dev/gemini-api/docs/pricing) before large jobs.*
+<!-- autoimg -->

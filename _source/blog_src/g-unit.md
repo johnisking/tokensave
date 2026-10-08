@@ -1,6 +1,10 @@
+![AI Cost per User: How to Price an App Built on an LLM](/ai-cost-per-user-en.jpg)
+
 If you are building a product on top of an AI model, the most important number in your business plan is not the price per million tokens. It is **AI cost per user per month**. That number decides whether a free tier is affordable, what you can charge, and whether your heaviest users make or lose you money. Here is how to estimate it.
 
 ## Step 1: describe a typical user
+
+![Step 1: describe a typical user: Active on 15 days a month; 10 messages on each active day, so 150 messages a month; Each message sends about 2](/ai-cost-per-user-step-1-describe-a-typical-user-en.jpg)
 
 Start with behavior, not tokens. For a chat-style assistant, for example:
 
@@ -13,6 +17,8 @@ Measure these from a prototype if you can. Paste a real system prompt and a real
 
 ## Step 2: cost per message
 
+![Step 2: cost per message: Model, Input $/M, Output $/M, Cost per message](/ai-cost-per-user-step-2-cost-per-message-en.jpg)
+
 At API prices checked October 1, 2026:
 
 | Model | Input $/M | Output $/M | Cost per message |
@@ -23,6 +29,8 @@ At API prices checked October 1, 2026:
 | Claude Opus 5.5 | 4.00 | 20.00 | $0.0180 |
 
 ## Step 3: cost per user per month
+
+![Step 3: cost per user per month: Model, Typical user / month](/ai-cost-per-user-step-3-cost-per-user-per-month-en.jpg)
 
 Multiply by 150 messages:
 
@@ -69,3 +77,4 @@ Calculate it for a typical user, a heavy user and a free user, and check each on
 - [How to estimate your AI API bill before you build](/blog/how-to-estimate-ai-api-cost)
 - [ChatGPT Plus or the API: which is cheaper?](/blog/chatgpt-subscription-vs-api)
 - [Why output tokens cost more](/blog/why-output-tokens-cost-more)
+<!-- autoimg -->

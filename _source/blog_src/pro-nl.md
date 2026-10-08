@@ -6,6 +6,8 @@ De prijs van ChatGPT Pro is niet langer één bedrag. Op 29 september 2026 heeft
 
 ## Wat kost ChatGPT Pro 100, 200 en 500?
 
+![Wat kost ChatGPT Pro 100, 200 en 500?: Abonnement, Prijs / maand (VS), Gebruik (Plus = 100%), Prijs per "Plus aan gebruik", Ultrafast](/chatgpt-pro-100-200-500-wat-kost-chatgpt-pro-100-200-en-500-nl.jpg)
+
 Pro 100 kost $100, Pro 200 $200 en Pro 500 $500 per maand. Voor elke dollar krijg je evenveel gebruik, dus een duurder abonnement is gewoon meer van hetzelfde.
 
 | Abonnement | Prijs / maand (VS) | Gebruik (Plus = 100%) | Prijs per "Plus aan gebruik" | Ultrafast |
@@ -34,6 +36,8 @@ De regel is dus simpel: **koop het kleinste abonnement waarin je niet tegen de l
 
 ## Is ChatGPT Pro het waard, en welk abonnement kies je?
 
+![Is ChatGPT Pro het waard, en welk abonnement kies je?: Je haalt de Plus-limiet zelden; Je loopt een paar keer per week tegen de Plus-limiet aan; Je komt in Pro 100 r](/chatgpt-pro-100-200-500-is-chatgpt-pro-het-waard-en-welk-abonnem-nl.jpg)
+
 ChatGPT Pro is pas het geld waard als je regelmatig door je Plus-limiet heen gaat. Voor de meeste mensen is Plus genoeg.
 
 - **Je haalt de Plus-limiet zelden:** blijf bij Plus ($20, in Nederland €23). Geen enkel Pro-abonnement geeft slimmere antwoorden in gewone chats. Je krijgt er alleen meer van.
@@ -45,6 +49,8 @@ ChatGPT Pro is pas het geld waard als je regelmatig door je Plus-limiet heen gaa
 Twijfel je eerder tussen de goedkopere abonnementen? Lees dan [ChatGPT Go vs Plus](/nl/blog/chatgpt-go-vs-plus). Gebruik je vooral Claude? Bekijk dan [de limieten van Claude Pro en Max](/nl/blog/claude-limiet).
 
 ## Is de API goedkoper dan ChatGPT Pro?
+
+![Is de API goedkoper dan ChatGPT Pro?: Jouw gebruik, GPT-6 Sol API, GPT-6 Astra API](/chatgpt-pro-100-200-500-is-de-api-goedkoper-dan-chatgpt-pro-nl.jpg)
 
 Vaak wel. Stuur je vooral korte of middellange berichten, dan is betalen per token meestal veel goedkoper dan welk Pro-abonnement ook.
 
@@ -68,3 +74,4 @@ De conclusie: wie het gewone model licht of gemiddeld gebruikt, is meestal beter
 Iedereen gebruikt ChatGPT anders. In de [rekenmachine abonnement vs API](/nl/plans) vul je in hoeveel berichten je stuurt, hoe lang ze zijn en in welke taal je schrijft. Je ziet dan wat dezelfde maand via de API zou kosten, naast de abonnementen van ChatGPT, Claude en Gemini. Gebruik je een coding-agent, kijk dan bij de [rekenmachine voor agents](/nl/agents). De kosten van een losse prompt check je met de [tokenteller](/nl/).
 
 *Prijzen per 1 oktober 2026. Nederlandse europrijzen volgens [LearnLLM](https://learnllm.nl/kennisbank/chatgpt-handleiding/wat-kost-chatgpt/) (van vóór de herindeling van 29 september 2026). OpenAI kan de limieten opnieuw aanpassen. Check chatgpt.com/pricing voordat je koopt.*
+<!-- autoimg -->

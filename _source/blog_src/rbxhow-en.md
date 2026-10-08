@@ -1,6 +1,10 @@
+![How to Make a Roblox Game with AI (2026): Steps, Tools, Cost](/how-to-make-a-roblox-game-with-ai-en.jpg)
+
 You can make a Roblox game in 2026 without knowing how to code. Roblox Studio has a built-in AI, Roblox Assistant, that plans the game, builds it, writes the Luau scripts and makes 3D models, and you can connect an outside coding agent such as Claude Code or Cursor for bigger jobs. Here is the whole process, what each tool does, what it costs, and how you get paid.
 
 ## What you need
+
+![What you need: Roblox Studio (free, Windows or Mac) and a Roblox account.; A game idea. If you don't have one, start from wha](/how-to-make-a-roblox-game-with-ai-what-you-need-en.jpg)
 
 - **Roblox Studio** (free, Windows or Mac) and a Roblox account.
 - **A game idea.** If you don't have one, start from what is climbing the charts: [What's trending on Roblox right now](/blog/roblox-trending-games).
@@ -19,6 +23,8 @@ Tip: keep version one small. One map, one core action, one way to progress. You 
 Press **Build** and Assistant works through the plan, creating parts, models and scripts in your place. If it stops at a response limit, press **Continue**. The result is a rough but playable prototype.
 
 ## Step 3: Make the 3D models
+
+![Step 3: Make the 3D models: /generate_mesh makes a textured 3D model, for example /generate_mesh a cartoon treasure chest with gold trim.;](/how-to-make-a-roblox-game-with-ai-step-3-make-the-3d-models-en.jpg)
 
 Assistant generates 3D models from a text prompt (or a reference image), powered by Roblox's Cube model:
 
@@ -49,6 +55,8 @@ Make a 512×512 game icon and a few 1920×1080 thumbnails (any image AI works; k
 
 ## What it costs
 
+![What it costs: Stack, Cost](/how-to-make-a-roblox-game-with-ai-what-it-costs-en.jpg)
+
 From our calculator, for a small Roblox game built solo:
 
 | Stack | Cost |
@@ -77,3 +85,4 @@ Example: 10,000 Robux of game pass sales → you keep 7,000 Robux → about $27 
 Open the [AI game cost calculator](/ai-game-cost-calculator), choose Roblox, and you get the cost, the time and a prompt pack for Roblox: the Studio kickoff prompt, 3D model prompts for Assistant, icons, thumbnails, music and sound effects.
 
 *Sources: Roblox Creator Hub guides [Build your first game with Assistant](https://create.roblox.com/docs/ai/build-with-assistant), [Assistant for Studio](https://create.roblox.com/docs/assistant/guide) and [Developer Exchange](https://create.roblox.com/docs/production/monetization/developer-exchange), checked October 6, 2026.*
+<!-- autoimg -->

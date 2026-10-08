@@ -1,8 +1,12 @@
+![ChatGPT, Claude en Gemini prijzen in euro (incl. 21% btw)](/ai-abonnement-prijzen-nl.jpg)
+
 **Kort:** voor de meeste mensen is een abonnement van rond de €22 genoeg: ChatGPT Plus kost €23, Google AI Pro €21,99 en Claude Pro ongeveer €21,78 per maand, allemaal inclusief 21% btw.
 
 ChatGPT, Claude, Gemini en Grok verkopen elk drie tot vijf betaalde abonnementen. De prijzen lopen van €4,99 tot ruim €200 per maand. Elke aanbieder gebruikt andere namen, en de ene toont prijzen met btw, de andere zonder. Hieronder vind je alle abonnementen met het bedrag dat je in Nederland en België echt betaalt. Je ziet ook wat je in de dure abonnementen per euro krijgt, en of je wel een abonnement nodig hebt.
 
 ## Wat kost ChatGPT, Claude en Gemini per maand?
+
+![Wat kost ChatGPT, Claude en Gemini per maand?: Prijsklasse, ChatGPT, Claude, Google (Gemini)](/ai-abonnement-prijzen-wat-kost-chatgpt-claude-en-gemini-per-ma-nl.jpg)
 
 Maandprijzen in Nederland en België, inclusief 21% btw, stand 6 oktober 2026:
 
@@ -22,6 +26,8 @@ België heeft ook 21% btw, dus daar gelden dezelfde europrijzen.
 
 ## Welk AI-abonnement van €20 past bij jou?
 
+![Welk AI-abonnement van €20 past bij jou?: ChatGPT Plus (€23); Claude Pro (€21,78); Google AI Pro (€21,99)](/ai-abonnement-prijzen-welk-ai-abonnement-van-20-past-bij-jou-nl.jpg)
+
 ChatGPT Plus, Claude Pro en Google AI Pro kosten bijna hetzelfde. Het verschil zit in **waarvoor je AI vooral gebruikt**:
 
 - **ChatGPT Plus (€23):** de meeste functies, met afbeeldingen maken, spraakmodus, deep research en eigen GPT's, plus Codex en ChatGPT Work.
@@ -36,6 +42,8 @@ Soms, maar let op wat je inlevert.
 - **Google AI Plus (€4,99):** dit abonnement raakt binnenkort het Pro-model kwijt. Voor 400 GB opslag is de prijs nog steeds redelijk. De details staan in [Gemini gratis: alleen nog Flash-Lite](/nl/blog/gemini-gratis-flash-lite).
 
 ## Is €100 of €200 per maand goedkoper per eenheid?
+
+![Is €100 of €200 per maand goedkoper per eenheid?: Abonnement, Gebruik (instapabonnement = 100%), Prijs per eenheid gebruik](/ai-abonnement-prijzen-is-100-of-200-per-maand-goedkoper-per-ee-nl.jpg)
 
 Bij Claude en Google wel, bij ChatGPT niet. Kijk daarom naar de prijs per eenheid gebruik, niet naar het totaalbedrag.
 
@@ -68,3 +76,4 @@ Er is wel een addertje. Nederlands gebruikt ongeveer 29% meer tokens dan Engels 
 Vul je eigen gebruik in bij de [rekenmachine abonnement vs API](/nl/plans). Dan zie je de API-kosten per maand direct naast elk abonnement. Losse prompts tel je met de [tokenteller](/nl/).
 
 *Bronnen: [Wat kost ChatGPT? (LearnLLM)](https://learnllm.nl/kennisbank/chatgpt-handleiding/wat-kost-chatgpt/), [ChatGPT-prijzen](https://chatgpt.com/pricing), [Claude-prijzen](https://claude.com/pricing), [Google AI-abonnementen (Nederland)](https://gemini.google/nl/subscriptions/), [Grok-kosten (GIGA, in het Duits)](https://www.giga.de/tech/grok-kosten-2026-wie-teuer-ist-der-ki-chatbot--01KPQCHS1PBH2QR2CZHHFGBVM4). Stand: 6 oktober 2026. Prijzen en limieten veranderen vaak. Controleer ze bij de aanbieder voordat je een abonnement afsluit.*
+<!-- autoimg -->

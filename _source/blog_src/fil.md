@@ -1,3 +1,5 @@
+![Gumagamit ang Filipino ng 1.53× na token kumpara sa English sa GPT](/token-filipino-gpt-fil.jpg)
+
 Isinalin ko ang parehong customer-support prompt sa 41 wika at binilang ang token gamit ang o200k_base, ang kasalukuyang tokenizer ng OpenAI (GPT-4o at mas bago). Sa English, 34 token; sa Filipino, **52 token — 1.53× ng English**, ika-22 sa 41 (1 = pinakamura).
 
 Ang bersyong Filipino:
@@ -24,6 +26,8 @@ Ang bersyong Filipino:
 
 ## Bakit
 
+![Bakit: magmungkahi → mag | m | ungk | ahi · 4; Ibuod → I | bu | od · 3; magalang → mag | alang · 2](/token-filipino-gpt-fil-2.jpg)
+
 Karamihang natututo ang tokenizer mula sa English na text: isang token lang ang mga salitang tulad ng " polite" o " customer", pero hinahati-hati ang maraming salitang Filipino na may panlapi:
 
 - magmungkahi → `mag | m | ungk | ahi` · 4
@@ -40,6 +44,8 @@ Sa model na $2 bawat 1 milyong input token, ang pagpapadala ng prompt na ito nan
 
 ## Paano makatipid
 
+![Paano makatipid: Isulat sa English ang system prompt at mga nakapirming tagubilin; Filipino lang ang input ng user.; Hilingin s](/token-filipino-gpt-paano-makatipid-fil.jpg)
+
 - Isulat sa English ang system prompt at mga nakapirming tagubilin; Filipino lang ang input ng user.
 - Hilingin sa English o JSON ang mga pansamantalang hakbang (classification, extraction, tool call), at Filipino lang ang huling sagot.
 - Gumamit ng prompt caching para sa nakapirming bahagi ng prompt.
@@ -51,3 +57,4 @@ Sa model na $2 bawat 1 milyong input token, ang pagpapadala ng prompt na ito nan
 - Batay ang salin sa sinuring machine translation.
 
 Buong resulta ng 41 wika (sa English): [paghahambing ng 41 wika](/blog/token-cost-by-language)
+<!-- autoimg -->

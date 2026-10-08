@@ -1,6 +1,10 @@
+![AIでRobloxゲームを作る方法：手順・費用・今伸びているジャンル【2026年】](/roblox-game-tsukurikata-ja.jpg)
+
 2026年の今、プログラミングができなくても Roblox（ロブロックス）のゲームは作れます。Roblox Studio には AI の「Roblox Assistant」が入っていて、ゲームの計画、制作、Luau スクリプトの作成、3Dモデルの生成までやってくれます。大きな作業には Claude Code や Cursor のような外部のコーディングエージェントもつなげられます。今 Roblox で伸びているジャンル、作り方の手順、かかる費用、そして収益の受け取り方までまとめました。
 
 ## 今 Roblox で伸びているジャンル（2026年10月）
+
+![今 Roblox で伸びているジャンル（2026年10月）: ジャンル, 代表的なゲーム, 小規模で作る期間*](/roblox-game-tsukurikata-roblox-202610-ja.jpg)
 
 2026年10月6日に Roblox の公式チャートで、伸びているゲームを8つの型に分けました。カッコ内は確認時点の同時接続数です。
 
@@ -21,6 +25,8 @@
 
 ## 作り方：6つのステップ
 
+![作り方：6つのステップ: ゲームのロジックは ServerScriptService、画面や操作は StarterPlayerScripts / StarterGui に置く。; サーバーとクライアントのやり取りは RemoteEvent だけに](/roblox-game-tsukurikata-ja-3.jpg)
+
 **1. Assistant で計画する。** Roblox Studio で新しい Baseplate を開き、Assistant を「Plan」モードにして、ゲームの目的、プレイヤーが毎分すること、成長のしかたを数文で説明します。Assistant が段階的な制作計画を書いてくれます。最初のバージョンは小さく、マップ1つ・メインの行動1つ・成長の仕組み1つに絞りましょう。
 
 **2. 最初のバージョンを作らせる。** 「Build」を押すと、Assistant が計画どおりにパーツ、モデル、スクリプトを作ります。途中で止まったら「Continue」を押します。
@@ -38,6 +44,8 @@
 **6. アイコン・サムネイルを作って公開。** 512×512のアイコンと1920×1080のサムネイルを数枚用意し、メニューの「Roblox に公開」（Publish to Roblox）で名前と説明を入れて、公開設定にします。
 
 ## かかる費用
+
+![かかる費用: 組み合わせ, 費用](/roblox-game-tsukurikata-ja-4.jpg)
 
 Roblox は公開が無料で、サーバーも Roblox が無料で動かしてくれます。費用はほぼ AI ツール代だけです。小規模なゲームなら、当サイトの計算機で:
 
@@ -63,3 +71,4 @@ Robux は **DevEx（開発者交換）** で現金にできます。
 [AIゲーム制作費計算機](/ja/ai-game-cost-calculator)の上にある「いまRobloxで伸びているゲーム」から「これで計算」を押すと、Roblox モードに切り替わります。費用と期間に加えて、Roblox 用のプロンプト集（Studio の開発スタートプロンプト、Assistant 用の3Dモデルのプロンプト、アイコン・サムネイル、音楽、効果音）がそのまま手に入ります。AI でゲームを作った実例は[初心者がバイブコーディングでゲームを作ってみた](/ja/blog/vibe-coding-game-shoshinsha)もどうぞ。
 
 *出典: [Roblox Charts](https://www.roblox.com/charts)、Roblox Creator Hub の [Build your first game with Assistant](https://create.roblox.com/docs/ai/build-with-assistant)・[Assistant for Studio](https://create.roblox.com/docs/assistant/guide)・[Developer Exchange](https://create.roblox.com/docs/production/monetization/developer-exchange)。2026年10月6日確認。*
+<!-- autoimg -->

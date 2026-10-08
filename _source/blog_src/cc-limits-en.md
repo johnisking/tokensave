@@ -1,3 +1,5 @@
+![Claude Code Usage Limits Explained: 5-Hour and Weekly Caps](/claude-code-usage-limits-en.jpg)
+
 "Claude usage limit reached" is one of the most common messages Claude Code users see, and one of the most confusing, because there are two different limits working at the same time. Here is how they work, what changed in 2026, and what you can do when you hit one.
 
 ## The two limits
@@ -9,6 +11,8 @@
 Both limits are **shared between Claude Code and the Claude app** (web, desktop and mobile). A long chat in the app uses the same allowance as your coding session.
 
 ## How much each plan gets
+
+![How much each plan gets: Plan, Price, Usage](/claude-code-usage-limits-how-much-each-plan-gets-en.jpg)
 
 Anthropic describes plan limits relative to each other rather than in exact tokens:
 
@@ -22,6 +26,8 @@ How far that goes depends heavily on what you do. Large files, long sessions and
 
 ## What changed in 2026
 
+![What changed in 2026: May 6, 2026; Summer 2026; September 14, 2026](/claude-code-usage-limits-what-changed-in-2026-en.jpg)
+
 - **May 6, 2026:** Anthropic **doubled Claude Code's five-hour rate limits** for Pro, Max, Team and seat-based Enterprise plans, and removed the extra limit reduction during peak hours for Pro and Max.
 - **Summer 2026:** a temporary **50% increase** to weekly limits was in place.
 - **September 14, 2026:** Anthropic **permanently raised standard weekly limits by 25%** for Pro, Max, Team and seat-based Enterprise. Because this replaced the temporary 50% boost, weekly limits ended up about 17% lower than during the summer, though still 25% above the original level.
@@ -33,6 +39,8 @@ So if you feel you hit the weekly limit sooner since mid-September, that is expe
 Inside Claude Code, the **/status** command shows your remaining allowance. Claude Code also warns you as you approach a limit. Check before starting a long task, not halfway through it.
 
 ## What to do when you hit a limit
+
+![What to do when you hit a limit: Wait for the reset. For the 5-hour limit this is usually a matter of hours.; Turn on extra usage. Paid plans c](/claude-code-usage-limits-what-to-do-when-you-hit-a-limit-en.jpg)
 
 1. **Wait for the reset.** For the 5-hour limit this is usually a matter of hours.
 2. **Turn on extra usage.** Paid plans can continue with usage credits billed separately, instead of stopping.
@@ -62,3 +70,4 @@ More detail and numbers in [How to save tokens in Claude Code](/blog/claude-code
 If you regularly hit the weekly limit, compare what that extra usage would cost on the API with the next plan up. Our [Claude Code cost per month](/blog/claude-code-cost-per-month) guide and [coding agent calculator](/agents) do the maths.
 
 *Limits change. Anthropic's [Claude Code plan help page](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan) and [pricing page](https://claude.com/pricing) have the current rules.*
+<!-- autoimg -->

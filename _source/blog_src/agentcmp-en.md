@@ -1,6 +1,10 @@
+![Claude Code vs Codex vs Cursor: What Each Costs in 2026](/claude-code-vs-codex-vs-cursor-cost-en.jpg)
+
 Claude Code, OpenAI's Codex and Cursor all sell a $20 plan and a $200 plan, so they look interchangeable on the pricing page. They are not. Claude Code and Codex give you a usage allowance that refills every five hours and every week; Cursor gives you a dollar budget of model usage and bills you for more. Here is what each plan actually buys, and which is cheapest for the way you code.
 
 ## The plans
+
+![The plans: Price, Claude Code (Anthropic), Codex (OpenAI), Cursor](/claude-code-vs-codex-vs-cursor-cost-the-plans-en.jpg)
 
 US monthly prices, October 2026:
 
@@ -23,6 +27,8 @@ Claude Code comes with the Claude app; Codex comes with ChatGPT and ChatGPT Work
 
 ## Which gives the most for $200?
 
+![Which gives the most for $200?: Claude Max 20× is 20 times Pro's usage for 10 times the price, so each unit of usage costs half as much as on ](/claude-code-vs-codex-vs-cursor-cost-which-gives-the-most-for-200-en.jpg)
+
 - **Claude Max 20×** is 20 times Pro's usage for 10 times the price, so each unit of usage costs half as much as on Pro. Measured in Claude Code, a Max 20× week came to about 1.9 billion tokens, roughly **$1,800 of API usage** at the same model mix. See [how many tokens you get with Claude Pro and Max](/blog/claude-pro-max-how-many-tokens).
 - **ChatGPT Pro 200** is 10 times Plus for 10 times the price: no bulk discount, but Codex comes with all of ChatGPT's Pro features.
 - **Cursor Ultra** includes about **$400 of model usage** for $200, double the money, and lets you spread it across Claude, GPT and other models.
@@ -30,6 +36,8 @@ Claude Code comes with the Claude app; Codex comes with ChatGPT and ChatGPT Work
 If you use one agent all day, the flat allowances from Anthropic and OpenAI usually go much further than a dollar budget, because they are priced well below API rates for heavy users. Cursor wins on flexibility (any model, one editor) and on predictability (you always know what a task cost).
 
 ## What a month costs on the API, for reference
+
+![What a month costs on the API, for reference: How you use it, API with Claude Sonnet 5.5, API with Claude Opus 5.5, Cheapest plan that usually fits](/claude-code-vs-codex-vs-cursor-cost-what-a-month-costs-on-the-api-for-refere-en.jpg)
 
 From our [Claude Code cost per month](/blog/claude-code-cost-per-month) model, 22 working days:
 
@@ -54,3 +62,4 @@ On Cursor, the API column is roughly what you would use from your budget: a regu
 Put in your task size and tasks per day in the [coding agent cost calculator](/agents) to see the API cost next to every Claude and ChatGPT plan.
 
 *Cursor plan details from [CloudZero's Cursor pricing guide](https://www.cloudzero.com/blog/cursor-ai-pricing/) (updated September 2026). Prices and limits change often; check each company's pricing page before you subscribe.*
+<!-- autoimg -->

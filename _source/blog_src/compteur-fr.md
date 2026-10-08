@@ -6,6 +6,8 @@ J'ai mesuré un vrai texte en français pour montrer à quel point les estimatio
 
 ## Un token, c'est quoi ?
 
+![Un token, c'est quoi ?: « Résumez » → Rés | ume | z · 3 tokens; « ci-dessous » → ci | -dessous · 2 tokens; « summarize » → 1 token](/compteur-de-tokens-pourquoi-un-token-c-est-quoi-fr.jpg)
+
 Un token est un morceau de texte : parfois un mot entier, parfois une partie de mot, une ponctuation ou un espace. Le découpage dépend du tokeniseur de chaque modèle. Par exemple, chez OpenAI :
 
 - « Résumez » → `Rés | ume | z` · 3 tokens
@@ -16,6 +18,8 @@ Les mots anglais courants tiennent souvent en un seul token. Beaucoup de mots fr
 
 ## Le test : un e-mail de compte rendu
 
+![Le test : un e-mail de compte rendu: Version, Mots, Caractères, GPT (o200k), Mistral (Tekken)](/compteur-de-tokens-pourquoi-le-test-un-e-mail-de-compte-rendu-fr.jpg)
+
 J'ai écrit un e-mail de compte rendu de réunion (161 mots), puis sa traduction anglaise (146 mots), et je les ai passés dans deux tokeniseurs : **o200k_base** (GPT-4o et modèles OpenAI récents) et **Tekken** (Mistral).
 
 | Version | Mots | Caractères | GPT (o200k) | Mistral (Tekken) |
@@ -25,6 +29,8 @@ J'ai écrit un e-mail de compte rendu de réunion (161 mots), puis sa traduction
 | Écart | | | +21 % | +21 % |
 
 ## 5 raisons d'utiliser un compteur de tokens
+
+![5 raisons d'utiliser un compteur de tokens: Poste, Tokens par mois, Coût par mois](/compteur-de-tokens-pourquoi-5-raisons-d-utiliser-un-compteur-de-toke-fr.jpg)
 
 ### 1. Les règles approximatives ne tiennent pas
 
@@ -77,3 +83,4 @@ Tout se passe dans votre navigateur : le texte n'est envoyé à aucun serveur. G
 Pour aller plus loin : [Combien de tokens coûte le français ?](/fr/blog/tokens-francais-gpt) et [Mistral ou ChatGPT : combien coûte vraiment un prompt en français ?](/fr/blog/mistral-chatgpt-cout-prompt-francais)
 
 *Mesures effectuées en octobre 2026 avec o200k_base (OpenAI) et Tekken 2024-09 (Mistral). Les prix utilisés dans l'exemple sont hypothétiques.*
+<!-- autoimg -->

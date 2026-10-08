@@ -1,9 +1,11 @@
+<p><img loading="lazy" width="1200" height="630" alt="Claude Code の使用量上限まとめ：5時間・週の上限と確認方法" src="/claude-code-shiyouryou-jougen-ja.jpg" /></p>
 <p>「usage limit reached（使用量の上限に達しました）」は、Claude Code を使っているといちばんよく見るメッセージのひとつで、いちばん分かりにくいメッセージでもあります。<strong>2種類の上限</strong>が同時に働いているからです。仕組み、2026年に変わったこと、上限に当たったときの対処法をまとめました。</p>
 <h2>上限は2種類</h2>
 <p><strong>1. 5時間のセッション上限</strong>。最初のメッセージを送った時点から5時間単位で使用量を測ります。その5時間で使える分を使い切ると、リセットされるまで待つ必要があります。</p>
 <p><strong>2. 週の上限</strong>。セッション上限とは別に、1週間の合計使用量にも上限があります。一部のアカウントが Claude Code を24時間動かし続けるのを防ぐため、2025年8月に導入されました。これに当たると、5時間のセッションが新しく始まっていても、週のリセットまで待つことになります。</p>
 <p>どちらの上限も <strong>Claude Code と Claude アプリ（Web・デスクトップ・モバイル）で共有</strong>です。アプリで長い会話をすると、コーディングに使える分も減ります。</p>
 <h2>プランごとの使用量</h2>
+<p><img loading="lazy" width="1200" height="568" alt="プランごとの使用量: プラン, 料金, 使用量" src="/claude-code-shiyouryou-jougen-ja-2.jpg" /></p>
 <p>Anthropic は正確なトークン数ではなく、プラン同士の倍率で説明しています。</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -33,6 +35,7 @@
 </table></div>
 <p>実際にどこまで持つかは作業内容で大きく変わります。大きなファイル、長いセッション、Opus は、Sonnet で短いタスクをするよりずっと早く上限を消費します。ステップごとに作業コンテキスト全体を送り直すからです。</p>
 <h2>2026年に変わったこと</h2>
+<p><img loading="lazy" width="1200" height="665" alt="2026年に変わったこと: 2026年5月6日：Anthropic が Pro・Max・Team・シート制 Enterprise プランで Claude Code の5時間上限を2倍にしました。Pro・Max のピーク時間帯の上限引き下げも廃止され" src="/claude-code-shiyouryou-jougen-ja-3.jpg" /></p>
 <ul>
 <li><strong>2026年5月6日</strong>：Anthropic が Pro・Max・Team・シート制 Enterprise プランで <strong>Claude Code の5時間上限を2倍</strong>にしました。Pro・Max のピーク時間帯の上限引き下げも廃止されました。</li>
 <li><strong>2026年夏</strong>：週の上限に<strong>50%の一時的な引き上げ</strong>が適用されていました。</li>
@@ -42,6 +45,7 @@
 <h2>残りの使用量を確認する</h2>
 <p>Claude Code で <strong>/status</strong> コマンドを実行すると、残りの使用量を確認できます。上限に近づくと Claude Code が警告も出してくれます。長いタスクは途中ではなく、<strong>始める前に</strong>確認しましょう。</p>
 <h2>上限に当たったら</h2>
+<p><img loading="lazy" width="1200" height="902" alt="上限に当たったら: リセットを待つ。5時間上限なら、たいてい数時間で解除されます。; 追加使用（usage credits）を有効にする。有料プランなら、止まらずに別課金のクレジットで続けられます。; API クレジットに切り替える。Cla" src="/claude-code-shiyouryou-jougen-ja-4.jpg" /></p>
 <ol>
 <li><strong>リセットを待つ</strong>。5時間上限なら、たいてい数時間で解除されます。</li>
 <li><strong>追加使用（usage credits）を有効にする</strong>。有料プランなら、止まらずに別課金のクレジットで続けられます。</li>
@@ -69,3 +73,4 @@
 <h2>プランか API か</h2>
 <p>週の上限によく当たるなら、その追加分を API で払った場合と、ひとつ上のプランを比べてみましょう。<a href="/ja/blog/claude-code-ryoukin">Claude Code の月額料金</a>と<a href="/ja/agents">コーディングエージェント費用計算機</a>で計算できます。</p>
 <p><em>上限は変わります。最新のルールは Anthropic の <a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Claude Code プランのヘルプ</a>と<a href="https://claude.com/pricing" target="_blank" rel="noopener">料金ページ</a>で確認してください。</em></p>
+<!-- autoimg -->

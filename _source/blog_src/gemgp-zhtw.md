@@ -1,6 +1,10 @@
+![Gemini 免費版 10/9 起只剩 Flash-Lite：各方案變動與價格](/gemini-mianfei-flash-lite-zh-tw.jpg)
+
 Google 要調整 Gemini App 各方案能用的模型。**10 月 9 日起，免費用戶只能用最小的 Flash-Lite 模型**，每月 NT$260 的 AI Plus 也即將不能再用 Pro 模型。以前免費版也能用上不少 Pro 模型和 Deep Research，這次的落差會很明顯。下面整理改了什麼、各方案價格，以及不付月費也能便宜用到 Pro 級模型的方法。
 
 ## 各方案可用的模型
+
+![各方案可用的模型: 方案, 月費, Flash-Lite, Flash, Pro, Deep Think](/gemini-mianfei-flash-lite-zh-tw-2.jpg)
 
 | 方案 | 月費 | Flash-Lite | Flash | Pro | Deep Think |
 |---|---:|:---:|:---:|:---:|:---:|
@@ -13,6 +17,8 @@ Google 要調整 Gemini App 各方案能用的模型。**10 月 9 日起，免�
 台灣價格以 Google 台灣公告與 2026 年 10 月 6 日查到的資料為準；Ultra 列的是美國價格。適用於個人 Google 帳戶，公司與學校帳戶另有規定。
 
 ## 什麼時候開始？
+
+![什麼時候開始？: 免費; AI Plus; AI Pro、Ultra](/gemini-mianfei-flash-lite-zh-tw-3.jpg)
 
 - **免費:** 10 月 9 日起只剩 Flash-Lite。
 - **AI Plus:** 沒有統一日期，Google 會用電子郵件個別通知每位訂閱者的生效日。
@@ -33,6 +39,8 @@ Google 在 9 月 30 日推出了最高階的模型「Gemini 4 Argon」。一般�
 
 ## 不付月費也能用 Pro 級：API
 
+![不付月費也能用 Pro 級：API: 模型, 每月 API 費用](/gemini-mianfei-flash-lite-pro-api-zh-tw.jpg)
+
 Gemini 的模型也可以透過 Google AI Studio 或 API，用多少付多少。繁體中文需要的 Token 比英文多約 35%，我們用中文的 Token 數來算。假設每次提問輸入 1,100 個 Token、輸出 500 個 Token，**每天 20 次、用 30 天**：
 
 | 模型 | 每月 API 費用 |
@@ -46,3 +54,4 @@ Gemini 的模型也可以透過 Google AI Studio 或 API，用多少付多少。
 **就算用 Pro 模型、每天問 20 次，也比 AI Pro（NT$650）便宜很多。** 不過 App 的方便功能（生成圖片、Deep Research、Gmail 和文件整合等）就沒有了，還需要另外找支援 API 金鑰的聊天軟體。自己的用法哪邊比較划算，可以用[訂閱 vs API 計算機](/zh-tw/plans)馬上比較。繁體中文的 Token 數，詳見[繁體中文在 GPT 要多少 Token？](/zh-tw/blog/zhongwen-fanti-token-gpt)。
 
 *資料來源：[科技新報](https://technews.tw/2026/10/06/google-gemini-free-users-can-only-use-flash-lite)、[unwire.hk](https://unwire.hk/2026/10/04/gemini-model-access-limits/ai/)、[Google 台灣部落格（AI Plus 價格）](https://blog.google/intl/zh-tw/products/explore-get-answers/ai-plus/)、[Notebookcheck](https://www.notebookcheck.net/Google-Gemini-drops-Flash-and-Pro-for-free-users-on-October-9.1415964.0.html)。2026 年 10 月 6 日查證。生效日與額度可能變動，訂閱前請以 Google 官方頁面為準。*
+<!-- autoimg -->

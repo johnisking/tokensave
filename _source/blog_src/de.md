@@ -1,3 +1,5 @@
+![Deutsch braucht in GPT 1,26× so viele Tokens wie Englisch](/tokens-deutsch-gpt-de.jpg)
+
 Ich habe denselben Kundenservice-Prompt in 41 Sprachen übersetzt und die Tokens mit o200k_base gezählt, dem aktuellen Tokenizer von OpenAI (GPT-4o und neuer). Englisch braucht 34 Tokens, Deutsch **43 – also 1,26× so viele**, Platz 7 von 41 (1 = am günstigsten).
 
 Die deutsche Fassung:
@@ -23,6 +25,8 @@ Die deutsche Fassung:
 
 ## Warum
 
+![Warum: Kunden-E-Mail → Kunden | -E | -Mail · 3; Stichpunkten → Stich | punk | ten · 3; höfliche → höf | liche · 2](/tokens-deutsch-gpt-de-2.jpg)
+
 Der Tokenizer lernt vor allem aus englischem Text: Wörter wie „ polite“ oder „ customer“ sind ein einziger Token, deutsche Wörter – besonders Komposita – werden dagegen zerlegt:
 
 - Kunden-E-Mail → `Kunden | -E | -Mail` · 3
@@ -39,6 +43,8 @@ Bei einem Modell mit 2 $ pro 1 Mio. Input-Tokens kostet es 68 $ auf Englisch und
 
 ## So sparst du
 
+![So sparst du: System-Prompt und feste Anweisungen auf Englisch schreiben; nur die Eingaben der Nutzer bleiben auf Deutsch.; ](/tokens-deutsch-gpt-so-sparst-du-de.jpg)
+
 - System-Prompt und feste Anweisungen auf Englisch schreiben; nur die Eingaben der Nutzer bleiben auf Deutsch.
 - Zwischenschritte (Klassifizierung, Extraktion, Tool-Aufrufe) auf Englisch oder als JSON ausgeben lassen, nur die finale Antwort auf Deutsch.
 - Prompt Caching für den festen Teil des Prompts nutzen.
@@ -50,3 +56,4 @@ Bei einem Modell mit 2 $ pro 1 Mio. Input-Tokens kostet es 68 $ auf Englisch und
 - Die Übersetzung basiert auf einer geprüften maschinellen Übersetzung.
 
 Alle Ergebnisse für 41 Sprachen (auf Englisch): [Vergleich von 41 Sprachen](/blog/token-cost-by-language)
+<!-- autoimg -->

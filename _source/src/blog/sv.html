@@ -1,3 +1,4 @@
+<p><img loading="lazy" width="1200" height="630" alt="Svenska kostar 1,32× så många tokens som engelska i GPT" src="/tokens-svenska-gpt-sv.jpg" /></p>
 <p>Jag översatte samma kundtjänstprompt till 41 språk och räknade tokens med o200k_base, OpenAI:s nuvarande tokenizer (GPT-4o och senare). Engelska behöver 34 tokens, svenska <strong>45 — 1,32× så många</strong>, plats 12 av 41 (1 = billigast).</p>
 <p>Den svenska versionen:</p>
 <blockquote>
@@ -84,6 +85,7 @@
 </table></div>
 <p><img loading="lazy" width="960" height="1430" alt="Resultat" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Varför</h2>
+<p><img loading="lazy" width="1200" height="593" alt="Varför: Sammanfatta → Sam | man | f | atta · 4; beställningen → best | äll | ningen · 3; saknades → sak | n | ades · 3" src="/tokens-svenska-gpt-varfor-sv.jpg" /></p>
 <p>Tokenizern lär sig mest från engelsk text: ord som " polite" eller " customer" är en enda token, medan många svenska ord – särskilt sammansättningar – delas upp:</p>
 <ul>
 <li>Sammanfatta → <code>Sam | man | f | atta</code> · 4</li>
@@ -95,6 +97,7 @@
 <h2>I pengar</h2>
 <p>Med en modell för 2 $ per miljon input-tokens kostar det 68 $ på engelska och 90 $ på svenska att skicka prompten en miljon gånger. Svarar modellen också på svenska gäller samma faktor för output-tokens, som oftast är 4–5× dyrare.</p>
 <h2>Så sparar du</h2>
+<p><img loading="lazy" width="1200" height="658" alt="Så sparar du: Skriv systemprompten och fasta instruktioner på engelska; låt bara användarens input vara på svenska.; Be om m" src="/tokens-svenska-gpt-sa-sparar-du-sv.jpg" /></p>
 <ul>
 <li>Skriv systemprompten och fasta instruktioner på engelska; låt bara användarens input vara på svenska.</li>
 <li>Be om mellansteg (klassificering, extraktion, verktygsanrop) på engelska eller som JSON, och bara slutsvaret på svenska.</li>
@@ -107,3 +110,4 @@
 <li>Översättningen bygger på en granskad maskinöversättning.</li>
 </ul>
 <p>Alla resultat för 41 språk (på engelska): <a href="/blog/token-cost-by-language">jämförelse av 41 språk</a></p>
+<!-- autoimg -->

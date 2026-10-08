@@ -1,3 +1,4 @@
+<p><img loading="lazy" width="1200" height="630" alt="Slovenčina v GPT stojí 2,00× viac tokenov ako angličtina" src="/tokeny-slovencina-gpt-sk.jpg" /></p>
 <p>Ten istý prompt zákazníckej podpory som preložil do 41 jazykov a tokeny spočítal pomocou o200k_base, aktuálneho tokenizéra OpenAI (GPT-4o a novšie). Angličtina potrebuje 34 tokenov, slovenčina <strong>68 — teda 2,00×</strong>, miesto 38 z 41 (1 = najlacnejší). Drahšie sú už len telugčina, gréčtina a pandžábčina.</p>
 <p>Slovenská verzia:</p>
 <blockquote>
@@ -84,6 +85,7 @@
 </table></div>
 <p><img loading="lazy" width="960" height="1430" alt="Výsledky" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Prečo</h2>
+<p><img loading="lazy" width="1200" height="593" alt="Prečo: oneskorením → ones | k | oren | ím · 4; dvojdňovým → dvoj | d | ň | ovým · 4; navrhnite → nav | r | hn | ite ·" src="/tokeny-slovencina-gpt-sk-2.jpg" /></p>
 <p>Tokenizér sa učí hlavne z anglického textu: slová ako " polite" či " customer" sú jeden token, kým slovenské slová s koncovkami a mäkčeňmi sa rozpadajú na kúsky:</p>
 <ul>
 <li>oneskorením → <code>ones | k | oren | ím</code> · 4</li>
@@ -95,6 +97,7 @@
 <h2>V peniazoch</h2>
 <p>S modelom za 2 $ na milión vstupných tokenov stojí odoslanie tohto promptu miliónkrát 68 $ v angličtine a 136 $ v slovenčine. Ak model odpovedá tiež po slovensky, rovnaký násobok platí aj pre výstupné tokeny, ktoré bývajú 4–5× drahšie.</p>
 <h2>Ako ušetriť</h2>
+<p><img loading="lazy" width="1200" height="658" alt="Ako ušetriť: Systémový prompt a pevné inštrukcie píšte po anglicky; po slovensky nechajte len vstup od používateľa.; Medzik" src="/tokeny-slovencina-gpt-ako-usetrit-sk.jpg" /></p>
 <ul>
 <li>Systémový prompt a pevné inštrukcie píšte po anglicky; po slovensky nechajte len vstup od používateľa.</li>
 <li>Medzikroky (klasifikácia, extrakcia, volania nástrojov) si pýtajte po anglicky alebo v JSON, po slovensky len finálnu odpoveď.</li>
@@ -107,3 +110,4 @@
 <li>Preklad vychádza z overeného strojového prekladu.</li>
 </ul>
 <p>Všetky výsledky pre 41 jazykov (po anglicky): <a href="/blog/token-cost-by-language">porovnanie 41 jazykov</a></p>
+<!-- autoimg -->

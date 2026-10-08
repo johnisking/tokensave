@@ -1,6 +1,10 @@
+![AI Subscription Price Comparison: ChatGPT vs Claude vs Gemini vs Grok (2026)](/ai-subscription-price-comparison-en.jpg)
+
 ChatGPT, Claude, Gemini and Grok each sell three to five paid plans now, from under $5 to $500 a month. The names do not line up, and neither does what you get. Here is every plan side by side, how much more usage each step buys, and how to tell whether you need a subscription at all.
 
 ## Every plan, one table
+
+![Every plan, one table: Tier, ChatGPT, Claude, Google, Grok](/ai-subscription-price-comparison-every-plan-one-table-en.jpg)
 
 US monthly prices, checked October 1, 2026 (Grok: October 5, 2026):
 
@@ -16,6 +20,8 @@ The $20 tier is where ChatGPT, Claude and Google meet, and it is the right plan 
 
 ## How much more do you get for $100 or $200?
 
+![How much more do you get for $100 or $200?: Plan, Usage vs the $20 plan, Price per "$20 plan" of usage](/ai-subscription-price-comparison-how-much-more-do-you-get-for-100-or-200-en.jpg)
+
 This is where the plans really differ:
 
 | Plan | Usage vs the $20 plan | Price per "$20 plan" of usage |
@@ -29,6 +35,8 @@ This is where the plans really differ:
 ChatGPT's Pro plans give no bulk discount: every tier costs the same $20 per Plus-worth of usage, and Pro 500 adds a faster mode for GPT-6 Astra. Claude Max 20× is the only plan where the higher tier is cheaper per unit, half the price of Pro. xAI does not publish usage multiples for its Grok tiers, only that each step gets "significantly higher usage", so they are left out of this table. (Usage multiples are the companies' own; Google's "5×" and "20×" are in the plan names. Details: [ChatGPT Pro 100 vs 200 vs 500](/blog/chatgpt-pro-100-vs-200-vs-500), [Claude Max vs Pro](/blog/claude-max-vs-pro).)
 
 ## What the limits actually limit
+
+![What the limits actually limit: ChatGPT; Claude; Google](/ai-subscription-price-comparison-what-the-limits-actually-limit-en.jpg)
 
 - **ChatGPT:** since August 6, 2026, everyday text chat has no cap on any plan. Limits apply to the newest models, file uploads, images, voice, ChatGPT Work and Codex. See [ChatGPT usage limits](/blog/chatgpt-usage-limits).
 - **Claude:** every plan has a rolling 5-hour limit and a weekly limit, shared between the Claude app and Claude Code. See [Claude Code usage limits](/blog/claude-code-usage-limits) and [how many tokens you get with Claude Pro and Max](/blog/claude-pro-max-how-many-tokens).
@@ -56,3 +64,4 @@ Enter how you actually use AI in the [Subscription vs API calculator](/plans) to
 - **Hitting your plan's limit every week:** go up one tier, not two. On ChatGPT you pay the same per unit at every Pro tier, so buy the smallest one you do not run out on.
 
 *Prices and limits change often. Grok prices are from third-party trackers that checked xAI's plans page; check each company's pricing page before you subscribe.*
+<!-- autoimg -->

@@ -105,6 +105,7 @@
 </ul>
 <p>Je les ai passés dans deux tokeniseurs : <strong>o200k_base</strong>, celui de GPT-4o et des modèles OpenAI récents, et <strong>Tekken</strong>, le tokeniseur publié par Mistral (version de septembre 2024, utilisée par Mistral NeMo et les modèles suivants).</p>
 <h2>Résultats</h2>
+<p><img loading="lazy" width="1200" height="621" alt="Résultats: Texte, Anglais, Français, Surcoût" src="/mistral-chatgpt-cout-prompt-francais-resultats-fr.jpg" /></p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -148,6 +149,7 @@
 </ol>
 <p>Pour comparer : sur le même prompt court, l'allemand coûte 1,26× l'anglais chez OpenAI, l'italien 1,38×, le polonais 1,88×. Le français fait partie des langues les moins pénalisées, mais il reste pénalisé.</p>
 <h2>Pourquoi le français coûte plus</h2>
+<p><img loading="lazy" width="1200" height="732" alt="Pourquoi le français coûte plus: « facturation » → fact | uration (2 tokens, chez OpenAI comme chez Mistral); « vérifie » → vér | ifie (2 token" src="/mistral-chatgpt-cout-prompt-francais-pourquoi-le-francais-coute-plus-fr.jpg" /></p>
 <p>Les tokeniseurs sont entraînés surtout sur de l'anglais. Les mots anglais courants deviennent un seul token, alors que beaucoup de mots français sont coupés en morceaux :</p>
 <ul>
 <li>« facturation » → <code>fact | uration</code> (2 tokens, chez OpenAI comme chez Mistral)</li>
@@ -157,6 +159,7 @@
 </ul>
 <p>En face, « invoice », « billing » ou « polite » font un seul token. Les élisions (« l'adresse », « n'utilise ») et les accents ajoutent encore quelques tokens.</p>
 <h2>Ce que ça change concrètement</h2>
+<p><img loading="lazy" width="1200" height="658" alt="Ce que ça change concrètement: À l'API, vous payez à peu près 12 à 30 % de plus pour le même contenu.; Dans un abonnement (ChatGPT Plus, Clau" src="/mistral-chatgpt-cout-prompt-francais-ce-que-ca-change-concretement-fr.jpg" /></p>
 <ul>
 <li><strong>À l'API</strong>, vous payez à peu près 12 à 30 % de plus pour le même contenu.</li>
 <li><strong>Dans un abonnement</strong> (ChatGPT Plus, Claude Pro, Mistral Vibe Pro), les limites d'utilisation sont calculées en tokens : elles s'épuisent plus vite quand on écrit en français.</li>
@@ -178,6 +181,7 @@
 <p>Chaque texte est différent. <a href="/fr/">TokenSave</a> compte les tokens et le coût de votre prompt pour GPT, Claude et Gemini, puis le traduit en anglais en un clic, directement dans votre navigateur, en ajoutant « Reply in French ». Le code n'est pas touché, seuls les commentaires sont traduits. Gratuit, sans inscription, rien n'est envoyé.</p>
 <p>Le classement complet des 41 langues est ici : <a href="/fr/blog/tokens-francais-gpt">Combien de tokens coûte le français ?</a></p>
 <p><em>Mesures effectuées en octobre 2026 avec o200k_base (OpenAI) et Tekken 2024-09 (Mistral). Les modèles Mistral les plus récents peuvent utiliser une version mise à jour de Tekken.</em></p>
+<!-- autoimg -->
 
         <h2>Autres articles</h2>
         <ul><li><a href="/fr/blog/chatgpt-gratuit-ou-payant">ChatGPT gratuit ou payant en 2026 : Gratuit, Go, Plus, Pro, quelles différences ?</a></li><li><a href="/fr/blog/gemini-gratuit-flash-lite">Gemini gratuit limité à Flash-Lite le 9 octobre : que faire ?</a></li><li><a href="/fr/blog/chatgpt-go-vs-plus">ChatGPT Go ou Plus : 8 € ou 23 €, lequel choisir ?</a></li><li><a href="/fr/blog/abonnement-ia-prix-comparatif">Abonnements IA 2026 : ChatGPT, Claude, Gemini, Mistral en euros TTC</a></li><li><a href="/fr/blog/souverainete-ia-tokens">Souveraineté de l&#x27;IA : ce que ça change pour vos prompts (langue, données, coût)</a></li></ul>

@@ -1,3 +1,5 @@
+![Nederlands in GPT: 29% meer tokens dan Engels (41 talen gemeten)](/tokens-nederlands-gpt-nl.jpg)
+
 Ik vertaalde dezelfde klantenservice-prompt naar 41 talen en telde de tokens met o200k_base, de huidige tokenizer van OpenAI (GPT-4o en nieuwer). Engels heeft 34 tokens nodig, Nederlands **44 — 29% meer**, plaats 10 van 41 (1 = goedkoopst).
 
 De Nederlandse versie:
@@ -24,6 +26,8 @@ De Nederlandse versie:
 
 ## Waarom
 
+![Waarom: ontbrak → ont | br | ak · 3; beleefd → bele | efd · 2; aankwam → aank | wam · 2](/tokens-nederlands-gpt-waarom-nl.jpg)
+
 De tokenizer leert vooral van Engelse tekst: woorden als " polite" of " customer" zijn één token, terwijl veel Nederlandse woorden in stukken worden gehakt:
 
 - ontbrak → `ont | br | ak` · 3
@@ -40,6 +44,8 @@ Bij een model van $2 per miljoen inputtokens kost het 68 dollar in het Engels en
 
 ## Zo bespaar je
 
+![Zo bespaar je: Schrijf de systeemprompt en vaste instructies in het Engels; houd alleen de invoer van gebruikers in het Neder](/tokens-nederlands-gpt-zo-bespaar-je-nl.jpg)
+
 - Schrijf de systeemprompt en vaste instructies in het Engels; houd alleen de invoer van gebruikers in het Nederlands.
 - Laat tussenstappen (classificatie, extractie, tool-aanroepen) in het Engels of als JSON teruggeven, en alleen het eindantwoord in het Nederlands.
 - Gebruik prompt caching voor het vaste deel van de prompt.
@@ -51,3 +57,4 @@ Bij een model van $2 per miljoen inputtokens kost het 68 dollar in het Engels en
 - De vertaling is gebaseerd op een gecontroleerde machinevertaling.
 
 Alle resultaten voor 41 talen (in het Engels): [vergelijking van 41 talen](/blog/token-cost-by-language)
+<!-- autoimg -->

@@ -1,3 +1,5 @@
+![Norsk bruker 1,32× så mange tokens som engelsk i GPT](/tokens-norsk-gpt-no.jpg)
+
 Jeg oversatte den samme kundeserviceprompten til 41 språk og talte tokens med o200k_base, OpenAIs nåværende tokenizer (GPT-4o og nyere). Engelsk trenger 34 tokens, norsk **45 – altså 1,32× så mange**, plass 13 av 41 (1 = billigst).
 
 Den norske versjonen:
@@ -24,6 +26,8 @@ Den norske versjonen:
 
 ## Hvorfor
 
+![Hvorfor: bestillingen → best | ill | ingen · 3; høflig → hø | fl | ig · 3; Oppsummer → Opp | summer · 2](/tokens-norsk-gpt-hvorfor-no.jpg)
+
 Tokenizeren lærer mest av engelsk tekst: ord som " polite" eller " customer" er ett token, mens mange norske ord – særlig sammensatte ord – deles opp:
 
 - bestillingen → `best | ill | ingen` · 3
@@ -40,6 +44,8 @@ Med en modell til 2 $ per million input-tokens koster det 68 $ på engelsk og 90
 
 ## Slik sparer du
 
+![Slik sparer du: Skriv systemprompten og faste instruksjoner på engelsk; la bare brukerens input være på norsk.; Be om mellomst](/tokens-norsk-gpt-slik-sparer-du-no.jpg)
+
 - Skriv systemprompten og faste instruksjoner på engelsk; la bare brukerens input være på norsk.
 - Be om mellomsteg (klassifisering, uttrekk, verktøykall) på engelsk eller som JSON, og bare det endelige svaret på norsk.
 - Bruk prompt caching for den faste delen av prompten.
@@ -51,3 +57,4 @@ Med en modell til 2 $ per million input-tokens koster det 68 $ på engelsk og 90
 - Oversettelsen bygger på en gjennomgått maskinoversettelse.
 
 Alle resultater for 41 språk (på engelsk): [sammenligning av 41 språk](/blog/token-cost-by-language)
+<!-- autoimg -->

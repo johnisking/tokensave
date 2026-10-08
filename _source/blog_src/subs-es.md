@@ -1,6 +1,10 @@
+![Precio de ChatGPT, Claude, Gemini y Grok en euros y pesos (2026)](/precio-suscripciones-ia-es.jpg)
+
 ChatGPT, Claude, Gemini y Grok venden ya entre tres y cinco planes de pago cada uno. Los nombres no coinciden, y el precio tampoco es igual en todos los países: Google y OpenAI cobran en euros en España y en pesos en México o Colombia, mientras que Claude y Grok cobran sobre todo en dólares. Aquí tienes los precios reales en euros y pesos, cuánto uso extra te dan los planes caros y cómo saber si de verdad necesitas una suscripción.
 
 ## Precios en España y México
+
+![Precios en España y México: Plan, España, México](/precio-suscripciones-ia-precios-en-espana-y-mexico-es.jpg)
 
 Consultado el 6 de octubre de 2026. Solo incluimos precios que hemos visto publicados; cuando el dato viene de la App Store (iOS) lo indicamos, porque el precio de la web y el de la tienda de apps pueden ser distintos.
 
@@ -23,6 +27,8 @@ Consultado el 6 de octubre de 2026. Solo incluimos precios que hemos visto publi
 
 ## Por 20 dólares, lo que cambia es para qué lo usas
 
+![Por 20 dólares, lo que cambia es para qué lo usas: ChatGPT Plus; Claude Pro; Google AI Pro](/precio-suscripciones-ia-por-20-dolares-lo-que-cambia-es-para-que-es.jpg)
+
 En el escalón de unos 20 € (o 20 US$), ChatGPT, Claude y Google cuestan casi lo mismo, y para la mayoría de la gente es suficiente. La diferencia está en el uso:
 
 - **ChatGPT Plus:** el que más funciones tiene: imágenes, voz, investigación profunda, GPT personalizados, Codex y ChatGPT Work.
@@ -35,6 +41,8 @@ En el escalón de unos 20 € (o 20 US$), ChatGPT, Claude y Google cuestan casi 
 - **Google AI Plus:** pronto dejará de incluir el modelo Pro. Sigue valiendo la pena si necesitas los 400 GB de almacenamiento. Detalles en [Gemini gratis pasa a Flash-Lite](/es/blog/gemini-gratis-flash-lite).
 
 ## Planes caros: mira el precio por unidad de uso
+
+![Planes caros: mira el precio por unidad de uso: Plan, Uso frente al plan de unos 20, Precio por unidad de uso](/precio-suscripciones-ia-planes-caros-mira-el-precio-por-unidad-d-es.jpg)
 
 | Plan | Uso frente al plan de unos 20 | Precio por unidad de uso |
 |---|---|---|
@@ -69,3 +77,4 @@ Las cuatro empresas venden sus modelos también por API, pagando solo lo que usa
 Introduce tu uso real en la [calculadora suscripción vs API](/es/plans) para ver el coste mensual por API junto a cada plan. Si buscas opciones sin pagar, revisa las [páginas de IA gratis](/es/blog/paginas-de-ia-gratis).
 
 *Fuentes: [Gemini España](https://gemini.google/es/subscriptions/?hl=es), [Gemini México](https://gemini.google/mx/subscriptions/?hl=es-419), [Marketing Directo](https://www.marketingdirecto.com/digital-general/digital/chatgpt-go-aterriza-espana-nueva-suscripcion-multiplica-limites-plan-gratuito) (ChatGPT Go en España), [Xataka México](https://www.xataka.com.mx/robotica-e-ia/chatgpt-go-nuevo-plan-barato-mexico-tienes-rappi-podras-probarlo-gratis-precio-como-contratarlo), [El Tiempo](https://www.eltiempo.com/tecnosfera/apps/openai-lanza-chatgpt-go-en-colombia-costara-20-900-pesos-y-podra-tener-meses-gratis-con-rappi-3515980), precios de App Store según [Ranquia (ChatGPT)](https://ranquia.com/precios/chatgpt-precio-espana/), [Ranquia (ChatGPT México)](https://ranquia.com/precios/chatgpt-go-vs-plus-mexico/), [Ranquia (Claude)](https://ranquia.com/precios/claude-pro-precio-espana/) y [Ranquia (Grok)](https://ranquia.com/precios/grok-precio-latam/), impuestos en Argentina según [Impuestito](https://impuestito.org/blog/que-impuestos-cobra-arca-al-pagar-juegos-y-suscripciones-con-tarjeta-en-dolares). Consultado el 6 de octubre de 2026. Los precios cambian a menudo; revisa la página de cada empresa antes de pagar.*
+<!-- autoimg -->

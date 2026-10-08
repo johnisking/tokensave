@@ -1,6 +1,10 @@
+![Prompting in Korean, Japanese or Hindi? How to Cut the Token Cost](/cut-token-cost-non-english-prompts-en.jpg)
+
 If you write your prompts in Korean, Japanese, Hindi, Thai or most other languages, you pay more for the same request than someone writing in English. Not because providers charge by country, but because their tokenizers split non-English text into more pieces. Here is how big the difference is, and the simplest ways to get it back.
 
 ## The language tax, measured
+
+![The language tax, measured: Language, Tokens vs English, Saving if sent in English](/cut-token-cost-non-english-prompts-the-language-tax-measured-en.jpg)
 
 We sent the same 34-token English prompt through GPT's current o200k tokenizer in 41 languages. Some results:
 
@@ -19,6 +23,8 @@ We sent the same 34-token English prompt through GPT's current o200k tokenizer i
 The "saving" column is how many fewer tokens the same content needs in English. The [full 41-language study](/blog/token-cost-by-language) has every language, including the ones that cost twice as much as English.
 
 ## Why it matters
+
+![Why it matters: API cost scales directly with tokens. A team sending Japanese prompts pays roughly 1.8 times what an English-s](/cut-token-cost-non-english-prompts-why-it-matters-en.jpg)
 
 - **API cost** scales directly with tokens. A team sending Japanese prompts pays roughly 1.8 times what an English-speaking team pays for the same work.
 - **Usage limits** on many plans and agents are counted in tokens, so you hit them sooner.
@@ -43,3 +49,4 @@ Translate instructions and questions, not material where wording matters: legal 
 ## Try it with your own prompt
 
 Paste a prompt into the [token counter](/), press *Save tokens*, and see the difference in tokens and cost across 30+ models.
+<!-- autoimg -->

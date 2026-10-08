@@ -1,3 +1,5 @@
+![Bahasa Indonesia memakai 1,15× token bahasa Inggris di GPT](/token-bahasa-indonesia-gpt-id.jpg)
+
 Saya menerjemahkan prompt layanan pelanggan yang sama ke 41 bahasa dan menghitung token dengan o200k_base, tokenizer OpenAI saat ini (GPT-4o dan setelahnya). Bahasa Inggris butuh 34 token, bahasa Indonesia **39 token — 1,15× bahasa Inggris**, peringkat 3 dari 41 (1 = paling murah).
 
 Versi bahasa Indonesia:
@@ -24,6 +26,8 @@ Versi bahasa Indonesia:
 
 ## Mengapa
 
+![Mengapa: terlambat → terl | amb | at · 3; Pelanggan → Pel | anggan · 2; sarankan → sar | ankan · 2](/token-bahasa-indonesia-gpt-mengapa-id.jpg)
+
 Tokenizer terutama belajar dari teks bahasa Inggris: kata seperti " polite" atau " customer" hanya satu token, sedangkan kata berimbuhan dalam bahasa Indonesia dipecah:
 
 - terlambat → `terl | amb | at` · 3
@@ -40,6 +44,8 @@ Dengan model seharga $2 per 1 juta token input, mengirim prompt ini 1 juta kali 
 
 ## Cara berhemat
 
+![Cara berhemat: Tulis system prompt dan instruksi tetap dalam bahasa Inggris; biarkan hanya input pengguna dalam bahasa Indone](/token-bahasa-indonesia-gpt-cara-berhemat-id.jpg)
+
 - Tulis system prompt dan instruksi tetap dalam bahasa Inggris; biarkan hanya input pengguna dalam bahasa Indonesia.
 - Minta langkah perantara (klasifikasi, ekstraksi, pemanggilan tool) dalam bahasa Inggris atau JSON, dan hanya jawaban akhir dalam bahasa Indonesia.
 - Gunakan prompt caching untuk bagian prompt yang tetap.
@@ -51,3 +57,4 @@ Dengan model seharga $2 per 1 juta token input, mengirim prompt ini 1 juta kali 
 - Terjemahan didasarkan pada terjemahan mesin yang sudah diperiksa.
 
 Hasil lengkap 41 bahasa (dalam bahasa Inggris): [perbandingan 41 bahasa](/blog/token-cost-by-language)
+<!-- autoimg -->

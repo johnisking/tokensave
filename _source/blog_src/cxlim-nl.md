@@ -1,3 +1,5 @@
+![Codex limiet: hoeveel geeft Codex in ChatGPT Plus en Pro?](/codex-limiet-nl.jpg)
+
 Codex, de coding agent van OpenAI, zit in de ChatGPT-plannen Plus, Pro en Business. Het is ook de plek waar de meeste mensen nu tegen limieten aanlopen. Codex deelt zijn tegoed met ChatGPT Work, gebruikt een venster van 5 uur en een weeklimiet, en gaat daar per model heel verschillend doorheen. Hieronder lees je hoe de Codex limiet werkt, hoeveel de Codex limiet in Plus je geeft en hoe je er meer uit haalt.
 
 **Kort:** Codex heeft twee limieten tegelijk, een schuivend venster van 5 uur en een weeklimiet, gedeeld met ChatGPT Work; in Plus krijg je naar schatting zo'n 5–45 berichten per 5 uur op GPT-6 Astra tot zo'n 250–2.000 op GPT-5.6 Luna, afhankelijk van het model.
@@ -17,6 +19,8 @@ Twee tegelijk: een venster van 5 uur en een weeklimiet.
 Codex en ChatGPT Work putten uit **hetzelfde tegoed**.
 
 ## Hoeveel geeft de Codex limiet in Plus en Pro?
+
+![Hoeveel geeft de Codex limiet in Plus en Pro?: Model, Plus, Pro (vijfvoudig niveau)](/codex-limiet-hoeveel-geeft-de-codex-limiet-in-plus-en-nl.jpg)
 
 Het helpcentrum van OpenAI noemt een geschat aantal berichten per 5-uursvenster. Het model dat je kiest, maakt een enorm verschil:
 
@@ -41,6 +45,8 @@ Het helpcentrum van OpenAI verwijst naar **Instellingen → Gebruik** (Settings 
 
 ## Wat doe je als je de limiet raakt?
 
+![Wat doe je als je de limiet raakt?: Wacht op de reset. Het 5-uursvenster vult zich binnen een paar uur weer aan.; Gebruik een bewaarde reset of ko](/codex-limiet-wat-doe-je-als-je-de-limiet-raakt-nl.jpg)
+
 1. **Wacht op de reset.** Het 5-uursvenster vult zich binnen een paar uur weer aan.
 2. **Gebruik een bewaarde reset of koop een directe reset.** Dat kan op Plus- en Pro-accounts die daarvoor in aanmerking komen.
 3. **Gebruik tegoeden** om door te werken op plannen die dat ondersteunen.
@@ -48,6 +54,8 @@ Het helpcentrum van OpenAI verwijst naar **Instellingen → Gebruik** (Settings 
 5. **Gebruik een API-key** met pay-as-you-go-facturering voor werk boven je limiet.
 
 ## Hoe rek je je Codex limiet op?
+
+![Hoe rek je je Codex limiet op?: Kies standaard GPT-5.6 Sol of Terra. Gebruik GPT-6 Astra alleen voor lastige problemen waar je het verschil me](/codex-limiet-hoe-rek-je-je-codex-limiet-op-nl.jpg)
 
 - **Kies standaard GPT-5.6 Sol of Terra.** Gebruik GPT-6 Astra alleen voor lastige problemen waar je het verschil merkt: het kost een veelvoud van het tegoed.
 - **Gebruik Luna voor simpele wijzigingen**, hernoemen en standaardcode.
@@ -63,3 +71,4 @@ Veel van dezelfde gewoontes werken ook in Claude Code: zie [How to save tokens i
 Beide zitten in plannen van $20, $100 en $200, met vergelijkbare limietsystemen. De vergelijking [ChatGPT Pro vs Claude Max](/blog/chatgpt-pro-vs-claude-max) (in het Engels) bespreekt de verschillen. De [kostencalculator voor coding agents](/nl/agents) zet de maandelijkse API-kosten naast elk plan, en met de [plannencalculator](/nl/plans) vergelijk je de abonnementen zelf. Hoe ver je komt met Claude lees je in [Claude limiet](/nl/blog/claude-limiet).
 
 *Limieten veranderen vaak. De [helppagina van OpenAI over gebruik van Codex en Work](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex) heeft de actuele cijfers.*
+<!-- autoimg -->

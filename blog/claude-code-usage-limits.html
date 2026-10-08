@@ -30,14 +30,14 @@
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image" content="https://tokensave.app/claude-code-usage-limits-en.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <meta name="twitter:image" content="https://tokensave.app/claude-code-usage-limits-en.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Claude Code Usage Limits Explained: 5-Hour and Weekly Caps", "description": "How Claude Code's 5-hour and weekly limits work on Pro and Max, what changed in 2026, how to check usage and what to do at the limit.", "inLanguage": "en", "url": "https://tokensave.app/blog/claude-code-usage-limits", "mainEntityOfPage": "https://tokensave.app/blog/claude-code-usage-limits", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Claude Code Usage Limits Explained: 5-Hour and Weekly Caps", "item": "https://tokensave.app/blog/claude-code-usage-limits"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What to do when you hit a limit\n\nWait for the reset. For the 5-hour limit this is usually a matter of hours.\nTurn on extra usage. Paid plans can continue with usage credits billed separately, instead of stopping.\nSwitch to API credits. Claude Code can run on pay-as-you-go API billing; it asks for your consent before it does.\nUpgrade your plan. Pro to Max 5×, or Max 5× to Max 20×.\nUse fewer tokens per task. Often the cheapest fix. See below.\n\nWhy you hit limits faster than expected\n\nLong sessions. Each step resends everything that happened before. A two-hour session drags a huge context into every new step.\nOpus. It uses the allowance faster than Sonnet.\nLarge files and logs. Reading a 3,000-line file or a full test log adds tens of thousands of tokens.\nVague tasks. \"Clean up the project\" can take dozens of steps; \"fix the failing test in auth.py\" takes a few.\nUsing the Claude app at the same time. Both draw from the same pool.\n\nStretch your limits\n\nStart a fresh session (/clear) between unrelated tasks, and use /compact to summarize a long one.\nPoint Claude to the right files instead of letting it search.\nKeep your CLAUDE.md instructions short: they are sent with every step.\nUse Sonnet for routine work and save Opus for hard problems.\n\nMore detail and numbers in How to save tokens in Claude Code.\nPlan or API?", "acceptedAnswer": {"@type": "Answer", "text": "If you regularly hit the weekly limit, compare what that extra usage would cost on the API with the next plan up. Our Claude Code cost per month guide and coding agent calculator do the maths."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Claude Code Usage Limits Explained: 5-Hour and Weekly Caps", "description": "How Claude Code's 5-hour and weekly limits work on Pro and Max, what changed in 2026, how to check usage and what to do at the limit.", "inLanguage": "en", "url": "https://tokensave.app/blog/claude-code-usage-limits", "mainEntityOfPage": "https://tokensave.app/blog/claude-code-usage-limits", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/claude-code-usage-limits-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Claude Code Usage Limits Explained: 5-Hour and Weekly Caps", "item": "https://tokensave.app/blog/claude-code-usage-limits"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why you hit limits faster than expected\n\nLong sessions. Each step resends everything that happened before. A two-hour session drags a huge context into every new step.\nOpus. It uses the allowance faster than Sonnet.\nLarge files and logs. Reading a 3,000-line file or a full test log adds tens of thousands of tokens.\nVague tasks. \"Clean up the project\" can take dozens of steps; \"fix the failing test in auth.py\" takes a few.\nUsing the Claude app at the same time. Both draw from the same pool.\n\nStretch your limits\n\nStart a fresh session (/clear) between unrelated tasks, and use /compact to summarize a long one.\nPoint Claude to the right files instead of letting it search.\nKeep your CLAUDE.md instructions short: they are sent with every step.\nUse Sonnet for routine work and save Opus for hard problems.\n\nMore detail and numbers in How to save tokens in Claude Code.\nPlan or API?", "acceptedAnswer": {"@type": "Answer", "text": "If you regularly hit the weekly limit, compare what that extra usage would cost on the API with the next plan up. Our Claude Code cost per month guide and coding agent calculator do the maths."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -101,12 +101,14 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">Claude Code Usage Limits Explained: 5-Hour and Weekly Caps</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
-  <p>"Claude usage limit reached" is one of the most common messages Claude Code users see, and one of the most confusing, because there are two different limits working at the same time. Here is how they work, what changed in 2026, and what you can do when you hit one.</p>
+  <p><img loading="lazy" width="1200" height="630" alt="Claude Code Usage Limits Explained: 5-Hour and Weekly Caps" src="/claude-code-usage-limits-en.jpg" /></p>
+<p>"Claude usage limit reached" is one of the most common messages Claude Code users see, and one of the most confusing, because there are two different limits working at the same time. Here is how they work, what changed in 2026, and what you can do when you hit one.</p>
 <h2>The two limits</h2>
 <p><strong>1. The 5-hour session limit.</strong> Your usage is measured over a rolling five-hour window that starts with your first message. When you use up the allowance for that window, you have to wait until it resets.</p>
 <p><strong>2. The weekly limit.</strong> On top of the session limit, there is a cap on total usage over a week. It was introduced in August 2025 to stop a small share of accounts from running Claude Code around the clock. If you hit it, you wait for the weekly reset even if your 5-hour window is fresh.</p>
 <p>Both limits are <strong>shared between Claude Code and the Claude app</strong> (web, desktop and mobile). A long chat in the app uses the same allowance as your coding session.</p>
 <h2>How much each plan gets</h2>
+<p><img loading="lazy" width="1200" height="568" alt="How much each plan gets: Plan, Price, Usage" src="/claude-code-usage-limits-how-much-each-plan-gets-en.jpg" /></p>
 <p>Anthropic describes plan limits relative to each other rather than in exact tokens:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -136,6 +138,7 @@
 </table></div>
 <p>How far that goes depends heavily on what you do. Large files, long sessions and Opus use the allowance much faster than short tasks on Sonnet, because every step resends the whole working context.</p>
 <h2>What changed in 2026</h2>
+<p><img loading="lazy" width="1200" height="658" alt="What changed in 2026: May 6, 2026; Summer 2026; September 14, 2026" src="/claude-code-usage-limits-what-changed-in-2026-en.jpg" /></p>
 <ul>
 <li><strong>May 6, 2026:</strong> Anthropic <strong>doubled Claude Code's five-hour rate limits</strong> for Pro, Max, Team and seat-based Enterprise plans, and removed the extra limit reduction during peak hours for Pro and Max.</li>
 <li><strong>Summer 2026:</strong> a temporary <strong>50% increase</strong> to weekly limits was in place.</li>
@@ -145,6 +148,7 @@
 <h2>How to check where you are</h2>
 <p>Inside Claude Code, the <strong>/status</strong> command shows your remaining allowance. Claude Code also warns you as you approach a limit. Check before starting a long task, not halfway through it.</p>
 <h2>What to do when you hit a limit</h2>
+<p><img loading="lazy" width="1200" height="870" alt="What to do when you hit a limit: Wait for the reset. For the 5-hour limit this is usually a matter of hours.; Turn on extra usage. Paid plans c" src="/claude-code-usage-limits-what-to-do-when-you-hit-a-limit-en.jpg" /></p>
 <ol>
 <li><strong>Wait for the reset.</strong> For the 5-hour limit this is usually a matter of hours.</li>
 <li><strong>Turn on extra usage.</strong> Paid plans can continue with usage credits billed separately, instead of stopping.</li>
@@ -171,6 +175,7 @@
 <h2>Plan or API?</h2>
 <p>If you regularly hit the weekly limit, compare what that extra usage would cost on the API with the next plan up. Our <a href="/blog/claude-code-cost-per-month">Claude Code cost per month</a> guide and <a href="/agents">coding agent calculator</a> do the maths.</p>
 <p><em>Limits change. Anthropic's <a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Claude Code plan help page</a> and <a href="https://claude.com/pricing" target="_blank" rel="noopener">pricing page</a> have the current rules.</em></p>
+<!-- autoimg -->
 
         <h2>More articles</h2>
         <ul><li><a href="/blog/chatgpt-free-vs-paid">ChatGPT Free vs Paid (2026): What You Actually Get for $0, $8, $20 and $100</a></li><li><a href="/blog/ai-game-cost-calculator-review">I Ran My Released Game Through My AI Game Cost Calculator: Prediction vs Reality</a></li><li><a href="/blog/claude-code-save-tokens">How to Save Tokens in Claude Code: 9 Habits That Matter</a></li><li><a href="/blog/claude-code-cost-per-month">Claude Code Cost per Month: Pro vs Max vs API</a></li><li><a href="/blog/chatgpt-usage-limits">ChatGPT Usage Limits in 2026: What Is Still Capped and When It Resets</a></li></ul>

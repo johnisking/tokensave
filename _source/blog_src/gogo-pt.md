@@ -1,6 +1,10 @@
+![ChatGPT Go vs Plus: diferença, preço em reais e anúncios](/chatgpt-go-vs-plus-pt.jpg)
+
 No Brasil, o ChatGPT Go custa R$ 39,99 por mês e o ChatGPT Plus custa R$ 99,90. Desde agosto de 2026, os dois têm chat de texto do dia a dia ilimitado, então ninguém mais precisa trocar de plano porque as mensagens acabaram. Hoje a diferença está em qual modelo responde, em quanto ele pensa, no que vem junto com o plano e nos anúncios, que no Brasil já aparecem no Go. Veja o que os R$ 60 a mais compram e para quem eles valem.
 
 ## Go vs Plus lado a lado
+
+![Go vs Plus lado a lado: ChatGPT Go, ChatGPT Plus](/chatgpt-go-vs-plus-go-vs-plus-lado-a-lado-pt.jpg)
 
 | | ChatGPT Go | ChatGPT Plus |
 |---|---|---|
@@ -26,12 +30,16 @@ Desde agosto de 2026, o ChatGPT mostra anúncios no Brasil para quem usa o plano
 
 ## Quem deve escolher o Go
 
+![Quem deve escolher o Go: Você usa o ChatGPT para perguntas do dia a dia, ajuda com textos e resumos rápidos.; Você não usa o Codex nem ](/chatgpt-go-vs-plus-quem-deve-escolher-o-go-pt.jpg)
+
 - Você usa o ChatGPT para perguntas do dia a dia, ajuda com textos e resumos rápidos.
 - Você não usa o Codex nem o ChatGPT Work.
 - Os anúncios não te incomodam.
 - Você quer mais que o plano grátis, principalmente mais memória e espaço para arquivos, pagando o mínimo.
 
 ## Quem deve escolher o Plus
+
+![Quem deve escolher o Plus: Você escreve ou analisa documentos longos, ou faz perguntas em que a precisão importa.; Você quer os níveis de](/chatgpt-go-vs-plus-quem-deve-escolher-o-plus-pt.jpg)
 
 - Você escreve ou analisa documentos longos, ou faz perguntas em que a precisão importa.
 - Você quer os níveis de raciocínio para problemas difíceis.
@@ -51,3 +59,4 @@ Por outro lado, você perde os extras do app do ChatGPT, como imagens, voz, mem�
 O Google AI Plus custa R$ 24,99, mas vai perder o modelo Pro (veja [Gemini grátis só com Flash-Lite](/pt/blog/gemini-gratis-flash-lite)). O Google AI Pro custa R$ 96,99. O Claude não tem plano abaixo do Pro, que sai por R$ 110 pelo site, segundo o Canaltech, ou US$ 20 mais IOF. A tabela completa está no [comparativo de preços das assinaturas de IA](/pt/blog/preco-assinaturas-ia).
 
 *Fontes: [Central de Ajuda da OpenAI sobre o GPT-5.6](https://help.openai.com/pt-br/articles/20001354-gpt-56-no-chatgpt), [Canaltech: ChatGPT cobra em real](https://canaltech.com.br/apps/chatgpt-plus-fica-mais-barato-no-brasil-com-nova-cobranca-em-real/), [Correio Braziliense: anúncios no ChatGPT](https://www.correiobraziliense.com.br/tecnologia/2026/08/7479086-chatgpt-comeca-a-exibir-anuncios-para-os-planos-free-e-go-no-brasil.html), [Hora de Codar: ChatGPT Go](https://horadecodar.com.br/chatgpt-go/), [página oficial do Gemini no Brasil](https://gemini.google/br/subscriptions/?hl=pt-BR). Conferido em 6 de outubro de 2026. Confira chatgpt.com/pricing antes de assinar.*
+<!-- autoimg -->

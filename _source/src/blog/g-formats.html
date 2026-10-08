@@ -1,3 +1,4 @@
+<p><img loading="lazy" width="1200" height="630" alt="JSON vs YAML vs CSV: Which Data Format Uses the Fewest Tokens?" src="/json-vs-yaml-vs-csv-tokens-en.jpg" /></p>
 <p>When you send data to an AI model, whether product lists, survey results, database rows or API responses, the format you choose changes how many tokens it takes. We measured the same table in seven common formats on GPT's o200k tokenizer. The most popular choice, pretty-printed JSON with one object per row, uses almost three times as many tokens as the cheapest. The same data as columnar JSON costs about the same as CSV: the expensive part is repeating the keys, not JSON itself.</p>
 <p><em>Updated October 3, 2026: added columnar JSON and header-plus-rows JSON after a reader pointed out they were missing. Same table, same tokenizer.</em></p>
 <h2>The test</h2>
@@ -6,6 +7,7 @@
 <pre><code>1001,Wireless Mouse,9.99,false,electronics
 </code></pre>
 <h2>Results</h2>
+<p><img loading="lazy" width="1200" height="1011" alt="Results: Format, Tokens, vs CSV, Characters" src="/json-vs-yaml-vs-csv-tokens-results-en.jpg" /></p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -85,6 +87,7 @@
 <p><strong>Pretty-printing adds structure, not meaning.</strong> Line breaks and indentation make JSON readable for people. The model does not need them, and in this test they added 359 tokens (68%) compared with the minified version.</p>
 <p>YAML is interesting: it has fewer characters than minified JSON but more tokens, because it puts every field on its own line with its own key.</p>
 <h2>What this costs at scale</h2>
+<p><img loading="lazy" width="1200" height="686" alt="What this costs at scale: Format, Tokens per month, Cost per month" src="/json-vs-yaml-vs-csv-tokens-what-this-costs-at-scale-en.jpg" /></p>
 <p>Suppose an app sends a 20-row table like this with every request, 1,000 times a day. Over a month that is 30,000 requests. At an input price of $2 per million tokens (GPT-6 Sol, checked October 1, 2026):</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -131,6 +134,7 @@
 <p><strong>For tables a person will also read: Markdown.</strong> Only 24% more than CSV and much easier to check by eye.</p>
 <p><strong>Avoid pretty-printed JSON and XML in prompts</strong> unless a tool requires them.</p>
 <h2>Other ways to shrink structured data</h2>
+<p><img loading="lazy" width="1200" height="796" alt="Other ways to shrink structured data: Send only the fields the task needs. If the model is writing product descriptions, it probably does not need i" src="/json-vs-yaml-vs-csv-tokens-other-ways-to-shrink-structured-data-en.jpg" /></p>
 <ol>
 <li><strong>Send only the fields the task needs.</strong> If the model is writing product descriptions, it probably does not need internal IDs, timestamps or warehouse codes.</li>
 <li><strong>Shorten long values.</strong> Replace long IDs with row numbers and map them back in your code afterwards. A standard UUID is 18 tokens on its own.</li>
@@ -141,3 +145,4 @@
 <p>These numbers come from one table on one tokenizer. Claude and Gemini use different tokenizers, so absolute counts will differ, but the ranking (tabular formats cheapest, repeated keys and tags most expensive) follows from how the formats are built and holds generally. If the format affects accuracy for your task, test both: a cheaper prompt that gives worse answers is not cheaper.</p>
 <h2>Measure your own data</h2>
 <p>Paste a sample of your data into the <a href="/">token counter</a> in two formats and compare. It runs the same o200k tokenizer in your browser, and nothing you paste is uploaded.</p>
+<!-- autoimg -->

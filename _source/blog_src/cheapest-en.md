@@ -1,3 +1,5 @@
+![The Cheapest LLM APIs in 2026, Ranked by Real Cost per Request](/cheapest-llm-api-en.jpg)
+
 If you only need the lowest bill, the cheapest LLM API in October 2026 is **GPT-5 nano**, followed by **GPT-6 Luna** and **Qwen 3.8 Flash**. But the cheapest model is rarely the right one for every job. Here is every major model ranked by what a real request costs, which cheap models are worth using, and where paying more saves money.
 
 ## How we ranked them
@@ -10,6 +12,8 @@ Price per million tokens is misleading on its own, for two reasons:
 So we priced one typical request: **2,000 input tokens and 500 output tokens of English**, counted the way each model's tokenizer would count it, at official list prices checked October 1, 2026. No caching or batch discounts.
 
 ## The cheapest LLM APIs
+
+![The cheapest LLM APIs: Model, Maker, Input / output per 1M, 1 request, 10,000 requests](/cheapest-llm-api-the-cheapest-llm-apis-en.jpg)
 
 | Model | Maker | Input / output per 1M | 1 request | 10,000 requests |
 |---|---|---|---:|---:|
@@ -28,6 +32,8 @@ So we priced one typical request: **2,000 input tokens and 500 output tokens of 
 For comparison, the same 10,000 requests cost **$90** on GPT-6 Sol, **$117** on Claude Sonnet 5.5, **$234** on Claude Opus 5.5 and **$450** on GPT-6 Astra. The cheapest model in the table costs less than 1% of what GPT-6 Astra does.
 
 ## Which cheap model to pick
+
+![Which cheap model to pick: GPT-6 Luna is the one to try first. It is the newest small model from OpenAI (September 2026), and only $1.50 ](/cheapest-llm-api-which-cheap-model-to-pick-en.jpg)
 
 - **GPT-6 Luna** is the one to try first. It is the newest small model from OpenAI (September 2026), and only $1.50 per 10,000 requests more than GPT-5 nano. Good for classification, extraction, routing, short answers and summaries.
 - **GPT-5 nano** for the very simplest, highest-volume work, where every fraction of a cent matters: tagging, yes/no checks, spam filtering.
@@ -51,3 +57,4 @@ All the costs above are for English. Other languages use more tokens for the sam
 Paste a real prompt into the [token counter](/) to see its exact token count and cost on every model, or open the [OpenAI](/openai-token-counter), [Claude](/claude-token-counter) or [Gemini](/gemini-token-counter) counter. For a full side-by-side of capability against price, see [AI model capability vs price](/compare/performance).
 
 *Prices change often. Check the provider's pricing page before you commit to a model.*
+<!-- autoimg -->

@@ -1,3 +1,5 @@
+![繁體中文在 GPT 中比英文多用 35% Token（1.35×）](/zhongwen-fanti-token-gpt-zh-tw.jpg)
+
 我們把同一段客服提示詞翻成 41 種語言，用 OpenAI 目前的 o200k_base 分詞器（GPT-4o 以後的模型）計算 Token。英文需要 34 個 Token，繁體中文需要 **46 個，是英文的 1.35×**，在 41 種語言中排第 14 便宜。
 
 繁體中文版本：
@@ -20,7 +22,7 @@
 | Ελληνικά | 70 | 2.06× | 51% |
 | ਪੰਜਾਬੀ | 83 | 2.44× | 59% |
 
-![結果](/blog-language-tax-chart-v4.png)
+![各語言在 GPT 中比英文多用的 token 比例圖](/blog-language-tax-chart-v4.png)
 
 ## 為什麼
 
@@ -38,11 +40,15 @@
 
 ## 省 Token 的方法
 
+![省 Token 的方法: 固定的系統提示詞改用英文撰寫，只讓使用者輸入保持中文。; 分類、擷取、工具呼叫等中間步驟輸出英文或 JSON，只有最後回答用繁體中文。; 對固定前綴使用提示詞快取（Prompt Caching），輸入單價會大幅下降。](/zhongwen-fanti-token-gpt-zh-tw-2.jpg)
+
 - 固定的系統提示詞改用英文撰寫，只讓使用者輸入保持中文。
 - 分類、擷取、工具呼叫等中間步驟輸出英文或 JSON，只有最後回答用繁體中文。
 - 對固定前綴使用提示詞快取（Prompt Caching），輸入單價會大幅下降。
 
 ## 限制
+
+![限制: 只測了一段提示詞，不同文字的倍數可能差 0.1–0.2。; Claude 與 Gemini 的分詞器不同，這些數字只適用於 OpenAI 模型。; 譯文以機器翻譯為基礎並經過檢查。](/zhongwen-fanti-token-gpt-zh-tw-3.jpg)
 
 - 只測了一段提示詞，不同文字的倍數可能差 0.1–0.2。
 - Claude 與 Gemini 的分詞器不同，這些數字只適用於 OpenAI 模型。
@@ -50,5 +56,5 @@
 
 全部 41 種語言的結果（英文）：[41 種語言比較](/blog/token-cost-by-language)
 
-
 想知道各家 AI 訂閱在台灣要付多少？請看[AI 訂閱價格比較](/zh-tw/blog/ai-dingyue-jiage-bijiao)。
+<!-- autoimg -->

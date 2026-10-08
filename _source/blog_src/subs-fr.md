@@ -1,6 +1,10 @@
+![Abonnements IA 2026 : ChatGPT, Claude, Gemini, Mistral en euros TTC](/abonnement-ia-prix-comparatif-fr.jpg)
+
 ChatGPT, Claude, Gemini, Mistral et Grok vendent maintenant chacun plusieurs formules payantes, de 5 € à plus de 500 € par mois. Les noms ne se correspondent pas, et les prix non plus : certains sont affichés en euros TTC, d'autres en dollars hors taxes, avec la TVA à 20 % ajoutée au moment de payer. Voici toutes les formules dans un seul tableau, ce que l'on paie réellement en France, et comment savoir si un abonnement vaut le coup pour vous.
 
 ## Tous les prix en France
+
+![Tous les prix en France: Gamme, ChatGPT, Claude, Google (Gemini), Mistral](/abonnement-ia-prix-comparatif-tous-les-prix-en-france-fr.jpg)
 
 Prix mensuels relevés au 6 octobre 2026.
 
@@ -24,6 +28,8 @@ Beaucoup de comparatifs mélangent des prix en dollars hors taxes et des prix en
 
 ## Autour de 20 € : même prix, usages différents
 
+![Autour de 20 € : même prix, usages différents: ChatGPT Plus ; Claude Pro ; Google AI Pro ](/abonnement-ia-prix-comparatif-autour-de-20-meme-prix-usages-differents-fr.jpg)
+
 Pour la plupart des gens, cette gamme suffit. La différence se fait sur l'usage :
 
 - **ChatGPT Plus :** les fonctions les plus complètes (images, voix, recherche approfondie, GPT personnalisés), plus Codex et ChatGPT Work. Pas de publicité.
@@ -37,6 +43,8 @@ Pour la plupart des gens, cette gamme suffit. La différence se fait sur l'usage
 - **Google AI Plus (4,99 €) :** le modèle Pro va disparaître de cette formule. Détails dans [Gemini gratuit limité à Flash-Lite](/fr/blog/gemini-gratuit-flash-lite).
 
 ## 100 à 220 € : regardez le prix par unité d'usage
+
+![100 à 220 € : regardez le prix par unité d'usage: Formule, Usage par rapport à la formule à ~20 €, Prix par unité](/abonnement-ia-prix-comparatif-100-a-220-regardez-le-prix-par-unite-d-u-fr.jpg)
 
 | Formule | Usage par rapport à la formule à ~20 € | Prix par unité |
 |---|---|---|
@@ -62,3 +70,4 @@ L'abonnement l'emporte aussi si vous avez de longues conversations ou des docume
 Pour comparer en un coup d'œil le coût API de votre usage réel avec chaque formule de ce tableau, utilisez le [calculateur abonnement ou API](/fr/plans).
 
 *Sources : [Tech Insider](https://tech-insider.org/fr/abonnements-chatgpt-claude-gemini-mistral-2026/), [Digitiz](https://digitiz.fr/chatgpt-quel-abonnement-choisir/), [Presse-citron](https://www.presse-citron.net/chatgpt-avantages-nouvel-abonnement-103-e/), [Blog du Modérateur](https://www.blogdumoderateur.com/openai-suspend-nouvelles-souscriptions-chatgpt-pro-forte-demande-gpt-6-astra/), [KultureGeek](https://kulturegeek.fr/news-360562/chatgpt-lance-abonnement-pro-510-e-mois-bride-celui-229-e), [Décodeur IA](https://www.decodeur-ia.com/articles/gemini-gratuit-flash-lite-9-octobre-2026-ai-plus-sans-pro-pme), [Les Astuces IA (Mistral)](https://www.lesastucesia.com/blog/outils-ia/mistral-ai-prix), [Praxena](https://praxena.fr/mistral-gratuit-2026/), [Lucas Fonseque (Claude)](https://lucasfonseque.fr/claude-ia/claude-gratuit-prix/claude-pro-prix-abonnement/), [Chatbot.fr (Grok)](https://www.chatbot.fr/grok-chatbot/). Vérifié le 6 octobre 2026. Les prix et les limites changent souvent : vérifiez la page de chaque éditeur avant de payer.*
+<!-- autoimg -->

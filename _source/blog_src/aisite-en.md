@@ -1,8 +1,12 @@
+![15 Useful AI Websites Worth Bookmarking (Free to Start)](/useful-ai-websites-en.jpg)
+
 There are thousands of AI websites now, and most of them are thin wrappers around the same few models. This is a short list of the ones that are actually worth a bookmark: each does one job well, and every one can be tried for free.
 
 Free plans and limits change often, so treat "free" below as "you can start without paying" and check each site for today's details.
 
 ## Quick list
+
+![Quick list: Need, Site, Why it's worth it](/useful-ai-websites-quick-list-en.jpg)
 
 | Need | Site | Why it's worth it |
 |---|---|---|
@@ -74,6 +78,8 @@ AI video generation is where costs climb fastest. Before you burn credits, the [
 
 ## Know what it costs: TokenSave
 
+![Know what it costs: TokenSave: Token counter; Subscription vs API; Coding agent cost](/useful-ai-websites-know-what-it-costs-tokensave-en.jpg)
+
 Most of these sites charge, sooner or later, by usage. **[TokenSave](/)** is a set of free calculators that show what that usage costs:
 
 - **[Token counter](/):** paste text and see tokens and cost on GPT, Claude and Gemini models. It can also shrink a prompt by translating it to English on your device.
@@ -85,6 +91,9 @@ Everything runs in your browser, there is no sign-up, and it works in 41 languag
 
 ## How to pick
 
+![How to pick: Start with one chat assistant. ChatGPT, Claude or Gemini covers most needs.; Add one tool for your main job. P](/useful-ai-websites-how-to-pick-en.jpg)
+
 1. **Start with one chat assistant.** ChatGPT, Claude or Gemini covers most needs.
 2. **Add one tool for your main job.** Perplexity for research, DeepL for translation, Canva for design, CapCut for video.
 3. **Pay only when the free plan blocks you.** Check first whether a subscription or the API is cheaper for your usage.
+<!-- autoimg -->

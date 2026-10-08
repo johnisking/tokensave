@@ -1,3 +1,5 @@
+![JSON vs YAML vs CSV: Which Data Format Uses the Fewest Tokens?](/json-vs-yaml-vs-csv-tokens-en.jpg)
+
 When you send data to an AI model, whether product lists, survey results, database rows or API responses, the format you choose changes how many tokens it takes. We measured the same table in seven common formats on GPT's o200k tokenizer. The most popular choice, pretty-printed JSON with one object per row, uses almost three times as many tokens as the cheapest. The same data as columnar JSON costs about the same as CSV: the expensive part is repeating the keys, not JSON itself.
 
 *Updated October 3, 2026: added columnar JSON and header-plus-rows JSON after a reader pointed out they were missing. Same table, same tokenizer.*
@@ -11,6 +13,8 @@ A row looks like this in CSV:
     1001,Wireless Mouse,9.99,false,electronics
 
 ## Results
+
+![Results: Format, Tokens, vs CSV, Characters](/json-vs-yaml-vs-csv-tokens-results-en.jpg)
 
 | Format | Tokens | vs CSV | Characters |
 |---|---|---|---|
@@ -38,6 +42,8 @@ Measured with the o200k tokenizer used by GPT-4o and later. The older cl100k tok
 YAML is interesting: it has fewer characters than minified JSON but more tokens, because it puts every field on its own line with its own key.
 
 ## What this costs at scale
+
+![What this costs at scale: Format, Tokens per month, Cost per month](/json-vs-yaml-vs-csv-tokens-what-this-costs-at-scale-en.jpg)
 
 Suppose an app sends a 20-row table like this with every request, 1,000 times a day. Over a month that is 30,000 requests. At an input price of $2 per million tokens (GPT-6 Sol, checked October 1, 2026):
 
@@ -67,6 +73,8 @@ The difference is small for one request and real for a product. For larger table
 
 ## Other ways to shrink structured data
 
+![Other ways to shrink structured data: Send only the fields the task needs. If the model is writing product descriptions, it probably does not need i](/json-vs-yaml-vs-csv-tokens-other-ways-to-shrink-structured-data-en.jpg)
+
 1. **Send only the fields the task needs.** If the model is writing product descriptions, it probably does not need internal IDs, timestamps or warehouse codes.
 2. **Shorten long values.** Replace long IDs with row numbers and map them back in your code afterwards. A standard UUID is 18 tokens on its own.
 3. **Round numbers.** `9.99` is cheaper than `9.990000001`, and most tasks do not need the extra digits.
@@ -79,3 +87,4 @@ These numbers come from one table on one tokenizer. Claude and Gemini use differ
 ## Measure your own data
 
 Paste a sample of your data into the [token counter](/) in two formats and compare. It runs the same o200k tokenizer in your browser, and nothing you paste is uploaded.
+<!-- autoimg -->

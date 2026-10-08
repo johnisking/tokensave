@@ -27,14 +27,14 @@
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image" content="https://tokensave.app/tokens-per-word-en.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <meta name="twitter:image" content="https://tokensave.app/tokens-per-word-en.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Tokens per Word, Measured: English and 11 Other Languages", "description": "How many tokens per word and per character on current GPT models: about 1.1-1.3 per English word, and the real numbers for other languages.", "inLanguage": "en", "url": "https://tokensave.app/blog/tokens-per-word", "mainEntityOfPage": "https://tokensave.app/blog/tokens-per-word", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Tokens per Word, Measured: English and 11 Other Languages", "item": "https://tokensave.app/blog/tokens-per-word"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Tokens per Word, Measured: English and 11 Other Languages", "description": "How many tokens per word and per character on current GPT models: about 1.1-1.3 per English word, and the real numbers for other languages.", "inLanguage": "en", "url": "https://tokensave.app/blog/tokens-per-word", "mainEntityOfPage": "https://tokensave.app/blog/tokens-per-word", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/tokens-per-word-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Tokens per Word, Measured: English and 11 Other Languages", "item": "https://tokensave.app/blog/tokens-per-word"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -98,8 +98,10 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">Tokens per Word, Measured: English and 11 Other Languages</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
-  <p>"One token is about four characters, or three-quarters of a word." You will find this rule of thumb everywhere. It comes from OpenAI's older tokenizers, and for modern models it is a little pessimistic for everyday English and wildly wrong for many other languages. We measured real text on GPT's current tokenizer (o200k, used by GPT-4o and later) to give updated numbers.</p>
+  <p><img loading="lazy" width="1200" height="630" alt="Tokens per Word, Measured: English and 11 Other Languages" src="/tokens-per-word-en.jpg" /></p>
+<p>"One token is about four characters, or three-quarters of a word." You will find this rule of thumb everywhere. It comes from OpenAI's older tokenizers, and for modern models it is a little pessimistic for everyday English and wildly wrong for many other languages. We measured real text on GPT's current tokenizer (o200k, used by GPT-4o and later) to give updated numbers.</p>
 <h2>English: about 1.1 to 1.3 tokens per word</h2>
+<p><img loading="lazy" width="1200" height="596" alt="English: about 1.1 to 1.3 tokens per word: Text, Words, Tokens, Tokens per word, Characters per token" src="/tokens-per-word-english-about-1-1-to-1-3-tokens-per-word-en.jpg" /></p>
 <p>We counted four kinds of English text:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -151,6 +153,7 @@
 <p>The classic "¾ of a word per token" (1.33 tokens per word) matches technical text, so it is a safe, slightly conservative estimate. For ordinary writing, you will usually use about 15% fewer tokens than it predicts.</p>
 <p>Code is denser: in our measurements, Python and JavaScript averaged about 3.5 characters per token. See <a href="/blog/how-many-tokens-does-code-use">How many tokens does code use?</a></p>
 <h2>Other languages: tokens per character</h2>
+<p><img loading="lazy" width="1200" height="997" alt="Other languages: tokens per character: Language, Characters, Tokens, Characters per token, Tokens vs English" src="/tokens-per-word-other-languages-tokens-per-character-en.jpg" /></p>
 <p>Words are a poor unit across languages: Chinese, Japanese and Thai do not put spaces between words, and languages like Finnish or Turkish pack a whole phrase into one long word. Characters per token is more useful. Here is the same customer-support prompt in several languages:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -291,6 +294,7 @@
 <h2>Count your own text</h2>
 <p>Rules of thumb are fine for rough planning. For anything you will pay for, paste your real text into the <a href="/">token counter</a>: it runs the actual tokenizer in your browser and shows the cost on every model.</p>
 <p>Convert any token count to words and pages for GPT, Claude and Gemini with the <a href="/tokens-to-words">tokens to words converter</a>.</p>
+<!-- autoimg -->
 
         <h2>More articles</h2>
         <ul><li><a href="/blog/chatgpt-free-vs-paid">ChatGPT Free vs Paid (2026): What You Actually Get for $0, $8, $20 and $100</a></li><li><a href="/blog/ai-game-cost-calculator-review">I Ran My Released Game Through My AI Game Cost Calculator: Prediction vs Reality</a></li><li><a href="/blog/token-cost-by-language">Same prompt, 41 languages: GPT token cost compared</a></li><li><a href="/blog/reasoning-models-cost">Reasoning Models: When Thinking Is Worth Paying For</a></li><li><a href="/blog/rag-vs-long-context-cost">RAG vs Long Context: What It Costs to Ask Questions About Big Documents</a></li></ul>

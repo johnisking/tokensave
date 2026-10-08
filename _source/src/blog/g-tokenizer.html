@@ -1,3 +1,4 @@
+<p><img loading="lazy" width="1200" height="630" alt="How GPT's New Tokenizer Cut Costs in 40 Languages" src="/gpt-tokenizer-cl100k-vs-o200k-en.jpg" /></p>
 <p>For years, anyone using GPT in Hindi, Tamil or Malayalam paid several times more than an English user for the same request. Then, with GPT-4o in May 2024, OpenAI switched to a new tokenizer, and for many languages the cost of a prompt dropped by more than half overnight. Here is how tokenizers work, what changed, and the measured effect on 40 languages.</p>
 <h2>How a tokenizer is built</h2>
 <p>GPT models use a method called <strong>byte-pair encoding (BPE)</strong>. It starts from raw bytes and repeatedly merges the pairs that appear together most often in a large training text, until it has a fixed vocabulary of pieces. Frequent words end up as single tokens. Rare words are built from several smaller pieces, and in the worst case from individual bytes.</p>
@@ -11,6 +12,7 @@
 </ul>
 <p>Doubling the vocabulary left room for far more pieces from non-English languages, so whole words and common syllables in many scripts became single tokens.</p>
 <h2>Measured: the same prompt in 41 languages</h2>
+<p><img loading="lazy" width="1200" height="1052" alt="Measured: the same prompt in 41 languages: Language, cl100k (older GPT-4), o200k (GPT-4o and later), Cost cut" src="/gpt-tokenizer-cl100k-vs-o200k-measured-the-same-prompt-in-41-languages-en.jpg" /></p>
 <p>We translated one 34-token English prompt (a request to summarize a customer email and suggest a reply) into 40 languages and counted tokens on both tokenizers. Each number is how many tokens the language needs compared with English.</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -277,3 +279,4 @@
 <p>One English prompt of 34 tokens was translated into each language, starting from machine translation that was then checked, keeping the meaning and tone the same. Tokens were counted with OpenAI's published tokenizers (cl100k_base and o200k_base). One prompt is a small sample, so longer texts and different topics will give somewhat different ratios, but the large gaps between scripts are far bigger than that variation. Full details and per-language articles are in our <a href="/blog/token-cost-by-language">41-language study</a>.</p>
 <h2>Paying less in any language</h2>
 <p>The easiest saving is still to write instructions in English and ask for the answer in your language. See <a href="/blog/cut-token-cost-non-english-prompts">How to cut the token cost of non-English prompts</a>, or paste your prompt into the <a href="/">token counter</a> and press <em>Save tokens</em> to see the difference.</p>
+<!-- autoimg -->

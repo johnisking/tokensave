@@ -1,3 +1,5 @@
+![Codex 사용량 한도 정리: 5시간·주간 한도와 초기화](/codex-sayongnyang-hando-ko.jpg)
+
 OpenAI의 코딩 에이전트 Codex는 ChatGPT Plus, Pro, Business 요금제에 포함되어 있고, 요즘 사용량 한도에 가장 많이 걸리는 곳이기도 합니다. Codex는 ChatGPT Work와 사용량을 함께 쓰고, 5시간 단위 한도와 주간 한도가 있으며, 어떤 모델을 쓰느냐에 따라 소진 속도가 크게 다릅니다. 어떻게 돌아가는지, 어떻게 하면 더 오래 쓸 수 있는지 정리했습니다.
 
 ## Codex가 포함된 요금제
@@ -13,6 +15,8 @@ Codex(와 ChatGPT Work) 사용량은 **Plus**($20), **Pro**($100, $200, $500), *
 Codex와 ChatGPT Work는 **같은 사용량**에서 차감됩니다.
 
 ## 모델별로 쓸 수 있는 양
+
+![모델별로 쓸 수 있는 양: 모델, Plus, Pro (5× 등급)](/codex-sayongnyang-hando-ko-2.jpg)
 
 OpenAI 고객센터는 5시간 단위당 예상 메시지 수를 안내합니다. 어떤 모델을 고르느냐에 따라 숫자가 크게 달라집니다.
 
@@ -37,6 +41,8 @@ OpenAI 고객센터는 ChatGPT의 **Settings → Usage**를 안내합니다. 남
 
 ## 한도에 걸렸을 때
 
+![한도에 걸렸을 때: 초기화를 기다립니다. 5시간 단위 한도는 몇 시간 안에 다시 채워집니다.; 적립된 리셋을 쓰거나 즉시 리셋을 구매합니다. 자격이 되는 Plus와 Pro 계정에서 가능합니다.; 크레딧을 써서 계속 작](/codex-sayongnyang-hando-ko-3.jpg)
+
 1. **초기화를 기다립니다.** 5시간 단위 한도는 몇 시간 안에 다시 채워집니다.
 2. **적립된 리셋을 쓰거나 즉시 리셋을 구매합니다.** 자격이 되는 Plus와 Pro 계정에서 가능합니다.
 3. **크레딧을 써서** 계속 작업합니다. 크레딧을 지원하는 요금제에 해당합니다.
@@ -44,6 +50,8 @@ OpenAI 고객센터는 ChatGPT의 **Settings → Usage**를 안내합니다. 남
 5. 넘치는 작업은 종량제 결제의 **API 키로** 처리합니다.
 
 ## 더 오래 쓰는 법
+
+![더 오래 쓰는 법: 기본은 GPT-5.6 Sol이나 Terra로 두세요. GPT-6 Astra는 차이가 눈에 보이는 어려운 문제에만 쓰세요. 사용량을 몇 배로 씁니다.; 간단한 수정, 이름 바꾸기, 보일러플레이트에는 ](/codex-sayongnyang-hando-ko-4.jpg)
 
 - **기본은 GPT-5.6 Sol이나 Terra로 두세요.** GPT-6 Astra는 차이가 눈에 보이는 어려운 문제에만 쓰세요. 사용량을 몇 배로 씁니다.
 - **간단한 수정**, 이름 바꾸기, 보일러플레이트에는 **Luna를 쓰세요.**
@@ -59,3 +67,4 @@ OpenAI 고객센터는 ChatGPT의 **Settings → Usage**를 안내합니다. 남
 둘 다 $20, $100, $200 요금제에 포함되어 있고 한도 구조도 비슷합니다. 차이점은 [ChatGPT Pro vs Claude Max 비교](/ko/blog/chatgpt-pro-vs-claude-max)에 정리했고, [코딩 에이전트 계산기](/ko/agents)로 월 API 비용을 모든 요금제와 비교할 수 있습니다.
 
 *한도는 자주 바뀝니다. 최신 수치는 OpenAI의 [Codex·Work 사용량 도움말](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)에서 확인하세요.*
+<!-- autoimg -->

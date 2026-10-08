@@ -1,6 +1,10 @@
+![Why Numbers, IDs, Dates and Emoji Use More Tokens Than You Think](/numbers-dates-emoji-tokens-en.jpg)
+
 Most people estimate tokens from word count: about four characters, or three-quarters of a word, per token. That rule works for ordinary prose. It breaks down badly for numbers, IDs, dates, links, phone numbers and emoji, which are exactly the things that fill product catalogs, logs, spreadsheets and chat messages. We measured them on GPT's o200k tokenizer.
 
 ## Numbers are split into groups of three digits
+
+![Numbers are split into groups of three digits: Text, Tokens, How it splits](/numbers-dates-emoji-tokens-numbers-are-split-into-groups-of-three-d-en.jpg)
 
 | Text | Tokens | How it splits |
 |---|---|---|
@@ -16,6 +20,8 @@ The o200k tokenizer splits long numbers into chunks of up to three digits, count
 This chunking is also one reason language models are unreliable at exact arithmetic on long numbers: the model never sees `1234567` as one number, only as three pieces that happen to sit next to each other. For calculations that matter, have the model write and run code, or do the maths in your own code.
 
 ## Dates and times
+
+![Dates and times: Text, Tokens](/numbers-dates-emoji-tokens-dates-and-times-en.jpg)
 
 | Text | Tokens |
 |---|---|
@@ -64,6 +70,8 @@ Common emoji are a single token on the current tokenizer. But some emoji are bui
 
 ## How to save tokens on this kind of data
 
+![How to save tokens on this kind of data: Replace long IDs with short keys. Send #1, #2, #3 to the model and keep a lookup table in your code to map the](/numbers-dates-emoji-tokens-how-to-save-tokens-on-this-kind-of-data-en.jpg)
+
 1. **Replace long IDs with short keys.** Send `#1, #2, #3` to the model and keep a lookup table in your code to map them back.
 2. **Drop precision the task does not need.** Round prices and measurements, and trim timestamps to the date or the time.
 3. **Remove thousands separators** from numbers you send as data.
@@ -73,3 +81,4 @@ Common emoji are a single token on the current tokenizer. But some emoji are bui
 ## Measure it
 
 The [token counter](/) shows exactly how any text splits into tokens. Open *See how it splits into tokens* under the text box to see each piece highlighted.
+<!-- autoimg -->

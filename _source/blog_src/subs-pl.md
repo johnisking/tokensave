@@ -1,6 +1,10 @@
+![Ceny subskrypcji AI w Polsce: ChatGPT, Claude, Gemini, Grok w zł](/ceny-subskrypcji-ai-pl.jpg)
+
 ChatGPT, Claude, Gemini i Grok sprzedają dziś po kilka płatnych planów. Nazwy się różnią, waluty też: ChatGPT i Google pokazują ceny w złotówkach z VAT, a Claude i Grok rozliczają się w dolarach, do których dochodzi VAT i prowizja banku. Zebrałem w jednej tabeli to, ile faktycznie płaci się w Polsce, policzyłem, ile kosztuje większy limit w droższych planach, i opisałem, kiedy subskrypcja w ogóle się opłaca.
 
 ## Polskie ceny w jednej tabeli
+
+![Polskie ceny w jednej tabeli: Poziom cenowy, ChatGPT, Claude, Google (Gemini)](/ceny-subskrypcji-ai-polskie-ceny-w-jednej-tabeli-pl.jpg)
 
 Stan na 6 października 2026. Ceny ChatGPT i Google to kwoty z VAT. Claude przeliczono z dolarów z 23% VAT po kursie NBP z połowy września.
 
@@ -18,6 +22,8 @@ Stan na 6 października 2026. Ceny ChatGPT i Google to kwoty z VAT. Claude przel
 
 ## Za ok. 100 zł dostajesz coś innego
 
+![Za ok. 100 zł dostajesz coś innego: ChatGPT Plus; Claude Pro; Google AI Pro](/ceny-subskrypcji-ai-za-ok-100-z-dostajesz-cos-innego-pl.jpg)
+
 Plany za ok. 100 zł kosztują u trzech firm prawie tyle samo i większości osób wystarczą. Różnica polega nie na cenie, tylko na tym, **do czego najczęściej używasz AI**.
 
 - **ChatGPT Plus:** najszerszy zestaw funkcji: obrazy, głos, głębokie badania, własne GPT, a do tego Codex i ChatGPT Work. Bez reklam.
@@ -30,6 +36,8 @@ Plany za ok. 100 zł kosztują u trzech firm prawie tyle samo i większości os�
 - **Google AI Plus (23,99 zł):** wkrótce traci model Pro. Nadal ma sens, jeśli potrzebujesz 400 GB w chmurze. Zobacz [co się zmienia w Gemini od 9 października](/pl/blog/gemini-za-darmo-flash-lite).
 
 ## Droższe plany: patrz na cenę za jednostkę
+
+![Droższe plany: patrz na cenę za jednostkę: Plan, Limit względem planu za ok. 100 zł, Cena za jednostkę](/ceny-subskrypcji-ai-drozsze-plany-patrz-na-cene-za-jednostke-pl.jpg)
 
 | Plan | Limit względem planu za ok. 100 zł | Cena za jednostkę |
 |---|---|---|
@@ -56,3 +64,4 @@ Wszystkie cztery firmy sprzedają też dostęp przez API, gdzie płacisz tylko z
 Wpisz, jak naprawdę korzystasz z AI, w [kalkulator subskrypcja vs API](/pl/plans), a zobaczysz miesięczny koszt API obok każdego planu z tabeli. Koszt pojedynczego promptu sprawdzisz w [liczniku tokenów](/pl/), a jak go obniżyć, opisuję w tekście [ile kosztuje prompt po polsku](/pl/blog/ile-kosztuje-prompt-po-polsku).
 
 *Źródła: ChatGPT wg [Promptowy](https://promptowy.com/chatgpt-przewodnik/) (25 września 2026), Google wg [Bez Halucynacji](https://bezhalucynacji.pl/ile-kosztuje-gemini-ceny-ai-plus-pro-i-ultra-w-zl) i [Promptowy](https://promptowy.com/gemini-za-darmo-zmiany-9-pazdziernika/), Claude wg [SSD Nodes](https://www.ssdnodes.com/learn/lang/pl/claude-plans-in-poland-what-you-pay) (kurs NBP z 16 września 2026), Grok wg [Promptowy](https://promptowy.com/ile-kosztuje-grok-abonament/), VAT dla firm wg [Monaltro](https://monaltro.pl/subskrypcje-ai-firma-vat-koszty-rozliczenie-2026/), podatek tokenowy wg [Promptowy](https://promptowy.com/podatek-tokenowy-2026-polski-tekst-osiem-modeli/). Stan na 6 października 2026. Ceny i limity często się zmieniają, więc przed zakupem sprawdź stronę danej firmy.*
+<!-- autoimg -->

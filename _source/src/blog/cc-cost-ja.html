@@ -1,5 +1,7 @@
+<p><img loading="lazy" width="1200" height="630" alt="Claude Code の料金は月いくら？Pro・Max・API を比較" src="/claude-code-ryoukin-ja.jpg" /></p>
 <p>Claude Code（クロードコード）は、Claude の Pro・Max プランに含まれているほか、使った分だけ払う API でも使えます。では、実際に月いくらかかるのでしょうか。使う量しだいで、同じ作業でも払い方によって10倍以上の差が出ます。実際の数字でまとめました。</p>
 <h2>払い方は2つ</h2>
+<p><img loading="lazy" width="1200" height="568" alt="払い方は2つ: プラン, 月額, 利用量" src="/claude-code-ryoukin-ja-2.jpg" /></p>
 <p><strong>1. サブスクリプション（定額プラン）</strong>。Claude Code が含まれるプランです（米国価格、2026年10月確認）。</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -61,6 +63,7 @@
 <p>Claude Code はステップごとに作業します。ファイルを読み、編集し、テストを実行し、結果を見て、またやり直す。そして<strong>ステップのたびに作業コンテキスト全体</strong>（指示、ツール定義、読んだファイル、それまでの経緯）をモデルに送り直します。そのため、機能を1つ追加するだけでも入力トークンが<strong>約160万</strong>になることは珍しくありません。書くコードが短くても同じです。</p>
 <p>これを現実的なコストに抑えているのが<strong>プロンプトキャッシュ</strong>です。繰り返し送られる部分は入力価格の約10%で計算され、Claude Code は自動で使っています。</p>
 <h2>API で1タスクあたりいくらか</h2>
+<p><img loading="lazy" width="1200" height="536" alt="API で1タスクあたりいくらか: タスク, ステップ, Haiku 4.5, Sonnet 5.5, Opus 5.5" src="/claude-code-ryoukin-ja-3.jpg" /></p>
 <p>TokenSave の<a href="/ja/agents">コーディングエージェント費用計算機</a>で、キャッシュありの場合です。</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -155,6 +158,7 @@
 </ul>
 <p>Claude Code が送る内容の大半はキャッシュされたコンテキストなので、エージェント作業の実質単価は Sonnet で処理トークン100万あたり$1を大きく下回ることが多いです。Opus はその約2倍と考えてください。</p>
 <h2>どう選ぶか</h2>
+<p><img loading="lazy" width="1200" height="764" alt="どう選ぶか: 週に数回使う程度なら、まず Pro から。; 上限にどれくらい当たるかを見ましょう。ほぼ毎週当たるなら、追加分を API で払うより Max 5× のほうが安い可能性が高いです。; 自動化、CI パイプライン、使う量が不" src="/claude-code-ryoukin-ja-4.jpg" /></p>
 <ol>
 <li>週に数回使う程度なら、<strong>まず Pro から</strong>。</li>
 <li><strong>上限にどれくらい当たるか</strong>を見ましょう。ほぼ毎週当たるなら、追加分を API で払うより Max 5× のほうが安い可能性が高いです。</li>
@@ -164,3 +168,4 @@
 <h2>自分の1か月を計算する</h2>
 <p><a href="/ja/agents">コーディングエージェント費用計算機</a>で、タスクの大きさ、1日のタスク数、稼働日数を入れると、Claude・GPT・Gemini モデルの API 費用を Claude・ChatGPT の各プランと並べて比較できます。どちらの払い方でもトークンを減らしたいなら、<a href="/ja/blog/claude-code-token-setsuyaku">Claude Code のトークン節約術</a>をどうぞ。</p>
 <p><em>料金と上限はよく変わります。決める前に <a href="https://claude.com/pricing" target="_blank" rel="noopener">claude.com/pricing</a> を確認してください。</em></p>
+<!-- autoimg -->

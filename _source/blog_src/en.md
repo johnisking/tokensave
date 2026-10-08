@@ -1,3 +1,5 @@
+![Same prompt, 41 languages: GPT token cost compared](/token-cost-by-language-en.jpg)
+
 I translated one ordinary customer-support prompt into 41 languages and counted tokens with **o200k_base**, the tokenizer behind GPT-4o and every newer OpenAI model English needs 34 tokens. The same request costs anywhere from **1.03×** (Simplified Chinese) to **2.44×** (Punjabi).
 
 The English prompt:
@@ -54,6 +56,8 @@ The English prompt:
 
 ## Why some languages cost more
 
+![Why some languages cost more: Czech; Polish; Hindi](/token-cost-by-language-why-some-languages-cost-more-en.jpg)
+
 Tokenizers are trained mostly on English, so common English words are a single token (" polite", " customer"). Words in other languages are split into pieces, and endings or diacritics often become tokens of their own:
 
 - Czech: navrhněte → `nav | r | hn | ě | te`
@@ -69,6 +73,8 @@ Current models understand English instructions perfectly well and answer in your
 With a model at $2 per million input tokens, sending this prompt one million times costs $68 in English, $98 in Korean, $122 in Japanese and $136 in Czech. If the model also answers in that language, the same multiplier applies to output tokens, which usually cost 4–5× more.
 
 ## How to spend fewer tokens
+
+![How to spend fewer tokens: Send the prompt in English and ask for the answer in your language (the Save tokens button does this in one cl](/token-cost-by-language-how-to-spend-fewer-tokens-en.jpg)
 
 - Send the prompt in English and ask for the answer in your language (the Save tokens button does this in one click).
 - Write the system prompt and fixed instructions in English; keep only user input in the user's language.
@@ -86,3 +92,4 @@ With a model at $2 per million input tokens, sending this prompt one million tim
 [Čeština](/cs/blog/cestina-tokeny-gpt) · [Polski](/pl/blog/polski-tokeny-gpt) · [日本語](/ja/blog/nihongo-tokens-gpt) · [한국어](/ko/blog/korean-tokens-gpt) · [简体中文](/zh-cn/blog/zhongwen-token-gpt) · [繁體中文](/zh-tw/blog/zhongwen-fanti-token-gpt) · [Español](/es/blog/tokens-espanol-gpt) · [Português](/pt/blog/tokens-portugues-gpt) · [Français](/fr/blog/tokens-francais-gpt) · [Deutsch](/de/blog/tokens-deutsch-gpt) · [Italiano](/it/blog/token-italiano-gpt) · [Русский](/ru/blog/tokeny-russkiy-gpt) · [Українська](/uk/blog/tokeny-ukrainska-gpt) · [Türkçe](/tr/blog/token-turkce-gpt) · [العربية](/ar/blog/tokens-arabic-gpt) · [فارسی](/fa/blog/token-farsi-gpt) · [हिन्दी](/hi/blog/tokens-hindi-gpt) · [Bahasa Indonesia](/id/blog/token-bahasa-indonesia-gpt) · [Tiếng Việt](/vi/blog/token-tieng-viet-gpt) · [ไทย](/th/blog/token-phasa-thai-gpt) · [Nederlands](/nl/blog/tokens-nederlands-gpt) · [বাংলা](/bn/blog/token-bangla-gpt) · [اردو](/ur/blog/token-urdu-gpt) · [Filipino](/fil/blog/token-filipino-gpt) · [Svenska](/sv/blog/tokens-svenska-gpt) · [עברית](/he/blog/tokens-ivrit-gpt) · [Ελληνικά](/el/blog/tokens-ellinika-gpt) · [Română](/ro/blog/tokeni-romana-gpt) · [Magyar](/hu/blog/tokenek-magyar-gpt) · [Dansk](/da/blog/tokens-dansk-gpt) · [Suomi](/fi/blog/tokenit-suomi-gpt) · [Norsk](/no/blog/tokens-norsk-gpt) · [Slovenčina](/sk/blog/tokeny-slovencina-gpt) · [मराठी](/mr/blog/marathi-tokens-gpt) · [ગુજરાતી](/gu/blog/gujarati-tokens-gpt) · [ಕನ್ನಡ](/kn/blog/kannada-tokens-gpt) · [മലയാളം](/ml/blog/malayalam-tokens-gpt) · [தமிழ்](/ta/blog/tamil-tokens-gpt) · [తెలుగు](/te/blog/telugu-tokens-gpt) · [ਪੰਜਾਬੀ](/pa/blog/punjabi-tokens-gpt)
 
 The original write-up and discussion are on [DEV](https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m).
+<!-- autoimg -->

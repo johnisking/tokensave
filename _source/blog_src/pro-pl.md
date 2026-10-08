@@ -6,6 +6,8 @@ ChatGPT Pro cena nie jest już jedna: 29 września 2026 OpenAI podzieliło ChatG
 
 ## ChatGPT Pro 100, 200 i 500 – ile kosztuje każdy plan?
 
+![ChatGPT Pro 100, 200 i 500 – ile kosztuje każdy plan?: Plan, Cena / miesiąc, Limit względem Plus, Cena za „porcję Plus”, Ultrafast](/chatgpt-pro-100-200-500-chatgpt-pro-100-200-i-500-ile-kosztuje-k-pl.jpg)
+
 Pro 100 kosztuje 100 USD, Pro 200 – 200 USD, a Pro 500 – 500 USD miesięcznie. Za każdy dolar dostajesz tyle samo limitu, więc droższy plan to po prostu więcej tego samego.
 
 | Plan | Cena / miesiąc | Limit względem Plus | Cena za „porcję Plus” | Ultrafast |
@@ -34,6 +36,8 @@ Zasada jest więc prosta: **kupuj najmniejszy plan, w którym nie dobijasz do li
 
 ## Który plan wybrać i czy ChatGPT Pro jest wart swojej ceny?
 
+![Który plan wybrać i czy ChatGPT Pro jest wart swojej ceny?: Rzadko dobijasz do limitu Plus; Kilka razy w tygodniu kończy Ci się limit Plus; Regularnie kończy Ci się limit](/chatgpt-pro-100-200-500-ktory-plan-wybrac-i-czy-chatgpt-pro-jest-pl.jpg)
+
 ChatGPT Pro warto kupić dopiero wtedy, gdy regularnie kończy Ci się limit Plus. Dla większości osób Plus wystarcza.
 
 - **Rzadko dobijasz do limitu Plus:** zostań przy Plus (20 USD). Żaden plan Pro nie daje mądrzejszych odpowiedzi w codziennym czacie – daje ich po prostu więcej.
@@ -45,6 +49,8 @@ ChatGPT Pro warto kupić dopiero wtedy, gdy regularnie kończy Ci się limit Plu
 Jeśli wahasz się raczej między tańszymi planami, zobacz porównanie [ChatGPT Go czy Plus](/pl/blog/chatgpt-go-vs-plus).
 
 ## Czy API jest tańsze niż ChatGPT Pro?
+
+![Czy API jest tańsze niż ChatGPT Pro?: Twoje użycie, API GPT-6 Sol, API GPT-6 Astra](/chatgpt-pro-100-200-500-czy-api-jest-tansze-niz-chatgpt-pro-pl.jpg)
 
 Często tak. Jeśli wysyłasz głównie krótkie lub średnie wiadomości, płacenie za tokeny zwykle wychodzi dużo taniej niż jakikolwiek plan Pro.
 
@@ -68,3 +74,4 @@ Wniosek: osoby, które lekko lub średnio korzystają z codziennego modelu, zwyk
 Każdy korzysta z ChatGPT inaczej. W [kalkulatorze subskrypcja vs API](/pl/plans) wpiszesz, ile wiadomości wysyłasz, jak są długie i w jakim języku piszesz, a zobaczysz, ile ten sam miesiąc kosztowałby w API obok planów ChatGPT, Claude i Gemini. Koszt pojedynczego promptu sprawdzisz w [liczniku tokenów](/pl/).
 
 *Ceny na dzień 1 października 2026. Polskie ceny w zł wg [Promptowy](https://promptowy.com/chatgpt-przewodnik/) (25 września 2026). OpenAI może ponownie zmienić limity – przed zakupem sprawdź chatgpt.com/pricing.*
+<!-- autoimg -->

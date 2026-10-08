@@ -1,3 +1,4 @@
+<p><img loading="lazy" width="1200" height="630" alt="L’italiano usa 1,38× i token dell’inglese in GPT" src="/token-italiano-gpt-it.jpg" /></p>
 <p>Ho tradotto lo stesso prompt di assistenza clienti in 41 lingue e contato i token con o200k_base, il tokenizer attuale di OpenAI (GPT-4o e successivi). In inglese servono 34 token; in italiano <strong>47, cioè 1,38× l’inglese</strong>, posizione 17 su 41 (1 = il più economico).</p>
 <p>La versione italiana:</p>
 <blockquote>
@@ -84,6 +85,7 @@
 </table></div>
 <p><img loading="lazy" width="960" height="1430" alt="Risultati" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Perché</h2>
+<p><img loading="lazy" width="1200" height="593" alt="Perché: Riassumi → Ri | ass | umi · 3; suggerisci → sugger | isci · 2; arrivato → arriv | ato · 2" src="/token-italiano-gpt-perche-it.jpg" /></p>
 <p>Il tokenizer impara soprattutto da testo inglese: parole come " polite" o " customer" sono un solo token, mentre molte parole italiane vengono spezzate:</p>
 <ul>
 <li>Riassumi → <code>Ri | ass | umi</code> · 3</li>
@@ -95,6 +97,7 @@
 <h2>In denaro</h2>
 <p>Con un modello a 2 $ per milione di token in input, inviare questo prompt un milione di volte costa 68 $ in inglese e 94 $ in italiano. Se anche la risposta è in italiano, lo stesso moltiplicatore vale per i token in output, che di solito costano 4–5× di più.</p>
 <h2>Come risparmiare</h2>
+<p><img loading="lazy" width="1200" height="658" alt="Come risparmiare: Scrivi il prompt di sistema e le istruzioni fisse in inglese; lascia in italiano solo l’input dell’utente.; Ch" src="/token-italiano-gpt-come-risparmiare-it.jpg" /></p>
 <ul>
 <li>Scrivi il prompt di sistema e le istruzioni fisse in inglese; lascia in italiano solo l’input dell’utente.</li>
 <li>Chiedi i passaggi intermedi (classificazione, estrazione, chiamate a strumenti) in inglese o JSON e solo la risposta finale in italiano.</li>
@@ -107,3 +110,4 @@
 <li>La traduzione parte da una traduzione automatica revisionata.</li>
 </ul>
 <p>Risultati completi delle 41 lingue (in inglese): <a href="/blog/token-cost-by-language">confronto tra 41 lingue</a></p>
+<!-- autoimg -->

@@ -1,3 +1,5 @@
+![A magyar 1,74× annyi tokent használ a GPT-ben, mint az angol](/tokenek-magyar-gpt-hu.jpg)
+
 Ugyanazt az ügyfélszolgálati promptot lefordítottam 41 nyelvre, és a tokeneket az o200k_base-szel, az OpenAI jelenlegi tokenizálójával (GPT-4o és újabbak) számoltam meg. Angolul 34 token kell, magyarul **59 — ez 1,74× annyi**, 41 nyelv közül a 30. helyen a legolcsóbbtól számítva.
 
 A magyar változat:
@@ -24,6 +26,8 @@ A magyar változat:
 
 ## Miért
 
+![Miért: ügyfél-e-mailt → ügy | fél | -e | -mail | t · 5; dobozból → do | bo | zb | ól · 4; hiányzott → hi | ány | zott](/tokenek-magyar-gpt-hu-2.jpg)
+
 A tokenizáló főleg angol szövegből tanul: az olyan szavak, mint a " polite" vagy a " customer", egyetlen tokenek, a toldalékokkal hosszú magyar szavak viszont darabokra esnek:
 
 - ügyfél-e-mailt → `ügy | fél | -e | -mail | t` · 5
@@ -40,6 +44,8 @@ Egy 1 millió bemeneti tokenenként 2 dolláros modellnél ezt a promptot egymil
 
 ## Hogyan spórolj
 
+![Hogyan spórolj: A rendszerpromptot és az állandó utasításokat írd angolul; csak a felhasználó bemenete maradjon magyarul.; A k](/tokenek-magyar-gpt-hogyan-sporolj-hu.jpg)
+
 - A rendszerpromptot és az állandó utasításokat írd angolul; csak a felhasználó bemenete maradjon magyarul.
 - A köztes lépéseket (osztályozás, kinyerés, eszközhívások) kérd angolul vagy JSON-ban, és csak a végső választ magyarul.
 - Használj prompt cachinget a prompt állandó részére.
@@ -51,3 +57,4 @@ Egy 1 millió bemeneti tokenenként 2 dolláros modellnél ezt a promptot egymil
 - A fordítás ellenőrzött gépi fordításon alapul.
 
 Mind a 41 nyelv eredménye (angolul): [41 nyelv összehasonlítása](/blog/token-cost-by-language)
+<!-- autoimg -->

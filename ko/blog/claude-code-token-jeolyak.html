@@ -27,14 +27,14 @@
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image" content="https://tokensave.app/claude-code-token-jeolyak-ko.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <meta name="twitter:image" content="https://tokensave.app/claude-code-token-jeolyak-ko.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "클로드 코드 토큰 절약 방법 9가지", "description": "클로드 코드가 토큰을 많이 쓰는 이유와 /clear, /compact, 짧은 CLAUDE.md, 영어 지시문까지 토큰을 줄이는 실전 방법 9가지.", "inLanguage": "ko", "url": "https://tokensave.app/ko/blog/claude-code-token-jeolyak", "mainEntityOfPage": "https://tokensave.app/ko/blog/claude-code-token-jeolyak", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ko/"}, {"@type": "ListItem", "position": 2, "name": "클로드 코드 토큰 절약 방법 9가지", "item": "https://tokensave.app/ko/blog/claude-code-token-jeolyak"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "클로드 코드 토큰 절약 방법 9가지", "description": "클로드 코드가 토큰을 많이 쓰는 이유와 /clear, /compact, 짧은 CLAUDE.md, 영어 지시문까지 토큰을 줄이는 실전 방법 9가지.", "inLanguage": "ko", "url": "https://tokensave.app/ko/blog/claude-code-token-jeolyak", "mainEntityOfPage": "https://tokensave.app/ko/blog/claude-code-token-jeolyak", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/claude-code-token-jeolyak-ko.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ko/"}, {"@type": "ListItem", "position": 2, "name": "클로드 코드 토큰 절약 방법 9가지", "item": "https://tokensave.app/ko/blog/claude-code-token-jeolyak"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -98,7 +98,8 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">클로드 코드 토큰 절약 방법 9가지</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026년 10월 2일</p>
-  <p>클로드 코드는 강력하지만 토큰을 많이 먹습니다. 작업 하나에 100만 토큰 넘게 모델로 보내는 경우도 흔해서, Pro·Max 한도가 금방 바닥나거나 API 청구서에 그대로 찍힙니다. 다행히 그중 상당 부분은 클로드 코드가 해 주는 일은 그대로 두고도 줄일 수 있는 낭비입니다. 효과가 큰 순서대로 정리했습니다.</p>
+  <p><img loading="lazy" width="1200" height="630" alt="클로드 코드 토큰 절약 방법 9가지" src="/claude-code-token-jeolyak-ko.jpg" /></p>
+<p>클로드 코드는 강력하지만 토큰을 많이 먹습니다. 작업 하나에 100만 토큰 넘게 모델로 보내는 경우도 흔해서, Pro·Max 한도가 금방 바닥나거나 API 청구서에 그대로 찍힙니다. 다행히 그중 상당 부분은 클로드 코드가 해 주는 일은 그대로 두고도 줄일 수 있는 낭비입니다. 효과가 큰 순서대로 정리했습니다.</p>
 <h2>토큰이 쌓이는 이유</h2>
 <p>클로드 코드는 단계별로 일하고, <strong>단계마다 작업 맥락 전체</strong>를 다시 보냅니다. 지시문, 도구 정의, 읽은 파일, 이전 단계까지 전부입니다. 시작 맥락 22,000토큰에 단계마다 3,500토큰씩 늘어나는 25단계 기능 작업이면 입력 토큰이 모두 <strong>약 160만 개</strong>입니다. 그래서 맥락을 줄이거나 작업을 짧게 만드는 건 무엇이든 매 단계마다 효과가 납니다.</p>
 <h2>1. 작업을 작고 구체적으로</h2>
@@ -128,9 +129,10 @@
 <p>토큰세이브 <a href="/ko/agents">코딩 에이전트 비용 계산 모델</a> 기준으로, Sonnet 5.5에서 일반적인 기능 작업 하나는 캐싱을 켜고 약 $0.72입니다. 정확한 지시와 파일 위치를 줘서 25단계를 15단계로 줄이면 약 $0.40으로 내려갑니다. 작업마다 새 세션으로 시작하면 시작 맥락도 작게 유지됩니다. 한 달에 작업 100개라면 주간 한도에 걸리느냐 안 걸리느냐가 갈리는 차이입니다.</p>
 <h2>사용량 확인</h2>
 <p>클로드 코드에서 <strong>/status</strong>를 치면 남은 사용량이 나옵니다. 한도 자체가 어떻게 돌아가는지는 <a href="/ko/blog/claude-code-sayongnyang-hando">클로드 코드 사용량 한도 정리</a>를, 요금제와 API 비교는 <a href="/ko/blog/claude-code-yogeum">클로드 코드 한 달 요금 계산</a>을 보세요.</p>
+<!-- autoimg -->
 
         <h2>다른 글</h2>
-        <ul><li><a href="/ko/blog/chatgpt-muryo-yuryo-chai">챗GPT 무료 vs 유료 차이: 무료·Go·Plus·Pro 한도와 원화 가격 (2026)</a></li><li><a href="/ko/blog/google-play-bigonggae-teseuteu-14il">구글 플레이 비공개 테스트 14일, AI로 만든 게임 버그 14개 잡은 기록</a></li><li><a href="/ko/blog/claude-code-sayongnyang-hando">클로드 코드 사용량 한도 정리: 5시간·주간 한도와 확인 방법</a></li><li><a href="/ko/blog/chatgpt-sayongnyang-hando">챗GPT 사용량 한도 정리: 무엇이 아직 제한되고 언제 초기화될까</a></li><li><a href="/ko/blog/chatgpt-pro-vs-claude-max">챗GPT Pro vs Claude Max 요금제 비교: $100·$200 어디가 더 많이 줄까</a></li></ul>
+        <ul><li><a href="/ko/blog/indie-game-gaebal-biyong">인디게임 개발 비용 얼마? 1인 개발 vs 외주, 엔진·스토어 등록비 정리 (2026)</a></li><li><a href="/ko/blog/chatgpt-muryo-yuryo-chai">챗GPT 무료 vs 유료 차이: 무료·Go·Plus·Pro 한도와 원화 가격 (2026)</a></li><li><a href="/ko/blog/claude-code-sayongnyang-hando">클로드 코드 사용량 한도 정리: 5시간·주간 한도와 확인 방법</a></li><li><a href="/ko/blog/chatgpt-sayongnyang-hando">챗GPT 사용량 한도 정리: 무엇이 아직 제한되고 언제 초기화될까</a></li><li><a href="/ko/blog/chatgpt-pro-vs-claude-max">챗GPT Pro vs Claude Max 요금제 비교: $100·$200 어디가 더 많이 줄까</a></li></ul>
         <div class="not-prose mt-8 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 text-center">
           <p class="text-zinc-200">작업 크기와 하루 작업 수를 넣고, 클로드 코드의 API 비용을 Pro·Max와 비교해 보세요.</p>
           <a href="/ko/agents" class="mt-3 inline-block tab-active rounded-lg px-4 py-2 font-semibold no-underline" style="text-decoration:none">코딩 에이전트 비용 계산기 열기 →</a>

@@ -25,14 +25,14 @@
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image" content="https://tokensave.app/numbers-dates-emoji-tokens-en.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <meta name="twitter:image" content="https://tokensave.app/numbers-dates-emoji-tokens-en.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Why Numbers, IDs, Dates and Emoji Use More Tokens Than You Think", "description": "Measured on GPT's tokenizer: numbers split into 3-digit chunks, a UUID is 18 tokens, one emoji can be 11. How to save.", "inLanguage": "en", "url": "https://tokensave.app/blog/numbers-dates-emoji-tokens", "mainEntityOfPage": "https://tokensave.app/blog/numbers-dates-emoji-tokens", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Why Numbers, IDs, Dates and Emoji Use More Tokens Than You Think", "item": "https://tokensave.app/blog/numbers-dates-emoji-tokens"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Why Numbers, IDs, Dates and Emoji Use More Tokens Than You Think", "description": "Measured on GPT's tokenizer: numbers split into 3-digit chunks, a UUID is 18 tokens, one emoji can be 11. How to save.", "inLanguage": "en", "url": "https://tokensave.app/blog/numbers-dates-emoji-tokens", "mainEntityOfPage": "https://tokensave.app/blog/numbers-dates-emoji-tokens", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/numbers-dates-emoji-tokens-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Why Numbers, IDs, Dates and Emoji Use More Tokens Than You Think", "item": "https://tokensave.app/blog/numbers-dates-emoji-tokens"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -96,8 +96,10 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">Why Numbers, IDs, Dates and Emoji Use More Tokens Than You Think</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
-  <p>Most people estimate tokens from word count: about four characters, or three-quarters of a word, per token. That rule works for ordinary prose. It breaks down badly for numbers, IDs, dates, links, phone numbers and emoji, which are exactly the things that fill product catalogs, logs, spreadsheets and chat messages. We measured them on GPT's o200k tokenizer.</p>
+  <p><img loading="lazy" width="1200" height="630" alt="Why Numbers, IDs, Dates and Emoji Use More Tokens Than You Think" src="/numbers-dates-emoji-tokens-en.jpg" /></p>
+<p>Most people estimate tokens from word count: about four characters, or three-quarters of a word, per token. That rule works for ordinary prose. It breaks down badly for numbers, IDs, dates, links, phone numbers and emoji, which are exactly the things that fill product catalogs, logs, spreadsheets and chat messages. We measured them on GPT's o200k tokenizer.</p>
 <h2>Numbers are split into groups of three digits</h2>
+<p><img loading="lazy" width="1200" height="772" alt="Numbers are split into groups of three digits: Text, Tokens, How it splits" src="/numbers-dates-emoji-tokens-numbers-are-split-into-groups-of-three-d-en.jpg" /></p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -142,6 +144,7 @@
 <p>The o200k tokenizer splits long numbers into chunks of up to three digits, counted from the left. Thousands separators and decimal points each become a token of their own. So <code>1,234,567</code> costs more than <code>1234567</code>, and a price like <code>$1,299.99</code> costs six tokens.</p>
 <p>This chunking is also one reason language models are unreliable at exact arithmetic on long numbers: the model never sees <code>1234567</code> as one number, only as three pieces that happen to sit next to each other. For calculations that matter, have the model write and run code, or do the maths in your own code.</p>
 <h2>Dates and times</h2>
+<p><img loading="lazy" width="1200" height="636" alt="Dates and times: Text, Tokens" src="/numbers-dates-emoji-tokens-dates-and-times-en.jpg" /></p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -252,6 +255,7 @@
 <p><strong>User data.</strong> Chat messages full of emoji and links cost more than plain text of the same length.</p>
 <p><strong>Estimates.</strong> If you budget with the "4 characters per token" rule, number-heavy prompts will cost more than you planned.</p>
 <h2>How to save tokens on this kind of data</h2>
+<p><img loading="lazy" width="1200" height="902" alt="How to save tokens on this kind of data: Replace long IDs with short keys. Send #1, #2, #3 to the model and keep a lookup table in your code to map the" src="/numbers-dates-emoji-tokens-how-to-save-tokens-on-this-kind-of-data-en.jpg" /></p>
 <ol>
 <li><strong>Replace long IDs with short keys.</strong> Send <code>#1, #2, #3</code> to the model and keep a lookup table in your code to map them back.</li>
 <li><strong>Drop precision the task does not need.</strong> Round prices and measurements, and trim timestamps to the date or the time.</li>
@@ -261,6 +265,7 @@
 </ol>
 <h2>Measure it</h2>
 <p>The <a href="/">token counter</a> shows exactly how any text splits into tokens. Open <em>See how it splits into tokens</em> under the text box to see each piece highlighted.</p>
+<!-- autoimg -->
 
         <h2>More articles</h2>
         <ul><li><a href="/blog/chatgpt-free-vs-paid">ChatGPT Free vs Paid (2026): What You Actually Get for $0, $8, $20 and $100</a></li><li><a href="/blog/ai-game-cost-calculator-review">I Ran My Released Game Through My AI Game Cost Calculator: Prediction vs Reality</a></li><li><a href="/blog/llm-api-pricing-comparison">LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek</a></li><li><a href="/blog/json-vs-yaml-vs-csv-tokens">JSON vs YAML vs CSV: Which Data Format Uses the Fewest Tokens?</a></li><li><a href="/blog/how-to-estimate-ai-api-cost">How to Estimate Your AI API Bill Before You Build</a></li></ul>

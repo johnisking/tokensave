@@ -1,3 +1,5 @@
+![Claude Code の使用量上限まとめ：5時間・週の上限と確認方法](/claude-code-shiyouryou-jougen-ja.jpg)
+
 「usage limit reached（使用量の上限に達しました）」は、Claude Code を使っているといちばんよく見るメッセージのひとつで、いちばん分かりにくいメッセージでもあります。**2種類の上限**が同時に働いているからです。仕組み、2026年に変わったこと、上限に当たったときの対処法をまとめました。
 
 ## 上限は2種類
@@ -9,6 +11,8 @@
 どちらの上限も **Claude Code と Claude アプリ（Web・デスクトップ・モバイル）で共有**です。アプリで長い会話をすると、コーディングに使える分も減ります。
 
 ## プランごとの使用量
+
+![プランごとの使用量: プラン, 料金, 使用量](/claude-code-shiyouryou-jougen-ja-2.jpg)
 
 Anthropic は正確なトークン数ではなく、プラン同士の倍率で説明しています。
 
@@ -22,6 +26,8 @@ Anthropic は正確なトークン数ではなく、プラン同士の倍率で�
 
 ## 2026年に変わったこと
 
+![2026年に変わったこと: 2026年5月6日：Anthropic が Pro・Max・Team・シート制 Enterprise プランで Claude Code の5時間上限を2倍にしました。Pro・Max のピーク時間帯の上限引き下げも廃止され](/claude-code-shiyouryou-jougen-ja-3.jpg)
+
 - **2026年5月6日**：Anthropic が Pro・Max・Team・シート制 Enterprise プランで **Claude Code の5時間上限を2倍**にしました。Pro・Max のピーク時間帯の上限引き下げも廃止されました。
 - **2026年夏**：週の上限に**50%の一時的な引き上げ**が適用されていました。
 - **2026年9月14日**：Pro・Max・Team・シート制 Enterprise の**標準の週上限を恒久的に25%引き上げ**ました。ただし50%の一時増量を置き換えたものなので、夏と比べると約17%少なくなっています。元の水準よりは25%多い状態です。
@@ -33,6 +39,8 @@ Anthropic は正確なトークン数ではなく、プラン同士の倍率で�
 Claude Code で **/status** コマンドを実行すると、残りの使用量を確認できます。上限に近づくと Claude Code が警告も出してくれます。長いタスクは途中ではなく、**始める前に**確認しましょう。
 
 ## 上限に当たったら
+
+![上限に当たったら: リセットを待つ。5時間上限なら、たいてい数時間で解除されます。; 追加使用（usage credits）を有効にする。有料プランなら、止まらずに別課金のクレジットで続けられます。; API クレジットに切り替える。Cla](/claude-code-shiyouryou-jougen-ja-4.jpg)
 
 1. **リセットを待つ**。5時間上限なら、たいてい数時間で解除されます。
 2. **追加使用（usage credits）を有効にする**。有料プランなら、止まらずに別課金のクレジットで続けられます。
@@ -63,3 +71,4 @@ Claude Code で **/status** コマンドを実行すると、残りの使用量�
 週の上限によく当たるなら、その追加分を API で払った場合と、ひとつ上のプランを比べてみましょう。[Claude Code の月額料金](/ja/blog/claude-code-ryoukin)と[コーディングエージェント費用計算機](/ja/agents)で計算できます。
 
 *上限は変わります。最新のルールは Anthropic の [Claude Code プランのヘルプ](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)と[料金ページ](https://claude.com/pricing)で確認してください。*
+<!-- autoimg -->

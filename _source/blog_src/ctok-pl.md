@@ -1,8 +1,12 @@
+![Limit Claude: ile tokenów daje Claude Pro i Max? (pomiary)](/limity-claude-pro-max-pl.jpg)
+
 Anthropic nie podaje, ile tokenów zawierają Claude Pro i Max. Limit Claude opisuje jako wielokrotność planu Pro („5× Pro”, „20× Pro”) z limitem 5-godzinnym i tygodniowym, nigdy jako liczbę tokenów. Ludzie to jednak zmierzyli. Poniżej sprawdzisz, jak wyglądają Claude Pro limity i ile tokenów daje Claude Max, dlaczego te liczby są tak duże i jak przełożyć je na coś przydatnego: ile Twoje użycie kosztowałoby w API.
 
 **Krótko:** według pomiarów z września 2026 w Claude Code na Opus 5 plan Max 5× daje ok. 39 mln tokenów na 5-godzinne okno, Max 20× ok. 1,9 mld tokenów tygodniowo, a Pro – według szacunku – ok. 8 mln tokenów na okno.
 
 ## Ile tokenów daje Claude Max i Claude Pro?
+
+![Ile tokenów daje Claude Max i Claude Pro?: Plan, Cena, Na 5-godzinne okno, Na tydzień](/limity-claude-pro-max-ile-tokenow-daje-claude-max-i-claude-pro-pl.jpg)
 
 Pomiary w Claude Code z września 2026, na modelu Claude Opus 5:
 
@@ -26,6 +30,8 @@ Dlatego sama liczba tokenów mówi mniej, niż mogłoby się wydawać. Dwie sesj
 
 ## Co najszybciej zużywa limit Claude?
 
+![Co najszybciej zużywa limit Claude?: Opus zamiast Sonnet. Opus 5.5 kosztuje w API dwa razy więcej za token niż Sonnet 5.5 i szybciej zużywa też lim](/limity-claude-pro-max-co-najszybciej-zuzywa-limit-claude-pl.jpg)
+
 - **Opus zamiast Sonnet.** Opus 5.5 kosztuje w API dwa razy więcej za token niż Sonnet 5.5 i szybciej zużywa też limit planu.
 - **Długie sesje.** Każdy krok wysyła ponownie cały kontekst. Sesja, która urosła do 150 000 tokenów, kosztuje na krok dużo więcej niż świeża. Używaj **/clear** między niepowiązanymi zadaniami i **/compact** przy długich.
 - **Duży CLAUDE.md albo wiele narzędzi.** Są wysyłane z każdym krokiem.
@@ -46,3 +52,4 @@ Prawie na pewno tak, jeśli intensywnie korzystasz z Claude Code: tydzień w Max
 Powiązane: [Claude Max vs Pro](/blog/claude-max-vs-pro) (po angielsku) · [limity Claude Code](/pl/blog/limity-claude-code) · [limity Codex](/pl/blog/limity-codex) · [jak oszczędzać tokeny w Claude Code](/blog/claude-code-save-tokens) (po angielsku) · [licznik tokenów Claude](/claude-token-counter) · [licznik tokenów po polsku](/pl/)
 
 *Anthropic często zmienia limity i nie publikuje limitów tokenów. Wpisz **/status** w Claude Code, żeby sprawdzić, ile Ci zostało. Polskie ceny wg [SSD Nodes](https://www.ssdnodes.com/learn/lang/pl/claude-plans-in-poland-what-you-pay) (kurs NBP z 16 września 2026), podatek tokenowy wg [Promptowy](https://promptowy.com/podatek-tokenowy-2026-polski-tekst-osiem-modeli/).*
+<!-- autoimg -->

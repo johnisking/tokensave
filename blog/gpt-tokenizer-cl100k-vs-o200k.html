@@ -25,14 +25,14 @@
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image" content="https://tokensave.app/gpt-tokenizer-cl100k-vs-o200k-en.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <meta name="twitter:image" content="https://tokensave.app/gpt-tokenizer-cl100k-vs-o200k-en.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "How GPT's New Tokenizer Cut Costs in 40 Languages", "description": "cl100k vs o200k measured in 41 languages: Malayalam -82%, Hindi -67%, Korean -42%. How tokenizers work and what is left.", "inLanguage": "en", "url": "https://tokensave.app/blog/gpt-tokenizer-cl100k-vs-o200k", "mainEntityOfPage": "https://tokensave.app/blog/gpt-tokenizer-cl100k-vs-o200k", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "How GPT's New Tokenizer Cut Costs in 40 Languages", "item": "https://tokensave.app/blog/gpt-tokenizer-cl100k-vs-o200k"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "How GPT's New Tokenizer Cut Costs in 40 Languages", "description": "cl100k vs o200k measured in 41 languages: Malayalam -82%, Hindi -67%, Korean -42%. How tokenizers work and what is left.", "inLanguage": "en", "url": "https://tokensave.app/blog/gpt-tokenizer-cl100k-vs-o200k", "mainEntityOfPage": "https://tokensave.app/blog/gpt-tokenizer-cl100k-vs-o200k", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/gpt-tokenizer-cl100k-vs-o200k-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "How GPT's New Tokenizer Cut Costs in 40 Languages", "item": "https://tokensave.app/blog/gpt-tokenizer-cl100k-vs-o200k"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -96,7 +96,8 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">How GPT&#x27;s New Tokenizer Cut Costs in 40 Languages</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
-  <p>For years, anyone using GPT in Hindi, Tamil or Malayalam paid several times more than an English user for the same request. Then, with GPT-4o in May 2024, OpenAI switched to a new tokenizer, and for many languages the cost of a prompt dropped by more than half overnight. Here is how tokenizers work, what changed, and the measured effect on 40 languages.</p>
+  <p><img loading="lazy" width="1200" height="630" alt="How GPT's New Tokenizer Cut Costs in 40 Languages" src="/gpt-tokenizer-cl100k-vs-o200k-en.jpg" /></p>
+<p>For years, anyone using GPT in Hindi, Tamil or Malayalam paid several times more than an English user for the same request. Then, with GPT-4o in May 2024, OpenAI switched to a new tokenizer, and for many languages the cost of a prompt dropped by more than half overnight. Here is how tokenizers work, what changed, and the measured effect on 40 languages.</p>
 <h2>How a tokenizer is built</h2>
 <p>GPT models use a method called <strong>byte-pair encoding (BPE)</strong>. It starts from raw bytes and repeatedly merges the pairs that appear together most often in a large training text, until it has a fixed vocabulary of pieces. Frequent words end up as single tokens. Rare words are built from several smaller pieces, and in the worst case from individual bytes.</p>
 <p>The key point: <strong>the vocabulary reflects the text it was trained on.</strong> If that text is mostly English, English words get their own tokens and everything else is pieced together from fragments.</p>
@@ -109,6 +110,7 @@
 </ul>
 <p>Doubling the vocabulary left room for far more pieces from non-English languages, so whole words and common syllables in many scripts became single tokens.</p>
 <h2>Measured: the same prompt in 41 languages</h2>
+<p><img loading="lazy" width="1200" height="1052" alt="Measured: the same prompt in 41 languages: Language, cl100k (older GPT-4), o200k (GPT-4o and later), Cost cut" src="/gpt-tokenizer-cl100k-vs-o200k-measured-the-same-prompt-in-41-languages-en.jpg" /></p>
 <p>We translated one 34-token English prompt (a request to summarize a customer email and suggest a reply) into 40 languages and counted tokens on both tokenizers. Each number is how many tokens the language needs compared with English.</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -375,6 +377,7 @@
 <p>One English prompt of 34 tokens was translated into each language, starting from machine translation that was then checked, keeping the meaning and tone the same. Tokens were counted with OpenAI's published tokenizers (cl100k_base and o200k_base). One prompt is a small sample, so longer texts and different topics will give somewhat different ratios, but the large gaps between scripts are far bigger than that variation. Full details and per-language articles are in our <a href="/blog/token-cost-by-language">41-language study</a>.</p>
 <h2>Paying less in any language</h2>
 <p>The easiest saving is still to write instructions in English and ask for the answer in your language. See <a href="/blog/cut-token-cost-non-english-prompts">How to cut the token cost of non-English prompts</a>, or paste your prompt into the <a href="/">token counter</a> and press <em>Save tokens</em> to see the difference.</p>
+<!-- autoimg -->
 
         <h2>More articles</h2>
         <ul><li><a href="/blog/chatgpt-free-vs-paid">ChatGPT Free vs Paid (2026): What You Actually Get for $0, $8, $20 and $100</a></li><li><a href="/blog/ai-game-cost-calculator-review">I Ran My Released Game Through My AI Game Cost Calculator: Prediction vs Reality</a></li><li><a href="/blog/gpt-6-api-pricing">GPT-6 API Pricing: Astra vs Sol vs Luna, and What It Costs</a></li><li><a href="/blog/cut-token-cost-non-english-prompts">Prompting in Korean, Japanese or Hindi? How to Cut the Token Cost</a></li><li><a href="/blog/context-window-explained">Context Windows Explained: Why Long Chats Get Worse and Cost More</a></li></ul>

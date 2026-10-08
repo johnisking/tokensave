@@ -1,5 +1,7 @@
+<p><img loading="lazy" width="1200" height="630" alt="Why Numbers, IDs, Dates and Emoji Use More Tokens Than You Think" src="/numbers-dates-emoji-tokens-en.jpg" /></p>
 <p>Most people estimate tokens from word count: about four characters, or three-quarters of a word, per token. That rule works for ordinary prose. It breaks down badly for numbers, IDs, dates, links, phone numbers and emoji, which are exactly the things that fill product catalogs, logs, spreadsheets and chat messages. We measured them on GPT's o200k tokenizer.</p>
 <h2>Numbers are split into groups of three digits</h2>
+<p><img loading="lazy" width="1200" height="772" alt="Numbers are split into groups of three digits: Text, Tokens, How it splits" src="/numbers-dates-emoji-tokens-numbers-are-split-into-groups-of-three-d-en.jpg" /></p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -44,6 +46,7 @@
 <p>The o200k tokenizer splits long numbers into chunks of up to three digits, counted from the left. Thousands separators and decimal points each become a token of their own. So <code>1,234,567</code> costs more than <code>1234567</code>, and a price like <code>$1,299.99</code> costs six tokens.</p>
 <p>This chunking is also one reason language models are unreliable at exact arithmetic on long numbers: the model never sees <code>1234567</code> as one number, only as three pieces that happen to sit next to each other. For calculations that matter, have the model write and run code, or do the maths in your own code.</p>
 <h2>Dates and times</h2>
+<p><img loading="lazy" width="1200" height="636" alt="Dates and times: Text, Tokens" src="/numbers-dates-emoji-tokens-dates-and-times-en.jpg" /></p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -154,6 +157,7 @@
 <p><strong>User data.</strong> Chat messages full of emoji and links cost more than plain text of the same length.</p>
 <p><strong>Estimates.</strong> If you budget with the "4 characters per token" rule, number-heavy prompts will cost more than you planned.</p>
 <h2>How to save tokens on this kind of data</h2>
+<p><img loading="lazy" width="1200" height="902" alt="How to save tokens on this kind of data: Replace long IDs with short keys. Send #1, #2, #3 to the model and keep a lookup table in your code to map the" src="/numbers-dates-emoji-tokens-how-to-save-tokens-on-this-kind-of-data-en.jpg" /></p>
 <ol>
 <li><strong>Replace long IDs with short keys.</strong> Send <code>#1, #2, #3</code> to the model and keep a lookup table in your code to map them back.</li>
 <li><strong>Drop precision the task does not need.</strong> Round prices and measurements, and trim timestamps to the date or the time.</li>
@@ -163,3 +167,4 @@
 </ol>
 <h2>Measure it</h2>
 <p>The <a href="/">token counter</a> shows exactly how any text splits into tokens. Open <em>See how it splits into tokens</em> under the text box to see each piece highlighted.</p>
+<!-- autoimg -->

@@ -1,3 +1,4 @@
+<p><img loading="lazy" width="1200" height="630" alt="Nederlands in GPT: 29% meer tokens dan Engels (41 talen gemeten)" src="/tokens-nederlands-gpt-nl.jpg" /></p>
 <p>Ik vertaalde dezelfde klantenservice-prompt naar 41 talen en telde de tokens met o200k_base, de huidige tokenizer van OpenAI (GPT-4o en nieuwer). Engels heeft 34 tokens nodig, Nederlands <strong>44 — 29% meer</strong>, plaats 10 van 41 (1 = goedkoopst).</p>
 <p>De Nederlandse versie:</p>
 <blockquote>
@@ -84,6 +85,7 @@
 </table></div>
 <p><img loading="lazy" width="960" height="1430" alt="Resultaten" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Waarom</h2>
+<p><img loading="lazy" width="1200" height="593" alt="Waarom: ontbrak → ont | br | ak · 3; beleefd → bele | efd · 2; aankwam → aank | wam · 2" src="/tokens-nederlands-gpt-waarom-nl.jpg" /></p>
 <p>De tokenizer leert vooral van Engelse tekst: woorden als " polite" of " customer" zijn één token, terwijl veel Nederlandse woorden in stukken worden gehakt:</p>
 <ul>
 <li>ontbrak → <code>ont | br | ak</code> · 3</li>
@@ -95,6 +97,7 @@
 <h2>In geld</h2>
 <p>Bij een model van $2 per miljoen inputtokens kost het 68 dollar in het Engels en 88 dollar in het Nederlands om deze prompt een miljoen keer te versturen. Antwoordt het model ook in het Nederlands, dan geldt dezelfde 29% extra voor de outputtokens, die meestal 300–400% duurder zijn dan inputtokens.</p>
 <h2>Zo bespaar je</h2>
+<p><img loading="lazy" width="1200" height="658" alt="Zo bespaar je: Schrijf de systeemprompt en vaste instructies in het Engels; houd alleen de invoer van gebruikers in het Neder" src="/tokens-nederlands-gpt-zo-bespaar-je-nl.jpg" /></p>
 <ul>
 <li>Schrijf de systeemprompt en vaste instructies in het Engels; houd alleen de invoer van gebruikers in het Nederlands.</li>
 <li>Laat tussenstappen (classificatie, extractie, tool-aanroepen) in het Engels of als JSON teruggeven, en alleen het eindantwoord in het Nederlands.</li>
@@ -107,3 +110,4 @@
 <li>De vertaling is gebaseerd op een gecontroleerde machinevertaling.</li>
 </ul>
 <p>Alle resultaten voor 41 talen (in het Engels): <a href="/blog/token-cost-by-language">vergelijking van 41 talen</a></p>
+<!-- autoimg -->

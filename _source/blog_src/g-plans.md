@@ -1,3 +1,5 @@
+![ChatGPT Plus or the API: Which Is Cheaper for You?](/chatgpt-subscription-vs-api-en.jpg)
+
 ChatGPT Plus, Claude Pro and Google AI Pro all cost about $20 a month. The same companies also sell their models through an API, where you pay only for the tokens you use. For many people the API is far cheaper. For others, a subscription is a bargain. Which one you are depends almost entirely on how much you chat.
 
 ## What you pay for in each case
@@ -7,6 +9,8 @@ ChatGPT Plus, Claude Pro and Google AI Pro all cost about $20 a month. The same 
 **The API** charges per token: what you send in, and what the model writes back. There is no app, so you use it through a third-party chat client or your own tool.
 
 ## What a month of chat costs on the API
+
+![What a month of chat costs on the API: Messages per month, GPT-6 Sol, Gemini 3.8 Flash, GPT-6 Luna](/chatgpt-subscription-vs-api-what-a-month-of-chat-costs-on-the-api-en.jpg)
 
 Assume a typical message in an ongoing conversation sends about 3,000 input tokens (your message plus the conversation so far) and gets back 500 output tokens. At API prices checked October 1, 2026:
 
@@ -21,6 +25,8 @@ On GPT-6 Sol, each message like this costs about $0.011, so $20 buys roughly 1,8
 
 ## What moves the break-even point
 
+![What moves the break-even point: Long chats. Every message re-sends the whole conversation, so a long chat can make each message 5–10 times mor](/chatgpt-subscription-vs-api-what-moves-the-break-even-point-en.jpg)
+
 - **Long chats.** Every message re-sends the whole conversation, so a long chat can make each message 5–10 times more expensive. Heavy users of long conversations hit the break-even point much sooner.
 - **Documents.** Pasting a 20-page document adds around 10,000 tokens to every message that follows it.
 - **Your language.** Korean uses about 1.44× the tokens of English, Japanese about 1.79×. On the API you pay for that; on a subscription you mostly do not.
@@ -28,6 +34,8 @@ On GPT-6 Sol, each message like this costs about $0.011, so $20 buys roughly 1,8
 - **Features.** If you rely on image generation, voice mode or deep research, those are included in the plans and cost extra (or are not available) through a plain chat API.
 
 ## Rules of thumb
+
+![Rules of thumb: A few questions a day; Daily work, mostly short chats; Heavy daily use, long documents, coding all day](/chatgpt-subscription-vs-api-rules-of-thumb-en.jpg)
 
 - **A few questions a day:** the API, or a free plan, is cheaper.
 - **Daily work, mostly short chats:** a $20 plan and the API are close. Choose by features.
@@ -39,3 +47,4 @@ On GPT-6 Sol, each message like this costs about $0.011, so $20 buys roughly 1,8
 The [Subscription vs API calculator](/plans) takes your number of messages, how long they are, how many turns a chat usually has and your language, and shows the monthly API cost next to every plan for ChatGPT, Claude and Gemini.
 
 *Prices change often. Confirm current prices on each provider's pricing page.*
+<!-- autoimg -->

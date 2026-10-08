@@ -1,3 +1,5 @@
+![Dansk bruger 1,35× så mange tokens som engelsk i GPT](/tokens-dansk-gpt-da.jpg)
+
 Jeg oversatte den samme kundeserviceprompt til 41 sprog og talte tokens med o200k_base, OpenAI's nuværende tokenizer (GPT-4o og nyere). Engelsk kræver 34 tokens, dansk **46 – altså 1,35× så mange**, plads 16 af 41 (1 = billigst).
 
 Den danske version:
@@ -24,6 +26,8 @@ Den danske version:
 
 ## Hvorfor
 
+![Hvorfor: manglede → m | angle | de · 3; høfligt → hø | fl | igt · 3; Opsummer → Ops | ummer · 2](/tokens-dansk-gpt-hvorfor-da.jpg)
+
 Tokenizeren lærer mest af engelsk tekst: ord som " polite" eller " customer" er ét token, mens mange danske ord – især sammensatte ord – deles op:
 
 - manglede → `m | angle | de` · 3
@@ -40,6 +44,8 @@ Med en model til 2 $ pr. million input-tokens koster det 68 $ på engelsk og 92 
 
 ## Sådan sparer du
 
+![Sådan sparer du: Skriv systemprompten og faste instruktioner på engelsk; lad kun brugerens input være på dansk.; Bed om mellemt](/tokens-dansk-gpt-sadan-sparer-du-da.jpg)
+
 - Skriv systemprompten og faste instruktioner på engelsk; lad kun brugerens input være på dansk.
 - Bed om mellemtrin (klassificering, udtræk, værktøjskald) på engelsk eller som JSON, og kun det endelige svar på dansk.
 - Brug prompt caching til den faste del af prompten.
@@ -51,3 +57,4 @@ Med en model til 2 $ pr. million input-tokens koster det 68 $ på engelsk og 92 
 - Oversættelsen bygger på en gennemgået maskinoversættelse.
 
 Alle resultater for 41 sprog (på engelsk): [sammenligning af 41 sprog](/blog/token-cost-by-language)
+<!-- autoimg -->

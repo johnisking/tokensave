@@ -1,3 +1,4 @@
+<p><img loading="lazy" width="1200" height="630" alt="Bahasa Indonesia memakai 1,15× token bahasa Inggris di GPT" src="/token-bahasa-indonesia-gpt-id.jpg" /></p>
 <p>Saya menerjemahkan prompt layanan pelanggan yang sama ke 41 bahasa dan menghitung token dengan o200k_base, tokenizer OpenAI saat ini (GPT-4o dan setelahnya). Bahasa Inggris butuh 34 token, bahasa Indonesia <strong>39 token — 1,15× bahasa Inggris</strong>, peringkat 3 dari 41 (1 = paling murah).</p>
 <p>Versi bahasa Indonesia:</p>
 <blockquote>
@@ -84,6 +85,7 @@
 </table></div>
 <p><img loading="lazy" width="960" height="1430" alt="Hasil" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Mengapa</h2>
+<p><img loading="lazy" width="1200" height="593" alt="Mengapa: terlambat → terl | amb | at · 3; Pelanggan → Pel | anggan · 2; sarankan → sar | ankan · 2" src="/token-bahasa-indonesia-gpt-mengapa-id.jpg" /></p>
 <p>Tokenizer terutama belajar dari teks bahasa Inggris: kata seperti " polite" atau " customer" hanya satu token, sedangkan kata berimbuhan dalam bahasa Indonesia dipecah:</p>
 <ul>
 <li>terlambat → <code>terl | amb | at</code> · 3</li>
@@ -95,6 +97,7 @@
 <h2>Dalam uang</h2>
 <p>Dengan model seharga $2 per 1 juta token input, mengirim prompt ini 1 juta kali menghabiskan $68 dalam bahasa Inggris dan $78 dalam bahasa Indonesia. Jika jawabannya juga berbahasa Indonesia, pengali yang sama berlaku untuk token output yang biasanya 4–5× lebih mahal.</p>
 <h2>Cara berhemat</h2>
+<p><img loading="lazy" width="1200" height="658" alt="Cara berhemat: Tulis system prompt dan instruksi tetap dalam bahasa Inggris; biarkan hanya input pengguna dalam bahasa Indone" src="/token-bahasa-indonesia-gpt-cara-berhemat-id.jpg" /></p>
 <ul>
 <li>Tulis system prompt dan instruksi tetap dalam bahasa Inggris; biarkan hanya input pengguna dalam bahasa Indonesia.</li>
 <li>Minta langkah perantara (klasifikasi, ekstraksi, pemanggilan tool) dalam bahasa Inggris atau JSON, dan hanya jawaban akhir dalam bahasa Indonesia.</li>
@@ -107,3 +110,4 @@
 <li>Terjemahan didasarkan pada terjemahan mesin yang sudah diperiksa.</li>
 </ul>
 <p>Hasil lengkap 41 bahasa (dalam bahasa Inggris): <a href="/blog/token-cost-by-language">perbandingan 41 bahasa</a></p>
+<!-- autoimg -->

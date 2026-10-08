@@ -1,3 +1,5 @@
+![Najtańsze API AI 2026: cennik API i koszt 1 mln tokenów](/najtansze-api-ai-pl.jpg)
+
 Jeśli liczy się tylko najniższy rachunek, najtańsze API AI w październiku 2026 to **GPT-5 nano**, a za nim **GPT-6 Luna** i **Qwen 3.8 Flash**. Najtańszy model rzadko jednak nadaje się do każdego zadania. Poniżej cennik API wszystkich głównych modeli ułożony według kosztu prawdziwego zapytania, koszt 1 mln tokenów na wejściu i wyjściu, tanie modele, których warto używać, oraz sytuacje, w których droższy model wychodzi taniej.
 
 **Krótko:** najtańszym API AI jest GPT-5 nano (0,05 / 0,40 USD za 1 mln tokenów wejściowych / wyjściowych, ok. 3 USD za 10 000 typowych zapytań), ale na start lepiej wypróbować GPT-6 Luna, która kosztuje niewiele więcej.
@@ -12,6 +14,8 @@ Porównaliśmy koszt jednego typowego zapytania, a nie samą cenę za milion tok
 Dlatego wyceniliśmy jedno typowe zapytanie: **2000 tokenów wejściowych i 500 wyjściowych po angielsku**, policzonych tak, jak policzyłby je tokenizer danego modelu, według oficjalnych cenników sprawdzonych 1 października 2026. Bez cache'owania i rabatów za batch.
 
 ## Najtańsze API AI – cennik i koszt 1 mln tokenów
+
+![Najtańsze API AI – cennik i koszt 1 mln tokenów: Model, Firma, Wejście / wyjście za 1 mln (USD), 1 zapytanie (USD), 10 000 zapytań (USD)](/najtansze-api-ai-najtansze-api-ai-cennik-i-koszt-1-mln-to-pl.jpg)
 
 | Model | Firma | Wejście / wyjście za 1 mln (USD) | 1 zapytanie (USD) | 10 000 zapytań (USD) |
 |---|---|---|---:|---:|
@@ -32,6 +36,8 @@ Dla porównania te same 10 000 zapytań kosztuje **90 USD** w GPT-6 Sol, **117 U
 Ceny są w dolarach. Przy płatnościach w dolarach z polskiej karty bank lub karta zwykle doliczają 3–6% za przewalutowanie, a przy subskrypcjach Claude osoby prywatne płacą do tego 23% VAT – szczegóły w tekście [ceny subskrypcji AI w Polsce](/pl/blog/ceny-subskrypcji-ai).
 
 ## Który tani model wybrać?
+
+![Który tani model wybrać?: GPT-6 Luna warto wypróbować jako pierwszy. To najnowszy mały model OpenAI (wrzesień 2026), droższy od GPT-5 na](/najtansze-api-ai-ktory-tani-model-wybrac-pl.jpg)
 
 Na start wybierz GPT-6 Luna, a do najprostszych zadań na masową skalę – GPT-5 nano.
 
@@ -57,3 +63,4 @@ Ranking zostaje ten sam, ale rachunek rośnie. Wszystkie koszty powyżej dotycz�
 Wklej prawdziwy prompt do [licznika tokenów](/pl/), a zobaczysz jego dokładną liczbę tokenów i koszt w każdym modelu. Możesz też otworzyć licznik dla [OpenAI](/openai-token-counter), [Claude](/claude-token-counter) lub [Gemini](/gemini-token-counter). Pełne zestawienie możliwości i ceny znajdziesz w porównaniu [możliwości modeli AI a cena](/compare/performance).
 
 *Ceny według oficjalnych cenników, sprawdzone 1 października 2026. Polska prowizja za przewalutowanie i VAT wg [SSD Nodes](https://www.ssdnodes.com/learn/lang/pl/claude-plans-in-poland-what-you-pay), podatek tokenowy wg [Promptowy](https://promptowy.com/podatek-tokenowy-2026-polski-tekst-osiem-modeli/). Ceny często się zmieniają – przed wyborem modelu sprawdź cennik dostawcy.*
+<!-- autoimg -->

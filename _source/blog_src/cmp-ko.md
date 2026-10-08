@@ -1,6 +1,10 @@
+![챗GPT Pro vs Claude Max 요금제 비교: $100·$200 어디가 더 많이 줄까](/chatgpt-pro-vs-claude-max-ko.jpg)
+
 챗GPT와 Claude의 요금제는 이제 거의 똑같은 가격대로 나뉩니다. $20, $100, $200, 그리고 챗GPT에는 $500이 하나 더 있습니다. 둘 다 코딩 에이전트도 들어 있습니다(챗GPT는 Codex, Claude는 클로드 코드). 그럼 같은 돈이면 어느 쪽이 더 많이 줄까요? 쓰는 방식에 따라 다르지만, 가격이 같다고 내용까지 같은 건 아닙니다.
 
 ## 요금제 나란히 보기
+
+![요금제 나란히 보기: 가격, 챗GPT, 사용량, Claude, 사용량](/chatgpt-pro-vs-claude-max-ko-2.jpg)
 
 미국 월 가격, 2026년 10월 확인 기준입니다.
 
@@ -25,6 +29,8 @@
 
 ## 쓸 수 있는 모델
 
+![쓸 수 있는 모델: 입력 100만 토큰, 출력 100만 토큰](/chatgpt-pro-vs-claude-max-ko-3.jpg)
+
 **챗GPT:** OpenAI의 최상위 모델 GPT-6 Astra를 Pro 요금제에서 쓸 수 있고, Plus에도 Work와 Codex부터 순차 적용 중입니다. Pro 500에는 더 빠른 대신 사용량을 더 빨리 쓰는 초고속(Ultrafast) 모드가 있습니다.
 
 **Claude:** 요금제는 Claude Sonnet 5.5와 Opus 5.5가 중심입니다. Max는 주로 더 비싼 Opus를 넉넉하게 쓸 여유를 줍니다.
@@ -48,6 +54,8 @@ GPT-6 Astra는 토큰당 Claude Opus 5.5의 2.5배입니다. 주로 최상위 �
 
 ## 어느 쪽을 고를까
 
+![어느 쪽을 고를까: GPT-6 Astra를 꼭 써야 하거나, 이미지 생성·음성 등 챗GPT 앱 기능을 많이 쓴다.; 초고속 모드가 필요하고 $500(Pro 500)이 아깝지 않다.; 이미 Codex를 쓰고 있고 만족한](/chatgpt-pro-vs-claude-max-ko-4.jpg)
+
 **챗GPT가 맞는 경우:**
 - GPT-6 Astra를 꼭 써야 하거나, 이미지 생성·음성 등 챗GPT 앱 기능을 많이 쓴다.
 - 초고속 모드가 필요하고 $500(Pro 500)이 아깝지 않다.
@@ -65,3 +73,4 @@ GPT-6 Astra는 토큰당 Claude Opus 5.5의 2.5배입니다. 주로 최상위 �
 하루에 몇 번 쓰는 정도라면 API가 어떤 요금제보다 쌀 수 있습니다. [구독 vs API 계산기](/ko/plans)가 내 사용량의 월 API 비용을 챗GPT·Claude·Gemini 모든 요금제와 나란히 보여줍니다. 한국어로 쓰면 영어보다 토큰이 약 1.44배 들어서 API 비용도 그만큼 늘어난다는 점도 계산에 반영됩니다.
 
 *요금제와 한도는 자주 바뀝니다. 가입 전에 [chatgpt.com/pricing](https://chatgpt.com/pricing)과 [claude.com/pricing](https://claude.com/pricing)을 확인하세요.*
+<!-- autoimg -->

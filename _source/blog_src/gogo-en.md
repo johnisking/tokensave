@@ -1,6 +1,10 @@
+![ChatGPT Go vs Plus: Is the $20 Plan Worth $12 More?](/chatgpt-go-vs-plus-en.jpg)
+
 ChatGPT Go costs $8 a month and ChatGPT Plus costs $20. Since August 2026 both have unlimited everyday text chat, so the old reason to upgrade, running out of messages, is gone. The difference now is which model answers you, how hard it thinks, and what else comes with the plan. Here is what the extra $12 buys and who needs it.
 
 ## Go vs Plus at a glance
+
+![Go vs Plus at a glance: ChatGPT Go, ChatGPT Plus](/chatgpt-go-vs-plus-go-vs-plus-at-a-glance-en.jpg)
 
 | | ChatGPT Go | ChatGPT Plus |
 |---|---|---|
@@ -22,12 +26,16 @@ To put a number on the gap: on the API, Sol-class models cost about 20 times as 
 
 ## Who should pick Go
 
+![Who should pick Go: You use ChatGPT for everyday questions, writing help and quick summaries.; You do not use Codex or ChatGPT Wor](/chatgpt-go-vs-plus-who-should-pick-go-en.jpg)
+
 - You use ChatGPT for everyday questions, writing help and quick summaries.
 - You do not use Codex or ChatGPT Work.
 - You do not mind occasional ads.
 - You want more than the free plan, mainly more memory and room for files, at the lowest price.
 
 ## Who should pick Plus
+
+![Who should pick Plus: You write or analyze long documents, or ask questions where accuracy matters.; You want the thinking levels fo](/chatgpt-go-vs-plus-who-should-pick-plus-en.jpg)
 
 - You write or analyze long documents, or ask questions where accuracy matters.
 - You want the thinking levels for hard problems.
@@ -45,3 +53,4 @@ If you mostly chat, paying per token can be cheaper than either plan. On GPT-6 L
 Google AI Plus is $4.99 and Google AI Pro $19.99; Claude has no plan below Pro at $20; Grok's SuperGrok Lite is $10. The full table is in our [AI subscription price comparison](/blog/ai-subscription-price-comparison).
 
 *Plan details from OpenAI's help center and plan pages as summarized by [Dupple](https://dupple.com/learn/chatgpt-go-vs-plus) (September 2026) and our own [ChatGPT usage limits](/blog/chatgpt-usage-limits) guide. Check chatgpt.com/pricing before you subscribe.*
+<!-- autoimg -->

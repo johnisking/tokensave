@@ -1,6 +1,10 @@
+![ChatGPT Go czy Plus: co daje 65 zł więcej (i brak reklam)](/chatgpt-go-vs-plus-pl.jpg)
+
 ChatGPT Go kosztuje w Polsce 34,99 zł miesięcznie, a ChatGPT Plus 99,99 zł. Od sierpnia 2026 oba plany mają nielimitowany zwykły czat tekstowy, więc dawny powód przejścia na Plus, czyli kończące się wiadomości, zniknął. Teraz różnica polega na tym, który model odpowiada, jak długo myśli, co jeszcze jest w planie i czy widzisz reklamy. Od końca sierpnia reklamy w ChatGPT pokazują się także w Polsce, a w praktyce **brak reklam kosztuje 65 zł miesięcznie**. Poniżej wyjaśniam, co dostajesz za tę różnicę i komu się ona opłaca.
 
 ## Go i Plus w skrócie
+
+![Go i Plus w skrócie: ChatGPT Go, ChatGPT Plus](/chatgpt-go-vs-plus-go-i-plus-w-skrocie-pl.jpg)
 
 | | ChatGPT Go | ChatGPT Plus |
 |---|---|---|
@@ -15,6 +19,8 @@ ChatGPT Go kosztuje w Polsce 34,99 zł miesięcznie, a ChatGPT Plus 99,99 zł. O
 Limity przesyłania plików, obrazów i badań są w Go niższe niż w Plus. OpenAI często je zmienia, więc aktualne wartości sprawdź na stronie planów.
 
 ## Reklamy: kto je widzi
+
+![Reklamy: kto je widzi: Free; Go; Plus i wyższe plany](/chatgpt-go-vs-plus-reklamy-kto-je-widzi-pl.jpg)
 
 OpenAI uruchomiło reklamy w 31 krajach europejskich, w tym w Polsce, pod koniec sierpnia 2026. Widzą je użytkownicy planów **Free i Go**. Są oznaczone jako treść sponsorowana i pokazują się pod odpowiedzią. W Unii Europejskiej reklamy dobiera się tylko na podstawie bieżącej rozmowy, a nie całej historii czatów.
 
@@ -31,6 +37,8 @@ Go odpowiada modelem **GPT-5.6 Luna**, małym i szybkim modelem OpenAI. Plus odp
 Dla skali: w API modele klasy Sol są za token około 20 razy droższe od modeli klasy Luna. Mniej więcej za to płacisz w Plus.
 
 ## Komu wystarczy Go
+
+![Komu wystarczy Go: Używasz ChatGPT do codziennych pytań, pomocy w pisaniu i krótkich streszczeń.; Nie korzystasz z Codexa ani Cha](/chatgpt-go-vs-plus-komu-wystarczy-go-pl.jpg)
 
 - Używasz ChatGPT do codziennych pytań, pomocy w pisaniu i krótkich streszczeń.
 - Nie korzystasz z Codexa ani ChatGPT Work.
@@ -56,3 +64,4 @@ Jeśli głównie rozmawiasz, płacenie za tokeny może wyjść taniej niż oba p
 Google AI Plus kosztuje 23,99 zł, ale od zmian w październiku nie daje już modelu Pro ([co się zmienia w Gemini](/pl/blog/gemini-za-darmo-flash-lite)). Claude nie ma planu tańszego niż Pro (20 USD + VAT). Pełną tabelę w złotówkach znajdziesz w [porównaniu cen subskrypcji AI](/pl/blog/ceny-subskrypcji-ai).
 
 *Źródła: ceny i reklamy wg [Promptowy](https://promptowy.com/chatgpt-przewodnik/) (sprawdzone 25 września 2026), [ITReseller](https://itreseller.pl/koniec-z-dylematem-darmowy-czy-za-100-zl-chatgpt-go-trafia-do-polski-w-cenie-3499-zl/), [Evostudio](https://evostudio.pl/blog/reklamy-w-chatgpt-polska/), porównanie planów wg [Dupple](https://dupple.com/learn/chatgpt-go-vs-plus). Stan na 6 października 2026. Przed zakupem sprawdź chatgpt.com/pricing.*
+<!-- autoimg -->

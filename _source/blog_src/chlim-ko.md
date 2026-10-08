@@ -1,3 +1,5 @@
+![챗GPT 사용량 한도 정리: 무엇이 아직 제한되고 언제 초기화될까](/chatgpt-sayongnyang-hando-ko.jpg)
+
 "한도에 도달했습니다"는 한때 ChatGPT에서 가장 흔한 불만이었습니다. 2026년에는 규칙이 많이 바뀌었습니다. 일상적인 텍스트 대화는 이제 모든 요금제에서 한도가 없지만, 최신 모델, ChatGPT Work와 Codex, 파일 업로드, 이미지, 음성에는 여전히 한도가 있습니다. 요금제별로 무엇이 제한되는지, 한도가 어떻게 초기화되는지, 내 사용량은 어떻게 확인하는지 정리했습니다.
 
 ## 텍스트 대화: 2026년 8월부터 한도 없음
@@ -7,6 +9,8 @@
 그러니 평범한 텍스트 메시지만 보낸다면 이제 메시지 한도를 볼 일은 없습니다.
 
 ## 아직 제한이 있는 것
+
+![아직 제한이 있는 것: 기능, 제한 여부](/chatgpt-sayongnyang-hando-ko-2.jpg)
 
 | 기능 | 제한 여부 |
 |---|---|
@@ -19,6 +23,8 @@
 
 ## GPT-6 Astra 한도
 
+![GPT-6 Astra 한도: 요금제, 5시간당 GPT-6 Astra 메시지](/chatgpt-sayongnyang-hando-gpt-6-astra-ko.jpg)
+
 OpenAI의 플래그십 모델인 GPT-6 Astra는 ChatGPT Work와 Codex에서 씁니다. OpenAI 고객센터는 5시간 단위당 예상 메시지 수를 다음과 같이 안내합니다.
 
 | 요금제 | 5시간당 GPT-6 Astra 메시지 |
@@ -29,6 +35,8 @@ OpenAI의 플래그십 모델인 GPT-6 Astra는 ChatGPT Work와 Codex에서 씁�
 범위가 넓은 이유는 길고 여러 단계를 거치는 작업 하나가 짧은 작업보다 사용량을 훨씬 많이 쓰기 때문입니다. 5시간 단위 한도 위에 주간 한도도 따로 적용됩니다. 상위 Pro 등급은 그만큼 더 받습니다. 2026년 9월 29일부터 신규 구독자 기준으로 Pro 200은 Plus의 10배, Pro 500은 Plus의 25배입니다. [ChatGPT Pro 100 vs 200 vs 500](/ko/blog/chatgpt-pro-yogeumje-bigyo)을 참고하세요.
 
 ## 한도가 초기화되는 방식
+
+![한도가 초기화되는 방식: 5시간 단위; 주간 한도; 파일, 이미지, 음성](/chatgpt-sayongnyang-hando-ko-4.jpg)
 
 - **5시간 단위:** 하루 중 정해진 시각이 아니라, 그 구간에서 첫 요청을 보낸 시점부터 계산되는 롤링 방식입니다. Plus는 2026년 8월 말부터 Work와 Codex에 5시간 단위 한도가 적용되고 있습니다. OpenAI는 8월에 Pro 100과 Pro 200에는 앞으로 몇 달간 5시간 단위 한도를 두지 않겠다고 밝혔습니다.
 - **주간 한도:** Plus, Pro, Business에 적용되는 7일 롤링 사용량입니다.
@@ -55,3 +63,4 @@ OpenAI 고객센터는 **Settings → Usage**를 안내합니다. 여기서 Work
 주로 대화만 한다면 8월 변경 덕분에 $20 요금제의 가성비가 예전보다 훨씬 좋아졌습니다. Codex나 GPT-6 Astra를 많이 쓴다면 [구독 vs API 계산기](/ko/plans)와 [코딩 에이전트 계산기](/ko/agents)로 요금제 가격과 같은 작업을 API로 했을 때의 비용을 비교해 보세요. 한국어로 쓰는 지시문을 영어로 바꾸면 토큰을 약 31% 아낄 수 있는데, [토큰 계산기](/ko/)의 💸 토큰 절약 버튼을 누르면 내 기기 안에서 바로 번역해 줍니다(PC용 Chrome 138 이상 또는 Edge 148 이상).
 
 *한도는 자주 바뀝니다. 최신 수치는 OpenAI의 [GPT-6 Astra 사용량 도움말](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)에서 확인하세요.*
+<!-- autoimg -->

@@ -1,6 +1,10 @@
+![Ціни підписок на ШІ в Україні: ChatGPT, Claude, Gemini, Grok](/tsiny-pidpysok-shi-uk.jpg)
+
 ChatGPT, Claude, Gemini і Grok мають від трьох до п'яти платних тарифів кожен, і порівняти їх непросто: назви різні, а OpenAI й Anthropic виставляють рахунки в доларах, до яких в Україні додається 20% ПДВ. Водночас, за даними Gradus, 79% українців користуються лише безкоштовними версіями ШІ. Ми звели всі тарифи в одну таблицю з реальною сумою, яку спишуть із картки, і пояснюємо, кому який тариф підходить і чи потрібна підписка взагалі.
 
 ## Ціни в Україні в одній таблиці
+
+![Ціни в Україні в одній таблиці: Рівень, ChatGPT, Claude, Google (Gemini)](/tsiny-pidpysok-shi-uk-2.jpg)
 
 Перевірено 6 жовтня 2026 року. Доларові ціни вказано з 20% ПДВ і переведено за курсом 1 USD = 44,6 ₴. Ціни Google — у гривнях з офіційної сторінки.
 
@@ -22,6 +26,8 @@ ChatGPT, Claude, Gemini і Grok мають від трьох до п'яти пл
 
 ## За ~1 000 ₴ ви отримуєте різне
 
+![За ~1 000 ₴ ви отримуєте різне: ChatGPT Plus; Claude Pro; Google AI Pro](/tsiny-pidpysok-shi-uk-3.jpg)
+
 Базові платні тарифи трьох компаній коштують майже однаково, і більшості людей їх цілком достатньо. Відрізняються вони тим, у чому сильні:
 
 - **ChatGPT Plus:** найширший набір функцій — генерація зображень, голос, глибоке дослідження, власні GPT, а також Codex і ChatGPT Work.
@@ -34,6 +40,8 @@ ChatGPT, Claude, Gemini і Grok мають від трьох до п'яти пл
 - **Google AI Plus (224,99 ₴):** незабаром без моделі Pro, але як дешевий доступ до Flash і додаткового сховища ще має сенс.
 
 ## Дорогі тарифи: дивіться на ціну за одиницю
+
+![Дорогі тарифи: дивіться на ціну за одиницю: Тариф, Обсяг порівняно з базовим тарифом, Ціна за одиницю](/tsiny-pidpysok-shi-uk-4.jpg)
 
 | Тариф | Обсяг порівняно з базовим тарифом | Ціна за одиницю |
 |---|---|---|
@@ -56,3 +64,4 @@ ChatGPT, Claude, Gemini і Grok мають від трьох до п'яти пл
 Скільки коштуватиме саме ваше використання через API порівняно з кожним тарифом, покаже [калькулятор «підписка vs API»](/uk/plans). Кількість токенів у вашому тексті можна перевірити [лічильником токенів](/uk/).
 
 *Джерела: [ChatGPT в Україні — 24 Канал](https://24tv.ua/business/pidpiska-chatgpt-2026-skilki-koshtuye-ukrayini_n3119750), [ціни з ПДВ — Lumospark](https://lumospark.com.ua/skilky-koshtuye-chatgpt-plus-v-ukraini/), [OpenAI і ПДВ — DOU](https://dou.ua/lenta/news/openai-joins-google-tax/), [ChatGPT Go в Україні — LIGA](https://tech.liga.net/ua/technology/novosti/v-ukraini-ziavyvsia-novyy-taryf-chatgpt-go-shcho-v-nomu-dostupno), [Claude в Україні — SSD Nodes](https://www.ssdnodes.com/learn/lang/uk/claude-plans-in-ukraine-what-you-pay), [оплата Claude — InsidePC](https://insidepc.tech/ua/ai-ua/ai-guides-ua/oplata-podpiski-claude-ua), [підписки Google AI (Україна)](https://gemini.google/ua/subscriptions/?hl=uk), [Grok — GetAIPerks](https://www.getaiperks.com/uk/articles/grok-free-vs-paid), [опитування Gradus](https://parlament.ua/news/chatgpt-ta-gemini-staly-lideramy-za-kilkistyu-korystuvachiv-v-ukrayini/). Перевірено 6 жовтня 2026 року. Ціни й ліміти часто змінюються, тож перед оплатою перевірте сторінку компанії.*
+<!-- autoimg -->

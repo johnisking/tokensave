@@ -1,3 +1,4 @@
+<p><img loading="lazy" width="1200" height="630" alt="O português gasta 1,21× mais tokens que o inglês no GPT" src="/tokens-portugues-gpt-pt.jpg" /></p>
 <p>Traduzi o mesmo prompt de atendimento ao cliente para 41 idiomas e contei os tokens com o o200k_base, o tokenizador atual da OpenAI (GPT-4o e posteriores). Em inglês são 34 tokens; em português, <strong>41: 1,21× o inglês</strong>, posição 5 de 41 (1 = o mais barato).</p>
 <p>A versão em português:</p>
 <blockquote>
@@ -84,6 +85,7 @@
 </table></div>
 <p><img loading="lazy" width="960" height="1430" alt="Resultados" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Por quê</h2>
+<p><img loading="lazy" width="1200" height="593" alt="Por quê: tópicos → tóp | icos · 2; educada → educ | ada · 2; faltava → falt | ava · 2" src="/tokens-portugues-gpt-por-que-pt.jpg" /></p>
 <p>O tokenizador aprende principalmente com texto em inglês: palavras como " polite" ou " customer" são um único token, enquanto muitas palavras em português são quebradas em pedaços:</p>
 <ul>
 <li>tópicos → <code>tóp | icos</code> · 2</li>
@@ -95,6 +97,7 @@
 <h2>Em dinheiro</h2>
 <p>Com um modelo a US$ 2 por milhão de tokens de entrada, enviar este prompt um milhão de vezes custa US$ 68 em inglês e US$ 82 em português. Se a resposta também vier em português, o mesmo multiplicador vale para os tokens de saída, que costumam custar 4–5× mais.</p>
 <h2>Como economizar</h2>
+<p><img loading="lazy" width="1200" height="658" alt="Como economizar: Escreva o prompt de sistema e as instruções fixas em inglês; deixe em português só o que o usuário digita.; Pe" src="/tokens-portugues-gpt-como-economizar-pt.jpg" /></p>
 <ul>
 <li>Escreva o prompt de sistema e as instruções fixas em inglês; deixe em português só o que o usuário digita.</li>
 <li>Peça as etapas intermediárias (classificação, extração, chamadas de ferramentas) em inglês ou JSON e só a resposta final em português.</li>
@@ -107,3 +110,4 @@
 <li>A tradução parte de uma tradução automática revisada.</li>
 </ul>
 <p>Resultados completos dos 41 idiomas (em inglês): <a href="/blog/token-cost-by-language">comparação de 41 idiomas</a></p>
+<!-- autoimg -->

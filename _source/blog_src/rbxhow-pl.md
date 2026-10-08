@@ -1,8 +1,12 @@
+![Jak zrobić grę w Roblox z AI: Roblox Studio AI krok po kroku](/gra-roblox-z-ai-pl.jpg)
+
 W 2026 roku możesz zrobić grę w Roblox, nie umiejąc programować. Roblox Studio ma wbudowaną AI, Roblox Assistant, która planuje grę, buduje ją, pisze skrypty w Luau i tworzy modele 3D, a przy większych zadaniach możesz podłączyć zewnętrznego agenta do kodowania, np. Claude Code albo Cursor. Poniżej cały proces: co robi każde narzędzie, ile to kosztuje i jak dostajesz pieniądze.
 
 **Krótko:** jak zrobić grę w Roblox z AI – zaplanuj i zbuduj pierwszą wersję z Roblox Assistant w Roblox Studio, zrób modele 3D komendą `/generate_mesh`, testuj z kilkoma graczami, większe systemy oddaj agentowi do kodowania, opublikuj za darmo i wypłacaj zarobione Robux przez DevEx (0,0038 USD za Robux).
 
 ## Czego potrzebujesz, żeby zrobić grę w Roblox?
+
+![Czego potrzebujesz, żeby zrobić grę w Roblox?: Roblox Studio (darmowe, Windows lub Mac) i konto Roblox.; Pomysł na grę. Jeśli go nie masz, zacznij od tego, c](/gra-roblox-z-ai-czego-potrzebujesz-zeby-zrobic-gre-w-rob-pl.jpg)
 
 Wystarczy darmowe Roblox Studio, konto Roblox i pomysł na grę; reszta jest opcjonalna.
 
@@ -23,6 +27,8 @@ Wskazówka: pierwsza wersja ma być mała. Jedna mapa, jedna główna czynność
 Kliknij **Build**, a Assistant przejdzie przez plan, tworząc w twoim miejscu (place) części, modele i skrypty. Jeśli zatrzyma się na limicie odpowiedzi, kliknij **Continue**. Efektem jest surowy, ale grywalny prototyp.
 
 ## Krok 3: Jak zrobić modele 3D z Roblox Studio AI?
+
+![Krok 3: Jak zrobić modele 3D z Roblox Studio AI?: /generate_mesh tworzy model 3D z teksturą, np. /generate_mesh a cartoon treasure chest with gold trim.; /gener](/gra-roblox-z-ai-krok-3-jak-zrobic-modele-3d-z-roblox-stu-pl.jpg)
 
 Wpisz w Assistant komendę z opisem modelu – generowanie jest darmowe, z dziennymi limitami.
 
@@ -55,6 +61,8 @@ Zrób ikonę gry 512×512 i kilka miniatur 1920×1080 (nada się dowolna AI do o
 
 ## Ile kosztuje zrobienie gry w Roblox z AI?
 
+![Ile kosztuje zrobienie gry w Roblox z AI?: Zestaw narzędzi, Koszt](/gra-roblox-z-ai-ile-kosztuje-zrobienie-gry-w-roblox-z-ai-pl.jpg)
+
 Według naszego kalkulatora mała gra w Roblox robiona w pojedynkę kosztuje ok. 25–40 USD w najtańszym zestawie i ok. 110–150 USD w typowym.
 
 | Zestaw narzędzi | Koszt |
@@ -85,3 +93,4 @@ Przykład: 10 000 Robux ze sprzedaży game passów → zatrzymujesz 7000 Robux �
 Otwórz [kalkulator kosztów gry z AI](/pl/ai-game-cost-calculator), wybierz Roblox, a dostaniesz koszt, czas i zestaw promptów pod Roblox: prompt startowy do Studio, prompty modeli 3D dla Assistant, ikony, miniatury, muzykę i efekty dźwiękowe.
 
 *Źródła: poradniki Roblox Creator Hub [Build your first game with Assistant](https://create.roblox.com/docs/ai/build-with-assistant), [Assistant for Studio](https://create.roblox.com/docs/assistant/guide) i [Developer Exchange](https://create.roblox.com/docs/production/monetization/developer-exchange) (po angielsku), sprawdzone 6 października 2026.*
+<!-- autoimg -->

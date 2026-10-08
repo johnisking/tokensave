@@ -1,3 +1,5 @@
+![Tiếng Việt dùng gấp 1,35 lần token so với tiếng Anh trong GPT](/token-tieng-viet-gpt-vi.jpg)
+
 Tôi dịch cùng một prompt chăm sóc khách hàng sang 41 ngôn ngữ và đếm token bằng o200k_base, tokenizer hiện tại của OpenAI (GPT-4o trở về sau). Tiếng Anh cần 34 token, tiếng Việt **46 token — gấp 1,35 lần**, đứng thứ 15/41 (1 = rẻ nhất).
 
 Bản tiếng Việt:
@@ -24,6 +26,8 @@ Bản tiếng Việt:
 
 ## Vì sao
 
+![Vì sao: Khách → Kh | ách · 2; Hãy → H | ãy · 2; tóm → t | óm · 2](/token-tieng-viet-gpt-vi-sao-vi.jpg)
+
 Tokenizer học chủ yếu từ văn bản tiếng Anh: những từ như " polite" hay " customer" chỉ là một token, còn chữ tiếng Việt có dấu thường bị tách ra:
 
 - Khách → `Kh | ách` · 2
@@ -40,6 +44,8 @@ Với mô hình giá 2 $ cho 1 triệu token đầu vào, gửi prompt này 1 tr
 
 ## Cách tiết kiệm
 
+![Cách tiết kiệm: Viết system prompt và hướng dẫn cố định bằng tiếng Anh; chỉ giữ tiếng Việt cho phần người dùng nhập.; Yêu cầu ](/token-tieng-viet-gpt-cach-tiet-kiem-vi.jpg)
+
 - Viết system prompt và hướng dẫn cố định bằng tiếng Anh; chỉ giữ tiếng Việt cho phần người dùng nhập.
 - Yêu cầu các bước trung gian (phân loại, trích xuất, gọi công cụ) bằng tiếng Anh hoặc JSON, chỉ câu trả lời cuối bằng tiếng Việt.
 - Dùng prompt caching cho phần cố định của prompt.
@@ -51,3 +57,4 @@ Với mô hình giá 2 $ cho 1 triệu token đầu vào, gửi prompt này 1 tr
 - Bản dịch dựa trên dịch máy đã được kiểm tra.
 
 Kết quả đầy đủ 41 ngôn ngữ (tiếng Anh): [so sánh 41 ngôn ngữ](/blog/token-cost-by-language)
+<!-- autoimg -->

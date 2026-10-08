@@ -1,3 +1,4 @@
+<p><img loading="lazy" width="1200" height="630" alt="Norsk bruker 1,32× så mange tokens som engelsk i GPT" src="/tokens-norsk-gpt-no.jpg" /></p>
 <p>Jeg oversatte den samme kundeserviceprompten til 41 språk og talte tokens med o200k_base, OpenAIs nåværende tokenizer (GPT-4o og nyere). Engelsk trenger 34 tokens, norsk <strong>45 – altså 1,32× så mange</strong>, plass 13 av 41 (1 = billigst).</p>
 <p>Den norske versjonen:</p>
 <blockquote>
@@ -84,6 +85,7 @@
 </table></div>
 <p><img loading="lazy" width="960" height="1430" alt="Resultater" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Hvorfor</h2>
+<p><img loading="lazy" width="1200" height="593" alt="Hvorfor: bestillingen → best | ill | ingen · 3; høflig → hø | fl | ig · 3; Oppsummer → Opp | summer · 2" src="/tokens-norsk-gpt-hvorfor-no.jpg" /></p>
 <p>Tokenizeren lærer mest av engelsk tekst: ord som " polite" eller " customer" er ett token, mens mange norske ord – særlig sammensatte ord – deles opp:</p>
 <ul>
 <li>bestillingen → <code>best | ill | ingen</code> · 3</li>
@@ -95,6 +97,7 @@
 <h2>I penger</h2>
 <p>Med en modell til 2 $ per million input-tokens koster det 68 $ på engelsk og 90 $ på norsk å sende prompten én million ganger. Svarer modellen også på norsk, gjelder den samme faktoren for output-tokens, som vanligvis er 4–5× dyrere.</p>
 <h2>Slik sparer du</h2>
+<p><img loading="lazy" width="1200" height="658" alt="Slik sparer du: Skriv systemprompten og faste instruksjoner på engelsk; la bare brukerens input være på norsk.; Be om mellomst" src="/tokens-norsk-gpt-slik-sparer-du-no.jpg" /></p>
 <ul>
 <li>Skriv systemprompten og faste instruksjoner på engelsk; la bare brukerens input være på norsk.</li>
 <li>Be om mellomsteg (klassifisering, uttrekk, verktøykall) på engelsk eller som JSON, og bare det endelige svaret på norsk.</li>
@@ -107,3 +110,4 @@
 <li>Oversettelsen bygger på en gjennomgått maskinoversettelse.</li>
 </ul>
 <p>Alle resultater for 41 språk (på engelsk): <a href="/blog/token-cost-by-language">sammenligning av 41 språk</a></p>
+<!-- autoimg -->

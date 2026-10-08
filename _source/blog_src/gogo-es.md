@@ -1,6 +1,10 @@
+![ChatGPT Go vs Plus: diferencias, precio en euros y pesos, y anuncios](/chatgpt-go-vs-plus-es.jpg)
+
 ChatGPT Go es el plan barato de OpenAI: 9,99 € en España cuando se lanzó y 110 pesos en México. ChatGPT Plus cuesta unos 23 € en España (399 pesos en la App Store de México). Desde agosto de 2026, los dos tienen chat de texto ilimitado, así que quedarse sin mensajes ya no es motivo para subir de plan. Ahora la diferencia está en qué modelo te responde, cuánto razona, qué funciones incluye y si ves anuncios. Esto es lo que te dan los euros o pesos de más, y para quién vale la pena.
 
 ## Go vs Plus de un vistazo
+
+![Go vs Plus de un vistazo: ChatGPT Go, ChatGPT Plus](/chatgpt-go-vs-plus-go-vs-plus-de-un-vistazo-es.jpg)
 
 | | ChatGPT Go | ChatGPT Plus |
 |---|---|---|
@@ -28,12 +32,16 @@ Los anuncios aparecen en los planes Free y Go. En España se muestran desde el 2
 
 ## Quién debería elegir Go
 
+![Quién debería elegir Go: Usas ChatGPT para dudas del día a día, ayuda para escribir y resúmenes rápidos.; No usas Codex ni ChatGPT Work](/chatgpt-go-vs-plus-quien-deberia-elegir-go-es.jpg)
+
 - Usas ChatGPT para dudas del día a día, ayuda para escribir y resúmenes rápidos.
 - No usas Codex ni ChatGPT Work.
 - No te importan los anuncios.
 - Quieres más que el plan gratuito (más memoria y más espacio para archivos) al menor precio. En México y Colombia, mira si tienes meses gratis con Rappi antes de pagar.
 
 ## Quién debería elegir Plus
+
+![Quién debería elegir Plus: Escribes o analizas documentos largos, o haces preguntas en las que la precisión importa.; Quieres los niveles](/chatgpt-go-vs-plus-quien-deberia-elegir-plus-es.jpg)
 
 - Escribes o analizas documentos largos, o haces preguntas en las que la precisión importa.
 - Quieres los niveles de razonamiento para problemas difíciles, y acceso a GPT-6 con razonamiento avanzado.
@@ -53,3 +61,4 @@ A cambio, pierdes los extras de la app de ChatGPT (imágenes, voz, memoria, inve
 Google AI Plus cuesta 4,99 € (99 pesos), pero deja de incluir el modelo Pro: lo explicamos en [Gemini gratis pasa a Flash-Lite](/es/blog/gemini-gratis-flash-lite). Google AI Pro cuesta 21,99 € (395 pesos). Claude no tiene plan por debajo de Pro (20 US$ más impuestos), que incluye Claude Code ([Claude Code: precio](/es/blog/claude-code-precio)). La tabla completa, con euros, pesos y el caso de Argentina, está en nuestra [comparativa de precios de suscripciones de IA](/es/blog/precio-suscripciones-ia).
 
 *Fuentes: [Marketing Directo](https://www.marketingdirecto.com/digital-general/digital/chatgpt-go-aterriza-espana-nueva-suscripcion-multiplica-limites-plan-gratuito), [Xataka México](https://www.xataka.com.mx/robotica-e-ia/chatgpt-go-nuevo-plan-barato-mexico-tienes-rappi-podras-probarlo-gratis-precio-como-contratarlo), [El Tiempo](https://www.eltiempo.com/tecnosfera/apps/openai-lanza-chatgpt-go-en-colombia-costara-20-900-pesos-y-podra-tener-meses-gratis-con-rappi-3515980), precios de App Store según [Ranquia (España)](https://ranquia.com/precios/chatgpt-precio-espana/) y [Ranquia (México)](https://ranquia.com/precios/chatgpt-go-vs-plus-mexico/), anuncios según [Forbes España](https://forbes.es/tecnologia/1004079/chatgpt-anuncios-espana-openai-ads/) y [Expansión](https://expansion.mx/tecnologia/2026/08/06/chatgpt-tendra-anuncios-en-mexico). Consultado el 6 de octubre de 2026. Revisa chatgpt.com/pricing antes de suscribirte.*
+<!-- autoimg -->

@@ -1,0 +1,278 @@
+<p><img loading="lazy" width="960" height="1430" alt="커서 AI 요금제 2026: Hobby 무료, Pro $20, Pro+ $60, Ultra $200, Teams $40부터" src="/cursor-pricing-ko.jpg" /></p>
+<blockquote>
+<p><strong>30초 요약</strong>
+- 커서(Cursor) 개인 요금제는 <strong>Hobby 무료 · Pro $20 · Pro+ $60 · Ultra $200</strong> (월), 팀은 <strong>1인당 $40부터</strong>입니다.
+- 원화로는 대략 <strong>Pro 2만 7천원 · Pro+ 8만 1천원 · Ultra 26만 9천원</strong>입니다 (1달러 1,345원 기준, 달러 결제).
+- 지금 커서는 "몇 번 요청"이 아니라 <strong>쓴 만큼 API 가격으로 차감</strong>됩니다. 그래서 <strong>어떤 모델을 고르느냐</strong>에 따라 같은 요금제도 빨리 닳거나 오래 갑니다.
+- 커서 공식 추천: <strong>매일 에이전트를 쓰면 Pro+, 하루 종일 쓰는 파워 유저는 Ultra.</strong></p>
+</blockquote>
+<p>커서 요금제를 검색하면 "Pro는 월 500회 요청" 같은 설명이 아직 많이 나옵니다. 하지만 그건 예전 방식입니다. 지금 커서는 요금제마다 정해진 <strong>사용량을 API 가격으로 깎아 쓰는 구조</strong>라서, 가격표만 봐서는 "한 달에 얼마나 쓸 수 있나"가 잘 안 보입니다. 요금제별 가격과, 실제로 얼마나 쓸 수 있는지 계산까지 정리했습니다.</p>
+<h2>커서 요금제 한눈에 보기</h2>
+<p><img loading="lazy" width="960" height="1430" alt="커서 요금제 비교표: Hobby·Pro·Pro+·Ultra·Teams 가격과 포함 사용량" src="/cursor-plans-ko.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>요금제</th>
+<th>월 가격</th>
+<th>원화(약)</th>
+<th>이런 분께</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hobby</td>
+<td>무료</td>
+<td>0원</td>
+<td>써 보고 싶은 분 (에이전트 요청 제한)</td>
+</tr>
+<tr>
+<td>Pro</td>
+<td>$20</td>
+<td>2만 7천원</td>
+<td>가끔 코딩하는 개인</td>
+</tr>
+<tr>
+<td>Pro+</td>
+<td>$60</td>
+<td>8만 1천원</td>
+<td>매일 에이전트를 쓰는 개인</td>
+</tr>
+<tr>
+<td>Ultra</td>
+<td>$200</td>
+<td>26만 9천원</td>
+<td>하루 종일 에이전트를 돌리는 파워 유저</td>
+</tr>
+<tr>
+<td>Teams Standard</td>
+<td>1인 $40</td>
+<td>5만 4천원</td>
+<td>회사·팀 (관리·분석 기능)</td>
+</tr>
+<tr>
+<td>Teams Premium</td>
+<td>1인 $120</td>
+<td>16만 1천원</td>
+<td>팀용 상위 요금제</td>
+</tr>
+<tr>
+<td>Enterprise</td>
+<td>문의</td>
+<td>–</td>
+<td>대기업 (사용량 공유, 청구서 결제)</td>
+</tr>
+</tbody>
+</table></div>
+<p>가격은 커서 공식 가격 안내 기준입니다(2026년 10월 8일 확인). 연간 결제도 있지만 할인율은 공식 안내에 숫자로 나와 있지 않습니다. 원화는 환율에 따라 달라지고, 카드 해외결제 수수료나 세금이 붙을 수 있습니다.</p>
+<h2>사용량은 어떻게 차감되나: 주머니가 두 개</h2>
+<p><img loading="lazy" width="960" height="1430" alt="커서 사용량 구조: Cursor 모델 주머니(Composer·Grok)와 다른 모델 주머니(Claude·GPT·Gemini)" src="/cursor-usage-pools-ko.jpg" /></p>
+<p>Pro·Pro+·Ultra에는 사용량 주머니가 두 개 있고, 둘 다 매달 결제일에 초기화됩니다.</p>
+<ol>
+<li><strong>Cursor 모델 주머니:</strong> 커서 자체 모델 Composer와 Grok을 쓰면 여기서 빠집니다.</li>
+<li><strong>다른 모델 주머니:</strong> Claude, GPT, Gemini 같은 외부 모델을 쓰면 <strong>그 모델의 API 가격 그대로</strong> 빠집니다.</li>
+</ol>
+<p>자동(Auto) 모드도 공짜가 아닙니다. 커서가 고른 모델의 가격대로 차감됩니다. 사용량을 다 쓰면 에디터에 알림이 뜨고, <strong>추가 사용(on-demand)을 켜서 같은 API 가격으로 계속 쓰거나 요금제를 올리면</strong> 됩니다. 커서는 "한도를 넘어도 품질이나 속도를 낮추지 않는다"고 밝히고 있습니다.</p>
+<p>참고로 Pro 요금제의 포함 사용량은 커서가 2025년 요금제 개편 때 "API 가격 기준으로 매달 최소 $20어치"라고 밝혔습니다. 지금 요금제별 정확한 포함량은 공식 문서에 금액으로 나와 있지 않고, 본인 계정의 사용량 대시보드에서 확인할 수 있습니다.</p>
+<h2>모델별 가격: 무엇을 고르느냐가 핵심</h2>
+<p>커서 공식 문서의 모델 가격입니다 (100만 토큰당, 달러).</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>모델</th>
+<th>주머니</th>
+<th>입력</th>
+<th>출력</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Composer 2.5</td>
+<td>Cursor 모델</td>
+<td>$0.5</td>
+<td>$2.5</td>
+</tr>
+<tr>
+<td>Grok 4.7</td>
+<td>Cursor 모델</td>
+<td>$2</td>
+<td>$6</td>
+</tr>
+<tr>
+<td>GPT-5.6 Luna</td>
+<td>다른 모델</td>
+<td>$0.2</td>
+<td>$1.2</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td>다른 모델</td>
+<td>$2</td>
+<td>$12</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td>다른 모델</td>
+<td>$2</td>
+<td>$10</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td>다른 모델</td>
+<td>$4</td>
+<td>$20</td>
+</tr>
+<tr>
+<td>Claude Opus 5.5</td>
+<td>다른 모델</td>
+<td>$4</td>
+<td>$20</td>
+</tr>
+<tr>
+<td>Claude Fable 5.1</td>
+<td>다른 모델</td>
+<td>$10</td>
+<td>$50</td>
+</tr>
+</tbody>
+</table></div>
+<p>입력 가격만 봐도 가장 싼 모델은 $0.2, 가장 비싼 모델은 $10입니다. 그래서 <strong>간단한 수정은 싼 모델, 어려운 설계만 비싼 모델</strong>로 나누는 것이 사용량을 아끼는 가장 큰 방법입니다.</p>
+<h2>$20어치로 몇 번 쓸 수 있을까</h2>
+<p><img loading="lazy" width="960" height="1430" alt="커서 $20 사용량으로 모델별 에이전트 요청 횟수: Composer 약 1,000회, Sonnet 약 250회, Opus 약 125회" src="/cursor-requests-per-20-ko.jpg" /></p>
+<p>에이전트에 한 번 일을 시킬 때 <strong>입력 3만 토큰(코드와 대화 맥락), 출력 2천 토큰</strong>을 쓴다고 가정하고 계산해 보면 이렇습니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>모델</th>
+<th>요청 1번 비용</th>
+<th>$20로 약 몇 번</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-5.6 Luna</td>
+<td>약 $0.008</td>
+<td>약 2,400번</td>
+</tr>
+<tr>
+<td>Composer 2.5</td>
+<td>약 $0.02</td>
+<td>약 1,000번</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td>약 $0.08</td>
+<td>약 250번</td>
+</tr>
+<tr>
+<td>Claude Opus 5.5</td>
+<td>약 $0.16</td>
+<td>약 125번</td>
+</tr>
+<tr>
+<td>Claude Fable 5.1</td>
+<td>약 $0.40</td>
+<td>약 50번</td>
+</tr>
+</tbody>
+</table></div>
+<p>실제로는 같은 코드를 다시 읽을 때 캐시 가격(훨씬 저렴)이 적용돼서 이보다 더 많이 쓸 수 있습니다. 반대로 큰 프로젝트를 통째로 읽히면 입력이 수십만 토큰이 되어 훨씬 빨리 닳습니다. 내 프로젝트의 코드나 프롬프트가 몇 토큰인지는 <a href="/ko/">토큰 계산기</a>에 붙여 넣으면 바로 나옵니다.</p>
+<h2>나에게 맞는 요금제</h2>
+<p><img loading="lazy" width="960" height="1430" alt="상황별 커서 요금제 추천: 학생·취미는 Hobby, 가끔 코딩은 Pro, 매일 에이전트는 Pro+, 종일 사용은 Ultra" src="/cursor-plan-by-user-ko.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>상황</th>
+<th>추천</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>처음 써 보는 분, 취미</td>
+<td>Hobby</td>
+<td>무료로 에이전트와 자동완성을 먼저 경험</td>
+</tr>
+<tr>
+<td>주말·퇴근 후 개인 프로젝트</td>
+<td>Pro</td>
+<td>싼 모델 위주로 쓰면 한 달 충분</td>
+</tr>
+<tr>
+<td>바이브 코딩으로 앱·게임 개발</td>
+<td>Pro 또는 Pro+</td>
+<td>매일 에이전트를 돌리면 Pro+ (커서 공식 추천)</td>
+</tr>
+<tr>
+<td>현업 개발자, 하루 종일 사용</td>
+<td>Pro+ 또는 Ultra</td>
+<td>비싼 모델을 자주 쓰면 Ultra</td>
+</tr>
+<tr>
+<td>회사·팀</td>
+<td>Teams</td>
+<td>관리자 대시보드, 사용량 분석</td>
+</tr>
+</tbody>
+</table></div>
+<p>처음부터 비싼 요금제를 고를 필요는 없습니다. <strong>Pro로 시작해서 매달 사용량이 바닥나면 Pro+로</strong> 올리면 됩니다. 올리면 바로 적용되고, 내리는 건 결제 주기가 끝날 때 적용됩니다.</p>
+<h2>다른 AI 코딩 도구와 가격 비교</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>도구</th>
+<th>가장 싼 유료</th>
+<th>그다음</th>
+<th>최상위 개인 요금제</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>커서</td>
+<td>Pro $20</td>
+<td>Pro+ $60</td>
+<td>Ultra $200</td>
+</tr>
+<tr>
+<td>GitHub Copilot</td>
+<td>Pro $10</td>
+<td>Pro+ $39</td>
+<td>Max $100</td>
+</tr>
+<tr>
+<td>Claude (Claude Code 포함)</td>
+<td>Pro $20 (연간 결제 시 월 $17)</td>
+<td>Max $100</td>
+<td>Max $200</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>GitHub Copilot</strong>은 가장 싸게 시작할 수 있고, 매달 AI 크레딧(Pro 1,500, Pro+ 7,000, Max 20,000)을 줍니다.</li>
+<li><strong>Claude Pro·Max</strong>는 Claude Code를 포함하고, 채팅용 Claude도 같이 씁니다. 자세한 건 <a href="/ko/blog/claude-code-yogeum">Claude Code 요금 글</a>과 <a href="/ko/agents">Claude Code 월 비용 계산기</a>에서 볼 수 있습니다.</li>
+<li>여러 AI 구독을 한 번에 비교하려면 <a href="/ko/plans">AI 구독 vs API 계산기</a>를 써 보세요.</li>
+</ul>
+<h2>사용량 아끼는 팁 4가지</h2>
+<ol>
+<li><strong>모델을 상황별로 바꾸기:</strong> 자잘한 수정은 Composer나 Luna, 어려운 설계만 Opus급.</li>
+<li><strong>필요한 파일만 읽히기:</strong> 프로젝트 전체 대신 관련 파일만 지정하면 입력 토큰이 크게 줄어듭니다.</li>
+<li><strong>대화가 길어지면 새로 시작하기:</strong> 대화가 길수록 매번 다시 읽는 맥락이 커집니다.</li>
+<li><strong>추가 사용은 지켜보며 켜기:</strong> on-demand는 쓴 만큼 나중에 청구됩니다. 켜 둘 때는 사용량 대시보드를 자주 확인하세요.</li>
+</ol>
+<h2>자주 묻는 질문</h2>
+<p><strong>커서 무료(Hobby)로 충분한가요?</strong>
+에이전트 요청이 제한돼 있어서 맛보기용입니다. 매일 쓰면 금방 한도에 닿습니다.</p>
+<p><strong>Auto 모드는 무제한인가요?</strong>
+아닙니다. 지금은 Auto도 실제로 쓰인 모델의 가격대로 사용량에서 빠집니다.</p>
+<p><strong>사용량을 다 쓰면 어떻게 되나요?</strong>
+에디터에 알림이 뜹니다. 추가 사용을 켜서 같은 API 가격으로 계속 쓰거나, 요금제를 올리면 됩니다.</p>
+<p><strong>결제는 원화로 되나요?</strong>
+달러로 결제됩니다(인도만 루피 전용 Start 요금제가 있습니다). 원화 금액은 환율과 카드 수수료에 따라 달라집니다.</p>
+<h2>출처</h2>
+<ul>
+<li><a href="https://cursor.com/help/account-and-billing/pricing.md" target="_blank" rel="noopener">Cursor 가격 안내 (Pricing and plans)</a></li>
+<li><a href="https://cursor.com/docs/models-and-pricing" target="_blank" rel="noopener">Cursor 모델 가격 (Models &amp; Pricing)</a></li>
+<li><a href="https://cursor.com/help/models-and-usage/usage-limits.md" target="_blank" rel="noopener">Cursor 사용량과 한도 (Usage and limits)</a></li>
+<li><a href="https://cursor.com/blog/new-tier" target="_blank" rel="noopener">Cursor 블로그: Updates to Ultra and Pro (2025)</a></li>
+<li><a href="https://docs.github.com/en/copilot/get-started/plans" target="_blank" rel="noopener">GitHub Copilot 요금제 (GitHub Docs)</a></li>
+<li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude 요금제 (claude.com)</a></li>
+</ul>

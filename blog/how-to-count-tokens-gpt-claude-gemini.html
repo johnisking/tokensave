@@ -27,14 +27,14 @@
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image" content="https://tokensave.app/how-to-count-tokens-gpt-claude-gemini-en.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <meta name="twitter:image" content="https://tokensave.app/how-to-count-tokens-gpt-claude-gemini-en.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "How to Count Tokens for GPT, Claude and Gemini", "description": "Why GPT, Claude and Gemini count tokens differently, how to get an exact count for each, and a quick way to estimate without code.", "inLanguage": "en", "url": "https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini", "mainEntityOfPage": "https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "How to Count Tokens for GPT, Claude and Gemini", "item": "https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "How to Count Tokens for GPT, Claude and Gemini", "description": "Why GPT, Claude and Gemini count tokens differently, how to get an exact count for each, and a quick way to estimate without code.", "inLanguage": "en", "url": "https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini", "mainEntityOfPage": "https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/how-to-count-tokens-gpt-claude-gemini-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "How to Count Tokens for GPT, Claude and Gemini", "item": "https://tokensave.app/blog/how-to-count-tokens-gpt-claude-gemini"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -98,7 +98,8 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">How to Count Tokens for GPT, Claude and Gemini</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
-  <p>"How many tokens is this?" has a different answer depending on which model you ask. OpenAI, Anthropic and Google each use their own tokenizer, so the same paragraph can be 100 tokens on one model and 130 on another. Here is how to get an exact count for each, and how to get a quick estimate without writing code.</p>
+  <p><img loading="lazy" width="1200" height="630" alt="How to Count Tokens for GPT, Claude and Gemini" src="/how-to-count-tokens-gpt-claude-gemini-en.jpg" /></p>
+<p>"How many tokens is this?" has a different answer depending on which model you ask. OpenAI, Anthropic and Google each use their own tokenizer, so the same paragraph can be 100 tokens on one model and 130 on another. Here is how to get an exact count for each, and how to get a quick estimate without writing code.</p>
 <h2>Why the counts differ</h2>
 <p>A tokenizer splits text into pieces from a fixed vocabulary that was built from the company's own training data. Different vocabularies mean different splits. A word that is one token for GPT may be two for Claude, and the other way round. The differences are usually small for plain English and larger for code, numbers and other languages.</p>
 <p>Anthropic has said that the tokenizer used by its newer Claude models produces noticeably more tokens for the same text than its earlier one. Our token counter assumes about 30% more tokens than GPT for current Claude Sonnet and Opus models when it estimates.</p>
@@ -122,6 +123,7 @@ console.log(enc.encode(&quot;Your text here&quot;).length);
 <h2>Gemini (Google): use countTokens</h2>
 <p>The Gemini API has a <code>countTokens</code> method that returns the token count for a prompt without generating anything. Like Anthropic's endpoint, it uses the real tokenizer, and responses from real requests include <code>usageMetadata</code> with the exact counts.</p>
 <h2>Quick estimates without code</h2>
+<p><img loading="lazy" width="1200" height="796" alt="Quick estimates without code: Paste it into the TokenSave token counter.; GPT models are counted with the real o200k tokenizer, running in y" src="/how-to-count-tokens-gpt-claude-gemini-quick-estimates-without-code-en.jpg" /></p>
 <p>If you just want to know roughly how many tokens your text is, and what it costs:</p>
 <ol>
 <li>Paste it into the <a href="/">TokenSave token counter</a>.</li>
@@ -131,6 +133,7 @@ console.log(enc.encode(&quot;Your text here&quot;).length);
 </ol>
 <p>For English, a rough mental rule also works: about 1.1–1.3 tokens per word on current GPT models. See <a href="/blog/tokens-per-word">Tokens per word, measured</a>.</p>
 <h2>Which count should you trust?</h2>
+<p><img loading="lazy" width="1200" height="658" alt="Which count should you trust?: For budgeting; For hard limits (context window, maximum output, rate limits); For billing disputes or exact co" src="/how-to-count-tokens-gpt-claude-gemini-which-count-should-you-trust-en.jpg" /></p>
 <ul>
 <li><strong>For budgeting:</strong> a calibrated estimate is fine. Differences between models are usually smaller than the uncertainty in how much your app will be used.</li>
 <li><strong>For hard limits</strong> (context window, maximum output, rate limits): use the provider's own counting method, because going one token over a limit causes an error.</li>
@@ -142,6 +145,7 @@ console.log(enc.encode(&quot;Your text here&quot;).length);
 <li><a href="/blog/llm-api-pricing-comparison">LLM API pricing compared</a></li>
 <li><a href="/blog/how-to-estimate-ai-api-cost">How to estimate your AI API bill</a></li>
 </ul>
+<!-- autoimg -->
 
         <h2>More articles</h2>
         <ul><li><a href="/blog/chatgpt-free-vs-paid">ChatGPT Free vs Paid (2026): What You Actually Get for $0, $8, $20 and $100</a></li><li><a href="/blog/ai-game-cost-calculator-review">I Ran My Released Game Through My AI Game Cost Calculator: Prediction vs Reality</a></li><li><a href="/blog/how-many-tokens-does-code-use">How Many Tokens Does Code Use? Indentation, Comments and Minification</a></li><li><a href="/blog/gpt-tokenizer-cl100k-vs-o200k">How GPT&#x27;s New Tokenizer Cut Costs in 40 Languages</a></li><li><a href="/blog/gpt-6-api-pricing">GPT-6 API Pricing: Astra vs Sol vs Luna, and What It Costs</a></li></ul>

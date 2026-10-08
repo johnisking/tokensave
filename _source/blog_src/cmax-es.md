@@ -1,6 +1,10 @@
+![Claude Max vs Pro: ¿vale la pena el plan de $100 o $200?](/claude-max-vs-pro-es.jpg)
+
 Claude Pro cuesta $20 al mes. El precio de Claude Max es de $100 o $200. Los dos incluyen la app de Claude y Claude Code, así que la comparación Claude Max vs Pro se reduce a una pregunta sencilla: ¿vale la pena Claude Max, es decir, pagar cinco o diez veces más por el uso extra? Para mucha gente, no. Pero si usas Claude Code de forma intensiva, Max 20× es la opción con mejor relación calidad-precio que vende Anthropic.
 
 ## Los planes y el precio de Claude Max
+
+![Los planes y el precio de Claude Max: Plan, Precio, Uso, Precio por cada "Pro" de uso](/claude-max-vs-pro-los-planes-y-el-precio-de-claude-max-es.jpg)
 
 Precios en EE. UU., revisados en octubre de 2026:
 
@@ -29,6 +33,8 @@ Max multiplica ambos. Ejecuta **/status** en Claude Code para ver cómo vas. Tod
 
 ## Quién debería quedarse en Pro
 
+![Quién debería quedarse en Pro: Usas Claude unas cuantas veces al día, sobre todo en la app.; Usas Claude Code para tareas puntuales, no duran](/claude-max-vs-pro-quien-deberia-quedarse-en-pro-es.jpg)
+
 - Usas Claude unas cuantas veces al día, sobre todo en la app.
 - Usas Claude Code para tareas puntuales, no durante horas seguidas.
 - Casi nunca (o nunca) ves el mensaje de límite.
@@ -36,6 +42,8 @@ Max multiplica ambos. Ejecuta **/status** en Claude Code para ver cómo vas. Tod
 Si ese es tu caso, $20 es más que suficiente. Algún uso extra ocasional se puede cubrir con créditos de uso o esperando un poco.
 
 ## Quién debería pasarse a Max 5×
+
+![Quién debería pasarse a Max 5×: Llegas al límite de Pro casi todas las semanas.; Usas Claude Code para trabajo real varias veces al día.; Quie](/claude-max-vs-pro-quien-deberia-pasarse-a-max-5-es.jpg)
 
 - Llegas al límite de Pro casi todas las semanas.
 - Usas Claude Code para trabajo real varias veces al día.
@@ -67,3 +75,4 @@ Por $200, Claude Max 20× equivale ahora a 20× su plan base, mientras que ChatG
 Usa la [calculadora de agentes de programación](/es/agents) para comparar Pro, Max y la API según cómo usas Claude Code, o la [calculadora de suscripción vs API](/es/plans) para el uso en chat.
 
 *Los precios y los límites cambian. Revisa [claude.com/pricing](https://claude.com/pricing) antes de cambiar de plan.*
+<!-- autoimg -->

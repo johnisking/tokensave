@@ -1,6 +1,10 @@
+![How Many Tokens Do You Get with Claude Pro and Max?](/claude-pro-max-how-many-tokens-en.jpg)
+
 Anthropic does not say how many tokens Claude Pro or Max include. Its plans are described as usage multiples ("5× Pro", "20× Pro") with a 5-hour limit and a weekly limit, never as a token number. But people have measured it. Here is what the numbers look like, why they are so large, and how to turn them into something useful: what your usage would cost on the API.
 
 ## The short answer
+
+![The short answer: Plan, Price, Per 5-hour window, Per week](/claude-pro-max-how-many-tokens-the-short-answer-en.jpg)
 
 Measured in Claude Code in September 2026, on Claude Opus 5:
 
@@ -22,6 +26,8 @@ That is why a token count tells you less than you would think. Two sessions with
 
 ## What uses your allowance fastest
 
+![What uses your allowance fastest: Opus instead of Sonnet. Opus 5.5 costs twice as much per token as Sonnet 5.5 on the API, and it uses your plan](/claude-pro-max-how-many-tokens-what-uses-your-allowance-fastest-en.jpg)
+
 - **Opus instead of Sonnet.** Opus 5.5 costs twice as much per token as Sonnet 5.5 on the API, and it uses your plan's allowance faster too.
 - **Long sessions.** Every step re-sends the whole context. A session that has grown to 150,000 tokens costs far more per step than a fresh one. Use **/clear** between unrelated tasks and **/compact** on long ones.
 - **A big CLAUDE.md or many tools.** They are sent with every step.
@@ -42,3 +48,4 @@ Almost certainly yes if you use Claude Code heavily: a Max 20× week measured at
 Related: [Claude Max vs Pro](/blog/claude-max-vs-pro) · [Claude Code usage limits explained](/blog/claude-code-usage-limits) · [How to save tokens in Claude Code](/blog/claude-code-save-tokens) · [Claude token counter](/claude-token-counter)
 
 *Anthropic changes limits often and does not publish token quotas. Run **/status** in Claude Code to see where you stand.*
+<!-- autoimg -->

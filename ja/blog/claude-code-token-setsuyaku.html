@@ -27,14 +27,14 @@
   <meta property="og:locale" content="ja_JP" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image" content="https://tokensave.app/claude-code-token-setsuyaku-ja.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <meta name="twitter:image" content="https://tokensave.app/claude-code-token-setsuyaku-ja.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Claude Code のトークン節約術9選", "description": "Claude Code がトークンを多く使う理由と、/clear・/compact、短い CLAUDE.md、英語の指示まで、トークンを減らす実践的な方法9つ。", "inLanguage": "ja", "url": "https://tokensave.app/ja/blog/claude-code-token-setsuyaku", "mainEntityOfPage": "https://tokensave.app/ja/blog/claude-code-token-setsuyaku", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ja/"}, {"@type": "ListItem", "position": 2, "name": "Claude Code のトークン節約術9選", "item": "https://tokensave.app/ja/blog/claude-code-token-setsuyaku"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Claude Code のトークン節約術9選", "description": "Claude Code がトークンを多く使う理由と、/clear・/compact、短い CLAUDE.md、英語の指示まで、トークンを減らす実践的な方法9つ。", "inLanguage": "ja", "url": "https://tokensave.app/ja/blog/claude-code-token-setsuyaku", "mainEntityOfPage": "https://tokensave.app/ja/blog/claude-code-token-setsuyaku", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/claude-code-token-setsuyaku-ja.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ja/"}, {"@type": "ListItem", "position": 2, "name": "Claude Code のトークン節約術9選", "item": "https://tokensave.app/ja/blog/claude-code-token-setsuyaku"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -98,7 +98,8 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">Claude Code のトークン節約術9選</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026年10月2日</p>
-  <p>Claude Code は強力ですが、トークンをたくさん使います。1つのタスクで100万トークン以上をモデルに送ることも珍しくなく、Pro・Max の上限がすぐに尽きたり、API の請求額にそのまま表れたりします。幸い、その多くは Claude Code にやってもらうことは変えずに減らせるムダです。効果の大きい順にまとめました。</p>
+  <p><img loading="lazy" width="1200" height="630" alt="Claude Code のトークン節約術9選" src="/claude-code-token-setsuyaku-ja.jpg" /></p>
+<p>Claude Code は強力ですが、トークンをたくさん使います。1つのタスクで100万トークン以上をモデルに送ることも珍しくなく、Pro・Max の上限がすぐに尽きたり、API の請求額にそのまま表れたりします。幸い、その多くは Claude Code にやってもらうことは変えずに減らせるムダです。効果の大きい順にまとめました。</p>
 <h2>トークンが積み上がる理由</h2>
 <p>Claude Code はステップごとに作業し、<strong>ステップのたびに作業コンテキスト全体</strong>を送り直します。指示、ツール定義、読んだファイル、それまでのステップのすべてです。開始時のコンテキストが22,000トークンで、1ステップごとに3,500トークン増える25ステップの機能タスクなら、入力トークンは合計で<strong>約160万</strong>になります。だから、コンテキストを小さくすること、タスクを短くすることは、どんなことでも毎ステップ効いてきます。</p>
 <h2>1. タスクは小さく具体的に</h2>
@@ -128,6 +129,7 @@
 <p>TokenSave の<a href="/ja/agents">コーディングエージェント費用モデル</a>では、Sonnet 5.5 での一般的な機能タスクはキャッシュありで約$0.72です。正確な指示とファイルの場所を伝えて25ステップを15ステップに減らすと、約$0.40まで下がります。タスクごとに新しいセッションで始めれば、開始時のコンテキストも小さく保てます。月に100タスクなら、週の上限に当たるかどうかが分かれるほどの差です。</p>
 <h2>使用量を確認する</h2>
 <p>Claude Code で <strong>/status</strong> を実行すると、残りの使用量が表示されます。上限そのものの仕組みは <a href="/ja/blog/claude-code-shiyouryou-jougen">Claude Code の使用量上限まとめ</a>、プランと API の比較は <a href="/ja/blog/claude-code-ryoukin">Claude Code の月額料金</a>をご覧ください。</p>
+<!-- autoimg -->
 
         <h2>関連記事</h2>
         <ul><li><a href="/ja/blog/chatgpt-muryou-yuuryou-chigai">ChatGPT 無料と有料の違い【2026年】：Go・Plus・Pro はいつ課金すべき？料金と選び方</a></li><li><a href="/ja/blog/roblox-game-tsukurikata">AIでRobloxゲームを作る方法：手順・費用・今伸びているジャンル【2026年】</a></li><li><a href="/ja/blog/claude-code-shiyouryou-jougen">Claude Code の使用量上限まとめ：5時間・週の上限と確認方法</a></li><li><a href="/ja/blog/claude-code-ryoukin">Claude Code の料金は月いくら？Pro・Max・API を比較</a></li><li><a href="/ja/blog/chatgpt-shiyouryou-jougen">ChatGPT の使用量上限まとめ：まだ制限があるものとリセットのタイミング</a></li></ul>

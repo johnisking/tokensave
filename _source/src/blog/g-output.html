@@ -1,5 +1,7 @@
+<p><img loading="lazy" width="1200" height="630" alt="Why Output Tokens Cost More (and 6 Ways to Use Fewer)" src="/why-output-tokens-cost-more-en.jpg" /></p>
 <p>Look at any AI API price list and you will see two prices per model: one for input tokens and a higher one for output tokens. The gap is not small. On most current models, every token the model writes costs four to six times more than every token you send. If you want a lower bill, the answer is usually not a shorter prompt. It is a shorter answer.</p>
 <h2>How big is the gap?</h2>
+<p><img loading="lazy" width="1200" height="816" alt="How big is the gap?: Model, Input, Output, Output ÷ input" src="/why-output-tokens-cost-more-how-big-is-the-gap-en.jpg" /></p>
 <p>API prices per million tokens, checked October 1, 2026:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -62,6 +64,7 @@
 <h2>The hidden output: reasoning tokens</h2>
 <p>Reasoning models think before they answer. That thinking is made of tokens, it is usually not shown to you, and it is <strong>billed at the output price</strong>. A two-paragraph answer can sit on top of thousands of reasoning tokens. If a reasoning model feels expensive, this is usually why.</p>
 <h2>Six ways to use fewer output tokens</h2>
+<p><img loading="lazy" width="1200" height="1073" alt="Six ways to use fewer output tokens: Ask for the length you need. &quot;Answer in 3 bullet points&quot; or &quot;under 100 words&quot; works well. Models follow length" src="/why-output-tokens-cost-more-six-ways-to-use-fewer-output-tokens-en.jpg" /></p>
 <ol>
 <li><strong>Ask for the length you need.</strong> "Answer in 3 bullet points" or "under 100 words" works well. Models follow length instructions better than most people expect.</li>
 <li><strong>Set a maximum output length.</strong> In the API, set a token limit so a runaway answer cannot cost more than you planned.</li>
@@ -74,3 +77,4 @@
 <p>A request with 2,000 input tokens and 1,000 output tokens on GPT-6 Sol costs $0.004 for input and $0.010 for output: output is 71% of the bill even though it is only a third of the tokens. Cut the answer to 400 tokens and the request drops from $0.014 to $0.008, a 43% saving without touching the prompt.</p>
 <h2>Measure it</h2>
 <p>Paste a typical prompt and a typical answer into the <a href="/">token counter</a> to see how many tokens each side uses and what that costs on 30+ models.</p>
+<!-- autoimg -->

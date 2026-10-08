@@ -6,6 +6,8 @@ J'ai mesuré la partie qui se chiffre : la langue.
 
 ## 1. La langue : le français paie un supplément, même chez Mistral
 
+![1. La langue : le français paie un supplément, même chez Mistral: Texte, Tokeniseur, Anglais, Français, Surcoût](/souverainete-ia-tokens-1-la-langue-le-francais-paie-un-suppleme-fr.jpg)
+
 Les tokeniseurs, qui découpent le texte en tokens facturés, sont entraînés sur des corpus où l'anglais domine. Résultat : le même contenu coûte plus de tokens en français.
 
 J'ai écrit une consigne typique d'un assistant de service public, en français et en anglais, avec exactement le même sens :
@@ -24,6 +26,8 @@ Le modèle français ne découpe pas le français plus efficacement que le modè
 Ce surcoût reste modéré pour le français (de l'ordre de 10 à 30 % selon le texte), bien moins que pour le polonais (50 à 88 % de plus) ou le grec (environ deux fois l'anglais). Mais à l'échelle d'une administration ou d'une entreprise qui envoie des millions de requêtes, il se voit sur la facture.
 
 ## 2. Les données : où part votre prompt ?
+
+![2. Les données : où part votre prompt ?: Ne pas envoyer ce qui n'est pas nécessaire. Retirer noms, adresses et numéros avant de coller un document rédu](/souverainete-ia-tokens-2-les-donnees-ou-part-votre-prompt-fr.jpg)
 
 Chaque prompt envoyé à un service d'IA en ligne quitte votre ordinateur. La question de souveraineté, c'est de savoir sous quelles lois il se retrouve. Le **Cloud Act** américain (2018) permet aux autorités américaines de demander à un fournisseur américain des données qu'il contrôle, même si elles sont stockées hors des États-Unis. C'est l'argument principal de ceux qui recommandent des fournisseurs et des hébergements européens pour les données sensibles.
 
@@ -49,6 +53,8 @@ Ce résumé n'est pas un avis juridique : pour un projet précis, vérifiez aupr
 
 ## Check-list pour un usage plus souverain de l'IA
 
+![Check-list pour un usage plus souverain de l'IA: Classez vos textes ; Anonymisez avant d'envoyer, et ne collez que ce qui est utile.; Mesurez vos tokens pour c](/souverainete-ia-tokens-check-list-pour-un-usage-plus-souverain-fr.jpg)
+
 1. **Classez vos textes** : publics, internes, sensibles. Seuls les derniers justifient un hébergement européen ou local.
 2. **Anonymisez** avant d'envoyer, et ne collez que ce qui est utile.
 3. **Mesurez vos tokens** pour connaître votre coût réel et pouvoir comparer les offres.
@@ -62,3 +68,4 @@ Ce résumé n'est pas un avis juridique : pour un projet précis, vérifiez aupr
 À lire aussi : [Mistral ou ChatGPT : combien coûte vraiment un prompt en français ?](/fr/blog/mistral-chatgpt-cout-prompt-francais) et [Pourquoi utiliser un compteur de tokens ?](/fr/blog/compteur-de-tokens-pourquoi)
 
 *Mesures effectuées en octobre 2026 avec o200k_base (OpenAI) et Tekken 2024-09 (Mistral). Les modèles Mistral les plus récents peuvent utiliser une version mise à jour de Tekken.*
+<!-- autoimg -->

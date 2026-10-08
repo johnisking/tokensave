@@ -1,6 +1,10 @@
+![Gemini grátis só com Flash-Lite a partir de 9/10: o que muda](/gemini-gratis-flash-lite-pt.jpg)
+
 O Google vai mudar quais modelos cada plano pode usar no app Gemini. **A partir de 9 de outubro, quem usa o Gemini grátis fica só com o Flash-Lite**, o menor modelo, e o Google AI Plus, que custa R$ 24,99 por mês, também vai perder o modelo Pro. Até agora dava para usar bastante o Pro e o Deep Research sem pagar nada, então a diferença vai ser sentida. Abaixo está o que muda, quanto custa cada plano em reais e quanto sairia usar o Gemini Pro pela API, com a conta feita em tokens de português.
 
 ## Quais modelos cada plano usa
+
+![Quais modelos cada plano usa: Plano, Preço / mês, Flash-Lite, Flash, Pro, Deep Think](/gemini-gratis-flash-lite-quais-modelos-cada-plano-usa-pt.jpg)
 
 | Plano | Preço / mês | Flash-Lite | Flash | Pro | Deep Think |
 |---|---:|:---:|:---:|:---:|:---:|
@@ -12,6 +16,8 @@ O Google vai mudar quais modelos cada plano pode usar no app Gemini. **A partir 
 Os preços são os da página oficial do Gemini para o Brasil, conferidos em 6 de outubro de 2026. Como são cobrados em reais, não têm IOF. A mudança vale para contas pessoais do Google. Contas de trabalho e de escola seguem regras próprias.
 
 ## Quando cada mudança começa
+
+![Quando cada mudança começa: Grátis; AI Plus; AI Pro e Ultra](/gemini-gratis-flash-lite-quando-cada-mudanca-comeca-pt.jpg)
 
 - **Grátis:** a partir de 9 de outubro, só o Flash-Lite.
 - **AI Plus:** não há uma data única. Cada assinante recebe por e-mail a data em que a mudança vale para a conta dele.
@@ -32,6 +38,8 @@ Em 30 de setembro, o Google lançou o Gemini 4 Argon, o modelo mais avançado de
 
 ## Usar o Pro pagando pouco: a API
 
+![Usar o Pro pagando pouco: a API: Modelo, API por mês (US$), Em reais, Com IOF de 3,5%](/gemini-gratis-flash-lite-usar-o-pro-pagando-pouco-a-api-pt.jpg)
+
 Os modelos do Gemini também podem ser usados pelo Google AI Studio ou pela API, pagando só o que você usa. O português gasta cerca de 21% mais tokens que o inglês para o mesmo texto, então fizemos a conta em tokens de português. Cada pergunta tem cerca de 1.020 tokens de entrada e 470 de saída. **Com 20 perguntas por dia durante 30 dias**, o resultado é este:
 
 | Modelo | API por mês (US$) | Em reais | Com IOF de 3,5% |
@@ -45,3 +53,4 @@ A conversão usa US$ 1 = R$ 5,21. A API é cobrada em dólar, então quem paga c
 **Mesmo usando o Pro, 20 perguntas por dia pela API custam bem menos que o AI Pro, de R$ 96,99.** A diferença é que a API não traz os recursos do app, como geração de imagem, Deep Research e integração com Gmail e Docs, e você vai precisar de um app de chat que aceite chave de API. Para comparar com o seu uso de verdade, coloque seus números na [calculadora assinatura vs API](/pt/plans). Para saber por que o português gasta mais tokens, veja [tokens em português](/pt/blog/tokens-portugues-gpt). Se quiser contar os tokens de um texto seu, use o [contador de tokens](/pt/).
 
 *Fontes: [Diário da Manhã](https://www.dm.com.br/tecnologia/gemini-gratuito-fica-so-com-modelo-flash-lite-a-partir-desta-sexta/), [PCLabs](https://pclabs.com.br/google-vai-limitar-usuarios-gratis-do-gemini-ao-flash-lite-a-partir-de-9-de-outubro/), [Notebookcheck](https://www.notebookcheck.net/Google-Gemini-drops-Flash-and-Pro-for-free-users-on-October-9.1415964.0.html), preços dos planos na [página oficial do Gemini no Brasil](https://gemini.google/br/subscriptions/?hl=pt-BR), oferta para estudantes no [Canaltech](https://canaltech.com.br/inteligencia-artificial/google-ai-pro-gemini-de-graca-por-1-ano-brasil/) e IOF na [Remessa Online](https://www.remessaonline.com.br/blog/web-stories/iof-compras-internacionais-como-pagar-menos/). Conferido em 6 de outubro de 2026. Datas e limites podem mudar, então confira a página oficial do Google antes de assinar.*
+<!-- autoimg -->

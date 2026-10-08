@@ -1,3 +1,5 @@
+![Ile kosztuje stworzenie gry z AI? Koszt gry mobilnej w 2026](/ile-kosztuje-gra-z-ai-pl.jpg)
+
 Ile kosztuje stworzenie gry z AI, jeśli robisz grę 2D sam, bez zespołu? W skrócie: **ok. 128–181 USD i 2–3 tygodnie za małą grę mobilną**. To realny koszt gry mobilnej nawet wtedy, gdy to gra bez programowania – kod pisze agent AI, a Ty opisujesz, czego chcesz. Większość pieniędzy idzie na **subskrypcję AI do kodowania**, a nie na grafikę.
 
 **Krótko:** mała gra mobilna (np. merge) zrobiona samodzielnie z AI kosztuje ok. 128–181 USD i zajmuje 14–22 dni, a ok. 66% tej kwoty to miesiąc subskrypcji Claude Max 5× do pisania kodu.
@@ -5,6 +7,8 @@ Ile kosztuje stworzenie gry z AI, jeśli robisz grę 2D sam, bez zespołu? W skr
 Wszystkie liczby poniżej pochodzą z [kalkulatora kosztów gry z AI](/pl/ai-game-cost-calculator). Jego punkty odniesienia dla rozmiaru gry to prawdziwe gry mobilne zrobione w pojedynkę z agentami AI do kodowania: mała zajęła ok. 2 tygodnie, średnia ok. 4, a duża ok. 6. Ceny według stanu na 5 października 2026.
 
 ## Ile kosztuje gra mobilna z AI w zależności od rozmiaru?
+
+![Ile kosztuje gra mobilna z AI w zależności od rozmiaru?: Rozmiar, Czas, Obrazy, Koszt](/ile-kosztuje-gra-z-ai-ile-kosztuje-gra-mobilna-z-ai-w-zaleznos-pl.jpg)
 
 Mała gra merge kosztuje 128–181 USD, a bardzo duża nawet 329–728 USD. Zestaw narzędzi: **Standard** (Midjourney + Suno + ElevenLabs + Claude Max 5×), premiera na Androidzie.
 
@@ -18,6 +22,8 @@ Mała gra merge kosztuje 128–181 USD, a bardzo duża nawet 329–728 USD. Zest
 Przedział dla średniej gry jest szeroki, bo projekt, który trwa dłużej niż miesiąc, płaci za drugi miesiąc subskrypcji. Skończysz w 26 dni – płacisz za jeden miesiąc; zajmie Ci to 43 dni – płacisz za dwa.
 
 ## Na co idą pieniądze?
+
+![Na co idą pieniądze?: Pozycja, Koszt, Udział](/ile-kosztuje-gra-z-ai-na-co-ida-pieniadze-pl.jpg)
 
 Głównie na kod: subskrypcja AI do kodowania to ok. dwie trzecie rachunku. Mała gra merge z zestawem Standard:
 
@@ -46,6 +52,8 @@ Bardzo: przy tym samym małym rozmiarze ilość grafiki i kodu jest zupełnie in
 RPG ma więcej postaci i klatek animacji, więc potrzebuje ok. 38% więcej obrazów niż gra merge, a dłuższy harmonogram może dorzucić miesiąc subskrypcji.
 
 ## Który zestaw narzędzi wybrać: Najtaniej, Standard czy Najlepsze?
+
+![Który zestaw narzędzi wybrać: Najtaniej, Standard czy Najlepsze?: Najtaniej; Standard; Najlepsze](/ile-kosztuje-gra-z-ai-ktory-zestaw-narzedzi-wybrac-najtaniej-s-pl.jpg)
 
 Kalkulator przełącza się między trzema zestawami jednym kliknięciem:
 
@@ -82,3 +90,4 @@ Agentów AI do kodowania porównasz na stronie [agentów AI](/pl/agents).
 Tak. Kalkulator robi więcej, niż tylko wycenia projekt. Wybierz gatunek, rozmiar, silnik i platformę, a napisze **prompt startowy do tworzenia gry, prompty do grafiki, prompty do muzyki i efektów dźwiękowych oraz storyboard zwiastuna**, które wkleisz prosto do Claude Code albo Midjourney. Obsługuje 33 gatunki i 21 silników, w tym Unity, Godot, Unreal i GameMaker.
 
 Chcesz zobaczyć, jak to wygląda w praktyce? Przeczytaj, jak [zrobiłem grę w 3 dni za 45 USD bez umiejętności programowania](/pl/blog/vibe-coding-gra). A swoją grę wycenisz w [kalkulatorze kosztów gry z AI](/pl/ai-game-cost-calculator).
+<!-- autoimg -->

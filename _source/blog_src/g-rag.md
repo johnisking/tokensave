@@ -1,3 +1,5 @@
+![RAG vs Long Context: What It Costs to Ask Questions About Big Documents](/rag-vs-long-context-cost-en.jpg)
+
 Models with million-token context windows can read an entire manual, codebase or contract in one go. So why do so many apps still use retrieval-augmented generation (RAG), searching for a few relevant passages and sending only those? The answer is mostly cost. Here is the maths, and when each approach makes sense.
 
 ## The two approaches
@@ -7,6 +9,8 @@ Models with million-token context windows can read an entire manual, codebase or
 **RAG:** split the document into small chunks, index them, and for each question retrieve the handful of chunks most likely to contain the answer. Only those go into the prompt.
 
 ## The cost per question
+
+![The cost per question: Approach, Input tokens per question, Input cost per question, 10,000 questions](/rag-vs-long-context-cost-the-cost-per-question-en.jpg)
 
 Take a 500-page product manual. At roughly 500 words per page, that is about 250,000 words, or around 330,000 tokens. It fits comfortably in the context window of current flagship models.
 
@@ -30,12 +34,16 @@ Even with caching, sending the whole manual costs around seven times more than R
 
 ## When long context is the better choice
 
+![When long context is the better choice: Few questions per document. If you ask three questions about a contract and move on, building a retrieval syst](/rag-vs-long-context-cost-when-long-context-is-the-better-choice-en.jpg)
+
 - **Few questions per document.** If you ask three questions about a contract and move on, building a retrieval system is not worth it.
 - **Questions that need the whole document:** "summarize this report", "list every deadline", "find contradictions between sections".
 - **Prototypes.** Start simple, measure, and add retrieval later if costs or speed require it.
 - **Documents that change constantly,** where keeping an index up to date is more trouble than it is worth.
 
 ## When RAG is the better choice
+
+![When RAG is the better choice: Many questions against the same large body of text; More text than any context window holds, such as thousands](/rag-vs-long-context-cost-when-rag-is-the-better-choice-en.jpg)
 
 - **Many questions against the same large body of text:** help centers, internal wikis, product documentation, policy libraries.
 - **More text than any context window holds,** such as thousands of documents.
@@ -49,3 +57,4 @@ Many production systems combine both: retrieve generously (say, 20–50 chunks i
 ## Estimate your case
 
 Paste a sample of your document into the [token counter](/) to see how many tokens it uses and what one question would cost on each model. Then multiply by your expected number of questions per month.
+<!-- autoimg -->

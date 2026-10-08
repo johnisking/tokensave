@@ -1,3 +1,5 @@
+![Claude Code のトークン節約術9選](/claude-code-token-setsuyaku-ja.jpg)
+
 Claude Code は強力ですが、トークンをたくさん使います。1つのタスクで100万トークン以上をモデルに送ることも珍しくなく、Pro・Max の上限がすぐに尽きたり、API の請求額にそのまま表れたりします。幸い、その多くは Claude Code にやってもらうことは変えずに減らせるムダです。効果の大きい順にまとめました。
 
 ## トークンが積み上がる理由
@@ -52,3 +54,4 @@ TokenSave の[コーディングエージェント費用モデル](/ja/agents)�
 ## 使用量を確認する
 
 Claude Code で **/status** を実行すると、残りの使用量が表示されます。上限そのものの仕組みは [Claude Code の使用量上限まとめ](/ja/blog/claude-code-shiyouryou-jougen)、プランと API の比較は [Claude Code の月額料金](/ja/blog/claude-code-ryoukin)をご覧ください。
+<!-- autoimg -->

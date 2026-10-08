@@ -4,6 +4,8 @@ Polski należy do najdroższych języków w promptach: ten sam tekst zajmuje w G
 
 ## Test
 
+![Test: Wersja, GPT (o200k), Mistral (Tekken)](/jak-skrocic-prompt-po-polsku-pl-1.jpg)
+
 Prośba o streszczenie e-maila klienta, w siedmiu wersjach. Tokeny liczyłem dwoma tokenizerami: **o200k_base** (GPT-4o i nowsze modele OpenAI) oraz **Tekken** (Mistral).
 
 | Wersja | GPT (o200k) | Mistral (Tekken) |
@@ -34,6 +36,8 @@ Teksty wyglądały tak:
 
 ## Dlaczego polski kosztuje więcej
 
+![Dlaczego polski kosztuje więcej: „zaproponuj” → z | apro | pon | uj (4 tokeny); „potwierdzenie” → pot | wier | d | zenie (4); „opóźnieniem” → o](/jak-skrocic-prompt-po-polsku-dlaczego-polski-kosztuje-wiecej-pl.jpg)
+
 Tokenizery uczą się głównie na angielskim tekście, więc polskie słowa często są cięte na kawałki:
 
 - „zaproponuj” → `z | apro | pon | uj` (4 tokeny)
@@ -44,6 +48,8 @@ Tokenizery uczą się głównie na angielskim tekście, więc polskie słowa cz�
 Po angielsku „suggest”, „confirmation”, „late” czy „polite” to jeden token. Krótszy polski tekst pomaga głównie dlatego, że zawiera mniej takich długich, odmienionych słów.
 
 ## Prompt systemowy: tu skracanie daje najwięcej
+
+![Prompt systemowy: tu skracanie daje najwięcej: Wersja, GPT (o200k), Mistral (Tekken)](/jak-skrocic-prompt-po-polsku-prompt-systemowy-tu-skracanie-daje-najwi-pl.jpg)
 
 Prompt systemowy wysyłasz z każdym zapytaniem, więc tam liczy się każdy token. Przetestowałem instrukcję dla asystenta obsługi klienta sklepu internetowego:
 
@@ -84,3 +90,4 @@ Przy jednym prompcie to niewiele, ale w produkcie prompty systemowe mają częst
 Więcej pomiarów: [Ile naprawdę kosztuje prompt po polsku? GPT i Mistral zmierzone](/pl/blog/ile-kosztuje-prompt-po-polsku)
 
 *Pomiary: październik 2026, o200k_base (OpenAI) i Tekken 2024-09 (Mistral). Cena w przykładzie jest hipotetyczna.*
+<!-- autoimg -->

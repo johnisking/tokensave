@@ -1,5 +1,7 @@
+<p><img loading="lazy" width="1200" height="630" alt="GPT-6.1 Sol API Pricing: Cost vs GPT-6 Sol, Claude Opus 5.5 and Sonnet 5.5" src="/gpt-6-1-sol-api-pricing-en.jpg" /></p>
 <p>OpenAI released <strong>GPT-6.1 Sol</strong> at DevDay on September 29, 2026, one week after GPT-6 Sol. The list price did not change: $2 per million input tokens and $10 per million output. What changed is the price of cached input, which halved, and the model itself, which OpenAI says is clearly better at coding, agent work and getting facts right. Here is what it costs, how it compares with Claude Opus 5.5 and Sonnet 5.5, and whether to switch.</p>
 <h2>GPT-6.1 Sol API pricing</h2>
+<p><img loading="lazy" width="1200" height="621" alt="GPT-6.1 Sol API pricing: Model, Input, Cached input, Output" src="/gpt-6-1-sol-api-pricing-gpt-6-1-sol-api-pricing-en.jpg" /></p>
 <p>Per million tokens:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -46,6 +48,7 @@
 </ul>
 <p>The more of your prompt is repeated, the bigger the saving. If you are not using prompt caching yet, start there: put fixed content first and changing content last. See <a href="/blog/prompt-caching-explained">Prompt caching explained</a>.</p>
 <h2>GPT-6.1 Sol vs Claude Opus 5.5 and Sonnet 5.5</h2>
+<p><img loading="lazy" width="1200" height="751" alt="GPT-6.1 Sol vs Claude Opus 5.5 and Sonnet 5.5: Model, Input / output per 1M, 1 request, 10,000 requests" src="/gpt-6-1-sol-api-pricing-gpt-6-1-sol-vs-claude-opus-5-5-and-sonne-en.jpg" /></p>
 <p>A typical request of 2,000 input and 500 output tokens of English, at list prices with no caching, after each model's tokenizer difference:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -98,6 +101,7 @@
 <p>Claude Sonnet 5.5 has the same price per token as GPT-6.1 Sol but costs about 30% more per request, because Claude's tokenizer turns the same English text into about 30% more tokens. <strong>Claude Opus 5.5 costs about 2.6 times as much as GPT-6.1 Sol per request.</strong></p>
 <p>On quality, OpenAI reports GPT-6.1 Sol 2.2 points above Opus 5.5 on AutomationBench (multi-step workflows) at medium effort, and on its Terminal-Bench Science test it spent about $5.47 per task against $23.21 for Opus 5.5. These are OpenAI's own benchmarks; test on your own tasks before you switch a production workload. For an independent view of capability against price, see <a href="/compare/performance">AI model capability vs price</a>.</p>
 <h2>What improved over GPT-6 Sol</h2>
+<p><img loading="lazy" width="1200" height="593" alt="What improved over GPT-6 Sol: Coding; Accuracy; Computer use" src="/gpt-6-1-sol-api-pricing-what-improved-over-gpt-6-sol-en.jpg" /></p>
 <p>According to OpenAI:</p>
 <ul>
 <li><strong>Coding:</strong> 6.4 percentage points higher on the DeepSWE coding benchmark.</li>
@@ -115,3 +119,4 @@
 <h2>Check your own prompt</h2>
 <p>Paste a real prompt into the <a href="/openai-token-counter">OpenAI token counter</a> to see its cost on GPT-6.1 Sol and every other GPT model, or compare head to head: <a href="/compare/gpt-6-1-sol-vs-claude-sonnet-5-5">GPT-6.1 Sol vs Claude Sonnet 5.5</a> · <a href="/compare/gpt-6-1-sol-vs-claude-opus-5-5">GPT-6.1 Sol vs Claude Opus 5.5</a>. More on the GPT-6 family: <a href="/blog/gpt-6-api-pricing">GPT-6 API pricing</a>.</p>
 <p><em>Prices checked October 6, 2026. Check OpenAI's pricing page before you commit.</em></p>
+<!-- autoimg -->

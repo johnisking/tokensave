@@ -30,14 +30,14 @@
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image" content="https://tokensave.app/claude-code-sayongnyang-hando-ko.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <meta name="twitter:image" content="https://tokensave.app/claude-code-sayongnyang-hando-ko.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "클로드 코드 사용량 한도 정리: 5시간·주간 한도와 확인 방법", "description": "클로드 코드 Pro·Max의 5시간 한도와 주간 한도가 어떻게 작동하는지, 2026년 변경 사항, 사용량 확인법과 한도에 걸렸을 때 대처법.", "inLanguage": "ko", "url": "https://tokensave.app/ko/blog/claude-code-sayongnyang-hando", "mainEntityOfPage": "https://tokensave.app/ko/blog/claude-code-sayongnyang-hando", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ko/"}, {"@type": "ListItem", "position": 2, "name": "클로드 코드 사용량 한도 정리: 5시간·주간 한도와 확인 방법", "item": "https://tokensave.app/ko/blog/claude-code-sayongnyang-hando"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "클로드 코드 사용량 한도 정리: 5시간·주간 한도와 확인 방법", "description": "클로드 코드 Pro·Max의 5시간 한도와 주간 한도가 어떻게 작동하는지, 2026년 변경 사항, 사용량 확인법과 한도에 걸렸을 때 대처법.", "inLanguage": "ko", "url": "https://tokensave.app/ko/blog/claude-code-sayongnyang-hando", "mainEntityOfPage": "https://tokensave.app/ko/blog/claude-code-sayongnyang-hando", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/claude-code-sayongnyang-hando-ko.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ko/"}, {"@type": "ListItem", "position": 2, "name": "클로드 코드 사용량 한도 정리: 5시간·주간 한도와 확인 방법", "item": "https://tokensave.app/ko/blog/claude-code-sayongnyang-hando"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -101,12 +101,14 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">클로드 코드 사용량 한도 정리: 5시간·주간 한도와 확인 방법</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026년 10월 2일</p>
-  <p>"사용량 한도에 도달했습니다(usage limit reached)"는 클로드 코드를 쓰다 보면 가장 자주 보는 메시지이면서, 가장 헷갈리는 메시지입니다. 한도가 <strong>두 가지</strong>가 동시에 작동하기 때문입니다. 어떻게 돌아가는지, 2026년에 뭐가 바뀌었는지, 걸렸을 때 어떻게 하면 되는지 정리했습니다.</p>
+  <p><img loading="lazy" width="1200" height="630" alt="클로드 코드 사용량 한도 정리: 5시간·주간 한도와 확인 방법" src="/claude-code-sayongnyang-hando-ko.jpg" /></p>
+<p>"사용량 한도에 도달했습니다(usage limit reached)"는 클로드 코드를 쓰다 보면 가장 자주 보는 메시지이면서, 가장 헷갈리는 메시지입니다. 한도가 <strong>두 가지</strong>가 동시에 작동하기 때문입니다. 어떻게 돌아가는지, 2026년에 뭐가 바뀌었는지, 걸렸을 때 어떻게 하면 되는지 정리했습니다.</p>
 <h2>한도는 두 가지</h2>
 <p><strong>1. 5시간 세션 한도.</strong> 첫 메시지를 보낸 순간부터 5시간 단위로 사용량을 잽니다. 그 5시간 동안 쓸 수 있는 양을 다 쓰면 초기화될 때까지 기다려야 합니다.</p>
 <p><strong>2. 주간 한도.</strong> 세션 한도와 별개로 일주일 전체 사용량에도 상한이 있습니다. 소수의 계정이 클로드 코드를 24시간 돌리는 걸 막으려고 2025년 8월에 도입됐습니다. 여기에 걸리면 5시간 세션이 새로 시작됐어도 주간 초기화까지 기다려야 합니다.</p>
 <p>두 한도 모두 <strong>클로드 코드와 Claude 앱(웹·데스크톱·모바일)이 함께 씁니다.</strong> 앱에서 긴 대화를 하면 코딩에 쓸 양도 같이 줄어듭니다.</p>
 <h2>요금제별 사용량</h2>
+<p><img loading="lazy" width="1200" height="568" alt="요금제별 사용량: 요금제, 가격, 사용량" src="/claude-code-sayongnyang-hando-ko-2.jpg" /></p>
 <p>Anthropic은 정확한 토큰 수 대신 요금제끼리의 배수로 설명합니다.</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -136,6 +138,7 @@
 </table></div>
 <p>실제로 얼마나 버티는지는 작업에 따라 크게 다릅니다. 큰 파일, 긴 세션, Opus는 Sonnet으로 짧은 작업을 할 때보다 훨씬 빨리 한도를 씁니다. 단계마다 작업 맥락 전체를 다시 보내기 때문입니다.</p>
 <h2>2026년에 바뀐 것</h2>
+<p><img loading="lazy" width="1200" height="697" alt="2026년에 바뀐 것: 2026년 5월 6일; 2026년 여름; 2026년 9월 14일" src="/claude-code-sayongnyang-hando-ko-3.jpg" /></p>
 <ul>
 <li><strong>2026년 5월 6일:</strong> Anthropic이 Pro·Max·Team·좌석형 Enterprise 요금제의 <strong>클로드 코드 5시간 한도를 두 배로</strong> 늘렸습니다. Pro·Max의 피크 시간대 한도 축소도 없앴습니다.</li>
 <li><strong>2026년 여름:</strong> 주간 한도에 <strong>50% 임시 증량</strong>이 적용됐습니다.</li>
@@ -145,6 +148,7 @@
 <h2>남은 사용량 확인하는 법</h2>
 <p>클로드 코드에서 <strong>/status</strong> 명령어를 치면 남은 사용량을 볼 수 있습니다. 한도에 가까워지면 클로드 코드가 경고도 띄워 줍니다. 긴 작업은 중간이 아니라 <strong>시작하기 전에</strong> 확인하세요.</p>
 <h2>한도에 걸렸을 때</h2>
+<p><img loading="lazy" width="1200" height="838" alt="한도에 걸렸을 때: 초기화까지 기다리기. 5시간 한도는 보통 몇 시간이면 풀립니다.; 추가 사용량(usage credits) 켜기. 유료 요금제는 멈추지 않고 별도 과금되는 크레딧으로 계속 쓸 수 있습니다.; API " src="/claude-code-sayongnyang-hando-ko-4.jpg" /></p>
 <ol>
 <li><strong>초기화까지 기다리기.</strong> 5시간 한도는 보통 몇 시간이면 풀립니다.</li>
 <li><strong>추가 사용량(usage credits) 켜기.</strong> 유료 요금제는 멈추지 않고 별도 과금되는 크레딧으로 계속 쓸 수 있습니다.</li>
@@ -172,9 +176,10 @@
 <h2>요금제냐 API냐</h2>
 <p>주간 한도에 자주 걸린다면, 그 추가분을 API로 냈을 때 비용과 한 단계 위 요금제를 비교해 보세요. <a href="/ko/blog/claude-code-yogeum">클로드 코드 한 달 요금 계산</a>과 <a href="/ko/agents">코딩 에이전트 비용 계산기</a>가 계산해 드립니다.</p>
 <p><em>한도는 바뀝니다. 최신 규칙은 Anthropic의 <a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">클로드 코드 요금제 도움말</a>과 <a href="https://claude.com/pricing" target="_blank" rel="noopener">요금 페이지</a>를 확인하세요.</em></p>
+<!-- autoimg -->
 
         <h2>다른 글</h2>
-        <ul><li><a href="/ko/blog/chatgpt-muryo-yuryo-chai">챗GPT 무료 vs 유료 차이: 무료·Go·Plus·Pro 한도와 원화 가격 (2026)</a></li><li><a href="/ko/blog/google-play-bigonggae-teseuteu-14il">구글 플레이 비공개 테스트 14일, AI로 만든 게임 버그 14개 잡은 기록</a></li><li><a href="/ko/blog/chatgpt-sayongnyang-hando">챗GPT 사용량 한도 정리: 무엇이 아직 제한되고 언제 초기화될까</a></li><li><a href="/ko/blog/chatgpt-pro-vs-claude-max">챗GPT Pro vs Claude Max 요금제 비교: $100·$200 어디가 더 많이 줄까</a></li><li><a href="/ko/blog/ai-site-chucheon">유용한 AI 사이트 추천 15곳: 무료로 쓰는 꿀사이트 모음</a></li></ul>
+        <ul><li><a href="/ko/blog/indie-game-gaebal-biyong">인디게임 개발 비용 얼마? 1인 개발 vs 외주, 엔진·스토어 등록비 정리 (2026)</a></li><li><a href="/ko/blog/chatgpt-muryo-yuryo-chai">챗GPT 무료 vs 유료 차이: 무료·Go·Plus·Pro 한도와 원화 가격 (2026)</a></li><li><a href="/ko/blog/chatgpt-sayongnyang-hando">챗GPT 사용량 한도 정리: 무엇이 아직 제한되고 언제 초기화될까</a></li><li><a href="/ko/blog/chatgpt-pro-vs-claude-max">챗GPT Pro vs Claude Max 요금제 비교: $100·$200 어디가 더 많이 줄까</a></li><li><a href="/ko/blog/ai-site-chucheon">유용한 AI 사이트 추천 15곳: 무료로 쓰는 꿀사이트 모음</a></li></ul>
         <div class="not-prose mt-8 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 text-center">
           <p class="text-zinc-200">작업 크기와 하루 작업 수를 넣고, 클로드 코드의 API 비용을 Pro·Max와 비교해 보세요.</p>
           <a href="/ko/agents" class="mt-3 inline-block tab-active rounded-lg px-4 py-2 font-semibold no-underline" style="text-decoration:none">코딩 에이전트 비용 계산기 열기 →</a>

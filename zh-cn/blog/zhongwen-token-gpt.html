@@ -65,14 +65,14 @@
   <meta property="og:locale" content="zh_CN" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/blog-language-tax-chart-v4.png" />
+  <meta property="og:image" content="https://tokensave.app/zhongwen-token-gpt-zh-cn.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/blog-language-tax-chart-v4.png" />
+  <meta name="twitter:image" content="https://tokensave.app/zhongwen-token-gpt-zh-cn.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "简体中文在 GPT 中的 Token 数几乎与英文相同（1.03×）", "description": "同一提示词在 41 种语言中实测：简体中文使用的 Token 是英文的 1.03×。改用英文发送可节省约 3%。", "inLanguage": "zh-CN", "url": "https://tokensave.app/zh-cn/blog/zhongwen-token-gpt", "mainEntityOfPage": "https://tokensave.app/zh-cn/blog/zhongwen-token-gpt", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/blog-language-tax-chart-v4.png", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/zh-cn/"}, {"@type": "ListItem", "position": 2, "name": "简体中文在 GPT 中的 Token 数几乎与英文相同（1.03×）", "item": "https://tokensave.app/zh-cn/blog/zhongwen-token-gpt"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "简体中文在 GPT 中的 Token 数几乎与英文相同（1.03×）", "description": "同一提示词在 41 种语言中实测：简体中文使用的 Token 是英文的 1.03×。改用英文发送可节省约 3%。", "inLanguage": "zh-CN", "url": "https://tokensave.app/zh-cn/blog/zhongwen-token-gpt", "mainEntityOfPage": "https://tokensave.app/zh-cn/blog/zhongwen-token-gpt", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/zhongwen-token-gpt-zh-cn.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/zh-cn/"}, {"@type": "ListItem", "position": 2, "name": "简体中文在 GPT 中的 Token 数几乎与英文相同（1.03×）", "item": "https://tokensave.app/zh-cn/blog/zhongwen-token-gpt"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -136,7 +136,8 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">简体中文在 GPT 中的 Token 数几乎与英文相同（1.03×）</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026-10-02</p>
-  <p>我们把同一段客服提示词翻译成 41 种语言，用 OpenAI 当前的 o200k_base 分词器（GPT-4o 及之后的模型）统计 Token。英文需要 34 个 Token，简体中文需要 <strong>35 个，是英文的 1.03×</strong>，在 41 种语言中排第 2 便宜。</p>
+  <p><img loading="lazy" width="1200" height="630" alt="简体中文在 GPT 中的 Token 数几乎与英文相同（1.03×）" src="/zhongwen-token-gpt-zh-cn.jpg" /></p>
+<p>我们把同一段客服提示词翻译成 41 种语言，用 OpenAI 当前的 o200k_base 分词器（GPT-4o 及之后的模型）统计 Token。英文需要 34 个 Token，简体中文需要 <strong>35 个，是英文的 1.03×</strong>，在 41 种语言中排第 2 便宜。</p>
 <p>简体中文版本：</p>
 <blockquote>
 <p>请用三个要点总结下面的客户邮件，并建议一封礼貌的回复。客户说订单晚到了两天，而且箱子里少了一件商品。</p>
@@ -214,7 +215,7 @@
 </tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1430" alt="结果" src="/blog-language-tax-chart-v4.png" /></p>
+<p><img loading="lazy" width="960" height="1430" alt="各语言在 GPT 中比英语多用的 token 比例图" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>为什么</h2>
 <p>分词器主要用英文数据训练，常见英文单词往往是 1 个 Token（" polite"、" customer"）。o200k 词表也收录了大量常用中文词，所以简体中文几乎不吃亏：</p>
 <ul>
@@ -225,18 +226,21 @@
 <h2>换算成费用</h2>
 <p>按输入每 100 万 Token 2 美元计算，把这段提示词发送 100 万次：英文 $68，简体中文 $70。几乎没有差别。</p>
 <h2>省 Token 的小建议</h2>
+<p><img loading="lazy" width="1200" height="593" alt="省 Token 的小建议: 固定的系统提示词可以用英文或中文，差别不大，重点是删掉重复和客套话。; 分类、抽取、工具调用等中间步骤让模型输出 JSON，只把最终回答用中文。; 对固定前缀使用提示词缓存（Prompt Caching），输入单价会大幅" src="/zhongwen-token-gpt-zh-cn-2.jpg" /></p>
 <ul>
 <li>固定的系统提示词可以用英文或中文，差别不大，重点是删掉重复和客套话。</li>
 <li>分类、抽取、工具调用等中间步骤让模型输出 JSON，只把最终回答用中文。</li>
 <li>对固定前缀使用提示词缓存（Prompt Caching），输入单价会大幅下降。</li>
 </ul>
 <h2>局限</h2>
+<p><img loading="lazy" width="1200" height="593" alt="局限: 只测了一段提示词，不同文本比例可能相差 0.1–0.2。; Claude 和 Gemini 使用不同分词器，这些数字只适用于 OpenAI 模型。; 译文以机器翻译为基础并经过检查。" src="/zhongwen-token-gpt-zh-cn-3.jpg" /></p>
 <ul>
 <li>只测了一段提示词，不同文本比例可能相差 0.1–0.2。</li>
 <li>Claude 和 Gemini 使用不同分词器，这些数字只适用于 OpenAI 模型。</li>
 <li>译文以机器翻译为基础并经过检查。</li>
 </ul>
 <p>全部 41 种语言的结果（英文）：<a href="/blog/token-cost-by-language">41 种语言对比</a></p>
+<!-- autoimg -->
 
         <h2>更多文章</h2>
         <ul><li><a href="/zh-cn/blog/chatgpt-mianfei-vs-fufei">ChatGPT 免费版和付费版区别（2026）：Go、Plus、Pro 怎么选？</a></li></ul>

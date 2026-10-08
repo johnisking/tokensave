@@ -1,6 +1,10 @@
+![KI-Abos im Preisvergleich 2026: ChatGPT, Claude, Gemini in Euro](/ki-abo-preisvergleich-de.jpg)
+
 ChatGPT, Claude, Gemini und Grok verkaufen inzwischen jeweils drei bis fünf Bezahltarife. Die Spanne reicht von knapp 5 € bis über 200 € im Monat. Die Tarife heißen bei jedem Anbieter anders, und manche Preise stehen mit, manche ohne Mehrwertsteuer auf der Seite. Hier findest du alle Tarife mit dem Betrag, den du in Deutschland tatsächlich zahlst, dazu, was du in den teuren Stufen pro Euro bekommst, und die Frage, ob du überhaupt ein Abo brauchst. Laut Bitkom sagen übrigens 33 % der Unternehmen, die KI nutzen, dass KI teurer war als geplant, und zwar vor allem wegen des Tokenverbrauchs. Nachrechnen lohnt sich also.
 
 ## Alle Tarife auf einen Blick
+
+![Alle Tarife auf einen Blick: Preisklasse, ChatGPT, Claude, Google (Gemini)](/ki-abo-preisvergleich-alle-tarife-auf-einen-blick-de.jpg)
 
 Monatspreise in Deutschland, Stand 6. Oktober 2026:
 
@@ -20,6 +24,8 @@ In Österreich (20 % USt) und in der Schweiz weichen die Endpreise ab.
 
 ## In der 20-€-Klasse entscheidet die Nutzung
 
+![In der 20-€-Klasse entscheidet die Nutzung: ChatGPT Plus; Claude Pro; Google AI Pro](/ki-abo-preisvergleich-in-der-20-klasse-entscheidet-die-nutzung-de.jpg)
+
 ChatGPT Plus, Claude Pro und Google AI Pro kosten fast gleich viel, und für die meisten Menschen reicht diese Stufe. Den Unterschied macht, **wofür du KI hauptsächlich nutzt**:
 
 - **ChatGPT Plus:** der breiteste Funktionsumfang mit Bilderstellung, Sprachmodus, Deep Research und eigenen GPTs, dazu Codex und ChatGPT Work. Außerdem ist Plus der günstigste ChatGPT-Tarif ohne Werbung.
@@ -32,6 +38,8 @@ ChatGPT Plus, Claude Pro und Google AI Pro kosten fast gleich viel, und für die
 - **Google AI Plus (4,99 €):** Der Tarif verliert demnächst das Pro-Modell. Für die 400 GB Speicher ist er trotzdem ein fairer Preis. Die Details stehen unter [Gemini: kostenlos nur noch Flash-Lite](/de/blog/gemini-kostenlos-flash-lite).
 
 ## 100 € oder 200 €: Achte auf den Preis pro Einheit
+
+![100 € oder 200 €: Achte auf den Preis pro Einheit: Tarif, Nutzung im Vergleich zur 20-€-Stufe, Preis pro Einheit](/ki-abo-preisvergleich-100-oder-200-achte-auf-den-preis-pro-ein-de.jpg)
 
 | Tarif | Nutzung im Vergleich zur 20-€-Stufe | Preis pro Einheit |
 |---|---|---|
@@ -59,3 +67,4 @@ Alle vier Anbieter verkaufen ihre Modelle auch über eine API, bei der du nur za
 Trag deine eigene Nutzung in den [Rechner Abo vs. API](/de/plans) ein. Dann siehst du die monatlichen API-Kosten direkt neben jedem Tarif. Einzelne Prompts zählst du mit dem [Token-Zähler](/de/).
 
 *Quellen: [ChatGPT-Preise (MonsterDealz, Sep. 2026)](https://www.monsterdealz.de/magazin/chatgpt-kosten), [Claude Pro und Max in Deutschland (SSD Nodes)](https://www.ssdnodes.com/learn/lang/de/claude-pro-and-max-in-germany-what-you-pay), [Claude-Preise](https://claude.com/pricing), [Google AI Abos (Deutschland)](https://gemini.google/de/subscriptions/?hl=de), [Google AI Plus zum Start (smartdroid)](https://www.smartdroid.de/gemini-neues-google-ai-plus-fuer-nur-799-euro-jetzt-in-deutschland-verfuegbar/), [Grok-Kosten (GIGA)](https://www.giga.de/tech/grok-kosten-2026-wie-teuer-ist-der-ki-chatbot--01KPQCHS1PBH2QR2CZHHFGBVM4), [Bitkom KI-Studie 2026](https://www.bitkom.org/sites/main/files/2026-02/bitkom-studienbericht-ki.pdf). Stand: 6. Oktober 2026. Preise und Limits ändern sich oft, prüfe sie vor dem Abschluss beim Anbieter.*
+<!-- autoimg -->

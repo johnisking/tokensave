@@ -1,6 +1,10 @@
+![Precio de Claude Code: ¿cuánto cuesta al mes? Pro vs Max vs API](/claude-code-precio-es.jpg)
+
 ¿Cuánto cuesta Claude Code? Claude Code viene incluido en las suscripciones Claude Pro y Max de Anthropic, y también puede funcionar con créditos de la API que pagas según el uso. Entonces, ¿cuál es el precio de Claude Code al mes? Depende de cuánto lo uses, y la diferencia entre la forma más barata y la más cara de pagar por el mismo trabajo puede ser de diez veces o más. Si buscabas Claude Code gratis, la respuesta corta es que siempre se paga, ya sea con un plan o por token; lo que sí puedes hacer es elegir la opción más barata para tu caso. Aquí tienes las cifras reales.
 
 ## Dos formas de pagar Claude Code
+
+![Dos formas de pagar Claude Code: Plan, Precio al mes, Uso](/claude-code-precio-dos-formas-de-pagar-claude-code-es.jpg)
 
 **1. Una suscripción.** Claude Code está incluido en estos planes (precios de EE. UU., revisados en octubre de 2026):
 
@@ -29,6 +33,8 @@ Claude Code trabaja por pasos: lee archivos, edita, ejecuta las pruebas, lee el 
 El **caché de prompts** (prompt caching) es lo que lo mantiene asequible: la parte repetida del contexto se cobra a cerca del 10 % del precio normal de entrada. Claude Code lo usa automáticamente.
 
 ## Cuánto cuesta una tarea con la API
+
+![Cuánto cuesta una tarea con la API: Tarea, Pasos, Haiku 4.5, Sonnet 5.5, Opus 5.5](/claude-code-precio-cuanto-cuesta-una-tarea-con-la-api-es.jpg)
 
 Con nuestro [modelo de costes para agentes de programación](/es/agents), con la caché activada:
 
@@ -70,6 +76,8 @@ Como la mayor parte de lo que envía Claude Code es contexto en caché, un preci
 
 ## Cómo decidir
 
+![Cómo decidir: Empieza con Pro si programas con él unas cuantas veces por semana.; Fíjate en cuántas veces llegas al límite. ](/claude-code-precio-como-decidir-es.jpg)
+
 1. **Empieza con Pro** si programas con él unas cuantas veces por semana.
 2. **Fíjate en cuántas veces llegas al límite.** Si lo alcanzas casi todas las semanas, probablemente Max 5× te salga más barato que pagar la tarifa de la API por el trabajo extra.
 3. **Usa la API** para automatización, pipelines de CI o un uso muy irregular, donde la facturación predecible por token es mejor que una cuota mensual.
@@ -80,3 +88,4 @@ Como la mayor parte de lo que envía Claude Code es contexto en caché, un preci
 La [calculadora de costes de agentes de programación](/es/agents) te permite ajustar el tamaño de las tareas, las tareas por día y los días laborables, y compara los costes de API de los modelos de Claude, GPT y Gemini con todos los planes de Claude y ChatGPT. Para gastar menos tokens en cualquier caso, consulta [How to save tokens in Claude Code](/blog/claude-code-save-tokens) (en inglés).
 
 *Los precios y los límites cambian a menudo. Revisa [claude.com/pricing](https://claude.com/pricing) antes de decidir.*
+<!-- autoimg -->

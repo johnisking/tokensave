@@ -1,3 +1,5 @@
+![L’italiano usa 1,38× i token dell’inglese in GPT](/token-italiano-gpt-it.jpg)
+
 Ho tradotto lo stesso prompt di assistenza clienti in 41 lingue e contato i token con o200k_base, il tokenizer attuale di OpenAI (GPT-4o e successivi). In inglese servono 34 token; in italiano **47, cioè 1,38× l’inglese**, posizione 17 su 41 (1 = il più economico).
 
 La versione italiana:
@@ -24,6 +26,8 @@ La versione italiana:
 
 ## Perché
 
+![Perché: Riassumi → Ri | ass | umi · 3; suggerisci → sugger | isci · 2; arrivato → arriv | ato · 2](/token-italiano-gpt-perche-it.jpg)
+
 Il tokenizer impara soprattutto da testo inglese: parole come " polite" o " customer" sono un solo token, mentre molte parole italiane vengono spezzate:
 
 - Riassumi → `Ri | ass | umi` · 3
@@ -40,6 +44,8 @@ Con un modello a 2 $ per milione di token in input, inviare questo prompt un mil
 
 ## Come risparmiare
 
+![Come risparmiare: Scrivi il prompt di sistema e le istruzioni fisse in inglese; lascia in italiano solo l’input dell’utente.; Ch](/token-italiano-gpt-come-risparmiare-it.jpg)
+
 - Scrivi il prompt di sistema e le istruzioni fisse in inglese; lascia in italiano solo l’input dell’utente.
 - Chiedi i passaggi intermedi (classificazione, estrazione, chiamate a strumenti) in inglese o JSON e solo la risposta finale in italiano.
 - Usa il prompt caching per la parte fissa del prompt.
@@ -51,3 +57,4 @@ Con un modello a 2 $ per milione di token in input, inviare questo prompt un mil
 - La traduzione parte da una traduzione automatica revisionata.
 
 Risultati completi delle 41 lingue (in inglese): [confronto tra 41 lingue](/blog/token-cost-by-language)
+<!-- autoimg -->

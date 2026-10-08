@@ -1,6 +1,10 @@
+![GPT-6 API Pricing: Astra vs Sol vs Luna, and What It Costs](/gpt-6-api-pricing-en.jpg)
+
 OpenAI released three GPT-6 models in September 2026: **GPT-6 Astra**, the flagship, on September 4, and **GPT-6 Sol** and **GPT-6 Luna** on September 22. Their API prices are very different, so picking the right one matters far more than any discount. Here are the prices, what they mean for real workloads, and how they compare with Claude and Gemini.
 
 ## GPT-6 API prices
+
+![GPT-6 API prices: Model, Input, Cached input, Output](/gpt-6-api-pricing-gpt-6-api-prices-en.jpg)
 
 Per million tokens:
 
@@ -19,6 +23,8 @@ Requests with more than 272,000 input tokens are billed at a higher rate, so ver
 Sol and Luna launched at half the price of the models they replace. GPT-5.6 Sol was $4 input and $20 output; GPT-5.6 Luna was $0.20 and $1.20. If you are still on GPT-5.6, switching model names alone halves the bill.
 
 ## What it costs in practice
+
+![What it costs in practice: Model, One request, 10,000 requests](/gpt-6-api-pricing-what-it-costs-in-practice-en.jpg)
 
 A typical request with 2,000 input tokens and 500 output tokens:
 
@@ -48,6 +54,8 @@ A common setup is to send everything to Sol or Luna by default and escalate to A
 
 ## Ways to pay less
 
+![Ways to pay less: Use prompt caching. Cached input is a tenth of the normal price on all three models. Put fixed instructions an](/gpt-6-api-pricing-ways-to-pay-less-en.jpg)
+
 1. **Use prompt caching.** Cached input is a tenth of the normal price on all three models. Put fixed instructions and documents at the start of the prompt. See [Prompt caching explained](/blog/prompt-caching-explained).
 2. **Use the Batch API** for work that can wait, typically at half price. See [Batch APIs](/blog/batch-api-half-price).
 3. **Keep output short.** Output costs 5 times input on every GPT-6 model.
@@ -63,3 +71,4 @@ You do not need the API to use GPT-6. GPT-6 Astra is available to ChatGPT Pro, B
 Paste a typical prompt into the [token counter](/) to see its exact token count on GPT models and its cost on every GPT-6 model, Claude and Gemini side by side.
 
 *Prices change. Check [OpenAI's pricing page](https://openai.com/api/pricing/) before a large job.*
+<!-- autoimg -->

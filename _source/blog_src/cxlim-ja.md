@@ -1,3 +1,5 @@
+![Codex の使用量上限まとめ：5時間・週の上限とリセット](/codex-shiyouryou-jougen-ja.jpg)
+
 OpenAI のコーディングエージェント Codex は ChatGPT の Plus・Pro・Business プランに含まれており、今いちばん多くの人が使用量の上限に当たる場所になっています。Codex は ChatGPT Work と使用枠を共有し、5時間枠と週の上限があり、モデルによって消費の速さが大きく異なります。仕組みと、枠を有効に使う方法をまとめました。
 
 ## Codex が使えるプラン
@@ -13,6 +15,8 @@ Codex（と ChatGPT Work）の使用量は、**Plus**（$20）、**Pro**（$100�
 Codex と ChatGPT Work は**同じ使用枠**を消費します。
 
 ## モデル別の使用量
+
+![モデル別の使用量: モデル, Plus, Pro（5×プラン）](/codex-shiyouryou-jougen-ja-2.jpg)
 
 OpenAI のヘルプセンターでは、5時間枠あたりのメッセージ数の目安を示しています。選ぶモデルによって、数は大きく変わります。
 
@@ -37,6 +41,8 @@ OpenAI のヘルプセンターによると、ChatGPT の **Settings → Usage**
 
 ## 上限に当たったら
 
+![上限に当たったら: リセットを待つ。 5時間枠は数時間以内に回復します。; 貯まっているリセットを使うか、即時リセットを購入する。 対象の Plus・Pro アカウントで利用できます。; クレジットを使う。 対応しているプランなら、クレジッ](/codex-shiyouryou-jougen-ja-3.jpg)
+
 1. **リセットを待つ。** 5時間枠は数時間以内に回復します。
 2. **貯まっているリセットを使うか、即時リセットを購入する。** 対象の Plus・Pro アカウントで利用できます。
 3. **クレジットを使う。** 対応しているプランなら、クレジットで作業を続けられます。
@@ -44,6 +50,8 @@ OpenAI のヘルプセンターによると、ChatGPT の **Settings → Usage**
 5. あふれた作業は、従量課金の **API キーを使う。**
 
 ## 枠を長持ちさせるコツ
+
+![枠を長持ちさせるコツ: 基本は GPT-5.6 Sol か Terra に。 GPT-6 Astra は枠を何倍も使うので、違いが出る難しい問題にだけ使いましょう。; 簡単な編集、名前の変更、定型コードには Luna を。; タスクは小さく具体](/codex-shiyouryou-jougen-ja-4.jpg)
 
 - **基本は GPT-5.6 Sol か Terra に。** GPT-6 Astra は枠を何倍も使うので、違いが出る難しい問題にだけ使いましょう。
 - **簡単な編集**、名前の変更、定型コードには **Luna を。**
@@ -59,3 +67,4 @@ OpenAI のヘルプセンターによると、ChatGPT の **Settings → Usage**
 どちらも$20・$100・$200のプランに含まれ、上限の仕組みも似ています。違いは [ChatGPT Pro vs Claude Max の比較](/ja/blog/chatgpt-pro-vs-claude-max)で解説しています。[コーディングエージェント費用計算機](/ja/agents)では、月々の API 費用をすべてのプランと比較できます。
 
 *上限は頻繁に変わります。最新の数値は OpenAI の [Codex と Work の使用量ヘルプページ](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)（英語）で確認してください。*
+<!-- autoimg -->

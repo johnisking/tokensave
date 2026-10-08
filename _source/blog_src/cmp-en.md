@@ -1,6 +1,10 @@
+![ChatGPT Pro vs Claude Max: Which $100 or $200 Plan Gives More?](/chatgpt-pro-vs-claude-max-en.jpg)
+
 ChatGPT and Claude now have almost mirror-image price ladders: $20, $100, $200, and in ChatGPT's case $500. Both include a coding agent (Codex in ChatGPT, Claude Code in Claude). So which one gives you more for the money? The honest answer depends on what you do with it, but the plans are not as equal as the prices suggest.
 
 ## The plans side by side
+
+![The plans side by side: Price, ChatGPT, Usage, Claude, Usage](/chatgpt-pro-vs-claude-max-the-plans-side-by-side-en.jpg)
 
 US monthly prices, checked October 2026:
 
@@ -25,6 +29,8 @@ Usage multipliers are relative to each company's own $20 plan, so "5× Plus" and
 
 ## Models you get
 
+![Models you get: Input / 1M tokens, Output / 1M tokens](/chatgpt-pro-vs-claude-max-models-you-get-en.jpg)
+
 **ChatGPT:** GPT-6 Astra, OpenAI's flagship, is available on Pro plans (and is rolling out to Plus, first in Work and Codex). Pro 500 also gets Ultrafast, a faster mode that uses your allowance more quickly.
 
 **Claude:** the plans center on Claude Sonnet 5.5 and Opus 5.5. Max mainly gives you more room to use Opus, the more expensive of the two.
@@ -48,6 +54,8 @@ If you code with an agent every day, the plan is almost always cheaper than the 
 
 ## Which should you pick?
 
+![Which should you pick?: You want GPT-6 Astra specifically, or image generation, voice and the broader ChatGPT app.; You need Ultrafast](/chatgpt-pro-vs-claude-max-which-should-you-pick-en.jpg)
+
 **Choose ChatGPT if:**
 - You want GPT-6 Astra specifically, or image generation, voice and the broader ChatGPT app.
 - You need Ultrafast and can justify $500 (Pro 500).
@@ -65,3 +73,4 @@ If you code with an agent every day, the plan is almost always cheaper than the 
 If you use AI only a few times a day, the API may cost less than any plan. The [Subscription vs API calculator](/plans) shows the monthly API cost of your usage next to every ChatGPT, Claude and Gemini plan.
 
 *Plans and limits change often. Check [chatgpt.com/pricing](https://chatgpt.com/pricing) and [claude.com/pricing](https://claude.com/pricing) before you subscribe.*
+<!-- autoimg -->

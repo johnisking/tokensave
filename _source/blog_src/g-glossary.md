@@ -1,3 +1,5 @@
+![AI Cost Glossary: 30 Terms Explained in Plain Language](/ai-cost-glossary-en.jpg)
+
 AI pricing pages and documentation are full of terms that are rarely explained. This glossary covers the words you need to understand what you are paying for, in plain language, with links to longer guides where they exist.
 
 ## Tokens and text
@@ -73,3 +75,4 @@ AI pricing pages and documentation are full of terms that are rarely explained. 
 ## Calculate it
 
 The [token counter](/), [video](/video) and [image](/image) cost calculators, [Subscription vs API](/plans) and [agent cost](/agents) tools turn all of these into real numbers for your own use.
+<!-- autoimg -->

@@ -1,3 +1,5 @@
+![Claude Code limiet: de 5 uur limiet en de weeklimiet uitgelegd](/claude-code-limiet-nl.jpg)
+
 "Claude usage limit reached" is een van de meest voorkomende meldingen in Claude Code. Ook een van de meest verwarrende. De Claude Code limiet bestaat namelijk uit twee limieten die tegelijk gelden: een 5 uur limiet en een weeklimiet. Hieronder lees je hoe ze werken, wat er in 2026 veranderde en wat je doet als je er een raakt.
 
 **Kort:** Claude Code heeft twee limieten tegelijk, een 5 uur limiet vanaf je eerste bericht en een weeklimiet, en die deel je met de Claude-app; zit je aan een van beide, dan wacht je op de reset, zet je extra gebruik aan of stap je over op de API.
@@ -14,6 +16,8 @@ Beide limieten worden **gedeeld tussen Claude Code en de Claude-app** (web, desk
 
 ## Hoeveel gebruik krijg je per plan?
 
+![Hoeveel gebruik krijg je per plan?: Plan, Prijs, Gebruik](/claude-code-limiet-hoeveel-gebruik-krijg-je-per-plan-nl.jpg)
+
 Anthropic beschrijft de limieten van de plannen ten opzichte van elkaar, niet in exacte aantallen tokens:
 
 | Plan | Prijs | Gebruik |
@@ -26,6 +30,8 @@ Hoe ver je daarmee komt, hangt sterk af van wat je doet. Grote bestanden, lange 
 
 ## Wat veranderde er in 2026?
 
+![Wat veranderde er in 2026?: 6 mei 2026; Zomer 2026; 14 september 2026](/claude-code-limiet-wat-veranderde-er-in-2026-nl.jpg)
+
 - **6 mei 2026:** Anthropic **verdubbelde de 5-uurslimieten van Claude Code** voor Pro, Max, Team en Enterprise met seats, en schrapte voor Pro en Max de extra verlaging van de limieten tijdens piekuren.
 - **Zomer 2026:** er gold tijdelijk een **verhoging van 50%** op de weeklimieten.
 - **14 september 2026:** Anthropic **verhoogde de standaard weeklimieten blijvend met 25%** voor Pro, Max, Team en Enterprise met seats. Dat verving de tijdelijke verhoging van 50%. Daardoor liggen de weeklimieten zo'n 17% lager dan in de zomer, maar nog steeds 25% boven het oorspronkelijke niveau.
@@ -37,6 +43,8 @@ Heb je het gevoel dat je sinds half september sneller tegen de weeklimiet aanloo
 In Claude Code toont het commando **/status** hoeveel tegoed je nog hebt. Claude Code waarschuwt je ook als je een limiet nadert. Kijk dit na voordat je aan een lange taak begint, niet halverwege.
 
 ## Wat doe je als je een limiet raakt?
+
+![Wat doe je als je een limiet raakt?: Wacht op de reset. Bij de 5 uur limiet is dat meestal een kwestie van uren.; Zet extra gebruik aan (extra usag](/claude-code-limiet-wat-doe-je-als-je-een-limiet-raakt-nl.jpg)
 
 1. **Wacht op de reset.** Bij de 5 uur limiet is dat meestal een kwestie van uren.
 2. **Zet extra gebruik aan (extra usage).** Betaalde plannen kunnen doorwerken met los gefactureerde tegoeden in plaats van te stoppen.
@@ -68,3 +76,4 @@ Meer details en cijfers vind je in [How to save tokens in Claude Code](/blog/cla
 Loop je regelmatig tegen de weeklimiet aan? Vergelijk dan wat dat extra gebruik via de API zou kosten met de prijs van het volgende plan. Onze gids [Claude Code cost per month](/blog/claude-code-cost-per-month) (in het Engels) en de [kostencalculator voor coding agents](/nl/agents) rekenen het voor je uit. Plannen van verschillende aanbieders vergelijk je met de [plannencalculator](/nl/plans). De limieten van de concurrent van OpenAI staan in [Codex limiet](/nl/blog/codex-limiet).
 
 *Limieten veranderen. De [helppagina van Anthropic over Claude Code met Pro of Max](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan) en de [prijspagina](https://claude.com/pricing) geven de actuele regels.*
+<!-- autoimg -->

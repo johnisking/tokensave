@@ -1,3 +1,5 @@
+![Codex Usage Limits Explained: 5-Hour Window, Weekly Cap and Resets](/codex-usage-limits-en.jpg)
+
 Codex, OpenAI's coding agent, is included in ChatGPT Plus, Pro and Business plans, and it is where most people now run into usage limits. Codex shares its allowance with ChatGPT Work, uses a 5-hour window and a weekly cap, and burns through them at very different speeds depending on the model. Here is how it works and how to get more out of it.
 
 ## Which plans include Codex
@@ -13,6 +15,8 @@ Codex (and ChatGPT Work) usage is included with **Plus** ($20), **Pro** ($100, $
 Codex and ChatGPT Work draw from the **same allowance**.
 
 ## How much you get, by model
+
+![How much you get, by model: Model, Plus, Pro (5× tier)](/codex-usage-limits-how-much-you-get-by-model-en.jpg)
 
 OpenAI's help center gives estimated messages per 5-hour window. The model you pick changes the number enormously:
 
@@ -37,6 +41,8 @@ OpenAI's help center points to **Settings → Usage** in ChatGPT, which shows yo
 
 ## When you hit the limit
 
+![When you hit the limit: Wait for the reset. The 5-hour window refills within hours.; Use a banked reset or buy an instant reset, avail](/codex-usage-limits-when-you-hit-the-limit-en.jpg)
+
 1. **Wait for the reset.** The 5-hour window refills within hours.
 2. **Use a banked reset or buy an instant reset**, available on eligible Plus and Pro accounts.
 3. **Use credits** to keep going on plans that support them.
@@ -44,6 +50,8 @@ OpenAI's help center points to **Settings → Usage** in ChatGPT, which shows yo
 5. **Use an API key** with pay-as-you-go billing for overflow work.
 
 ## How to stretch it
+
+![How to stretch it: Default to GPT-5.6 Sol or Terra. Use GPT-6 Astra only for the hard problems where you can see the difference; ](/codex-usage-limits-how-to-stretch-it-en.jpg)
 
 - **Default to GPT-5.6 Sol or Terra.** Use GPT-6 Astra only for the hard problems where you can see the difference: it uses several times the allowance.
 - **Use Luna for simple edits**, renames and boilerplate.
@@ -59,3 +67,4 @@ Many of the same habits apply to Claude Code: see [How to save tokens in Claude 
 Both are included in $20, $100 and $200 plans with similar limit systems. The [ChatGPT Pro vs Claude Max comparison](/blog/chatgpt-pro-vs-claude-max) covers the differences, and the [coding agent calculator](/agents) compares monthly API costs with every plan.
 
 *Limits change often. OpenAI's [Codex and Work usage help page](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex) has the current numbers.*
+<!-- autoimg -->

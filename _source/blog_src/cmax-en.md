@@ -1,6 +1,10 @@
+![Claude Max vs Pro: Is the $100 or $200 Plan Worth It?](/claude-max-vs-pro-en.jpg)
+
 Claude Pro costs $20 a month. Claude Max costs $100 or $200. Both include the Claude app and Claude Code, so the real question is simple: is the extra usage worth five or ten times the price? For many people it is not. For heavy Claude Code users, Max 20× is the best value Anthropic sells.
 
 ## The plans
+
+![The plans: Plan, Price, Usage, Price per "Pro-worth" of usage](/claude-max-vs-pro-the-plans-en.jpg)
 
 US prices, checked October 2026:
 
@@ -29,6 +33,8 @@ Max multiplies both. Run **/status** in Claude Code to see where you are. Full d
 
 ## Who should stay on Pro
 
+![Who should stay on Pro: You use Claude a few times a day, mostly in the app.; You use Claude Code for occasional tasks, not hours at a](/claude-max-vs-pro-who-should-stay-on-pro-en.jpg)
+
 - You use Claude a few times a day, mostly in the app.
 - You use Claude Code for occasional tasks, not hours at a time.
 - You rarely or never see the limit message.
@@ -36,6 +42,8 @@ Max multiplies both. Run **/status** in Claude Code to see where you are. Full d
 If that is you, $20 is plenty. Occasional extra usage can be covered by usage credits or a short wait.
 
 ## Who should get Max 5×
+
+![Who should get Max 5×: You hit the Pro limit most weeks.; You use Claude Code for real work several times a day.; You want to use Opu](/claude-max-vs-pro-who-should-get-max-5-en.jpg)
 
 - You hit the Pro limit most weeks.
 - You use Claude Code for real work several times a day.
@@ -71,3 +79,4 @@ At $200, Claude Max 20× is now 20× its base plan, while ChatGPT Pro 200 is 10�
 Use the [coding agent calculator](/agents) to compare Pro, Max and the API for the way you use Claude Code, or the [Subscription vs API calculator](/plans) for chat use.
 
 *Prices and limits change. Check [claude.com/pricing](https://claude.com/pricing) before you upgrade.*
+<!-- autoimg -->

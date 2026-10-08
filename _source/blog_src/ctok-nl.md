@@ -1,8 +1,12 @@
+![Claude limiet: hoeveel tokens geven Claude Pro en Claude Max?](/claude-limiet-nl.jpg)
+
 Anthropic zegt niet hoeveel tokens Claude Pro of Max bevatten. De plannen worden beschreven als veelvouden van Pro ("5x Pro", "20x Pro"), met een limiet per 5 uur en een weeklimiet. Nooit als een aantal tokens. Mensen hebben het wel gemeten. Hieronder zie je hoe groot de Claude limiet in tokens is, waarom die getallen zo hoog zijn en hoe je ze omrekent naar iets bruikbaars: wat je gebruik via de API zou kosten.
 
 **Kort:** volgens metingen uit september 2026 in Claude Code op Opus 5 geeft Claude Max 5x zo'n 39 miljoen tokens per 5-uursvenster en Max 20x zo'n 1,9 miljard tokens per week; de Claude Pro limiet ligt naar schatting rond 8 miljoen tokens per venster.
 
 ## Hoeveel tokens geeft Claude Pro en Claude Max?
+
+![Hoeveel tokens geeft Claude Pro en Claude Max?: Plan, Prijs, Per 5-uursvenster, Per week](/claude-limiet-hoeveel-tokens-geeft-claude-pro-en-claud-nl.jpg)
 
 Gemeten in Claude Code in september 2026, op Claude Opus 5:
 
@@ -26,6 +30,8 @@ Daarom zegt een aantal tokens minder dan je zou denken. Twee sessies met evenvee
 
 ## Wat verbruikt je Claude limiet het snelst?
 
+![Wat verbruikt je Claude limiet het snelst?: Opus in plaats van Sonnet. Opus 5.5 kost op de API per token twee keer zoveel als Sonnet 5.5, en gaat ook snel](/claude-limiet-wat-verbruikt-je-claude-limiet-het-snels-nl.jpg)
+
 - **Opus in plaats van Sonnet.** Opus 5.5 kost op de API per token twee keer zoveel als Sonnet 5.5, en gaat ook sneller door je planlimiet heen.
 - **Lange sessies.** Elke stap stuurt de hele context opnieuw mee. Een sessie die is gegroeid tot 150.000 tokens kost per stap veel meer dan een verse. Gebruik **/clear** tussen taken die niets met elkaar te maken hebben en **/compact** bij lange taken.
 - **Een grote CLAUDE.md of veel tools.** Die gaan bij elke stap mee.
@@ -46,3 +52,4 @@ Vrijwel zeker wel als je Claude Code intensief gebruikt. Een Max 20x-week, gemet
 Gerelateerd: [Claude Max vs Pro](/blog/claude-max-vs-pro) (in het Engels) · [Claude Code limiet](/nl/blog/claude-code-limiet) · [Codex limiet](/nl/blog/codex-limiet) · [Tokens besparen in Claude Code](/blog/claude-code-save-tokens) (in het Engels) · [Claude token counter](/claude-token-counter) (in het Engels) · [Nederlandse token counter](/nl/)
 
 *Anthropic past limieten vaak aan en publiceert geen tokenquota. Typ **/status** in Claude Code om te zien hoeveel je nog over hebt.*
+<!-- autoimg -->

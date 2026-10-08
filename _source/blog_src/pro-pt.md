@@ -4,6 +4,8 @@ Em 29 de setembro de 2026, a OpenAI dividiu o ChatGPT Pro em três planos: **Pro
 
 ## Os planos lado a lado
 
+![Os planos lado a lado: Plano, Preço / mês, Uso vs Plus, Preço por "um Plus" de uso, Ultrafast](/chatgpt-pro-100-200-500-precos-os-planos-lado-a-lado-pt.jpg)
+
 | Plano | Preço / mês | Uso vs Plus | Preço por "um Plus" de uso | Ultrafast |
 |---|---:|---:|---:|:---:|
 | Go | $8 | menor | – | – |
@@ -26,6 +28,8 @@ A regra, então, é simples: **assine o menor plano cujo limite você não ating
 
 ## Qual plano escolher?
 
+![Qual plano escolher?: Você quase nunca bate o limite do Plus; Você bate o limite do Plus algumas vezes por semana; Você vive esgotan](/chatgpt-pro-100-200-500-precos-qual-plano-escolher-pt.jpg)
+
 - **Você quase nunca bate o limite do Plus:** fique no Plus ($20). Nenhum plano Pro dá respostas mais inteligentes no chat do dia a dia; eles só dão mais respostas.
 - **Você bate o limite do Plus algumas vezes por semana:** Pro 100. Cinco vezes o uso por cinco vezes o preço, e ir de $20 para $100 é o menor salto possível.
 - **Você vive esgotando o Pro 100:** Pro 200. Mesmo preço por unidade, o dobro de espaço.
@@ -33,6 +37,8 @@ A regra, então, é simples: **assine o menor plano cujo limite você não ating
 - **Você está no Pro 200 antigo:** mantenha até 29 de outubro; é o melhor negócio que a OpenAI vende hoje. Depois disso, veja quanto você realmente usou. Se ficou abaixo de mais ou menos um quarto do limite antigo, o Pro 100 dá conta do recado por $100 a menos.
 
 ## E se eu usar a API direto?
+
+![E se eu usar a API direto?: Seu uso, API do GPT-6 Sol, API do GPT-6 Astra](/chatgpt-pro-100-200-500-precos-e-se-eu-usar-a-api-direto-pt.jpg)
 
 Se você manda principalmente mensagens curtas ou médias, pagar por token costuma sair bem mais barato que qualquer plano Pro. Veja quanto custa, aproximadamente, um mês de chat pela API, considerando conversas de 6 mensagens e texto em inglês:
 
@@ -54,3 +60,4 @@ Resumindo: quem usa o modelo do dia a dia de forma leve ou moderada geralmente s
 O uso de cada pessoa é diferente. A [calculadora Assinatura vs API](/pt/plans) permite informar quantas mensagens você envia, o tamanho delas e o idioma em que escreve, e mostra quanto o mesmo mês custaria pela API ao lado dos planos do ChatGPT, Claude e Gemini.
 
 *Preços de 1 de outubro de 2026. A OpenAI pode mudar os limites de novo; confira chatgpt.com/pricing antes de assinar.*
+<!-- autoimg -->

@@ -8,6 +8,8 @@ Models on the green line are the **best-value frontier**: no other model is both
 
 ## The short version
 
+![The short version: Pick, Model, ECI, 10,000 chat requests](/best-value-llm-october-2026-the-short-version-en.jpg)
+
 | Pick | Model | ECI | 10,000 chat requests |
 |---|---|---|---|
 | Top capability | Claude Opus 5.5 | 167.3 | $182 |
@@ -36,6 +38,8 @@ Both sit about 10 to 13 points below the top. For classification, extraction, su
 
 ## 4. Expensive for what you get
 
+![4. Expensive for what you get: Model, ECI, 10,000 chat requests, Same or better for less](/best-value-llm-october-2026-4-expensive-for-what-you-get-en.jpg)
+
 These models cost more than a frontier model that scores the same or higher:
 
 | Model | ECI | 10,000 chat requests | Same or better for less |
@@ -59,6 +63,8 @@ GPT-6 Sol, GPT-6 Luna, GPT-6.1 Sol, Gemini 4 Argon and Grok 4.7 are too new for 
 
 ## How to use this
 
+![How to use this: Start from the frontier; Test two or three of them on 20 real prompts from your app. The overall score is gene](/best-value-llm-october-2026-how-to-use-this-en.jpg)
+
 1. Start from the frontier: Sonnet 5.5 for quality, Gemini 3.8 Flash or DeepSeek V4 Flash for volume.
 2. Test two or three of them on 20 real prompts from your app. The overall score is general capability, not your task.
 3. Check what your actual prompts cost on each model with the token counter, including the tokenizer difference.
@@ -66,3 +72,4 @@ GPT-6 Sol, GPT-6 Luna, GPT-6.1 Sol, Gemini 4 Argon and Grok 4.7 are too new for 
 The chart and table update every day as prices and scores change: see the [AI model ranking](/compare/performance).
 
 *Capability scores: Epoch Capabilities Index by Epoch AI, used under CC BY 4.0. Prices: standard API list prices, no caching or batch discounts, checked October 4, 2026.*
+<!-- autoimg -->

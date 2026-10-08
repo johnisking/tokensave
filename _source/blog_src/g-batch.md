@@ -1,6 +1,10 @@
+![Batch APIs: Half-Price AI for Work That Can Wait](/batch-api-half-price-en.jpg)
+
 Not every AI request needs an answer in two seconds. Tagging a product catalog, summarizing yesterday's support tickets, translating a help center or running an evaluation can all wait a few hours. For that kind of work, most major AI providers offer a **batch API** at a large discount, commonly half the normal price.
 
 ## How batch processing works
+
+![How batch processing works: Write all your requests into one file, one request per line.; Upload the file and start a batch job.; Come bac](/batch-api-half-price-how-batch-processing-works-en.jpg)
 
 Instead of sending requests one by one and waiting for each answer, you:
 
@@ -11,6 +15,8 @@ Instead of sending requests one by one and waiting for each answer, you:
 The provider runs your requests when it has spare capacity. In return for giving up the instant response, you pay less, commonly about 50% of the standard price on both input and output tokens. The exact discount, time window and limits depend on the provider, so check its documentation.
 
 ## What it saves
+
+![What it saves: Model, Standard price, With a 50% batch discount](/batch-api-half-price-what-it-saves-en.jpg)
 
 A store wants AI-written descriptions for 100,000 products. Each request sends about 400 input tokens (product data and instructions) and gets back about 250 output tokens.
 
@@ -25,6 +31,8 @@ That is 40 million input tokens and 25 million output tokens. At list prices che
 For jobs that run every day or every week, the saving adds up quickly.
 
 ## Good fits for batch
+
+![Good fits for batch: Bulk content; Classification and tagging; Data extraction](/batch-api-half-price-good-fits-for-batch-en.jpg)
 
 - **Bulk content:** product descriptions, alt text for images, meta descriptions, translations.
 - **Classification and tagging:** support tickets, reviews, documents, transactions.
@@ -50,3 +58,4 @@ For jobs that run every day or every week, the saving adds up quickly.
 ## Price your job
 
 Measure one typical request and response with the [token counter](/), multiply by the number of items, and halve it for a batch estimate. The [API cost guide](/blog/how-to-estimate-ai-api-cost) walks through the method step by step.
+<!-- autoimg -->

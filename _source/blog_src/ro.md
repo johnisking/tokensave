@@ -1,3 +1,5 @@
+![Româna folosește 1,53× tokenii englezei în GPT](/tokeni-romana-gpt-ro.jpg)
+
 Am tradus același prompt de suport pentru clienți în 41 de limbi și am numărat tokenii cu o200k_base, tokenizatorul actual al OpenAI (GPT-4o și ulterioare). În engleză sunt 34 de tokeni; în română **52, adică 1,53× engleza**, locul 23 din 41 (1 = cel mai ieftin).
 
 Versiunea în română:
@@ -24,6 +26,8 @@ Versiunea în română:
 
 ## De ce
 
+![De ce: întârziere → înt | âr | zi | ere · 4; propuneți → prop | une | ți · 3; Rezumați → Rez | uma | ți · 3](/tokeni-romana-gpt-ro-2.jpg)
+
 Tokenizatorul învață mai ales din texte în engleză: cuvinte ca " polite" sau " customer" sunt un singur token, pe când multe cuvinte românești, cu diacritice și terminații, se sparg în bucăți:
 
 - întârziere → `înt | âr | zi | ere` · 4
@@ -40,6 +44,8 @@ Cu un model de 2 $ per milion de tokeni de intrare, trimiterea acestui prompt de
 
 ## Cum economisești
 
+![Cum economisești: Scrie promptul de sistem și instrucțiunile fixe în engleză; lasă în română doar ce scrie utilizatorul.; Cere p](/tokeni-romana-gpt-cum-economisesti-ro.jpg)
+
 - Scrie promptul de sistem și instrucțiunile fixe în engleză; lasă în română doar ce scrie utilizatorul.
 - Cere pașii intermediari (clasificare, extragere, apeluri de unelte) în engleză sau JSON și doar răspunsul final în română.
 - Folosește prompt caching pentru partea fixă a promptului.
@@ -51,3 +57,4 @@ Cu un model de 2 $ per milion de tokeni de intrare, trimiterea acestui prompt de
 - Traducerea pornește de la o traducere automată verificată.
 
 Rezultatele complete pentru 41 de limbi (în engleză): [comparație între 41 de limbi](/blog/token-cost-by-language)
+<!-- autoimg -->

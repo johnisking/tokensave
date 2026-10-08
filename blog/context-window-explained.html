@@ -25,14 +25,14 @@
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image" content="https://tokensave.app/context-window-explained-en.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <meta name="twitter:image" content="https://tokensave.app/context-window-explained-en.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Context Windows Explained: Why Long Chats Get Worse and Cost More", "description": "What a context window is, why AI forgets things in long chats, why long chats cost more, and what to do instead.", "inLanguage": "en", "url": "https://tokensave.app/blog/context-window-explained", "mainEntityOfPage": "https://tokensave.app/blog/context-window-explained", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Context Windows Explained: Why Long Chats Get Worse and Cost More", "item": "https://tokensave.app/blog/context-window-explained"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Context Windows Explained: Why Long Chats Get Worse and Cost More", "description": "What a context window is, why AI forgets things in long chats, why long chats cost more, and what to do instead.", "inLanguage": "en", "url": "https://tokensave.app/blog/context-window-explained", "mainEntityOfPage": "https://tokensave.app/blog/context-window-explained", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/context-window-explained-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Context Windows Explained: Why Long Chats Get Worse and Cost More", "item": "https://tokensave.app/blog/context-window-explained"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -96,8 +96,10 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">Context Windows Explained: Why Long Chats Get Worse and Cost More</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
-  <p>Have you noticed that a long chat with an AI assistant starts to go wrong? It forgets a detail you gave it an hour ago, mixes up two topics, or repeats a mistake you already corrected. That is not your imagination. It is how context windows work, and the same mechanism is why long conversations cost more on the API.</p>
+  <p><img loading="lazy" width="1200" height="630" alt="Context Windows Explained: Why Long Chats Get Worse and Cost More" src="/context-window-explained-en.jpg" /></p>
+<p>Have you noticed that a long chat with an AI assistant starts to go wrong? It forgets a detail you gave it an hour ago, mixes up two topics, or repeats a mistake you already corrected. That is not your imagination. It is how context windows work, and the same mechanism is why long conversations cost more on the API.</p>
 <h2>What a context window is</h2>
+<p><img loading="lazy" width="1200" height="704" alt="What a context window is: Model, Context window" src="/context-window-explained-what-a-context-window-is-en.jpg" /></p>
 <p>A model's <strong>context window</strong> is the maximum amount of text, measured in tokens, it can consider at once. It includes everything: the system instructions, every earlier message in the chat, any files you attached, and the answer it is writing.</p>
 <p>Current models have very large windows:</p>
 <div class="overflow-x-auto"><table>
@@ -139,6 +141,7 @@
 <h2>Fitting is not the same as using</h2>
 <p>A window of a million tokens means the text fits. It does not mean the model gives every part equal attention. Mixed topics make it worse: if one chat covers a trip plan, a Python bug and an email to your boss, the model has to work out which earlier parts still matter for your new question.</p>
 <h2>What to do instead</h2>
+<p><img loading="lazy" width="1200" height="935" alt="What to do instead: One topic, one chat. When the subject changes, start a new conversation.; Carry a summary, not the history. Be" src="/context-window-explained-what-to-do-instead-en.jpg" /></p>
 <ol>
 <li><strong>One topic, one chat.</strong> When the subject changes, start a new conversation.</li>
 <li><strong>Carry a summary, not the history.</strong> Before leaving a long chat, ask: <em>"Summarize what we decided in 5 lines."</em> Paste that summary into a fresh chat and continue from there.</li>
@@ -148,6 +151,7 @@
 </ol>
 <h2>See it in numbers</h2>
 <p>The <a href="/">token counter</a> shows how much of each model's context window your text fills, and the <a href="/plans">Subscription vs API calculator</a> includes the cost of re-sending chat history in its monthly estimate.</p>
+<!-- autoimg -->
 
         <h2>More articles</h2>
         <ul><li><a href="/blog/chatgpt-free-vs-paid">ChatGPT Free vs Paid (2026): What You Actually Get for $0, $8, $20 and $100</a></li><li><a href="/blog/ai-game-cost-calculator-review">I Ran My Released Game Through My AI Game Cost Calculator: Prediction vs Reality</a></li><li><a href="/blog/codex-usage-limits">Codex Usage Limits Explained: 5-Hour Window, Weekly Cap and Resets</a></li><li><a href="/blog/claude-max-vs-pro">Claude Max vs Pro: Is the $100 or $200 Plan Worth It?</a></li><li><a href="/blog/claude-code-usage-limits">Claude Code Usage Limits Explained: 5-Hour and Weekly Caps</a></li></ul>

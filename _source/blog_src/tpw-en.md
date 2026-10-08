@@ -1,6 +1,10 @@
+![Tokens per Word, Measured: English and 11 Other Languages](/tokens-per-word-en.jpg)
+
 "One token is about four characters, or three-quarters of a word." You will find this rule of thumb everywhere. It comes from OpenAI's older tokenizers, and for modern models it is a little pessimistic for everyday English and wildly wrong for many other languages. We measured real text on GPT's current tokenizer (o200k, used by GPT-4o and later) to give updated numbers.
 
 ## English: about 1.1 to 1.3 tokens per word
+
+![English: about 1.1 to 1.3 tokens per word: Text, Words, Tokens, Tokens per word, Characters per token](/tokens-per-word-english-about-1-1-to-1-3-tokens-per-word-en.jpg)
 
 We counted four kinds of English text:
 
@@ -22,6 +26,8 @@ The classic "¾ of a word per token" (1.33 tokens per word) matches technical te
 Code is denser: in our measurements, Python and JavaScript averaged about 3.5 characters per token. See [How many tokens does code use?](/blog/how-many-tokens-does-code-use)
 
 ## Other languages: tokens per character
+
+![Other languages: tokens per character: Language, Characters, Tokens, Characters per token, Tokens vs English](/tokens-per-word-other-languages-tokens-per-character-en.jpg)
 
 Words are a poor unit across languages: Chinese, Japanese and Thai do not put spaces between words, and languages like Finnish or Turkish pack a whole phrase into one long word. Characters per token is more useful. Here is the same customer-support prompt in several languages:
 
@@ -66,3 +72,4 @@ These numbers are for OpenAI's o200k tokenizer. Claude and Gemini use their own 
 Rules of thumb are fine for rough planning. For anything you will pay for, paste your real text into the [token counter](/): it runs the actual tokenizer in your browser and shows the cost on every model.
 
 Convert any token count to words and pages for GPT, Claude and Gemini with the [tokens to words converter](/tokens-to-words).
+<!-- autoimg -->

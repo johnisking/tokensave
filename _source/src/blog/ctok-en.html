@@ -1,5 +1,7 @@
+<p><img loading="lazy" width="1200" height="630" alt="How Many Tokens Do You Get with Claude Pro and Max?" src="/claude-pro-max-how-many-tokens-en.jpg" /></p>
 <p>Anthropic does not say how many tokens Claude Pro or Max include. Its plans are described as usage multiples ("5× Pro", "20× Pro") with a 5-hour limit and a weekly limit, never as a token number. But people have measured it. Here is what the numbers look like, why they are so large, and how to turn them into something useful: what your usage would cost on the API.</p>
 <h2>The short answer</h2>
+<p><img loading="lazy" width="1200" height="556" alt="The short answer: Plan, Price, Per 5-hour window, Per week" src="/claude-pro-max-how-many-tokens-the-short-answer-en.jpg" /></p>
 <p>Measured in Claude Code in September 2026, on Claude Opus 5:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -37,6 +39,7 @@
 <p>Cache reads are cheap on the API, about a tenth of the normal input price, so Anthropic's limits clearly do not count every token equally. They behave more like a <strong>cost budget</strong>. The median Max 5× window corresponded to roughly <strong>$37 of API usage</strong>, which puts a Pro window at around $7 and a Max 20× window at around $150 on the same scale.</p>
 <p>That is why a token count tells you less than you would think. Two sessions with the same number of tokens can use very different shares of your limit, depending on how much is fresh input and output and which model you use.</p>
 <h2>What uses your allowance fastest</h2>
+<p><img loading="lazy" width="1200" height="764" alt="What uses your allowance fastest: Opus instead of Sonnet. Opus 5.5 costs twice as much per token as Sonnet 5.5 on the API, and it uses your plan" src="/claude-pro-max-how-many-tokens-what-uses-your-allowance-fastest-en.jpg" /></p>
 <ul>
 <li><strong>Opus instead of Sonnet.</strong> Opus 5.5 costs twice as much per token as Sonnet 5.5 on the API, and it uses your plan's allowance faster too.</li>
 <li><strong>Long sessions.</strong> Every step re-sends the whole context. A session that has grown to 150,000 tokens costs far more per step than a fresh one. Use <strong>/clear</strong> between unrelated tasks and <strong>/compact</strong> on long ones.</li>
@@ -51,3 +54,4 @@
 <p>Almost certainly yes if you use Claude Code heavily: a Max 20× week measured at about 1.9 billion tokens works out to roughly $1,800 at API prices for the same mix of models and cache reads, against $200 a month for the plan. For lighter use the answer can flip. Put in your own task size and tasks per day in the <a href="/agents">coding agent cost calculator</a>, or use the <a href="/plans">Subscription vs API calculator</a> for chat.</p>
 <p>Related: <a href="/blog/claude-max-vs-pro">Claude Max vs Pro</a> · <a href="/blog/claude-code-usage-limits">Claude Code usage limits explained</a> · <a href="/blog/claude-code-save-tokens">How to save tokens in Claude Code</a> · <a href="/claude-token-counter">Claude token counter</a></p>
 <p><em>Anthropic changes limits often and does not publish token quotas. Run </em><em>/status</em><em> in Claude Code to see where you stand.</em></p>
+<!-- autoimg -->

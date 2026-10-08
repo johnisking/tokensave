@@ -13,6 +13,8 @@ Je les ai passés dans deux tokeniseurs : **o200k_base**, celui de GPT-4o et des
 
 ## Résultats
 
+![Résultats: Texte, Anglais, Français, Surcoût](/mistral-chatgpt-cout-prompt-francais-resultats-fr.jpg)
+
 | Texte | Anglais | Français | Surcoût |
 |---|---:|---:|---:|
 | Prompt court, OpenAI (o200k) | 34 | 44 | **+29 %** |
@@ -29,6 +31,8 @@ Pour comparer : sur le même prompt court, l'allemand coûte 1,26× l'anglais ch
 
 ## Pourquoi le français coûte plus
 
+![Pourquoi le français coûte plus: « facturation » → fact | uration (2 tokens, chez OpenAI comme chez Mistral); « vérifie » → vér | ifie (2 token](/mistral-chatgpt-cout-prompt-francais-pourquoi-le-francais-coute-plus-fr.jpg)
+
 Les tokeniseurs sont entraînés surtout sur de l'anglais. Les mots anglais courants deviennent un seul token, alors que beaucoup de mots français sont coupés en morceaux :
 
 - « facturation » → `fact | uration` (2 tokens, chez OpenAI comme chez Mistral)
@@ -39,6 +43,8 @@ Les tokeniseurs sont entraînés surtout sur de l'anglais. Les mots anglais cour
 En face, « invoice », « billing » ou « polite » font un seul token. Les élisions (« l'adresse », « n'utilise ») et les accents ajoutent encore quelques tokens.
 
 ## Ce que ça change concrètement
+
+![Ce que ça change concrètement: À l'API, vous payez à peu près 12 à 30 % de plus pour le même contenu.; Dans un abonnement (ChatGPT Plus, Clau](/mistral-chatgpt-cout-prompt-francais-ce-que-ca-change-concretement-fr.jpg)
 
 - **À l'API**, vous payez à peu près 12 à 30 % de plus pour le même contenu.
 - **Dans un abonnement** (ChatGPT Plus, Claude Pro, Mistral Vibe Pro), les limites d'utilisation sont calculées en tokens : elles s'épuisent plus vite quand on écrit en français.
@@ -69,3 +75,4 @@ Chaque texte est différent. [TokenSave](/fr/) compte les tokens et le coût de 
 Le classement complet des 41 langues est ici : [Combien de tokens coûte le français ?](/fr/blog/tokens-francais-gpt)
 
 *Mesures effectuées en octobre 2026 avec o200k_base (OpenAI) et Tekken 2024-09 (Mistral). Les modèles Mistral les plus récents peuvent utiliser une version mise à jour de Tekken.*
+<!-- autoimg -->

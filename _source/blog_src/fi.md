@@ -1,3 +1,5 @@
+![Suomi vie GPT:ssä 1,44× englannin tokenmäärän](/tokenit-suomi-gpt-fi.jpg)
+
 Käänsin saman asiakaspalvelupromptin 41 kielelle ja laskin tokenit o200k_basella, OpenAI:n nykyisellä tokenisoijalla (GPT-4o ja uudemmat). Englanniksi tarvitaan 34 tokenia, suomeksi **49 eli 1,44×**, sija 19/41 (1 = halvin).
 
 Suomenkielinen versio:
@@ -24,6 +26,8 @@ Suomenkielinen versio:
 
 ## Miksi
 
+![Miksi: kohteliasta → koht | eli | asta · 3; laatikosta → laat | ik | osta · 3; Tiivistä → Ti | iv | istä · 3](/tokenit-suomi-gpt-fi-2.jpg)
+
 Tokenisoija oppii enimmäkseen englanninkielisestä tekstistä: sanat kuten " polite" tai " customer" ovat yksi token, kun taas päätteiden pidentämät suomen sanat pilkkoutuvat:
 
 - kohteliasta → `koht | eli | asta` · 3
@@ -40,6 +44,8 @@ Mallilla, jonka hinta on 2 $ miljoonaa syötetokenia kohden, tämän promptin l�
 
 ## Miten säästää
 
+![Miten säästää: Kirjoita järjestelmäprompti ja kiinteät ohjeet englanniksi; jätä suomeksi vain käyttäjän syöte.; Pyydä välivai](/tokenit-suomi-gpt-miten-saastaa-fi.jpg)
+
 - Kirjoita järjestelmäprompti ja kiinteät ohjeet englanniksi; jätä suomeksi vain käyttäjän syöte.
 - Pyydä välivaiheet (luokittelu, poiminta, työkalukutsut) englanniksi tai JSON-muodossa ja vain lopullinen vastaus suomeksi.
 - Käytä prompt cachingia promptin kiinteälle osalle.
@@ -51,3 +57,4 @@ Mallilla, jonka hinta on 2 $ miljoonaa syötetokenia kohden, tämän promptin l�
 - Käännös perustuu tarkistettuun konekäännökseen.
 
 Kaikkien 41 kielen tulokset (englanniksi): [41 kielen vertailu](/blog/token-cost-by-language)
+<!-- autoimg -->

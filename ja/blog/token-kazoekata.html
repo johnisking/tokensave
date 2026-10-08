@@ -27,14 +27,14 @@
   <meta property="og:locale" content="ja_JP" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image" content="https://tokensave.app/token-kazoekata-ja.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <meta name="twitter:image" content="https://tokensave.app/token-kazoekata-ja.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "GPT・Claude・Gemini のトークンの数え方", "description": "GPT・Claude・Gemini でトークン数が違う理由、それぞれ正確に数える方法、コードなしですぐ見積もる方法をまとめました。", "inLanguage": "ja", "url": "https://tokensave.app/ja/blog/token-kazoekata", "mainEntityOfPage": "https://tokensave.app/ja/blog/token-kazoekata", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ja/"}, {"@type": "ListItem", "position": 2, "name": "GPT・Claude・Gemini のトークンの数え方", "item": "https://tokensave.app/ja/blog/token-kazoekata"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "GPT・Claude・Gemini のトークンの数え方", "description": "GPT・Claude・Gemini でトークン数が違う理由、それぞれ正確に数える方法、コードなしですぐ見積もる方法をまとめました。", "inLanguage": "ja", "url": "https://tokensave.app/ja/blog/token-kazoekata", "mainEntityOfPage": "https://tokensave.app/ja/blog/token-kazoekata", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/token-kazoekata-ja.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ja/"}, {"@type": "ListItem", "position": 2, "name": "GPT・Claude・Gemini のトークンの数え方", "item": "https://tokensave.app/ja/blog/token-kazoekata"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -98,7 +98,8 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">GPT・Claude・Gemini のトークンの数え方</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026年10月2日</p>
-  <p>「これは何トークン？」の答えは、どのモデルに聞くかで変わります。OpenAI、Anthropic、Google はそれぞれ独自のトークナイザーを使っているので、同じ段落があるモデルでは100トークン、別のモデルでは130トークンになることもあります。ここでは、それぞれで正確に数える方法と、コードを書かずにすばやく見積もる方法を紹介します。</p>
+  <p><img loading="lazy" width="1200" height="630" alt="GPT・Claude・Gemini のトークンの数え方" src="/token-kazoekata-ja.jpg" /></p>
+<p>「これは何トークン？」の答えは、どのモデルに聞くかで変わります。OpenAI、Anthropic、Google はそれぞれ独自のトークナイザーを使っているので、同じ段落があるモデルでは100トークン、別のモデルでは130トークンになることもあります。ここでは、それぞれで正確に数える方法と、コードを書かずにすばやく見積もる方法を紹介します。</p>
 <h2>なぜ数が違うのか</h2>
 <p>トークナイザーは、各社が自社の学習データから作った固定の語彙を使って、テキストを分割します。語彙が違えば分け方も違います。GPT では1トークンの単語が Claude では2トークンになることもあれば、その逆もあります。差はふつうの英語なら小さく、コードや数字、他の言語では大きくなります。</p>
 <p>Anthropic は、新しい Claude モデルのトークナイザーが、同じテキストに対して以前のものよりはっきり多くのトークンを生成すると説明しています。TokenSave のトークンカウンターでは、現行の Claude Sonnet・Opus モデルについて、GPT より約30%多いトークン数を想定して見積もっています。</p>
@@ -122,6 +123,7 @@ console.log(enc.encode(&quot;Your text here&quot;).length);
 <h2>Gemini（Google）：countTokens を使う</h2>
 <p>Gemini API には <code>countTokens</code> メソッドがあり、何も生成せずにプロンプトのトークン数を返します。Anthropic のエンドポイントと同じく本物のトークナイザーを使っており、実際のリクエストのレスポンスにも正確な数を含む <code>usageMetadata</code> が付いてきます。</p>
 <h2>コードなしですばやく見積もる</h2>
+<p><img loading="lazy" width="1200" height="796" alt="コードなしですばやく見積もる: TokenSave のトークンカウンターに貼り付けます。; GPT モデルは、ブラウザの中で動く本物の o200k トークナイザーで数えられます。; Claude、Gemini などのモデルは、実際のテキストで調整した見" src="/token-kazoekata-ja-2.jpg" /></p>
 <p>テキストがおおよそ何トークンで、いくらかかるかを知りたいだけなら、次のとおりです。</p>
 <ol>
 <li><a href="/ja/">TokenSave のトークンカウンター</a>に貼り付けます。</li>
@@ -132,6 +134,7 @@ console.log(enc.encode(&quot;Your text here&quot;).length);
 <p>日本語のプロンプトは、英語で送るとトークンが約44%減ります。トークンカウンターの 💸 トークン節約 ボタンを使うと、自分の端末の中でプロンプトを英語に変換できます（デスクトップ版 Chrome 138以降 / Edge 148以降）。</p>
 <p>英語なら、現行の GPT モデルで1単語あたり約1.1〜1.3トークンという大まかな目安も使えます。<a href="/ja/blog/token-mojisuu">1単語・1文字は何トークン？実測データ</a>をご覧ください。</p>
 <h2>どの数を信頼すべきか</h2>
+<p><img loading="lazy" width="1200" height="729" alt="どの数を信頼すべきか: 予算を立てるなら： 調整済みの見積もりで十分です。モデル間の差は、アプリがどれだけ使われるかという不確かさより小さいのがふつうです。; 厳密な上限があるなら（コンテキストウィンドウ、最大出力、レート制限）：各社の公式の数" src="/token-kazoekata-ja-3.jpg" /></p>
 <ul>
 <li><strong>予算を立てるなら：</strong> 調整済みの見積もりで十分です。モデル間の差は、アプリがどれだけ使われるかという不確かさより小さいのがふつうです。</li>
 <li><strong>厳密な上限があるなら</strong>（コンテキストウィンドウ、最大出力、レート制限）：各社の公式の数え方を使いましょう。上限を1トークンでも超えるとエラーになるからです。</li>
@@ -143,6 +146,7 @@ console.log(enc.encode(&quot;Your text here&quot;).length);
 <li><a href="/ja/blog/llm-api-ryoukin-hikaku">LLM API 料金比較</a></li>
 <li><a href="/blog/how-to-estimate-ai-api-cost">AI API の請求額を見積もる方法</a>（英語）</li>
 </ul>
+<!-- autoimg -->
 
         <h2>関連記事</h2>
         <ul><li><a href="/ja/blog/chatgpt-muryou-yuuryou-chigai">ChatGPT 無料と有料の違い【2026年】：Go・Plus・Pro はいつ課金すべき？料金と選び方</a></li><li><a href="/ja/blog/roblox-game-tsukurikata">AIでRobloxゲームを作る方法：手順・費用・今伸びているジャンル【2026年】</a></li><li><a href="/ja/blog/nihongo-tokens-gpt">日本語プロンプトは英語で送るとトークン44%節約：41言語で実測</a></li><li><a href="/ja/blog/llm-api-ryoukin-hikaku">LLM API 料金比較：GPT-6・Claude・Gemini・DeepSeek など22モデル</a></li><li><a href="/ja/blog/gpt-6-api-ryoukin">GPT-6 の API 料金まとめ：Astra・Sol・Luna の比較と実際の費用</a></li></ul>

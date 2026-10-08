@@ -1,6 +1,10 @@
+![제미나이 요금제 개편 정리: 10월 9일부터 무료는 Flash-Lite만](/gemini-yogeumje-gaepyeon-ko.jpg)
+
 구글이 제미나이 앱의 요금제별 모델 이용 범위를 바꿉니다. **10월 9일부터 무료 이용자는 가장 작은 모델인 Flash-Lite만 쓸 수 있고**, 월 7,500원짜리 AI Plus도 곧 Pro 모델을 쓸 수 없게 됩니다. 지금까지 무료로도 Pro 모델과 Deep Research를 꽤 쓸 수 있었기 때문에 체감 변화가 큽니다. 무엇이 바뀌는지, 요금제별 원화 가격, 그리고 어떻게 하면 좋은지 정리했습니다.
 
 ## 요금제별로 쓸 수 있는 모델
+
+![요금제별로 쓸 수 있는 모델: 요금제, 월 가격, Flash-Lite, Flash, Pro, Deep Think](/gemini-yogeumje-gaepyeon-ko-2.jpg)
 
 | 요금제 | 월 가격 | Flash-Lite | Flash | Pro | Deep Think |
 |---|---:|:---:|:---:|:---:|:---:|
@@ -14,6 +18,8 @@
 
 ## 언제부터 바뀌나요
 
+![언제부터 바뀌나요: 무료; AI Plus; AI Pro·Ultra](/gemini-yogeumje-gaepyeon-ko-3.jpg)
+
 - **무료:** 10월 9일부터 Flash-Lite만 쓸 수 있습니다.
 - **AI Plus:** 날짜가 일괄로 정해지지 않았고, 구독자마다 적용일을 이메일로 따로 알려 줍니다.
 - **AI Pro·Ultra:** Flash-Lite, Flash, Pro를 모두 그대로 쓰고 Deep Think도 쓸 수 있습니다.
@@ -26,6 +32,8 @@
 
 ## 나는 어떻게 해야 하나
 
+![나는 어떻게 해야 하나: 가벼운 검색·번역·요약 위주; AI Plus를 Pro 모델 때문에 쓰던 분; 학생](/gemini-yogeumje-gaepyeon-ko-4.jpg)
+
 - **가벼운 검색·번역·요약 위주:** 무료(Flash-Lite)로도 충분한 경우가 많습니다. 먼저 써 보고 답이 아쉬울 때 결정해도 늦지 않습니다.
 - **AI Plus를 Pro 모델 때문에 쓰던 분:** 적용일 이후에는 7,500원으로 Pro를 못 씁니다. Pro가 꼭 필요하면 AI Pro(29,000원)로 올려야 합니다. 10월 31일까지는 AI Pro 연간 요금제가 40% 할인됩니다.
 - **학생:** 구글은 학생에게 AI Plus 1년 무료와 학생 할인 요금제를 제공합니다. 국가별 조건이 다르니 구글 원 학생 요금제 페이지에서 확인하세요.
@@ -36,3 +44,4 @@
 제미나이 모델은 구글 AI 스튜디오와 API를 통해 쓴 만큼만 낼 수도 있습니다. 하루에 몇 번 묻는 정도라면 한 달에 몇백 원에서 몇천 원이면 됩니다. 다만 한국어는 영어보다 토큰이 더 많이 나와서 같은 내용이라도 비용이 더 듭니다([한국어는 왜 토큰이 더 많이 들까](/ko/blog/korean-tokens-gpt)). 내 사용량이면 구독과 API 중 어느 쪽이 싼지는 [구독 vs API 계산기](/ko/plans)로 바로 확인할 수 있습니다.
 
 *출처: [구글 원 Google AI 요금제(대한민국)](https://one.google.com/about/google-ai-plans/?hl=ko), [문화일보](https://www.munhwa.com/article/11621390), [아시아경제](https://view.asiae.co.kr/article/2026100517505216136), [Notebookcheck](https://www.notebookcheck.net/Google-Gemini-drops-Flash-and-Pro-for-free-users-on-October-9.1415964.0.html). 2026년 10월 6일 확인. 적용일과 한도는 바뀔 수 있으니 결제 전에 구글 공식 페이지를 확인하세요.*
+<!-- autoimg -->

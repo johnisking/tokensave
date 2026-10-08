@@ -1,3 +1,5 @@
+![Codex limity: okno 5 godzin, limit tygodniowy i Codex limit Plus](/limity-codex-pl.jpg)
+
 Codex, agent kodujący OpenAI, jest wliczony w plany ChatGPT Plus, Pro i Business i to właśnie na nim większość osób najczęściej trafia na limity. Codex limity dzieli z ChatGPT Work, korzysta z okna 5-godzinnego i limitu tygodniowego, a tempo ich zużycia bardzo zależy od wybranego modelu. Poniżej wyjaśniam, jak to działa, ile daje Codex limit Plus i jak wycisnąć z niego więcej.
 
 **Krótko:** Codex ma dwa limity naraz – kroczące okno 5-godzinne i limit tygodniowy, wspólne z ChatGPT Work – a w planie Plus daje szacunkowo od ok. 5–45 wiadomości na 5 godzin (GPT-6 Astra) do ok. 250–2000 (GPT-5.6 Luna), zależnie od modelu.
@@ -17,6 +19,8 @@ Dwa jednocześnie: okno 5-godzinne i limit tygodniowy.
 Codex i ChatGPT Work korzystają z **tej samej puli**.
 
 ## Ile daje Codex limit Plus i Pro?
+
+![Ile daje Codex limit Plus i Pro?: Model, Plus, Pro (poziom 5×)](/limity-codex-ile-daje-codex-limit-plus-i-pro-pl.jpg)
 
 Centrum pomocy OpenAI podaje szacunkową liczbę wiadomości na jedno okno 5-godzinne. Wybrany model zmienia ją ogromnie:
 
@@ -41,6 +45,8 @@ Centrum pomocy OpenAI wskazuje **Ustawienia → Użycie** (Settings → Usage) w
 
 ## Co zrobić, gdy trafisz na limit?
 
+![Co zrobić, gdy trafisz na limit?: Poczekaj na reset. Okno 5-godzinne odnawia się w ciągu kilku godzin.; Użyj zachowanego resetu albo kup natychm](/limity-codex-co-zrobic-gdy-trafisz-na-limit-pl.jpg)
+
 1. **Poczekaj na reset.** Okno 5-godzinne odnawia się w ciągu kilku godzin.
 2. **Użyj zachowanego resetu albo kup natychmiastowy reset** – dostępne na uprawnionych kontach Plus i Pro.
 3. **Skorzystaj z kredytów**, żeby pracować dalej w planach, które je obsługują.
@@ -48,6 +54,8 @@ Centrum pomocy OpenAI wskazuje **Ustawienia → Użycie** (Settings → Usage) w
 5. **Użyj klucza API** z rozliczeniem pay-as-you-go do pracy ponad limit. Ceny API różnych modeli porównuję w artykule [Najtańsze API AI](/pl/blog/najtansze-api-ai).
 
 ## Jak wydłużyć limit Codex?
+
+![Jak wydłużyć limit Codex?: Domyślnie używaj GPT-5.6 Sol lub Terra. GPT-6 Astra zostaw na trudne problemy, w których widać różnicę; Do pro](/limity-codex-jak-wyduzyc-limit-codex-pl.jpg)
 
 - **Domyślnie używaj GPT-5.6 Sol lub Terra.** GPT-6 Astra zostaw na trudne problemy, w których widać różnicę: zużywa kilkukrotnie więcej puli.
 - **Do prostych zmian używaj Luny** – zmian nazw i powtarzalnego kodu.
@@ -63,3 +71,4 @@ Wiele z tych nawyków sprawdza się też w Claude Code: zobacz [How to save toke
 Oba są wliczone w plany za 20, 100 i 200 USD i mają podobne systemy limitów. Różnice omawia porównanie [ChatGPT Pro vs Claude Max](/blog/chatgpt-pro-vs-claude-max) (po angielsku), a [kalkulator kosztów agentów kodujących](/pl/agents) zestawia miesięczne koszty API z każdym planem. Same plany porównasz w [kalkulatorze planów](/pl/plans).
 
 *Limity często się zmieniają. Aktualne liczby znajdziesz na stronie pomocy OpenAI [o użyciu Codex i Work](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex).*
+<!-- autoimg -->

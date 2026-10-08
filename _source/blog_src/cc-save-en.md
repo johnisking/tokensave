@@ -1,3 +1,5 @@
+![How to Save Tokens in Claude Code: 9 Habits That Matter](/claude-code-save-tokens-en.jpg)
+
 Claude Code is powerful, and hungry. A single task can send over a million tokens to the model, which either burns through your Pro or Max limits or shows up on your API bill. The good news: most of that is waste you can cut without changing what Claude Code does for you. Here are the habits that matter most, roughly in order of impact.
 
 ## Why the tokens add up
@@ -52,3 +54,4 @@ On our [coding agent cost model](/agents), a typical feature task on Sonnet 5.5 
 ## Check your usage
 
 Run **/status** in Claude Code to see how much of your allowance is left. To understand the limits themselves, read [Claude Code usage limits explained](/blog/claude-code-usage-limits), and to compare plans with the API, [Claude Code cost per month](/blog/claude-code-cost-per-month).
+<!-- autoimg -->

@@ -1,3 +1,5 @@
+![El español gasta 1,18× más tokens que el inglés en GPT](/tokens-espanol-gpt-es.jpg)
+
 Traduje el mismo prompt de atención al cliente a 41 idiomas y conté los tokens con o200k_base, el tokenizador actual de OpenAI (GPT-4o y posteriores). En inglés son 34 tokens; en español, **40: 1,18× el inglés**, puesto 4 de 41 (1 = el más barato).
 
 La versión en español:
@@ -23,6 +25,8 @@ La versión en español:
 
 ## Por qué
 
+![Por qué: sugiere → su | gi | ere · 3; retraso → retras | o · 2; faltaba → falt | aba · 2](/tokens-espanol-gpt-por-que-es.jpg)
+
 El tokenizador aprende sobre todo de texto en inglés: palabras como " polite" o " customer" son un solo token, mientras que muchas palabras en español se parten en trozos:
 
 - sugiere → `su | gi | ere` · 3
@@ -39,6 +43,8 @@ Con un modelo a 2 $ por millón de tokens de entrada, enviar este prompt un mill
 
 ## Cómo ahorrar
 
+![Cómo ahorrar: Escribe el prompt de sistema y las instrucciones fijas en inglés; deja en español solo lo que escribe el usuar](/tokens-espanol-gpt-como-ahorrar-es.jpg)
+
 - Escribe el prompt de sistema y las instrucciones fijas en inglés; deja en español solo lo que escribe el usuario.
 - Pide los pasos intermedios (clasificación, extracción, llamadas a herramientas) en inglés o JSON y solo la respuesta final en español.
 - Usa prompt caching para la parte fija del prompt.
@@ -50,3 +56,4 @@ Con un modelo a 2 $ por millón de tokens de entrada, enviar este prompt un mill
 - La traducción parte de una traducción automática revisada.
 
 Resultados completos de los 41 idiomas (en inglés): [comparativa de 41 idiomas](/blog/token-cost-by-language)
+<!-- autoimg -->

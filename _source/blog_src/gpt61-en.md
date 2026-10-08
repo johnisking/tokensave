@@ -1,6 +1,10 @@
+![GPT-6.1 Sol API Pricing: Cost vs GPT-6 Sol, Claude Opus 5.5 and Sonnet 5.5](/gpt-6-1-sol-api-pricing-en.jpg)
+
 OpenAI released **GPT-6.1 Sol** at DevDay on September 29, 2026, one week after GPT-6 Sol. The list price did not change: $2 per million input tokens and $10 per million output. What changed is the price of cached input, which halved, and the model itself, which OpenAI says is clearly better at coding, agent work and getting facts right. Here is what it costs, how it compares with Claude Opus 5.5 and Sonnet 5.5, and whether to switch.
 
 ## GPT-6.1 Sol API pricing
+
+![GPT-6.1 Sol API pricing: Model, Input, Cached input, Output](/gpt-6-1-sol-api-pricing-gpt-6-1-sol-api-pricing-en.jpg)
 
 Per million tokens:
 
@@ -24,6 +28,8 @@ The more of your prompt is repeated, the bigger the saving. If you are not using
 
 ## GPT-6.1 Sol vs Claude Opus 5.5 and Sonnet 5.5
 
+![GPT-6.1 Sol vs Claude Opus 5.5 and Sonnet 5.5: Model, Input / output per 1M, 1 request, 10,000 requests](/gpt-6-1-sol-api-pricing-gpt-6-1-sol-vs-claude-opus-5-5-and-sonne-en.jpg)
+
 A typical request of 2,000 input and 500 output tokens of English, at list prices with no caching, after each model's tokenizer difference:
 
 | Model | Input / output per 1M | 1 request | 10,000 requests |
@@ -40,6 +46,8 @@ Claude Sonnet 5.5 has the same price per token as GPT-6.1 Sol but costs about 30
 On quality, OpenAI reports GPT-6.1 Sol 2.2 points above Opus 5.5 on AutomationBench (multi-step workflows) at medium effort, and on its Terminal-Bench Science test it spent about $5.47 per task against $23.21 for Opus 5.5. These are OpenAI's own benchmarks; test on your own tasks before you switch a production workload. For an independent view of capability against price, see [AI model capability vs price](/compare/performance).
 
 ## What improved over GPT-6 Sol
+
+![What improved over GPT-6 Sol: Coding; Accuracy; Computer use](/gpt-6-1-sol-api-pricing-what-improved-over-gpt-6-sol-en.jpg)
 
 According to OpenAI:
 
@@ -61,3 +69,4 @@ In ChatGPT it is available in ChatGPT Work and Codex for Plus, Pro, Business, En
 Paste a real prompt into the [OpenAI token counter](/openai-token-counter) to see its cost on GPT-6.1 Sol and every other GPT model, or compare head to head: [GPT-6.1 Sol vs Claude Sonnet 5.5](/compare/gpt-6-1-sol-vs-claude-sonnet-5-5) · [GPT-6.1 Sol vs Claude Opus 5.5](/compare/gpt-6-1-sol-vs-claude-opus-5-5). More on the GPT-6 family: [GPT-6 API pricing](/blog/gpt-6-api-pricing).
 
 *Prices checked October 6, 2026. Check OpenAI's pricing page before you commit.*
+<!-- autoimg -->

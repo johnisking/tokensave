@@ -1,6 +1,10 @@
+![Gemini za darmo od 9 października: tylko Flash-Lite. Co dalej?](/gemini-za-darmo-flash-lite-pl.jpg)
+
 Google zmienia to, z których modeli można korzystać w aplikacji Gemini w poszczególnych planach. **Od 9 października darmowi użytkownicy dostaną tylko najmniejszy model, Flash-Lite**, a plan AI Plus za 23,99 zł wkrótce straci dostęp do modelu Pro. Do tej pory nawet za darmo dało się sporo korzystać z modelu Pro i Deep Research, więc różnica będzie odczuwalna. Dotyczy to wielu osób w Polsce: według Comscore udział Gemini w zapytaniach do chatbotów AI wzrósł w Polsce w tym roku z 17% do 30%. Poniżej: co się zmienia, ile kosztuje każdy plan w złotówkach i jak tanio korzystać z modeli klasy Pro, policzone na polskich tokenach.
 
 ## Jakie modele w którym planie
+
+![Jakie modele w którym planie: Plan, Cena / mies., Flash-Lite, Flash, Pro, Deep Think](/gemini-za-darmo-flash-lite-jakie-modele-w-ktorym-planie-pl.jpg)
 
 | Plan | Cena / mies. | Flash-Lite | Flash | Pro | Deep Think |
 |---|---:|:---:|:---:|:---:|:---:|
@@ -13,6 +17,8 @@ Google zmienia to, z których modeli można korzystać w aplikacji Gemini w posz
 Ceny polskie z VAT, sprawdzone 6 października 2026. Zmiany dotyczą prywatnych kont Google; konta firmowe i szkolne mają osobne zasady.
 
 ## Od kiedy?
+
+![Od kiedy?: Plan darmowy; AI Plus; AI Pro i Ultra](/gemini-za-darmo-flash-lite-od-kiedy-pl.jpg)
 
 - **Plan darmowy:** od 9 października tylko Flash-Lite.
 - **AI Plus:** nie ma jednej daty dla wszystkich. Każdy subskrybent dostanie e-mail z datą, od której zmiana obejmie jego konto.
@@ -33,6 +39,8 @@ W dostępnych modelach można wybrać poziom wysiłku: niski, średni lub wysoki
 
 ## Model Pro taniej: przez API
 
+![Model Pro taniej: przez API: Model, Koszt API za miesiąc](/gemini-za-darmo-flash-lite-model-pro-taniej-przez-api-pl.jpg)
+
 Z modeli Gemini można też korzystać przez Google AI Studio lub API i płacić tylko za to, co się zużyje. Polski tekst dzieli się na około 88% więcej tokenów niż angielski ([pomiar tutaj](/pl/blog/polski-tokeny-gpt)), więc liczę na polskich tokenach: jedno pytanie to ok. 1580 tokenów wejścia i 730 tokenów odpowiedzi. Przy **20 pytaniach dziennie przez 30 dni** (600 zapytań):
 
 | Model | Koszt API za miesiąc |
@@ -46,3 +54,4 @@ Kurs: 1 USD = 3,90 zł. Ceny API za milion tokenów (wejście / wyjście): Flash
 **Nawet model Pro przez API kosztuje przy takim użyciu ok. 71% mniej niż AI Pro (97,99 zł).** Tracisz jednak funkcje aplikacji: generowanie obrazów, Deep Research, integrację z Gmailem i Dokumentami. Potrzebna jest też osobna aplikacja czatu, która obsługuje klucz API. Czy przy Twoim sposobie korzystania taniej wychodzi subskrypcja czy API, sprawdzisz od razu w [kalkulatorze subskrypcja vs API](/pl/plans). Koszt pojedynczego polskiego promptu policzysz w [liczniku tokenów](/pl/), a więcej o tym, dlaczego polski jest droższy, przeczytasz w tekście [ile kosztuje prompt po polsku](/pl/blog/ile-kosztuje-prompt-po-polsku).
 
 *Źródła: [Spider's Web](https://spidersweb.pl/2026/10/gemini-koniec-pro-za-darmo.html), [android.com.pl](https://android.com.pl/tech/1092166-darmowy-google-gemini-ograniczenia/), [Notebookcheck](https://www.notebookcheck.net/Google-Gemini-drops-Flash-and-Pro-for-free-users-on-October-9.1415964.0.html), polskie ceny wg [Promptowy](https://promptowy.com/gemini-za-darmo-zmiany-9-pazdziernika/) i [Bez Halucynacji](https://bezhalucynacji.pl/ile-kosztuje-gemini-ceny-ai-plus-pro-i-ultra-w-zl), oferta dla studentów wg [iMagazine](https://imagazine.pl/2026/08/21/gemini-za-darmo-dla-studentow-polska-poradnik/), udziały Gemini wg Comscore za [Wirtualnemedia](https://www.wirtualnemedia.pl/chatgpt-traci-udzialy-gemini-i-claude-ze-wzrostami,7332114180385024a). Stan na 6 października 2026. Daty i limity mogą się zmienić, więc przed zakupem sprawdź oficjalną stronę Google.*
+<!-- autoimg -->

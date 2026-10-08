@@ -1,3 +1,4 @@
+<p><img loading="lazy" width="1200" height="630" alt="Gumagamit ang Filipino ng 1.53× na token kumpara sa English sa GPT" src="/token-filipino-gpt-fil.jpg" /></p>
 <p>Isinalin ko ang parehong customer-support prompt sa 41 wika at binilang ang token gamit ang o200k_base, ang kasalukuyang tokenizer ng OpenAI (GPT-4o at mas bago). Sa English, 34 token; sa Filipino, <strong>52 token — 1.53× ng English</strong>, ika-22 sa 41 (1 = pinakamura).</p>
 <p>Ang bersyong Filipino:</p>
 <blockquote>
@@ -84,6 +85,7 @@
 </table></div>
 <p><img loading="lazy" width="960" height="1430" alt="Mga resulta" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Bakit</h2>
+<p><img loading="lazy" width="1200" height="593" alt="Bakit: magmungkahi → mag | m | ungk | ahi · 4; Ibuod → I | bu | od · 3; magalang → mag | alang · 2" src="/token-filipino-gpt-fil-2.jpg" /></p>
 <p>Karamihang natututo ang tokenizer mula sa English na text: isang token lang ang mga salitang tulad ng " polite" o " customer", pero hinahati-hati ang maraming salitang Filipino na may panlapi:</p>
 <ul>
 <li>magmungkahi → <code>mag | m | ungk | ahi</code> · 4</li>
@@ -95,6 +97,7 @@
 <h2>Sa pera</h2>
 <p>Sa model na $2 bawat 1 milyong input token, ang pagpapadala ng prompt na ito nang 1 milyong beses ay $68 sa English at $104 sa Filipino. Kung Filipino rin ang sagot, parehong multiplier ang tatama sa output token, na kadalasang 4–5× na mas mahal.</p>
 <h2>Paano makatipid</h2>
+<p><img loading="lazy" width="1200" height="658" alt="Paano makatipid: Isulat sa English ang system prompt at mga nakapirming tagubilin; Filipino lang ang input ng user.; Hilingin s" src="/token-filipino-gpt-paano-makatipid-fil.jpg" /></p>
 <ul>
 <li>Isulat sa English ang system prompt at mga nakapirming tagubilin; Filipino lang ang input ng user.</li>
 <li>Hilingin sa English o JSON ang mga pansamantalang hakbang (classification, extraction, tool call), at Filipino lang ang huling sagot.</li>
@@ -107,3 +110,4 @@
 <li>Batay ang salin sa sinuring machine translation.</li>
 </ul>
 <p>Buong resulta ng 41 wika (sa English): <a href="/blog/token-cost-by-language">paghahambing ng 41 wika</a></p>
+<!-- autoimg -->

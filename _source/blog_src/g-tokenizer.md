@@ -1,3 +1,5 @@
+![How GPT's New Tokenizer Cut Costs in 40 Languages](/gpt-tokenizer-cl100k-vs-o200k-en.jpg)
+
 For years, anyone using GPT in Hindi, Tamil or Malayalam paid several times more than an English user for the same request. Then, with GPT-4o in May 2024, OpenAI switched to a new tokenizer, and for many languages the cost of a prompt dropped by more than half overnight. Here is how tokenizers work, what changed, and the measured effect on 40 languages.
 
 ## How a tokenizer is built
@@ -18,6 +20,8 @@ OpenAI has used two main tokenizers for its recent models:
 Doubling the vocabulary left room for far more pieces from non-English languages, so whole words and common syllables in many scripts became single tokens.
 
 ## Measured: the same prompt in 41 languages
+
+![Measured: the same prompt in 41 languages: Language, cl100k (older GPT-4), o200k (GPT-4o and later), Cost cut](/gpt-tokenizer-cl100k-vs-o200k-measured-the-same-prompt-in-41-languages-en.jpg)
 
 We translated one 34-token English prompt (a request to summarize a customer email and suggest a reply) into 40 languages and counted tokens on both tokenizers. Each number is how many tokens the language needs compared with English.
 
@@ -89,3 +93,4 @@ One English prompt of 34 tokens was translated into each language, starting from
 ## Paying less in any language
 
 The easiest saving is still to write instructions in English and ask for the answer in your language. See [How to cut the token cost of non-English prompts](/blog/cut-token-cost-non-english-prompts), or paste your prompt into the [token counter](/) and press *Save tokens* to see the difference.
+<!-- autoimg -->

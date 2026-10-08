@@ -13,6 +13,8 @@ Policzyłem tokeny dwoma tokenizerami: **o200k_base** (GPT-4o i nowsze modele Op
 
 ## Wyniki
 
+![Wyniki: Tekst, Angielski, Polski, Ile więcej](/ile-kosztuje-prompt-po-polsku-wyniki-pl.jpg)
+
 | Tekst | Angielski | Polski | Ile więcej |
 |---|---:|---:|---:|
 | Krótki, OpenAI | 34 | 64 | **+88%** |
@@ -24,6 +26,8 @@ Polski zużywa **od 1,5 do prawie 1,9 raza więcej tokenów** niż angielski. W 
 
 ## Dlaczego tak drogo
 
+![Dlaczego tak drogo: „zaproponuj” → zap | ro | pon | uj (4 tokeny); „potwierdzenie” → pot | wier | d | zenie (4 tokeny); „rachunkow](/ile-kosztuje-prompt-po-polsku-dlaczego-tak-drogo-pl.jpg)
+
 Tokenizery uczono głównie na angielskim tekście. Słowa takie jak „invoice” czy „polite” to jeden token, a polskie słowa z końcówkami fleksyjnymi są cięte na kawałki:
 
 - „zaproponuj” → `zap | ro | pon | uj` (4 tokeny)
@@ -34,6 +38,8 @@ Tokenizery uczono głównie na angielskim tekście. Słowa takie jak „invoice�
 Odmiana przez przypadki i polskie znaki (ą, ę, ł, ż…) sprawiają, że tokenizer rzadko zna całe słowo.
 
 ## Co to oznacza w praktyce
+
+![Co to oznacza w praktyce: W API płacisz za ten sam tekst o 50–90% więcej.; W abonamencie (ChatGPT Plus, Claude Pro, Gemini) limity liczo](/ile-kosztuje-prompt-po-polsku-co-to-oznacza-w-praktyce-pl.jpg)
 
 - **W API** płacisz za ten sam tekst o 50–90% więcej.
 - **W abonamencie** (ChatGPT Plus, Claude Pro, Gemini) limity liczone są w tokenach, więc kończą się szybciej, gdy piszesz po polsku.
@@ -61,3 +67,4 @@ Każdy tekst jest inny. [TokenSave](/pl/) liczy tokeny i koszt promptu dla GPT, 
 Pełny ranking 41 języków: [Ile tokenów kosztuje polski?](/pl/blog/polski-tokeny-gpt)
 
 *Pomiary z października 2026: o200k_base (OpenAI) i Tekken 2024-09 (Mistral). Wynik zależy od tekstu; najnowsze modele mogą używać zaktualizowanych tokenizerów.*
+<!-- autoimg -->

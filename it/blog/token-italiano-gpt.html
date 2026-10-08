@@ -65,14 +65,14 @@
   <meta property="og:locale" content="it_IT" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/blog-language-tax-chart-v4.png" />
+  <meta property="og:image" content="https://tokensave.app/token-italiano-gpt-it.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/blog-language-tax-chart-v4.png" />
+  <meta name="twitter:image" content="https://tokensave.app/token-italiano-gpt-it.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "L’italiano usa 1,38× i token dell’inglese in GPT", "description": "Lo stesso prompt misurato in 41 lingue: l'italiano usa 1,38× i token dell'inglese. Invialo in inglese e risparmia circa il 28%.", "inLanguage": "it", "url": "https://tokensave.app/it/blog/token-italiano-gpt", "mainEntityOfPage": "https://tokensave.app/it/blog/token-italiano-gpt", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/blog-language-tax-chart-v4.png", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/it/"}, {"@type": "ListItem", "position": 2, "name": "L’italiano usa 1,38× i token dell’inglese in GPT", "item": "https://tokensave.app/it/blog/token-italiano-gpt"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "L’italiano usa 1,38× i token dell’inglese in GPT", "description": "Lo stesso prompt misurato in 41 lingue: l'italiano usa 1,38× i token dell'inglese. Invialo in inglese e risparmia circa il 28%.", "inLanguage": "it", "url": "https://tokensave.app/it/blog/token-italiano-gpt", "mainEntityOfPage": "https://tokensave.app/it/blog/token-italiano-gpt", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/token-italiano-gpt-it.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/it/"}, {"@type": "ListItem", "position": 2, "name": "L’italiano usa 1,38× i token dell’inglese in GPT", "item": "https://tokensave.app/it/blog/token-italiano-gpt"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -137,7 +137,8 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">L’italiano usa 1,38× i token dell’inglese in GPT</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026-10-02</p>
-  <p>Ho tradotto lo stesso prompt di assistenza clienti in 41 lingue e contato i token con o200k_base, il tokenizer attuale di OpenAI (GPT-4o e successivi). In inglese servono 34 token; in italiano <strong>47, cioè 1,38× l’inglese</strong>, posizione 17 su 41 (1 = il più economico).</p>
+  <p><img loading="lazy" width="1200" height="630" alt="L’italiano usa 1,38× i token dell’inglese in GPT" src="/token-italiano-gpt-it.jpg" /></p>
+<p>Ho tradotto lo stesso prompt di assistenza clienti in 41 lingue e contato i token con o200k_base, il tokenizer attuale di OpenAI (GPT-4o e successivi). In inglese servono 34 token; in italiano <strong>47, cioè 1,38× l’inglese</strong>, posizione 17 su 41 (1 = il più economico).</p>
 <p>La versione italiana:</p>
 <blockquote>
 <p>Riassumi l'email del cliente qui sotto in tre punti e suggerisci una risposta cortese. Il cliente dice che l'ordine è arrivato con due giorni di ritardo e che mancava un articolo nella scatola.</p>
@@ -223,6 +224,7 @@
 </table></div>
 <p><img loading="lazy" width="960" height="1430" alt="Risultati" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Perché</h2>
+<p><img loading="lazy" width="1200" height="593" alt="Perché: Riassumi → Ri | ass | umi · 3; suggerisci → sugger | isci · 2; arrivato → arriv | ato · 2" src="/token-italiano-gpt-perche-it.jpg" /></p>
 <p>Il tokenizer impara soprattutto da testo inglese: parole come " polite" o " customer" sono un solo token, mentre molte parole italiane vengono spezzate:</p>
 <ul>
 <li>Riassumi → <code>Ri | ass | umi</code> · 3</li>
@@ -234,6 +236,7 @@
 <h2>In denaro</h2>
 <p>Con un modello a 2 $ per milione di token in input, inviare questo prompt un milione di volte costa 68 $ in inglese e 94 $ in italiano. Se anche la risposta è in italiano, lo stesso moltiplicatore vale per i token in output, che di solito costano 4–5× di più.</p>
 <h2>Come risparmiare</h2>
+<p><img loading="lazy" width="1200" height="658" alt="Come risparmiare: Scrivi il prompt di sistema e le istruzioni fisse in inglese; lascia in italiano solo l’input dell’utente.; Ch" src="/token-italiano-gpt-come-risparmiare-it.jpg" /></p>
 <ul>
 <li>Scrivi il prompt di sistema e le istruzioni fisse in inglese; lascia in italiano solo l’input dell’utente.</li>
 <li>Chiedi i passaggi intermedi (classificazione, estrazione, chiamate a strumenti) in inglese o JSON e solo la risposta finale in italiano.</li>
@@ -246,6 +249,7 @@
 <li>La traduzione parte da una traduzione automatica revisionata.</li>
 </ul>
 <p>Risultati completi delle 41 lingue (in inglese): <a href="/blog/token-cost-by-language">confronto tra 41 lingue</a></p>
+<!-- autoimg -->
 
         <div class="not-prose mt-8 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 text-center">
           <p class="text-zinc-200">Misura il tuo testo: quanti token e quanti soldi costa il tuo prompt in italiano rispetto all’inglese.</p>

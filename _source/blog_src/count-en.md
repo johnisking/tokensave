@@ -1,3 +1,5 @@
+![How to Count Tokens for GPT, Claude and Gemini](/how-to-count-tokens-gpt-claude-gemini-en.jpg)
+
 "How many tokens is this?" has a different answer depending on which model you ask. OpenAI, Anthropic and Google each use their own tokenizer, so the same paragraph can be 100 tokens on one model and 130 on another. Here is how to get an exact count for each, and how to get a quick estimate without writing code.
 
 ## Why the counts differ
@@ -42,6 +44,8 @@ The Gemini API has a `countTokens` method that returns the token count for a pro
 
 ## Quick estimates without code
 
+![Quick estimates without code: Paste it into the TokenSave token counter.; GPT models are counted with the real o200k tokenizer, running in y](/how-to-count-tokens-gpt-claude-gemini-quick-estimates-without-code-en.jpg)
+
 If you just want to know roughly how many tokens your text is, and what it costs:
 
 1. Paste it into the [TokenSave token counter](/).
@@ -53,6 +57,8 @@ For English, a rough mental rule also works: about 1.1–1.3 tokens per word on 
 
 ## Which count should you trust?
 
+![Which count should you trust?: For budgeting; For hard limits (context window, maximum output, rate limits); For billing disputes or exact co](/how-to-count-tokens-gpt-claude-gemini-which-count-should-you-trust-en.jpg)
+
 - **For budgeting:** a calibrated estimate is fine. Differences between models are usually smaller than the uncertainty in how much your app will be used.
 - **For hard limits** (context window, maximum output, rate limits): use the provider's own counting method, because going one token over a limit causes an error.
 - **For billing disputes or exact cost tracking:** use the `usage` numbers in the API responses. That is what you are billed for.
@@ -62,3 +68,4 @@ For English, a rough mental rule also works: about 1.1–1.3 tokens per word on 
 - [What is a token?](/blog/what-is-a-token)
 - [LLM API pricing compared](/blog/llm-api-pricing-comparison)
 - [How to estimate your AI API bill](/blog/how-to-estimate-ai-api-cost)
+<!-- autoimg -->

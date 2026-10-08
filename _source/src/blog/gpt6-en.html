@@ -1,5 +1,7 @@
+<p><img loading="lazy" width="1200" height="630" alt="GPT-6 API Pricing: Astra vs Sol vs Luna, and What It Costs" src="/gpt-6-api-pricing-en.jpg" /></p>
 <p>OpenAI released three GPT-6 models in September 2026: <strong>GPT-6 Astra</strong>, the flagship, on September 4, and <strong>GPT-6 Sol</strong> and <strong>GPT-6 Luna</strong> on September 22. Their API prices are very different, so picking the right one matters far more than any discount. Here are the prices, what they mean for real workloads, and how they compare with Claude and Gemini.</p>
 <h2>GPT-6 API prices</h2>
+<p><img loading="lazy" width="1200" height="556" alt="GPT-6 API prices: Model, Input, Cached input, Output" src="/gpt-6-api-pricing-gpt-6-api-prices-en.jpg" /></p>
 <p>Per million tokens:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -36,6 +38,7 @@
 <h2>How that compares with GPT-5.6</h2>
 <p>Sol and Luna launched at half the price of the models they replace. GPT-5.6 Sol was $4 input and $20 output; GPT-5.6 Luna was $0.20 and $1.20. If you are still on GPT-5.6, switching model names alone halves the bill.</p>
 <h2>What it costs in practice</h2>
+<p><img loading="lazy" width="1200" height="840" alt="What it costs in practice: Model, One request, 10,000 requests" src="/gpt-6-api-pricing-what-it-costs-in-practice-en.jpg" /></p>
 <p>A typical request with 2,000 input tokens and 500 output tokens:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -91,6 +94,7 @@
 <p><strong>GPT-6 Astra</strong> only where you can measure that it does better: long, multi-step agent work, hard reasoning, tasks where a mistake is expensive. Route only those requests to it.</p>
 <p>A common setup is to send everything to Sol or Luna by default and escalate to Astra when a cheaper model fails or the task is flagged as hard.</p>
 <h2>Ways to pay less</h2>
+<p><img loading="lazy" width="1200" height="870" alt="Ways to pay less: Use prompt caching. Cached input is a tenth of the normal price on all three models. Put fixed instructions an" src="/gpt-6-api-pricing-ways-to-pay-less-en.jpg" /></p>
 <ol>
 <li><strong>Use prompt caching.</strong> Cached input is a tenth of the normal price on all three models. Put fixed instructions and documents at the start of the prompt. See <a href="/blog/prompt-caching-explained">Prompt caching explained</a>.</li>
 <li><strong>Use the Batch API</strong> for work that can wait, typically at half price. See <a href="/blog/batch-api-half-price">Batch APIs</a>.</li>
@@ -103,3 +107,4 @@
 <h2>Calculate your own cost</h2>
 <p>Paste a typical prompt into the <a href="/">token counter</a> to see its exact token count on GPT models and its cost on every GPT-6 model, Claude and Gemini side by side.</p>
 <p><em>Prices change. Check <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener">OpenAI's pricing page</a> before a large job.</em></p>
+<!-- autoimg -->

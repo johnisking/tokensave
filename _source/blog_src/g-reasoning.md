@@ -1,6 +1,10 @@
+![Reasoning Models: When Thinking Is Worth Paying For](/reasoning-models-cost-en.jpg)
+
 Reasoning models think before they answer. They work through a problem step by step in hidden text, then write a final response. That makes them much better at maths, multi-step coding and planning. It also makes them more expensive in a way that is easy to miss, because most of the thinking is invisible but still billed.
 
 ## Where the cost hides
+
+![Where the cost hides: Output tokens, Cost](/reasoning-models-cost-where-the-cost-hides-en.jpg)
 
 A normal model writes its answer and you pay for those output tokens. A reasoning model first writes **reasoning tokens**: its internal working. You usually see only a short summary, or nothing, but every reasoning token is billed **at the output price**, the most expensive kind of token.
 
@@ -23,6 +27,8 @@ If your provider offers it, start low and raise effort only where you can measur
 
 ## When reasoning is worth paying for
 
+![When reasoning is worth paying for: Maths and calculations with several steps.; Debugging and non-trivial code changes, where the model has to tra](/reasoning-models-cost-when-reasoning-is-worth-paying-for-en.jpg)
+
 - **Maths and calculations with several steps.**
 - **Debugging and non-trivial code changes**, where the model has to trace logic across functions.
 - **Planning**, such as breaking a project into steps or scheduling under constraints.
@@ -30,6 +36,8 @@ If your provider offers it, start low and raise effort only where you can measur
 - **Problems where a wrong answer is expensive** and a few extra cents to get it right is a bargain.
 
 ## When it is usually wasted
+
+![When it is usually wasted: Extraction; Classification; Rewriting and summarizing](/reasoning-models-cost-when-it-is-usually-wasted-en.jpg)
 
 - **Extraction:** pulling names, dates or fields out of text.
 - **Classification:** sorting messages into categories, sentiment, spam or not.
@@ -58,3 +66,4 @@ These tasks rarely improve with more thinking. A fast, non-reasoning model at lo
 ## Estimate the difference
 
 Paste a typical prompt and answer into the [token counter](/) and set the expected output length several times higher than the visible answer to see what reasoning adds to each request. For coding work, the [agent cost calculator](/agents) shows monthly totals.
+<!-- autoimg -->

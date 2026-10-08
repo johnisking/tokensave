@@ -1,6 +1,10 @@
+![챗GPT Go vs Plus: 13,000원과 29,000원, 무엇이 다를까](/chatgpt-go-vs-plus-ko.jpg)
+
 챗GPT Go는 월 13,000원, 챗GPT Plus는 월 29,000원입니다(부가세 포함). 2026년 8월부터는 무료를 포함한 모든 요금제에서 일반 대화가 무제한이라서, "메시지가 모자라서 올린다"는 이유는 사라졌습니다. 이제 차이는 **어떤 모델이 답하느냐, 얼마나 깊게 생각하느냐, 무엇이 함께 딸려 오느냐**입니다. 16,000원을 더 내면 무엇이 달라지는지, 누구에게 어느 쪽이 맞는지 정리했습니다.
 
 ## Go vs Plus 한눈에 보기
+
+![Go vs Plus 한눈에 보기: 챗GPT Go, 챗GPT Plus](/chatgpt-go-vs-plus-go-vs-plus-ko.jpg)
 
 | | 챗GPT Go | 챗GPT Plus |
 |---|---|---|
@@ -24,12 +28,16 @@ Go는 OpenAI의 작고 빠른 모델인 **GPT-5.6 Luna**로 답합니다. Plus�
 
 ## Go가 맞는 분
 
+![Go가 맞는 분: 챗GPT를 일상 질문, 글 다듬기, 간단한 요약에 씁니다.; Codex나 ChatGPT Work를 쓰지 않습니다.; 가끔 광고가 보여도 괜찮습니다.](/chatgpt-go-vs-plus-ko-3.jpg)
+
 - 챗GPT를 일상 질문, 글 다듬기, 간단한 요약에 씁니다.
 - Codex나 ChatGPT Work를 쓰지 않습니다.
 - 가끔 광고가 보여도 괜찮습니다.
 - 무료보다 메모리, 파일 업로드, 이미지 생성을 조금 더 쓰고 싶습니다.
 
 ## Plus가 맞는 분
+
+![Plus가 맞는 분: 긴 문서를 쓰거나 분석하고, 정확도가 중요한 질문을 합니다.; 어려운 문제에 추론 단계를 올려 쓰고 싶습니다.; 코딩이나 업무 자동화에 Codex·ChatGPT Work를 씁니다. Plus가 제대로](/chatgpt-go-vs-plus-ko-4.jpg)
 
 - 긴 문서를 쓰거나 분석하고, 정확도가 중요한 질문을 합니다.
 - 어려운 문제에 추론 단계를 올려 쓰고 싶습니다.
@@ -48,3 +56,4 @@ Plus 한도에 매주 걸린다면 다음 단계는 Pro(159,000원부터)입니�
 대화가 대부분이라면 쓴 만큼 내는 API가 더 쌀 수 있습니다. GPT-6 Luna로 하루 60번씩 이어지는 대화를 한 달 해도 API 비용은 2천 원 안팎입니다. 대신 이미지, 음성, 메모리, 심층 리서치 같은 챗GPT 앱 기능은 빠지고 별도 채팅 앱이 필요합니다. 한국어는 영어보다 토큰이 더 나오니, 내 사용량으로 [구독 vs API 계산기](/ko/plans)에서 직접 비교해 보세요.
 
 *출처: [챗GPT 가격(한국)](https://chatgpt.com/ko-KR/pricing/), [챗GPT 요금제 가격과 사용 한도 비교](https://www.digitalmarketer.co.kr/class/chatgpt-astra-basics/chatgpt-plans-and-limits). 2026년 10월 6일 확인. 결제 전 chatgpt.com 요금제 페이지를 확인하세요.*
+<!-- autoimg -->

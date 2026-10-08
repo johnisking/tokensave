@@ -2,6 +2,7 @@
 <p>J'ai mesuré un vrai texte en français pour montrer à quel point les estimations « à vue de nez » peuvent tromper.</p>
 <p><img loading="lazy" width="1200" height="630" alt="Le même e-mail coûte 21 % de tokens en plus en français" src="/blog-compteur-tokens-fr.png" /></p>
 <h2>Un token, c'est quoi ?</h2>
+<p><img loading="lazy" width="1200" height="593" alt="Un token, c'est quoi ?: « Résumez » → Rés | ume | z · 3 tokens; « ci-dessous » → ci | -dessous · 2 tokens; « summarize » → 1 token" src="/compteur-de-tokens-pourquoi-un-token-c-est-quoi-fr.jpg" /></p>
 <p>Un token est un morceau de texte : parfois un mot entier, parfois une partie de mot, une ponctuation ou un espace. Le découpage dépend du tokeniseur de chaque modèle. Par exemple, chez OpenAI :</p>
 <ul>
 <li>« Résumez » → <code>Rés | ume | z</code> · 3 tokens</li>
@@ -10,6 +11,7 @@
 </ul>
 <p>Les mots anglais courants tiennent souvent en un seul token. Beaucoup de mots français sont coupés en plusieurs morceaux.</p>
 <h2>Le test : un e-mail de compte rendu</h2>
+<p><img loading="lazy" width="1200" height="536" alt="Le test : un e-mail de compte rendu: Version, Mots, Caractères, GPT (o200k), Mistral (Tekken)" src="/compteur-de-tokens-pourquoi-le-test-un-e-mail-de-compte-rendu-fr.jpg" /></p>
 <p>J'ai écrit un e-mail de compte rendu de réunion (161 mots), puis sa traduction anglaise (146 mots), et je les ai passés dans deux tokeniseurs : <strong>o200k_base</strong> (GPT-4o et modèles OpenAI récents) et <strong>Tekken</strong> (Mistral).</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -46,6 +48,7 @@
 </tbody>
 </table></div>
 <h2>5 raisons d'utiliser un compteur de tokens</h2>
+<p><img loading="lazy" width="1200" height="568" alt="5 raisons d'utiliser un compteur de tokens: Poste, Tokens par mois, Coût par mois" src="/compteur-de-tokens-pourquoi-5-raisons-d-utiliser-un-compteur-de-toke-fr.jpg" /></p>
 <h3>1. Les règles approximatives ne tiennent pas</h3>
 <p>On lit partout que « 1 token ≈ 4 caractères » ou que « 100 tokens ≈ 75 mots ». Sur cet e-mail français, on obtient plutôt <strong>5 caractères par token</strong> et <strong>81 mots pour 100 tokens</strong>. Et l'écart devient énorme dès qu'on colle autre chose que de la prose :</p>
 <ul>
@@ -104,3 +107,4 @@
 </ul>
 <p>Pour aller plus loin : <a href="/fr/blog/tokens-francais-gpt">Combien de tokens coûte le français ?</a> et <a href="/fr/blog/mistral-chatgpt-cout-prompt-francais">Mistral ou ChatGPT : combien coûte vraiment un prompt en français ?</a></p>
 <p><em>Mesures effectuées en octobre 2026 avec o200k_base (OpenAI) et Tekken 2024-09 (Mistral). Les prix utilisés dans l'exemple sont hypothétiques.</em></p>
+<!-- autoimg -->

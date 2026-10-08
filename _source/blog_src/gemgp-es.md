@@ -1,6 +1,10 @@
+![Gemini gratis pasa a Flash-Lite el 9 de octubre: qué cambia y precios](/gemini-gratis-flash-lite-es.jpg)
+
 Google cambia qué modelos se pueden usar en la app de Gemini según el plan. **Desde el 9 de octubre, los usuarios gratuitos solo tendrán Flash-Lite**, el modelo más pequeño, y el plan Google AI Plus (4,99 € en España, 99 pesos en México) también se quedará sin el modelo Pro. Hasta ahora la versión gratuita daba bastante acceso a Pro y a Deep Research, así que el cambio se va a notar. Aquí tienes qué cambia, cuánto cuesta cada plan en euros y en pesos mexicanos, y cuánto costaría usar Gemini Pro por API, con los tokens calculados para el español.
 
 ## Qué modelos incluye cada plan
+
+![Qué modelos incluye cada plan: Plan, España, México, Flash-Lite, Flash, Pro, Deep Think](/gemini-gratis-flash-lite-que-modelos-incluye-cada-plan-es.jpg)
 
 | Plan | España | México | Flash-Lite | Flash | Pro | Deep Think |
 |---|---:|---:|:---:|:---:|:---:|:---:|
@@ -13,6 +17,8 @@ Google cambia qué modelos se pueden usar en la app de Gemini según el plan. **
 Precios mensuales tomados de las páginas oficiales de Gemini para España y México, consultadas el 6 de octubre de 2026. Los cambios afectan a las cuentas personales de Google; las cuentas de trabajo y de centros educativos siguen otras reglas.
 
 ## Cuándo cambia
+
+![Cuándo cambia: Gratis; AI Plus; AI Pro y Ultra](/gemini-gratis-flash-lite-cuando-cambia-es.jpg)
 
 - **Gratis:** solo Flash-Lite a partir del 9 de octubre.
 - **AI Plus:** no hay una fecha única. Google avisa a cada suscriptor por correo de cuándo se aplica en su cuenta.
@@ -32,6 +38,8 @@ El 30 de septiembre Google lanzó Gemini 4 Argon, su modelo más potente. Los mo
 
 ## Usar Pro sin suscripción: la API
 
+![Usar Pro sin suscripción: la API: Modelo, Precio por 1M tokens (entrada / salida), Coste al mes (USD), Coste al mes (EUR)](/gemini-gratis-flash-lite-usar-pro-sin-suscripcion-la-api-es.jpg)
+
 Los modelos de Gemini también se pueden usar desde Google AI Studio o por API, pagando solo lo que consumes. El español genera alrededor de un 18% más de tokens que el inglés para el mismo texto ([lo medimos aquí](/es/blog/tokens-espanol-gpt)), así que hemos calculado con tokens en español: unos 990 tokens de entrada y 460 de salida por pregunta, **20 preguntas al día durante 30 días** (600 peticiones al mes).
 
 | Modelo | Precio por 1M tokens (entrada / salida) | Coste al mes (USD) | Coste al mes (EUR) |
@@ -45,3 +53,4 @@ Cambio usado: 1 USD = 0,885 EUR. En conversaciones largas el coste sube, porque 
 **Incluso con el modelo Pro, 20 preguntas al día por API salen mucho más baratas que AI Pro (21,99 €).** A cambio, pierdes las funciones de la app (generación de imágenes, Deep Research, integración con Gmail y Docs) y necesitas una app de chat que acepte claves de API. Para ver con tus propios números qué te sale más barato, usa la [calculadora suscripción vs API](/es/plans). Si quieres contar los tokens de un texto concreto, prueba el [contador de tokens](/es/). Y si buscas alternativas sin pagar, revisa nuestras [páginas de IA gratis](/es/blog/paginas-de-ia-gratis).
 
 *Fuentes: [Infobae](https://www.infobae.com/tecno/2026/10/05/google-limita-la-version-gratuita-de-gemini-a-flash-lite-35-y-ai-plus-a-flash-36/), [Digital Trends Español](https://es.digitaltrends.com/android/el-nivel-gratuito-de-gemini-va-a-sufrir-una-gran-degradacion-a-partir-del-9-de-octubre/), [Movilzona](https://www.movilzona.es/noticias/actualizaciones/cambios-gemini-limita-funciones-usuarios-gratis/), [Notebookcheck](https://www.notebookcheck.net/Google-Gemini-drops-Flash-and-Pro-for-free-users-on-October-9.1415964.0.html); precios de [Gemini España](https://gemini.google/es/subscriptions/?hl=es) y [Gemini México](https://gemini.google/mx/subscriptions/?hl=es-419). Consultado el 6 de octubre de 2026. Las fechas y los límites pueden cambiar; revisa la página oficial de Google antes de contratar.*
+<!-- autoimg -->

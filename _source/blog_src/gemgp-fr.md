@@ -1,6 +1,10 @@
+![Gemini gratuit limité à Flash-Lite le 9 octobre : que faire ?](/gemini-gratuit-flash-lite-fr.jpg)
+
 Google change les modèles disponibles dans l'application Gemini selon l'abonnement. **À partir du 9 octobre 2026, la version gratuite ne donne plus accès qu'à Flash-Lite**, le plus petit modèle, et l'abonnement Google AI Plus à 4,99 € par mois va bientôt perdre le modèle Pro. Jusqu'ici, on pouvait utiliser Pro et Deep Research assez largement sans payer : le changement se sentira. Voici ce qui change, le prix de chaque formule en euros, et comment continuer à utiliser un modèle de niveau Pro pour quelques euros, calculé avec le nombre de tokens réel du français.
 
 ## Quels modèles pour quelle formule
+
+![Quels modèles pour quelle formule: Formule, Prix mensuel, Flash-Lite, Flash, Pro, Deep Think](/gemini-gratuit-flash-lite-quels-modeles-pour-quelle-formule-fr.jpg)
 
 | Formule | Prix mensuel | Flash-Lite | Flash | Pro | Deep Think |
 |---|---:|:---:|:---:|:---:|:---:|
@@ -13,6 +17,8 @@ Google change les modèles disponibles dans l'application Gemini selon l'abonnem
 Prix en France relevés dans la presse française au 6 octobre 2026. Le changement concerne les comptes Google personnels ; les comptes Google Workspace (travail, école) ne sont pas touchés.
 
 ## À partir de quand ?
+
+![À partir de quand ?: Gratuit ; AI Plus ; AI Pro et Ultra ](/gemini-gratuit-flash-lite-a-partir-de-quand-fr.jpg)
 
 - **Gratuit :** Flash-Lite uniquement dès le 9 octobre.
 - **AI Plus :** pas de date unique. Google prévient chaque abonné par e-mail de la date à laquelle Pro disparaît de son compte.
@@ -33,6 +39,8 @@ Google a lancé le 30 septembre son modèle le plus avancé, Gemini 4 Argon. Les
 
 ## Un modèle de niveau Pro pour quelques euros : l'API
 
+![Un modèle de niveau Pro pour quelques euros : l'API: Modèle, Coût API mensuel](/gemini-gratuit-flash-lite-un-modele-de-niveau-pro-pour-quelques-eu-fr.jpg)
+
 Les modèles Gemini sont aussi accessibles via Google AI Studio et l'API, où l'on paie uniquement ce que l'on consomme. Le français demande environ 29 % de tokens en plus que l'anglais pour le même contenu ([le détail ici](/fr/blog/tokens-francais-gpt)), donc le calcul est fait sur des tokens français : environ 1 080 tokens en entrée et 500 en sortie par question, **20 questions par jour pendant 30 jours** (600 requêtes).
 
 | Modèle | Coût API mensuel |
@@ -46,3 +54,4 @@ Conversion à 1 $ = 0,885 €. Dans une longue conversation, tout l'historique e
 **Même avec le modèle Pro, 20 questions par jour coûtent bien moins cher que les 21,99 € d'AI Pro.** En revanche, vous perdez les fonctions de l'application : génération d'images, Deep Research, intégration à Gmail et Docs. Il faut aussi une application de chat compatible avec une clé API. Pour savoir ce qui revient le moins cher avec votre propre usage, entrez-le dans le [calculateur abonnement ou API](/fr/plans), ou comptez les tokens d'un de vos prompts avec le [compteur de tokens](/fr/).
 
 *Sources : [Journal du Geek](https://www.journaldugeek.com/2026/10/05/mauvaise-nouvelle-si-vous-utilisez-la-version-gratuite-de-gemini/), [Décodeur IA](https://www.decodeur-ia.com/articles/gemini-gratuit-flash-lite-9-octobre-2026-ai-plus-sans-pro-pme), [BriefIA](https://www.briefia.fr/article/google-limite-gemini-gratuit-au-modele-flash-lite-le-9-octobre), [Clubic (offre étudiante)](https://www.clubic.com/actualite-626083-gemini-app-devoile-une-nouveaute-surprise-qui-intrigue-deja-les-utilisateurs.html). Vérifié le 6 octobre 2026. Les dates et les limites peuvent changer : consultez la page officielle de Google avant de souscrire.*
+<!-- autoimg -->

@@ -1,6 +1,10 @@
+![ChatGPT Go vs. Plus: Lohnen sich 15 € mehr im Monat?](/chatgpt-go-vs-plus-de.jpg)
+
 ChatGPT Go kostet 7,99 € im Monat, ChatGPT Plus 22,99 €, beides inklusive Mehrwertsteuer. Seit dem 6. August 2026 ist der normale Textchat in allen Tarifen unbegrenzt, auch im kostenlosen. Der alte Grund für ein Upgrade, nämlich keine Nachrichten mehr übrig zu haben, fällt also weg. Seit dem 24. August zeigt ChatGPT in Deutschland außerdem Werbung, und zwar im kostenlosen Tarif und in Go. Heute geht es deshalb um drei Fragen: **Welches Modell antwortet dir, wie gründlich denkt es nach, und siehst du Werbung?** Hier steht, was dir die 15 € Aufpreis bringen und für wen sie sich lohnen.
 
 ## Go und Plus im Vergleich
+
+![Go und Plus im Vergleich: ChatGPT Go, ChatGPT Plus](/chatgpt-go-vs-plus-go-und-plus-im-vergleich-de.jpg)
 
 | | ChatGPT Go | ChatGPT Plus |
 |---|---|---|
@@ -28,12 +32,16 @@ Seit dem 24. August 2026 zeigt OpenAI im kostenlosen Tarif und in Go Werbung an,
 
 ## Für wen sich Go lohnt
 
+![Für wen sich Go lohnt: Du nutzt ChatGPT für Alltagsfragen, Formulierungshilfe und kurze Zusammenfassungen.; Codex und ChatGPT Work br](/chatgpt-go-vs-plus-fur-wen-sich-go-lohnt-de.jpg)
+
 - Du nutzt ChatGPT für Alltagsfragen, Formulierungshilfe und kurze Zusammenfassungen.
 - Codex und ChatGPT Work brauchst du nicht.
 - Gelegentliche Werbung stört dich nicht.
 - Du willst etwas mehr als im kostenlosen Tarif, vor allem mehr Speicher für das Gedächtnis, Datei-Uploads und Bilder, zum niedrigsten Preis.
 
 ## Für wen sich Plus lohnt
+
+![Für wen sich Plus lohnt: Du schreibst oder analysierst lange Dokumente oder stellst Fragen, bei denen es auf Genauigkeit ankommt.; Für ](/chatgpt-go-vs-plus-fur-wen-sich-plus-lohnt-de.jpg)
 
 - Du schreibst oder analysierst lange Dokumente oder stellst Fragen, bei denen es auf Genauigkeit ankommt.
 - Für schwierige Aufgaben willst du die Denkstufen nutzen.
@@ -53,3 +61,4 @@ Wenn du hauptsächlich chattest, kann die Abrechnung pro Token günstiger sein a
 Google AI Plus kostet 4,99 €, verliert aber demnächst das Pro-Modell ([Gemini: kostenlos nur noch Flash-Lite](/de/blog/gemini-kostenlos-flash-lite)). Google AI Pro kostet 21,99 €. Claude hat keinen Tarif unter Pro, das laut SSD Nodes 21,42 € inklusive MwSt kostet. Prüfe den Betrag an der Kasse.
 
 *Quellen: Preise laut [MonsterDealz (Sep. 2026)](https://www.monsterdealz.de/magazin/chatgpt-kosten) und [iphone-ticker zum Start von Go](https://www.iphone-ticker.de/fuer-8-euro-pro-monat-chatgpt-go-jetzt-auch-in-deutschland-verfuegbar-270263/), Werbung laut [ZDFheute](https://www.zdfheute.de/wirtschaft/unternehmen/openai-chatbot-chatgpt-werbung-deutschland-100.html) und [Basic Thinking](https://www.basicthinking.de/blog/2026/08/25/chatgpt-startet-werbung-in-deutschland/), Tarifdetails laut [Dupple](https://dupple.com/learn/chatgpt-go-vs-plus). Stand: 6. Oktober 2026. Prüfe vor dem Abschluss chatgpt.com/pricing.*
+<!-- autoimg -->

@@ -1,3 +1,5 @@
+![Game maken met AI: wat kost een game maken? ($128–181)](/wat-kost-een-game-maken-met-ai-nl.jpg)
+
 **Kort:** een kleine mobiele game (bijvoorbeeld een merge-game) die je in je eentje met AI maakt, kost ongeveer $128–181 en 14–22 dagen. Zo'n 66% daarvan gaat naar één maand Claude Max 5× om de code te schrijven.
 
 Wat kost een game maken met AI als je in je eentje een 2D-game bouwt? Kort gezegd: **ongeveer $130–180 en 2 tot 3 weken voor een kleine mobiele game**. Dat geldt ook als je een game maakt zonder programmeren: een AI-agent schrijft de code, jij beschrijft wat je wilt. Het meeste geld gaat naar een **AI-abonnement om te coderen**, niet naar de graphics.
@@ -5,6 +7,8 @@ Wat kost een game maken met AI als je in je eentje een 2D-game bouwt? Kort gezeg
 Alle cijfers hieronder komen uit de [AI-game-kostencalculator](/nl/ai-game-cost-calculator). De ijkpunten voor de grootte zijn echte mobiele games die één ontwikkelaar met AI-codeeragents heeft gebouwd: een kleine duurde ongeveer 2 weken, een middelgrote ongeveer 4 en een grote ongeveer 6. Prijzen per 5 oktober 2026.
 
 ## Wat kost een game maken met AI per grootte?
+
+![Wat kost een game maken met AI per grootte?: Grootte, Tijd, Afbeeldingen, Kosten](/wat-kost-een-game-maken-met-ai-wat-kost-een-game-maken-met-ai-per-groot-nl.jpg)
 
 Een kleine merge-game kost $128–181, een extra grote tot $329–728. Toolset: **Typisch** (Midjourney + Suno + ElevenLabs + Claude Max 5×), uitgebracht op Android.
 
@@ -18,6 +22,8 @@ Een kleine merge-game kost $128–181, een extra grote tot $329–728. Toolset: 
 De marge bij middel is groot, omdat een project dat langer dan een maand duurt een tweede maand abonnementen betaalt. Ben je in 26 dagen klaar, dan betaal je één maand. Duurt het 43 dagen, dan betaal je er twee.
 
 ## Waar gaat het geld naartoe?
+
+![Waar gaat het geld naartoe?: Post, Kosten, Aandeel](/wat-kost-een-game-maken-met-ai-waar-gaat-het-geld-naartoe-nl.jpg)
 
 Vooral naar code: het AI-abonnement om te coderen is ongeveer twee derde van de rekening. Een kleine merge-game met de Typische toolset:
 
@@ -46,6 +52,8 @@ Flink. Bij dezelfde kleine grootte verschilt de hoeveelheid graphics en code ste
 Een RPG heeft meer personages en animatieframes. Daardoor heb je ongeveer 38% meer afbeeldingen nodig dan voor een merge-game, en de langere planning kan een extra maand abonnementen kosten.
 
 ## Welke toolset kies je: Voordeligst, Typisch of Topklasse?
+
+![Welke toolset kies je: Voordeligst, Typisch of Topklasse?: Voordeligst; Typisch; Topklasse](/wat-kost-een-game-maken-met-ai-welke-toolset-kies-je-voordeligst-typisc-nl.jpg)
 
 De calculator wisselt met één klik tussen drie sets:
 
@@ -82,3 +90,4 @@ AI-codeeragents vergelijk je op de pagina [AI-agents](/nl/agents). Voor losse be
 Ja. De calculator doet meer dan alleen je project prijzen. Kies een genre, grootte, engine en platform, en hij schrijft een **startprompt voor de ontwikkeling, prompts voor graphics, prompts voor muziek en geluidseffecten en een storyboard voor de trailer**. Die plak je zo in Claude Code of Midjourney. Er zijn 33 genres en 21 engines, waaronder Unity, Godot, Unreal en GameMaker.
 
 Benieuwd hoe dat in de praktijk gaat? Lees het ontwikkellogboek [een beginner maakt een game met vibe coding: zonder codeerervaring, 3 dagen, $45](/blog/vibe-coding-a-game-beginner) (in het Engels). Je eigen game reken je door in de [AI-game-kostencalculator](/nl/ai-game-cost-calculator).
+<!-- autoimg -->

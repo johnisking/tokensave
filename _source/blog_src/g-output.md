@@ -1,6 +1,10 @@
+![Why Output Tokens Cost More (and 6 Ways to Use Fewer)](/why-output-tokens-cost-more-en.jpg)
+
 Look at any AI API price list and you will see two prices per model: one for input tokens and a higher one for output tokens. The gap is not small. On most current models, every token the model writes costs four to six times more than every token you send. If you want a lower bill, the answer is usually not a shorter prompt. It is a shorter answer.
 
 ## How big is the gap?
+
+![How big is the gap?: Model, Input, Output, Output ÷ input](/why-output-tokens-cost-more-how-big-is-the-gap-en.jpg)
 
 API prices per million tokens, checked October 1, 2026:
 
@@ -28,6 +32,8 @@ Reasoning models think before they answer. That thinking is made of tokens, it i
 
 ## Six ways to use fewer output tokens
 
+![Six ways to use fewer output tokens: Ask for the length you need. "Answer in 3 bullet points" or "under 100 words" works well. Models follow length](/why-output-tokens-cost-more-six-ways-to-use-fewer-output-tokens-en.jpg)
+
 1. **Ask for the length you need.** "Answer in 3 bullet points" or "under 100 words" works well. Models follow length instructions better than most people expect.
 2. **Set a maximum output length.** In the API, set a token limit so a runaway answer cannot cost more than you planned.
 3. **Ask for the change, not the whole thing.** When editing code or a document, ask for only the changed lines or a diff instead of the full file again.
@@ -42,3 +48,4 @@ A request with 2,000 input tokens and 1,000 output tokens on GPT-6 Sol costs $0.
 ## Measure it
 
 Paste a typical prompt and a typical answer into the [token counter](/) to see how many tokens each side uses and what that costs on 30+ models.
+<!-- autoimg -->

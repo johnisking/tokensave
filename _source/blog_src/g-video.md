@@ -1,6 +1,10 @@
+![How Much Does One Minute of AI Video Cost?](/ai-video-cost-per-minute-en.jpg)
+
 AI video models are priced per second of output, and the prices look small: ten cents here, forty cents there. Multiply by sixty and by the number of attempts it takes to get a usable shot, and a one-minute video can cost anywhere from a few dollars to well over a hundred. Here is what one minute costs on the main video APIs, and how to keep the number down.
 
 ## One minute of 1080p video with audio
+
+![One minute of 1080p video with audio: Model, Maker, $/second, 1 minute](/ai-video-cost-per-minute-one-minute-of-1080p-video-with-audio-en.jpg)
 
 API list prices checked September 30, 2026, multiplied out to 60 seconds:
 
@@ -22,6 +26,8 @@ API list prices checked September 30, 2026, multiplied out to 60 seconds:
 
 ## Cheaper at 720p, or without sound
 
+![Cheaper at 720p, or without sound: Model, 720p, 1 minute](/ai-video-cost-per-minute-cheaper-at-720p-or-without-sound-en.jpg)
+
 Dropping to 720p, or turning audio off where a model charges for it, cuts the price a lot:
 
 | Model | 720p, 1 minute |
@@ -42,6 +48,8 @@ On Veo 3.1 at 1080p, that turns $24 into roughly $72 for one finished minute. On
 
 ## How to spend less
 
+![How to spend less: Draft cheap, finish expensive. Find the right prompt and framing on a draft or lite model at 720p, then render](/ai-video-cost-per-minute-how-to-spend-less-en.jpg)
+
 1. **Draft cheap, finish expensive.** Find the right prompt and framing on a draft or lite model at 720p, then render only the final take on the premium model.
 2. **Generate short.** A 5-second test clip shows whether a prompt works for half the cost of a 10-second one.
 3. **Skip audio you will replace.** If music and voice-over are added in editing anyway, use a silent mode where the model offers one.
@@ -53,3 +61,4 @@ On Veo 3.1 at 1080p, that turns $24 into roughly $72 for one finished minute. On
 The [AI video cost calculator](/video) lets you set clip length, number of clips, resolution and audio, and ranks every model by total cost.
 
 *Prices change often. Confirm on the provider's pricing page before a large job.*
+<!-- autoimg -->

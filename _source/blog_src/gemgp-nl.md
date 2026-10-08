@@ -1,8 +1,12 @@
+![Gemini gratis: vanaf 9 oktober alleen Flash-Lite, AI Plus zonder Pro](/gemini-gratis-flash-lite-nl.jpg)
+
 **Kort: vanaf 9 oktober 2026 krijg je in de gratis Gemini-app alleen nog Flash-Lite, en Google AI Plus (€4,99) verliest binnenkort het Pro-model.**
 
 Google verandert welke modellen je in welk abonnement krijgt in de Gemini-app. Gratis gebruikers houden alleen Flash-Lite over, het kleinste model. Tot nu toe kon je zelfs zonder abonnement best veel met Pro en Deep Research doen. Die verandering ga je dus merken. Hieronder lees je wat er verandert, wat elk abonnement in euro kost en hoe je Pro-niveau goedkoop gebruikt zonder abonnement. De berekeningen zijn gemaakt met Nederlandse tokenaantallen.
 
 ## Welke modellen krijg je in welk abonnement?
+
+![Welke modellen krijg je in welk abonnement?: Abonnement, Prijs/maand, Flash-Lite, Flash, Pro, Deep Think](/gemini-gratis-flash-lite-welke-modellen-krijg-je-in-welk-abonneme-nl.jpg)
 
 | Abonnement | Prijs/maand | Flash-Lite | Flash | Pro | Deep Think |
 |---|---:|:---:|:---:|:---:|:---:|
@@ -15,6 +19,8 @@ Google verandert welke modellen je in welk abonnement krijgt in de Gemini-app. G
 Dit zijn de Nederlandse prijzen van Googles abonnementspagina, inclusief 21% btw, gecontroleerd op 6 oktober 2026. In België geldt ook 21% btw en dezelfde europrijs. De wijziging geldt voor persoonlijke Google-accounts. Werk- en schoolaccounts (Workspace) vallen erbuiten.
 
 ## Vanaf wanneer geldt wat?
+
+![Vanaf wanneer geldt wat?: Gratis; AI Plus; AI Pro en Ultra](/gemini-gratis-flash-lite-vanaf-wanneer-geldt-wat-nl.jpg)
 
 Voor gratis gebruikers geldt de nieuwe regel vanaf 9 oktober 2026. Voor AI Plus is er geen vaste datum voor iedereen: Google laat je per e-mail weten wanneer het voor jouw account ingaat. Met AI Pro en Ultra houd je Flash-Lite, Flash en Pro, en krijg je er Deep Think bij.
 
@@ -40,6 +46,8 @@ Anthropic noemt voor Claude Pro een nettoprijs van €18. Met 21% btw kom je op 
 
 ## Hoe gebruik je Pro goedkoop via de API?
 
+![Hoe gebruik je Pro goedkoop via de API?: Model, Prijs per 1 mln. tokens (in / uit), API-kosten per maand](/gemini-gratis-flash-lite-hoe-gebruik-je-pro-goedkoop-via-de-api-nl.jpg)
+
 Via Google AI Studio of de API betaal je alleen wat je verbruikt, en dan is zelfs het Pro-model veel goedkoper dan AI Pro. Nederlands gebruikt ongeveer 29% meer tokens dan Engels ([zo hebben we dat gemeten](/nl/blog/tokens-nederlands-gpt)). Stel dat een vraag ongeveer 1.085 tokens invoer en 500 tokens uitvoer heeft. Bij **20 vragen per dag, 30 dagen lang** (600 verzoeken) kom je hierop uit:
 
 | Model | Prijs per 1 mln. tokens (in / uit) | API-kosten per maand |
@@ -53,3 +61,4 @@ Omgerekend tegen 1 dollar = €0,885. Hoe langer een gesprek duurt, hoe duurder 
 **Zelfs het Pro-model kost bij 20 vragen per dag ongeveer 80% minder dan AI Pro (€21,99).** Je mist dan wel de extra's van de app, zoals afbeeldingen en video maken, Deep Research en de koppeling met Gmail en Docs. Ook heb je een chat-app nodig waarin je je eigen API-sleutel kunt invoeren. Wat bij jouw gebruik goedkoper is, reken je uit met de [calculator abonnement vs API](/nl/plans). De tokens van één prompt tel je met de [tokenteller](/nl/).
 
 *Bronnen: [Notebookcheck](https://www.notebookcheck.net/Google-Gemini-drops-Flash-and-Pro-for-free-users-on-October-9.1415964.0.html), [Android Headlines](https://www.androidheadlines.com/2026/10/google-cuts-gemini-ai-model-access-free-ai-plus-tiers-changes.html), [iThinkDiff](https://www.ithinkdiff.com/gemini-app-model-limits-free-ai-plus-october-9/), prijzen volgens [Google AI-abonnementen (Nederland)](https://gemini.google/nl/subscriptions/), Claude-nettoprijs volgens Anthropic, advertenties in ChatGPT volgens [Dagelijkse Standaard](https://www.dagelijksestandaard.nl/economie/gebruik-je-gratis-chatgpt-of-go-van-eur8-vanaf-nu-verschijnt-er-reclame). Stand: 6 oktober 2026. Data en limieten kunnen veranderen, controleer de officiële pagina van Google voordat je een abonnement neemt.*
+<!-- autoimg -->

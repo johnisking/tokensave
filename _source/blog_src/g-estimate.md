@@ -1,3 +1,5 @@
+![How to Estimate Your AI API Bill Before You Build](/how-to-estimate-ai-api-cost-en.jpg)
+
 Most surprise AI bills come from one mistake: estimating cost from the price list instead of from real usage. The price per million tokens looks tiny, but the number of tokens a real app sends is usually far larger than people expect. Here is a simple method to estimate your monthly bill before you write any code.
 
 ## The formula
@@ -23,12 +25,16 @@ Estimate requests per month. For a chat product, that is users × conversations 
 
 ## Step 3: add the multipliers people forget
 
+![Step 3: add the multipliers people forget: Conversation history. In a chat, every new message re-sends the whole conversation. Message 10 of a conversati](/how-to-estimate-ai-api-cost-step-3-add-the-multipliers-people-forget-en.jpg)
+
 - **Conversation history.** In a chat, every new message re-sends the whole conversation. Message 10 of a conversation includes messages 1 to 9. Average input per message can be 5–10 times the size of a single message.
 - **Retries and failures.** Timeouts, validation errors and "regenerate" clicks all cost tokens. Add 5–15%.
 - **Language.** If your users write in Korean, Japanese or Hindi, the same content uses 1.4–1.8 times more tokens than English.
 - **Reasoning.** Reasoning models write hidden thinking that is billed as output. It can be several times longer than the visible answer.
 
 ## A worked example
+
+![A worked example: Model, Input $/1M, Output $/1M, Monthly cost](/how-to-estimate-ai-api-cost-a-worked-example-en.jpg)
 
 A customer-support bot handles 10,000 conversations a month. Measured per conversation: 1,500 input tokens and 300 output tokens.
 
@@ -46,6 +52,8 @@ The same workload ranges from $3 to $120 depending on the model. Now apply the m
 
 ## Ways to bring the number down
 
+![Ways to bring the number down: Use prompt caching. Many providers bill repeated input (a fixed system prompt, a long document) at a fraction ](/how-to-estimate-ai-api-cost-ways-to-bring-the-number-down-en.jpg)
+
 1. **Use prompt caching.** Many providers bill repeated input (a fixed system prompt, a long document) at a fraction of the normal price, often around 10%. Put the fixed part of your prompt first so it can be cached.
 2. **Route by difficulty.** Send easy requests to a small model and only hard ones to a large model.
 3. **Cap the output.** Set a maximum output length and ask for concise answers.
@@ -57,3 +65,4 @@ The same workload ranges from $3 to $120 depending on the model. Now apply the m
 The [token counter](/) turns any text into a cost for 30+ models at once, and the [Subscription vs API calculator](/plans) shows whether a monthly plan would be cheaper than paying per token.
 
 *Prices change often. Always confirm on the provider's pricing page before a large job.*
+<!-- autoimg -->

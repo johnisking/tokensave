@@ -65,14 +65,14 @@
   <meta property="og:locale" content="sv_SE" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/blog-language-tax-chart-v4.png" />
+  <meta property="og:image" content="https://tokensave.app/tokens-svenska-gpt-sv.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/blog-language-tax-chart-v4.png" />
+  <meta name="twitter:image" content="https://tokensave.app/tokens-svenska-gpt-sv.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Svenska kostar 1,32× så många tokens som engelska i GPT", "description": "Samma prompt mätt på 41 språk: svenska använder 1,32× så många tokens som engelska. Skicka den på engelska och spara cirka 24 %.", "inLanguage": "sv", "url": "https://tokensave.app/sv/blog/tokens-svenska-gpt", "mainEntityOfPage": "https://tokensave.app/sv/blog/tokens-svenska-gpt", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/blog-language-tax-chart-v4.png", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/sv/"}, {"@type": "ListItem", "position": 2, "name": "Svenska kostar 1,32× så många tokens som engelska i GPT", "item": "https://tokensave.app/sv/blog/tokens-svenska-gpt"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Svenska kostar 1,32× så många tokens som engelska i GPT", "description": "Samma prompt mätt på 41 språk: svenska använder 1,32× så många tokens som engelska. Skicka den på engelska och spara cirka 24 %.", "inLanguage": "sv", "url": "https://tokensave.app/sv/blog/tokens-svenska-gpt", "mainEntityOfPage": "https://tokensave.app/sv/blog/tokens-svenska-gpt", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/tokens-svenska-gpt-sv.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/sv/"}, {"@type": "ListItem", "position": 2, "name": "Svenska kostar 1,32× så många tokens som engelska i GPT", "item": "https://tokensave.app/sv/blog/tokens-svenska-gpt"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -137,7 +137,8 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">Svenska kostar 1,32× så många tokens som engelska i GPT</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026-10-02</p>
-  <p>Jag översatte samma kundtjänstprompt till 41 språk och räknade tokens med o200k_base, OpenAI:s nuvarande tokenizer (GPT-4o och senare). Engelska behöver 34 tokens, svenska <strong>45 — 1,32× så många</strong>, plats 12 av 41 (1 = billigast).</p>
+  <p><img loading="lazy" width="1200" height="630" alt="Svenska kostar 1,32× så många tokens som engelska i GPT" src="/tokens-svenska-gpt-sv.jpg" /></p>
+<p>Jag översatte samma kundtjänstprompt till 41 språk och räknade tokens med o200k_base, OpenAI:s nuvarande tokenizer (GPT-4o och senare). Engelska behöver 34 tokens, svenska <strong>45 — 1,32× så många</strong>, plats 12 av 41 (1 = billigast).</p>
 <p>Den svenska versionen:</p>
 <blockquote>
 <p>Sammanfatta kundens e-post nedan i tre punkter och föreslå ett artigt svar. Kunden säger att beställningen kom två dagar för sent och att en vara saknades i lådan.</p>
@@ -223,6 +224,7 @@
 </table></div>
 <p><img loading="lazy" width="960" height="1430" alt="Resultat" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Varför</h2>
+<p><img loading="lazy" width="1200" height="593" alt="Varför: Sammanfatta → Sam | man | f | atta · 4; beställningen → best | äll | ningen · 3; saknades → sak | n | ades · 3" src="/tokens-svenska-gpt-varfor-sv.jpg" /></p>
 <p>Tokenizern lär sig mest från engelsk text: ord som " polite" eller " customer" är en enda token, medan många svenska ord – särskilt sammansättningar – delas upp:</p>
 <ul>
 <li>Sammanfatta → <code>Sam | man | f | atta</code> · 4</li>
@@ -234,6 +236,7 @@
 <h2>I pengar</h2>
 <p>Med en modell för 2 $ per miljon input-tokens kostar det 68 $ på engelska och 90 $ på svenska att skicka prompten en miljon gånger. Svarar modellen också på svenska gäller samma faktor för output-tokens, som oftast är 4–5× dyrare.</p>
 <h2>Så sparar du</h2>
+<p><img loading="lazy" width="1200" height="658" alt="Så sparar du: Skriv systemprompten och fasta instruktioner på engelska; låt bara användarens input vara på svenska.; Be om m" src="/tokens-svenska-gpt-sa-sparar-du-sv.jpg" /></p>
 <ul>
 <li>Skriv systemprompten och fasta instruktioner på engelska; låt bara användarens input vara på svenska.</li>
 <li>Be om mellansteg (klassificering, extraktion, verktygsanrop) på engelska eller som JSON, och bara slutsvaret på svenska.</li>
@@ -246,6 +249,7 @@
 <li>Översättningen bygger på en granskad maskinöversättning.</li>
 </ul>
 <p>Alla resultat för 41 språk (på engelska): <a href="/blog/token-cost-by-language">jämförelse av 41 språk</a></p>
+<!-- autoimg -->
 
         <div class="not-prose mt-8 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 text-center">
           <p class="text-zinc-200">Mät din egen text: hur många tokens och hur mycket pengar din svenska prompt kostar jämfört med engelska.</p>

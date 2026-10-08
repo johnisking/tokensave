@@ -1,3 +1,5 @@
+![O português gasta 1,21× mais tokens que o inglês no GPT](/tokens-portugues-gpt-pt.jpg)
+
 Traduzi o mesmo prompt de atendimento ao cliente para 41 idiomas e contei os tokens com o o200k_base, o tokenizador atual da OpenAI (GPT-4o e posteriores). Em inglês são 34 tokens; em português, **41: 1,21× o inglês**, posição 5 de 41 (1 = o mais barato).
 
 A versão em português:
@@ -24,6 +26,8 @@ A versão em português:
 
 ## Por quê
 
+![Por quê: tópicos → tóp | icos · 2; educada → educ | ada · 2; faltava → falt | ava · 2](/tokens-portugues-gpt-por-que-pt.jpg)
+
 O tokenizador aprende principalmente com texto em inglês: palavras como " polite" ou " customer" são um único token, enquanto muitas palavras em português são quebradas em pedaços:
 
 - tópicos → `tóp | icos` · 2
@@ -40,6 +44,8 @@ Com um modelo a US$ 2 por milhão de tokens de entrada, enviar este prompt um mi
 
 ## Como economizar
 
+![Como economizar: Escreva o prompt de sistema e as instruções fixas em inglês; deixe em português só o que o usuário digita.; Pe](/tokens-portugues-gpt-como-economizar-pt.jpg)
+
 - Escreva o prompt de sistema e as instruções fixas em inglês; deixe em português só o que o usuário digita.
 - Peça as etapas intermediárias (classificação, extração, chamadas de ferramentas) em inglês ou JSON e só a resposta final em português.
 - Use prompt caching para a parte fixa do prompt.
@@ -51,3 +57,4 @@ Com um modelo a US$ 2 por milhão de tokens de entrada, enviar este prompt um mi
 - A tradução parte de uma tradução automática revisada.
 
 Resultados completos dos 41 idiomas (em inglês): [comparação de 41 idiomas](/blog/token-cost-by-language)
+<!-- autoimg -->

@@ -1,6 +1,8 @@
+<p><img loading="lazy" width="1200" height="630" alt="Limit Claude: ile tokenów daje Claude Pro i Max? (pomiary)" src="/limity-claude-pro-max-pl.jpg" /></p>
 <p>Anthropic nie podaje, ile tokenów zawierają Claude Pro i Max. Limit Claude opisuje jako wielokrotność planu Pro („5× Pro”, „20× Pro”) z limitem 5-godzinnym i tygodniowym, nigdy jako liczbę tokenów. Ludzie to jednak zmierzyli. Poniżej sprawdzisz, jak wyglądają Claude Pro limity i ile tokenów daje Claude Max, dlaczego te liczby są tak duże i jak przełożyć je na coś przydatnego: ile Twoje użycie kosztowałoby w API.</p>
 <p><strong>Krótko:</strong> według pomiarów z września 2026 w Claude Code na Opus 5 plan Max 5× daje ok. 39 mln tokenów na 5-godzinne okno, Max 20× ok. 1,9 mld tokenów tygodniowo, a Pro – według szacunku – ok. 8 mln tokenów na okno.</p>
 <h2>Ile tokenów daje Claude Max i Claude Pro?</h2>
+<p><img loading="lazy" width="1200" height="556" alt="Ile tokenów daje Claude Max i Claude Pro?: Plan, Cena, Na 5-godzinne okno, Na tydzień" src="/limity-claude-pro-max-ile-tokenow-daje-claude-max-i-claude-pro-pl.jpg" /></p>
 <p>Pomiary w Claude Code z września 2026, na modelu Claude Opus 5:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -39,6 +41,7 @@
 <p>Odczyty z cache są w API tanie – około jednej dziesiątej zwykłej ceny wejścia – więc limity Anthropic najwyraźniej nie liczą każdego tokena tak samo. Działają raczej jak <strong>budżet kosztowy</strong>. Mediana okna Max 5× odpowiadała mniej więcej <strong>37 USD użycia API</strong>, co w tej samej skali daje ok. 7 USD na okno Pro i ok. 150 USD na okno Max 20×.</p>
 <p>Dlatego sama liczba tokenów mówi mniej, niż mogłoby się wydawać. Dwie sesje z tą samą liczbą tokenów mogą zużyć zupełnie inną część limitu, zależnie od tego, ile jest w nich świeżego wejścia i wyjścia oraz jakiego modelu używasz.</p>
 <h2>Co najszybciej zużywa limit Claude?</h2>
+<p><img loading="lazy" width="1200" height="764" alt="Co najszybciej zużywa limit Claude?: Opus zamiast Sonnet. Opus 5.5 kosztuje w API dwa razy więcej za token niż Sonnet 5.5 i szybciej zużywa też lim" src="/limity-claude-pro-max-co-najszybciej-zuzywa-limit-claude-pl.jpg" /></p>
 <ul>
 <li><strong>Opus zamiast Sonnet.</strong> Opus 5.5 kosztuje w API dwa razy więcej za token niż Sonnet 5.5 i szybciej zużywa też limit planu.</li>
 <li><strong>Długie sesje.</strong> Każdy krok wysyła ponownie cały kontekst. Sesja, która urosła do 150 000 tokenów, kosztuje na krok dużo więcej niż świeża. Używaj <strong>/clear</strong> między niepowiązanymi zadaniami i <strong>/compact</strong> przy długich.</li>
@@ -53,3 +56,4 @@
 <p>Prawie na pewno tak, jeśli intensywnie korzystasz z Claude Code: tydzień w Max 20× zmierzony na ok. 1,9 mld tokenów to przy cenach API mniej więcej 1800 USD za ten sam miks modeli i odczytów z cache, wobec 200 USD miesięcznie za plan. Przy lżejszym użyciu odpowiedź może być odwrotna. Wpisz wielkość swoich zadań i ich liczbę dziennie w <a href="/pl/agents">kalkulator kosztów agentów kodujących</a>, a dla czatu użyj <a href="/pl/plans">kalkulatora subskrypcja vs API</a>.</p>
 <p>Powiązane: <a href="/blog/claude-max-vs-pro">Claude Max vs Pro</a> (po angielsku) · <a href="/pl/blog/limity-claude-code">limity Claude Code</a> · <a href="/pl/blog/limity-codex">limity Codex</a> · <a href="/blog/claude-code-save-tokens">jak oszczędzać tokeny w Claude Code</a> (po angielsku) · <a href="/claude-token-counter">licznik tokenów Claude</a> · <a href="/pl/">licznik tokenów po polsku</a></p>
 <p><em>Anthropic często zmienia limity i nie publikuje limitów tokenów. Wpisz </em><em>/status</em><em> w Claude Code, żeby sprawdzić, ile Ci zostało. Polskie ceny wg <a href="https://www.ssdnodes.com/learn/lang/pl/claude-plans-in-poland-what-you-pay" target="_blank" rel="noopener">SSD Nodes</a> (kurs NBP z 16 września 2026), podatek tokenowy wg <a href="https://promptowy.com/podatek-tokenowy-2026-polski-tekst-osiem-modeli/" target="_blank" rel="noopener">Promptowy</a>.</em></p>
+<!-- autoimg -->

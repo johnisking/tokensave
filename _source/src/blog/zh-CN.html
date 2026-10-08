@@ -1,3 +1,4 @@
+<p><img loading="lazy" width="1200" height="630" alt="简体中文在 GPT 中的 Token 数几乎与英文相同（1.03×）" src="/zhongwen-token-gpt-zh-cn.jpg" /></p>
 <p>我们把同一段客服提示词翻译成 41 种语言，用 OpenAI 当前的 o200k_base 分词器（GPT-4o 及之后的模型）统计 Token。英文需要 34 个 Token，简体中文需要 <strong>35 个，是英文的 1.03×</strong>，在 41 种语言中排第 2 便宜。</p>
 <p>简体中文版本：</p>
 <blockquote>
@@ -76,7 +77,7 @@
 </tr>
 </tbody>
 </table></div>
-<p><img loading="lazy" width="960" height="1430" alt="结果" src="/blog-language-tax-chart-v4.png" /></p>
+<p><img loading="lazy" width="960" height="1430" alt="各语言在 GPT 中比英语多用的 token 比例图" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>为什么</h2>
 <p>分词器主要用英文数据训练，常见英文单词往往是 1 个 Token（" polite"、" customer"）。o200k 词表也收录了大量常用中文词，所以简体中文几乎不吃亏：</p>
 <ul>
@@ -87,15 +88,18 @@
 <h2>换算成费用</h2>
 <p>按输入每 100 万 Token 2 美元计算，把这段提示词发送 100 万次：英文 $68，简体中文 $70。几乎没有差别。</p>
 <h2>省 Token 的小建议</h2>
+<p><img loading="lazy" width="1200" height="593" alt="省 Token 的小建议: 固定的系统提示词可以用英文或中文，差别不大，重点是删掉重复和客套话。; 分类、抽取、工具调用等中间步骤让模型输出 JSON，只把最终回答用中文。; 对固定前缀使用提示词缓存（Prompt Caching），输入单价会大幅" src="/zhongwen-token-gpt-zh-cn-2.jpg" /></p>
 <ul>
 <li>固定的系统提示词可以用英文或中文，差别不大，重点是删掉重复和客套话。</li>
 <li>分类、抽取、工具调用等中间步骤让模型输出 JSON，只把最终回答用中文。</li>
 <li>对固定前缀使用提示词缓存（Prompt Caching），输入单价会大幅下降。</li>
 </ul>
 <h2>局限</h2>
+<p><img loading="lazy" width="1200" height="593" alt="局限: 只测了一段提示词，不同文本比例可能相差 0.1–0.2。; Claude 和 Gemini 使用不同分词器，这些数字只适用于 OpenAI 模型。; 译文以机器翻译为基础并经过检查。" src="/zhongwen-token-gpt-zh-cn-3.jpg" /></p>
 <ul>
 <li>只测了一段提示词，不同文本比例可能相差 0.1–0.2。</li>
 <li>Claude 和 Gemini 使用不同分词器，这些数字只适用于 OpenAI 模型。</li>
 <li>译文以机器翻译为基础并经过检查。</li>
 </ul>
 <p>全部 41 种语言的结果（英文）：<a href="/blog/token-cost-by-language">41 种语言对比</a></p>
+<!-- autoimg -->

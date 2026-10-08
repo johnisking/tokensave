@@ -1,6 +1,10 @@
+![Claude Max vs Pro 비교: $100·$200 요금제, 올릴 가치가 있을까](/claude-max-vs-pro-ko.jpg)
+
 Claude Pro는 월 $20, Claude Max는 $100 또는 $200입니다. 둘 다 Claude 앱과 Claude Code가 포함되어 있으니, 진짜 질문은 간단합니다. 늘어나는 사용량이 5배, 10배 가격만큼의 가치가 있느냐는 것이죠. 많은 분들에게는 그렇지 않습니다. 하지만 Claude Code를 많이 쓰는 분이라면 Max 20×가 Anthropic이 파는 요금제 중 가장 가성비가 좋습니다.
 
 ## 요금제
+
+![요금제: 요금제, 가격, 사용량, "Pro 1개분" 사용량당 가격](/claude-max-vs-pro-ko-2.jpg)
 
 미국 가격, 2026년 10월 확인 기준:
 
@@ -29,6 +33,8 @@ Max는 두 한도를 모두 배수만큼 늘려 줍니다. Claude Code에서 **/
 
 ## Pro로 충분한 분
 
+![Pro로 충분한 분: 하루에 몇 번, 주로 앱에서 Claude를 씁니다.; Claude Code는 몇 시간씩이 아니라 가끔 작업할 때만 씁니다.; 한도 메시지를 거의 또는 전혀 보지 않습니다.](/claude-max-vs-pro-ko-3.jpg)
+
 - 하루에 몇 번, 주로 앱에서 Claude를 씁니다.
 - Claude Code는 몇 시간씩이 아니라 가끔 작업할 때만 씁니다.
 - 한도 메시지를 거의 또는 전혀 보지 않습니다.
@@ -36,6 +42,8 @@ Max는 두 한도를 모두 배수만큼 늘려 줍니다. Claude Code에서 **/
 이런 경우라면 $20으로 충분합니다. 가끔 더 필요할 때는 사용량 크레딧을 쓰거나 잠깐 기다리면 됩니다.
 
 ## Max 5×가 맞는 분
+
+![Max 5×가 맞는 분: 거의 매주 Pro 한도에 걸립니다.; 하루에도 여러 번 Claude Code로 실제 업무를 합니다.; Sonnet보다 사용량을 빨리 쓰는 Opus를 더 많이 쓰고 싶습니다.](/claude-max-vs-pro-ko-4.jpg)
 
 - 거의 매주 Pro 한도에 걸립니다.
 - 하루에도 여러 번 Claude Code로 실제 업무를 합니다.
@@ -67,3 +75,4 @@ $200 가격대에서 Claude Max 20×는 이제 기본 요금제의 20배이고, 
 [코딩 에이전트 계산기](/ko/agents)로 내 Claude Code 사용 방식에 맞춰 Pro, Max, API를 비교하거나, 대화 위주라면 [구독 vs API 계산기](/ko/plans)를 써 보세요.
 
 *가격과 한도는 바뀝니다. 업그레이드하기 전에 [claude.com/pricing](https://claude.com/pricing)을 확인하세요.*
+<!-- autoimg -->

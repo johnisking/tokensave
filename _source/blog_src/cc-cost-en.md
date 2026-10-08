@@ -1,6 +1,10 @@
+![Claude Code Cost per Month: Pro vs Max vs API](/claude-code-cost-per-month-en.jpg)
+
 Claude Code is included in Anthropic's Claude Pro and Max subscriptions, and it can also run on pay-as-you-go API credits. So what does it actually cost per month? It depends on how much you use it, and the difference between the cheapest and the most expensive way to pay for the same work can be ten times or more. Here are the real numbers.
 
 ## Two ways to pay
+
+![Two ways to pay: Plan, Price per month, Usage](/claude-code-cost-per-month-two-ways-to-pay-en.jpg)
 
 **1. A subscription.** Claude Code is included in these plans (US prices, checked October 2026):
 
@@ -29,6 +33,8 @@ Claude Code works in steps: read files, edit, run tests, read the output, try ag
 **Prompt caching** is what keeps this affordable: the repeated part of the context is billed at about 10% of the normal input price. Claude Code uses it automatically.
 
 ## What one task costs on the API
+
+![What one task costs on the API: Task, Steps, Haiku 4.5, Sonnet 5.5, Opus 5.5](/claude-code-cost-per-month-what-one-task-costs-on-the-api-en.jpg)
 
 Using our [coding agent cost model](/agents), with caching on:
 
@@ -70,6 +76,8 @@ Because most of what Claude Code sends is cached context, a realistic blended pr
 
 ## How to decide
 
+![How to decide: Start on Pro if you code with it a few times a week.; Watch how often you hit the limit. If you hit it most we](/claude-code-cost-per-month-how-to-decide-en.jpg)
+
 1. **Start on Pro** if you code with it a few times a week.
 2. **Watch how often you hit the limit.** If you hit it most weeks, Max 5× is likely cheaper than paying the API rate for the extra work.
 3. **Use the API** for automation, CI pipelines, or very irregular use, where predictable per-token billing beats a monthly fee.
@@ -80,3 +88,4 @@ Because most of what Claude Code sends is cached context, a realistic blended pr
 The [coding agent cost calculator](/agents) lets you set task size, tasks per day and working days, and compares API costs for Claude, GPT and Gemini models with every Claude and ChatGPT plan. To spend fewer tokens either way, see [How to save tokens in Claude Code](/blog/claude-code-save-tokens).
 
 *Prices and limits change often. Check [claude.com/pricing](https://claude.com/pricing) before you decide.*
+<!-- autoimg -->

@@ -1,3 +1,5 @@
+![Goedkoopste AI API 2026: API-prijzen vergelijken per 1 miljoen tokens](/goedkoopste-ai-api-nl.jpg)
+
 **Kort:** de goedkoopste AI API in oktober 2026 is GPT-5 nano ($0,05 / $0,40 per 1 miljoen input- / outputtokens, zo'n $3 voor 10.000 gewone verzoeken). Begin wel liever met GPT-6 Luna: die kost maar een fractie meer.
 
 Gaat het je alleen om de laagste rekening? Dan is **GPT-5 nano** de goedkoopste AI API, gevolgd door **GPT-6 Luna** en **Qwen 3.8 Flash**. Maar het goedkoopste model past zelden bij elke taak. Hieronder vergelijk je de API-prijzen van alle grote modellen op basis van wat een echt verzoek kost. Je ziet de kosten per 1 miljoen tokens, welke goedkope modellen de moeite waard zijn en wanneer een duurder model je juist geld bespaart.
@@ -12,6 +14,8 @@ We keken naar de kosten van één gewoon verzoek, niet alleen naar de prijs per 
 Daarom hebben we één gewoon verzoek doorgerekend: **2.000 inputtokens en 500 outputtokens Engelse tekst**, geteld zoals de tokenizer van elk model ze telt. We gebruikten de officiële prijslijsten, gecontroleerd op 1 oktober 2026. Zonder caching- of batchkorting.
 
 ## Wat zijn de goedkoopste AI API's?
+
+![Wat zijn de goedkoopste AI API's?: Model, Maker, Input / output per 1 miljoen, 1 verzoek, 10.000 verzoeken](/goedkoopste-ai-api-wat-zijn-de-goedkoopste-ai-api-s-nl.jpg)
 
 GPT-5 nano, GPT-6 Luna en Qwen 3.8 Flash. Alle drie kosten minder dan $6 per 10.000 verzoeken.
 
@@ -32,6 +36,8 @@ GPT-5 nano, GPT-6 Luna en Qwen 3.8 Flash. Alle drie kosten minder dan $6 per 10.
 Ter vergelijking: dezelfde 10.000 verzoeken kosten **$90** op GPT-6 Sol, **$117** op Claude Sonnet 5.5, **$234** op Claude Opus 5.5 en **$450** op GPT-6 Astra. Het goedkoopste model in de tabel kost minder dan 1% van wat GPT-6 Astra kost.
 
 ## Welk goedkoop model kies je?
+
+![Welk goedkoop model kies je?: GPT-6 Luna probeer je als eerste. Het is het nieuwste kleine model van OpenAI (september 2026) en kost maar $1](/goedkoopste-ai-api-welk-goedkoop-model-kies-je-nl.jpg)
 
 Begin met GPT-6 Luna. Voor het allersimpelste werk op grote schaal neem je GPT-5 nano.
 
@@ -61,3 +67,4 @@ Plak een echte prompt in de [tokenteller](/nl/). Je ziet dan het exacte aantal t
 Betaal je liever een vast bedrag per maand? Bekijk dan de [AI-abonnementen](/nl/plans) en het artikel over [AI-abonnement prijzen](/nl/blog/ai-abonnement-prijzen).
 
 *Prijzen volgens de officiële prijslijsten, gecontroleerd op 1 oktober 2026. Prijzen veranderen vaak. Check de prijspagina van de aanbieder voordat je een model kiest.*
+<!-- autoimg -->

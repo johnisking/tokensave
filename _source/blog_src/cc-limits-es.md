@@ -1,3 +1,5 @@
+![Límites de uso de Claude Code: el límite de 5 horas y el semanal](/claude-code-limites-de-uso-es.jpg)
+
 "Claude usage limit reached" es uno de los mensajes que más ven los usuarios de Claude Code, y también uno de los más confusos, porque los límites de uso de Claude Code son dos y funcionan al mismo tiempo: el límite de 5 horas y el límite semanal. Aquí te explicamos cómo funcionan, qué cambió en 2026 y qué puedes hacer cuando llegas a uno de ellos.
 
 ## Los dos límites de uso de Claude Code
@@ -9,6 +11,8 @@
 Ambos límites se **comparten entre Claude Code y la app de Claude** (web, escritorio y móvil). Una conversación larga en la app consume la misma cuota que tu sesión de programación.
 
 ## Cuánto incluye cada plan
+
+![Cuánto incluye cada plan: Plan, Precio, Uso](/claude-code-limites-de-uso-cuanto-incluye-cada-plan-es.jpg)
 
 Anthropic describe los límites de cada plan en relación con los demás, no en tokens exactos:
 
@@ -22,6 +26,8 @@ Cuánto te rinde depende mucho de lo que hagas. Los archivos grandes, las sesion
 
 ## Qué cambió en 2026
 
+![Qué cambió en 2026: 6 de mayo de 2026; Verano de 2026; 14 de septiembre de 2026](/claude-code-limites-de-uso-que-cambio-en-2026-es.jpg)
+
 - **6 de mayo de 2026:** Anthropic **duplicó los límites de 5 horas de Claude Code** para los planes Pro, Max, Team y Enterprise por puestos, y eliminó la reducción adicional de límites en horas pico para Pro y Max.
 - **Verano de 2026:** estuvo vigente un **aumento temporal del 50 %** en los límites semanales.
 - **14 de septiembre de 2026:** Anthropic **subió de forma permanente un 25 % los límites semanales estándar** para Pro, Max, Team y Enterprise por puestos. Como esto sustituyó al aumento temporal del 50 %, los límites semanales quedaron alrededor de un 17 % por debajo de los del verano, aunque todavía un 25 % por encima del nivel original.
@@ -33,6 +39,8 @@ Así que, si sientes que desde mediados de septiembre llegas antes al límite se
 Dentro de Claude Code, el comando **/status** muestra la cuota que te queda. Claude Code también te avisa cuando te acercas a un límite. Revísalo antes de empezar una tarea larga, no a mitad de ella.
 
 ## Qué hacer cuando llegas a un límite
+
+![Qué hacer cuando llegas a un límite: Espera al reinicio. En el límite de 5 horas, normalmente es cuestión de horas.; Activa el uso adicional. Los p](/claude-code-limites-de-uso-que-hacer-cuando-llegas-a-un-limite-es.jpg)
 
 1. **Espera al reinicio.** En el límite de 5 horas, normalmente es cuestión de horas.
 2. **Activa el uso adicional.** Los planes de pago pueden seguir con créditos de uso que se facturan aparte, en lugar de detenerse.
@@ -62,3 +70,4 @@ Más detalles y cifras en [How to save tokens in Claude Code](/blog/claude-code-
 Si llegas con frecuencia al límite semanal, compara lo que te costaría ese uso adicional en la API con el siguiente plan. Nuestra guía [Precio de Claude Code al mes](/es/blog/claude-code-precio) y nuestra [calculadora de agentes de programación](/es/agents) hacen las cuentas por ti.
 
 *Los límites cambian. La [página de ayuda sobre los planes de Claude Code](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan) y la [página de precios](https://claude.com/pricing) de Anthropic tienen las reglas actuales.*
+<!-- autoimg -->

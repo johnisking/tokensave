@@ -638,3 +638,9 @@ FREEPAID = [
       "ChatGPT kostenlos vs. bezahlt 2026: Chat ist überall unbegrenzt. Was Go (7,99 €), Plus (22,99 €) und Pro unterscheidet und wann sich ein Upgrade lohnt.",
       "Jonhisking · 8. Oktober 2026", "chatgpt-free-vs-paid-de.jpg"),
 ]
+
+# 2026-10-08: indie game development cost (ko)
+INDIECOST = [_gm("ko", "/ko/blog/indie-game-gaebal-biyong", "인디게임 개발 비용 얼마? 1인 개발 vs 외주, 엔진·스토어 등록비 정리 (2026)",
+     "인디게임 개발 비용 총정리: Unity·Godot·Unreal 엔진 비용과 장단점, Steam·Google Play·Apple 등록비와 준비물, 외주 vs AI로 혼자 만들기 비용 비교.",
+     "Jonhisking · 2026년 10월 8일")]
+INDIECOST[0].update(src="indiecost-ko", date="2026-10-08")

@@ -1,3 +1,5 @@
+![Türkçe, GPT'de İngilizceden 1,47× daha fazla token harcıyor](/token-turkce-gpt-tr.jpg)
+
 Aynı müşteri hizmetleri istemini 41 dile çevirdim ve tokenleri OpenAI'nin güncel tokenizer'ı o200k_base ile saydım (GPT-4o ve sonrası). İngilizce 34 token, Türkçe **50 token: İngilizcenin 1,47× katı**; 41 dil içinde en ucuzdan 20. sırada.
 
 Türkçe sürümü:
@@ -24,6 +26,8 @@ Türkçe sürümü:
 
 ## Neden
 
+![Neden: Aşağıdaki → A | şa | ğı | daki · 4; özetleyin → ö | zet | ley | in · 4; e-postasını → e | -post | asını · 3](/token-turkce-gpt-tr-2.jpg)
+
 Tokenizer çoğunlukla İngilizce metinle eğitilir: " polite" veya " customer" gibi kelimeler tek token iken eklerle uzayan Türkçe kelimeler parçalara bölünür:
 
 - Aşağıdaki → `A | şa | ğı | daki` · 4
@@ -40,6 +44,8 @@ Girdi için 1 milyon token başına 2 $ ücret alan bir modelde bu istemi 1 mily
 
 ## Nasıl tasarruf edilir
 
+![Nasıl tasarruf edilir: Sistem istemini ve sabit talimatları İngilizce yazın; yalnızca kullanıcı girdisi Türkçe kalsın.; Ara adımları ](/token-turkce-gpt-nasl-tasarruf-edilir-tr.jpg)
+
 - Sistem istemini ve sabit talimatları İngilizce yazın; yalnızca kullanıcı girdisi Türkçe kalsın.
 - Ara adımları (sınıflandırma, çıkarma, araç çağrıları) İngilizce ya da JSON olarak alın, yalnızca son yanıt Türkçe olsun.
 - İstemin sabit kısmı için prompt caching kullanın.
@@ -51,3 +57,4 @@ Girdi için 1 milyon token başına 2 $ ücret alan bir modelde bu istemi 1 mily
 - Çeviri, kontrol edilmiş makine çevirisine dayanır.
 
 41 dilin tüm sonuçları (İngilizce): [41 dil karşılaştırması](/blog/token-cost-by-language)
+<!-- autoimg -->

@@ -65,14 +65,14 @@
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/blog-language-tax-chart-v4.png" />
+  <meta property="og:image" content="https://tokensave.app/token-cost-by-language-en.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/blog-language-tax-chart-v4.png" />
+  <meta name="twitter:image" content="https://tokensave.app/token-cost-by-language-en.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Same prompt, 41 languages: GPT token cost compared", "description": "One prompt in 41 languages on GPT's o200k tokenizer: from 1.03× (Chinese) to 2.44× the tokens of English.", "inLanguage": "en", "url": "https://tokensave.app/blog/token-cost-by-language", "mainEntityOfPage": "https://tokensave.app/blog/token-cost-by-language", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/blog-language-tax-chart-v4.png", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Same prompt, 41 languages: GPT token cost compared", "item": "https://tokensave.app/blog/token-cost-by-language"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Same prompt, 41 languages: GPT token cost compared", "description": "One prompt in 41 languages on GPT's o200k tokenizer: from 1.03× (Chinese) to 2.44× the tokens of English.", "inLanguage": "en", "url": "https://tokensave.app/blog/token-cost-by-language", "mainEntityOfPage": "https://tokensave.app/blog/token-cost-by-language", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/token-cost-by-language-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Same prompt, 41 languages: GPT token cost compared", "item": "https://tokensave.app/blog/token-cost-by-language"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -136,7 +136,8 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">Same prompt, 41 languages: GPT token cost compared</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · Oct 1, 2026 (updated Oct 2)</p>
-  <p>I translated one ordinary customer-support prompt into 41 languages and counted tokens with <strong>o200k_base</strong>, the tokenizer behind GPT-4o and every newer OpenAI model English needs 34 tokens. The same request costs anywhere from <strong>1.03×</strong> (Simplified Chinese) to <strong>2.44×</strong> (Punjabi).</p>
+  <p><img loading="lazy" width="1200" height="630" alt="Same prompt, 41 languages: GPT token cost compared" src="/token-cost-by-language-en.jpg" /></p>
+<p>I translated one ordinary customer-support prompt into 41 languages and counted tokens with <strong>o200k_base</strong>, the tokenizer behind GPT-4o and every newer OpenAI model English needs 34 tokens. The same request costs anywhere from <strong>1.03×</strong> (Simplified Chinese) to <strong>2.44×</strong> (Punjabi).</p>
 <p>The English prompt:</p>
 <blockquote>
 <p>Please summarize the customer email below in three bullet points and suggest a polite reply. The customer says the order arrived two days late and one item was missing from the box.</p>
@@ -402,6 +403,7 @@
 </table></div>
 <p><img loading="lazy" width="960" height="1430" alt="Extra tokens per language vs English" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Why some languages cost more</h2>
+<p><img loading="lazy" width="1200" height="593" alt="Why some languages cost more: Czech; Polish; Hindi" src="/token-cost-by-language-why-some-languages-cost-more-en.jpg" /></p>
 <p>Tokenizers are trained mostly on English, so common English words are a single token (" polite", " customer"). Words in other languages are split into pieces, and endings or diacritics often become tokens of their own:</p>
 <ul>
 <li>Czech: navrhněte → <code>nav | r | hn | ě | te</code></li>
@@ -413,6 +415,7 @@
 <h2>What it costs</h2>
 <p>With a model at $2 per million input tokens, sending this prompt one million times costs $68 in English, $98 in Korean, $122 in Japanese and $136 in Czech. If the model also answers in that language, the same multiplier applies to output tokens, which usually cost 4–5× more.</p>
 <h2>How to spend fewer tokens</h2>
+<p><img loading="lazy" width="1200" height="796" alt="How to spend fewer tokens: Send the prompt in English and ask for the answer in your language (the Save tokens button does this in one cl" src="/token-cost-by-language-how-to-spend-fewer-tokens-en.jpg" /></p>
 <ul>
 <li>Send the prompt in English and ask for the answer in your language (the Save tokens button does this in one click).</li>
 <li>Write the system prompt and fixed instructions in English; keep only user input in the user's language.</li>
@@ -428,6 +431,7 @@
 <h2>Read it in your language</h2>
 <p><a href="/cs/blog/cestina-tokeny-gpt">Čeština</a> · <a href="/pl/blog/polski-tokeny-gpt">Polski</a> · <a href="/ja/blog/nihongo-tokens-gpt">日本語</a> · <a href="/ko/blog/korean-tokens-gpt">한국어</a> · <a href="/zh-cn/blog/zhongwen-token-gpt">简体中文</a> · <a href="/zh-tw/blog/zhongwen-fanti-token-gpt">繁體中文</a> · <a href="/es/blog/tokens-espanol-gpt">Español</a> · <a href="/pt/blog/tokens-portugues-gpt">Português</a> · <a href="/fr/blog/tokens-francais-gpt">Français</a> · <a href="/de/blog/tokens-deutsch-gpt">Deutsch</a> · <a href="/it/blog/token-italiano-gpt">Italiano</a> · <a href="/ru/blog/tokeny-russkiy-gpt">Русский</a> · <a href="/uk/blog/tokeny-ukrainska-gpt">Українська</a> · <a href="/tr/blog/token-turkce-gpt">Türkçe</a> · <a href="/ar/blog/tokens-arabic-gpt">العربية</a> · <a href="/fa/blog/token-farsi-gpt">فارسی</a> · <a href="/hi/blog/tokens-hindi-gpt">हिन्दी</a> · <a href="/id/blog/token-bahasa-indonesia-gpt">Bahasa Indonesia</a> · <a href="/vi/blog/token-tieng-viet-gpt">Tiếng Việt</a> · <a href="/th/blog/token-phasa-thai-gpt">ไทย</a> · <a href="/nl/blog/tokens-nederlands-gpt">Nederlands</a> · <a href="/bn/blog/token-bangla-gpt">বাংলা</a> · <a href="/ur/blog/token-urdu-gpt">اردو</a> · <a href="/fil/blog/token-filipino-gpt">Filipino</a> · <a href="/sv/blog/tokens-svenska-gpt">Svenska</a> · <a href="/he/blog/tokens-ivrit-gpt">עברית</a> · <a href="/el/blog/tokens-ellinika-gpt">Ελληνικά</a> · <a href="/ro/blog/tokeni-romana-gpt">Română</a> · <a href="/hu/blog/tokenek-magyar-gpt">Magyar</a> · <a href="/da/blog/tokens-dansk-gpt">Dansk</a> · <a href="/fi/blog/tokenit-suomi-gpt">Suomi</a> · <a href="/no/blog/tokens-norsk-gpt">Norsk</a> · <a href="/sk/blog/tokeny-slovencina-gpt">Slovenčina</a> · <a href="/mr/blog/marathi-tokens-gpt">मराठी</a> · <a href="/gu/blog/gujarati-tokens-gpt">ગુજરાતી</a> · <a href="/kn/blog/kannada-tokens-gpt">ಕನ್ನಡ</a> · <a href="/ml/blog/malayalam-tokens-gpt">മലയാളം</a> · <a href="/ta/blog/tamil-tokens-gpt">தமிழ்</a> · <a href="/te/blog/telugu-tokens-gpt">తెలుగు</a> · <a href="/pa/blog/punjabi-tokens-gpt">ਪੰਜਾਬੀ</a></p>
 <p>The original write-up and discussion are on <a href="https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m" target="_blank" rel="noopener">DEV</a>.</p>
+<!-- autoimg -->
 
         <h2>More articles</h2>
         <ul><li><a href="/blog/chatgpt-free-vs-paid">ChatGPT Free vs Paid (2026): What You Actually Get for $0, $8, $20 and $100</a></li><li><a href="/blog/ai-game-cost-calculator-review">I Ran My Released Game Through My AI Game Cost Calculator: Prediction vs Reality</a></li><li><a href="/blog/reasoning-models-cost">Reasoning Models: When Thinking Is Worth Paying For</a></li><li><a href="/blog/rag-vs-long-context-cost">RAG vs Long Context: What It Costs to Ask Questions About Big Documents</a></li><li><a href="/blog/prompt-caching-explained">Prompt Caching Explained: Cut Repeated Input Costs by Around 90%</a></li></ul>

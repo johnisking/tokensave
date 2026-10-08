@@ -1,3 +1,5 @@
+![Límites de uso de Codex en ChatGPT Plus, Pro y Business](/codex-limites-de-uso-es.jpg)
+
 Codex, el agente de programación de OpenAI, viene incluido en los planes Plus, Pro y Business de ChatGPT, y es justo ahí donde la mayoría de la gente choca hoy con los límites de uso. Los límites de uso de Codex se comparten con ChatGPT Work, funcionan con una ventana de 5 horas y un tope semanal, y se agotan a velocidades muy distintas según el modelo. Aquí te explicamos cómo funcionan y cómo usar Codex de ChatGPT sacándole más partido.
 
 ## Qué planes incluyen Codex
@@ -13,6 +15,8 @@ El uso de Codex (y de ChatGPT Work) está incluido en **Plus** ($20), **Pro** ($
 Codex y ChatGPT Work consumen de la **misma cuota**.
 
 ## Cuánto uso tienes según el modelo
+
+![Cuánto uso tienes según el modelo: Modelo, Plus, Pro (nivel 5×)](/codex-limites-de-uso-cuanto-uso-tienes-segun-el-modelo-es.jpg)
 
 El centro de ayuda de OpenAI da una estimación de mensajes por ventana de 5 horas. El modelo que eliges cambia la cifra enormemente:
 
@@ -37,6 +41,8 @@ El centro de ayuda de OpenAI remite a **Settings → Usage** en ChatGPT, donde v
 
 ## Cuando llegas al límite
 
+![Cuando llegas al límite: Espera al reinicio. La ventana de 5 horas se recarga en cuestión de horas.; Usa un reinicio acumulado o compra](/codex-limites-de-uso-cuando-llegas-al-limite-es.jpg)
+
 1. **Espera al reinicio.** La ventana de 5 horas se recarga en cuestión de horas.
 2. **Usa un reinicio acumulado o compra un reinicio instantáneo**, disponible en cuentas Plus y Pro que cumplan los requisitos.
 3. **Usa créditos** para seguir trabajando en los planes que los admiten.
@@ -44,6 +50,8 @@ El centro de ayuda de OpenAI remite a **Settings → Usage** en ChatGPT, donde v
 5. **Usa una clave de API** con facturación por uso para el trabajo que exceda tu cuota.
 
 ## Cómo estirar tu cuota
+
+![Cómo estirar tu cuota: Usa por defecto GPT-5.6 Sol o Terra. Reserva GPT-6 Astra para los problemas difíciles en los que notes la dife](/codex-limites-de-uso-como-estirar-tu-cuota-es.jpg)
 
 - **Usa por defecto GPT-5.6 Sol o Terra.** Reserva GPT-6 Astra para los problemas difíciles en los que notes la diferencia: consume varias veces más cuota.
 - **Usa Luna para ediciones simples**, renombrados y código repetitivo.
@@ -59,3 +67,4 @@ Muchos de estos hábitos también sirven para Claude Code: consulta [Cómo ahorr
 Ambos están incluidos en planes de $20, $100 y $200 con sistemas de límites parecidos. La [comparativa ChatGPT Pro vs Claude Max](/blog/chatgpt-pro-vs-claude-max) (en inglés) explica las diferencias, y la [calculadora de agentes de programación](/es/agents) compara los costos mensuales de la API con cada plan.
 
 *Los límites cambian a menudo. La [página de ayuda de OpenAI sobre el uso de Codex y Work](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex) tiene las cifras actualizadas.*
+<!-- autoimg -->

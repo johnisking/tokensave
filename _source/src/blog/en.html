@@ -1,3 +1,4 @@
+<p><img loading="lazy" width="1200" height="630" alt="Same prompt, 41 languages: GPT token cost compared" src="/token-cost-by-language-en.jpg" /></p>
 <p>I translated one ordinary customer-support prompt into 41 languages and counted tokens with <strong>o200k_base</strong>, the tokenizer behind GPT-4o and every newer OpenAI model English needs 34 tokens. The same request costs anywhere from <strong>1.03×</strong> (Simplified Chinese) to <strong>2.44×</strong> (Punjabi).</p>
 <p>The English prompt:</p>
 <blockquote>
@@ -264,6 +265,7 @@
 </table></div>
 <p><img loading="lazy" width="960" height="1430" alt="Extra tokens per language vs English" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Why some languages cost more</h2>
+<p><img loading="lazy" width="1200" height="593" alt="Why some languages cost more: Czech; Polish; Hindi" src="/token-cost-by-language-why-some-languages-cost-more-en.jpg" /></p>
 <p>Tokenizers are trained mostly on English, so common English words are a single token (" polite", " customer"). Words in other languages are split into pieces, and endings or diacritics often become tokens of their own:</p>
 <ul>
 <li>Czech: navrhněte → <code>nav | r | hn | ě | te</code></li>
@@ -275,6 +277,7 @@
 <h2>What it costs</h2>
 <p>With a model at $2 per million input tokens, sending this prompt one million times costs $68 in English, $98 in Korean, $122 in Japanese and $136 in Czech. If the model also answers in that language, the same multiplier applies to output tokens, which usually cost 4–5× more.</p>
 <h2>How to spend fewer tokens</h2>
+<p><img loading="lazy" width="1200" height="796" alt="How to spend fewer tokens: Send the prompt in English and ask for the answer in your language (the Save tokens button does this in one cl" src="/token-cost-by-language-how-to-spend-fewer-tokens-en.jpg" /></p>
 <ul>
 <li>Send the prompt in English and ask for the answer in your language (the Save tokens button does this in one click).</li>
 <li>Write the system prompt and fixed instructions in English; keep only user input in the user's language.</li>
@@ -290,3 +293,4 @@
 <h2>Read it in your language</h2>
 <p><a href="/cs/blog/cestina-tokeny-gpt">Čeština</a> · <a href="/pl/blog/polski-tokeny-gpt">Polski</a> · <a href="/ja/blog/nihongo-tokens-gpt">日本語</a> · <a href="/ko/blog/korean-tokens-gpt">한국어</a> · <a href="/zh-cn/blog/zhongwen-token-gpt">简体中文</a> · <a href="/zh-tw/blog/zhongwen-fanti-token-gpt">繁體中文</a> · <a href="/es/blog/tokens-espanol-gpt">Español</a> · <a href="/pt/blog/tokens-portugues-gpt">Português</a> · <a href="/fr/blog/tokens-francais-gpt">Français</a> · <a href="/de/blog/tokens-deutsch-gpt">Deutsch</a> · <a href="/it/blog/token-italiano-gpt">Italiano</a> · <a href="/ru/blog/tokeny-russkiy-gpt">Русский</a> · <a href="/uk/blog/tokeny-ukrainska-gpt">Українська</a> · <a href="/tr/blog/token-turkce-gpt">Türkçe</a> · <a href="/ar/blog/tokens-arabic-gpt">العربية</a> · <a href="/fa/blog/token-farsi-gpt">فارسی</a> · <a href="/hi/blog/tokens-hindi-gpt">हिन्दी</a> · <a href="/id/blog/token-bahasa-indonesia-gpt">Bahasa Indonesia</a> · <a href="/vi/blog/token-tieng-viet-gpt">Tiếng Việt</a> · <a href="/th/blog/token-phasa-thai-gpt">ไทย</a> · <a href="/nl/blog/tokens-nederlands-gpt">Nederlands</a> · <a href="/bn/blog/token-bangla-gpt">বাংলা</a> · <a href="/ur/blog/token-urdu-gpt">اردو</a> · <a href="/fil/blog/token-filipino-gpt">Filipino</a> · <a href="/sv/blog/tokens-svenska-gpt">Svenska</a> · <a href="/he/blog/tokens-ivrit-gpt">עברית</a> · <a href="/el/blog/tokens-ellinika-gpt">Ελληνικά</a> · <a href="/ro/blog/tokeni-romana-gpt">Română</a> · <a href="/hu/blog/tokenek-magyar-gpt">Magyar</a> · <a href="/da/blog/tokens-dansk-gpt">Dansk</a> · <a href="/fi/blog/tokenit-suomi-gpt">Suomi</a> · <a href="/no/blog/tokens-norsk-gpt">Norsk</a> · <a href="/sk/blog/tokeny-slovencina-gpt">Slovenčina</a> · <a href="/mr/blog/marathi-tokens-gpt">मराठी</a> · <a href="/gu/blog/gujarati-tokens-gpt">ગુજરાતી</a> · <a href="/kn/blog/kannada-tokens-gpt">ಕನ್ನಡ</a> · <a href="/ml/blog/malayalam-tokens-gpt">മലയാളം</a> · <a href="/ta/blog/tamil-tokens-gpt">தமிழ்</a> · <a href="/te/blog/telugu-tokens-gpt">తెలుగు</a> · <a href="/pa/blog/punjabi-tokens-gpt">ਪੰਜਾਬੀ</a></p>
 <p>The original write-up and discussion are on <a href="https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m" target="_blank" rel="noopener">DEV</a>.</p>
+<!-- autoimg -->

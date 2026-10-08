@@ -25,14 +25,14 @@
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image" content="https://tokensave.app/how-to-estimate-ai-api-cost-en.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <meta name="twitter:image" content="https://tokensave.app/how-to-estimate-ai-api-cost-en.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "How to Estimate Your AI API Bill Before You Build", "description": "A simple formula and a worked example for estimating monthly AI API cost, plus the multipliers most estimates miss.", "inLanguage": "en", "url": "https://tokensave.app/blog/how-to-estimate-ai-api-cost", "mainEntityOfPage": "https://tokensave.app/blog/how-to-estimate-ai-api-cost", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "How to Estimate Your AI API Bill Before You Build", "item": "https://tokensave.app/blog/how-to-estimate-ai-api-cost"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "How to Estimate Your AI API Bill Before You Build", "description": "A simple formula and a worked example for estimating monthly AI API cost, plus the multipliers most estimates miss.", "inLanguage": "en", "url": "https://tokensave.app/blog/how-to-estimate-ai-api-cost", "mainEntityOfPage": "https://tokensave.app/blog/how-to-estimate-ai-api-cost", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/how-to-estimate-ai-api-cost-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "How to Estimate Your AI API Bill Before You Build", "item": "https://tokensave.app/blog/how-to-estimate-ai-api-cost"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -96,7 +96,8 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">How to Estimate Your AI API Bill Before You Build</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
-  <p>Most surprise AI bills come from one mistake: estimating cost from the price list instead of from real usage. The price per million tokens looks tiny, but the number of tokens a real app sends is usually far larger than people expect. Here is a simple method to estimate your monthly bill before you write any code.</p>
+  <p><img loading="lazy" width="1200" height="630" alt="How to Estimate Your AI API Bill Before You Build" src="/how-to-estimate-ai-api-cost-en.jpg" /></p>
+<p>Most surprise AI bills come from one mistake: estimating cost from the price list instead of from real usage. The price per million tokens looks tiny, but the number of tokens a real app sends is usually far larger than people expect. Here is a simple method to estimate your monthly bill before you write any code.</p>
 <h2>The formula</h2>
 <p>Every text model is billed the same way:</p>
 <blockquote>
@@ -113,6 +114,7 @@
 <h2>Step 2: multiply by volume</h2>
 <p>Estimate requests per month. For a chat product, that is users × conversations × messages per conversation.</p>
 <h2>Step 3: add the multipliers people forget</h2>
+<p><img loading="lazy" width="1200" height="796" alt="Step 3: add the multipliers people forget: Conversation history. In a chat, every new message re-sends the whole conversation. Message 10 of a conversati" src="/how-to-estimate-ai-api-cost-step-3-add-the-multipliers-people-forget-en.jpg" /></p>
 <ul>
 <li><strong>Conversation history.</strong> In a chat, every new message re-sends the whole conversation. Message 10 of a conversation includes messages 1 to 9. Average input per message can be 5–10 times the size of a single message.</li>
 <li><strong>Retries and failures.</strong> Timeouts, validation errors and "regenerate" clicks all cost tokens. Add 5–15%.</li>
@@ -120,6 +122,7 @@
 <li><strong>Reasoning.</strong> Reasoning models write hidden thinking that is billed as output. It can be several times longer than the visible answer.</li>
 </ul>
 <h2>A worked example</h2>
+<p><img loading="lazy" width="1200" height="686" alt="A worked example: Model, Input $/1M, Output $/1M, Monthly cost" src="/how-to-estimate-ai-api-cost-a-worked-example-en.jpg" /></p>
 <p>A customer-support bot handles 10,000 conversations a month. Measured per conversation: 1,500 input tokens and 300 output tokens.</p>
 <p>That is 15 million input tokens and 3 million output tokens a month. Using API prices checked on October 1, 2026:</p>
 <div class="overflow-x-auto"><table>
@@ -166,6 +169,7 @@
 </table></div>
 <p>The same workload ranges from $3 to $120 depending on the model. Now apply the multipliers: if conversations average 6 messages and history is re-sent each time, input could easily triple, and the GPT-6 Sol bill moves from $60 toward $150.</p>
 <h2>Ways to bring the number down</h2>
+<p><img loading="lazy" width="1200" height="902" alt="Ways to bring the number down: Use prompt caching. Many providers bill repeated input (a fixed system prompt, a long document) at a fraction " src="/how-to-estimate-ai-api-cost-ways-to-bring-the-number-down-en.jpg" /></p>
 <ol>
 <li><strong>Use prompt caching.</strong> Many providers bill repeated input (a fixed system prompt, a long document) at a fraction of the normal price, often around 10%. Put the fixed part of your prompt first so it can be cached.</li>
 <li><strong>Route by difficulty.</strong> Send easy requests to a small model and only hard ones to a large model.</li>
@@ -176,6 +180,7 @@
 <h2>Check your own numbers</h2>
 <p>The <a href="/">token counter</a> turns any text into a cost for 30+ models at once, and the <a href="/plans">Subscription vs API calculator</a> shows whether a monthly plan would be cheaper than paying per token.</p>
 <p><em>Prices change often. Always confirm on the provider's pricing page before a large job.</em></p>
+<!-- autoimg -->
 
         <h2>More articles</h2>
         <ul><li><a href="/blog/chatgpt-free-vs-paid">ChatGPT Free vs Paid (2026): What You Actually Get for $0, $8, $20 and $100</a></li><li><a href="/blog/ai-game-cost-calculator-review">I Ran My Released Game Through My AI Game Cost Calculator: Prediction vs Reality</a></li><li><a href="/blog/how-to-count-tokens-gpt-claude-gemini">How to Count Tokens for GPT, Claude and Gemini</a></li><li><a href="/blog/how-many-tokens-does-code-use">How Many Tokens Does Code Use? Indentation, Comments and Minification</a></li><li><a href="/blog/gpt-tokenizer-cl100k-vs-o200k">How GPT&#x27;s New Tokenizer Cut Costs in 40 Languages</a></li></ul>

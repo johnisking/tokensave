@@ -1,3 +1,4 @@
+<p><img loading="lazy" width="1200" height="630" alt="A magyar 1,74× annyi tokent használ a GPT-ben, mint az angol" src="/tokenek-magyar-gpt-hu.jpg" /></p>
 <p>Ugyanazt az ügyfélszolgálati promptot lefordítottam 41 nyelvre, és a tokeneket az o200k_base-szel, az OpenAI jelenlegi tokenizálójával (GPT-4o és újabbak) számoltam meg. Angolul 34 token kell, magyarul <strong>59 — ez 1,74× annyi</strong>, 41 nyelv közül a 30. helyen a legolcsóbbtól számítva.</p>
 <p>A magyar változat:</p>
 <blockquote>
@@ -84,6 +85,7 @@
 </table></div>
 <p><img loading="lazy" width="960" height="1430" alt="Eredmények" src="/blog-language-tax-chart-v4.png" /></p>
 <h2>Miért</h2>
+<p><img loading="lazy" width="1200" height="593" alt="Miért: ügyfél-e-mailt → ügy | fél | -e | -mail | t · 5; dobozból → do | bo | zb | ól · 4; hiányzott → hi | ány | zott" src="/tokenek-magyar-gpt-hu-2.jpg" /></p>
 <p>A tokenizáló főleg angol szövegből tanul: az olyan szavak, mint a " polite" vagy a " customer", egyetlen tokenek, a toldalékokkal hosszú magyar szavak viszont darabokra esnek:</p>
 <ul>
 <li>ügyfél-e-mailt → <code>ügy | fél | -e | -mail | t</code> · 5</li>
@@ -95,6 +97,7 @@
 <h2>Pénzben</h2>
 <p>Egy 1 millió bemeneti tokenenként 2 dolláros modellnél ezt a promptot egymilliószor elküldeni angolul 68 dollár, magyarul 118 dollár. Ha a válasz is magyarul jön, ugyanez a szorzó érvényes a kimeneti tokenekre, amelyek általában 4–5× drágábbak.</p>
 <h2>Hogyan spórolj</h2>
+<p><img loading="lazy" width="1200" height="658" alt="Hogyan spórolj: A rendszerpromptot és az állandó utasításokat írd angolul; csak a felhasználó bemenete maradjon magyarul.; A k" src="/tokenek-magyar-gpt-hogyan-sporolj-hu.jpg" /></p>
 <ul>
 <li>A rendszerpromptot és az állandó utasításokat írd angolul; csak a felhasználó bemenete maradjon magyarul.</li>
 <li>A köztes lépéseket (osztályozás, kinyerés, eszközhívások) kérd angolul vagy JSON-ban, és csak a végső választ magyarul.</li>
@@ -107,3 +110,4 @@
 <li>A fordítás ellenőrzött gépi fordításon alapul.</li>
 </ul>
 <p>Mind a 41 nyelv eredménye (angolul): <a href="/blog/token-cost-by-language">41 nyelv összehasonlítása</a></p>
+<!-- autoimg -->

@@ -1,6 +1,10 @@
+![LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek](/llm-api-pricing-comparison-en.jpg)
+
 There are now dozens of language models with public API prices, and the same request can cost 150 times more on one than on another. This page lists the current list prices of 22 popular models from OpenAI, Anthropic, Google, xAI, DeepSeek, Mistral, Alibaba and Moonshot side by side, with what a typical request actually costs, and how to choose.
 
 ## API prices compared
+
+![API prices compared: Model, Input / 1M, Output / 1M, 10,000 requests](/llm-api-pricing-comparison-api-prices-compared-en.jpg)
 
 Price per million tokens, sorted from cheapest to most expensive for a typical request (2,000 input tokens and 500 output tokens). The last column is what 10,000 such requests cost.
 
@@ -53,6 +57,8 @@ List prices in US dollars, checked October 1, 2026. Prices change often, sometim
 
 ## What is the cheapest LLM API?
 
+![What is the cheapest LLM API?: Write 20–50 real test inputs with the answers you expect.; Run them through two or three models from the budge](/llm-api-pricing-comparison-what-is-the-cheapest-llm-api-en.jpg)
+
 On list price, GPT-5 nano and GPT-6 Luna are the cheapest of the models above, at $0.05 and $0.10 per million input tokens. But the cheapest model that is good enough for your task is what matters. A practical approach:
 
 1. Write 20–50 real test inputs with the answers you expect.
@@ -63,3 +69,4 @@ On list price, GPT-5 nano and GPT-6 Luna are the cheapest of the models above, a
 ## Estimate your own bill
 
 Paste a real prompt into the [token counter](/) to see its cost on every model at once, or read [How to estimate your AI API bill](/blog/how-to-estimate-ai-api-cost) for the full method. For subscriptions versus the API, use the [Subscription vs API calculator](/plans).
+<!-- autoimg -->

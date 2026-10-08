@@ -1,3 +1,5 @@
+![Svenska kostar 1,32× så många tokens som engelska i GPT](/tokens-svenska-gpt-sv.jpg)
+
 Jag översatte samma kundtjänstprompt till 41 språk och räknade tokens med o200k_base, OpenAI:s nuvarande tokenizer (GPT-4o och senare). Engelska behöver 34 tokens, svenska **45 — 1,32× så många**, plats 12 av 41 (1 = billigast).
 
 Den svenska versionen:
@@ -24,6 +26,8 @@ Den svenska versionen:
 
 ## Varför
 
+![Varför: Sammanfatta → Sam | man | f | atta · 4; beställningen → best | äll | ningen · 3; saknades → sak | n | ades · 3](/tokens-svenska-gpt-varfor-sv.jpg)
+
 Tokenizern lär sig mest från engelsk text: ord som " polite" eller " customer" är en enda token, medan många svenska ord – särskilt sammansättningar – delas upp:
 
 - Sammanfatta → `Sam | man | f | atta` · 4
@@ -40,6 +44,8 @@ Med en modell för 2 $ per miljon input-tokens kostar det 68 $ på engelska och 
 
 ## Så sparar du
 
+![Så sparar du: Skriv systemprompten och fasta instruktioner på engelska; låt bara användarens input vara på svenska.; Be om m](/tokens-svenska-gpt-sa-sparar-du-sv.jpg)
+
 - Skriv systemprompten och fasta instruktioner på engelska; låt bara användarens input vara på svenska.
 - Be om mellansteg (klassificering, extraktion, verktygsanrop) på engelska eller som JSON, och bara slutsvaret på svenska.
 - Använd prompt caching för den fasta delen av prompten.
@@ -51,3 +57,4 @@ Med en modell för 2 $ per miljon input-tokens kostar det 68 $ på engelska och 
 - Översättningen bygger på en granskad maskinöversättning.
 
 Alla resultat för 41 språk (på engelska): [jämförelse av 41 språk](/blog/token-cost-by-language)
+<!-- autoimg -->

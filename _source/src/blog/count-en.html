@@ -1,3 +1,4 @@
+<p><img loading="lazy" width="1200" height="630" alt="How to Count Tokens for GPT, Claude and Gemini" src="/how-to-count-tokens-gpt-claude-gemini-en.jpg" /></p>
 <p>"How many tokens is this?" has a different answer depending on which model you ask. OpenAI, Anthropic and Google each use their own tokenizer, so the same paragraph can be 100 tokens on one model and 130 on another. Here is how to get an exact count for each, and how to get a quick estimate without writing code.</p>
 <h2>Why the counts differ</h2>
 <p>A tokenizer splits text into pieces from a fixed vocabulary that was built from the company's own training data. Different vocabularies mean different splits. A word that is one token for GPT may be two for Claude, and the other way round. The differences are usually small for plain English and larger for code, numbers and other languages.</p>
@@ -22,6 +23,7 @@ console.log(enc.encode(&quot;Your text here&quot;).length);
 <h2>Gemini (Google): use countTokens</h2>
 <p>The Gemini API has a <code>countTokens</code> method that returns the token count for a prompt without generating anything. Like Anthropic's endpoint, it uses the real tokenizer, and responses from real requests include <code>usageMetadata</code> with the exact counts.</p>
 <h2>Quick estimates without code</h2>
+<p><img loading="lazy" width="1200" height="796" alt="Quick estimates without code: Paste it into the TokenSave token counter.; GPT models are counted with the real o200k tokenizer, running in y" src="/how-to-count-tokens-gpt-claude-gemini-quick-estimates-without-code-en.jpg" /></p>
 <p>If you just want to know roughly how many tokens your text is, and what it costs:</p>
 <ol>
 <li>Paste it into the <a href="/">TokenSave token counter</a>.</li>
@@ -31,6 +33,7 @@ console.log(enc.encode(&quot;Your text here&quot;).length);
 </ol>
 <p>For English, a rough mental rule also works: about 1.1–1.3 tokens per word on current GPT models. See <a href="/blog/tokens-per-word">Tokens per word, measured</a>.</p>
 <h2>Which count should you trust?</h2>
+<p><img loading="lazy" width="1200" height="658" alt="Which count should you trust?: For budgeting; For hard limits (context window, maximum output, rate limits); For billing disputes or exact co" src="/how-to-count-tokens-gpt-claude-gemini-which-count-should-you-trust-en.jpg" /></p>
 <ul>
 <li><strong>For budgeting:</strong> a calibrated estimate is fine. Differences between models are usually smaller than the uncertainty in how much your app will be used.</li>
 <li><strong>For hard limits</strong> (context window, maximum output, rate limits): use the provider's own counting method, because going one token over a limit causes an error.</li>
@@ -42,3 +45,4 @@ console.log(enc.encode(&quot;Your text here&quot;).length);
 <li><a href="/blog/llm-api-pricing-comparison">LLM API pricing compared</a></li>
 <li><a href="/blog/how-to-estimate-ai-api-cost">How to estimate your AI API bill</a></li>
 </ul>
+<!-- autoimg -->

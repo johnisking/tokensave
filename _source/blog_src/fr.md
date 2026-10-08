@@ -1,3 +1,5 @@
+![Le français consomme 1,29× plus de tokens que l’anglais dans GPT](/tokens-francais-gpt-fr.jpg)
+
 J’ai traduit le même prompt de service client dans 41 langues et compté les tokens avec o200k_base, le tokeniseur actuel d’OpenAI (GPT-4o et suivants). L’anglais demande 34 tokens ; le français **44, soit 1,29× l’anglais**, rang 9 sur 41 (1 = le moins cher).
 
 La version française :
@@ -24,6 +26,8 @@ La version française :
 
 ## Pourquoi
 
+![Pourquoi: Résumez → Rés | ume | z · 3; ci-dessous → ci | -dessous · 2; proposez → propose | z · 2](/tokens-francais-gpt-pourquoi-fr.jpg)
+
 Le tokeniseur apprend surtout sur du texte anglais : des mots comme « polite » ou « customer » tiennent en un seul token, alors que beaucoup de mots français sont découpés en morceaux :
 
 - Résumez → `Rés | ume | z` · 3
@@ -40,6 +44,8 @@ Avec un modèle à 2 $ le million de tokens d’entrée, envoyer ce prompt un mi
 
 ## Comment économiser
 
+![Comment économiser: Rédigez le prompt système et les consignes fixes en anglais ; gardez en français seulement ce que saisit l’uti](/tokens-francais-gpt-comment-economiser-fr.jpg)
+
 - Rédigez le prompt système et les consignes fixes en anglais ; gardez en français seulement ce que saisit l’utilisateur.
 - Demandez les étapes intermédiaires (classification, extraction, appels d’outils) en anglais ou en JSON, et seule la réponse finale en français.
 - Utilisez le prompt caching pour la partie fixe du prompt.
@@ -51,3 +57,4 @@ Avec un modèle à 2 $ le million de tokens d’entrée, envoyer ce prompt un mi
 - La traduction repose sur une traduction automatique relue.
 
 Résultats complets des 41 langues (en anglais) : [comparaison de 41 langues](/blog/token-cost-by-language)
+<!-- autoimg -->

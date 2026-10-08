@@ -1,3 +1,5 @@
+![Write Shorter Prompts Without Losing Quality: Measured Before and After](/write-shorter-prompts-en.jpg)
+
 Polite, chatty prompts feel natural, but every extra word is billed, and in an app the same system prompt is sent thousands of times a day. We rewrote two typical prompts to say the same thing in fewer words and measured them on GPT's o200k tokenizer. Both shrank by roughly 70–80%, without losing anything the model needs.
 
 ## Example 1: a one-off request
@@ -45,6 +47,8 @@ At one million requests a month, that is 87 million fewer input tokens. At $2 pe
 
 ## What to keep, or add
 
+![What to keep, or add: Specific constraints; Context the model cannot guess; Examples, when the output must follow an exact pattern. ](/write-shorter-prompts-what-to-keep-or-add-en.jpg)
+
 Shorter is not always better. These are worth their tokens:
 
 - **Specific constraints:** length, format, number of items, audience, reading level.
@@ -65,3 +69,4 @@ Test it. Run the old and new prompts on the same 20–50 real inputs and compare
 ## Measure your prompts
 
 Paste a prompt into the [token counter](/) to see its token count and cost per request on 30+ models. The *Save tokens* button also cleans up extra spaces and filler, and can translate non-English prompts to English on your device.
+<!-- autoimg -->

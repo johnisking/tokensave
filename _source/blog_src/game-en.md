@@ -1,8 +1,12 @@
+![How Much Does It Cost to Make a Game with AI? (2026)](/ai-game-development-cost-en.jpg)
+
 How much does it cost to make a 2D game on your own with AI tools? Short answer: **about $130–180 and 2–3 weeks for a small mobile game**. Most of that money goes to an **AI coding subscription**, not to art.
 
 Every number below comes from the [AI game cost calculator](/ai-game-cost-calculator). Its size anchors are real solo mobile games built with AI coding agents: a small one took about 2 weeks, a medium one about 4 and a large one about 6. Prices are as of October 5, 2026.
 
 ## Cost and time by size (merge game)
+
+![Cost and time by size (merge game): Size, Time, Images, Cost](/ai-game-development-cost-cost-and-time-by-size-merge-game-en.jpg)
 
 Tool stack: **Typical** (Midjourney + Suno + ElevenLabs + Claude Max 5×), released on Android.
 
@@ -16,6 +20,8 @@ Tool stack: **Typical** (Midjourney + Suno + ElevenLabs + Claude Max 5×), relea
 The medium range is wide because a project that runs past one month pays a second month of subscriptions. Finish in 26 days and you pay one month; take 43 days and you pay two.
 
 ## Where the money goes
+
+![Where the money goes: Item, Cost, Share](/ai-game-development-cost-where-the-money-goes-en.jpg)
 
 A small merge game with the Typical stack:
 
@@ -44,6 +50,8 @@ Same small size, very different amounts of art and code:
 An RPG has more characters and animation frames, so it needs about 38% more images than a merge game, and the longer schedule can add a month of subscriptions.
 
 ## Best value, Typical and Top tier stacks
+
+![Best value, Typical and Top tier stacks: Best value; Typical; Top tier](/ai-game-development-cost-best-value-typical-and-top-tier-stacks-en.jpg)
 
 The calculator switches between three stacks with one click:
 
@@ -74,3 +82,4 @@ Tools you can pick in the calculator:
 ## Get the prompts too
 
 The calculator does more than price the project. Pick a genre, size, engine and platform and it writes a **dev kickoff prompt, art prompts, music and SFX prompts and a trailer storyboard** you can paste straight into Claude Code or Midjourney. It covers 33 genres and 21 engines, including Unity, Godot, Unreal and GameMaker.
+<!-- autoimg -->

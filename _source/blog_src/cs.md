@@ -20,7 +20,7 @@ Prompt (anglicky 34 tokenů):
 | Řečtina | 70 | 2,06× | 51% |
 | Pandžábština | 83 | 2,44× | 59% |
 
-![Graf](/blog-language-tax-chart-v4.png)
+![Graf: kolik tokenů navíc potřebují jednotlivé jazyky oproti angličtině v GPT](/blog-language-tax-chart-v4.png)
 
 **Proč?** Tokenizér zná celá anglická slova (" polite", " customer" = 1 token), ale česká slova skládá z kousků. Háčky a čárky často tvoří samostatný token:
 

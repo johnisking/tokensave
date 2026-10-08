@@ -27,14 +27,14 @@
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0a0a0f" />
-  <meta property="og:image" content="https://tokensave.app/og-token.jpg" />
+  <meta property="og:image" content="https://tokensave.app/token-segi-bangbeop-ko.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TokenSave" />
-  <meta name="twitter:image" content="https://tokensave.app/og-token.jpg" />
+  <meta name="twitter:image" content="https://tokensave.app/token-segi-bangbeop-ko.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "GPT·Claude·Gemini 토큰 세는 방법", "description": "GPT, Claude, Gemini가 토큰을 다르게 세는 이유, 각각 정확하게 세는 방법, 코드 없이 바로 어림잡는 방법을 정리했습니다.", "inLanguage": "ko", "url": "https://tokensave.app/ko/blog/token-segi-bangbeop", "mainEntityOfPage": "https://tokensave.app/ko/blog/token-segi-bangbeop", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/og-token.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ko/"}, {"@type": "ListItem", "position": 2, "name": "GPT·Claude·Gemini 토큰 세는 방법", "item": "https://tokensave.app/ko/blog/token-segi-bangbeop"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "GPT·Claude·Gemini 토큰 세는 방법", "description": "GPT, Claude, Gemini가 토큰을 다르게 세는 이유, 각각 정확하게 세는 방법, 코드 없이 바로 어림잡는 방법을 정리했습니다.", "inLanguage": "ko", "url": "https://tokensave.app/ko/blog/token-segi-bangbeop", "mainEntityOfPage": "https://tokensave.app/ko/blog/token-segi-bangbeop", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/token-segi-bangbeop-ko.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ko/"}, {"@type": "ListItem", "position": 2, "name": "GPT·Claude·Gemini 토큰 세는 방법", "item": "https://tokensave.app/ko/blog/token-segi-bangbeop"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -98,7 +98,8 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">GPT·Claude·Gemini 토큰 세는 방법</h1>
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026년 10월 2일</p>
-  <p>"이거 몇 토큰이에요?"라는 질문의 답은 어떤 모델에 묻느냐에 따라 달라집니다. OpenAI, Anthropic, Google은 각자 다른 토크나이저를 쓰기 때문에, 같은 단락이 어떤 모델에서는 100토큰, 다른 모델에서는 130토큰이 될 수 있습니다. 모델별로 정확한 토큰 수를 세는 방법과, 코드 없이 빠르게 추정하는 방법을 정리했습니다.</p>
+  <p><img loading="lazy" width="1200" height="630" alt="GPT·Claude·Gemini 토큰 세는 방법" src="/token-segi-bangbeop-ko.jpg" /></p>
+<p>"이거 몇 토큰이에요?"라는 질문의 답은 어떤 모델에 묻느냐에 따라 달라집니다. OpenAI, Anthropic, Google은 각자 다른 토크나이저를 쓰기 때문에, 같은 단락이 어떤 모델에서는 100토큰, 다른 모델에서는 130토큰이 될 수 있습니다. 모델별로 정확한 토큰 수를 세는 방법과, 코드 없이 빠르게 추정하는 방법을 정리했습니다.</p>
 <h2>토큰 수가 다른 이유</h2>
 <p>토크나이저는 텍스트를 고정된 어휘 목록의 조각으로 나눕니다. 이 어휘는 각 회사가 자기 학습 데이터로 만든 것이라, 어휘가 다르면 나누는 방식도 달라집니다. GPT에서 1토큰인 단어가 Claude에서는 2토큰일 수 있고, 그 반대도 있습니다. 일반 영어에서는 차이가 보통 작고, 코드·숫자·다른 언어에서는 더 커집니다.</p>
 <p>Anthropic은 최신 Claude 모델의 토크나이저가 같은 텍스트에 이전 토크나이저보다 토큰을 눈에 띄게 많이 만든다고 밝혔습니다. 저희 토큰 계산기는 현재 Claude Sonnet과 Opus 모델을 추정할 때 GPT보다 약 30% 많은 토큰으로 계산합니다.</p>
@@ -122,6 +123,7 @@ console.log(enc.encode(&quot;Your text here&quot;).length);
 <h2>Gemini (Google): countTokens 사용</h2>
 <p>Gemini API에는 아무것도 생성하지 않고 프롬프트의 토큰 수만 알려 주는 <code>countTokens</code> 메서드가 있습니다. Anthropic의 엔드포인트처럼 실제 토크나이저를 쓰며, 실제 요청의 응답에도 정확한 수치가 담긴 <code>usageMetadata</code>가 포함됩니다.</p>
 <h2>코드 없이 빠르게 추정하기</h2>
+<p><img loading="lazy" width="1200" height="764" alt="코드 없이 빠르게 추정하기: 토큰세이브 토큰 계산기에 붙여 넣습니다.; GPT 모델은 브라우저에서 돌아가는 실제 o200k 토크나이저로 셉니다.; Claude, Gemini 등 다른 모델은 실제 텍스트로 보정한 추정치를 보여 " src="/token-segi-bangbeop-ko-2.jpg" /></p>
 <p>내 텍스트가 대략 몇 토큰이고 얼마인지만 알고 싶다면 이렇게 하세요.</p>
 <ol>
 <li><a href="/ko/">토큰세이브 토큰 계산기</a>에 붙여 넣습니다.</li>
@@ -131,20 +133,23 @@ console.log(enc.encode(&quot;Your text here&quot;).length);
 </ol>
 <p>영어라면 간단한 암산 규칙도 통합니다. 현재 GPT 모델에서 단어당 약 1.1–1.3토큰입니다. <a href="/ko/blog/token-dangeo-geulja">단어·글자당 토큰 수 실측</a>을 참고하세요.</p>
 <h2>어떤 숫자를 믿어야 할까?</h2>
+<p><img loading="lazy" width="1200" height="626" alt="어떤 숫자를 믿어야 할까?: 예산을 짤 때; 엄격한 한도가 있을 때(컨텍스트 창, 최대 출력, 사용량 제한); 청구 금액을 따지거나 비용을 정확히 추적할 때" src="/token-segi-bangbeop-ko-3.jpg" /></p>
 <ul>
 <li><strong>예산을 짤 때:</strong> 보정된 추정치면 충분합니다. 모델 간 차이는 보통 앱이 얼마나 쓰일지에 대한 불확실성보다 작습니다.</li>
 <li><strong>엄격한 한도가 있을 때</strong>(컨텍스트 창, 최대 출력, 사용량 제한): 각 회사의 공식 카운팅 방법을 쓰세요. 한도를 1토큰만 넘어도 오류가 납니다.</li>
 <li><strong>청구 금액을 따지거나 비용을 정확히 추적할 때:</strong> API 응답의 <code>usage</code> 숫자를 쓰세요. 실제로 청구되는 기준이 그 숫자입니다.</li>
 </ul>
 <h2>관련 글</h2>
+<p><img loading="lazy" width="1200" height="593" alt="관련 글: 토큰이란? (영어); LLM API 가격 비교; AI API 청구액 예상하는 법 (영어)" src="/token-segi-bangbeop-ko-4.jpg" /></p>
 <ul>
 <li><a href="/blog/what-is-a-token">토큰이란?</a> (영어)</li>
 <li><a href="/ko/blog/llm-api-gagyeok-bigyo">LLM API 가격 비교</a></li>
 <li><a href="/blog/how-to-estimate-ai-api-cost">AI API 청구액 예상하는 법</a> (영어)</li>
 </ul>
+<!-- autoimg -->
 
         <h2>다른 글</h2>
-        <ul><li><a href="/ko/blog/chatgpt-muryo-yuryo-chai">챗GPT 무료 vs 유료 차이: 무료·Go·Plus·Pro 한도와 원화 가격 (2026)</a></li><li><a href="/ko/blog/google-play-bigonggae-teseuteu-14il">구글 플레이 비공개 테스트 14일, AI로 만든 게임 버그 14개 잡은 기록</a></li><li><a href="/ko/blog/token-dangeo-geulja">단어·글자당 토큰 수 실측: 한국어는 몇 글자에 1토큰일까</a></li><li><a href="/ko/blog/llm-api-gagyeok-bigyo">LLM API 가격 비교: GPT-6·Claude·Gemini·DeepSeek 등 22개 모델</a></li><li><a href="/ko/blog/korean-tokens-gpt">한국어 프롬프트, 영어로 보내면 토큰 31% 절약: 41개 언어 실측</a></li></ul>
+        <ul><li><a href="/ko/blog/indie-game-gaebal-biyong">인디게임 개발 비용 얼마? 1인 개발 vs 외주, 엔진·스토어 등록비 정리 (2026)</a></li><li><a href="/ko/blog/chatgpt-muryo-yuryo-chai">챗GPT 무료 vs 유료 차이: 무료·Go·Plus·Pro 한도와 원화 가격 (2026)</a></li><li><a href="/ko/blog/token-dangeo-geulja">단어·글자당 토큰 수 실측: 한국어는 몇 글자에 1토큰일까</a></li><li><a href="/ko/blog/llm-api-gagyeok-bigyo">LLM API 가격 비교: GPT-6·Claude·Gemini·DeepSeek 등 22개 모델</a></li><li><a href="/ko/blog/korean-tokens-gpt">한국어 프롬프트, 영어로 보내면 토큰 31% 절약: 41개 언어 실측</a></li></ul>
         <div class="not-prose mt-8 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 text-center">
           <p class="text-zinc-200">프롬프트를 붙여 넣고 GPT-6 각 모델·Claude·Gemini의 토큰과 비용을 비교해 보세요.</p>
           <a href="/ko/" class="mt-3 inline-block tab-active rounded-lg px-4 py-2 font-semibold no-underline" style="text-decoration:none">토큰 계산기 열기 →</a>

@@ -1,6 +1,10 @@
+![Preço do ChatGPT, Claude, Gemini e Grok em reais (com IOF)](/preco-assinaturas-ia-pt.jpg)
+
 ChatGPT, Claude, Gemini e Grok vendem cada um de três a cinco planos pagos. Os nomes não batem entre as empresas, e a moeda da cobrança também muda: o ChatGPT e o Google cobram em reais, enquanto o Grok e, em parte dos casos, o Claude cobram em dólar. Quem paga em dólar ainda paga IOF. Juntamos tudo numa tabela com o valor que você paga de fato no Brasil e explicamos para quem cada plano faz sentido.
 
 ## Os preços no Brasil, numa tabela
+
+![Os preços no Brasil, numa tabela: Faixa, ChatGPT, Claude, Google (Gemini), Grok](/preco-assinaturas-ia-os-precos-no-brasil-numa-tabela-pt.jpg)
 
 Conferido em 6 de outubro de 2026. Os planos em reais estão com o preço mostrado pela própria empresa. Os planos em dólar foram convertidos a US$ 1 = R$ 5,21, com o IOF de 3,5% já somado.
 
@@ -21,6 +25,8 @@ Conferido em 6 de outubro de 2026. Os planos em reais estão com o preço mostra
 
 ## Na faixa dos R$ 100, a diferença está no uso
 
+![Na faixa dos R$ 100, a diferença está no uso: ChatGPT Plus; Claude Pro; Google AI Pro](/preco-assinaturas-ia-na-faixa-dos-r-100-a-diferenca-esta-no-u-pt.jpg)
+
 Na faixa dos R$ 100, os três planos custam quase o mesmo, e para a maioria das pessoas esse nível já é suficiente. O que muda é o tipo de uso.
 
 - **ChatGPT Plus:** é o que tem mais recursos, com geração de imagem, voz, deep research, GPTs personalizados, Codex e ChatGPT Work.
@@ -33,6 +39,8 @@ Na faixa dos R$ 100, os três planos custam quase o mesmo, e para a maioria das 
 - **Google AI Plus (R$ 24,99):** vai perder o modelo Pro. Continua valendo para quem precisa dos 400 GB de armazenamento. Explicamos a mudança em [Gemini grátis só com Flash-Lite](/pt/blog/gemini-gratis-flash-lite).
 
 ## Planos caros: olhe o preço por unidade de uso
+
+![Planos caros: olhe o preço por unidade de uso: Plano, Uso em relação ao plano de ~US$ 20, Preço por unidade](/preco-assinaturas-ia-planos-caros-olhe-o-preco-por-unidade-de-pt.jpg)
 
 | Plano | Uso em relação ao plano de ~US$ 20 | Preço por unidade |
 |---|---|---|
@@ -55,3 +63,4 @@ As quatro empresas também vendem acesso por API, em que você paga só pelo que
 Para ver quanto o seu uso custaria na API ao lado de cada plano, use a [calculadora assinatura vs API](/pt/plans). Para contar os tokens de um texto, use o [contador de tokens](/pt/).
 
 *Fontes: [página oficial do Gemini no Brasil](https://gemini.google/br/subscriptions/?hl=pt-BR), [Canaltech: ChatGPT cobra em real](https://canaltech.com.br/apps/chatgpt-plus-fica-mais-barato-no-brasil-com-nova-cobranca-em-real/), [Canaltech: como assinar o Claude mais barato](https://canaltech.com.br/inteligencia-artificial/como-assinar-claude-mais-barato/), [Correio Braziliense: anúncios no ChatGPT](https://www.correiobraziliense.com.br/tecnologia/2026/08/7479086-chatgpt-comeca-a-exibir-anuncios-para-os-planos-free-e-go-no-brasil.html), [IOF de 3,5% (Remessa Online)](https://www.remessaonline.com.br/blog/web-stories/iof-compras-internacionais-como-pagar-menos/). Conferido em 6 de outubro de 2026. Os preços do Grok vêm de levantamentos de terceiros feitos a partir da página da xAI. Preços e limites mudam com frequência, então confira a página de cada empresa antes de assinar.*
+<!-- autoimg -->

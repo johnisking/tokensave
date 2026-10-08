@@ -6,6 +6,8 @@ On September 29, 2026 OpenAI split ChatGPT Pro into three plans: **Pro 100**, **
 
 ## The plans side by side
 
+![The plans side by side: Plan, Price / month, Usage vs Plus, Price per "Plus-worth" of usage, Ultrafast](/chatgpt-pro-100-vs-200-vs-500-the-plans-side-by-side-en.jpg)
+
 | Plan | Price / month | Usage vs Plus | Price per "Plus-worth" of usage | Ultrafast |
 |---|---:|---:|---:|:---:|
 | Go | $8 | lower | – | – |
@@ -28,6 +30,8 @@ So the rule is simple: **buy the smallest plan you don't hit the limit on.** Pay
 
 ## Which one should you pick?
 
+![Which one should you pick?: You rarely hit the Plus limit; You hit the Plus limit a few times a week; You regularly run out on Pro 100](/chatgpt-pro-100-vs-200-vs-500-which-one-should-you-pick-en.jpg)
+
 - **You rarely hit the Plus limit:** stay on Plus ($20). None of the Pro plans give you a smarter answer for everyday chat; they give you more of it.
 - **You hit the Plus limit a few times a week:** Pro 100. Five times the usage for five times the price, and the jump from $20 to $100 is the smallest step up.
 - **You regularly run out on Pro 100:** Pro 200. Same price per unit, twice the room.
@@ -35,6 +39,8 @@ So the rule is simple: **buy the smallest plan you don't hit the limit on.** Pay
 - **You're on the old Pro 200:** keep it until October 29; it is the best deal OpenAI sells right now. After that, look at how much you actually used. If you stayed under about a quarter of your old allowance, Pro 100 does the same job for $100 less.
 
 ## What about just using the API?
+
+![What about just using the API?: Your usage, GPT-6 Sol API, GPT-6 Astra API](/chatgpt-pro-100-vs-200-vs-500-what-about-just-using-the-api-en.jpg)
 
 If you mostly send short or medium messages, paying per token is often much cheaper than any Pro plan. Here is roughly what a month of chat costs through the API, assuming conversations of 6 messages and English text:
 
@@ -56,3 +62,4 @@ The takeaway: light and medium users of the everyday model are usually better of
 Everyone's usage is different. The [Subscription vs API calculator](/plans) lets you enter how many messages you send, how long they are and which language you write in, and shows what the same month would cost on the API next to ChatGPT, Claude and Gemini plans.
 
 *Prices as of October 1, 2026. OpenAI may change allowances again; check chatgpt.com/pricing before you buy.*
+<!-- autoimg -->

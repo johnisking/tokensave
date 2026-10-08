@@ -1,3 +1,5 @@
+![What Is a Token? A Plain-English Guide for AI Users](/what-is-a-token-en.jpg)
+
 If you use ChatGPT, Claude or Gemini through an app, you rarely see the word "token". The moment you look at an API price list, it is everywhere: *$2 per million input tokens*, *a 1 million token context window*, *max output 32K tokens*. This guide explains what a token is, how to estimate how many your text uses, and why it matters for both cost and quality.
 
 ## A token is a piece of text, not a word
@@ -12,6 +14,8 @@ Every word here is common enough to be a single token, including the space in fr
 
 ## Rules of thumb for English
 
+![Rules of thumb for English: 1 token ≈ 4 characters of English text; 1 token ≈ ¾ of a word, so 100 tokens ≈ 75 words; 1,000 tokens ≈ 750 wo](/what-is-a-token-rules-of-thumb-for-english-en.jpg)
+
 - 1 token ≈ 4 characters of English text
 - 1 token ≈ ¾ of a word, so 100 tokens ≈ 75 words
 - 1,000 tokens ≈ 750 words ≈ 1.5 pages of single-spaced text
@@ -20,6 +24,8 @@ Every word here is common enough to be a single token, including the space in fr
 These are averages. Technical text, code, URLs and numbers use more tokens per character than plain prose. On current GPT models, everyday English is actually a little cheaper than this rule: we measured about 1.1–1.15 tokens per word. See [Tokens per word, measured](/blog/tokens-per-word).
 
 ## Other languages use more tokens
+
+![Other languages use more tokens: Language, Tokens vs English](/what-is-a-token-other-languages-use-more-tokens-en.jpg)
 
 Tokenizers are trained mostly on English, so the same meaning written in another language usually takes more tokens. We measured the same prompt in 41 languages on GPT's o200k tokenizer:
 
@@ -56,7 +62,10 @@ Paste your text into the [TokenSave token counter](/). It runs the real tokenize
 
 ## Key takeaways
 
+![Key takeaways: A token is a chunk of text from the model's vocabulary, about 4 English characters.; You pay per token, and ou](/what-is-a-token-key-takeaways-en.jpg)
+
 - A token is a chunk of text from the model's vocabulary, about 4 English characters.
 - You pay per token, and output tokens cost more than input tokens.
 - Non-English text, code and numbers use more tokens for the same meaning.
 - Count your real text before you estimate a budget.
+<!-- autoimg -->

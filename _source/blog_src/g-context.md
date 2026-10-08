@@ -1,6 +1,10 @@
+![Context Windows Explained: Why Long Chats Get Worse and Cost More](/context-window-explained-en.jpg)
+
 Have you noticed that a long chat with an AI assistant starts to go wrong? It forgets a detail you gave it an hour ago, mixes up two topics, or repeats a mistake you already corrected. That is not your imagination. It is how context windows work, and the same mechanism is why long conversations cost more on the API.
 
 ## What a context window is
+
+![What a context window is: Model, Context window](/context-window-explained-what-a-context-window-is-en.jpg)
 
 A model's **context window** is the maximum amount of text, measured in tokens, it can consider at once. It includes everything: the system instructions, every earlier message in the chat, any files you attached, and the answer it is writing.
 
@@ -32,6 +36,8 @@ A window of a million tokens means the text fits. It does not mean the model giv
 
 ## What to do instead
 
+![What to do instead: One topic, one chat. When the subject changes, start a new conversation.; Carry a summary, not the history. Be](/context-window-explained-what-to-do-instead-en.jpg)
+
 1. **One topic, one chat.** When the subject changes, start a new conversation.
 2. **Carry a summary, not the history.** Before leaving a long chat, ask: *"Summarize what we decided in 5 lines."* Paste that summary into a fresh chat and continue from there.
 3. **Put important instructions at the start or the end.** Not in the middle of a long paste.
@@ -41,3 +47,4 @@ A window of a million tokens means the text fits. It does not mean the model giv
 ## See it in numbers
 
 The [token counter](/) shows how much of each model's context window your text fills, and the [Subscription vs API calculator](/plans) includes the cost of re-sending chat history in its monthly estimate.
+<!-- autoimg -->

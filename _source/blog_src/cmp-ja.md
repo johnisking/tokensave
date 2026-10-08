@@ -1,6 +1,10 @@
+![ChatGPT Pro vs Claude Max 料金比較：$100・$200でどちらが多く使える？](/chatgpt-pro-vs-claude-max-ja.jpg)
+
 ChatGPT と Claude の料金プランは、いまやほぼ同じ価格帯に並んでいます。$20、$100、$200、そして ChatGPT にはさらに $500 があります。どちらにもコーディングエージェントが付いています（ChatGPT は Codex、Claude は Claude Code）。では、同じ金額ならどちらが多く使えるのでしょうか。使い方しだいですが、価格が同じでも中身まで同じではありません。
 
 ## プランを並べて比較
+
+![プランを並べて比較: 価格, ChatGPT, 使用量, Claude, 使用量](/chatgpt-pro-vs-claude-max-ja-2.jpg)
 
 米国の月額料金（2026年10月確認）です。料金はドル建てなので、円での支払額は為替によって変わります。
 
@@ -25,6 +29,8 @@ ChatGPT と Claude の料金プランは、いまやほぼ同じ価格帯に並�
 
 ## 使えるモデル
 
+![使えるモデル: 入力 100万トークン, 出力 100万トークン](/chatgpt-pro-vs-claude-max-ja-3.jpg)
+
 **ChatGPT:** OpenAI の最上位モデル GPT-6 Astra を Pro プランで使え、Plus にも Work と Codex から順次展開中です。Pro 500 には、速い代わりに使用量を早く消費する Ultrafast モードがあります。
 
 **Claude:** プランの中心は Claude Sonnet 5.5 と Opus 5.5 です。Max は主に、高価な Opus をたっぷり使える余裕をくれます。
@@ -48,6 +54,8 @@ GPT-6 Astra はトークンあたり Claude Opus 5.5 の2.5倍です。主に最
 
 ## どちらを選ぶか
 
+![どちらを選ぶか: GPT-6 Astra を使いたい、または画像生成・音声など ChatGPT アプリの機能をよく使う。; Ultrafast が必要で、$500（Pro 500）を払う価値がある。; すでに Codex を使っていて満足](/chatgpt-pro-vs-claude-max-ja-4.jpg)
+
 **ChatGPT が向いている人:**
 - GPT-6 Astra を使いたい、または画像生成・音声など ChatGPT アプリの機能をよく使う。
 - Ultrafast が必要で、$500（Pro 500）を払う価値がある。
@@ -65,3 +73,4 @@ GPT-6 Astra はトークンあたり Claude Opus 5.5 の2.5倍です。主に最
 1日に数回使う程度なら、API がどのプランより安いこともあります。[サブスク vs API 計算機](/ja/plans)で、自分の使い方の月額 API 費用を ChatGPT・Claude・Gemini の全プランと並べて確認できます。日本語は英語よりトークンが約1.79倍かかり、API 費用もそのぶん増えることも計算に入っています。
 
 *プランと上限はよく変わります。加入前に [chatgpt.com/pricing](https://chatgpt.com/pricing) と [claude.com/pricing](https://claude.com/pricing) を確認してください。*
+<!-- autoimg -->

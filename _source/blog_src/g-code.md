@@ -1,6 +1,10 @@
+![How Many Tokens Does Code Use? Indentation, Comments and Minification](/how-many-tokens-does-code-use-en.jpg)
+
 Coding assistants and agents send a lot of code to AI models: whole files, test output, stack traces, diffs. How many tokens does code actually use, and do things like indentation, comments or minified files make a difference? We measured real snippets on GPT's o200k tokenizer. Some results are surprising.
 
 ## Indentation is almost free
+
+![Indentation is almost free: Version, Tokens, Characters](/how-many-tokens-does-code-use-indentation-is-almost-free-en.jpg)
 
 We took a 16-line Python file with two functions and wrote it three ways: with 4-space indentation, 2-space indentation, and tabs.
 
@@ -26,6 +30,8 @@ That sounds like a great saving, but minified code throws away exactly what help
 
 ## Where coding tokens really go
 
+![Where coding tokens really go: Whole files when one function matters. A 1,000-line file is often around 10,000 tokens. If the question is abo](/how-many-tokens-does-code-use-where-coding-tokens-really-go-en.jpg)
+
 In practice, indentation and comments are small. These are the big costs:
 
 - **Whole files when one function matters.** A 1,000-line file is often around 10,000 tokens. If the question is about one function, send that function and the types it uses.
@@ -40,6 +46,8 @@ In our sample, Python averaged about 3.6 characters per token and the JavaScript
 
 ## A practical checklist
 
+![A practical checklist: Send the smallest piece of code that answers the question, plus the types and signatures it depends on.; Trim ](/how-many-tokens-does-code-use-a-practical-checklist-en.jpg)
+
 1. Send the smallest piece of code that answers the question, plus the types and signatures it depends on.
 2. Trim logs to the first error and its stack trace.
 3. Exclude lock files, build output and minified bundles from anything your tools send automatically.
@@ -50,3 +58,4 @@ In our sample, Python averaged about 3.6 characters per token and the JavaScript
 ## Measure your own code
 
 Paste a file into the [token counter](/) to see its token count and what it costs to send on each model, and use the [coding agent calculator](/agents) to estimate a month of agent use.
+<!-- autoimg -->

@@ -1,6 +1,10 @@
+![DeepSeek V4.1 Flash API Pricing: Peak vs Off-Peak, and How It Compares](/deepseek-v4-1-flash-api-pricing-en.jpg)
+
 DeepSeek released **V4.1 Flash** in September 2026, and it replaced V4 Flash outright: the old `deepseek-v4-flash` model name still works, but it now runs V4.1 Flash. The headline is the price. Outside peak hours it is half the old V4 Flash price, and cached input costs almost nothing. Here is the full price table, when the cheap hours are, and how it compares with GPT-6 Luna, Gemini Flash and Claude Haiku.
 
 ## DeepSeek V4.1 Flash API pricing
+
+![DeepSeek V4.1 Flash API pricing: Cached input, Input, Output](/deepseek-v4-1-flash-api-pricing-deepseek-v4-1-flash-api-pricing-en.jpg)
 
 Per million tokens:
 
@@ -12,6 +16,8 @@ Per million tokens:
 The peak price is the same as the old V4 Flash, so nobody pays more than before. The context window is 1 million tokens.
 
 ## When are the cheap hours?
+
+![When are the cheap hours?: Your time zone, Peak hours on weekdays](/deepseek-v4-1-flash-api-pricing-when-are-the-cheap-hours-en.jpg)
 
 Peak hours are **Monday to Friday, 01:00–04:00 and 06:00–10:00 UTC**. Everything else, including all of Saturday and Sunday, is off-peak. That is 7 peak hours a weekday, so roughly 80% of the week is off-peak.
 
@@ -55,6 +61,8 @@ Example: an agent step that re-reads 24,000 cached tokens, adds 1,000 new tokens
 
 ## Should you use it?
 
+![Should you use it?: Good fit; Think twice; Compare quality first](/deepseek-v4-1-flash-api-pricing-should-you-use-it-en.jpg)
+
 - **Good fit:** high-volume extraction, classification, summaries, translation drafts, and agents where cost per step matters more than the last bit of quality. Especially if your traffic is mostly outside the peak hours above.
 - **Think twice:** if you need guaranteed behavior during peak hours at a fixed price, or if your data cannot leave your own region; check DeepSeek's data policy for your use case.
 - **Compare quality first:** cheap tokens do not help if you have to retry. Run a sample of real requests through it and a model you trust.
@@ -64,3 +72,4 @@ Example: an agent step that re-reads 24,000 cached tokens, adds 1,000 new tokens
 Paste a prompt into the [token counter](/) and pick DeepSeek under "Others" to see its cost next to GPT, Claude and Gemini. More: [The cheapest LLM APIs, ranked](/blog/cheapest-llm-api) · [DeepSeek V4 Flash vs GPT-6 Luna](/compare/deepseek-v4-flash-vs-gpt-6-luna) · [Batch APIs: half-price AI](/blog/batch-api-half-price).
 
 *Prices from DeepSeek's September 2026 announcement as reported by [TechBriefly](https://techbriefly.com/2026/09/11/deepseek-v4-1-flash-api-pricing/) and [Yotta Labs](https://www.yottalabs.ai/post/deepseek-v4-1-flash-pricing-specs-v4-pro-routing-2026). Check DeepSeek's pricing page before you commit.*
+<!-- autoimg -->
