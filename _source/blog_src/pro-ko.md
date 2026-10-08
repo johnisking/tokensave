@@ -2,7 +2,7 @@
 
 **결론부터:** 한도에 걸리지 않는 가장 작은 요금제를 고르세요. Pro 100·200·500은 모두 Plus 1배분 사용량당 $20로 값이 같고, 차이는 사용량(Plus의 5배·10배·25배)과 Pro 500 전용 Ultrafast뿐입니다.
 
-![사용량과 가격으로 비교한 챗GPT 요금제](/blog-chatgpt-pro-tiers.png)
+![ChatGPT Pro 500·200·100 요금제 비교: Pro 500 월 $500 Plus 25개분 + Ultrafast, Pro 200 월 $200 Plus 10개분, Pro 100 월 $100 Plus 5개분](/chatgpt-pro-500-200-100-ko.jpg)
 
 ## 요금제 한눈에 비교
 
@@ -27,6 +27,27 @@
 예전에는 달랐습니다. 이번 개편 전까지 Pro 200은 Plus의 **20배** 사용량을 줬고, 단위당 $10로 다른 요금제의 절반 가격이었습니다. 이제 Pro 200 신규 가입자는 **10배**를 받습니다. 기존 Pro 200 구독자는 **2026년 10월 29일**까지 예전 20배 한도를 유지하고, 그 뒤로는 같은 $200에 10배로 줄어듭니다.
 
 그래서 규칙은 간단합니다. **한도에 걸리지 않는 가장 작은 요금제를 사세요.** 쓰지도 않을 여유분에 돈을 내는 것만이 손해를 보는 유일한 방법입니다.
+
+## Pro 500 장단점
+
+![ChatGPT Pro 500 장단점: 최대 사용량, Ultrafast, 컴퓨터 사용 에이전트 vs 월 $500, 대량 할인 없음](/chatgpt-pro-500-pros-cons-ko.jpg)
+
+**장점**
+
+- **가장 많은 사용량:** Plus 25개분 사용량입니다(OpenAI 발표로 보도된 수치). 하루 종일 Codex나 에이전트를 돌려도 한도에 잘 걸리지 않습니다.
+- **Ultrafast는 Pro 500만:** GPT-6 Astra를 초당 최대 300토큰까지 빠르게 돌리는 모드로, ChatGPT Work와 Codex에서 쓸 수 있습니다(DevDay 발표 기준).
+- **컴퓨터를 직접 다루는 에이전트:** DevDay 발표 기준, Codex와 ChatGPT Work에서 컴퓨터 사용 에이전트를 쓸 수 있는 개인 요금제는 Pro 500입니다(그 밖에는 Enterprise).
+- **비싸게 사도 손해는 없음:** Plus 1개분 사용량당 $20로 Pro 100·200과 단가가 같습니다.
+
+**단점**
+
+- **월 $500:** 개인 요금제 중 가장 비쌉니다. 사용량을 다 못 쓰면 그만큼 낭비입니다.
+- **대량 할인 없음:** 단가가 Pro 100·200과 같아서, 크게 산다고 싸지지 않습니다.
+- **Ultrafast는 사용량을 더 빨리 씁니다:** 빨리 만드는 만큼 한도도 빨리 줄어듭니다.
+- **Ultrafast는 아직 Astra만:** GPT-6.1 Sol용 Ultrafast는 "곧 제공"으로만 발표됐습니다.
+- **정확한 한도는 비공개:** OpenAI 도움말에는 "Pro 500이 가장 많다"고만 나와 있습니다.
+
+**이런 분께:** Pro 200 한도에 매주 걸리는 분, Codex·에이전트로 하루 종일 일하는 분, 기다리는 시간이 곧 돈인 분.
 
 ## 어떤 요금제를 골라야 할까요?
 
@@ -62,4 +83,5 @@
 사용 패턴은 사람마다 다릅니다. [구독 vs API 계산기](/ko/plans)에 보내는 메시지 수, 길이, 사용하는 언어를 입력하면 같은 한 달을 API로 썼을 때의 비용을 ChatGPT, Claude, Gemini 요금제와 나란히 보여 줍니다.
 
 *2026년 10월 1일 기준 가격입니다. OpenAI가 사용량 한도를 다시 바꿀 수 있으니 결제 전에 chatgpt.com/pricing을 꼭 확인하세요.*
+출처: [OpenAI DevDay 2026 정리](https://openai.com/index/devday-2026-recap/) · [DevDay 발표별 가격·제공 범위 정리 (DEV Community)](https://dev.to/axrisi/openai-devday-2026-every-announcement-with-prices-and-availability-1mbh)
 <!-- autoimg -->

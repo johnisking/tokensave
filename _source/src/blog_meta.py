@@ -45,8 +45,8 @@ PRO = [
   "tag": "en",
   "path": "/blog/chatgpt-pro-100-vs-200-vs-500",
   "src": "pro-en",
-  "title": "ChatGPT Pro 100 vs 200 vs 500: Differences and Which GPT Pro Plan to Pick",
-  "desc": "GPT Pro now has $100, $200 and $500 plans. All cost the same per unit of usage and differ only in usage (5x, 10x, 25x) and Ultrafast. Which to pick.",
+  "title": "ChatGPT Pro 500 vs 200 vs 100: Price, Limits and Which to Pick (2026)",
+  "desc": "ChatGPT Pro 100 ($100), Pro 200 ($200) and Pro 500 ($500) compared: usage limits, Ultrafast, the Pro 200 cut and which GPT Pro plan is worth it.",
   "byline": "Jonhisking · October 1, 2026",
   "cta": "Enter how many messages you send, how long they are and your language, and see whether a subscription or the API is cheaper for you.",
   "ctaBtn": "Open the Subscription vs API calculator",
@@ -56,8 +56,8 @@ PRO = [
   "tag": "ko",
   "path": "/ko/blog/chatgpt-pro-yogeumje-bigyo",
   "src": "pro-ko",
-  "title": "GPT 프로 요금제 비교: ChatGPT Pro 100·200·500 차이와 고르는 법",
-  "desc": "GPT 프로 요금제가 Pro 100·200·500으로 나뉘었습니다. 셋 다 사용량당 가격은 같고 차이는 사용량(5·10·25배)과 Ultrafast뿐입니다. 고르는 법과 Pro 200 한도 축소까지.",
+  "title": "GPT 프로 요금제 Pro 500·200·100 차이: 가격, 사용량, 고르는 법 (2026)",
+  "desc": "GPT 프로 요금제 Pro 100($100)·Pro 200($200)·Pro 500($500) 차이 정리. 사용량당 가격은 같고 차이는 한도와 Ultrafast입니다. Pro 200 한도 축소와 고르는 법까지.",
   "byline": "Jonhisking · 2026년 10월 1일",
   "cta": "내 메시지 수와 길이, 언어를 넣고 구독과 API 중 어느 쪽이 더 싼지 직접 계산해 보세요.",
   "ctaBtn": "구독 vs API 계산기 열기",
@@ -67,8 +67,8 @@ PRO = [
   "tag": "ja",
   "path": "/ja/blog/chatgpt-pro-ryokin-hikaku",
   "src": "pro-ja",
-  "title": "ChatGPT Pro 料金比較：Pro 100・200・500どれを選ぶ？",
-  "desc": "ChatGPT Proが3プランに。Pro 100・200・500の料金と利用量を比較し、Pro 200の縮小やAPIとの料金差、日本語のトークン約1.8倍まで解説します。",
+  "title": "ChatGPT Pro 料金比較：Pro 500・200・100の違いとどれを選ぶか（2026）",
+  "desc": "ChatGPT Pro 100（$100）・Pro 200（$200）・Pro 500（$500）の違いを比較。利用量の上限、Ultrafast、Pro 200の縮小、APIとの料金差までわかりやすく解説。",
   "byline": "Jonhisking · 2026年10月1日",
   "cta": "メッセージ数・長さ・言語を入力して、あなたの使い方ならサブスクとAPIのどちらが安いか計算してみましょう。",
   "ctaBtn": "料金を計算する",
@@ -674,3 +674,8 @@ MUSE13.append(_cc("ja", "/ja/blog/muse-spark-1-3-api-ryoukin", "muse13-ja", "Met
      "Meta Muse Spark 1.3 の API 料金は100万トークンあたり入力 $1.25、出力 $4.25、キャッシュ $0.15。長文割増なし。Claude Sonnet 5.5・GPT-6 Sol・Gemini と実費用を比較。",
      "Jonhisking · 2026年10月9日", "プロンプトを貼り付けて、Muse Spark 1.3・GPT-6・Claude・Gemini など30以上のモデルのトークンと費用を比べましょう。", "トークンカウンターを開く"))
 for _d in MUSE13: _d["date"] = "2026-10-09"
+
+# 2026-10-09: localized OG images for the Pro plan articles
+for _b in PRO:
+    _og = {"ko": "chatgpt-pro-500-200-100-ko.jpg", "en": "chatgpt-pro-500-200-100-en.jpg", "ja": "chatgpt-pro-500-200-100-ja.jpg"}.get(_b["tag"])
+    if _og: _b["og"] = _og; _b["date"] = "2026-10-09"

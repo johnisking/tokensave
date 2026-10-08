@@ -2,7 +2,7 @@ On September 29, 2026 OpenAI split ChatGPT Pro into three plans: **Pro 100**, **
 
 **Short answer:** pick the smallest plan you don't hit the limit on. Pro 100, 200 and 500 all cost the same $20 per Plus-worth of usage; the only differences are how much usage you get (5x, 10x, 25x Plus) and Ultrafast, which is Pro 500 only.
 
-![ChatGPT plans compared by usage and price](/blog-chatgpt-pro-tiers.png)
+![ChatGPT Pro 500 vs 200 vs 100: Pro 500 $500/month, 25 Plus-worths of usage plus Ultrafast; Pro 200 $200, 10 Plus-worths; Pro 100 $100, 5 Plus-worths](/chatgpt-pro-500-200-100-en.jpg)
 
 ## The plans side by side
 
@@ -27,6 +27,27 @@ Divide each price by the usage you get and every plan lands on the same number: 
 That used to be different. Until this change Pro 200 gave **20×** Plus usage, which worked out to $10 per unit, half the price of everything else. New Pro 200 subscribers now get **10×**. If you were already on Pro 200, you keep the old 20× allowance until **October 29, 2026**, then drop to 10× at the same $200.
 
 So the rule is simple: **buy the smallest plan you don't hit the limit on.** Paying for headroom you never use is the only way to overpay.
+
+## Pro 500: pros and cons
+
+![ChatGPT Pro 500 pros and cons: most usage, Ultrafast, computer-use agents vs $500 a month, no bulk discount](/chatgpt-pro-500-pros-cons-en.jpg)
+
+**Pros**
+
+- **The most usage:** 25 Plus-worths of usage (as reported from OpenAI's announcement). Running Codex or agents all day rarely hits the limit.
+- **Ultrafast is Pro 500 only:** a mode that runs GPT-6 Astra at up to 300 tokens per second in ChatGPT Work and Codex (per DevDay).
+- **Computer-use agents:** per DevDay, Pro 500 is the individual plan that gets the computer-use agent in Codex and ChatGPT Work (otherwise Enterprise).
+- **No penalty for buying big:** it costs the same $20 per Plus-worth of usage as Pro 100 and 200.
+
+**Cons**
+
+- **$500 a month:** the most expensive individual plan. Unused usage is wasted money.
+- **No bulk discount:** the unit price equals Pro 100 and 200, so buying more does not make it cheaper.
+- **Ultrafast burns your allowance faster:** faster output uses the limit faster too.
+- **Ultrafast is Astra-only for now:** Ultrafast for GPT-6.1 Sol was only announced as "coming soon."
+- **Exact limits are not published:** OpenAI's help page only says Pro 500 has the most.
+
+**Good for:** people who hit the Pro 200 limit every week, who run Codex or agents all day, or for whom waiting time costs money.
 
 ## Which one should you pick?
 
@@ -62,4 +83,5 @@ The takeaway: light and medium users of the everyday model are usually better of
 Everyone's usage is different. The [Subscription vs API calculator](/plans) lets you enter how many messages you send, how long they are and which language you write in, and shows what the same month would cost on the API next to ChatGPT, Claude and Gemini plans.
 
 *Prices as of October 1, 2026. OpenAI may change allowances again; check chatgpt.com/pricing before you buy.*
+Sources: [OpenAI DevDay 2026 recap](https://openai.com/index/devday-2026-recap/) · [Every DevDay announcement with prices and availability (DEV Community)](https://dev.to/axrisi/openai-devday-2026-every-announcement-with-prices-and-availability-1mbh)
 <!-- autoimg -->

@@ -28,6 +28,8 @@ for f in sorted(os.listdir(SRC_DIR)):
                 pass
         return m.group(0).replace("<img ", f'<img loading="lazy" width="{w}" height="{h}" ', 1)
     out = re.sub(r'<img [^>]*>', _img, out)
+    # first image is above the fold: load it eagerly so it is not a slow LCP
+    out = out.replace('<img loading="lazy" ', '<img fetchpriority="high" ', 1)
     out = re.sub(r'<a href="(https?://(?!tokensave\.app)[^"]+)"', r'<a href="\1" target="_blank" rel="noopener"', out)
     out = out.replace("<table>", '<div class="overflow-x-auto"><table>').replace("</table>", "</table></div>")
     out = out.replace("{{", "{ {")  # never collide with template placeholders

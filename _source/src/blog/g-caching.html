@@ -1,4 +1,4 @@
-<p><img loading="lazy" width="1200" height="630" alt="Prompt Caching Explained: Cut Repeated Input Costs by Around 90%" src="/prompt-caching-explained-en.jpg" /></p>
+<p><img fetchpriority="high" width="1200" height="630" alt="Prompt Caching Explained: Cut Repeated Input Costs by Around 90%" src="/prompt-caching-explained-en.jpg" /></p>
 <p>If your app sends the same long instructions, documents or tool definitions with every request, you are paying full price for text the model has already seen. <strong>Prompt caching</strong> fixes that. It is the single biggest cost saving available on most AI APIs, often cutting the price of repeated input by around 90%, and it needs only a small change in how you build your prompts.</p>
 <h2>What prompt caching does</h2>
 <p>When a model processes a prompt, it does a lot of computation on every token before it starts writing. If the next request begins with exactly the same text, the provider can keep the result of that computation and reuse it instead of doing it again.</p>
