@@ -33,7 +33,7 @@ SKIP_H = re.compile(r'FAQ|Q&A|Source|Sources|출처|자주|참고|よくある|�
 def groups():
     G = [M.BLOG, M.PRO, M.MISTRAL_FR, M.PROMPT_PL, M.GUIDES] + [getattr(M, n) for n in (
         'CC_COST CC_LIMITS CC_SAVE CMP GPT6 API_CMP TPW COUNT CHLIM CXLIM CMAX AISITE GEM4 RANK GAME GAME_HOWTO '
-        'DEVLOG1 DEVLOG2 CHEAP CTOK SUBS GPT61 DS41 AGCMP GOPLUS RBX KO6 JA6 RBX_JA TW6 GCREV FREEPAID INDIECOST').split() if hasattr(M, n)]
+        'DEVLOG1 DEVLOG2 CHEAP CTOK SUBS GPT61 DS41 AGCMP GOPLUS RBX KO6 JA6 RBX_JA TW6 GCREV FREEPAID INDIECOST MUSE13').split() if hasattr(M, n)]
     G += list(M.EU6) + list(M.NL6) + list(M.RBX_PL)
     return [b for g in G for b in g]
 
@@ -143,7 +143,7 @@ def font_css(tag):
     face += (f'@font-face{{font-family:"Base";src:url("file://{FD}/base-400.ttf");font-weight:400 600}}'
              f'@font-face{{font-family:"Base";src:url("file://{FD}/base-700.ttf");font-weight:700 900}}')
     fam = ['"Base"'] + fam + ['"Noto Sans CJK KR"', 'sans-serif'] if tag not in CJK else fam + ['"Base"', 'sans-serif']
-    return face + f'body{{font-family:{",".join(fam)}}}'
+    return face + f'body{{font-family:{",".join(fam)}}}' + ('body{word-break:keep-all}' if tag == 'ko' else '')
 
 FOOT_L = {'ko': '무료 AI 토큰·비용 계산기', 'ja': '無料のAIトークン・費用計算機', 'zh-CN': '免费 AI Token 与费用计算器',
           'zh-TW': '免費 AI Token 與費用計算機', 'en': 'Free AI token & cost calculators'}

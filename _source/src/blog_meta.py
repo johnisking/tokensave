@@ -660,3 +660,17 @@ for _p, _src, _ti, _de in [
 FREEPAID.append(dict(_cc("tr", "/tr/blog/chatgpt-ucretsiz-mi-ucretli-mi", "freepaid-tr", "ChatGPT ücretsiz mi ücretli mi? Ücretsiz, Go, Plus, Pro farkları ve TL fiyatları",
      "ChatGPT ücretsiz mi ücretli mi? Ağustos 2026'dan beri sohbet ücretsizde de sınırsız. Go 249,99 TL, Plus 999,99 TL, Pro farkları ve ne zaman yükseltmeli.",
      _TR_BY, *_TR_CTA), date="2026-10-09"))
+
+# 2026-10-09: Meta Muse Spark 1.3 API pricing (en, ko)
+MUSE13 = [
+ _cc("en", "/blog/muse-spark-1-3-api-pricing", "muse13-en", "Muse Spark 1.3 API Pricing: Meta's Model vs Claude, GPT-6 and Gemini",
+     "Meta's Muse Spark 1.3 costs $1.25 / $4.25 per million tokens, $0.15 cached, no long-context premium. Real costs vs Claude Sonnet 5.5, GPT-6 Sol and Gemini.",
+     "Jonhisking · October 9, 2026", "Paste a prompt to see its tokens and cost on Muse Spark 1.3, GPT-6, Claude, Gemini and 30+ models.", "Open the token counter"),
+ _cc("ko", "/ko/blog/muse-spark-1-3-api-gagyeok", "muse13-ko", "메타 Muse Spark 1.3 API 가격: Claude·GPT-6·Gemini와 비용 비교",
+     "메타 Muse Spark 1.3 API 가격은 100만 토큰당 입력 $1.25, 출력 $4.25, 캐시 $0.15. 긴 컨텍스트 할증 없음. Claude Sonnet 5.5·GPT-6 Sol·Gemini와 실제 비용 비교.",
+     "Jonhisking · 2026년 10월 9일", "프롬프트를 붙여 넣고 Muse Spark 1.3·GPT-6·Claude·Gemini 등 30개 넘는 모델의 토큰과 비용을 비교해 보세요.", "토큰 계산기 열기"),
+]
+MUSE13.append(_cc("ja", "/ja/blog/muse-spark-1-3-api-ryoukin", "muse13-ja", "Meta Muse Spark 1.3 の API 料金：Claude・GPT-6・Gemini と費用比較",
+     "Meta Muse Spark 1.3 の API 料金は100万トークンあたり入力 $1.25、出力 $4.25、キャッシュ $0.15。長文割増なし。Claude Sonnet 5.5・GPT-6 Sol・Gemini と実費用を比較。",
+     "Jonhisking · 2026年10月9日", "プロンプトを貼り付けて、Muse Spark 1.3・GPT-6・Claude・Gemini など30以上のモデルのトークンと費用を比べましょう。", "トークンカウンターを開く"))
+for _d in MUSE13: _d["date"] = "2026-10-09"

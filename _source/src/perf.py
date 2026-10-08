@@ -24,7 +24,7 @@ ECI_MAP = {
     "gemini-4-argon": r"Gemini 4 Argon", "gemini-3-1-pro": r"Gemini 3\.1 Pro", "gemini-3-8-flash": r"Gemini 3\.8 Flash",
     "gemini-3-5-flash-lite": r"Gemini 3\.5 Flash-Lite", "gemini-3-1-flash-lite": r"Gemini 3\.1 Flash-Lite",
     "deepseek-v4-pro": r"DeepSeek[ -]V4[ -]Pro( \d{4})?", "deepseek-v4-flash": r"DeepSeek[ -]V4[ -]Flash( \d{4})?",
-    "grok-4-7": r"Grok 4\.7", "grok-4-20": r"Grok 4\.20",
+    "grok-4-7": r"Grok 4\.7", "muse-spark-1-3": r"Muse Spark 1\.3", "grok-4-20": r"Grok 4\.20",
     "mistral-medium-3-5": r"Mistral Medium 3\.5", "mistral-large-3": r"Mistral Large 3",
     "qwen3-8-max": r"Qwen ?3\.8 Max( \(\d{4}\))?", "kimi-k3": r"Kimi K3", "kimi-k2-6": r"Kimi K2\.6",
 }

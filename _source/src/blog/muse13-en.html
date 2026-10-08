@@ -1,0 +1,157 @@
+<p><img loading="lazy" width="1200" height="630" alt="Muse Spark 1.3 API Pricing: Meta's Model vs Claude, GPT-6 and Gemini" src="/muse-spark-1-3-api-pricing-en.jpg" /></p>
+<p>Meta's Muse Spark 1.3 is available on the Meta Model API at <strong>$1.25 per million input tokens and $4.25 per million output tokens</strong>, with cached input at $0.15. There is no long-context surcharge on its 1M-token context window. Meta also offers a much cheaper "contributor" version that lets Meta train on your data. Here is what Muse Spark 1.3 costs next to Claude Sonnet 5.5, GPT-6 Sol, Gemini 3.1 Pro, DeepSeek and Grok.</p>
+<h2>Muse Spark 1.3 API pricing</h2>
+<p><img loading="lazy" width="1200" height="491" alt="Muse Spark 1.3 API pricing: Model name, Input, Cached input, Output" src="/muse-spark-1-3-api-pricing-muse-spark-1-3-api-pricing-en.jpg" /></p>
+<p>Per million tokens, from Meta's official pricing page:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model name</th>
+<th style="text-align: right;">Input</th>
+<th style="text-align: right;">Cached input</th>
+<th style="text-align: right;">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>muse-spark-1.3</code> (standard)</td>
+<td style="text-align: right;">$1.25</td>
+<td style="text-align: right;">$0.15</td>
+<td style="text-align: right;">$4.25</td>
+</tr>
+<tr>
+<td><code>muse-spark-1.3-contributor</code></td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$0.002</td>
+<td style="text-align: right;">$0.20</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Same price for 1.1, 1.2 and 1.3.</strong> Meta says the standard versions share one price, so upgrading costs nothing extra.</li>
+<li><strong>No long-context premium.</strong> You pay the same rate whether the 1M-token window is nearly empty or almost full.</li>
+<li><strong>Contributor tier:</strong> Meta uses your prompts and completions to train future models. It is cheap, but do not send private or customer data to it.</li>
+<li><strong>Rate limits (standard):</strong> 3,000 requests and 4,000,000 tokens per minute per team.</li>
+</ul>
+<h2>Muse Spark 1.3 vs other models</h2>
+<p><img loading="lazy" width="1200" height="772" alt="Muse Spark 1.3 vs other models: Model, Input, Output" src="/muse-spark-1-3-api-pricing-muse-spark-1-3-vs-other-models-en.jpg" /></p>
+<p>List prices per million tokens:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">Input</th>
+<th style="text-align: right;">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Muse Spark 1.3</strong></td>
+<td style="text-align: right;">$1.25</td>
+<td style="text-align: right;">$4.25</td>
+</tr>
+<tr>
+<td>DeepSeek V4 Pro</td>
+<td style="text-align: right;">$1.32</td>
+<td style="text-align: right;">$3.96</td>
+</tr>
+<tr>
+<td>Grok 4.7</td>
+<td style="text-align: right;">$2.00</td>
+<td style="text-align: right;">$6.00</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td style="text-align: right;">$2.00</td>
+<td style="text-align: right;">$10.00</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td style="text-align: right;">$2.00</td>
+<td style="text-align: right;">$10.00</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td style="text-align: right;">$2.00</td>
+<td style="text-align: right;">$12.00</td>
+</tr>
+</tbody>
+</table></div>
+<h2>What it costs on real work</h2>
+<p>A typical request here is 2,000 input tokens and 500 output tokens. Prices include each model's tokenizer difference on the same English text (Claude uses about 30% more tokens; Meta's tokenizer is not public, so we treat it like GPT's).</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th style="text-align: right;">Muse Spark 1.3</th>
+<th style="text-align: right;">Claude Sonnet 5.5</th>
+<th style="text-align: right;">GPT-6 Sol</th>
+<th style="text-align: right;">Gemini 3.1 Pro</th>
+<th style="text-align: right;">DeepSeek V4 Pro</th>
+<th style="text-align: right;">Grok 4.7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One typical request</td>
+<td style="text-align: right;">$0.0046</td>
+<td style="text-align: right;">$0.0117</td>
+<td style="text-align: right;">$0.0090</td>
+<td style="text-align: right;">$0.0095</td>
+<td style="text-align: right;">$0.0046</td>
+<td style="text-align: right;">$0.0070</td>
+</tr>
+<tr>
+<td>10,000 requests a month</td>
+<td style="text-align: right;">$46</td>
+<td style="text-align: right;">$117</td>
+<td style="text-align: right;">$90</td>
+<td style="text-align: right;">$95</td>
+<td style="text-align: right;">$46</td>
+<td style="text-align: right;">$70</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>On this request, Claude Sonnet 5.5 costs <strong>153% more</strong> than Muse Spark 1.3, GPT-6 Sol <strong>95% more</strong>, and Gemini 3.1 Pro <strong>105% more</strong>.</li>
+<li>DeepSeek V4 Pro costs about the same. Grok 4.7 costs <strong>51% more</strong>.</li>
+</ul>
+<h2>What Meta says it is good at</h2>
+<p>According to Meta, Muse Spark 1.3 is trained for long, multi-step agent work and tuned for coding, with "fewer unnecessary turns and cleaner output." Meta also says it reads images, video and documents natively. These are Meta's claims; test it on your own tasks before you switch.</p>
+<h2>Strengths and weaknesses</h2>
+<p><img loading="lazy" width="1200" height="766" alt="Muse Spark 1.3 strengths and weaknesses: low price, 1M context, coding gains vs verbose output, trails Claude Opus 5 on agent tasks" src="/muse-spark-1-3-pros-cons-en.jpg" /></p>
+<p><strong>Strengths</strong></p>
+<ul>
+<li><strong>Price:</strong> $1.25 / $4.25 per million tokens, below Claude Sonnet 5.5 and GPT-6 Sol.</li>
+<li><strong>Long context:</strong> 1M tokens with no surcharge. On Meta's long-context recall test (MRCR, 512K–1M tokens) it scores 98.1, against 73.8 for GPT-5.6 Sol.</li>
+<li><strong>Coding:</strong> Meta reports DeepSWE v1.1 at 75.4 (up from 55.0 on 1.2) and Terminal-Bench 2.1 at 88.8, the same as GPT-5.6 Sol. Meta's engineers saw about 20% fewer tool calls and 25% fewer tokens than 1.2 on the same tasks.</li>
+<li><strong>Independent ranking:</strong> at its max setting it scores 62 on the Artificial Analysis Intelligence Index, 6th of 636 models.</li>
+</ul>
+<p><strong>Weaknesses</strong></p>
+<ul>
+<li><strong>Verbose:</strong> Artificial Analysis measured 120 million output tokens to finish its index, against a median of 72 million. That is about <strong>67% more output</strong>, so your real bill can be higher than the per-token price suggests. Measure it on your own prompts.</li>
+<li><strong>Not first on agent tasks:</strong> in Meta's own table, Claude Opus 5 is slightly ahead on agent benchmarks such as OSWorld 2.0 (68.3 vs 66.9), and GPT-5.6 Sol leads on search and instruction following.</li>
+<li><strong>Max mode came later:</strong> the max reasoning mode behind the top score was held back for safety testing at launch; the generally available xhigh setting scores 61.</li>
+<li><strong>No visible reasoning:</strong> it does not show its thinking, which some users find harder to debug.</li>
+<li><strong>Closed model, one provider:</strong> no open weights, and Meta is the only host.</li>
+</ul>
+<h2>Should you switch?</h2>
+<p><img loading="lazy" width="1200" height="829" alt="Should you switch?: On Claude Sonnet 5.5, GPT-6 Sol or Gemini 3.1 Pro for cost; On DeepSeek V4 Pro; For non-sensitive bulk jobs" src="/muse-spark-1-3-api-pricing-should-you-switch-en.jpg" /></p>
+<ul>
+<li><strong>On Claude Sonnet 5.5, GPT-6 Sol or Gemini 3.1 Pro for cost:</strong> Muse Spark 1.3 is a lot cheaper per request. Run a small test on your real prompts and compare quality.</li>
+<li><strong>On DeepSeek V4 Pro:</strong> the price is about the same, so choose on quality, speed and where your data is processed.</li>
+<li><strong>For non-sensitive bulk jobs:</strong> the contributor tier ($0.10 / $0.20) is one of the cheapest options, as long as you are fine with Meta training on that data.</li>
+<li><strong>Using it in Cursor:</strong> Cursor lists Muse Spark 1.3 at the same $1.25 / $4.25 in its "other models" pool.</li>
+</ul>
+<h2>Check your own prompt</h2>
+<p>Paste your prompt into the <a href="/">token counter</a> to see its cost on Muse Spark 1.3 and 30+ other models, or compare <a href="/compare/muse-spark-1-3-vs-claude-sonnet-5-5">Muse Spark 1.3 vs Claude Sonnet 5.5</a> side by side.</p>
+<p><em>Prices checked October 9, 2026. Check Meta's pricing page before you commit.</em></p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://dev.meta.ai/docs/pricing-rate-limits" target="_blank" rel="noopener">Meta Model API: Pricing and rate limits</a></li>
+<li><a href="https://dev.meta.ai/models/muse-spark" target="_blank" rel="noopener">Meta Model API: Muse Spark 1.3</a></li>
+<li><a href="https://cursor.com/docs/models-and-pricing" target="_blank" rel="noopener">Cursor: Models &amp; Pricing</a></li>
+<li><a href="https://www.eesel.ai/blog/meta-muse-spark-13-review" target="_blank" rel="noopener">Artificial Analysis / eesel: Muse Spark 1.3 review</a></li>
+<li><a href="https://www.datacamp.com/blog/muse-spark-1-3" target="_blank" rel="noopener">DataCamp: Muse Spark 1.3</a></li>
+</ul>
+<!-- autoimg -->

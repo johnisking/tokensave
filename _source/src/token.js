@@ -54,6 +54,7 @@ const PROVIDERS = {
     { id: 'qwen3-8-max',        group: 'Qwen',     name: 'Qwen 3.8 Max',       in: 2.00, out: 6.00,  ratio: 1.00 },
     { id: 'qwen3-8-flash',      group: 'Qwen',     name: 'Qwen 3.8 Flash',     in: 0.15, out: 0.47,  ratio: 1.00 },
     { id: 'kimi-k3',            group: 'Moonshot', name: 'Kimi K3',            in: 3.00, out: 15.00, ratio: 1.00 },
+    { id: 'muse-spark-1-3',     group: 'Meta',     name: 'Muse Spark 1.3',     in: 1.25, out: 4.25,  ratio: 1.00 }, // Meta Model API 2026-09; tokenizer not public, estimate
     { id: 'kimi-k2-6',          group: 'Moonshot', name: 'Kimi K2.6',          in: 0.95, out: 4.00,  ratio: 1.00 },
   ],
 };

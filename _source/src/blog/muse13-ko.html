@@ -1,0 +1,157 @@
+<p><img loading="lazy" width="1200" height="630" alt="메타 Muse Spark 1.3 API 가격: Claude·GPT-6·Gemini와 비용 비교" src="/muse-spark-1-3-api-gagyeok-ko.jpg" /></p>
+<p>메타(Meta)의 Muse Spark 1.3 API 가격은 <strong>입력 100만 토큰당 $1.25, 출력 $4.25</strong>입니다. 캐시 입력은 $0.15이고, 100만 토큰 컨텍스트를 꽉 채워도 추가 요금이 없습니다. 메타가 데이터를 학습에 쓰는 대신 훨씬 싼 "기여자(contributor)" 버전도 있습니다. Claude Sonnet 5.5, GPT-6 Sol, Gemini 3.1 Pro, DeepSeek, Grok과 비교해 실제로 얼마인지 정리했습니다.</p>
+<h2>Muse Spark 1.3 API 가격</h2>
+<p><img loading="lazy" width="1200" height="491" alt="Muse Spark 1.3 API 가격: 모델 이름, 입력, 캐시 입력, 출력" src="/muse-spark-1-3-api-gagyeok-muse-spark-1-3-api-ko.jpg" /></p>
+<p>메타 공식 가격 페이지 기준, 100만 토큰당 가격입니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>모델 이름</th>
+<th style="text-align: right;">입력</th>
+<th style="text-align: right;">캐시 입력</th>
+<th style="text-align: right;">출력</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>muse-spark-1.3</code> (일반)</td>
+<td style="text-align: right;">$1.25</td>
+<td style="text-align: right;">$0.15</td>
+<td style="text-align: right;">$4.25</td>
+</tr>
+<tr>
+<td><code>muse-spark-1.3-contributor</code> (기여자)</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$0.002</td>
+<td style="text-align: right;">$0.20</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>1.1·1.2·1.3 가격이 같습니다.</strong> 일반 버전은 같은 가격이라 최신으로 올려도 비용이 늘지 않습니다.</li>
+<li><strong>긴 컨텍스트 할증 없음:</strong> 100만 토큰 창이 거의 비어 있든 꽉 차 있든 같은 요금입니다.</li>
+<li><strong>기여자 버전:</strong> 내 프롬프트와 답변이 메타의 다음 모델 학습에 쓰입니다. 싸지만 개인정보나 고객 데이터는 넣지 마세요.</li>
+<li><strong>사용 한도(일반):</strong> 팀당 분당 요청 3,000회, 분당 토큰 400만 개입니다.</li>
+</ul>
+<h2>다른 모델과 가격 비교</h2>
+<p><img loading="lazy" width="1200" height="772" alt="다른 모델과 가격 비교: 모델, 입력, 출력" src="/muse-spark-1-3-api-gagyeok-ko-3.jpg" /></p>
+<p>100만 토큰당 정가입니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>모델</th>
+<th style="text-align: right;">입력</th>
+<th style="text-align: right;">출력</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Muse Spark 1.3</strong></td>
+<td style="text-align: right;">$1.25</td>
+<td style="text-align: right;">$4.25</td>
+</tr>
+<tr>
+<td>DeepSeek V4 Pro</td>
+<td style="text-align: right;">$1.32</td>
+<td style="text-align: right;">$3.96</td>
+</tr>
+<tr>
+<td>Grok 4.7</td>
+<td style="text-align: right;">$2.00</td>
+<td style="text-align: right;">$6.00</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td style="text-align: right;">$2.00</td>
+<td style="text-align: right;">$10.00</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td style="text-align: right;">$2.00</td>
+<td style="text-align: right;">$10.00</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td style="text-align: right;">$2.00</td>
+<td style="text-align: right;">$12.00</td>
+</tr>
+</tbody>
+</table></div>
+<h2>실제 작업 비용</h2>
+<p>일반적인 요청 하나를 입력 2,000 토큰, 출력 500 토큰으로 잡았습니다. 같은 영어 문장에서 모델마다 토큰 수가 다른 점도 반영했습니다. Claude는 약 30% 더 나오고, 메타의 토크나이저는 공개되지 않아 GPT와 같다고 가정했습니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>작업</th>
+<th style="text-align: right;">Muse Spark 1.3</th>
+<th style="text-align: right;">Claude Sonnet 5.5</th>
+<th style="text-align: right;">GPT-6 Sol</th>
+<th style="text-align: right;">Gemini 3.1 Pro</th>
+<th style="text-align: right;">DeepSeek V4 Pro</th>
+<th style="text-align: right;">Grok 4.7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>요청 1번</td>
+<td style="text-align: right;">$0.0046</td>
+<td style="text-align: right;">$0.0117</td>
+<td style="text-align: right;">$0.0090</td>
+<td style="text-align: right;">$0.0095</td>
+<td style="text-align: right;">$0.0046</td>
+<td style="text-align: right;">$0.0070</td>
+</tr>
+<tr>
+<td>한 달 1만 번</td>
+<td style="text-align: right;">$46</td>
+<td style="text-align: right;">$117</td>
+<td style="text-align: right;">$90</td>
+<td style="text-align: right;">$95</td>
+<td style="text-align: right;">$46</td>
+<td style="text-align: right;">$70</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>같은 요청에서 Claude Sonnet 5.5는 Muse Spark 1.3보다 <strong>153% 더</strong>, GPT-6 Sol은 <strong>95% 더</strong>, Gemini 3.1 Pro는 <strong>105% 더</strong> 듭니다.</li>
+<li>DeepSeek V4 Pro는 거의 같고, Grok 4.7은 <strong>51% 더</strong> 듭니다.</li>
+</ul>
+<h2>메타가 밝힌 강점</h2>
+<p>메타에 따르면 Muse Spark 1.3은 여러 단계를 이어 가는 에이전트 작업에 맞춰 학습했고, 코딩에서 "불필요한 턴이 적고 결과가 깔끔하다"고 합니다. 이미지·영상·문서도 바로 읽는다고 밝혔습니다. 모두 메타의 주장이니, 바꾸기 전에 내 작업으로 직접 테스트해 보세요.</p>
+<h2>장점과 단점</h2>
+<p><img loading="lazy" width="1200" height="732" alt="Muse Spark 1.3 장단점: 싼 가격, 100만 토큰, 코딩 개선 vs 긴 출력, 에이전트 작업은 Claude Opus 5가 근소하게 앞섬" src="/muse-spark-1-3-pros-cons-ko.jpg" /></p>
+<p><strong>장점</strong></p>
+<ul>
+<li><strong>가격:</strong> 100만 토큰당 $1.25 / $4.25로 Claude Sonnet 5.5, GPT-6 Sol보다 쌉니다.</li>
+<li><strong>긴 문서:</strong> 100만 토큰을 할증 없이 씁니다. 메타의 긴 문서 기억력 테스트(MRCR, 51만~100만 토큰)에서 98.1점으로 GPT-5.6 Sol(73.8)보다 높습니다.</li>
+<li><strong>코딩:</strong> 메타 발표 기준 DeepSWE v1.1 75.4점(1.2는 55.0), Terminal-Bench 2.1 88.8점으로 GPT-5.6 Sol과 같습니다. 메타 엔지니어 비교로는 1.2보다 도구 호출이 약 20%, 토큰이 약 25% 줄었습니다.</li>
+<li><strong>독립 평가 순위:</strong> 최고 설정(max) 기준 Artificial Analysis 지수 62점, 636개 모델 중 6위입니다.</li>
+</ul>
+<p><strong>단점</strong></p>
+<ul>
+<li><strong>말이 많음:</strong> Artificial Analysis 측정에서 출력 토큰을 1억 2천만 개 썼습니다. 다른 모델 중간값은 7천 2백만 개라 <strong>약 67% 더 많습니다.</strong> 토큰 단가는 싸도 실제 청구액은 더 나올 수 있으니 내 프롬프트로 직접 재 보세요.</li>
+<li><strong>에이전트 작업은 1등이 아님:</strong> 메타 자체 표에서도 OSWorld 2.0 같은 에이전트 벤치마크는 Claude Opus 5가 근소하게 앞서고(68.3 vs 66.9), 검색·지시 따르기는 GPT-5.6 Sol이 앞섭니다.</li>
+<li><strong>최고 모드는 나중에:</strong> 6위 점수를 낸 max 모드는 안전성 테스트로 출시 때 빠졌고, 일반 공개된 xhigh는 61점입니다.</li>
+<li><strong>생각 과정이 안 보임:</strong> 추론 과정을 보여 주지 않아 디버깅이 불편하다는 사용자 의견이 있습니다.</li>
+<li><strong>폐쇄형, 제공처 한 곳:</strong> 오픈 가중치가 아니고 메타에서만 쓸 수 있습니다.</li>
+</ul>
+<h2>갈아탈 만할까</h2>
+<p><img loading="lazy" width="1200" height="829" alt="갈아탈 만할까: 비용 때문에 Claude Sonnet 5.5·GPT-6 Sol·Gemini 3.1 Pro를 쓰는 중이라면; DeepSeek V4 Pro를 쓰는 중이라면; 민감하지 않은 대량 작업" src="/muse-spark-1-3-api-gagyeok-ko-4.jpg" /></p>
+<ul>
+<li><strong>비용 때문에 Claude Sonnet 5.5·GPT-6 Sol·Gemini 3.1 Pro를 쓰는 중이라면:</strong> 요청당 훨씬 쌉니다. 실제 프롬프트로 작게 테스트해서 품질을 비교해 보세요.</li>
+<li><strong>DeepSeek V4 Pro를 쓰는 중이라면:</strong> 가격이 거의 같아서 품질, 속도, 데이터 처리 위치로 고르면 됩니다.</li>
+<li><strong>민감하지 않은 대량 작업:</strong> 기여자 버전($0.10 / $0.20)은 가장 싼 선택지 중 하나입니다. 메타가 그 데이터를 학습해도 괜찮을 때만 쓰세요.</li>
+<li><strong>커서(Cursor)에서 쓴다면:</strong> 커서도 Muse Spark 1.3을 같은 $1.25 / $4.25로 "다른 모델" 사용량에서 차감합니다.</li>
+</ul>
+<h2>내 프롬프트로 계산해 보기</h2>
+<p>내 프롬프트를 <a href="/ko/">토큰 계산기</a>에 붙여 넣으면 Muse Spark 1.3과 30개 넘는 모델의 비용을 한 번에 볼 수 있습니다. <a href="/compare/muse-spark-1-3-vs-claude-sonnet-5-5">Muse Spark 1.3 vs Claude Sonnet 5.5</a> 비교 페이지(영어)도 있습니다.</p>
+<p><em>2026년 10월 9일 가격 기준. 쓰기 전에 메타 가격 페이지를 한 번 더 확인하세요.</em></p>
+<h2>출처</h2>
+<ul>
+<li><a href="https://dev.meta.ai/docs/pricing-rate-limits" target="_blank" rel="noopener">Meta Model API: 가격과 사용 한도</a></li>
+<li><a href="https://dev.meta.ai/models/muse-spark" target="_blank" rel="noopener">Meta Model API: Muse Spark 1.3</a></li>
+<li><a href="https://cursor.com/docs/models-and-pricing" target="_blank" rel="noopener">Cursor: 모델 가격</a></li>
+<li><a href="https://www.eesel.ai/blog/meta-muse-spark-13-review" target="_blank" rel="noopener">Artificial Analysis 수치 인용: eesel 리뷰</a></li>
+<li><a href="https://www.datacamp.com/blog/muse-spark-1-3" target="_blank" rel="noopener">DataCamp: Muse Spark 1.3</a></li>
+</ul>
+<!-- autoimg -->

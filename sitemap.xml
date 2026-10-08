@@ -14594,6 +14594,75 @@
     </image:image>
   </url>
   <url>
+    <loc>https://tokensave.app/blog/muse-spark-1-3-api-pricing</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/muse-spark-1-3-api-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/muse-spark-1-3-api-gagyeok"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/muse-spark-1-3-api-ryoukin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/muse-spark-1-3-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-api-pricing-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-api-pricing-muse-spark-1-3-api-pricing-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-api-pricing-muse-spark-1-3-vs-other-models-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-pros-cons-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-api-pricing-should-you-switch-en.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/blog/muse-spark-1-3-api-gagyeok</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/muse-spark-1-3-api-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/muse-spark-1-3-api-gagyeok"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/muse-spark-1-3-api-ryoukin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/muse-spark-1-3-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-api-gagyeok-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-api-gagyeok-muse-spark-1-3-api-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-api-gagyeok-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-pros-cons-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-api-gagyeok-ko-4.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/blog/muse-spark-1-3-api-ryoukin</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/muse-spark-1-3-api-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/muse-spark-1-3-api-gagyeok"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/muse-spark-1-3-api-ryoukin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/muse-spark-1-3-api-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-api-ryoukin-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-api-ryoukin-muse-spark-1-3-api-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-api-ryoukin-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-pros-cons-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/muse-spark-1-3-api-ryoukin-ja-4.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://tokensave.app/blog/what-is-a-token</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/what-is-a-token"/>
@@ -15107,6 +15176,27 @@
     <lastmod>2026-10-01</lastmod>
     <image:image>
       <image:loc>https://tokensave.app/img/compare/gpt-6-1-sol-vs-claude-opus-5-5-api-cost.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/compare/muse-spark-1-3-vs-claude-sonnet-5-5</loc>
+    <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/muse-spark-1-3-vs-claude-sonnet-5-5-api-cost.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/compare/muse-spark-1-3-vs-gpt-6-sol</loc>
+    <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/muse-spark-1-3-vs-gpt-6-sol-api-cost.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/compare/muse-spark-1-3-vs-gemini-3-1-pro</loc>
+    <lastmod>2026-10-01</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/muse-spark-1-3-vs-gemini-3-1-pro-api-cost.svg</image:loc>
     </image:image>
   </url>
   <url>
