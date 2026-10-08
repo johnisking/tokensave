@@ -18,7 +18,7 @@ On September 29, 2026 OpenAI split ChatGPT Pro into three plans: **Pro 100**, **
 
 US prices. OpenAI's help page only says that Pro 200 includes more usage than Pro 100 and Pro 500 the most; the 5×, 10× and 25× Plus figures come from OpenAI's Thibault Sottiaux on X (5× and 10×, as reported by WinBuzzer) and press reports (25×, Windows Report), not from OpenAI's pricing page.
 
-All three Pro plans include the same features: Pro models, Codex, deep research, image creation, memory and file uploads. The only feature difference is **Ultrafast**, a faster mode for GPT-6 Astra, which is Pro 500 only. Buying extra credits on Pro 100 or Pro 200 does not unlock it.
+All three Pro plans include the same features: Pro models, Codex, deep research, image creation, memory and file uploads. The only feature difference is **Ultrafast**, a faster mode for GPT-6 Astra and GPT-6.1 Sol, which is Pro 500 only among the Pro plans. Buying extra credits on Pro 100 or Pro 200 does not unlock it.
 
 ## The part most people miss: there is no bulk discount any more
 
@@ -44,7 +44,7 @@ So the rule is simple: **buy the smallest plan you don't hit the limit on.** Pay
 - **$500 a month:** the most expensive individual plan. Unused usage is wasted money.
 - **No bulk discount:** the unit price equals Pro 100 and 200, so buying more does not make it cheaper.
 - **Ultrafast burns your allowance faster:** faster output uses the limit faster too.
-- **Ultrafast is Astra-only for now:** Ultrafast for GPT-6.1 Sol was only announced as "coming soon."
+- **Ultrafast now covers GPT-6.1 Sol too:** since October 8, 2026 it also works with GPT-6.1 Sol (API $12 / $60 per million tokens). See [GPT-6.1 Sol Ultrafast pricing](/blog/gpt-6-1-sol-ultrafast-pricing).
 - **Exact limits are not published:** OpenAI's help page only says Pro 500 has the most.
 
 How and when each plan's limits reset is covered in [ChatGPT usage limits](/blog/chatgpt-usage-limits).
@@ -58,7 +58,7 @@ How and when each plan's limits reset is covered in [ChatGPT usage limits](/blog
 - **You rarely hit the Plus limit:** stay on Plus ($20). None of the Pro plans give you a smarter answer for everyday chat; they give you more of it.
 - **You hit the Plus limit a few times a week:** Pro 100. Five times the usage for five times the price, and the jump from $20 to $100 is the smallest step up.
 - **You regularly run out on Pro 100:** Pro 200. Same price per unit, twice the room.
-- **You run Codex or agents most of the day, or waiting on output costs you money:** Pro 500. It is the only plan with Ultrafast, but note that faster generation uses your allowance faster too.
+- **You run Codex or agents most of the day, or waiting on output costs you money:** Pro 500. It is the only Pro plan with Ultrafast (usage-based Enterprise and credit-based Edu plans can also get it), but note that faster generation uses your allowance faster too.
 - **You're on the old Pro 200:** keep it until October 29; it is the best deal OpenAI sells right now. After that, look at how much you actually used. If you stayed under about a quarter of your old allowance, Pro 100 does the same job for $100 less.
 
 ## What about just using the API?
@@ -85,5 +85,5 @@ The takeaway: light and medium users of the everyday model are usually better of
 Everyone's usage is different. The [Subscription vs API calculator](/plans) lets you enter how many messages you send, how long they are and which language you write in, and shows what the same month would cost on the API next to ChatGPT, Claude and Gemini plans.
 
 *Prices as of October 1, 2026. OpenAI may change allowances again; check chatgpt.com/pricing before you buy.*
-Sources: [OpenAI DevDay 2026 recap](https://openai.com/index/devday-2026-recap/) · [Every DevDay announcement with prices and availability (DEV Community)](https://dev.to/axrisi/openai-devday-2026-every-announcement-with-prices-and-availability-1mbh) · [About ChatGPT Pro tiers (OpenAI Help Center)](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers) · [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/) · [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
+Sources: [OpenAI DevDay 2026 recap](https://openai.com/index/devday-2026-recap/) · [Every DevDay announcement with prices and availability (DEV Community)](https://dev.to/axrisi/openai-devday-2026-every-announcement-with-prices-and-availability-1mbh) · [About ChatGPT Pro tiers (OpenAI Help Center)](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers) · [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/) · [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692) · [OpenAI Developer Community: Ultrafast is rolling out today for GPT-6.1 Sol](https://community.openai.com/t/ultrafast-is-rolling-out-today-for-gpt-6-1-sol-in-the-api-codex-and-chatgpt-work/1404475)
 <!-- autoimg -->

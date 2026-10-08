@@ -675,6 +675,20 @@ MUSE13.append(_cc("ja", "/ja/blog/muse-spark-1-3-api-ryoukin", "muse13-ja", "Met
      "Jonhisking · 2026年10月9日", "プロンプトを貼り付けて、Muse Spark 1.3・GPT-6・Claude・Gemini など30以上のモデルのトークンと費用を比べましょう。", "トークンカウンターを開く"))
 for _d in MUSE13: _d["date"] = "2026-10-09"
 
+# 2026-10-09: GPT-6.1 Sol Ultrafast (en, ko, ja)
+ULTRAFAST = [
+ _cc("en", "/blog/gpt-6-1-sol-ultrafast-pricing", "ultrafast-en", "GPT-6.1 Sol Ultrafast: Price, Speed and When It's Worth It",
+     "GPT-6.1 Sol Ultrafast costs $12 / $60 per million tokens, 500% more than standard Sol and 20% more than GPT-6 Astra. Real costs, who gets it, when to use it.",
+     "Jonhisking · October 9, 2026", "Paste a prompt to see its tokens and cost on GPT-6.1 Sol, GPT-6 Astra, Claude, Gemini and 30+ models.", "Open the token counter"),
+ _cc("ko", "/ko/blog/gpt-6-1-sol-ultrafast-gagyeok", "ultrafast-ko", "GPT-6.1 Sol 울트라패스트 가격·속도 정리",
+     "GPT-6.1 Sol Ultrafast는 100만 토큰당 입력 $12, 출력 $60. 일반 Sol보다 500%, GPT-6 Astra보다 20% 비쌉니다. 실제 비용, 쓸 수 있는 요금제, 언제 쓸지.",
+     "Jonhisking · 2026년 10월 9일", "프롬프트를 붙여 넣고 GPT-6.1 Sol·GPT-6 Astra·Claude·Gemini 등 30개 넘는 모델의 토큰과 비용을 비교해 보세요.", "토큰 계산기 열기"),
+ _cc("ja", "/ja/blog/gpt-6-1-sol-ultrafast-ryoukin", "ultrafast-ja", "GPT-6.1 Sol Ultrafast の料金と速度まとめ",
+     "GPT-6.1 Sol Ultrafast は100万トークンあたり入力 $12、出力 $60。通常の Sol より500%、GPT-6 Astra より20%高い料金です。実費用、使えるプラン、使いどころ。",
+     "Jonhisking · 2026年10月9日", "プロンプトを貼り付けて、GPT-6.1 Sol・GPT-6 Astra・Claude・Gemini など30以上のモデルのトークンと費用を比べましょう。", "トークンカウンターを開く"),
+]
+for _d in ULTRAFAST: _d["date"] = "2026-10-09"
+
 # 2026-10-09: localized OG images for the Pro plan articles
 for _b in PRO:
     _og = {"ko": "chatgpt-pro-500-200-100-ko.jpg", "en": "chatgpt-pro-500-200-100-en.jpg", "ja": "chatgpt-pro-500-200-100-ja.jpg"}.get(_b["tag"])

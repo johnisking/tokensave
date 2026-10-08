@@ -22,7 +22,7 @@ Ceny amerykańskie. Strona pomocy OpenAI mówi tylko, że Pro 200 ma większy li
 
 W Polsce ChatGPT pokazuje ceny w złotówkach z VAT: Go kosztuje 34,99 zł, Plus 99,99 zł, a Pro od ok. 999 zł (według Promptowy, stan z 25 września 2026 – przed zakupem sprawdź cenę na stronie OpenAI). Więcej o polskich cenach wszystkich subskrypcji AI piszę w tekście [ceny subskrypcji AI w Polsce](/pl/blog/ceny-subskrypcji-ai).
 
-Wszystkie trzy plany Pro mają te same funkcje: modele Pro, Codex, głębokie badania (deep research), generowanie obrazów, pamięć i przesyłanie plików. Jedyna różnica w funkcjach to **Ultrafast** – szybszy tryb dla GPT-6 Astra, dostępny tylko w Pro 500. Dokupienie dodatkowych kredytów w Pro 100 lub Pro 200 go nie odblokowuje.
+Wszystkie trzy plany Pro mają te same funkcje: modele Pro, Codex, głębokie badania (deep research), generowanie obrazów, pamięć i przesyłanie plików. Jedyna różnica w funkcjach to **Ultrafast** – szybszy tryb dla GPT-6 Astra i GPT-6.1 Sol, dostępny spośród planów Pro tylko w Pro 500. Dokupienie dodatkowych kredytów w Pro 100 lub Pro 200 go nie odblokowuje. Od 8 października 2026 Ultrafast działa też z GPT-6.1 Sol (API: 12 / 60 USD za milion tokenów); więcej w tekście [GPT-6.1 Sol Ultrafast pricing](/blog/gpt-6-1-sol-ultrafast-pricing) (po angielsku).
 
 ## Czy droższy plan Pro jest bardziej opłacalny?
 
@@ -43,7 +43,7 @@ ChatGPT Pro warto kupić dopiero wtedy, gdy regularnie kończy Ci się limit Plu
 - **Rzadko dobijasz do limitu Plus:** zostań przy Plus (20 USD). Żaden plan Pro nie daje mądrzejszych odpowiedzi w codziennym czacie – daje ich po prostu więcej.
 - **Kilka razy w tygodniu kończy Ci się limit Plus:** Pro 100. Pięć razy większy limit za pięć razy wyższą cenę, a skok z 20 do 100 USD to najmniejszy krok w górę.
 - **Regularnie kończy Ci się limit w Pro 100:** Pro 200. Ta sama cena za jednostkę, dwa razy więcej miejsca.
-- **Większość dnia pracujesz w Codex lub z agentami albo czekanie na odpowiedź kosztuje Cię pieniądze:** Pro 500. Tylko ten plan ma Ultrafast, ale pamiętaj, że szybsze generowanie szybciej też zużywa limit.
+- **Większość dnia pracujesz w Codex lub z agentami albo czekanie na odpowiedź kosztuje Cię pieniądze:** Pro 500. Tylko ten plan Pro ma Ultrafast (mogą go dostać także plany Enterprise rozliczane za użycie i Edu oparte na kredytach), ale pamiętaj, że szybsze generowanie szybciej też zużywa limit.
 - **Masz stare Pro 200:** zostań przy nim do 29 października – to obecnie najkorzystniejsza oferta OpenAI. Potem sprawdź, ile faktycznie zużywałeś. Jeśli mieściłeś się w około jednej czwartej starego limitu, Pro 100 zrobi to samo za 100 USD mniej.
 
 Jeśli wahasz się raczej między tańszymi planami, zobacz porównanie [ChatGPT Go czy Plus](/pl/blog/chatgpt-go-vs-plus).
@@ -80,6 +80,7 @@ Każdy korzysta z ChatGPT inaczej. W [kalkulatorze subskrypcja vs API](/pl/plans
 - [Pomoc OpenAI: poziomy ChatGPT Pro](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
 - [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
 - [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
+- [OpenAI Developer Community: Ultrafast is rolling out today for GPT-6.1 Sol](https://community.openai.com/t/ultrafast-is-rolling-out-today-for-gpt-6-1-sol-in-the-api-codex-and-chatgpt-work/1404475)
 - [Plany ChatGPT i ceny Codex](https://learn.chatgpt.com/docs/pricing)
 - [Pomoc OpenAI: informacje o wersjach ChatGPT](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
 - [Cennik API OpenAI](https://developers.openai.com/api/docs/pricing)

@@ -16,7 +16,7 @@
 
 料金は米国価格です。OpenAIのヘルプページには「Pro 200はPro 100より利用量が多く、Pro 500が最も多い」としか書かれていません。5×・10×・25×という倍率はOpenAIの公式ページではなく、OpenAIのティボー・ソティオ（Thibault Sottiaux）氏のX投稿（5×・10×、WinBuzzer報道）と報道（25×、Windows Report）に基づく数値です。
 
-3つのProプランの機能はすべて共通で、Proモデル、Codex、ディープリサーチ、画像生成、メモリ、ファイルアップロードが使えます。唯一の違いは **Ultrafast**（GPT-6 Astraの高速モード）で、これはPro 500限定です。Pro 100やPro 200で追加クレジットを購入しても、Ultrafastは使えるようになりません。
+3つのProプランの機能はすべて共通で、Proモデル、Codex、ディープリサーチ、画像生成、メモリ、ファイルアップロードが使えます。唯一の違いは **Ultrafast**（GPT-6 AstraとGPT-6.1 Solの高速モード）で、これはPro 500限定です。Pro 100やPro 200で追加クレジットを購入しても、Ultrafastは使えるようになりません。
 
 ## 見落としがちなポイント：「まとめ買い割引」はもうない
 
@@ -42,7 +42,7 @@
 - **月 $500：** 個人プランで最も高額です。使い切れなければ無駄になります。
 - **まとめ買い割引なし：** 単価が Pro 100・200 と同じなので、大きく買っても安くなりません。
 - **Ultrafast は利用量を早く消費：** 速く生成するぶん、上限も早く減ります。
-- **Ultrafast は今のところ Astra のみ：** GPT-6.1 Sol 向けは「近日提供」と発表されただけです。
+- **Ultrafast は GPT-6.1 Sol にも対応：** 2026年10月8日から GPT-6.1 Sol でも使えるようになりました（API は100万トークンあたり入力 $12 / 出力 $60）。詳しくは [GPT-6.1 Sol Ultrafast の料金](/ja/blog/gpt-6-1-sol-ultrafast-ryoukin) をご覧ください。
 - **正確な上限は非公開：** OpenAI のヘルプには「Pro 500 が最も多い」としか書かれていません。
 
 上限がいつリセットされるかは [ChatGPT の使用量上限まとめ](/ja/blog/chatgpt-shiyouryou-jougen) で確認できます。
@@ -56,7 +56,7 @@
 - **Plusの上限にほとんど達しない：** Plus（$20）のままで十分です。どのProプランも、日常のチャットでより賢い回答をくれるわけではなく、使える量が増えるだけです。
 - **Plusの上限に週に数回達する：** Pro 100。料金5倍で利用量も5倍、$20から$100への移行はいちばん小さなステップアップです。
 - **Pro 100でも頻繁に使い切る：** Pro 200。単価は同じで、使える量が2倍になります。
-- **Codexやエージェントを1日の大半動かしている、または出力待ちの時間がそのままコストになる：** Pro 500。Ultrafastが使える唯一のプランです。ただし、生成が速い分、利用枠の消費も速くなる点に注意してください。
+- **Codexやエージェントを1日の大半動かしている、または出力待ちの時間がそのままコストになる：** Pro 500。Ultrafastが使える唯一のProプランです（従量課金のEnterpriseやクレジット制のEduプランでも使えます）。ただし、生成が速い分、利用枠の消費も速くなる点に注意してください。
 - **旧Pro 200を契約中：** 10月29日までは続けましょう。現時点でOpenAIが提供している中で最もお得なプランです。その後は、実際にどれだけ使っていたかを確認してください。旧利用枠の4分の1程度に収まっていたなら、Pro 100で同じことが$100安くできます。
 
 ## APIを直接使うのはどうか？
@@ -83,5 +83,5 @@
 使い方は人それぞれです。[サブスクリプション vs API 計算ツール](/ja/plans) では、送信するメッセージの件数、長さ、使う言語を入力すると、同じ1か月分をAPIで使った場合の料金を、ChatGPT・Claude・Geminiの各プランと並べて比較できます。
 
 *料金は2026年10月1日時点のものです。OpenAIが利用枠を再び変更する可能性もあるため、購入前に chatgpt.com/pricing をご確認ください。*
-出典：[OpenAI DevDay 2026 まとめ](https://openai.com/index/devday-2026-recap/)・[DevDay 発表ごとの価格と提供範囲（DEV Community）](https://dev.to/axrisi/openai-devday-2026-every-announcement-with-prices-and-availability-1mbh)・[ChatGPT Pro の各プランについて（OpenAI ヘルプセンター）](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)・[WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)・[Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
+出典：[OpenAI DevDay 2026 まとめ](https://openai.com/index/devday-2026-recap/)・[DevDay 発表ごとの価格と提供範囲（DEV Community）](https://dev.to/axrisi/openai-devday-2026-every-announcement-with-prices-and-availability-1mbh)・[ChatGPT Pro の各プランについて（OpenAI ヘルプセンター）](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)・[WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)・[Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)・[OpenAI Developer Community: Ultrafast is rolling out today for GPT-6.1 Sol](https://community.openai.com/t/ultrafast-is-rolling-out-today-for-gpt-6-1-sol-in-the-api-codex-and-chatgpt-work/1404475)
 <!-- autoimg -->

@@ -22,7 +22,7 @@ Amerikaanse prijzen. De hulppagina van OpenAI zegt alleen dat Pro 200 meer gebru
 
 In Nederland en België toont ChatGPT prijzen in euro, inclusief 21% btw: Go €8, Plus €23 en Pro €103 of €229 per maand (volgens LearnLLM). Die eurobedragen stammen van vóór de herindeling van 29 september. Ze horen bij de twee Pro-abonnementen die er toen al waren. Voor Pro 500 is nog geen bevestigde europrijs bekend, en ook de bedragen voor Pro 100 en 200 kunnen bij het afrekenen afwijken. Alle AI-abonnementen in euro vind je in [AI-abonnementen: prijzen in euro](/nl/blog/ai-abonnement-prijzen).
 
-Alle drie de Pro-abonnementen hebben dezelfde functies: Pro-modellen, Codex, deep research, afbeeldingen maken, geheugen en bestanden uploaden. Het enige verschil in functies is **Ultrafast**, een snellere modus voor GPT-6 Astra. Die zit alleen in Pro 500. Extra credits kopen in Pro 100 of Pro 200 ontgrendelt Ultrafast niet.
+Alle drie de Pro-abonnementen hebben dezelfde functies: Pro-modellen, Codex, deep research, afbeeldingen maken, geheugen en bestanden uploaden. Het enige verschil in functies is **Ultrafast**, een snellere modus voor GPT-6 Astra en GPT-6.1 Sol. Van de Pro-abonnementen zit die alleen in Pro 500. Extra credits kopen in Pro 100 of Pro 200 ontgrendelt Ultrafast niet. Sinds 8 oktober 2026 werkt Ultrafast ook met GPT-6.1 Sol (API: $12 / $60 per miljoen tokens); meer in [GPT-6.1 Sol Ultrafast pricing](/blog/gpt-6-1-sol-ultrafast-pricing) (in het Engels).
 
 ## Is een duurder Pro-abonnement voordeliger?
 
@@ -43,7 +43,7 @@ ChatGPT Pro is pas het geld waard als je regelmatig door je Plus-limiet heen gaa
 - **Je haalt de Plus-limiet zelden:** blijf bij Plus ($20, in Nederland €23). Geen enkel Pro-abonnement geeft slimmere antwoorden in gewone chats. Je krijgt er alleen meer van.
 - **Je loopt een paar keer per week tegen de Plus-limiet aan:** Pro 100. Je krijgt precies zoveel meer gebruik als je meer betaalt, en de stap van $20 naar $100 is de kleinste stap omhoog.
 - **Je komt in Pro 100 regelmatig tekort:** Pro 200. Dezelfde prijs per eenheid, het dubbele aan ruimte.
-- **Je werkt het grootste deel van de dag in Codex of met agents, of wachten op output kost je geld:** Pro 500. Alleen dit abonnement heeft Ultrafast. Let op: sneller genereren maakt je tegoed ook sneller op.
+- **Je werkt het grootste deel van de dag in Codex of met agents, of wachten op output kost je geld:** Pro 500. Alleen dit Pro-abonnement heeft Ultrafast (ook Enterprise op basis van gebruik en Edu op basis van credits kunnen het krijgen). Let op: sneller genereren maakt je tegoed ook sneller op.
 - **Je zit op het oude Pro 200:** houd het tot 29 oktober. Het is nu de voordeligste deal die OpenAI verkoopt. Kijk daarna hoeveel je echt gebruikte. Bleef je onder ongeveer een kwart van je oude limiet, dan doet Pro 100 hetzelfde werk voor $100 minder.
 
 Twijfel je eerder tussen de goedkopere abonnementen? Lees dan [ChatGPT Go vs Plus](/nl/blog/chatgpt-go-vs-plus). Gebruik je vooral Claude? Bekijk dan [de limieten van Claude Pro en Max](/nl/blog/claude-limiet).
@@ -80,6 +80,7 @@ Iedereen gebruikt ChatGPT anders. In de [rekenmachine abonnement vs API](/nl/pla
 - [OpenAI Help: ChatGPT Pro-niveaus](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
 - [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
 - [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
+- [OpenAI Developer Community: Ultrafast is rolling out today for GPT-6.1 Sol](https://community.openai.com/t/ultrafast-is-rolling-out-today-for-gpt-6-1-sol-in-the-api-codex-and-chatgpt-work/1404475)
 - [ChatGPT-abonnementen en Codex-prijzen](https://learn.chatgpt.com/docs/pricing)
 - [OpenAI Help: release notes van ChatGPT](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
 - [OpenAI API-prijzen](https://developers.openai.com/api/docs/pricing)

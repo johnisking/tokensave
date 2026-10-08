@@ -16,7 +16,7 @@ Em 29 de setembro de 2026, a OpenAI dividiu o ChatGPT Pro em três planos: **Pro
 
 Preços dos EUA, em dólares (US$). A página de ajuda da OpenAI diz apenas que o Pro 200 inclui mais uso que o Pro 100 e que o Pro 500 inclui o máximo; os multiplicadores 5×, 10× e 25× Plus não vêm da página de preços da OpenAI, e sim de uma publicação de Thibault Sottiaux (OpenAI) no X (5× e 10×, segundo o WinBuzzer) e de reportagens (25×, Windows Report).
 
-Os três planos Pro têm os mesmos recursos: modelos Pro, Codex, deep research, criação de imagens, memória e envio de arquivos. A única diferença de recurso é o **Ultrafast**, um modo mais rápido do GPT-6 Astra, exclusivo do Pro 500. Comprar créditos extras no Pro 100 ou no Pro 200 não libera esse modo.
+Os três planos Pro têm os mesmos recursos: modelos Pro, Codex, deep research, criação de imagens, memória e envio de arquivos. A única diferença de recurso é o **Ultrafast**, um modo mais rápido do GPT-6 Astra e do GPT-6.1 Sol, exclusivo do Pro 500 entre os planos Pro. Comprar créditos extras no Pro 100 ou no Pro 200 não libera esse modo. Desde 8 de outubro de 2026, o Ultrafast também funciona com o GPT-6.1 Sol (API: US$ 12 / US$ 60 por milhão de tokens); mais detalhes em [GPT-6.1 Sol Ultrafast pricing](/blog/gpt-6-1-sol-ultrafast-pricing) (em inglês).
 
 ## O detalhe que quase todo mundo deixa passar: não existe mais desconto por volume
 
@@ -33,7 +33,7 @@ A regra, então, é simples: **assine o menor plano cujo limite você não ating
 - **Você quase nunca bate o limite do Plus:** fique no Plus ($20). Nenhum plano Pro dá respostas mais inteligentes no chat do dia a dia; eles só dão mais respostas.
 - **Você bate o limite do Plus algumas vezes por semana:** Pro 100. Cinco vezes o uso por cinco vezes o preço, e ir de $20 para $100 é o menor salto possível.
 - **Você vive esgotando o Pro 100:** Pro 200. Mesmo preço por unidade, o dobro de espaço.
-- **Você usa o Codex ou agentes quase o dia todo, ou esperar pela resposta te custa dinheiro:** Pro 500. É o único plano com Ultrafast, mas lembre que gerar mais rápido também consome seu limite mais rápido.
+- **Você usa o Codex ou agentes quase o dia todo, ou esperar pela resposta te custa dinheiro:** Pro 500. É o único plano Pro com Ultrafast (os planos Enterprise por uso e Edu por créditos também podem ter), mas lembre que gerar mais rápido também consome seu limite mais rápido.
 - **Você está no Pro 200 antigo:** mantenha até 29 de outubro; é o melhor negócio que a OpenAI vende hoje. Depois disso, veja quanto você realmente usou. Se ficou abaixo de mais ou menos um quarto do limite antigo, o Pro 100 dá conta do recado por $100 a menos.
 
 ## E se eu usar a API direto?
@@ -66,6 +66,7 @@ O uso de cada pessoa é diferente. A [calculadora Assinatura vs API](/pt/plans) 
 - [Ajuda da OpenAI: níveis do ChatGPT Pro](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
 - [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
 - [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
+- [OpenAI Developer Community: Ultrafast is rolling out today for GPT-6.1 Sol](https://community.openai.com/t/ultrafast-is-rolling-out-today-for-gpt-6-1-sol-in-the-api-codex-and-chatgpt-work/1404475)
 - [Planos do ChatGPT e preços do Codex](https://learn.chatgpt.com/docs/pricing)
 - [Ajuda da OpenAI: notas de versão do ChatGPT](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
 - [Preços da API da OpenAI](https://developers.openai.com/api/docs/pricing)
