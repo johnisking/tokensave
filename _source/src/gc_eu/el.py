@@ -5,7 +5,7 @@ CHECKED = "2026-10-05"  # same literal as gamecost_i18n.CHECKED (copied to avoid
 GC = dict(
   title="Πόσο κοστίζει ένα παιχνίδι με AI;", desc="Κόστος, χρόνος και prompts για το AI παιχνίδι σου ανά είδος και πλατφόρμα.",
   badge="Νέο · δωρεάν · χωρίς λογαριασμό", h1="Υπολογιστής κόστους παιχνιδιού με AI",
-  sub="Απάντησε σε λίγες ερωτήσεις για το 2D παιχνίδι σου. Θα πάρεις τη λίστα με τα assets, το κόστος και τον χρόνο για να το φτιάξεις με εργαλεία AI, τον αριθμό των tokens και ένα πακέτο prompts για να ξεκινήσεις από σήμερα.",
+  sub="Υπολόγισε το κόστος και τον χρόνο για να φτιάξεις μόνος σου ένα 2D ή 3D παιχνίδι με AI. Ο υπολογιστής έχει ελεγχθεί σε πραγματικό κυκλοφορημένο παιχνίδι και σου δίνει επίσης τη λίστα με τα assets και ένα πακέτο prompts για να ξεκινήσεις.",
   qProject="Το παιχνίδι σου", name="Όνομα παιχνιδιού", namePh="π.χ. Cat Café Merge", idea="Η ιδέα σε μία πρόταση", ideaPh="π.χ. συνδύασε έπιπλα για γάτες και διακόσμησε ένα καφέ",
   qGenre="Είδος", qScale="Μέγεθος", sS="Μικρό", sSsub="≈ 2 εβδομάδες μόνος", sM="Μεσαίο", sMsub="≈ 4 εβδομάδες", sL="Μεγάλο", sLsub="≈ 6 εβδομάδες", sXL="Πολύ μεγάλο", sXLsub="≈ 3 μήνες ή περισσότερο",
   qStyle="Γραφικό στυλ", stPixel="Pixel art", stIllust="Εικονογράφηση", stSimple="Απλό / vector",
@@ -30,7 +30,7 @@ GC = dict(
   defName="Το παιχνίδι μου", defIdea="ένα παιχνίδι {genre} για {plat}",
   g_merge="Merge", g_puzzle="Παζλ", g_racing="Αγώνες", g_idle="Idle", g_platformer="Platformer", g_rpg="RPG", g_novel="Visual novel", g_shooter="Shooter", g_match3="Match-3", g_tower="Tower defense", g_card="Κάρτες / deckbuilder", g_survivor="Survivor-like", g_tycoon="Tycoon / διαχείριση", g_hyper="Hypercasual", g_runner="Runner", g_rhythm="Ρυθμός", g_word="Λέξεις / κουίζ", g_farming="Φάρμα / προσομοίωση ζωής", g_escape="Escape room / κρυμμένα αντικείμενα", g_board="Επιτραπέζιο", g_autobattler="Auto battler", g_survival="Επιβίωση / crafting", g_fishing="Ψάρεμα", g_sports="Αθλητικά", g_fighting="Μάχες", g_pet="Φροντίδα κατοικίδιων", g_minigames="Συλλογή minigames", g_metroidvania="Metroidvania", g_strategy="Στρατηγική / 4X", g_gacha="Gacha RPG συλλογής", g_horror="Τρόμου", g_sandbox="Sandbox", g_mmo="MMO / online RPG", gOther="Περισσότερα ▾",
   f_ads="Διαφημίσεις", f_iap="Αγορές εντός εφαρμογής", f_save="Αποθήκευση / φόρτωση", f_rank="Κατάταξη", f_online="Online multiplayer",
-  devIntro="Είσαι έμπειρος game developer. Βοήθησέ με να φτιάξω το «{name}», ένα 2D παιχνίδι είδους {genre} για {plat} με {engine}.",
+  devIntro="Είσαι έμπειρος game developer. Βοήθησέ με να φτιάξω το «{name}», ένα {dim} παιχνίδι είδους {genre} για {plat} με {engine}.",
   qPlat="Κυκλοφορεί σε", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Web", pls_android="Google Play, εφάπαξ", pls_mobile="Google Play $25 + Apple $99/έτος", pls_pc="Steam Direct, ανά παιχνίδι", pls_web="", l_store="Τέλη store", l_server="Server",
   devIdea="Ιδέα:", devScope="Έκταση: {chars} χαρακτήρες, {bg} φόντα, {items} αντικείμενα, {music} μουσικά κομμάτια, {sfx} ηχητικά εφέ, {langs} γλώσσα/-ες.",
   devFeats="Λειτουργίες:", devRules="Κανόνες: κράτα τον κώδικα απλό και modular· μία λειτουργία σε κάθε βήμα· μετά από κάθε βήμα πες μου πώς να το δοκιμάσω στο κινητό μου· χρησιμοποίησε placeholder σχήματα μέχρι να σου δώσω τα πραγματικά γραφικά.",

@@ -5,7 +5,7 @@ CHECKED = "2026-10-05"  # same literal as gamecost_i18n.CHECKED (copied to avoid
 GC = dict(
   title="Cât costă să faci un joc cu AI?", desc="Calculează costul, timpul și prompturile jocului tău AI, pe gen și platformă.",
   badge="Nou · gratuit · fără cont", h1="Calculator de cost pentru jocuri cu AI",
-  sub="Răspunde la câteva întrebări despre jocul tău 2D. Primești lista de asseturi, costul și timpul ca să-l construiești cu unelte AI, numărul de tokeni și un pachet de prompturi cu care poți începe chiar azi.",
+  sub="Calculează costul și timpul ca să faci singur un joc 2D sau 3D cu AI. Calculatorul a fost verificat pe un joc real, lansat, și îți dă și lista de asseturi și un pachet de prompturi cu care să începi.",
   qProject="Jocul tău", name="Numele jocului", namePh="ex. Cat Café Merge", idea="Ideea într-o propoziție", ideaPh="ex. combini mobilier pentru pisici și decorezi o cafenea",
   qGenre="Gen", qScale="Dimensiune", sS="Mic", sSsub="≈ 2 săptămâni singur", sM="Mediu", sMsub="≈ 4 săptămâni", sL="Mare", sLsub="≈ 6 săptămâni", sXL="Foarte mare", sXLsub="≈ 3 luni sau mai mult",
   qStyle="Stil grafic", stPixel="Pixel art", stIllust="Ilustrație", stSimple="Simplu / vectorial",
@@ -30,7 +30,7 @@ GC = dict(
   defName="Jocul meu", defIdea="un joc {genre} pentru {plat}",
   g_merge="Merge", g_puzzle="Puzzle", g_racing="Curse", g_idle="Idle", g_platformer="Platformer", g_rpg="RPG", g_novel="Visual novel", g_shooter="Shooter", g_match3="Match-3", g_tower="Tower defense", g_card="Cărți / deckbuilder", g_survivor="Survivor-like", g_tycoon="Tycoon / management", g_hyper="Hypercasual", g_runner="Runner", g_rhythm="Ritm", g_word="Cuvinte / quiz", g_farming="Fermă / simulare de viață", g_escape="Escape room / obiecte ascunse", g_board="Joc de masă", g_autobattler="Auto battler", g_survival="Supraviețuire / crafting", g_fishing="Pescuit", g_sports="Sport", g_fighting="Lupte", g_pet="Îngrijire animăluțe", g_minigames="Colecție de minijocuri", g_metroidvania="Metroidvania", g_strategy="Strategie / 4X", g_gacha="RPG gacha de colecție", g_horror="Horror", g_sandbox="Sandbox", g_mmo="MMO / RPG online", gOther="Mai multe ▾",
   f_ads="Reclame", f_iap="Achiziții în aplicație", f_save="Salvare / încărcare", f_rank="Clasament", f_online="Multiplayer online",
-  devIntro="Ești un dezvoltator de jocuri cu experiență. Ajută-mă să construiesc „{name}”, un joc 2D de tip {genre} pentru {plat} cu {engine}.",
+  devIntro="Ești un dezvoltator de jocuri cu experiență. Ajută-mă să construiesc „{name}”, un joc {dim} de tip {genre} pentru {plat} cu {engine}.",
   qPlat="Se lansează pe", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Web", pls_android="Google Play, o singură dată", pls_mobile="Google Play $25 + Apple $99/an", pls_pc="Steam Direct, per joc", pls_web="", l_store="Taxe magazin", l_server="Server",
   devIdea="Idee:", devScope="Amploare: {chars} personaje, {bg} fundaluri, {items} obiecte, {music} piese muzicale, {sfx} efecte sonore, {langs} limbă/limbi.",
   devFeats="Funcții:", devRules="Reguli: păstrează codul simplu și modular; o singură funcție pe pas; după fiecare pas spune-mi cum îl testez pe telefon; folosește forme placeholder până îți dau grafica reală.",

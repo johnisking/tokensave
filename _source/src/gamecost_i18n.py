@@ -10,9 +10,9 @@ def _g(**kw):
     return kw
 
 ZH = dict(
-  title="AI 游戏制作成本计算器 – 2D 游戏预算", desc="用 AI 做一款 2D 游戏要花多少钱？回答 8 个问题，得到素材清单、成本、工期、token 数和可直接使用的提示词。",
+  title="AI 游戏制作成本计算器 – 2D/3D 游戏预算", desc="用 AI 做一款 2D 或 3D 游戏要花多少钱？回答 8 个问题，得到素材清单、成本、工期、token 数和可直接使用的提示词。",
   badge="新功能 · 免费 · 无需注册", h1="AI 游戏制作成本计算器",
-  sub="回答几个关于你的 2D 游戏的问题。我们给出所需素材清单、用 AI 工具制作的成本与工期、token 数，以及今天就能开工的提示词包。",
+  sub="计算用 AI 独自制作 2D 或 3D 游戏的成本和工期。这个计算器已用一款真实上线的游戏核对过，还会给出所需素材清单和开工用的提示词包。",
   qProject="你的游戏", name="游戏名称", namePh="例如：猫咪合成咖啡馆", idea="一句话简介", ideaPh="例如：合成猫咪家具来装修咖啡馆",
   qGenre="类型", qScale="规模", sS="小型", sSsub="一人约 2 周", sM="中型", sMsub="约 4 周", sL="大型", sLsub="约 6 周", sXL="超大型", sXLsub="约 3 个月以上",
   qStyle="画风", stPixel="像素风", stIllust="插画", stSimple="简约 / 矢量",
@@ -37,7 +37,7 @@ ZH = dict(
   defName="我的游戏", defIdea="面向{plat}的{genre}游戏",
   g_merge="合成", g_puzzle="益智", g_racing="竞速", g_idle="放置", g_platformer="平台跳跃", g_rpg="RPG", g_novel="视觉小说", g_shooter="射击", g_match3="三消", g_tower="塔防", g_card="卡牌 / 构筑", g_survivor="类幸存者", g_tycoon="经营模拟", g_hyper="超休闲", g_runner="跑酷", g_rhythm="音游", g_word="文字 / 答题", g_farming="农场 / 生活模拟", g_escape="密室逃脱 / 找东西", g_board="桌游", g_autobattler="自走棋", g_survival="生存建造", g_fishing="钓鱼", g_sports="体育", g_fighting="格斗", g_pet="养成", g_minigames="小游戏合集", g_metroidvania="银河恶魔城", g_strategy="策略 / 4X", g_gacha="抽卡收集 RPG", g_horror="恐怖", g_sandbox="沙盒", g_mmo="MMO / 网络 RPG", gOther="其他 ▾",
   f_ads="广告", f_iap="内购", f_save="存档 / 读档", f_rank="排行榜", f_online="在线对战",
-  devIntro="你是一名资深游戏开发者。请帮我用 {engine} 制作一款面向{plat}的 2D {genre}游戏《{name}》。",
+  devIntro="你是一名资深游戏开发者。请帮我用 {engine} 制作一款面向{plat}的 {dim} {genre}游戏《{name}》。",
   qPlat="发布平台", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC（Steam）", pl_web="网页", pls_android="Google Play，一次性", pls_mobile="Google Play $25 + Apple 每年 $99", pls_pc="Steam Direct，每款游戏", pls_web="", l_store="商店注册费", l_server="服务器",
   devIdea="创意：", devScope="规模：{chars} 个角色、{bg} 张背景、{items} 个道具、{music} 首背景音乐、{sfx} 个音效、{langs} 种语言。",
   devFeats="功能：", devRules="规则：代码保持简洁、模块化；每一步只做一个功能；每步结束后告诉我怎么在手机上测试；在我给你正式美术之前先用占位图形。",
@@ -58,9 +58,9 @@ ZH = dict(
 )
 
 ES = dict(
-  title="Calculadora de costo de juegos con IA – Presupuesto 2D", desc="¿Cuánto cuesta hacer un juego 2D con IA? Responde 8 preguntas y obtén la lista de assets, el costo, el tiempo, los tokens y prompts listos para usar.",
+  title="Calculadora de costo de juegos con IA – Presupuesto 2D y 3D", desc="¿Cuánto cuesta hacer un juego 2D o 3D con IA? Responde 8 preguntas y obtén la lista de assets, el costo, el tiempo, los tokens y prompts listos para usar.",
   badge="Nuevo · gratis · sin registro", h1="Calculadora de costo de juegos con IA",
-  sub="Responde unas preguntas sobre tu juego 2D. Obtén la lista de assets, el costo y el tiempo para hacerlo con herramientas de IA, los tokens y un paquete de prompts para empezar hoy.",
+  sub="Calcula el costo y el tiempo de hacer un juego 2D o 3D tú solo con IA. Está contrastada con un juego real ya publicado y también te da la lista de assets y un paquete de prompts para empezar.",
   qProject="Tu juego", name="Nombre del juego", namePh="p. ej. Café de gatos merge", idea="Idea en una línea", ideaPh="p. ej. fusiona muebles de gatos para decorar un café",
   qGenre="Género", qScale="Tamaño", sS="Pequeño", sSsub="≈ 2 semanas en solitario", sM="Mediano", sMsub="≈ 4 semanas", sL="Grande", sLsub="≈ 6 semanas", sXL="Muy grande", sXLsub="≈ 3 meses o más",
   qStyle="Estilo gráfico", stPixel="Pixel art", stIllust="Ilustración", stSimple="Simple / vectorial",
@@ -85,7 +85,7 @@ ES = dict(
   defName="Mi juego", defIdea="un juego de {genre} para {plat}",
   g_merge="Merge", g_puzzle="Puzle", g_racing="Carreras", g_idle="Idle", g_platformer="Plataformas", g_rpg="RPG", g_novel="Novela visual", g_shooter="Disparos", g_match3="Match-3", g_tower="Tower defense", g_card="Cartas / deckbuilder", g_survivor="Tipo survivors", g_tycoon="Tycoon / gestión", g_hyper="Hipercasual", g_runner="Runner", g_rhythm="Ritmo", g_word="Palabras / trivia", g_farming="Granja / vida", g_escape="Escape room / objetos ocultos", g_board="Juego de mesa", g_autobattler="Auto battler", g_survival="Supervivencia / crafteo", g_fishing="Pesca", g_sports="Deportes", g_fighting="Lucha", g_pet="Crianza de mascotas", g_minigames="Colección de minijuegos", g_metroidvania="Metroidvania", g_strategy="Estrategia / 4X", g_gacha="RPG gacha de colección", g_horror="Terror", g_sandbox="Sandbox", g_mmo="MMO / RPG online", gOther="Otros ▾",
   f_ads="Anuncios", f_iap="Compras en la app", f_save="Guardar / cargar", f_rank="Clasificación", f_online="Multijugador online",
-  devIntro="Eres un desarrollador de juegos sénior. Ayúdame a crear \"{name}\", un juego 2D de {genre} para {plat} en {engine}.",
+  devIntro="Eres un desarrollador de juegos sénior. Ayúdame a crear \"{name}\", un juego {dim} de {genre} para {plat} en {engine}.",
   qPlat="Lanzamiento en", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Web", pls_android="Google Play, una vez", pls_mobile="Google Play $25 + Apple $99/año", pls_pc="Steam Direct, por juego", pls_web="", l_store="Cuota de tienda", l_server="Servidor",
   devIdea="Idea:", devScope="Alcance: {chars} personajes, {bg} fondos, {items} objetos, {music} pistas de música, {sfx} efectos de sonido, {langs} idioma(s).",
   devFeats="Funciones:", devRules="Reglas: código simple y modular; una función por paso; después de cada paso dime cómo probarlo en mi teléfono; usa formas provisionales hasta que te dé el arte real.",
@@ -106,9 +106,9 @@ ES = dict(
 )
 
 FR = dict(
-  title="Calculateur de coût de jeu IA – Budget jeu 2D", desc="Combien coûte un jeu 2D fait avec l'IA ? Répondez à 8 questions et obtenez la liste des assets, le coût, le délai, les tokens et des prompts prêts à l'emploi.",
+  title="Calculateur de coût de jeu IA – Budget jeu 2D et 3D", desc="Combien coûte un jeu 2D ou 3D fait avec l'IA ? Répondez à 8 questions et obtenez la liste des assets, le coût, le délai, les tokens et des prompts prêts à l'emploi.",
   badge="Nouveau · gratuit · sans inscription", h1="Calculateur de coût de jeu IA",
-  sub="Répondez à quelques questions sur votre jeu 2D. Obtenez la liste des assets, le coût et le délai pour le faire avec des outils d'IA, les tokens et un pack de prompts pour commencer aujourd'hui.",
+  sub="Estimez le coût et le délai pour créer seul un jeu 2D ou 3D avec l'IA. Vérifié sur un vrai jeu publié, il vous donne aussi la liste des assets et un pack de prompts pour démarrer.",
   qProject="Votre jeu", name="Nom du jeu", namePh="ex. Café des chats merge", idea="L'idée en une ligne", ideaPh="ex. fusionner des meubles de chats pour décorer un café",
   qGenre="Genre", qScale="Taille", sS="Petit", sSsub="≈ 2 semaines en solo", sM="Moyen", sMsub="≈ 4 semaines", sL="Grand", sLsub="≈ 6 semaines", sXL="Très grand", sXLsub="≈ 3 mois et plus",
   qStyle="Style graphique", stPixel="Pixel art", stIllust="Illustration", stSimple="Simple / vectoriel",
@@ -133,7 +133,7 @@ FR = dict(
   defName="Mon jeu", defIdea="un jeu de {genre} pour {plat}",
   g_merge="Merge", g_puzzle="Puzzle", g_racing="Course", g_idle="Idle", g_platformer="Plateforme", g_rpg="RPG", g_novel="Visual novel", g_shooter="Tir", g_match3="Match-3", g_tower="Tower defense", g_card="Cartes / deckbuilder", g_survivor="Survivor-like", g_tycoon="Tycoon / gestion", g_hyper="Hypercasual", g_runner="Runner", g_rhythm="Rythme", g_word="Mots / quiz", g_farming="Ferme / simulation de vie", g_escape="Escape game / objets cachés", g_board="Jeu de plateau", g_autobattler="Auto battler", g_survival="Survie / craft", g_fishing="Pêche", g_sports="Sport", g_fighting="Combat", g_pet="Élevage d'animaux", g_minigames="Recueil de mini-jeux", g_metroidvania="Metroidvania", g_strategy="Stratégie / 4X", g_gacha="RPG gacha de collection", g_horror="Horreur", g_sandbox="Bac à sable", g_mmo="MMO / RPG en ligne", gOther="Autres ▾",
   f_ads="Publicités", f_iap="Achats intégrés", f_save="Sauvegarde", f_rank="Classement", f_online="Multijoueur en ligne",
-  devIntro="Tu es un développeur de jeux expérimenté. Aide-moi à créer « {name} », un jeu 2D de {genre} pour {plat} avec {engine}.",
+  devIntro="Tu es un développeur de jeux expérimenté. Aide-moi à créer « {name} », un jeu {dim} de {genre} pour {plat} avec {engine}.",
   qPlat="Sortie sur", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Web", pls_android="Google Play, une fois", pls_mobile="Google Play 25 $ + Apple 99 $/an", pls_pc="Steam Direct, par jeu", pls_web="", l_store="Frais de store", l_server="Serveur",
   devIdea="Idée :", devScope="Périmètre : {chars} personnages, {bg} décors, {items} objets, {music} pistes musicales, {sfx} effets sonores, {langs} langue(s).",
   devFeats="Fonctionnalités :", devRules="Règles : code simple et modulaire ; une fonctionnalité par étape ; après chaque étape, dis-moi comment la tester sur mon téléphone ; utilise des formes provisoires jusqu'à ce que je te donne les vrais graphismes.",
@@ -154,9 +154,9 @@ FR = dict(
 )
 
 PT = dict(
-  title="Calculadora de custo de jogo com IA – Orçamento 2D", desc="Quanto custa fazer um jogo 2D com IA? Responda 8 perguntas e receba a lista de assets, o custo, o prazo, os tokens e prompts prontos para usar.",
+  title="Calculadora de custo de jogo com IA – Orçamento 2D e 3D", desc="Quanto custa fazer um jogo 2D ou 3D com IA? Responda 8 perguntas e receba a lista de assets, o custo, o prazo, os tokens e prompts prontos para usar.",
   badge="Novo · grátis · sem cadastro", h1="Calculadora de custo de jogo com IA",
-  sub="Responda algumas perguntas sobre o seu jogo 2D. Receba a lista de assets, o custo e o prazo para fazê-lo com ferramentas de IA, os tokens e um pacote de prompts para começar hoje.",
+  sub="Calcule o custo e o prazo para fazer sozinho um jogo 2D ou 3D com IA. Conferida com um jogo real já lançado, ela também traz a lista de assets e um pacote de prompts para começar.",
   qProject="Seu jogo", name="Nome do jogo", namePh="ex.: Café dos Gatos Merge", idea="Ideia em uma linha", ideaPh="ex.: junte móveis de gato para decorar um café",
   qGenre="Gênero", qScale="Tamanho", sS="Pequeno", sSsub="≈ 2 semanas sozinho", sM="Médio", sMsub="≈ 4 semanas", sL="Grande", sLsub="≈ 6 semanas", sXL="Muito grande", sXLsub="≈ 3 meses ou mais",
   qStyle="Estilo de arte", stPixel="Pixel art", stIllust="Ilustração", stSimple="Simples / vetorial",
@@ -181,7 +181,7 @@ PT = dict(
   defName="Meu jogo", defIdea="um jogo de {genre} para {plat}",
   g_merge="Merge", g_puzzle="Quebra-cabeça", g_racing="Corrida", g_idle="Idle", g_platformer="Plataforma", g_rpg="RPG", g_novel="Visual novel", g_shooter="Tiro", g_match3="Match-3", g_tower="Tower defense", g_card="Cartas / deckbuilder", g_survivor="Estilo survivors", g_tycoon="Tycoon / gestão", g_hyper="Hipercasual", g_runner="Runner", g_rhythm="Ritmo", g_word="Palavras / quiz", g_farming="Fazenda / vida", g_escape="Escape room / objetos escondidos", g_board="Jogo de tabuleiro", g_autobattler="Auto battler", g_survival="Sobrevivência / crafting", g_fishing="Pesca", g_sports="Esportes", g_fighting="Luta", g_pet="Criação de pets", g_minigames="Coleção de minijogos", g_metroidvania="Metroidvania", g_strategy="Estratégia / 4X", g_gacha="RPG gacha de coleção", g_horror="Terror", g_sandbox="Sandbox", g_mmo="MMO / RPG online", gOther="Outros ▾",
   f_ads="Anúncios", f_iap="Compras no app", f_save="Salvar / carregar", f_rank="Ranking", f_online="Multiplayer online",
-  devIntro="Você é um desenvolvedor de jogos sênior. Me ajude a criar \"{name}\", um jogo 2D de {genre} para {plat} em {engine}.",
+  devIntro="Você é um desenvolvedor de jogos sênior. Me ajude a criar \"{name}\", um jogo {dim} de {genre} para {plat} em {engine}.",
   qPlat="Lançar em", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Web", pls_android="Google Play, uma vez", pls_mobile="Google Play US$ 25 + Apple US$ 99/ano", pls_pc="Steam Direct, por jogo", pls_web="", l_store="Taxa da loja", l_server="Servidor",
   devIdea="Ideia:", devScope="Escopo: {chars} personagens, {bg} cenários, {items} itens, {music} faixas de música, {sfx} efeitos sonoros, {langs} idioma(s).",
   devFeats="Recursos:", devRules="Regras: código simples e modular; um recurso por etapa; depois de cada etapa me diga como testar no celular; use formas provisórias até eu te passar a arte final.",
@@ -202,9 +202,9 @@ PT = dict(
 )
 
 RU = dict(
-  title="Калькулятор стоимости игры с ИИ – бюджет 2D-игры", desc="Сколько стоит сделать 2D-игру с ИИ? Ответьте на 8 вопросов и получите список ассетов, стоимость, сроки, токены и готовые промпты.",
+  title="Калькулятор стоимости игры с ИИ – бюджет 2D- и 3D-игры", desc="Сколько стоит сделать 2D- или 3D-игру с ИИ? Ответьте на 8 вопросов и получите список ассетов, стоимость, сроки, токены и готовые промпты.",
   badge="Новое · бесплатно · без регистрации", h1="Калькулятор стоимости игры с ИИ",
-  sub="Ответьте на несколько вопросов о своей 2D-игре. Получите список ассетов, стоимость и сроки разработки с ИИ-инструментами, токены и набор промптов, чтобы начать уже сегодня.",
+  sub="Рассчитайте стоимость и сроки разработки 2D- или 3D-игры в одиночку с ИИ. Калькулятор сверен с реальной выпущенной игрой и заодно выдаёт список ассетов и набор промптов для старта.",
   qProject="Ваша игра", name="Название игры", namePh="напр. Кошачье кафе Merge", idea="Идея в одну строку", ideaPh="напр. объединяйте кошачью мебель и обставляйте кафе",
   qGenre="Жанр", qScale="Размер", sS="Маленькая", sSsub="≈ 2 недели в одиночку", sM="Средняя", sMsub="≈ 4 недели", sL="Большая", sLsub="≈ 6 недель", sXL="Очень большая", sXLsub="≈ 3 месяца и больше",
   qStyle="Стиль графики", stPixel="Пиксель-арт", stIllust="Иллюстрация", stSimple="Простой / вектор",
@@ -229,7 +229,7 @@ RU = dict(
   defName="Моя игра", defIdea="игра в жанре «{genre}» для {plat}",
   g_merge="Мердж", g_puzzle="Головоломка", g_racing="Гонки", g_idle="Айдл", g_platformer="Платформер", g_rpg="RPG", g_novel="Визуальная новелла", g_shooter="Шутер", g_match3="Три в ряд", g_tower="Защита башен", g_card="Карточная / декбилдер", g_survivor="Сурвайвор-лайк", g_tycoon="Тайкун / менеджмент", g_hyper="Гиперказуал", g_runner="Раннер", g_rhythm="Ритм-игра", g_word="Слова / викторина", g_farming="Ферма / симулятор жизни", g_escape="Эскейп-рум / поиск предметов", g_board="Настольная игра", g_autobattler="Автобатлер", g_survival="Выживание / крафт", g_fishing="Рыбалка", g_sports="Спорт", g_fighting="Файтинг", g_pet="Выращивание питомцев", g_minigames="Сборник мини-игр", g_metroidvania="Метроидвания", g_strategy="Стратегия / 4X", g_gacha="Гача-RPG с коллекцией", g_horror="Хоррор", g_sandbox="Песочница", g_mmo="MMO / онлайн-RPG", gOther="Другие ▾",
   f_ads="Реклама", f_iap="Покупки в игре", f_save="Сохранение", f_rank="Таблица лидеров", f_online="Онлайн-мультиплеер",
-  devIntro="Ты опытный разработчик игр. Помоги мне сделать «{name}» — 2D-игру в жанре «{genre}» для {plat} на {engine}.",
+  devIntro="Ты опытный разработчик игр. Помоги мне сделать «{name}» — {dim}-игру в жанре «{genre}» для {plat} на {engine}.",
   qPlat="Платформа", pl_android="Android", pl_mobile="Android + iOS", pl_pc="ПК (Steam)", pl_web="Веб", pls_android="Google Play, один раз", pls_mobile="Google Play $25 + Apple $99 в год", pls_pc="Steam Direct, за игру", pls_web="", l_store="Сбор магазина", l_server="Сервер",
   devIdea="Идея:", devScope="Объём: персонажей — {chars}, фонов — {bg}, предметов — {items}, музыкальных треков — {music}, звуковых эффектов — {sfx}, языков — {langs}.",
   devFeats="Функции:", devRules="Правила: код простой и модульный; одна функция за шаг; после каждого шага скажи, как проверить это на телефоне; используй временные фигуры, пока я не дам настоящую графику.",
@@ -250,9 +250,9 @@ RU = dict(
 )
 
 UK = dict(
-  title="Калькулятор вартості гри з ШІ – бюджет 2D-гри", desc="Скільки коштує зробити 2D-гру з ШІ? Дайте відповідь на 8 запитань і отримайте список асетів, вартість, терміни, токени та готові промпти.",
+  title="Калькулятор вартості гри з ШІ – бюджет 2D- і 3D-гри", desc="Скільки коштує зробити 2D- або 3D-гру з ШІ? Дайте відповідь на 8 запитань і отримайте список асетів, вартість, терміни, токени та готові промпти.",
   badge="Нове · безкоштовно · без реєстрації", h1="Калькулятор вартості гри з ШІ",
-  sub="Дайте відповідь на кілька запитань про свою 2D-гру. Отримайте список асетів, вартість і терміни розробки з ШІ-інструментами, токени та набір промптів, щоб почати вже сьогодні.",
+  sub="Розрахуйте вартість і терміни розробки 2D- або 3D-гри самотужки з ШІ. Калькулятор звірено з реальною випущеною грою, і він також дає список асетів та набір промптів для старту.",
   qProject="Ваша гра", name="Назва гри", namePh="напр. Котяче кафе Merge", idea="Ідея одним рядком", ideaPh="напр. поєднуйте котячі меблі й облаштовуйте кафе",
   qGenre="Жанр", qScale="Розмір", sS="Мала", sSsub="≈ 2 тижні самотужки", sM="Середня", sMsub="≈ 4 тижні", sL="Велика", sLsub="≈ 6 тижнів", sXL="Дуже велика", sXLsub="≈ 3 місяці й більше",
   qStyle="Стиль графіки", stPixel="Піксель-арт", stIllust="Ілюстрація", stSimple="Простий / вектор",
@@ -277,7 +277,7 @@ UK = dict(
   defName="Моя гра", defIdea="гра в жанрі «{genre}» для {plat}",
   g_merge="Мердж", g_puzzle="Головоломка", g_racing="Перегони", g_idle="Айдл", g_platformer="Платформер", g_rpg="RPG", g_novel="Візуальна новела", g_shooter="Шутер", g_match3="Три в ряд", g_tower="Захист веж", g_card="Карткова / декбілдер", g_survivor="Сурвайвор-лайк", g_tycoon="Тайкун / менеджмент", g_hyper="Гіперказуал", g_runner="Ранер", g_rhythm="Ритм-гра", g_word="Слова / вікторина", g_farming="Ферма / симулятор життя", g_escape="Ескейп-рум / пошук предметів", g_board="Настільна гра", g_autobattler="Автобатлер", g_survival="Виживання / крафт", g_fishing="Риболовля", g_sports="Спорт", g_fighting="Файтинг", g_pet="Вирощування улюбленців", g_minigames="Збірка мініігор", g_metroidvania="Метроїдванія", g_strategy="Стратегія / 4X", g_gacha="Гача-RPG з колекцією", g_horror="Горор", g_sandbox="Пісочниця", g_mmo="MMO / онлайн-RPG", gOther="Інші ▾",
   f_ads="Реклама", f_iap="Покупки в грі", f_save="Збереження", f_rank="Таблиця лідерів", f_online="Онлайн-мультиплеєр",
-  devIntro="Ти досвідчений розробник ігор. Допоможи мені зробити «{name}» — 2D-гру в жанрі «{genre}» для {plat} на {engine}.",
+  devIntro="Ти досвідчений розробник ігор. Допоможи мені зробити «{name}» — {dim}-гру в жанрі «{genre}» для {plat} на {engine}.",
   qPlat="Платформа", pl_android="Android", pl_mobile="Android + iOS", pl_pc="ПК (Steam)", pl_web="Веб", pls_android="Google Play, один раз", pls_mobile="Google Play $25 + Apple $99 на рік", pls_pc="Steam Direct, за гру", pls_web="", l_store="Збір магазину", l_server="Сервер",
   devIdea="Ідея:", devScope="Обсяг: персонажів — {chars}, фонів — {bg}, предметів — {items}, музичних треків — {music}, звукових ефектів — {sfx}, мов — {langs}.",
   devFeats="Функції:", devRules="Правила: код простий і модульний; одна функція за крок; після кожного кроку скажи, як перевірити це на телефоні; використовуй тимчасові фігури, доки я не дам справжню графіку.",
@@ -298,9 +298,9 @@ UK = dict(
 )
 
 PL = dict(
-  title="Kalkulator kosztu gry z AI – budżet gry 2D", desc="Ile kosztuje zrobienie gry 2D z AI? Odpowiedz na 8 pytań i dostań listę assetów, koszt, czas, tokeny i gotowe prompty.",
+  title="Kalkulator kosztu gry z AI – budżet gry 2D i 3D", desc="Ile kosztuje zrobienie gry 2D lub 3D z AI? Odpowiedz na 8 pytań i dostań listę assetów, koszt, czas, tokeny i gotowe prompty.",
   badge="Nowość · za darmo · bez rejestracji", h1="Kalkulator kosztu gry z AI",
-  sub="Odpowiedz na kilka pytań o swoją grę 2D. Dostaniesz listę assetów, koszt i czas zrobienia jej narzędziami AI, liczbę tokenów i paczkę promptów, żeby zacząć jeszcze dziś.",
+  sub="Policz koszt i czas zrobienia gry 2D lub 3D w pojedynkę z AI. Kalkulator sprawdziłem na prawdziwej, wydanej grze, a do tego dostaniesz listę assetów i paczkę promptów na start.",
   qProject="Twoja gra", name="Nazwa gry", namePh="np. Kocia Kawiarnia Merge", idea="Pomysł w jednym zdaniu", ideaPh="np. łącz kocie meble i urządzaj kawiarnię",
   qGenre="Gatunek", qScale="Rozmiar", sS="Mała", sSsub="≈ 2 tygodnie w pojedynkę", sM="Średnia", sMsub="≈ 4 tygodnie", sL="Duża", sLsub="≈ 6 tygodni", sXL="Bardzo duża", sXLsub="≈ 3 miesiące i więcej",
   qStyle="Styl grafiki", stPixel="Pixel art", stIllust="Ilustracja", stSimple="Prosty / wektorowy",
@@ -325,7 +325,7 @@ PL = dict(
   defName="Moja gra", defIdea="gra z gatunku „{genre}” na {plat}",
   g_merge="Merge", g_puzzle="Logiczna", g_racing="Wyścigi", g_idle="Idle", g_platformer="Platformówka", g_rpg="RPG", g_novel="Powieść wizualna", g_shooter="Strzelanka", g_match3="Match-3", g_tower="Tower defense", g_card="Karciana / deckbuilder", g_survivor="Survivor-like", g_tycoon="Tycoon / zarządzanie", g_hyper="Hipercasual", g_runner="Runner", g_rhythm="Rytmiczna", g_word="Słowna / quiz", g_farming="Farma / symulator życia", g_escape="Escape room / ukryte przedmioty", g_board="Planszowa", g_autobattler="Auto battler", g_survival="Survival / crafting", g_fishing="Wędkarstwo", g_sports="Sportowa", g_fighting="Bijatyka", g_pet="Hodowla zwierzaków", g_minigames="Zbiór minigier", g_metroidvania="Metroidvania", g_strategy="Strategia / 4X", g_gacha="RPG gacha z kolekcją", g_horror="Horror", g_sandbox="Sandbox", g_mmo="MMO / RPG online", gOther="Inne ▾",
   f_ads="Reklamy", f_iap="Zakupy w aplikacji", f_save="Zapis / odczyt", f_rank="Ranking", f_online="Multiplayer online",
-  devIntro="Jesteś doświadczonym twórcą gier. Pomóż mi zrobić \"{name}\", grę 2D z gatunku „{genre}” na {plat} w {engine}.",
+  devIntro="Jesteś doświadczonym twórcą gier. Pomóż mi zrobić \"{name}\", grę {dim} z gatunku „{genre}” na {plat} w {engine}.",
   qPlat="Wydanie na", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Web", pls_android="Google Play, jednorazowo", pls_mobile="Google Play 25 USD + Apple 99 USD/rok", pls_pc="Steam Direct, za grę", pls_web="", l_store="Opłata sklepu", l_server="Serwer",
   devIdea="Pomysł:", devScope="Zakres: postacie {chars}, tła {bg}, przedmioty {items}, utwory muzyczne {music}, efekty dźwiękowe {sfx}, języki {langs}.",
   devFeats="Funkcje:", devRules="Zasady: kod prosty i modułowy; jedna funkcja na krok; po każdym kroku powiedz mi, jak to przetestować na telefonie; używaj tymczasowych kształtów, dopóki nie dam Ci prawdziwej grafiki.",
@@ -346,9 +346,9 @@ PL = dict(
 )
 
 SV = dict(
-  title="Kalkylator för spelkostnad med AI – budget för 2D-spel", desc="Vad kostar det att göra ett 2D-spel med AI? Svara på 8 frågor och få listan över assets, kostnad, tid, tokens och färdiga promptar.",
+  title="Kalkylator för spelkostnad med AI – budget för 2D- och 3D-spel", desc="Vad kostar det att göra ett 2D- eller 3D-spel med AI? Svara på 8 frågor och få listan över assets, kostnad, tid, tokens och färdiga promptar.",
   badge="Nytt · gratis · ingen registrering", h1="Kalkylator för spelkostnad med AI",
-  sub="Svara på några frågor om ditt 2D-spel. Du får listan över assets, kostnaden och tiden för att bygga det med AI-verktyg, antalet tokens och ett promptpaket så att du kan börja i dag.",
+  sub="Räkna ut kostnad och tid för att bygga ett 2D- eller 3D-spel på egen hand med AI. Kalkylatorn är avstämd mot ett riktigt släppt spel och ger dig också listan över assets och ett promptpaket att börja med.",
   qProject="Ditt spel", name="Spelets namn", namePh="t.ex. Kattkaféet Merge", idea="Idén på en rad", ideaPh="t.ex. slå ihop kattmöbler och inred ett kafé",
   qGenre="Genre", qScale="Storlek", sS="Litet", sSsub="≈ 2 veckor ensam", sM="Mellan", sMsub="≈ 4 veckor", sL="Stort", sLsub="≈ 6 veckor", sXL="Mycket stort", sXLsub="≈ 3 månader eller mer",
   qStyle="Grafisk stil", stPixel="Pixelgrafik", stIllust="Illustration", stSimple="Enkel / vektor",
@@ -373,7 +373,7 @@ SV = dict(
   defName="Mitt spel", defIdea="ett spel i genren {genre} för {plat}",
   g_merge="Merge", g_puzzle="Pussel", g_racing="Racing", g_idle="Idle", g_platformer="Plattform", g_rpg="RPG", g_novel="Visuell roman", g_shooter="Skjutspel", g_match3="Match-3", g_tower="Tower defense", g_card="Kort / deckbuilder", g_survivor="Survivor-like", g_tycoon="Tycoon / management", g_hyper="Hypercasual", g_runner="Runner", g_rhythm="Rytm", g_word="Ord / quiz", g_farming="Bondgård / livssimulator", g_escape="Escape room / gömda föremål", g_board="Brädspel", g_autobattler="Auto battler", g_survival="Överlevnad / crafting", g_fishing="Fiske", g_sports="Sport", g_fighting="Fighting", g_pet="Husdjursuppfödning", g_minigames="Samling minispel", g_metroidvania="Metroidvania", g_strategy="Strategi / 4X", g_gacha="Gacha-RPG med samlande", g_horror="Skräck", g_sandbox="Sandlåda", g_mmo="MMO / online-RPG", gOther="Fler ▾",
   f_ads="Annonser", f_iap="Köp i appen", f_save="Spara / ladda", f_rank="Topplista", f_online="Onlinemultiplayer",
-  devIntro="Du är en erfaren spelutvecklare. Hjälp mig att bygga \"{name}\", ett 2D-spel i genren {genre} för {plat} i {engine}.",
+  devIntro="Du är en erfaren spelutvecklare. Hjälp mig att bygga \"{name}\", ett {dim}-spel i genren {genre} för {plat} i {engine}.",
   qPlat="Släpps på", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Webb", pls_android="Google Play, en gång", pls_mobile="Google Play 25 USD + Apple 99 USD/år", pls_pc="Steam Direct, per spel", pls_web="", l_store="Butiksavgift", l_server="Server",
   devIdea="Idé:", devScope="Omfattning: {chars} figurer, {bg} bakgrunder, {items} föremål, {music} musikspår, {sfx} ljudeffekter, {langs} språk.",
   devFeats="Funktioner:", devRules="Regler: håll koden enkel och modulär; en funktion per steg; efter varje steg, berätta hur jag testar det i mobilen; använd platshållarformer tills jag ger dig den riktiga grafiken.",
@@ -398,9 +398,9 @@ EXTRA = {"zh-CN": ("zh-cn", ZH), "es": ("es", ES), "fr": ("fr", FR), "pt": ("pt"
 NAV = {"zh-CN": "游戏成本", "es": "Costo de juego", "fr": "Coût de jeu", "pt": "Custo de jogo", "ru": "Стоимость игры", "uk": "Вартість гри", "pl": "Koszt gry", "sv": "Spelkostnad"}
 
 DE = dict(
-  title="KI-Spielekosten-Rechner – Budget für 2D-Spiele", desc="Was kostet ein 2D-Spiel mit KI? Beantworte 8 Fragen und erhalte Asset-Liste, Kosten, Dauer, Tokens und fertige Prompts.",
+  title="KI-Spielekosten-Rechner – Budget für 2D- und 3D-Spiele", desc="Was kostet ein 2D- oder 3D-Spiel mit KI? Beantworte 8 Fragen und erhalte Asset-Liste, Kosten, Dauer, Tokens und fertige Prompts.",
   badge="Neu · kostenlos · ohne Anmeldung", h1="KI-Spielekosten-Rechner",
-  sub="Beantworte ein paar Fragen zu deinem 2D-Spiel. Du bekommst die Asset-Liste, Kosten und Dauer für die Umsetzung mit KI-Tools, die Tokens und ein Prompt-Paket, mit dem du heute loslegen kannst.",
+  sub="Berechne Kosten und Dauer, um ein 2D- oder 3D-Spiel allein mit KI zu bauen. Der Rechner ist an einem echten, veröffentlichten Spiel abgeglichen und liefert dir auch die Asset-Liste und ein Prompt-Paket zum Loslegen.",
   qProject="Dein Spiel", name="Spielname", namePh="z. B. Katzencafé Merge", idea="Idee in einem Satz", ideaPh="z. B. Katzenmöbel kombinieren und ein Café einrichten",
   qGenre="Genre", qScale="Größe", sS="Klein", sSsub="≈ 2 Wochen allein", sM="Mittel", sMsub="≈ 4 Wochen", sL="Groß", sLsub="≈ 6 Wochen", sXL="Sehr groß", sXLsub="≈ 3 Monate und mehr",
   qStyle="Grafikstil", stPixel="Pixel-Art", stIllust="Illustration", stSimple="Einfach / Vektor",
@@ -425,7 +425,7 @@ DE = dict(
   defName="Mein Spiel", defIdea="ein {genre}-Spiel für {plat}",
   g_merge="Merge", g_puzzle="Puzzle", g_racing="Rennspiel", g_idle="Idle", g_platformer="Jump 'n' Run", g_rpg="RPG", g_novel="Visual Novel", g_shooter="Shooter", g_match3="Match-3", g_tower="Tower Defense", g_card="Karten / Deckbuilder", g_survivor="Survivor-like", g_tycoon="Tycoon / Wirtschaft", g_hyper="Hypercasual", g_runner="Runner", g_rhythm="Rhythmus", g_word="Wörter / Quiz", g_farming="Farm / Lebenssimulation", g_escape="Escape Room / Wimmelbild", g_board="Brettspiel", g_autobattler="Auto Battler", g_survival="Survival / Crafting", g_fishing="Angeln", g_sports="Sport", g_fighting="Prügelspiel", g_pet="Haustier-Aufzucht", g_minigames="Minispiel-Sammlung", g_metroidvania="Metroidvania", g_strategy="Strategie / 4X", g_gacha="Gacha-Sammel-RPG", g_horror="Horror", g_sandbox="Sandbox", g_mmo="MMO / Online-RPG", gOther="Weitere ▾",
   f_ads="Werbung", f_iap="In-App-Käufe", f_save="Speichern / Laden", f_rank="Bestenliste", f_online="Online-Multiplayer",
-  devIntro="Du bist ein erfahrener Spieleentwickler. Hilf mir, \"{name}\" zu bauen, ein 2D-Spiel im Genre {genre} für {plat} mit {engine}.",
+  devIntro="Du bist ein erfahrener Spieleentwickler. Hilf mir, \"{name}\" zu bauen, ein {dim}-Spiel im Genre {genre} für {plat} mit {engine}.",
   qPlat="Erscheint auf", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Web", pls_android="Google Play, einmalig", pls_mobile="Google Play 25 $ + Apple 99 $/Jahr", pls_pc="Steam Direct, pro Spiel", pls_web="", l_store="Store-Gebühr", l_server="Server",
   devIdea="Idee:", devScope="Umfang: {chars} Figuren, {bg} Hintergründe, {items} Gegenstände, {music} Musikstücke, {sfx} Soundeffekte, {langs} Sprache(n).",
   devFeats="Funktionen:", devRules="Regeln: Code einfach und modular halten; eine Funktion pro Schritt; sag mir nach jedem Schritt, wie ich ihn auf meinem Handy teste; nutze Platzhalterformen, bis ich dir die echte Grafik gebe.",
@@ -450,7 +450,7 @@ NAV["de"] = "Spielekosten"
 NL = dict(
   title="Wat kost een game maken met AI?", desc="Bereken kosten, tijd en prompts voor je AI-game per genre, grootte en platform.",
   badge="Nieuw · gratis · zonder account", h1="AI-gamekostencalculator",
-  sub="Beantwoord een paar vragen over je 2D-game. Je krijgt de lijst met assets, de kosten en de tijd om hem met AI-tools te bouwen, het aantal tokens en een promptpakket waarmee je vandaag nog kunt beginnen.",
+  sub="Bereken de kosten en de tijd om in je eentje een 2D- of 3D-game met AI te bouwen. De calculator is getoetst aan een echte, uitgebrachte game en geeft je ook de lijst met assets en een promptpakket om mee te beginnen.",
   qProject="Je game", name="Naam van de game", namePh="bijv. Kattencafé Merge", idea="Idee in één zin", ideaPh="bijv. kattenmeubels samenvoegen en een café inrichten",
   qGenre="Genre", qScale="Grootte", sS="Klein", sSsub="≈ 2 weken alleen", sM="Middel", sMsub="≈ 4 weken", sL="Groot", sLsub="≈ 6 weken", sXL="Zeer groot", sXLsub="≈ 3 maanden of meer",
   qStyle="Grafische stijl", stPixel="Pixelart", stIllust="Illustratie", stSimple="Eenvoudig / vector",
@@ -475,7 +475,7 @@ NL = dict(
   defName="Mijn game", defIdea="een {genre}-game voor {plat}",
   g_merge="Merge", g_puzzle="Puzzel", g_racing="Racen", g_idle="Idle", g_platformer="Platformer", g_rpg="RPG", g_novel="Visual novel", g_shooter="Shooter", g_match3="Match-3", g_tower="Tower defense", g_card="Kaarten / deckbuilder", g_survivor="Survivor-like", g_tycoon="Tycoon / management", g_hyper="Hypercasual", g_runner="Runner", g_rhythm="Ritme", g_word="Woorden / quiz", g_farming="Boerderij / levenssimulatie", g_escape="Escape room / verborgen voorwerpen", g_board="Bordspel", g_autobattler="Auto battler", g_survival="Survival / crafting", g_fishing="Vissen", g_sports="Sport", g_fighting="Vechtspel", g_pet="Huisdieren verzorgen", g_minigames="Verzameling minigames", g_metroidvania="Metroidvania", g_strategy="Strategie / 4X", g_gacha="Gacha-verzamel-RPG", g_horror="Horror", g_sandbox="Sandbox", g_mmo="MMO / online-RPG", gOther="Meer ▾",
   f_ads="Advertenties", f_iap="In-app-aankopen", f_save="Opslaan / laden", f_rank="Ranglijst", f_online="Online multiplayer",
-  devIntro="Je bent een ervaren gameontwikkelaar. Help me \"{name}\" te bouwen, een 2D-game in het genre {genre} voor {plat} met {engine}.",
+  devIntro="Je bent een ervaren gameontwikkelaar. Help me \"{name}\" te bouwen, een {dim}-game in het genre {genre} voor {plat} met {engine}.",
   qPlat="Verschijnt op", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Web", pls_android="Google Play, eenmalig", pls_mobile="Google Play $25 + Apple $99/jaar", pls_pc="Steam Direct, per game", pls_web="", l_store="Storekosten", l_server="Server",
   devIdea="Idee:", devScope="Omvang: {chars} personages, {bg} achtergronden, {items} voorwerpen, {music} muzieknummers, {sfx} geluidseffecten, {langs} taal/talen.",
   devFeats="Functies:", devRules="Regels: houd de code eenvoudig en modulair; één functie per stap; vertel me na elke stap hoe ik hem op mijn telefoon test; gebruik placeholdervormen tot ik je de echte graphics geef.",

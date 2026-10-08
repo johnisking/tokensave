@@ -5,7 +5,7 @@ CHECKED = "2026-10-05"  # same literal as gamecost_i18n.CHECKED (copied to avoid
 GC = dict(
   title="Mennyibe kerül egy játék AI-jal?", desc="Számold ki AI-játékod költségét, idejét és promptjait műfaj és platform szerint.",
   badge="Új · ingyenes · fiók nélkül", h1="AI-játékköltség-kalkulátor",
-  sub="Válaszolj néhány kérdésre a 2D-s játékodról. Megkapod az assetek listáját, az AI-eszközökkel való elkészítés költségét és idejét, a tokenek számát, és egy promptcsomagot, amellyel már ma nekiállhatsz.",
+  sub="Számold ki, mennyibe kerül és mennyi ideig tart egyedül elkészíteni egy 2D-s vagy 3D-s játékot AI-jal. A kalkulátort egy valódi, megjelent játékon ellenőriztük, és az assetek listáját meg egy kezdő promptcsomagot is megkapod.",
   qProject="A játékod", name="A játék neve", namePh="pl. Cat Café Merge", idea="Az ötlet egy mondatban", ideaPh="pl. macskabútorok egyesítése és egy kávézó berendezése",
   qGenre="Műfaj", qScale="Méret", sS="Kicsi", sSsub="≈ 2 hét egyedül", sM="Közepes", sMsub="≈ 4 hét", sL="Nagy", sLsub="≈ 6 hét", sXL="Nagyon nagy", sXLsub="≈ 3 hónap vagy több",
   qStyle="Grafikai stílus", stPixel="Pixel art", stIllust="Illusztráció", stSimple="Egyszerű / vektoros",
@@ -30,7 +30,7 @@ GC = dict(
   defName="Az én játékom", defIdea="egy {genre} játék {plat} platformra",
   g_merge="Merge", g_puzzle="Puzzle", g_racing="Verseny", g_idle="Idle", g_platformer="Platformer", g_rpg="RPG", g_novel="Visual novel", g_shooter="Lövöldözős", g_match3="Match-3", g_tower="Tower defense", g_card="Kártya / deckbuilder", g_survivor="Survivor-like", g_tycoon="Tycoon / menedzser", g_hyper="Hypercasual", g_runner="Runner", g_rhythm="Ritmus", g_word="Szójáték / kvíz", g_farming="Farm / életszimuláció", g_escape="Szabadulószoba / rejtett tárgyak", g_board="Társasjáték", g_autobattler="Auto battler", g_survival="Túlélő / crafting", g_fishing="Horgászat", g_sports="Sport", g_fighting="Verekedős", g_pet="Kisállatgondozás", g_minigames="Minijáték-gyűjtemény", g_metroidvania="Metroidvania", g_strategy="Stratégia / 4X", g_gacha="Gyűjtögetős gacha RPG", g_horror="Horror", g_sandbox="Sandbox", g_mmo="MMO / online RPG", gOther="Továbbiak ▾",
   f_ads="Hirdetések", f_iap="Alkalmazáson belüli vásárlás", f_save="Mentés / betöltés", f_rank="Ranglista", f_online="Online multiplayer",
-  devIntro="Tapasztalt játékfejlesztő vagy. Segíts megépíteni a(z) „{name}” nevű 2D-s {genre} játékot {plat} platformra, {engine} használatával.",
+  devIntro="Tapasztalt játékfejlesztő vagy. Segíts megépíteni a(z) „{name}” nevű {dim}-s {genre} játékot {plat} platformra, {engine} használatával.",
   qPlat="Megjelenik itt", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Web", pls_android="Google Play, egyszeri", pls_mobile="Google Play $25 + Apple $99/év", pls_pc="Steam Direct, játékonként", pls_web="", l_store="Store-díjak", l_server="Szerver",
   devIdea="Ötlet:", devScope="Terjedelem: {chars} karakter, {bg} háttér, {items} tárgy, {music} zeneszám, {sfx} hangeffekt, {langs} nyelv.",
   devFeats="Funkciók:", devRules="Szabályok: legyen a kód egyszerű és moduláris; lépésenként egy funkció; minden lépés után mondd el, hogyan tesztelem a telefonomon; használj helyettesítő formákat, amíg oda nem adom a valódi grafikát.",

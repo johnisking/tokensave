@@ -262,7 +262,7 @@ function prompts(e) {
   const rbx = e.rbx;
   const steps = [t('st1'), t('st2'), t('st3'), t('st4'), ...(state.feats.size ? [t('st5', { feats })] : []), t('st6'), rbx ? t('rbxPublish') : t('st7')];
   const dev = [
-    rbx ? t('devIntroRbx', { name, genre: t('g_' + state.genre) }) : t('devIntro', { name, genre: t('g_' + state.genre), engine: ENGINE[state.engine], plat: t('pl_' + state.platform) }),
+    rbx ? t('devIntroRbx', { name, genre: t('g_' + state.genre) }) : t('devIntro', { name, dim: state.dim === '3d' ? '3D' : '2D', genre: t('g_' + state.genre), engine: ENGINE[state.engine], plat: t('pl_' + state.platform) }),
     '', t('devIdea') + ' ' + idea,
     t('devScope', { chars: e.chars, bg: e.bg, items: e.items, music: e.music, sfx: e.sfx, langs: state.langs }),
     t('devFeats') + ' ' + feats,

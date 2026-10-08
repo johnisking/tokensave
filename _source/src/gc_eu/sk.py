@@ -5,7 +5,7 @@ CHECKED = "2026-10-05"  # same value as gamecost_i18n.CHECKED (defined there, no
 GC = dict(
   title="Koľko stojí vytvoriť hru s AI?", desc="Vypočítaj náklady, čas a prompty pre AI hru podľa žánru, veľkosti a platformy.",
   badge="Nové · zadarmo · bez registrácie", h1="Kalkulačka nákladov na hru s AI",
-  sub="Odpovedz na pár otázok o svojej 2D hre. Dostaneš zoznam assetov, náklady a čas na vytvorenie s AI nástrojmi, počet tokenov a balík promptov, s ktorým môžeš začať ešte dnes.",
+  sub="Vypočítaj náklady a čas na vytvorenie 2D alebo 3D hry sám s AI. Kalkulačka je overená na skutočnej vydanej hre a dá ti aj zoznam assetov a balík promptov na začiatok.",
   qProject="Tvoja hra", name="Názov hry", namePh="napr. Mačacia kaviareň Merge", idea="Nápad v jednej vete", ideaPh="napr. spájaj mačací nábytok a zariaď kaviareň",
   qGenre="Žáner", qScale="Veľkosť", sS="Malá", sSsub="≈ 2 týždne sám", sM="Stredná", sMsub="≈ 4 týždne", sL="Veľká", sLsub="≈ 6 týždňov", sXL="Veľmi veľká", sXLsub="≈ 3 mesiace a viac",
   qStyle="Grafický štýl", stPixel="Pixel art", stIllust="Ilustrácia", stSimple="Jednoduchý / vektor",
@@ -30,7 +30,7 @@ GC = dict(
   defName="Moja hra", defIdea="hra žánru {genre} pre {plat}",
   g_merge="Merge", g_puzzle="Logická", g_racing="Pretekárska", g_idle="Idle", g_platformer="Plošinovka", g_rpg="RPG", g_novel="Vizuálny román", g_shooter="Strieľačka", g_match3="Match-3", g_tower="Tower defense", g_card="Kartová / deckbuilder", g_survivor="Survivor-like", g_tycoon="Tycoon / budovateľská", g_hyper="Hypercasual", g_runner="Runner", g_rhythm="Rytmická", g_word="Slovná / kvíz", g_farming="Farma / simulácia života", g_escape="Úniková hra / hľadanie predmetov", g_board="Stolová hra", g_autobattler="Auto battler", g_survival="Survival / crafting", g_fishing="Rybárčenie", g_sports="Športová", g_fighting="Bojovka", g_pet="Starostlivosť o zvieratká", g_minigames="Zbierka minihier", g_metroidvania="Metroidvania", g_strategy="Stratégia / 4X", g_gacha="Gacha zberateľské RPG", g_horror="Horor", g_sandbox="Sandbox", g_mmo="MMO / online RPG", gOther="Ďalšie ▾",
   f_ads="Reklamy", f_iap="Nákupy v aplikácii", f_save="Ukladanie / načítanie", f_rank="Rebríček", f_online="Online multiplayer",
-  devIntro="Si skúsený vývojár hier. Pomôž mi vytvoriť \"{name}\", 2D hru žánru {genre} pre {plat} v engine {engine}.",
+  devIntro="Si skúsený vývojár hier. Pomôž mi vytvoriť \"{name}\", {dim} hru žánru {genre} pre {plat} v engine {engine}.",
   qPlat="Vychádza na", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Web", pls_android="Google Play, jednorazovo", pls_mobile="Google Play $25 + Apple $99/rok", pls_pc="Steam Direct, za hru", pls_web="", l_store="Poplatky obchodu", l_server="Server",
   devIdea="Nápad:", devScope="Rozsah: {chars} postáv, {bg} pozadí, {items} predmetov, {music} hudobných skladieb, {sfx} zvukových efektov, {langs} jazyk(ov).",
   devFeats="Funkcie:", devRules="Pravidlá: drž kód jednoduchý a modulárny; jedna funkcia na krok; po každom kroku mi povedz, ako ho otestovať na telefóne; používaj zástupné tvary, kým ti nedám skutočnú grafiku.",

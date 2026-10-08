@@ -5,7 +5,7 @@ CHECKED = "2026-10-05"  # same value as gamecost_i18n.CHECKED (defined there, no
 GC = dict(
   title="Quanto costa creare un gioco con l'IA?", desc="Calcola costi, tempi e prompt del tuo gioco IA per genere, scala e piattaforma.",
   badge="Nuovo · gratis · senza account", h1="Calcolatore costi giochi con IA",
-  sub="Rispondi a qualche domanda sul tuo gioco 2D. Ottieni la lista degli asset, i costi e i tempi per realizzarlo con strumenti IA, il numero di token e un pacchetto di prompt per iniziare già oggi.",
+  sub="Calcola costi e tempi per creare da solo un gioco 2D o 3D con l'IA. Il calcolatore è stato verificato su un vero gioco pubblicato e ti dà anche la lista degli asset e un pacchetto di prompt per iniziare.",
   qProject="Il tuo gioco", name="Nome del gioco", namePh="es. Gatti Café Merge", idea="L'idea in una frase", ideaPh="es. unire mobili per gatti e arredare un caffè",
   qGenre="Genere", qScale="Dimensione", sS="Piccolo", sSsub="≈ 2 settimane da solo", sM="Medio", sMsub="≈ 4 settimane", sL="Grande", sLsub="≈ 6 settimane", sXL="Molto grande", sXLsub="≈ 3 mesi o più",
   qStyle="Stile grafico", stPixel="Pixel art", stIllust="Illustrazione", stSimple="Semplice / vettoriale",
@@ -30,7 +30,7 @@ GC = dict(
   defName="Il mio gioco", defIdea="un gioco {genre} per {plat}",
   g_merge="Merge", g_puzzle="Puzzle", g_racing="Corse", g_idle="Idle", g_platformer="Platform", g_rpg="RPG", g_novel="Visual novel", g_shooter="Sparatutto", g_match3="Match-3", g_tower="Tower defense", g_card="Carte / deckbuilder", g_survivor="Survivor-like", g_tycoon="Tycoon / gestionale", g_hyper="Hypercasual", g_runner="Runner", g_rhythm="Ritmo", g_word="Parole / quiz", g_farming="Fattoria / simulazione di vita", g_escape="Escape room / oggetti nascosti", g_board="Gioco da tavolo", g_autobattler="Auto battler", g_survival="Sopravvivenza / crafting", g_fishing="Pesca", g_sports="Sport", g_fighting="Picchiaduro", g_pet="Cura degli animali", g_minigames="Raccolta di minigiochi", g_metroidvania="Metroidvania", g_strategy="Strategia / 4X", g_gacha="RPG gacha collezionabile", g_horror="Horror", g_sandbox="Sandbox", g_mmo="MMO / RPG online", gOther="Altro ▾",
   f_ads="Pubblicità", f_iap="Acquisti in-app", f_save="Salvataggio / caricamento", f_rank="Classifica", f_online="Multigiocatore online",
-  devIntro="Sei uno sviluppatore di videogiochi esperto. Aiutami a creare \"{name}\", un gioco 2D di genere {genre} per {plat} con {engine}.",
+  devIntro="Sei uno sviluppatore di videogiochi esperto. Aiutami a creare \"{name}\", un gioco {dim} di genere {genre} per {plat} con {engine}.",
   qPlat="Uscita su", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Web", pls_android="Google Play, una tantum", pls_mobile="Google Play $25 + Apple $99/anno", pls_pc="Steam Direct, per gioco", pls_web="", l_store="Costi store", l_server="Server",
   devIdea="Idea:", devScope="Contenuti: {chars} personaggi, {bg} sfondi, {items} oggetti, {music} brani musicali, {sfx} effetti sonori, {langs} lingua/e.",
   devFeats="Funzioni:", devRules="Regole: mantieni il codice semplice e modulare; una funzione per passo; dopo ogni passo dimmi come provarlo sul mio telefono; usa forme segnaposto finché non ti do la grafica vera.",
