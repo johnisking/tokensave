@@ -12511,26 +12511,6 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-go-vs-plus"/>
   </url>
   <url>
-    <loc>https://tokensave.app/ko/blog/chatgpt-muryo-yuryo-chai</loc>
-    <lastmod>2026-10-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-muryo-yuryo-chai"/>
-    <image:image>
-      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-ko.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-plans-ko.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://tokensave.app/chatgpt-when-to-upgrade-ko.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://tokensave.app/chatgpt-plan-by-job-ko.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://tokensave.app/chatgpt-plus-api-vs-pro-ko.jpg</image:loc>
-    </image:image>
-  </url>
-  <url>
     <loc>https://tokensave.app/ja/blog/gemini-muryou-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-muryou-flash-lite"/>
@@ -12693,6 +12673,195 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/gamecalc-spermrace-en.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/blog/chatgpt-muryo-yuryo-chai</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-muryo-yuryo-chai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-free-vs-paid"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-muryou-yuuryou-chigai"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-bezkoshtovno-chy-platno"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/blog/chatgpt-mianfei-vs-fufei"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-gratuit-ou-payant"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-kostenlos-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-free-vs-paid"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-plans-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-when-to-upgrade-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-plan-by-job-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-plus-api-vs-pro-ko.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/chatgpt-free-vs-paid</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-muryo-yuryo-chai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-free-vs-paid"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-muryou-yuuryou-chigai"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-bezkoshtovno-chy-platno"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/blog/chatgpt-mianfei-vs-fufei"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-gratuit-ou-payant"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-kostenlos-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-free-vs-paid"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-plans-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-when-to-upgrade-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-plan-by-job-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-plus-api-vs-pro-en.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/blog/chatgpt-muryou-yuuryou-chigai</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-muryo-yuryo-chai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-free-vs-paid"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-muryou-yuuryou-chigai"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-bezkoshtovno-chy-platno"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/blog/chatgpt-mianfei-vs-fufei"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-gratuit-ou-payant"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-kostenlos-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-free-vs-paid"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-plans-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-when-to-upgrade-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-plan-by-job-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-plus-api-vs-pro-ja.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/uk/blog/chatgpt-bezkoshtovno-chy-platno</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-muryo-yuryo-chai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-free-vs-paid"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-muryou-yuuryou-chigai"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-bezkoshtovno-chy-platno"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/blog/chatgpt-mianfei-vs-fufei"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-gratuit-ou-payant"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-kostenlos-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-free-vs-paid"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-uk.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-plans-uk.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-when-to-upgrade-uk.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-plan-by-job-uk.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-plus-api-vs-pro-uk.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/zh-cn/blog/chatgpt-mianfei-vs-fufei</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-muryo-yuryo-chai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-free-vs-paid"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-muryou-yuuryou-chigai"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-bezkoshtovno-chy-platno"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/blog/chatgpt-mianfei-vs-fufei"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-gratuit-ou-payant"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-kostenlos-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-free-vs-paid"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-zhcn.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-plans-zhcn.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-when-to-upgrade-zhcn.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-plan-by-job-zhcn.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-plus-api-vs-pro-zhcn.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/fr/blog/chatgpt-gratuit-ou-payant</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-muryo-yuryo-chai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-free-vs-paid"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-muryou-yuuryou-chigai"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-bezkoshtovno-chy-platno"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/blog/chatgpt-mianfei-vs-fufei"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-gratuit-ou-payant"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-kostenlos-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-free-vs-paid"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-plans-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-when-to-upgrade-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-plan-by-job-fr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-plus-api-vs-pro-fr.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/de/blog/chatgpt-kostenlos-vs-plus</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-muryo-yuryo-chai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-free-vs-paid"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-muryou-yuuryou-chigai"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-bezkoshtovno-chy-platno"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/blog/chatgpt-mianfei-vs-fufei"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-gratuit-ou-payant"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-kostenlos-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-free-vs-paid"/>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-de.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-free-vs-paid-plans-de.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-when-to-upgrade-de.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-plan-by-job-de.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/chatgpt-plus-api-vs-pro-de.jpg</image:loc>
     </image:image>
   </url>
   <url>

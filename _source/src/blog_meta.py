@@ -609,8 +609,32 @@ GCREV = [_gm("en", "/blog/ai-game-cost-calculator-review", "I Ran My Released Ga
      "Jonhisking · October 8, 2026")]
 GCREV[0].update(src="gamecalc-review-en", date="2026-10-08", og="gamecalc-spermrace-en.jpg")
 
-_fp = _cc("ko", "/ko/blog/chatgpt-muryo-yuryo-chai", "freepaid-ko", "챗GPT 무료 vs 유료 차이: 무료·Go·Plus·Pro 한도와 원화 가격 (2026)",
-     "2026년 8월부터 챗GPT 무료도 대화는 무제한. 무료·Go(13,000원)·Plus(29,000원)·Pro 차이, 유료로 갈아탈 타이밍, 직업별 추천, 요금제 + API 전략까지.",
-     "Jonhisking · 2026년 10월 8일", *_CTA_PL["ko"])
-_fp.update(date="2026-10-08", og="chatgpt-free-vs-paid-ko.jpg")
-KO6.append(_fp)
+# 2026-10-08: ChatGPT free vs paid (ko, en, ja, uk, zh-CN, fr, de)
+_FPCTA = {"uk": _EU6["uk"][1:3], "fr": _EU6["fr"][1:3], "de": _EU6["de"][1:3],
+          "zh-CN": ("输入你的使用方式，看每月 API 费用和 ChatGPT・Claude・Gemini 各套餐并排比较。", "打开订阅 vs API 计算器")}
+def _fpd(tag, path, src, title, desc, by, img):
+    cta = _CTA_PL[tag] if tag in _CTA_PL else _FPCTA[tag]
+    d = _cc(tag, path, src, title, desc, by, *cta); d.update(date="2026-10-08", og=img); return d
+FREEPAID = [
+ _fpd("ko", "/ko/blog/chatgpt-muryo-yuryo-chai", "freepaid-ko", "챗GPT 무료 vs 유료 차이: 무료·Go·Plus·Pro 한도와 원화 가격 (2026)",
+      "2026년 8월부터 챗GPT 무료도 대화는 무제한. 무료·Go(13,000원)·Plus(29,000원)·Pro 차이, 유료로 갈아탈 타이밍, 직업별 추천, 요금제 + API 전략까지.",
+      "Jonhisking · 2026년 10월 8일", "chatgpt-free-vs-paid-ko.jpg"),
+ _fpd("en", "/blog/chatgpt-free-vs-paid", "freepaid-en", "ChatGPT Free vs Paid (2026): What You Actually Get for $0, $8, $20 and $100",
+      "ChatGPT free vs paid in 2026: chat is now unlimited on Free. See what Go ($8), Plus ($20) and Pro ($100+) really add, and when it's worth upgrading.",
+      "Jonhisking · October 8, 2026", "chatgpt-free-vs-paid-en.jpg"),
+ _fpd("ja", "/ja/blog/chatgpt-muryou-yuuryou-chigai", "freepaid-ja", "ChatGPT 無料と有料の違い【2026年】：Go・Plus・Pro はいつ課金すべき？料金と選び方",
+      "2026年8月からChatGPT無料版もチャット無制限に。無料・Go 1,400円・Plus 3,000円・Pro 16,800円〜の違い、有料にするタイミング、職業別のおすすめ、API併用で節約する方法。",
+      "Jonhisking · 2026年10月8日", "chatgpt-free-vs-paid-ja.jpg"),
+ _fpd("uk", "/uk/blog/chatgpt-bezkoshtovno-chy-platno", "freepaid-uk", "ChatGPT безкоштовно чи платно 2026: різниця і ціни в Україні з ПДВ",
+      "Безкоштовний ChatGPT тепер без ліміту розмов. Чим відрізняються Free, Go (≈375 ₴), Plus (≈1 070 ₴) і Pro з ПДВ, коли варто платити і що обрати під вашу роботу.",
+      "Jonhisking · 8 жовтня 2026", "chatgpt-free-vs-paid-uk.jpg"),
+ _fpd("zh-CN", "/zh-cn/blog/chatgpt-mianfei-vs-fufei", "freepaid-zhcn", "ChatGPT 免费版和付费版区别（2026）：Go、Plus、Pro 怎么选？",
+      "2026 年起 ChatGPT 免费版日常对话也不限条数。免费 $0、Go $8、Plus $20、Pro $100 起的区别，什么时候该升级，按职业推荐，以及用 API 省钱的方法。",
+      "Jonhisking · 2026年10月8日", "chatgpt-free-vs-paid-zhcn.jpg"),
+ _fpd("fr", "/fr/blog/chatgpt-gratuit-ou-payant", "freepaid-fr", "ChatGPT gratuit ou payant en 2026 : Gratuit, Go, Plus, Pro, quelles différences ?",
+      "ChatGPT gratuit ou payant ? Le chat est illimité partout depuis août 2026. Modèle, limites, pub : Go 8 €, Plus 23 €, Pro dès 103 €. Quand passer au payant.",
+      "Jonhisking · 8 octobre 2026", "chatgpt-free-vs-paid-fr.jpg"),
+ _fpd("de", "/de/blog/chatgpt-kostenlos-vs-plus", "freepaid-de", "ChatGPT kostenlos vs. Plus 2026: Lohnt sich das Bezahl-Abo?",
+      "ChatGPT kostenlos vs. bezahlt 2026: Chat ist überall unbegrenzt. Was Go (7,99 €), Plus (22,99 €) und Pro unterscheidet und wann sich ein Upgrade lohnt.",
+      "Jonhisking · 8. Oktober 2026", "chatgpt-free-vs-paid-de.jpg"),
+]
