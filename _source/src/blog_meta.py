@@ -608,3 +608,9 @@ GCREV = [_gm("en", "/blog/ai-game-cost-calculator-review", "I Ran My Released Ga
      "I fed my shipped Google Play game into my own AI game cost calculator. Predicted $47–102 and 19–31 days; actual $45 and 17 days. What it got right and wrong.",
      "Jonhisking · October 8, 2026")]
 GCREV[0].update(src="gamecalc-review-en", date="2026-10-08", og="gamecalc-spermrace-en.jpg")
+
+_fp = _cc("ko", "/ko/blog/chatgpt-muryo-yuryo-chai", "freepaid-ko", "챗GPT 무료 vs 유료 차이: 무료·Go·Plus·Pro 한도와 원화 가격 (2026)",
+     "2026년 8월부터 챗GPT 무료도 대화는 무제한. 무료·Go(13,000원)·Plus(29,000원)·Pro 차이, 유료로 갈아탈 타이밍, 직업별 추천, 요금제 + API 전략까지.",
+     "Jonhisking · 2026년 10월 8일", *_CTA_PL["ko"])
+_fp.update(date="2026-10-08", og="chatgpt-free-vs-paid-ko.jpg")
+KO6.append(_fp)
