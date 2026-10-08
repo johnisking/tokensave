@@ -1,0 +1,71 @@
+<p>I'm a solo developer from Korea with zero coding background. I make games by describing them to an AI. My first one, <strong>Sperm Race</strong> (a silly sperm racing game), is live on Google Play. People kept asking me "how much does it cost to make a game with AI?", so I built a free calculator.</p>
+<p>But I didn't actually know if my own calculator was right. So I fed it the exact specs of the game I had already shipped.</p>
+<p><img loading="lazy" width="505" height="530" alt="Sperm Race screenshots" src="/spermrace-screens.jpg" /></p>
+<h2>What I entered</h2>
+<ul>
+<li><strong>Genre:</strong> racing · <strong>Size:</strong> small · <strong>Art:</strong> simple vector · <strong>2D</strong></li>
+<li><strong>Content:</strong> 3 characters, 3 music tracks, 13 languages</li>
+<li><strong>Features:</strong> ads, in-app purchase, save data · <strong>Platform:</strong> Android · <strong>Engine:</strong> Phaser (in reality, plain HTML5)</li>
+<li><strong>Tools:</strong> Claude Pro, Pixabay (free music), free sound effect libraries</li>
+</ul>
+<p>It's all buttons. The only thing I typed was the game's name.</p>
+<p><img loading="lazy" width="1000" height="1160" alt="The calculator's input form" src="/gamecalc-form-en.jpg" /></p>
+<h2>Prediction vs reality</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th></th>
+<th>Calculator</th>
+<th>Actual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cost</td>
+<td>$47–102</td>
+<td><strong>$45</strong> (1 month of Claude Pro $20 + Google Play fee $25)</td>
+</tr>
+<tr>
+<td>Time</td>
+<td>19–31 days</td>
+<td><strong>~17 days</strong> (3 days to build + 14 days of bug fixing)</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>~5,400 lines</td>
+<td>~3,100 lines at launch → 13,800 now (after adding multiplayer)</td>
+</tr>
+<tr>
+<td>Art</td>
+<td>$10 (Midjourney)</td>
+<td><strong>$0</strong> (the AI drew characters and backgrounds in code)</td>
+</tr>
+<tr>
+<td>Music &amp; SFX</td>
+<td>$0</td>
+<td>$0 (music from Pixabay, sound effects generated in code)</td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" width="1000" height="1036" alt="The calculator's result for Sperm Race" src="/gamecalc-spermrace-en.jpg" /></p>
+<h2>What it got right</h2>
+<p>The cost was right almost to the dollar. The only gap was the $10 for art, and that's because I had the AI draw everything in code instead of generating images.</p>
+<h2>What it got wrong</h2>
+<ul>
+<li><strong>Time:</strong> the calculator was too pessimistic. The game itself took 3 days. The other 14 days were almost all bug fixing during Google Play's closed test. When I asked the AI to find a bug, it often "fixed" something unrelated, so I ended up hunting most bugs down myself. (<a href="/blog/google-play-closed-testing-14-days">The 14 bugs, one by one</a>)</li>
+<li><strong>Lines of code:</strong> too high for the first version. But counting updates after launch, I've blown way past it.</li>
+<li><strong>"This plan's usage limit is likely too low" warning:</strong> in my case, Claude Pro was enough to get to launch.</li>
+</ul>
+<h2>How it calculates (roughly)</h2>
+<ul>
+<li><strong>Size</strong> is anchored to real games built solo with AI coding agents: small about 2 weeks, medium about 4, large about 6. Genre, features and number of languages move it up or down.</li>
+<li><strong>Images</strong> = characters × animation frames + backgrounds + items + UI. It assumes you keep 1 of every 3 images you generate, so it plans for 3× as many generations.</li>
+<li><strong>Coding tokens</strong> assume about 20 million tokens read per working day (mostly cached context) for 70% of the schedule. The 343M here is that estimate. I was on a subscription, so I never measured my real token count.</li>
+</ul>
+<h2>What I learned</h2>
+<ol>
+<li><strong>With AI subscriptions, money goes out by the month, not by the token.</strong> Every month you slip is another bill.</li>
+<li><strong>Plan more time for fixing than for building.</strong> For me it was more than four times as long.</li>
+</ol>
+<p>The calculator is free, no sign-up. Pick a genre and size and you get the list of images and sounds you'll need, a cost and time estimate, and a ready-to-use starter prompt. It also handles 3D and Roblox games now.</p>
+<p>If you've shipped something, try your own project and see how far off it is. I'd love to know.</p>
