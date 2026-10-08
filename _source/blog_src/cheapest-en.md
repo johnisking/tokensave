@@ -39,7 +39,7 @@ For comparison, the same 10,000 requests cost **$90** on GPT-6 Sol, **$117** on 
 - **GPT-5 nano** for the very simplest, highest-volume work, where every fraction of a cent matters: tagging, yes/no checks, spam filtering.
 - **Qwen 3.8 Flash** and **Mistral Small** are the cheapest non-OpenAI options, useful if you want a second provider or open-weight models you could later host yourself.
 - **Gemini 3.1 Flash-Lite** and **DeepSeek V4.1 Flash** cost about 100% more than Luna but are a step up for writing and reasoning, and still about 87% cheaper than GPT-6 Sol per request. DeepSeek V4.1 Flash is half price outside peak hours ($0.15 / $0.60), which puts it right behind GPT-6 Luna; see [DeepSeek V4.1 Flash pricing](/blog/deepseek-v4-1-flash-api-pricing).
-- **Claude Haiku 4.5** is the cheapest Claude model at $0.0047 per request, around 900% more than Luna. Pick it when you need Claude's behavior specifically, not for price.
+- **Claude Haiku 5.5** is the cheapest Claude model: $0.10 / $0.50 per million for prompts up to 100,000 tokens (higher above that), about $0.00059 per request, around 30% more than Luna. The older Claude Haiku 4.5 ($1 / $5) costs $0.0047 per request. Pick Haiku when you need Claude's behavior specifically.
 
 ## When the cheapest model costs more
 

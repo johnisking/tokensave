@@ -32,7 +32,7 @@ ChatGPT、Claude、Gemini、Grok は、それぞれ有料プランを3〜5つ用
 
 ## 1,000円前後のプランは要注意
 
-- **ChatGPT Go（1,400円）:** 会話のモデルは小さい GPT-5.6 Luna で、広告が表示されることがあります。普段の会話は無料でも無制限なので、Go で増えるのはアップロード・画像・メモリの上限です。詳しくは[ChatGPT Go と Plus の違い](/ja/blog/chatgpt-go-vs-plus)へ。
+- **ChatGPT Go（1,400円）:** 会話のモデルは小さい GPT-6 Luna で、広告が表示されることがあります。普段の会話は無料でも無制限なので、Go で増えるのはアップロード・画像・メモリの上限です。詳しくは[ChatGPT Go と Plus の違い](/ja/blog/chatgpt-go-vs-plus)へ。
 - **Google AI Plus（725円）:** まもなく Pro モデルが使えなくなります。400GB のストレージが必要な人には今も悪くありません。[Gemini 無料版の変更まとめ](/ja/blog/gemini-muryou-flash-lite)を参照してください。
 
 ## 1万円以上のプランは「単価」を見る
@@ -54,5 +54,5 @@ Claude Max 20x と Google Ultra 20x は、上のプランほど使用量あた�
 
 自分の使い方で月の API 料金と各プランを並べて見るなら、[サブスク vs API 計算機](/ja/plans)を使ってみてください。Claude Code や Codex などのコーディングエージェントは[エージェント費用計算機](/ja/agents)で計算できます。
 
-*出典: [ChatGPT 料金一覧（AI Revolution）](https://ai-revolution.co.jp/media/chatgpt-pricing/)、[Claude 料金](https://claude.com/pricing)、Google の日本の月額は[AIツール料金](https://www.aitool-ryokin.com/tools/gemini)・[はてなベース](https://hatenabase.jp/blog/gemini-pricing-guide-2026/)の確認値。2026年10月6日確認。Grok は xAI の料金ページを確認した外部まとめによる米国価格です。料金と上限はよく変わるので、契約前に各社のページを確認してください。*
+*出典: [ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)、[ChatGPT 料金一覧（AI Revolution）](https://ai-revolution.co.jp/media/chatgpt-pricing/)、[Claude 料金](https://claude.com/pricing)、Google の日本の月額は[AIツール料金](https://www.aitool-ryokin.com/tools/gemini)・[はてなベース](https://hatenabase.jp/blog/gemini-pricing-guide-2026/)の確認値。2026年10月6日確認。Grok は xAI の料金ページを確認した外部まとめによる米国価格です。料金と上限はよく変わるので、契約前に各社のページを確認してください。*
 <!-- autoimg -->

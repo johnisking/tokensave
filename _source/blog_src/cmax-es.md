@@ -68,7 +68,7 @@ Más en [How to save tokens in Claude Code](/blog/claude-code-save-tokens) (en i
 
 ## ¿Claude Max o ChatGPT Pro?
 
-Por $200, Claude Max 20× equivale ahora a 20× su plan base, mientras que ChatGPT Pro 200 equivale a 10× su plan base para nuevos suscriptores. Los planes base de ambas empresas no tienen el mismo tamaño, así que compara lo que realmente usas. Consulta [ChatGPT Pro vs Claude Max](/blog/chatgpt-pro-vs-claude-max) (en inglés).
+Por $200, Claude Max 20× equivale ahora a 20× su plan base, mientras que ChatGPT Pro 200 equivale a 10× su plan base para nuevos suscriptores (según una publicación en X de Thibault Sottiaux, de OpenAI, recogida por WinBuzzer; la página de precios de OpenAI no da el multiplicador). Los planes base de ambas empresas no tienen el mismo tamaño, así que compara lo que realmente usas. Consulta [ChatGPT Pro vs Claude Max](/blog/chatgpt-pro-vs-claude-max) (en inglés).
 
 ## Haz tus propias cuentas
 
@@ -82,4 +82,6 @@ Usa la [calculadora de agentes de programación](/es/agents) para comparar Pro, 
 - [Usar Claude Code con tu plan Pro o Max (Centro de ayuda de Claude)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 - [Uso adicional en los planes de pago de Claude (Centro de ayuda de Claude)](https://support.claude.com/en/articles/12429409-extra-usage-for-max-20x-plans)
 - [Precios de la API de Claude (documentación de Anthropic)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Ayuda de OpenAI: planes de ChatGPT Pro](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
 <!-- autoimg -->

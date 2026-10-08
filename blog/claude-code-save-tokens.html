@@ -35,11 +35,11 @@
   <meta name="twitter:image" content="https://tokensave.app/claude-code-save-tokens-en.jpg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "How to Save Tokens in Claude Code: 9 Habits That Matter", "description": "Why Claude Code uses so many tokens and 9 practical ways to cut them, from /clear and /compact to a shorter CLAUDE.md.", "inLanguage": "en", "url": "https://tokensave.app/blog/claude-code-save-tokens", "mainEntityOfPage": "https://tokensave.app/blog/claude-code-save-tokens", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/claude-code-save-tokens-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "How to Save Tokens in Claude Code: 9 Habits That Matter", "item": "https://tokensave.app/blog/claude-code-save-tokens"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much difference does it make?", "acceptedAnswer": {"@type": "Answer", "text": "On our coding agent cost model, a typical feature task on Sonnet 5.5 costs about $0.72 with caching. Cutting it from 25 steps to 15 by giving a precise task and pointing to the right files brings it to roughly $0.40, and starting each task in a fresh session keeps the starting context small. Across 100 tasks a month, that is the difference between hitting your weekly limit and not."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "How to Save Tokens in Claude Code: 9 Habits That Matter", "description": "Why Claude Code uses so many tokens and 9 practical ways to cut them, from /clear and /compact to a shorter CLAUDE.md.", "inLanguage": "en", "url": "https://tokensave.app/blog/claude-code-save-tokens", "mainEntityOfPage": "https://tokensave.app/blog/claude-code-save-tokens", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/claude-code-save-tokens-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "How to Save Tokens in Claude Code: 9 Habits That Matter", "item": "https://tokensave.app/blog/claude-code-save-tokens"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much difference does it make?", "acceptedAnswer": {"@type": "Answer", "text": "On our coding agent cost model, a typical feature task on Sonnet 5.5 costs about $0.57 with caching. Cutting it from 25 steps to 15 by giving a precise task and pointing to the right files brings it to roughly $0.33, and starting each task in a fresh session keeps the starting context small. Across 100 tasks a month, that is the difference between hitting your weekly limit and not."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
+  <link rel="stylesheet" href="/styles.css?v=0b046568" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -127,15 +127,16 @@
 <h2>8. Write instructions in English</h2>
 <p>If you normally write prompts in another language, this is an easy win. On GPT's tokenizer the same text takes about 44% more tokens in Korean and 79% more in Japanese than in English, so instructions written in English use roughly 31% and 44% fewer tokens. Claude's tokenizer is different, but non-English text costs more there too. Write CLAUDE.md and long instructions in English and ask for replies in your language. Our <a href="/">token counter</a> can translate a prompt to English on your device with one click and shows the saving.</p>
 <h2>9. Let caching work</h2>
-<p>Claude Code caches the repeated part of its context automatically, and cached input costs about 10% of the normal price. You help it by keeping things stable: don't edit CLAUDE.md mid-session and avoid restarting sessions just to continue the same task. See <a href="/blog/prompt-caching-explained">Prompt caching explained</a>.</p>
+<p>Claude Code caches the repeated part of its context automatically, and cached input costs 5% of the normal price on Sonnet 5.5 and Opus 5.5 (10% on Haiku 4.5). You help it by keeping things stable: don't edit CLAUDE.md mid-session and avoid restarting sessions just to continue the same task. See <a href="/blog/prompt-caching-explained">Prompt caching explained</a>.</p>
 <h2>How much difference does it make?</h2>
-<p>On our <a href="/agents">coding agent cost model</a>, a typical feature task on Sonnet 5.5 costs about $0.72 with caching. Cutting it from 25 steps to 15 by giving a precise task and pointing to the right files brings it to roughly $0.40, and starting each task in a fresh session keeps the starting context small. Across 100 tasks a month, that is the difference between hitting your weekly limit and not.</p>
+<p>On our <a href="/agents">coding agent cost model</a>, a typical feature task on Sonnet 5.5 costs about $0.57 with caching. Cutting it from 25 steps to 15 by giving a precise task and pointing to the right files brings it to roughly $0.33, and starting each task in a fresh session keeps the starting context small. Across 100 tasks a month, that is the difference between hitting your weekly limit and not.</p>
 <h2>Check your usage</h2>
 <p>Run <strong>/status</strong> in Claude Code to see how much of your allowance is left. To understand the limits themselves, read <a href="/blog/claude-code-usage-limits">Claude Code usage limits explained</a>, and to compare plans with the API, <a href="/blog/claude-code-cost-per-month">Claude Code cost per month</a>.</p>
 <h2>Sources</h2>
 <ul>
 <li><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">Manage costs effectively (Claude Code docs)</a></li>
 <li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API pricing (Anthropic docs)</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">Prompt caching (Claude docs)</a></li>
 <li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: OpenAI's tokenizer (o200k_base)</a></li>
 <li><a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Using Claude Code with your Pro or Max plan (Claude Help Center)</a></li>
 </ul>
@@ -165,6 +166,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=6f1a9fdb"></script>
+  <script type="module" src="/common.js?v=0b046568"></script>
 </body>
 </html>

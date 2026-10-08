@@ -1,7 +1,7 @@
 <p><img fetchpriority="high" width="1200" height="630" alt="How Many Tokens Do You Get with Claude Pro and Max?" src="/claude-pro-max-how-many-tokens-en.jpg" /></p>
 <p>Anthropic does not say how many tokens Claude Pro or Max include. Its plans are described as usage multiples ("5× Pro", "20× Pro") with a 5-hour limit and a weekly limit, never as a token number. But people have measured it. Here is what the numbers look like, why they are so large, and how to turn them into something useful: what your usage would cost on the API.</p>
 <h2>The short answer</h2>
-<p><img loading="lazy" width="1200" height="556" alt="The short answer: Plan, Price, Per 5-hour window, Per week" src="/claude-pro-max-how-many-tokens-the-short-answer-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="544" alt="The short answer: Plan, Price, Per 5-hour window, Per week" src="/claude-pro-max-how-many-tokens-the-short-answer-en.jpg" /></p>
 <p>Measured in Claude Code in September 2026, on Claude Opus 5:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -36,10 +36,10 @@
 <p><strong>Bold</strong> figures were measured by <a href="https://finopsllm.com/research/claude-pro-max-tokens-limit" target="_blank" rel="noopener">FinOps LLM</a>, which logged one heavy user's Claude Code sessions until the limits stopped them: the 5-hour limit on Max 5× twelve times, and the weekly limit on Max 20× twice. The other figures are our estimates, scaled from those measurements using Anthropic's own multiples (Max 5× = 5× Pro, Max 20× = 20× Pro). Treat them as orders of magnitude, not guarantees.</p>
 <h2>Why the numbers are so big</h2>
 <p>Thirty-nine million tokens in five hours sounds like a lot of text. It is not. In the measured sessions, <strong>96% of the tokens were cache reads</strong>: Claude Code re-reading its own context (your files, the conversation so far, the tool results) at every step of a task. Only about 0.6% of the tokens were output, Claude actually writing something.</p>
-<p>Cache reads are cheap on the API, about a tenth of the normal input price, so Anthropic's limits clearly do not count every token equally. They behave more like a <strong>cost budget</strong>. The median Max 5× window corresponded to roughly <strong>$37 of API usage</strong>, which puts a Pro window at around $7 and a Max 20× window at around $150 on the same scale.</p>
+<p>Cache reads are cheap on the API: 10% of the normal input price on Claude Opus 5, the model measured here, and 5% on Opus 5.5 and Sonnet 5.5. So Anthropic's limits clearly do not count every token equally. They behave more like a <strong>cost budget</strong>. The median Max 5× window corresponded to roughly <strong>$37 of API usage</strong>, which puts a Pro window at around $7 and a Max 20× window at around $150 on the same scale.</p>
 <p>That is why a token count tells you less than you would think. Two sessions with the same number of tokens can use very different shares of your limit, depending on how much is fresh input and output and which model you use.</p>
 <h2>What uses your allowance fastest</h2>
-<p><img loading="lazy" width="1200" height="764" alt="What uses your allowance fastest: Opus instead of Sonnet. Opus 5.5 costs 100% more per token than Sonnet 5.5 on the API, and it uses your plan" src="/claude-pro-max-how-many-tokens-what-uses-your-allowance-fastest-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="760" alt="What uses your allowance fastest: Opus instead of Sonnet. Opus 5.5 costs 100% more per token than Sonnet 5.5 on the API, and it uses your plan" src="/claude-pro-max-how-many-tokens-what-uses-your-allowance-fastest-en.jpg" /></p>
 <ul>
 <li><strong>Opus instead of Sonnet.</strong> Opus 5.5 costs 100% more per token than Sonnet 5.5 on the API, and it uses your plan's allowance faster too.</li>
 <li><strong>Long sessions.</strong> Every step re-sends the whole context. A session that has grown to 150,000 tokens costs far more per step than a fresh one. Use <strong>/clear</strong> between unrelated tasks and <strong>/compact</strong> on long ones.</li>
@@ -59,5 +59,6 @@
 <li><a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Using Claude Code with your Pro or Max plan (Claude Help Center)</a></li>
 <li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude plans and pricing (Anthropic)</a></li>
 <li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API pricing (Anthropic docs)</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">Prompt caching (Claude docs)</a></li>
 </ul>
 <!-- autoimg -->

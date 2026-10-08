@@ -18,7 +18,7 @@ Pro 100 kosztuje 100 USD, Pro 200 – 200 USD, a Pro 500 – 500 USD miesięczni
 | Pro 200 | 200 USD | 10× | 20 USD | – |
 | Pro 500 | 500 USD | 25× | 20 USD | ✓ |
 
-Ceny amerykańskie. Strona pomocy OpenAI mówi tylko, że Pro 200 ma większy limit niż Pro 100, a Pro 500 największy; wartości 5×, 10× i 25× to mnożniki podawane na podstawie ogłoszenia OpenAI.
+Ceny amerykańskie. Strona pomocy OpenAI mówi tylko, że Pro 200 ma większy limit niż Pro 100, a Pro 500 największy; wartości 5×, 10× i 25× Plus nie pochodzą ze strony cennika OpenAI, tylko z wpisu Thibaulta Sottiaux (OpenAI) na X (5× i 10×, według WinBuzzer) i doniesień prasowych (25×, Windows Report).
 
 W Polsce ChatGPT pokazuje ceny w złotówkach z VAT: Go kosztuje 34,99 zł, Plus 99,99 zł, a Pro od ok. 999 zł (według Promptowy, stan z 25 września 2026 – przed zakupem sprawdź cenę na stronie OpenAI). Więcej o polskich cenach wszystkich subskrypcji AI piszę w tekście [ceny subskrypcji AI w Polsce](/pl/blog/ceny-subskrypcji-ai).
 
@@ -30,7 +30,7 @@ Nie. Po zmianie nie ma już rabatu za większy pakiet – każdy plan Pro kosztu
 
 Podziel cenę każdego planu przez limit, który dostajesz, a za każdym razem wyjdzie ta sama liczba: **20 USD za porcję użycia równą planowi Plus**. Pro 500 nie jest lepszą ofertą niż Pro 100 – to po prostu więcej tego samego, plus szybkość.
 
-Wcześniej było inaczej. Do tej zmiany Pro 200 dawało **20×** limit Plus, czyli 10 USD za jednostkę – o połowę taniej niż wszystko inne. Nowi subskrybenci Pro 200 dostają teraz **10×**. Jeśli już masz Pro 200, zachowujesz stary limit 20× do **29 października 2026**, a potem spadasz do 10× przy tej samej cenie 200 USD.
+Wcześniej było inaczej. Do tej zmiany Pro 200 dawało **20×** limit Plus, czyli 10 USD za jednostkę – o połowę taniej niż wszystko inne. Nowi subskrybenci Pro 200 dostają teraz **10×**. Jeśli w dowolnym momencie między 22 a 29 września 2026 miałeś aktywną subskrypcję Pro 200, zachowujesz stary limit 20× do **29 października 2026**, a potem spadasz do 10× przy tej samej cenie 200 USD.
 
 Zasada jest więc prosta: **kupuj najmniejszy plan, w którym nie dobijasz do limitu.** Płacenie za zapas, którego nie wykorzystujesz, to jedyny sposób, żeby przepłacić.
 
@@ -78,6 +78,8 @@ Każdy korzysta z ChatGPT inaczej. W [kalkulatorze subskrypcja vs API](/pl/plans
 ## Źródła
 
 - [Pomoc OpenAI: poziomy ChatGPT Pro](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
+- [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
 - [Plany ChatGPT i ceny Codex](https://learn.chatgpt.com/docs/pricing)
 - [Pomoc OpenAI: informacje o wersjach ChatGPT](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
 - [Cennik API OpenAI](https://developers.openai.com/api/docs/pricing)

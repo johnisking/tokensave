@@ -26,15 +26,16 @@
 <h2>8. Write instructions in English</h2>
 <p>If you normally write prompts in another language, this is an easy win. On GPT's tokenizer the same text takes about 44% more tokens in Korean and 79% more in Japanese than in English, so instructions written in English use roughly 31% and 44% fewer tokens. Claude's tokenizer is different, but non-English text costs more there too. Write CLAUDE.md and long instructions in English and ask for replies in your language. Our <a href="/">token counter</a> can translate a prompt to English on your device with one click and shows the saving.</p>
 <h2>9. Let caching work</h2>
-<p>Claude Code caches the repeated part of its context automatically, and cached input costs about 10% of the normal price. You help it by keeping things stable: don't edit CLAUDE.md mid-session and avoid restarting sessions just to continue the same task. See <a href="/blog/prompt-caching-explained">Prompt caching explained</a>.</p>
+<p>Claude Code caches the repeated part of its context automatically, and cached input costs 5% of the normal price on Sonnet 5.5 and Opus 5.5 (10% on Haiku 4.5). You help it by keeping things stable: don't edit CLAUDE.md mid-session and avoid restarting sessions just to continue the same task. See <a href="/blog/prompt-caching-explained">Prompt caching explained</a>.</p>
 <h2>How much difference does it make?</h2>
-<p>On our <a href="/agents">coding agent cost model</a>, a typical feature task on Sonnet 5.5 costs about $0.72 with caching. Cutting it from 25 steps to 15 by giving a precise task and pointing to the right files brings it to roughly $0.40, and starting each task in a fresh session keeps the starting context small. Across 100 tasks a month, that is the difference between hitting your weekly limit and not.</p>
+<p>On our <a href="/agents">coding agent cost model</a>, a typical feature task on Sonnet 5.5 costs about $0.57 with caching. Cutting it from 25 steps to 15 by giving a precise task and pointing to the right files brings it to roughly $0.33, and starting each task in a fresh session keeps the starting context small. Across 100 tasks a month, that is the difference between hitting your weekly limit and not.</p>
 <h2>Check your usage</h2>
 <p>Run <strong>/status</strong> in Claude Code to see how much of your allowance is left. To understand the limits themselves, read <a href="/blog/claude-code-usage-limits">Claude Code usage limits explained</a>, and to compare plans with the API, <a href="/blog/claude-code-cost-per-month">Claude Code cost per month</a>.</p>
 <h2>Sources</h2>
 <ul>
 <li><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">Manage costs effectively (Claude Code docs)</a></li>
 <li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API pricing (Anthropic docs)</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">Prompt caching (Claude docs)</a></li>
 <li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: OpenAI's tokenizer (o200k_base)</a></li>
 <li><a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Using Claude Code with your Pro or Max plan (Claude Help Center)</a></li>
 </ul>

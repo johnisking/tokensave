@@ -17,19 +17,21 @@ US monthly prices, October 2026:
 | $200 | **Max 20× (20× Pro)** | Pro 200 (10× Plus) | **Ultra: ~$400 of model usage** |
 | $500 | – | Pro 500 (25× Plus, faster mode) | – |
 
+The ChatGPT Pro multiples come from OpenAI's Thibault Sottiaux on X and press reports (WinBuzzer, Windows Report), not from OpenAI's pricing page. New Pro 200 subscribers get 10× Plus; anyone with an active Pro 200 subscription between September 22 and September 29, 2026 keeps the previous allowance until October 29.
+
 Claude Code comes with the Claude app; Codex comes with ChatGPT and ChatGPT Work. Cursor is an editor with an agent built in, and it lets you pick models from several companies, including Claude and GPT.
 
 ## Two different ways of counting
 
 **Claude Code and Codex: usage limits.** You get an allowance per 5-hour window and per week, shared with the chat app. When it runs out, you wait for the reset (or buy extra usage). Neither company publishes the allowance in tokens. See [Claude Code usage limits](/blog/claude-code-usage-limits) and [Codex usage limits](/blog/codex-usage-limits).
 
-**Cursor: a dollar budget.** Each paid plan includes roughly its price in model usage, billed at the model's API rates (Ultra includes about twice its price). Past that, usage is billed at the same rates unless you set a spending cap, in which case it stops. That makes Cursor easy to predict: a task that would cost $0.50 on the API uses about $0.50 of your budget.
+**Cursor: a dollar budget.** Each paid plan includes roughly its price in model usage, billed at the model's API rates (Ultra includes usage worth about 100% more than its price). Past that, usage is billed at the same rates unless you set a spending cap, in which case it stops. That makes Cursor easy to predict: a task that would cost $0.50 on the API uses about $0.50 of your budget.
 
 ## Which gives the most for $200?
 
-![Which gives the most for $200?: Claude Max 20× is 20 times Pro's usage for 10 times the price, so each unit of usage costs half as much as on ](/claude-code-vs-codex-vs-cursor-cost-which-gives-the-most-for-200-en.jpg)
+![Which gives the most for $200?: Claude Max 20× gives 20× Pro's usage for $200 against Pro's $20, so each unit of usage costs half as much as on ](/claude-code-vs-codex-vs-cursor-cost-which-gives-the-most-for-200-en.jpg)
 
-- **Claude Max 20×** is 20 times Pro's usage for 10 times the price, so each unit of usage costs half as much as on Pro. Measured in Claude Code, a Max 20× week came to about 1.9 billion tokens, roughly **$1,800 of API usage** at the same model mix. See [how many tokens you get with Claude Pro and Max](/blog/claude-pro-max-how-many-tokens).
+- **Claude Max 20×** gives 20× Pro's usage for $200 against Pro's $20, so each unit of usage costs half as much as on Pro. Measured in Claude Code, a Max 20× week came to about 1.9 billion tokens, roughly **$1,800 of API usage** at the same model mix. See [how many tokens you get with Claude Pro and Max](/blog/claude-pro-max-how-many-tokens).
 - **ChatGPT Pro 200** is 10 times Plus for 10 times the price: no bulk discount, but Codex comes with all of ChatGPT's Pro features.
 - **Cursor Ultra** includes about **$400 of model usage** for $200, double the money, and lets you spread it across Claude, GPT and other models.
 
@@ -69,5 +71,7 @@ Put in your task size and tasks per day in the [coding agent cost calculator](/a
 - [Using Claude Code with your Pro or Max plan (Claude Help Center)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 - [Codex pricing and plans (OpenAI)](https://learn.chatgpt.com/docs/pricing)
 - [About ChatGPT Pro tiers (OpenAI Help Center)](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
+- [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
 - [Cursor pricing](https://cursor.com/pricing)
 <!-- autoimg -->

@@ -14,7 +14,7 @@
 | Pro 200 | $200 | 10× | $20 | – |
 | Pro 500 | $500 | 25× | $20 | ✓ |
 
-料金は米国価格です。OpenAIのヘルプページには「Pro 200はPro 100より利用量が多く、Pro 500が最も多い」としか書かれていません。5×・10×・25×という倍率は、OpenAIの発表内容として報じられている数値です。
+料金は米国価格です。OpenAIのヘルプページには「Pro 200はPro 100より利用量が多く、Pro 500が最も多い」としか書かれていません。5×・10×・25×という倍率はOpenAIの公式ページではなく、OpenAIのティボー・ソティオ（Thibault Sottiaux）氏のX投稿（5×・10×、WinBuzzer報道）と報道（25×、Windows Report）に基づく数値です。
 
 3つのProプランの機能はすべて共通で、Proモデル、Codex、ディープリサーチ、画像生成、メモリ、ファイルアップロードが使えます。唯一の違いは **Ultrafast**（GPT-6 Astraの高速モード）で、これはPro 500限定です。Pro 100やPro 200で追加クレジットを購入しても、Ultrafastは使えるようになりません。
 
@@ -22,7 +22,7 @@
 
 各プランの料金を利用量で割ると、どのプランも同じ数字になります。**Plus 1つ分の利用量あたり$20** です。つまりPro 500はPro 100よりお得なわけではなく、同じものを多く買えて、そこに速度が付いてくるだけです。
 
-以前は事情が違いました。今回の変更までは、Pro 200でPlusの **20×** の利用量が使え、1単位あたり$10、つまり他のプランの半額でした。新たにPro 200を契約する人は **10×** になります。すでにPro 200を契約している人は **2026年10月29日** まで従来の20×が維持され、その後は同じ$200のまま10×に下がります。
+以前は事情が違いました。今回の変更までは、Pro 200でPlusの **20×** の利用量が使え、1単位あたり$10、つまり他のプランの半額でした。新たにPro 200を契約する人は **10×** になります。2026年9月22日〜9月29日のいずれかの時点でPro 200を契約していた人は **2026年10月29日** まで従来の20×が維持され、その後は同じ$200のまま10×に下がります。
 
 ですから、選び方のルールはシンプルです。**上限に達しない範囲で、いちばん小さいプランを選ぶ。** 使わない余裕分にお金を払うことだけが、払いすぎの原因になります。
 
@@ -32,7 +32,7 @@
 
 **長所**
 
-- **利用量が最大：** Plus の25倍の利用量です（OpenAI の発表として報じられた数値）。1日中 Codex やエージェントを動かしても上限にかかりにくいです。
+- **利用量が最大：** Plus の25倍の利用量です（Windows Report の報道による数値）。1日中 Codex やエージェントを動かしても上限にかかりにくいです。
 - **Ultrafast は Pro 500 だけ：** GPT-6 Astra を毎秒最大 300 トークンで動かすモードで、ChatGPT Work と Codex で使えます（DevDay 発表）。
 - **パソコンを操作するエージェント：** DevDay 発表では、Codex と ChatGPT Work でコンピューター操作エージェントを使える個人プランは Pro 500 です（ほかは Enterprise）。
 - **大きく買っても損はない：** Plus 1つ分の利用量あたり $20 で、Pro 100・200 と単価は同じです。
@@ -83,5 +83,5 @@
 使い方は人それぞれです。[サブスクリプション vs API 計算ツール](/ja/plans) では、送信するメッセージの件数、長さ、使う言語を入力すると、同じ1か月分をAPIで使った場合の料金を、ChatGPT・Claude・Geminiの各プランと並べて比較できます。
 
 *料金は2026年10月1日時点のものです。OpenAIが利用枠を再び変更する可能性もあるため、購入前に chatgpt.com/pricing をご確認ください。*
-出典：[OpenAI DevDay 2026 まとめ](https://openai.com/index/devday-2026-recap/)・[DevDay 発表ごとの価格と提供範囲（DEV Community）](https://dev.to/axrisi/openai-devday-2026-every-announcement-with-prices-and-availability-1mbh)
+出典：[OpenAI DevDay 2026 まとめ](https://openai.com/index/devday-2026-recap/)・[DevDay 発表ごとの価格と提供範囲（DEV Community）](https://dev.to/axrisi/openai-devday-2026-every-announcement-with-prices-and-availability-1mbh)・[ChatGPT Pro の各プランについて（OpenAI ヘルプセンター）](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)・[WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)・[Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
 <!-- autoimg -->

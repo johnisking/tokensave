@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
+  <link rel="stylesheet" href="/styles.css?v=0b046568" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -127,15 +127,16 @@
 <h2>8. タスクに合ったモデルを選ぶ</h2>
 <p>API では Claude Opus 5.5 は Sonnet 5.5 よりトークン単価が100%高く、プランでは上限を早く消費します。<strong>/model</strong> で切り替えましょう。ほとんどのコーディングは Sonnet、難しい設計や厄介なバグは Opus、単純な繰り返しの修正は Haiku で十分です。</p>
 <h2>9. キャッシュに働いてもらう</h2>
-<p>Claude Code は繰り返し送るコンテキストを自動でキャッシュし、キャッシュされた入力は通常価格の約10%です。セッションの途中で CLAUDE.md を書き換えない、同じ作業を続けるのにわざわざセッションを立ち上げ直さない、それだけでも効果があります。</p>
+<p>Claude Code は繰り返し送るコンテキストを自動でキャッシュし、キャッシュされた入力は Sonnet 5.5 と Opus 5.5 では通常価格の5%（Haiku 4.5 は10%）です。セッションの途中で CLAUDE.md を書き換えない、同じ作業を続けるのにわざわざセッションを立ち上げ直さない、それだけでも効果があります。</p>
 <h2>どれくらい差が出るか</h2>
-<p>TokenSave の<a href="/ja/agents">コーディングエージェント費用モデル</a>では、Sonnet 5.5 での一般的な機能タスクはキャッシュありで約$0.72です。正確な指示とファイルの場所を伝えて25ステップを15ステップに減らすと、約$0.40まで下がります。タスクごとに新しいセッションで始めれば、開始時のコンテキストも小さく保てます。月に100タスクなら、週の上限に当たるかどうかが分かれるほどの差です。</p>
+<p>TokenSave の<a href="/ja/agents">コーディングエージェント費用モデル</a>では、Sonnet 5.5 での一般的な機能タスクはキャッシュありで約$0.57です。正確な指示とファイルの場所を伝えて25ステップを15ステップに減らすと、約$0.33まで下がります。タスクごとに新しいセッションで始めれば、開始時のコンテキストも小さく保てます。月に100タスクなら、週の上限に当たるかどうかが分かれるほどの差です。</p>
 <h2>使用量を確認する</h2>
 <p>Claude Code で <strong>/status</strong> を実行すると、残りの使用量が表示されます。上限そのものの仕組みは <a href="/ja/blog/claude-code-shiyouryou-jougen">Claude Code の使用量上限まとめ</a>、プランと API の比較は <a href="/ja/blog/claude-code-ryoukin">Claude Code の月額料金</a>をご覧ください。</p>
 <h2>出典</h2>
 <ul>
 <li><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">コストを効果的に管理する（Claude Code ドキュメント）</a></li>
 <li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API の料金（Anthropic ドキュメント）</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">プロンプトキャッシュ（Claude ドキュメント）</a></li>
 <li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken：OpenAI のトークナイザー（o200k_base）</a></li>
 <li><a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Pro・Max プランで Claude Code を使う（Claude ヘルプセンター）</a></li>
 </ul>
@@ -165,6 +166,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=6f1a9fdb"></script>
+  <script type="module" src="/common.js?v=0b046568"></script>
 </body>
 </html>

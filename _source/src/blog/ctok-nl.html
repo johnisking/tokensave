@@ -2,7 +2,7 @@
 <p>Anthropic zegt niet hoeveel tokens Claude Pro of Max bevatten. De plannen worden beschreven als veelvouden van Pro ("5x Pro", "20x Pro"), met een limiet per 5 uur en een weeklimiet. Nooit als een aantal tokens. Mensen hebben het wel gemeten. Hieronder zie je hoe groot de Claude limiet in tokens is, waarom die getallen zo hoog zijn en hoe je ze omrekent naar iets bruikbaars: wat je gebruik via de API zou kosten.</p>
 <p><strong>Kort:</strong> volgens metingen uit september 2026 in Claude Code op Opus 5 geeft Claude Max 5x zo'n 39 miljoen tokens per 5-uursvenster en Max 20x zo'n 1,9 miljard tokens per week; de Claude Pro limiet ligt naar schatting rond 8 miljoen tokens per venster.</p>
 <h2>Hoeveel tokens geeft Claude Pro en Claude Max?</h2>
-<p><img loading="lazy" width="1200" height="556" alt="Hoeveel tokens geeft Claude Pro en Claude Max?: Plan, Prijs, Per 5-uursvenster, Per week" src="/claude-limiet-hoeveel-tokens-geeft-claude-pro-en-claud-nl.jpg" /></p>
+<p><img loading="lazy" width="1200" height="544" alt="Hoeveel tokens geeft Claude Pro en Claude Max?: Plan, Prijs, Per 5-uursvenster, Per week" src="/claude-limiet-hoeveel-tokens-geeft-claude-pro-en-claud-nl.jpg" /></p>
 <p>Gemeten in Claude Code in september 2026, op Claude Opus 5:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -38,10 +38,10 @@
 <p>In Nederland en België kost Claude Pro €18 per maand zonder btw, Max 5x €90 en Max 20x €180. Met 21% btw is dat €21,78, €108,90 en €217,80. Alle prijzen op een rij vind je in <a href="/nl/blog/ai-abonnement-prijzen">AI-abonnementen: prijzen</a>.</p>
 <h2>Waarom zijn de getallen zo groot?</h2>
 <p>Omdat bijna alles goedkope cache-reads zijn, geen nieuwe tekst. Negenendertig miljoen tokens in vijf uur klinkt als een berg tekst. Dat is het niet. In de gemeten sessies was <strong>96% van de tokens cache-reads</strong>: Claude Code leest bij elke stap van een taak zijn eigen context opnieuw in (je bestanden, het gesprek tot nu toe, de resultaten van tools). Maar zo'n 0,6% van de tokens was output, tekst die Claude echt schreef.</p>
-<p>Cache-reads zijn goedkoop op de API, ongeveer een tiende van de normale inputprijs. De limieten van Anthropic tellen dus duidelijk niet elk token even zwaar. Ze werken eerder als een <strong>kostenbudget</strong>. Het mediane Max 5x-venster kwam overeen met ongeveer <strong>$37 aan API-gebruik</strong>. Op dezelfde schaal is een Pro-venster zo'n $7 en een Max 20x-venster zo'n $150.</p>
+<p>Cache-reads zijn goedkoop op de API: 10% van de normale inputprijs op Claude Opus 5, het gemeten model, en 5% op Opus 5.5 en Sonnet 5.5. De limieten van Anthropic tellen dus duidelijk niet elk token even zwaar. Ze werken eerder als een <strong>kostenbudget</strong>. Het mediane Max 5x-venster kwam overeen met ongeveer <strong>$37 aan API-gebruik</strong>. Op dezelfde schaal is een Pro-venster zo'n $7 en een Max 20x-venster zo'n $150.</p>
 <p>Daarom zegt een aantal tokens minder dan je zou denken. Twee sessies met evenveel tokens kunnen een heel ander deel van je limiet opmaken. Dat hangt af van hoeveel verse input en output erin zit en welk model je gebruikt.</p>
 <h2>Wat verbruikt je Claude limiet het snelst?</h2>
-<p><img loading="lazy" width="1200" height="764" alt="Wat verbruikt je Claude limiet het snelst?: Opus in plaats van Sonnet. Opus 5.5 kost op de API per token twee keer zoveel als Sonnet 5.5, en gaat ook snel" src="/claude-limiet-wat-verbruikt-je-claude-limiet-het-snels-nl.jpg" /></p>
+<p><img loading="lazy" width="1200" height="760" alt="Wat verbruikt je Claude limiet het snelst?: Opus in plaats van Sonnet. Opus 5.5 kost op de API per token twee keer zoveel als Sonnet 5.5, en gaat ook snel" src="/claude-limiet-wat-verbruikt-je-claude-limiet-het-snels-nl.jpg" /></p>
 <ul>
 <li><strong>Opus in plaats van Sonnet.</strong> Opus 5.5 kost op de API per token twee keer zoveel als Sonnet 5.5, en gaat ook sneller door je planlimiet heen.</li>
 <li><strong>Lange sessies.</strong> Elke stap stuurt de hele context opnieuw mee. Een sessie die is gegroeid tot 150.000 tokens kost per stap veel meer dan een verse. Gebruik <strong>/clear</strong> tussen taken die niets met elkaar te maken hebben en <strong>/compact</strong> bij lange taken.</li>
@@ -61,5 +61,6 @@
 <li><a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Claude Code gebruiken met je Pro- of Max-abonnement (Claude Helpcentrum)</a></li>
 <li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude-abonnementen en prijzen (Anthropic)</a></li>
 <li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Prijzen van de Claude API (Anthropic-documentatie)</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">Prompt caching (Claude-documentatie)</a></li>
 </ul>
 <!-- autoimg -->

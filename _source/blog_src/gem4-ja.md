@@ -1,6 +1,6 @@
 ![Gemini 4 Argon の API 料金：GPT-6・Claude との費用比較](/gemini-4-argon-api-ryoukin-ja.jpg)
 
-Google は2026年9月30日、新しい最上位モデル **Gemini 4 Argon** を発表しました。コーディング、サイバーセキュリティ、長時間のエージェント作業に重点を置いたモデルで、Google は複数のベンチマークで GPT-6 Astra や Claude Fable・Opus を上回ると説明しています。API 料金、1リクエストあたりの実費、GPT・Claude との比較をまとめました。
+Google は2026年9月30日、新しい最上位モデル **Gemini 4 Argon** を発表しました。コーディング、サイバーセキュリティ、長時間のエージェント作業に重点を置いたモデルで、Google は DeepSWE v1.1 で過去最高（77.9%）、Vals Index で首位と説明していますが、比較した他社モデルの名前は示していません。API 料金、1リクエストあたりの実費、GPT・Claude との比較をまとめました。
 
 ## Gemini 4 Argon の API 料金
 

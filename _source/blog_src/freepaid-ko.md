@@ -6,7 +6,7 @@
 > - 가격(부가세 포함): **무료 0원 · Go 13,000원 · Plus 29,000원 · Pro 159,000원부터**
 > - 대부분은 **무료로 시작해서, 아래 세 가지 중 하나에 걸릴 때 올리면** 됩니다.
 
-챗GPT 유료를 결제할까 고민된다면, 먼저 알아둘 것이 있습니다. 예전 글들에 나오는 "무료는 하루 몇 개 메시지" 같은 이야기는 이제 맞지 않습니다. OpenAI는 2026년 8월 무료를 포함한 모든 요금제에서 일상 텍스트 대화 한도를 없앴습니다. 그래서 지금 무료와 유료의 차이는 **양이 아니라 질과 부가 기능**입니다. 무엇이 다른지, 언제 올리면 되는지 정리했습니다.
+챗GPT 유료를 결제할까 고민된다면, 먼저 알아둘 것이 있습니다. 예전 글들에 나오는 "무료는 하루 몇 개 메시지" 같은 이야기는 이제 맞지 않습니다. OpenAI는 2026년 8월 무료와 Go에서 일상 텍스트 대화 한도를 없앴습니다(Pro도 무제한, Plus는 한도 확대). 그래서 지금 무료와 유료의 차이는 **양이 아니라 질과 부가 기능**입니다. 무엇이 다른지, 언제 올리면 되는지 정리했습니다.
 
 ## 무료 vs 유료 한눈에 보기
 
@@ -15,7 +15,7 @@
 | | 무료 | Go | Plus | Pro |
 |---|---|---|---|---|
 | 월 가격 | 0원 | 13,000원 | 29,000원 | 159,000원부터 |
-| 일상 텍스트 대화 | 무제한 | 무제한 | 무제한 | 무제한 |
+| 일상 텍스트 대화 | 무제한 | 무제한 | 확대(한도 있음) | 무제한 |
 | 답하는 모델 | 가벼운 모델(Luna) | 가벼운 모델(Luna) | 중간 모델(Sol) + 생각 수준 선택 | Sol + 최상위 Pro 모델 |
 | 파일 업로드·이미지·음성 | 제한적 | 무료보다 많음 | 더 많음 | 가장 많음 |
 | 심층 리서치 | 제한적 | – | 확대 | 최대 |
@@ -123,4 +123,4 @@ Plus(29,000원)에서 Pro로 올리면 매달 13만 원이 더 나갑니다. 이
 **한국 결제 가격은 얼마인가요?**
 부가세 포함 Go 13,000원, Plus 29,000원, Pro 159,000원부터입니다(2026년 10월 6일 확인). 결제 전 요금제 페이지에서 다시 확인하세요.
 
-*출처: [챗GPT 요금제](https://chatgpt.com/pricing/), [ChatGPT Free Tier FAQ](https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq), [ChatGPT Plus 안내](https://help.openai.com/ko-kr/articles/6950777-chatgpt-plus-). 2026년 10월 8일 확인. 요금과 한도는 자주 바뀌니 결제 전 chatgpt.com 요금제 페이지를 확인하세요.*
+*출처: [챗GPT 요금제](https://chatgpt.com/pricing/), [ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes), [ChatGPT Free Tier FAQ](https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq), [ChatGPT Plus 안내](https://help.openai.com/ko-kr/articles/6950777-chatgpt-plus-). 2026년 10월 8일 확인. 요금과 한도는 자주 바뀌니 결제 전 chatgpt.com 요금제 페이지를 확인하세요.*

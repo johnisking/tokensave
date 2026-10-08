@@ -1,6 +1,6 @@
 ![ChatGPT Go czy Plus: co daje 65 zł więcej (i brak reklam)](/chatgpt-go-vs-plus-pl.jpg)
 
-ChatGPT Go kosztuje w Polsce 34,99 zł miesięcznie, a ChatGPT Plus 99,99 zł. Od sierpnia 2026 oba plany mają nielimitowany zwykły czat tekstowy, więc dawny powód przejścia na Plus, czyli kończące się wiadomości, zniknął. Teraz różnica polega na tym, który model odpowiada, jak długo myśli, co jeszcze jest w planie i czy widzisz reklamy. Od końca sierpnia reklamy w ChatGPT pokazują się także w Polsce, a w praktyce **brak reklam kosztuje 65 zł miesięcznie**. Poniżej wyjaśniam, co dostajesz za tę różnicę i komu się ona opłaca.
+ChatGPT Go kosztuje w Polsce 34,99 zł miesięcznie, a ChatGPT Plus 99,99 zł. Od sierpnia 2026 Go (tak jak plan darmowy) ma nielimitowany zwykły czat tekstowy, a Plus rozszerzone limity, więc dawny powód przejścia na Plus, czyli kończące się wiadomości, zniknął. Teraz różnica polega na tym, który model odpowiada, jak długo myśli, co jeszcze jest w planie i czy widzisz reklamy. Od końca sierpnia reklamy w ChatGPT pokazują się także w Polsce, a w praktyce **brak reklam kosztuje 65 zł miesięcznie**. Poniżej wyjaśniam, co dostajesz za tę różnicę i komu się ona opłaca.
 
 ## Go i Plus w skrócie
 
@@ -9,9 +9,9 @@ ChatGPT Go kosztuje w Polsce 34,99 zł miesięcznie, a ChatGPT Plus 99,99 zł. O
 | | ChatGPT Go | ChatGPT Plus |
 |---|---|---|
 | Cena (z VAT) | 34,99 zł / mies. | 99,99 zł / mies. |
-| Model do zwykłego czatu | GPT-5.6 Luna | GPT-5.6 Sol |
+| Model do zwykłego czatu | GPT-6 Luna | GPT-6 Sol |
 | Myślenie | przycisk „Myśl” przy trudniejszych pytaniach | poziomy Medium i High |
-| Limit czatu tekstowego | brak (od 6 sierpnia 2026) | brak (od 6 sierpnia 2026) |
+| Limit czatu tekstowego | brak (od 6 sierpnia 2026) | rozszerzony (obowiązują limity) |
 | ChatGPT Work i Codex | ograniczone na komputerze | w pakiecie, z modelami GPT-6 |
 | Projekty, zaplanowane zadania, własne GPT | ograniczone | tak |
 | Reklamy | tak, nie da się ich wyłączyć | nie |
@@ -32,7 +32,7 @@ Jeśli najbardziej przeszkadzają Ci reklamy, porównaj: Plus kosztuje o 65 zł 
 
 ## Prawdziwa różnica: Luna czy Sol
 
-Go odpowiada modelem **GPT-5.6 Luna**, małym i szybkim modelem OpenAI. Plus odpowiada modelem **GPT-5.6 Sol**, większym, i pozwala wydłużyć czas myślenia. Przy krótkich pytaniach, poprawianiu maila czy streszczaniu strony różnicę rzadko widać. Przy długich dokumentach, trudnym rozumowaniu, programowaniu i wszędzie tam, gdzie błędna odpowiedź kosztuje, Sol jest wyraźnie lepszy.
+Go odpowiada modelem **GPT-6 Luna**, małym i szybkim modelem OpenAI. Plus odpowiada modelem **GPT-6 Sol**, większym, i pozwala wydłużyć czas myślenia. Przy krótkich pytaniach, poprawianiu maila czy streszczaniu strony różnicę rzadko widać. Przy długich dokumentach, trudnym rozumowaniu, programowaniu i wszędzie tam, gdzie błędna odpowiedź kosztuje, Sol jest wyraźnie lepszy.
 
 Dla skali: w API modele klasy Sol są za token około 20 razy droższe od modeli klasy Luna. Mniej więcej za to płacisz w Plus.
 
@@ -63,5 +63,5 @@ Jeśli głównie rozmawiasz, płacenie za tokeny może wyjść taniej niż oba p
 
 Google AI Plus kosztuje 23,99 zł, ale od zmian w październiku nie daje już modelu Pro ([co się zmienia w Gemini](/pl/blog/gemini-za-darmo-flash-lite)). Claude nie ma planu tańszego niż Pro (20 USD + VAT). Pełną tabelę w złotówkach znajdziesz w [porównaniu cen subskrypcji AI](/pl/blog/ceny-subskrypcji-ai).
 
-*Źródła: ceny i reklamy wg [Promptowy](https://promptowy.com/chatgpt-przewodnik/) (sprawdzone 25 września 2026), [ITReseller](https://itreseller.pl/koniec-z-dylematem-darmowy-czy-za-100-zl-chatgpt-go-trafia-do-polski-w-cenie-3499-zl/), [Evostudio](https://evostudio.pl/blog/reklamy-w-chatgpt-polska/), porównanie planów wg [Dupple](https://dupple.com/learn/chatgpt-go-vs-plus). Stan na 6 października 2026. Przed zakupem sprawdź chatgpt.com/pricing.*
+*Źródła: [ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes), ceny i reklamy wg [Promptowy](https://promptowy.com/chatgpt-przewodnik/) (sprawdzone 25 września 2026), [ITReseller](https://itreseller.pl/koniec-z-dylematem-darmowy-czy-za-100-zl-chatgpt-go-trafia-do-polski-w-cenie-3499-zl/), [Evostudio](https://evostudio.pl/blog/reklamy-w-chatgpt-polska/), porównanie planów wg [Dupple](https://dupple.com/learn/chatgpt-go-vs-plus). Stan na 6 października 2026. Przed zakupem sprawdź chatgpt.com/pricing.*
 <!-- autoimg -->

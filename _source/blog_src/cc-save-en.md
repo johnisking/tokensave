@@ -49,11 +49,11 @@ If you normally write prompts in another language, this is an easy win. On GPT's
 
 ## 9. Let caching work
 
-Claude Code caches the repeated part of its context automatically, and cached input costs about 10% of the normal price. You help it by keeping things stable: don't edit CLAUDE.md mid-session and avoid restarting sessions just to continue the same task. See [Prompt caching explained](/blog/prompt-caching-explained).
+Claude Code caches the repeated part of its context automatically, and cached input costs 5% of the normal price on Sonnet 5.5 and Opus 5.5 (10% on Haiku 4.5). You help it by keeping things stable: don't edit CLAUDE.md mid-session and avoid restarting sessions just to continue the same task. See [Prompt caching explained](/blog/prompt-caching-explained).
 
 ## How much difference does it make?
 
-On our [coding agent cost model](/agents), a typical feature task on Sonnet 5.5 costs about $0.72 with caching. Cutting it from 25 steps to 15 by giving a precise task and pointing to the right files brings it to roughly $0.40, and starting each task in a fresh session keeps the starting context small. Across 100 tasks a month, that is the difference between hitting your weekly limit and not.
+On our [coding agent cost model](/agents), a typical feature task on Sonnet 5.5 costs about $0.57 with caching. Cutting it from 25 steps to 15 by giving a precise task and pointing to the right files brings it to roughly $0.33, and starting each task in a fresh session keeps the starting context small. Across 100 tasks a month, that is the difference between hitting your weekly limit and not.
 
 ## Check your usage
 
@@ -63,6 +63,7 @@ Run **/status** in Claude Code to see how much of your allowance is left. To und
 
 - [Manage costs effectively (Claude Code docs)](https://code.claude.com/docs/en/costs)
 - [Claude API pricing (Anthropic docs)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Prompt caching (Claude docs)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
 - [tiktoken: OpenAI's tokenizer (o200k_base)](https://github.com/openai/tiktoken)
 - [Using Claude Code with your Pro or Max plan (Claude Help Center)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 <!-- autoimg -->

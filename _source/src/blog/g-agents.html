@@ -1,7 +1,7 @@
 <p><img fetchpriority="high" width="1200" height="630" alt="What Does an AI Coding Agent Really Cost per Task?" src="/ai-coding-agent-cost-en.jpg" /></p>
 <p>Coding agents such as Claude Code, Codex and Gemini CLI do far more than answer a question. They read files, run commands, look at the results, and try again, often dozens of times for a single task. Every one of those steps is a full request to the model. That is why an agent can burn through more tokens in an afternoon than a chat user does in a month, and why the choice between a subscription and the API matters so much.</p>
 <h2>Why agents use so many tokens</h2>
-<p><img loading="lazy" width="1200" height="732" alt="Why agents use so many tokens: 25 steps; about 22,000 tokens of context at the start (instructions, tool descriptions, the first files); abou" src="/ai-coding-agent-cost-why-agents-use-so-many-tokens-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="728" alt="Why agents use so many tokens: 25 steps; about 22,000 tokens of context at the start (instructions, tool descriptions, the first files); abou" src="/ai-coding-agent-cost-why-agents-use-so-many-tokens-en.jpg" /></p>
 <p>A chat message is one request. An agent task is a loop: plan, read a file, edit, run the tests, read the error, edit again. At each step the agent sends its <strong>whole working context</strong> back to the model: the system prompt, the tool definitions, the files it has read and everything that happened in earlier steps. The context grows with every step, and the agent pays for all of it again each time.</p>
 <p>A typical medium-sized task might look like this:</p>
 <ul>
@@ -12,7 +12,7 @@
 </ul>
 <p>Add that up and one task sends roughly <strong>1.6 million input tokens</strong> and writes about 17,500 output tokens.</p>
 <h2>What one task costs on the API</h2>
-<p><img loading="lazy" width="1200" height="751" alt="What one task costs on the API: Model, Small task (8 steps), Feature (25 steps), Big task (60 steps)" src="/ai-coding-agent-cost-what-one-task-costs-on-the-api-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="733" alt="What one task costs on the API: Model, Small task (8 steps), Feature (25 steps), Big task (60 steps)" src="/ai-coding-agent-cost-what-one-task-costs-on-the-api-en.jpg" /></p>
 <p>Using API prices checked October 1, 2026:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -38,9 +38,9 @@
 </tr>
 <tr>
 <td>Claude Sonnet 5.5</td>
-<td>$0.15</td>
-<td>$0.72</td>
-<td>$2.65</td>
+<td>$0.14</td>
+<td>$0.57</td>
+<td>$1.91</td>
 </tr>
 <tr>
 <td>GPT-6 Sol</td>
@@ -56,19 +56,20 @@
 </tr>
 <tr>
 <td>Claude Opus 5.5</td>
-<td>$0.31</td>
-<td>$1.43</td>
-<td>$5.30</td>
+<td>$0.27</td>
+<td>$1.14</td>
+<td>$3.82</td>
 </tr>
 </tbody>
 </table></div>
-<p>These figures assume <strong>prompt caching</strong>, where the repeated part of the context is billed at about 10% of the normal input price. Without caching, the same feature task on Claude Sonnet 5.5 costs about $3.38 instead of $0.72, almost five times as much. Make sure your agent uses caching.</p>
+<p>These figures assume <strong>prompt caching</strong>, where the repeated part of the context is billed at 5% of the normal input price on Claude Sonnet 5.5 and Opus 5.5 and at 10% on the other models in the table. Without caching, the same feature task on Claude Sonnet 5.5 costs about $3.38 instead of $0.57, so caching saves about 83%. Make sure your agent uses caching.</p>
 <h2>From one task to a month</h2>
-<p><img loading="lazy" width="1200" height="593" alt="From one task to a month: Claude Sonnet 5.5 or GPT-6 Sol; Claude Opus 5.5; Claude Haiku 4.5" src="/ai-coding-agent-cost-from-one-task-to-a-month-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="695" alt="From one task to a month: GPT-6 Sol; Claude Sonnet 5.5; Claude Opus 5.5; Claude Haiku 4.5" src="/ai-coding-agent-cost-from-one-task-to-a-month-en.jpg" /></p>
 <p>Ten feature-sized tasks a day, on 22 working days, is 220 tasks a month:</p>
 <ul>
-<li>Claude Sonnet 5.5 or GPT-6 Sol: about <strong>$158 a month</strong></li>
-<li>Claude Opus 5.5: about <strong>$315 a month</strong></li>
+<li>GPT-6 Sol: about <strong>$158 a month</strong></li>
+<li>Claude Sonnet 5.5: about <strong>$125 a month</strong></li>
+<li>Claude Opus 5.5: about <strong>$250 a month</strong></li>
 <li>Claude Haiku 4.5: about <strong>$79 a month</strong></li>
 </ul>
 <h2>Subscription or API?</h2>

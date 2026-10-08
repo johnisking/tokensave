@@ -16,7 +16,7 @@
 | Pro 200 | $200 | 10× | $20 | – |
 | Pro 500 | $500 | 25× | $20 | ✓ |
 
-미국 가격 기준입니다. OpenAI 도움말 페이지에는 Pro 200이 Pro 100보다 사용량이 많고 Pro 500이 가장 많다고만 나와 있습니다. 5×, 10×, 25×라는 배수는 OpenAI 발표 내용으로 보도된 수치입니다.
+미국 가격 기준입니다. OpenAI 도움말 페이지에는 Pro 200이 Pro 100보다 사용량이 많고 Pro 500이 가장 많다고만 나와 있습니다. 5×, 10×, 25×라는 배수는 OpenAI 공식 페이지가 아니라 OpenAI 티보 소티오(Thibault Sottiaux)의 X 글(5×·10×, WinBuzzer 보도)과 보도(25×, Windows Report) 기준입니다.
 
 세 가지 Pro 요금제의 기능은 모두 같습니다. Pro 모델, Codex, 딥 리서치, 이미지 생성, 메모리, 파일 업로드가 전부 포함됩니다. 유일한 기능 차이는 **Ultrafast**입니다. GPT-6 Astra를 더 빠르게 돌리는 모드인데, Pro 500에서만 쓸 수 있습니다. Pro 100이나 Pro 200에서 추가 크레딧을 사도 열리지 않습니다.
 
@@ -24,7 +24,7 @@
 
 각 요금제 가격을 제공 사용량으로 나눠 보면 모든 요금제가 같은 숫자로 떨어집니다. **Plus 1배분 사용량당 $20**입니다. Pro 500이 Pro 100보다 이득인 게 아니라, 같은 것을 더 많이 주고 속도를 얹어 줄 뿐입니다.
 
-예전에는 달랐습니다. 이번 개편 전까지 Pro 200은 Plus의 **20배** 사용량을 줬고, 단위당 $10로 다른 요금제의 절반 가격이었습니다. 이제 Pro 200 신규 가입자는 **10배**를 받습니다. 기존 Pro 200 구독자는 **2026년 10월 29일**까지 예전 20배 한도를 유지하고, 그 뒤로는 같은 $200에 10배로 줄어듭니다.
+예전에는 달랐습니다. 이번 개편 전까지 Pro 200은 Plus의 **20배** 사용량을 줬고, 단위당 $10로 다른 요금제의 절반 가격이었습니다. 이제 Pro 200 신규 가입자는 **10배**를 받습니다. 2026년 9월 22일~9월 29일 중 한 번이라도 Pro 200 구독이 활성 상태였다면 **2026년 10월 29일**까지 예전 20배 한도를 유지하고, 그 뒤로는 같은 $200에 10배로 줄어듭니다.
 
 그래서 규칙은 간단합니다. **한도에 걸리지 않는 가장 작은 요금제를 사세요.** 쓰지도 않을 여유분에 돈을 내는 것만이 손해를 보는 유일한 방법입니다.
 
@@ -34,7 +34,7 @@
 
 **장점**
 
-- **가장 많은 사용량:** Plus 대비 25배 사용량입니다(OpenAI 발표로 보도된 수치). 하루 종일 Codex나 에이전트를 돌려도 한도에 잘 걸리지 않습니다.
+- **가장 많은 사용량:** Plus 대비 25배 사용량입니다(Windows Report 보도 기준). 하루 종일 Codex나 에이전트를 돌려도 한도에 잘 걸리지 않습니다.
 - **Ultrafast는 Pro 500만:** GPT-6 Astra를 초당 최대 300토큰까지 빠르게 돌리는 모드로, ChatGPT Work와 Codex에서 쓸 수 있습니다(DevDay 발표 기준).
 - **컴퓨터를 직접 다루는 에이전트:** DevDay 발표 기준, Codex와 ChatGPT Work에서 컴퓨터 사용 에이전트를 쓸 수 있는 개인 요금제는 Pro 500입니다(그 밖에는 Enterprise).
 - **비싸게 사도 손해는 없음:** Plus 1배분 사용량당 $20로 Pro 100·200과 단가가 같습니다.
@@ -85,5 +85,5 @@
 사용 패턴은 사람마다 다릅니다. [구독 vs API 계산기](/ko/plans)에 보내는 메시지 수, 길이, 사용하는 언어를 입력하면 같은 한 달을 API로 썼을 때의 비용을 ChatGPT, Claude, Gemini 요금제와 나란히 보여 줍니다.
 
 *2026년 10월 1일 기준 가격입니다. OpenAI가 사용량 한도를 다시 바꿀 수 있으니 결제 전에 chatgpt.com/pricing을 꼭 확인하세요.*
-출처: [OpenAI DevDay 2026 정리](https://openai.com/index/devday-2026-recap/) · [DevDay 발표별 가격·제공 범위 정리 (DEV Community)](https://dev.to/axrisi/openai-devday-2026-every-announcement-with-prices-and-availability-1mbh)
+출처: [OpenAI DevDay 2026 정리](https://openai.com/index/devday-2026-recap/) · [DevDay 발표별 가격·제공 범위 정리 (DEV Community)](https://dev.to/axrisi/openai-devday-2026-every-announcement-with-prices-and-availability-1mbh) · [ChatGPT Pro 요금제 안내 (OpenAI 도움말 센터)](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers) · [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/) · [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
 <!-- autoimg -->

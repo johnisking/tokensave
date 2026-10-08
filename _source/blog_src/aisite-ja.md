@@ -15,14 +15,14 @@ AIサイトはすでに数千を超えますが、その多くは同じいくつ
 | Googleのアプリと一緒に | Gemini | Gmail・ドキュメント・ドライブと連携 |
 | WindowsやOfficeと一緒に | Microsoft Copilot | Windows・Officeに組み込み |
 | 出典付きの回答 | Perplexity | 回答ごとに参照ページを表示 |
-| 自分の資料で勉強 | NotebookLM | アップした資料の中だけで回答 |
+| 自分の資料で勉強 | Gemini Notebook（旧 NotebookLM） | アップした資料の中だけで回答 |
 | 翻訳 | DeepL | 自然な訳、ファイルごと翻訳 |
 | かんたんデザイン | Canva | テンプレート＋AI画像・文章生成 |
 | 背景の切り抜き | remove.bg | ワンクリックで切り抜き |
 | 声・ナレーション | ElevenLabs | 人間らしいAI音声 |
 | 音楽 | Suno | 数行のテキストから1曲 |
 | 動画の字幕・編集 | CapCut | 自動字幕、ショート動画編集 |
-| モデルの比較 | LMArena | ブラインド比較＋公開ランキング |
+| モデルの比較 | Arena（旧 LMArena） | ブラインド比較＋公開ランキング |
 | オープンモデルを試す | Hugging Face | 数千のモデルをブラウザで |
 | AIの費用を計算 | TokenSave | 上のサービスのトークン・費用計算機 |
 
@@ -42,11 +42,11 @@ AIサイトはすでに数千を超えますが、その多くは同じいくつ
 
 **Perplexity**（perplexity.ai）は文章で答えてくれる検索エンジンで、すべての内容に出典リンクを付けてくれます。答えだけでなく事実確認が必要なときに使いましょう。
 
-**NotebookLM**（notebooklm.google.com）は、自分がアップした資料（PDF、メモ、Webページ、YouTube動画）だけを見て答えます。資料の外の内容をでっち上げる可能性がずっと低く、資料の束を学習ノートや短い音声まとめに変えることもできます。試験勉強や会議資料の整理に特に便利です。
+**Gemini Notebook**（notebooklm.google.com。2026年7月16日に NotebookLM から改名）は、自分がアップした資料（PDF、メモ、Webページ、YouTube動画）だけを見て答えます。資料の外の内容をでっち上げる可能性がずっと低く、資料の束を学習ノートや短い音声まとめに変えることもできます。試験勉強や会議資料の整理に特に便利です。
 
 ## 文章・翻訳
 
-**DeepL**（deepl.com）は自然な翻訳で知られ、WordやPDFのファイルをレイアウトそのままで丸ごと翻訳できます。
+**DeepL**（deepl.com）は自然な翻訳で知られ、WordやPDFのファイルをレイアウトそのままで丸ごと翻訳できます（無料版は月1ファイル、5MBまで）。
 
 **日本語でプロンプトを書く人へのヒント：** AIは同じ内容でも、日本語で書くと英語より **約79%多い** トークンを使います。[TokenSaveのトークンカウンター](/ja/)で **💸 トークン節約** ボタンを押すと、プロンプトを端末の中で英語に翻訳し、最後に "Reply in Japanese." を付けてくれます。回答は日本語のまま、トークンを約44％減らせます。測定の詳細は[日本語は英語よりトークンがどれだけ多いか](/ja/blog/nihongo-tokens-gpt)にあります。
 
@@ -70,7 +70,7 @@ AI動画生成はいちばん費用がかさみやすい分野です。クレジ
 
 ## もう少し深く使いたい人へ
 
-**LMArena**（lmarena.ai）では、ひとつの質問を名前を隠した2つのモデルに送り、良いほうに投票します。この投票でできたランキングは、AIモデルの順位として最もよく引用される資料のひとつです。
+**Arena**（arena.ai、旧 LMArena）では、ひとつの質問を名前を隠した2つのモデルに送り、良いほうに投票します。この投票でできたランキングは、AIモデルの順位として最もよく引用される資料のひとつです。
 
 **Hugging Face**（huggingface.co）はオープンソースのAIモデルが集まる場所です。Spacesでは、インストールなしでブラウザから多くのモデルをすぐに試せます。
 
@@ -104,7 +104,9 @@ AI動画生成はいちばん費用がかさみやすい分野です。クレジ
 - [Gemini ヘルプ: Google Workspace との連携](https://support.google.com/gemini/answer/15229592?hl=en)
 - [Perplexity ヘルプ: Perplexity とは](https://www.perplexity.ai/help-center/en/articles/10352155-what-is-perplexity)
 - [Google ヘルプ: Gemini Notebook（旧 NotebookLM）](https://support.google.com/gemininotebook/answer/16164461?hl=en&co=GENIE.Platform%3DDesktop)
+- [Google: NotebookLM は Gemini Notebook に](https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/)
 - [DeepL: ドキュメント翻訳](https://www.deepl.com/en/features/document-translation)
+- [DeepL: プラン（無料版の上限）](https://www.deepl.com/en/pro)
 - [Canva: AI 画像生成](https://www.canva.com/ai-image-generator/)
 - [remove.bg: 画像の背景削除](https://www.remove.bg/uploads)
 - [ElevenLabs の料金（無料プラン）](https://elevenlabs.io/pricing)

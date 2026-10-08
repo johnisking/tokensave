@@ -14,7 +14,7 @@ Current models have very large windows:
 |---|---|
 | Claude Opus 5.5 / Sonnet 5.5 | 1,000,000 tokens |
 | Gemini 3.1 Pro | about 1,050,000 tokens |
-| GPT-6 Sol | 922,000 tokens |
+| GPT-6 Sol | 1,050,000 tokens |
 | Claude Haiku 4.5 | 200,000 tokens |
 | GPT-4o | 128,000 tokens |
 

@@ -15,14 +15,14 @@ AI 사이트는 이미 수천 개가 넘지만, 대부분은 같은 몇 개 모�
 | 구글 앱과 함께 | Gemini | 지메일·문서·드라이브와 연결 |
 | 한국어 AI 서비스 | 뤼튼 | 여러 모델을 한국어 화면에서 무료로 |
 | 출처 있는 답변 | Perplexity | 답변마다 참고한 웹페이지 표시 |
-| 내 자료로 공부 | NotebookLM | 올린 문서 안에서만 답변 |
+| 내 자료로 공부 | Gemini Notebook(옛 NotebookLM) | 올린 문서 안에서만 답변 |
 | 번역 | DeepL · 파파고 | 자연스러운 번역, 문서 통째로 번역 |
 | 간단한 디자인 | Canva | 템플릿 + AI 이미지·문구 생성 |
 | 배경 지우기 | remove.bg | 클릭 한 번으로 누끼 |
 | 목소리·내레이션 | ElevenLabs | 사람 같은 AI 음성 |
 | 음악 | Suno | 글 몇 줄로 노래 한 곡 |
 | 영상 자막·편집 | CapCut | 자동 자막, 쇼츠 편집 |
-| 모델 비교 | LMArena | 블라인드 비교 + 공개 순위표 |
+| 모델 비교 | Arena(옛 LMArena) | 블라인드 비교 + 공개 순위표 |
 | 오픈 모델 체험 | Hugging Face | 수천 개 모델을 브라우저에서 |
 | AI 비용 계산 | 토큰세이브 | 위 서비스들의 토큰·비용 계산기 |
 
@@ -42,11 +42,11 @@ AI 사이트는 이미 수천 개가 넘지만, 대부분은 같은 몇 개 모�
 
 **Perplexity**(perplexity.ai)는 문장으로 답해 주는 검색 엔진이고, 모든 내용에 출처 링크를 붙여 줍니다. 답만 필요한 게 아니라 사실 확인이 필요할 때 쓰세요.
 
-**NotebookLM**(notebooklm.google.com)은 내가 올린 자료(PDF, 메모, 웹페이지, 유튜브 영상)만 보고 답합니다. 자료 밖의 내용을 지어낼 가능성이 훨씬 낮고, 자료 묶음을 공부 노트나 짧은 오디오 요약으로 바꿔 주기도 합니다. 시험 공부나 회의 자료 정리에 특히 좋습니다.
+**Gemini Notebook**(notebooklm.google.com, 2026년 7월 16일 NotebookLM에서 이름 변경)은 내가 올린 자료(PDF, 메모, 웹페이지, 유튜브 영상)만 보고 답합니다. 자료 밖의 내용을 지어낼 가능성이 훨씬 낮고, 자료 묶음을 공부 노트나 짧은 오디오 요약으로 바꿔 주기도 합니다. 시험 공부나 회의 자료 정리에 특히 좋습니다.
 
 ## 글쓰기·번역
 
-**DeepL**(deepl.com)은 번역이 자연스럽기로 유명하고, 워드·PDF 파일을 레이아웃 그대로 통째로 번역할 수 있습니다. **파파고**(papago.naver.com)는 한국어 구어체와 신조어에 강하고 이미지 속 글자도 번역합니다.
+**DeepL**(deepl.com)은 번역이 자연스럽기로 유명하고, 워드·PDF 파일을 레이아웃 그대로 통째로 번역할 수 있습니다(무료 버전은 한 달에 파일 1개, 5MB까지). **파파고**(papago.naver.com)는 한국어 구어체와 신조어에 강하고 이미지 속 글자도 번역합니다.
 
 **한국어로 프롬프트를 쓰는 분께 팁:** AI는 같은 내용이라도 한국어로 쓰면 영어보다 토큰을 **약 44% 더** 씁니다. [토큰세이브 토큰 계산기](/ko/)의 **💸 토큰 절약** 버튼을 누르면 프롬프트를 내 기기 안에서 영어로 바꾸고 끝에 "Reply in Korean."을 붙여 줍니다. 답은 한국어로 받으면서 토큰은 약 30% 줄일 수 있습니다. 자세한 측정 결과는 [한국어는 영어보다 토큰이 얼마나 더 들까](/ko/blog/korean-tokens-gpt)에 있습니다.
 
@@ -70,7 +70,7 @@ AI 영상 생성은 비용이 가장 빨리 늘어나는 분야입니다. 크레
 
 ## 조금 더 깊게 써보고 싶다면
 
-**LMArena**(lmarena.ai)에서는 질문 하나를 이름이 가려진 두 모델에 보내고 더 나은 답에 투표합니다. 이 투표로 만든 순위표가 AI 모델 순위로 가장 많이 인용되는 자료 중 하나입니다.
+**Arena**(arena.ai, 옛 LMArena)에서는 질문 하나를 이름이 가려진 두 모델에 보내고 더 나은 답에 투표합니다. 이 투표로 만든 순위표가 AI 모델 순위로 가장 많이 인용되는 자료 중 하나입니다.
 
 **Hugging Face**(huggingface.co)는 오픈소스 AI 모델이 모이는 곳입니다. Spaces에서 설치 없이 브라우저로 여러 모델을 바로 써볼 수 있습니다.
 
@@ -104,7 +104,9 @@ AI 영상 생성은 비용이 가장 빨리 늘어나는 분야입니다. 크레
 - [Gemini 도움말: Google Workspace 연결](https://support.google.com/gemini/answer/15229592?hl=en)
 - [Perplexity 도움말: Perplexity란](https://www.perplexity.ai/help-center/en/articles/10352155-what-is-perplexity)
 - [Google 도움말: Gemini Notebook(옛 NotebookLM)](https://support.google.com/gemininotebook/answer/16164461?hl=en&co=GENIE.Platform%3DDesktop)
+- [Google: NotebookLM이 Gemini Notebook으로](https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/)
 - [DeepL: 문서 번역](https://www.deepl.com/en/features/document-translation)
+- [DeepL 요금제(무료 버전 한도)](https://www.deepl.com/en/pro)
 - [Canva: AI 이미지 생성기](https://www.canva.com/ai-image-generator/)
 - [remove.bg: 이미지 배경 제거](https://www.remove.bg/uploads)
 - [ElevenLabs 가격(무료 플랜)](https://elevenlabs.io/pricing)

@@ -49,18 +49,18 @@ Whatever you pick, put your own twist on the formula instead of copying a hit. T
 
 ![What it costs to make one: Stack, Cost](/roblox-trending-games-what-it-costs-to-make-one-en.jpg)
 
-Publishing on Roblox is free and Roblox runs the servers, so the cost is mostly your AI tools. For a small game:
+Publishing on Roblox is free by default (an optional one-time fee of 1,000 Robux, refundable if the game keeps 25 highly engaged players for 60 days, expands its reach to users of all ages) and Roblox runs the servers, so the cost is mostly your AI tools. For a small game:
 
 | Stack | Cost |
 |---|---|
 | Cheapest: Gemini, free audio, Google AI Pro, Roblox Assistant | about $25–40 |
 | Typical: Midjourney, Suno, ElevenLabs, Claude Max 5× | about $110–150 |
 
-Most of the money is the AI coding plan. Roblox Assistant's 3D model generation is free in Studio, with daily limits.
+Most of the money is the AI coding plan. Roblox Assistant can generate 3D models in Studio from a text prompt or a reference image; its guide limits procedural models to 50 per rolling 24 hours.
 
 ## Try it with your own game
 
-Our [AI game cost calculator](/ai-game-cost-calculator) now has a Roblox mode: press "Use this" on any trend at the top, and it switches to Roblox Studio with Luau, free 3D models with Roblox Assistant, and a prompt pack written for Roblox (server and client scripts, saving with DataStoreService, game passes). For the step-by-step, read [How to make a Roblox game with AI](/blog/how-to-make-a-roblox-game-with-ai).
+Our [AI game cost calculator](/ai-game-cost-calculator) now has a Roblox mode: press "Use this" on any trend at the top, and it switches to Roblox Studio with Luau, 3D models with Roblox Assistant, and a prompt pack written for Roblox (server and client scripts, saving with DataStoreService, game passes). For the step-by-step, read [How to make a Roblox game with AI](/blog/how-to-make-a-roblox-game-with-ai).
 
 *Charts checked October 6, 2026 at [roblox.com/charts](https://www.roblox.com/charts). Game names as Roblox shows them; we update this list as the charts change.*
 
@@ -69,4 +69,5 @@ Our [AI game cost calculator](/ai-game-cost-calculator) now has a Roblox mode: p
 - [Roblox Creator Hub: passes](https://create.roblox.com/docs/production/monetization/passes)
 - [Roblox Creator Hub: data stores (DataStoreService)](https://create.roblox.com/docs/cloud-services/data-stores)
 - [Roblox Creator Hub: Assistant for Studio](https://create.roblox.com/docs/assistant/guide)
+- [Roblox Creator Hub: Publish games and places](https://create.roblox.com/docs/production/publishing/publish-experiences-and-places)
 <!-- autoimg -->

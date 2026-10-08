@@ -49,11 +49,11 @@ API では Claude Opus 5.5 は Sonnet 5.5 よりトークン単価が100%高く�
 
 ## 9. キャッシュに働いてもらう
 
-Claude Code は繰り返し送るコンテキストを自動でキャッシュし、キャッシュされた入力は通常価格の約10%です。セッションの途中で CLAUDE.md を書き換えない、同じ作業を続けるのにわざわざセッションを立ち上げ直さない、それだけでも効果があります。
+Claude Code は繰り返し送るコンテキストを自動でキャッシュし、キャッシュされた入力は Sonnet 5.5 と Opus 5.5 では通常価格の5%（Haiku 4.5 は10%）です。セッションの途中で CLAUDE.md を書き換えない、同じ作業を続けるのにわざわざセッションを立ち上げ直さない、それだけでも効果があります。
 
 ## どれくらい差が出るか
 
-TokenSave の[コーディングエージェント費用モデル](/ja/agents)では、Sonnet 5.5 での一般的な機能タスクはキャッシュありで約$0.72です。正確な指示とファイルの場所を伝えて25ステップを15ステップに減らすと、約$0.40まで下がります。タスクごとに新しいセッションで始めれば、開始時のコンテキストも小さく保てます。月に100タスクなら、週の上限に当たるかどうかが分かれるほどの差です。
+TokenSave の[コーディングエージェント費用モデル](/ja/agents)では、Sonnet 5.5 での一般的な機能タスクはキャッシュありで約$0.57です。正確な指示とファイルの場所を伝えて25ステップを15ステップに減らすと、約$0.33まで下がります。タスクごとに新しいセッションで始めれば、開始時のコンテキストも小さく保てます。月に100タスクなら、週の上限に当たるかどうかが分かれるほどの差です。
 
 ## 使用量を確認する
 
@@ -63,6 +63,7 @@ Claude Code で **/status** を実行すると、残りの使用量が表示さ�
 
 - [コストを効果的に管理する（Claude Code ドキュメント）](https://code.claude.com/docs/en/costs)
 - [Claude API の料金（Anthropic ドキュメント）](https://platform.claude.com/docs/en/about-claude/pricing)
+- [プロンプトキャッシュ（Claude ドキュメント）](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
 - [tiktoken：OpenAI のトークナイザー（o200k_base）](https://github.com/openai/tiktoken)
 - [Pro・Max プランで Claude Code を使う（Claude ヘルプセンター）](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 <!-- autoimg -->

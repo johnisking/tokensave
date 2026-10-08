@@ -34,7 +34,7 @@ ChatGPT Plus, Claude Pro und Google AI Pro kosten fast gleich viel, und für die
 
 ## Vorsicht bei den Tarifen unter 10 €
 
-- **ChatGPT Go (7,99 €):** Hier antwortet das kleinere Modell GPT-5.6 Luna, und seit August siehst du in Deutschland Werbung. Mehr dazu unter [ChatGPT Go vs. Plus](/de/blog/chatgpt-go-vs-plus).
+- **ChatGPT Go (7,99 €):** Hier antwortet das kleinere Modell GPT-6 Luna, und seit August siehst du in Deutschland Werbung. Mehr dazu unter [ChatGPT Go vs. Plus](/de/blog/chatgpt-go-vs-plus).
 - **Google AI Plus (4,99 €):** Der Tarif verliert demnächst das Pro-Modell. Für die 400 GB Speicher ist er trotzdem ein fairer Preis. Die Details stehen unter [Gemini: kostenlos nur noch Flash-Lite](/de/blog/gemini-kostenlos-flash-lite).
 
 ## 100 € oder 200 €: Achte auf den Preis pro Einheit
@@ -66,5 +66,5 @@ Alle vier Anbieter verkaufen ihre Modelle auch über eine API, bei der du nur za
 
 Trag deine eigene Nutzung in den [Rechner Abo vs. API](/de/plans) ein. Dann siehst du die monatlichen API-Kosten direkt neben jedem Tarif. Einzelne Prompts zählst du mit dem [Token-Zähler](/de/).
 
-*Quellen: [ChatGPT-Preise (MonsterDealz, Sep. 2026)](https://www.monsterdealz.de/magazin/chatgpt-kosten), [Claude Pro und Max in Deutschland (SSD Nodes)](https://www.ssdnodes.com/learn/lang/de/claude-pro-and-max-in-germany-what-you-pay), [Claude-Preise](https://claude.com/pricing), [Google AI Abos (Deutschland)](https://gemini.google/de/subscriptions/?hl=de), [Google AI Plus zum Start (smartdroid)](https://www.smartdroid.de/gemini-neues-google-ai-plus-fuer-nur-799-euro-jetzt-in-deutschland-verfuegbar/), [Grok-Kosten (GIGA)](https://www.giga.de/tech/grok-kosten-2026-wie-teuer-ist-der-ki-chatbot--01KPQCHS1PBH2QR2CZHHFGBVM4), [Bitkom KI-Studie 2026](https://www.bitkom.org/sites/main/files/2026-02/bitkom-studienbericht-ki.pdf). Stand: 6. Oktober 2026. Preise und Limits ändern sich oft, prüfe sie vor dem Abschluss beim Anbieter.*
+*Quellen: [ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes), [ChatGPT-Preise (MonsterDealz, Sep. 2026)](https://www.monsterdealz.de/magazin/chatgpt-kosten), [Claude Pro und Max in Deutschland (SSD Nodes)](https://www.ssdnodes.com/learn/lang/de/claude-pro-and-max-in-germany-what-you-pay), [Claude-Preise](https://claude.com/pricing), [Google AI Abos (Deutschland)](https://gemini.google/de/subscriptions/?hl=de), [Google AI Plus zum Start (smartdroid)](https://www.smartdroid.de/gemini-neues-google-ai-plus-fuer-nur-799-euro-jetzt-in-deutschland-verfuegbar/), [Grok-Kosten (GIGA)](https://www.giga.de/tech/grok-kosten-2026-wie-teuer-ist-der-ki-chatbot--01KPQCHS1PBH2QR2CZHHFGBVM4), [Bitkom KI-Studie 2026](https://www.bitkom.org/sites/main/files/2026-02/bitkom-studienbericht-ki.pdf). Stand: 6. Oktober 2026. Preise und Limits ändern sich oft, prüfe sie vor dem Abschluss beim Anbieter.*
 <!-- autoimg -->

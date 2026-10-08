@@ -6,7 +6,7 @@
 > - Prix en France (TTC) : **Gratuit 0 € · Go environ 8 € · Plus 23 € · Pro dès 103 €**
 > - Pour la plupart des gens : **commencez gratuitement, et passez à la formule supérieure seulement si vous tombez dans l'un des trois cas ci-dessous**.
 
-Vous hésitez à prendre un abonnement ChatGPT ? Une chose d'abord : les anciens articles qui parlent de « quelques messages par jour en gratuit » ne sont plus à jour. En août 2026, OpenAI a supprimé la limite du chat texte du quotidien sur toutes les formules, gratuite comprise. La différence entre gratuit et payant ne porte donc plus sur **la quantité, mais sur la qualité et les fonctions annexes**. Voici ce qui change concrètement, et à quel moment il vaut la peine de passer au payant.
+Vous hésitez à prendre un abonnement ChatGPT ? Une chose d'abord : les anciens articles qui parlent de « quelques messages par jour en gratuit » ne sont plus à jour. En août 2026, OpenAI a supprimé la limite du chat texte du quotidien sur les formules Gratuit et Go (Pro est aussi illimité, Plus a des limites élargies). La différence entre gratuit et payant ne porte donc plus sur **la quantité, mais sur la qualité et les fonctions annexes**. Voici ce qui change concrètement, et à quel moment il vaut la peine de passer au payant.
 
 ## Gratuit ou payant : le comparatif en un coup d'œil
 
@@ -15,7 +15,7 @@ Vous hésitez à prendre un abonnement ChatGPT ? Une chose d'abord : les anciens
 | | Gratuit | Go | Plus | Pro |
 |---|---|---|---|---|
 | Prix mensuel | 0 € | environ 8 € | 23 € | dès 103 € |
-| Chat texte du quotidien | illimité | illimité | illimité | illimité |
+| Chat texte du quotidien | illimité | illimité | élargi (avec des limites) | illimité |
 | Modèle qui répond | modèle léger (Luna) | modèle léger (Luna) | modèle intermédiaire (Sol) + choix du niveau de réflexion | Sol + modèle Pro haut de gamme |
 | Import de fichiers, images, voix | limité | plus que le gratuit | davantage | le plus élevé |
 | Recherche approfondie | limitée | – | étendue | maximale |
@@ -123,4 +123,4 @@ Si vous voulez simplement utiliser davantage les photos, fichiers et images, pre
 **Combien coûte ChatGPT en France ?**
 TTC : Go environ 8 €, Plus 23 €, Pro dès 103 € (relevé le 6 octobre 2026). Vérifiez à nouveau sur la page des formules avant de payer.
 
-*Sources : [Formules ChatGPT](https://chatgpt.com/pricing/), [ChatGPT Free Tier FAQ](https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq), [What is ChatGPT Plus?](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus). Vérifié le 8 octobre 2026. Les prix et les limites changent souvent : consultez la page des formules sur chatgpt.com avant de payer.*
+*Sources : [Formules ChatGPT](https://chatgpt.com/pricing/), [ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes), [ChatGPT Free Tier FAQ](https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq), [What is ChatGPT Plus?](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus). Vérifié le 8 octobre 2026. Les prix et les limites changent souvent : consultez la page des formules sur chatgpt.com avant de payer.*

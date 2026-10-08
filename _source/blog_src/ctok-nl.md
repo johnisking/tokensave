@@ -24,7 +24,7 @@ In Nederland en België kost Claude Pro €18 per maand zonder btw, Max 5x €90
 
 Omdat bijna alles goedkope cache-reads zijn, geen nieuwe tekst. Negenendertig miljoen tokens in vijf uur klinkt als een berg tekst. Dat is het niet. In de gemeten sessies was **96% van de tokens cache-reads**: Claude Code leest bij elke stap van een taak zijn eigen context opnieuw in (je bestanden, het gesprek tot nu toe, de resultaten van tools). Maar zo'n 0,6% van de tokens was output, tekst die Claude echt schreef.
 
-Cache-reads zijn goedkoop op de API, ongeveer een tiende van de normale inputprijs. De limieten van Anthropic tellen dus duidelijk niet elk token even zwaar. Ze werken eerder als een **kostenbudget**. Het mediane Max 5x-venster kwam overeen met ongeveer **$37 aan API-gebruik**. Op dezelfde schaal is een Pro-venster zo'n $7 en een Max 20x-venster zo'n $150.
+Cache-reads zijn goedkoop op de API: 10% van de normale inputprijs op Claude Opus 5, het gemeten model, en 5% op Opus 5.5 en Sonnet 5.5. De limieten van Anthropic tellen dus duidelijk niet elk token even zwaar. Ze werken eerder als een **kostenbudget**. Het mediane Max 5x-venster kwam overeen met ongeveer **$37 aan API-gebruik**. Op dezelfde schaal is een Pro-venster zo'n $7 en een Max 20x-venster zo'n $150.
 
 Daarom zegt een aantal tokens minder dan je zou denken. Twee sessies met evenveel tokens kunnen een heel ander deel van je limiet opmaken. Dat hangt af van hoeveel verse input en output erin zit en welk model je gebruikt.
 
@@ -58,4 +58,5 @@ Gerelateerd: [Claude Max vs Pro](/blog/claude-max-vs-pro) (in het Engels) · [Cl
 - [Claude Code gebruiken met je Pro- of Max-abonnement (Claude Helpcentrum)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 - [Claude-abonnementen en prijzen (Anthropic)](https://claude.com/pricing)
 - [Prijzen van de Claude API (Anthropic-documentatie)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Prompt caching (Claude-documentatie)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
 <!-- autoimg -->

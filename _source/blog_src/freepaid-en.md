@@ -6,7 +6,7 @@
 > - Prices (US list prices): **Free $0 · Go $8 · Plus $20 · Pro from $100**
 > - Most people should **start free and upgrade only when they hit one of the three situations below**.
 
-If you're wondering whether to pay for ChatGPT, there's one thing to know first. Older articles that say "the free plan only gives you so many messages a day" are out of date. In August 2026, OpenAI removed the cap on everyday text chat on every plan, free included. So the gap between free and paid today is **not about quantity, but about quality and extra features**. Here's what's actually different, and when it makes sense to upgrade.
+If you're wondering whether to pay for ChatGPT, there's one thing to know first. Older articles that say "the free plan only gives you so many messages a day" are out of date. In August 2026, OpenAI removed the cap on everyday text chat on the Free and Go plans (Pro is also unlimited; Plus has expanded limits). So the gap between free and paid today is **not about quantity, but about quality and extra features**. Here's what's actually different, and when it makes sense to upgrade.
 
 ## Free vs paid at a glance
 
@@ -15,7 +15,7 @@ If you're wondering whether to pay for ChatGPT, there's one thing to know first.
 | | Free | Go | Plus | Pro |
 |---|---|---|---|---|
 | Monthly price | $0 | $8 | $20 | From $100 |
-| Everyday text chat | Unlimited | Unlimited | Unlimited | Unlimited |
+| Everyday text chat | Unlimited | Unlimited | Expanded (limits apply) | Unlimited |
 | Model that answers | Light model (Luna) | Light model (Luna) | Mid-size model (Sol) + choice of thinking level | Sol + top-tier Pro model |
 | File uploads, images, voice | Limited | More than Free | More | The most |
 | Deep research | Limited | – | Expanded | Maximum |
@@ -123,4 +123,4 @@ If you just want more photos, files and images, Go. If you want better answers, 
 **How much does ChatGPT cost in the US?**
 Go is $8, Plus is $20 and Pro starts at $100 per month (US list prices, checked October 6, 2026; local prices and tax vary). Double-check the pricing page before you pay.
 
-*Sources: [ChatGPT pricing](https://chatgpt.com/pricing/), [ChatGPT Free Tier FAQ](https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq), [What is ChatGPT Plus?](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus). Checked October 8, 2026. Prices and limits change often, so check the pricing page on chatgpt.com before you pay.*
+*Sources: [ChatGPT pricing](https://chatgpt.com/pricing/), [ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes), [ChatGPT Free Tier FAQ](https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq), [What is ChatGPT Plus?](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus). Checked October 8, 2026. Prices and limits change often, so check the pricing page on chatgpt.com before you pay.*

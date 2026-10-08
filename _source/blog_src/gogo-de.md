@@ -1,6 +1,6 @@
 ![ChatGPT Go vs. Plus: Lohnen sich 15 € mehr im Monat?](/chatgpt-go-vs-plus-de.jpg)
 
-ChatGPT Go kostet 7,99 € im Monat, ChatGPT Plus 22,99 €, beides inklusive Mehrwertsteuer. Seit dem 6. August 2026 ist der normale Textchat in allen Tarifen unbegrenzt, auch im kostenlosen. Der alte Grund für ein Upgrade, nämlich keine Nachrichten mehr übrig zu haben, fällt also weg. Seit dem 24. August zeigt ChatGPT in Deutschland außerdem Werbung, und zwar im kostenlosen Tarif und in Go. Heute geht es deshalb um drei Fragen: **Welches Modell antwortet dir, wie gründlich denkt es nach, und siehst du Werbung?** Hier steht, was dir die 15 € Aufpreis bringen und für wen sie sich lohnen.
+ChatGPT Go kostet 7,99 € im Monat, ChatGPT Plus 22,99 €, beides inklusive Mehrwertsteuer. Seit dem 6. August 2026 ist der normale Textchat im kostenlosen Tarif und in Go unbegrenzt; Plus hat stattdessen erweiterte Limits. Der alte Grund für ein Upgrade, nämlich keine Nachrichten mehr übrig zu haben, fällt also weg. Seit dem 24. August zeigt ChatGPT in Deutschland außerdem Werbung, und zwar im kostenlosen Tarif und in Go. Heute geht es deshalb um drei Fragen: **Welches Modell antwortet dir, wie gründlich denkt es nach, und siehst du Werbung?** Hier steht, was dir die 15 € Aufpreis bringen und für wen sie sich lohnen.
 
 ## Go und Plus im Vergleich
 
@@ -9,9 +9,9 @@ ChatGPT Go kostet 7,99 € im Monat, ChatGPT Plus 22,99 €, beides inklusive Me
 | | ChatGPT Go | ChatGPT Plus |
 |---|---|---|
 | Preis | 7,99 € / Monat | 22,99 € / Monat |
-| Modell im Alltag | GPT-5.6 Luna | GPT-5.6 Sol |
+| Modell im Alltag | GPT-6 Luna | GPT-6 Sol |
 | Denken | „Nachdenken“-Taste für schwierige Fragen | Denkstufen Mittel und Hoch |
-| Limit für Textchat | keins | keins |
+| Limit für Textchat | keins | erweitert (mit Limits) |
 | Fortgeschrittenes Reasoning mit GPT-6 | – | ja |
 | ChatGPT Work und Codex | eingeschränkt am Desktop | Desktop, Web und Mobil, höhere Limits |
 | Deep Research | eingeschränkt | erweitert |
@@ -22,7 +22,7 @@ Die Limits für Uploads, Bilder und Recherche passt OpenAI oft an. Die genauen Z
 
 ## Der eigentliche Unterschied: Luna oder Sol
 
-In Go antwortet **GPT-5.6 Luna**, das kleine, schnelle Modell von OpenAI. In Plus antwortet **GPT-5.6 Sol**, das mittelgroße Modell, und du kannst es länger nachdenken lassen. Bei kurzen Fragen, beim Umformulieren einer E-Mail oder beim Zusammenfassen einer Webseite merkst du davon kaum etwas. Bei langen Dokumenten, kniffligen Überlegungen, Programmierfragen und überall dort, wo eine falsche Antwort dich etwas kostet, ist Sol aber klar besser.
+In Go antwortet **GPT-6 Luna**, das kleine, schnelle Modell von OpenAI. In Plus antwortet **GPT-6 Sol**, das mittelgroße Modell, und du kannst es länger nachdenken lassen. Bei kurzen Fragen, beim Umformulieren einer E-Mail oder beim Zusammenfassen einer Webseite merkst du davon kaum etwas. Bei langen Dokumenten, kniffligen Überlegungen, Programmierfragen und überall dort, wo eine falsche Antwort dich etwas kostet, ist Sol aber klar besser.
 
 Über die API kosten Modelle der Sol-Klasse etwa 20-mal so viel pro Token wie Modelle der Luna-Klasse. Ungefähr diesen Unterschied bezahlst du bei Plus dafür, dass OpenAI für dich ein deutlich größeres Modell rechnen lässt.
 
@@ -60,5 +60,5 @@ Wenn du hauptsächlich chattest, kann die Abrechnung pro Token günstiger sein a
 
 Google AI Plus kostet 4,99 €, verliert aber demnächst das Pro-Modell ([Gemini: kostenlos nur noch Flash-Lite](/de/blog/gemini-kostenlos-flash-lite)). Google AI Pro kostet 21,99 €. Claude hat keinen Tarif unter Pro, das laut SSD Nodes 21,42 € inklusive MwSt kostet. Prüfe den Betrag an der Kasse.
 
-*Quellen: Preise laut [MonsterDealz (Sep. 2026)](https://www.monsterdealz.de/magazin/chatgpt-kosten) und [iphone-ticker zum Start von Go](https://www.iphone-ticker.de/fuer-8-euro-pro-monat-chatgpt-go-jetzt-auch-in-deutschland-verfuegbar-270263/), Werbung laut [ZDFheute](https://www.zdfheute.de/wirtschaft/unternehmen/openai-chatbot-chatgpt-werbung-deutschland-100.html) und [Basic Thinking](https://www.basicthinking.de/blog/2026/08/25/chatgpt-startet-werbung-in-deutschland/), Tarifdetails laut [Dupple](https://dupple.com/learn/chatgpt-go-vs-plus). Stand: 6. Oktober 2026. Prüfe vor dem Abschluss chatgpt.com/pricing.*
+*Quellen: [ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes), Preise laut [MonsterDealz (Sep. 2026)](https://www.monsterdealz.de/magazin/chatgpt-kosten) und [iphone-ticker zum Start von Go](https://www.iphone-ticker.de/fuer-8-euro-pro-monat-chatgpt-go-jetzt-auch-in-deutschland-verfuegbar-270263/), Werbung laut [ZDFheute](https://www.zdfheute.de/wirtschaft/unternehmen/openai-chatbot-chatgpt-werbung-deutschland-100.html) und [Basic Thinking](https://www.basicthinking.de/blog/2026/08/25/chatgpt-startet-werbung-in-deutschland/), Tarifdetails laut [Dupple](https://dupple.com/learn/chatgpt-go-vs-plus). Stand: 6. Oktober 2026. Prüfe vor dem Abschluss chatgpt.com/pricing.*
 <!-- autoimg -->

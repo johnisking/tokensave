@@ -1,6 +1,6 @@
 ![Gemini 4 Argon API Pricing: Cost vs GPT-6 and Claude](/gemini-4-argon-api-pricing-en.jpg)
 
-Google announced **Gemini 4 Argon** on September 30, 2026, its new top model. It is built for coding, cybersecurity and long agentic workflows, and Google says it beats GPT-6 Astra and Claude Fable and Opus on a range of benchmarks. Here is what it costs on the API, what a real request costs, and how it compares with GPT and Claude.
+Google announced **Gemini 4 Argon** on September 30, 2026, its new top model. It is built for coding, cybersecurity and long agentic workflows, and Google says it sets a new state of the art on DeepSWE v1.1 (77.9%) and leads the Vals Index, without naming which rival models it was measured against. Here is what it costs on the API, what a real request costs, and how it compares with GPT and Claude.
 
 ## Gemini 4 Argon API pricing
 

@@ -15,7 +15,7 @@
 | $200 | Pro 200 | Plus의 10배* | Max 20× | Pro의 20배 |
 | $500 | Pro 500 | Plus의 25배 + 초고속(Ultrafast) | – | – |
 
-\* Pro 200은 2026년 9월 29일부터 신규 가입자 기준으로 Plus의 20배에서 10배로 줄었습니다. 기존 Pro 200 가입자는 10월 29일까지 예전 사용량이 유지됩니다.
+\* Pro 200은 신규 가입자 기준으로 Plus의 20배에서 10배로 줄었습니다. 2026년 9월 22일~9월 29일 중 한 번이라도 Pro 200 구독이 활성 상태였다면 10월 29일까지 예전 사용량이 유지됩니다. 챗GPT 배수는 OpenAI 공식 페이지가 아니라 OpenAI 티보 소티오(Thibault Sottiaux)의 X 글과 보도(WinBuzzer, Windows Report) 기준입니다.
 
 사용량 배수는 각 회사의 $20 요금제를 기준으로 한 것이라, "Plus의 5배"와 "Pro의 5배"가 같은 작업량은 아닙니다. 두 회사 모두 정확한 토큰 수는 공개하지 않습니다.
 
@@ -78,6 +78,8 @@ GPT-6 Astra는 토큰당 Claude Opus 5.5보다 150% 비쌉니다. 주로 최상�
 
 - [ChatGPT 요금제와 Codex 가격](https://learn.chatgpt.com/docs/pricing)
 - [OpenAI 도움말: ChatGPT Pro 등급 안내](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
+- [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
 - [Claude 도움말: Max 요금제란](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
 - [Claude 도움말: Pro·Max 요금제로 Claude Code 쓰기](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 - [OpenAI API 가격](https://developers.openai.com/api/docs/pricing)

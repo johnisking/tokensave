@@ -1,53 +1,53 @@
 <p><img fetchpriority="high" width="1200" height="630" alt="Codex Usage Limits Explained: 5-Hour Window, Weekly Cap and Resets" src="/codex-usage-limits-en.jpg" /></p>
-<p>Codex, OpenAI's coding agent, is included in ChatGPT Plus, Pro and Business plans, and it is where most people now run into usage limits. Codex shares its allowance with ChatGPT Work, uses a 5-hour window and a weekly cap, and burns through them at very different speeds depending on the model. Here is how it works and how to get more out of it.</p>
+<p>Codex, OpenAI's coding agent, is included in ChatGPT Plus, Pro and Business plans, and it is where most people now run into usage limits. Codex shares its allowance with ChatGPT Work, uses a 5-hour window on Plus and Business (weekly limits may also apply), and burns through it at very different speeds depending on the model. Here is how it works and how to get more out of it.</p>
 <h2>Which plans include Codex</h2>
-<p>Codex (and ChatGPT Work) usage is included with <strong>Plus</strong> ($20), <strong>Pro</strong> ($100, $200 or $500) and <strong>Business</strong> Standard and Premium seats. Usage is not unlimited: each plan gets an allowance, measured over two windows.</p>
+<p>Codex (and ChatGPT Work) usage is included with <strong>Plus</strong> ($20), <strong>Pro</strong> ($100, $200 or $500) and <strong>Business</strong> Standard and Premium seats. Usage is not unlimited: each plan gets an included allowance.</p>
 <h2>Two limits at once</h2>
-<p><strong>The 5-hour window.</strong> A rolling allowance that starts with your first request. Use it up and you wait until the window resets. OpenAI restored the 5-hour window for Plus at the end of August 2026; at the time it said Pro 100 and Pro 200 would not have it for the coming months.</p>
-<p><strong>The weekly limit.</strong> A rolling seven-day cap on top. Hit it and you wait for the weekly reset, even if your 5-hour window is fresh.</p>
+<p><strong>The 5-hour window.</strong> A rolling allowance that starts with your first request. Use it up and you wait until the window resets. Pro 100, Pro 200 and Pro 500 currently have no five-hour usage limit in Work and Codex; they still have an included allowance.</p>
+<p><strong>The weekly limit.</strong> OpenAI says weekly limits may also apply on top. Hit one and you wait for its reset, even if your 5-hour window is fresh.</p>
 <p>Codex and ChatGPT Work draw from the <strong>same allowance</strong>.</p>
 <h2>How much you get, by model</h2>
-<p><img loading="lazy" width="1200" height="636" alt="How much you get, by model: Model, Plus, Pro (5× tier)" src="/codex-usage-limits-how-much-you-get-by-model-en.jpg" /></p>
-<p>OpenAI's help center gives estimated messages per 5-hour window. The model you pick changes the number enormously:</p>
+<p><img loading="lazy" width="1200" height="627" alt="How much you get, by model: Model, Plus, Business (Standard)" src="/codex-usage-limits-how-much-you-get-by-model-en.jpg" /></p>
+<p>OpenAI's help center gives estimated local messages per 5-hour window for Plus and Standard Business. The model you pick changes the number enormously:</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
 <th>Model</th>
 <th>Plus</th>
-<th>Pro (5× tier)</th>
+<th>Business (Standard)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>GPT-6 Astra</td>
 <td>about 5–45</td>
-<td>about 25–225</td>
+<td>about 5–45</td>
 </tr>
 <tr>
-<td>GPT-5.6 Sol</td>
-<td>about 10–100</td>
-<td>about 50–500</td>
+<td>GPT-6.1 Sol</td>
+<td>about 15–160</td>
+<td>about 15–160</td>
 </tr>
 <tr>
-<td>GPT-5.6 Terra</td>
-<td>about 25–200</td>
-<td>about 125–1,000</td>
+<td>GPT-6 Sol</td>
+<td>about 15–150</td>
+<td>about 15–150</td>
 </tr>
 <tr>
-<td>GPT-5.6 Luna</td>
-<td>about 250–2,000</td>
-<td>about 1,250–10,000</td>
+<td>GPT-6 Luna</td>
+<td>about 350–3,000</td>
+<td>about 350–3,000</td>
 </tr>
 </tbody>
 </table></div>
-<p>The low end of each range is long, multi-step tasks on a large codebase; the high end is short, simple requests. Higher Pro tiers scale up: Pro 200 is 10× Plus for new subscribers since September 29, 2026, and Pro 500 is 25×.</p>
+<p>The low end of each range is long, multi-step tasks on a large codebase; the high end is short, simple requests. Pro plans currently have no 5-hour limit, but a larger included allowance: Pro 100 is 5× Plus, Pro 200 is 10× Plus for new subscribers (anyone with an active Pro 200 subscription between September 22 and September 29, 2026 keeps the previous allowance until October 29), and Pro 500 is 25× Plus. These multiples come from OpenAI's Thibault Sottiaux on X and press reports (WinBuzzer, Windows Report), not from OpenAI's pricing page.</p>
 <p><strong>Ultrafast</strong>, available only on Pro 500, is a faster mode that uses your included usage and credits more quickly.</p>
 <h2>Why Codex uses the allowance so fast</h2>
 <p>Like every coding agent, Codex works in steps and sends its whole working context back to the model at each step: instructions, tool definitions, files it has read and earlier steps. A typical 25-step feature task sends around 1.6 million input tokens. On the API that task would cost about $0.72 on a Sol-class model and around $3.60 on GPT-6 Astra, which is why Astra's allowance is so much smaller. See <a href="/blog/ai-coding-agent-cost">What does an AI coding agent cost per task?</a></p>
 <h2>How to check your usage</h2>
 <p>OpenAI's help center points to <strong>Settings → Usage</strong> in ChatGPT, which shows your remaining allowance and reset times. Codex also warns you as you approach the limit.</p>
 <h2>When you hit the limit</h2>
-<p><img loading="lazy" width="1200" height="838" alt="When you hit the limit: Wait for the reset. The 5-hour window refills within hours.; Use a banked reset or buy an instant reset, avail" src="/codex-usage-limits-when-you-hit-the-limit-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="834" alt="When you hit the limit: Wait for the reset. The 5-hour window refills within hours.; Use a banked reset or buy an instant reset, avail" src="/codex-usage-limits-when-you-hit-the-limit-en.jpg" /></p>
 <ol>
 <li><strong>Wait for the reset.</strong> The 5-hour window refills within hours.</li>
 <li><strong>Use a banked reset or buy an instant reset</strong>, available on eligible Plus and Pro accounts.</li>
@@ -56,9 +56,9 @@
 <li><strong>Use an API key</strong> with pay-as-you-go billing for overflow work.</li>
 </ol>
 <h2>How to stretch it</h2>
-<p><img loading="lazy" width="1200" height="976" alt="How to stretch it: Default to GPT-5.6 Sol or Terra. Use GPT-6 Astra only for the hard problems where you can see the difference; " src="/codex-usage-limits-how-to-stretch-it-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="972" alt="How to stretch it: Default to GPT-6.1 Sol or GPT-6 Sol. Use GPT-6 Astra only for the hard problems where you can see the difference; " src="/codex-usage-limits-how-to-stretch-it-en.jpg" /></p>
 <ul>
-<li><strong>Default to GPT-5.6 Sol or Terra.</strong> Use GPT-6 Astra only for the hard problems where you can see the difference: it uses much more of the allowance.</li>
+<li><strong>Default to GPT-6.1 Sol or GPT-6 Sol.</strong> Use GPT-6 Astra only for the hard problems where you can see the difference: it uses much more of the allowance.</li>
 <li><strong>Use Luna for simple edits</strong>, renames and boilerplate.</li>
 <li><strong>Keep tasks small and specific.</strong> Fewer steps means less context resent.</li>
 <li><strong>Start fresh between unrelated tasks</strong> so old history is not carried along.</li>
@@ -75,5 +75,7 @@
 <li><a href="https://help.openai.com/en/articles/20001498-how-banked-codex-resets-work" target="_blank" rel="noopener">OpenAI Help: How banked Codex resets work</a></li>
 <li><a href="https://learn.chatgpt.com/docs/pricing" target="_blank" rel="noopener">ChatGPT plans and Codex pricing</a></li>
 <li><a href="https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers" target="_blank" rel="noopener">OpenAI Help: About ChatGPT Pro tiers</a></li>
+<li><a href="https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/" target="_blank" rel="noopener">WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers</a></li>
+<li><a href="https://windowsreport.com/?p=1510692" target="_blank" rel="noopener">Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access</a></li>
 </ul>
 <!-- autoimg -->

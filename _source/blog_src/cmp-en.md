@@ -15,7 +15,7 @@ US monthly prices, checked October 2026:
 | $200 | Pro 200 | 10× Plus* | Max 20× | 20× Pro |
 | $500 | Pro 500 | 25× Plus + Ultrafast | – | – |
 
-\* Pro 200 was cut from 20× to 10× Plus for new subscribers on September 29, 2026. Existing Pro 200 subscribers keep the old allowance until October 29.
+\* Pro 200 was cut from 20× to 10× Plus for new subscribers. Anyone with an active Pro 200 subscription at any point from September 22 to September 29, 2026 keeps the old allowance until October 29. The ChatGPT multiples come from OpenAI's Thibault Sottiaux on X and press reports (WinBuzzer, Windows Report), not from OpenAI's pricing page.
 
 Usage multipliers are relative to each company's own $20 plan, so "5× Plus" and "5× Pro" are not the same amount of work. Neither company publishes exact token numbers.
 
@@ -78,6 +78,8 @@ If you use AI only a few times a day, the API may cost less than any plan. The [
 
 - [ChatGPT plans and Codex pricing](https://learn.chatgpt.com/docs/pricing)
 - [OpenAI Help: About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
+- [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
 - [Claude Help: What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
 - [Claude Help: Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 - [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)

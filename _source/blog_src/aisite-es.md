@@ -14,14 +14,14 @@ Los planes gratuitos y sus límites cambian a menudo. Por eso, entiende "gratis"
 | Documentos largos, redacción, código | Claude | Muy bueno con textos largos y respuestas cuidadosas |
 | Ecosistema de Google | Gemini | Funciona con Gmail, Docs y Drive |
 | Respuestas con fuentes | Perplexity | Cada respuesta cita las páginas que usó |
-| Estudiar tus propios archivos | NotebookLM | Responde solo con los documentos que subes |
+| Estudiar tus propios archivos | Gemini Notebook (antes NotebookLM) | Responde solo con los documentos que subes |
 | Traducción | DeepL | Traducciones naturales que conservan el formato |
 | Diseños rápidos | Canva | Plantillas más herramientas de IA para imagen y texto |
 | Quitar fondos | remove.bg | Un clic, sin saber editar |
 | Voz y narración | ElevenLabs | Texto a voz muy realista |
 | Música | Suno | Canciones completas a partir de un texto |
 | Subtítulos y edición de video | CapCut | Subtítulos automáticos y edición sencilla con IA |
-| Comparar modelos | LMArena | Pruebas a ciegas lado a lado y un ranking público |
+| Comparar modelos | Arena (antes LMArena) | Pruebas a ciegas lado a lado y un ranking público |
 | Probar modelos abiertos | Hugging Face | Miles de modelos y demos gratis |
 | Desarrolladores: probar modelos Gemini | Google AI Studio | Prueba prompts y obtén una clave de API |
 | Saber cuánto cuesta | TokenSave | Calculadoras de tokens y costos para todo lo anterior |
@@ -42,11 +42,11 @@ No necesitas todos. Elige uno para el día a día y guarda un segundo para cuand
 
 **Perplexity** (perplexity.ai) es un buscador que responde con frases y enlaza cada afirmación a una fuente. Úsalo cuando necesites verificar datos, no solo obtener una respuesta.
 
-**NotebookLM** (notebooklm.google.com) responde preguntas solo a partir de los documentos que le das: PDF, notas, páginas web, videos de YouTube. Como no sale de tus fuentes, es mucho menos probable que invente cosas. Además, puede convertir un montón de material en una guía de estudio o en un breve resumen en audio.
+**Gemini Notebook** (notebooklm.google.com), que se llamaba NotebookLM hasta que Google le cambió el nombre el 16 de julio de 2026, responde preguntas solo a partir de los documentos que le das: PDF, notas, páginas web, videos de YouTube. Como no sale de tus fuentes, es mucho menos probable que invente cosas. Además, puede convertir un montón de material en una guía de estudio o en un breve resumen en audio.
 
 ## Redacción y traducción
 
-**DeepL** (deepl.com) ofrece traducciones que suenan más naturales que la mayoría, y puede traducir archivos completos de Word o PDF sin romper el diseño.
+**DeepL** (deepl.com) ofrece traducciones que suenan más naturales que la mayoría, y puede traducir archivos completos de Word o PDF sin romper el diseño (la versión gratuita permite un archivo al mes, de hasta 5 MB).
 
 Un consejo si escribes tus prompts en español: la mayoría de los modelos de IA cobran más tokens por la misma petición en otros idiomas que en inglés. El español usa alrededor de un 18 % más de tokens que el inglés, así que enviar el prompt en inglés ahorra cerca de un 15 %. El botón "💸 Ahorrar tokens" del [contador de tokens de TokenSave](/es/) traduce el prompt al inglés en tu dispositivo y añade "Reply in Spanish." para que la respuesta te llegue en español. Más detalles en [por qué el español gasta más tokens en GPT](/es/blog/tokens-espanol-gpt).
 
@@ -70,7 +70,7 @@ La generación de video con IA es donde los costos suben más rápido. Antes de 
 
 ## Para curiosos y desarrolladores
 
-**LMArena** (lmarena.ai) te deja enviar un prompt a dos modelos anónimos y votar por la mejor respuesta. Los votos alimentan un ranking público que es uno de los más citados de modelos de IA.
+**Arena** (arena.ai, antes LMArena) te deja enviar un prompt a dos modelos anónimos y votar por la mejor respuesta. Los votos alimentan un ranking público que es uno de los más citados de modelos de IA.
 
 **Hugging Face** (huggingface.co) es la casa de los modelos de IA abiertos. Sus Spaces te permiten probar muchos de ellos en el navegador sin instalar nada.
 
@@ -104,7 +104,9 @@ Todo funciona en tu navegador, no hace falta registrarse y está disponible en 4
 - [Ayuda de Gemini: conectar Google Workspace](https://support.google.com/gemini/answer/15229592?hl=en)
 - [Ayuda de Perplexity: qué es Perplexity](https://www.perplexity.ai/help-center/en/articles/10352155-what-is-perplexity)
 - [Ayuda de Google: Gemini Notebook (antes NotebookLM)](https://support.google.com/gemininotebook/answer/16164461?hl=en&co=GENIE.Platform%3DDesktop)
+- [Google: NotebookLM ahora es Gemini Notebook](https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/)
 - [DeepL: traducción de documentos](https://www.deepl.com/en/features/document-translation)
+- [DeepL: planes (límites de la versión gratuita)](https://www.deepl.com/en/pro)
 - [Canva: generador de imágenes con IA](https://www.canva.com/ai-image-generator/)
 - [remove.bg: quitar el fondo de una imagen](https://www.remove.bg/uploads)
 - [Precios de ElevenLabs (plan gratuito)](https://elevenlabs.io/pricing)

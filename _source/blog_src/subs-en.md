@@ -16,7 +16,7 @@ US monthly prices, checked October 1, 2026 (Grok: October 5, 2026):
 | ~$200 | Pro 200 $200 | Max 20× $200 | Ultra 20× $199.99 | – |
 | $300+ | Pro 500 $500 | – | – | Heavy $300 |
 
-The $20 tier is where ChatGPT, Claude and Google meet, and it is the right plan for most people (Claude Pro is $17 a month billed yearly). Grok's tiers are named SuperGrok Lite ($10), SuperGrok ($30), SuperGrok Plus ($100) and SuperGrok Heavy ($300). Below $20, ChatGPT Go chats with the smaller GPT-5.6 Luna model and Google AI Plus costs $4.99; Claude has no plan below Pro. Grok is also bundled with X: X Premium ($8) raises Grok limits inside X, and X Premium+ ($40) includes SuperGrok.
+The $20 tier is where ChatGPT, Claude and Google meet, and it is the right plan for most people (Claude Pro is $17 a month billed yearly). Grok's tiers are named SuperGrok Lite ($10), SuperGrok ($30), SuperGrok Plus ($100) and SuperGrok Heavy ($300). Below $20, ChatGPT Go chats with the smaller GPT-6 Luna model and Google AI Plus costs $4.99; Claude has no plan below Pro. Grok is also bundled with X: X Premium ($8) raises Grok limits inside X, and X Premium+ ($40) includes SuperGrok.
 
 ## How much more do you get for $100 or $200?
 
@@ -32,7 +32,7 @@ This is where the plans really differ:
 | Claude Max 5× | 5× | $20 |
 | **Claude Max 20×** | **20×** | **$10** |
 
-ChatGPT's Pro plans give no bulk discount: every tier costs the same $20 per Plus-worth of usage, and Pro 500 adds a faster mode for GPT-6 Astra. Claude Max 20× is the only plan where the higher tier is cheaper per unit, half the price of Pro. xAI does not publish usage multiples for its Grok tiers, only that each step gets "significantly higher usage", so they are left out of this table. (Usage multiples are the companies' own; Google's "5×" and "20×" are in the plan names. Details: [ChatGPT Pro 100 vs 200 vs 500](/blog/chatgpt-pro-100-vs-200-vs-500), [Claude Max vs Pro](/blog/claude-max-vs-pro).)
+ChatGPT's Pro plans give no bulk discount: every tier costs the same $20 per Plus-worth of usage, and Pro 500 adds a faster mode for GPT-6 Astra. Claude Max 20× is the only plan where the higher tier is cheaper per unit, half the price of Pro. xAI does not publish usage multiples for its Grok tiers, only that each step gets "significantly higher usage", so they are left out of this table. (Claude's and Google's usage multiples are the companies' own; Google's "5×" and "20×" are in the plan names. ChatGPT's come from OpenAI's Thibault Sottiaux on X and press reports (WinBuzzer, Windows Report), not from OpenAI's pricing page. Details: [ChatGPT Pro 100 vs 200 vs 500](/blog/chatgpt-pro-100-vs-200-vs-500), [Claude Max vs Pro](/blog/claude-max-vs-pro).)
 
 ## What the limits actually limit
 
@@ -67,8 +67,11 @@ Enter how you actually use AI in the [Subscription vs API calculator](/plans) to
 
 ## Sources
 
+- [OpenAI Help: ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
 - [ChatGPT plans and Codex pricing](https://learn.chatgpt.com/docs/pricing)
 - [OpenAI Help: About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
+- [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
 - [Claude plans and pricing](https://claude.com/pricing)
 - [Claude Help: What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
 - [Claude Help: Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)

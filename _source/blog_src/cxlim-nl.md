@@ -1,37 +1,37 @@
 ![Codex limiet: hoeveel geeft Codex in ChatGPT Plus en Pro?](/codex-limiet-nl.jpg)
 
-Codex, de coding agent van OpenAI, zit in de ChatGPT-plannen Plus, Pro en Business. Het is ook de plek waar de meeste mensen nu tegen limieten aanlopen. Codex deelt zijn tegoed met ChatGPT Work, gebruikt een venster van 5 uur en een weeklimiet, en gaat daar per model heel verschillend doorheen. Hieronder lees je hoe de Codex limiet werkt, hoeveel de Codex limiet in Plus je geeft en hoe je er meer uit haalt.
+Codex, de coding agent van OpenAI, zit in de ChatGPT-plannen Plus, Pro en Business. Het is ook de plek waar de meeste mensen nu tegen limieten aanlopen. Codex deelt zijn tegoed met ChatGPT Work, gebruikt in Plus en Business een venster van 5 uur (er kunnen ook weeklimieten gelden), en gaat daar per model heel verschillend doorheen. Hieronder lees je hoe de Codex limiet werkt, hoeveel de Codex limiet in Plus je geeft en hoe je er meer uit haalt.
 
-**Kort:** Codex heeft twee limieten tegelijk, een schuivend venster van 5 uur en een weeklimiet, gedeeld met ChatGPT Work; in Plus krijg je naar schatting zo'n 5–45 berichten per 5 uur op GPT-6 Astra tot zo'n 250–2.000 op GPT-5.6 Luna, afhankelijk van het model.
+**Kort:** Codex heeft in Plus en Business een schuivend venster van 5 uur, gedeeld met ChatGPT Work, en er kunnen ook weeklimieten gelden; Pro heeft nu geen 5-uurslimiet. In Plus krijg je naar schatting zo'n 5–45 berichten per 5 uur op GPT-6 Astra tot zo'n 350–3.000 op GPT-6 Luna, afhankelijk van het model.
 
 ## Welke plannen bevatten Codex?
 
-Gebruik van Codex (en ChatGPT Work) zit in **Plus** ($20), **Pro** ($100, $200 of $500) en de seats **Business** Standard en Premium. Onbeperkt is het niet: elk plan krijgt een tegoed, gemeten over twee vensters. In Nederland kost Plus €23 per maand inclusief btw. Meer over de Pro-niveaus lees je in [ChatGPT Pro voor 100, 200 en 500 dollar](/nl/blog/chatgpt-pro-100-200-500), en alle prijzen staan in [AI-abonnementen: prijzen](/nl/blog/ai-abonnement-prijzen).
+Gebruik van Codex (en ChatGPT Work) zit in **Plus** ($20), **Pro** ($100, $200 of $500) en de seats **Business** Standard en Premium. Onbeperkt is het niet: elk plan krijgt een inbegrepen tegoed. In Nederland kost Plus €23 per maand inclusief btw. Meer over de Pro-niveaus lees je in [ChatGPT Pro voor 100, 200 en 500 dollar](/nl/blog/chatgpt-pro-100-200-500), en alle prijzen staan in [AI-abonnementen: prijzen](/nl/blog/ai-abonnement-prijzen).
 
 ## Welke limieten heeft Codex?
 
-Twee tegelijk: een venster van 5 uur en een weeklimiet.
+In Plus en Business een venster van 5 uur, en daarbovenop kunnen weeklimieten gelden.
 
-**Het 5-uursvenster.** Een schuivend tegoed dat begint bij je eerste verzoek. Is het op, dan wacht je tot het venster wordt gereset. OpenAI bracht het 5-uursvenster eind augustus 2026 terug voor Plus. Toen zei het ook dat Pro 100 en Pro 200 het de komende maanden niet zouden krijgen.
+**Het 5-uursvenster.** Een schuivend tegoed dat begint bij je eerste verzoek. Is het op, dan wacht je tot het venster wordt gereset. Pro 100, Pro 200 en Pro 500 hebben in Work en Codex op dit moment geen 5-uurslimiet; ze hebben wel een inbegrepen tegoed.
 
-**De weeklimiet.** Daarbovenop geldt een schuivend maximum over zeven dagen. Raak je dat, dan wacht je op de wekelijkse reset, ook als je 5-uursvenster nog vers is.
+**De weeklimiet.** Volgens OpenAI kunnen daarbovenop ook weeklimieten gelden. Raak je die, dan wacht je op de reset, ook als je 5-uursvenster nog vers is.
 
 Codex en ChatGPT Work putten uit **hetzelfde tegoed**.
 
 ## Hoeveel geeft de Codex limiet in Plus en Pro?
 
-![Hoeveel geeft de Codex limiet in Plus en Pro?: Model, Plus, Pro (vijfvoudig niveau)](/codex-limiet-hoeveel-geeft-de-codex-limiet-in-plus-en-nl.jpg)
+![Hoeveel geeft de Codex limiet in Plus en Pro?: Model, Plus, Business (Standard)](/codex-limiet-hoeveel-geeft-de-codex-limiet-in-plus-en-nl.jpg)
 
-Het helpcentrum van OpenAI noemt een geschat aantal berichten per 5-uursvenster. Het model dat je kiest, maakt een enorm verschil:
+Het helpcentrum van OpenAI noemt een geschat aantal lokale berichten per 5-uursvenster voor Plus en Standard Business. Het model dat je kiest, maakt een enorm verschil:
 
-| Model | Plus | Pro (vijfvoudig niveau) |
+| Model | Plus | Business (Standard) |
 |---|---|---|
-| GPT-6 Astra | zo'n 5–45 | zo'n 25–225 |
-| GPT-5.6 Sol | zo'n 10–100 | zo'n 50–500 |
-| GPT-5.6 Terra | zo'n 25–200 | zo'n 125–1.000 |
-| GPT-5.6 Luna | zo'n 250–2.000 | zo'n 1.250–10.000 |
+| GPT-6 Astra | zo'n 5–45 | zo'n 5–45 |
+| GPT-6.1 Sol | zo'n 15–160 | zo'n 15–160 |
+| GPT-6 Sol | zo'n 15–150 | zo'n 15–150 |
+| GPT-6 Luna | zo'n 350–3.000 | zo'n 350–3.000 |
 
-De onderkant van elke bandbreedte zijn lange taken met veel stappen op een grote codebase. De bovenkant zijn korte, simpele verzoeken. Hogere Pro-niveaus schalen mee: Pro 200 geeft nieuwe abonnees sinds 29 september 2026 tien keer zoveel als Plus, Pro 500 vijfentwintig keer zoveel.
+De onderkant van elke bandbreedte zijn lange taken met veel stappen op een grote codebase. De bovenkant zijn korte, simpele verzoeken. Pro heeft nu geen 5-uurslimiet, maar wel een groter inbegrepen tegoed: Pro 100 geeft vijf keer zoveel als Plus, Pro 200 geeft nieuwe abonnees tien keer zoveel als Plus, Pro 500 vijfentwintig keer zoveel (had je tussen 22 en 29 september 2026 een actief Pro 200-abonnement, dan houd je de oude limiet tot 29 oktober). Deze verhoudingen staan niet op de prijspagina van OpenAI; ze komen uit een bericht op X van Thibault Sottiaux (OpenAI) en uit persberichten (WinBuzzer, Windows Report).
 
 **Ultrafast**, alleen beschikbaar op Pro 500, is een snellere modus die je inbegrepen gebruik en tegoeden sneller opmaakt.
 
@@ -55,9 +55,9 @@ Het helpcentrum van OpenAI verwijst naar **Instellingen → Gebruik** (Settings 
 
 ## Hoe rek je je Codex limiet op?
 
-![Hoe rek je je Codex limiet op?: Kies standaard GPT-5.6 Sol of Terra. Gebruik GPT-6 Astra alleen voor lastige problemen waar je het verschil me](/codex-limiet-hoe-rek-je-je-codex-limiet-op-nl.jpg)
+![Hoe rek je je Codex limiet op?: Kies standaard GPT-6.1 Sol of GPT-6 Sol. Gebruik GPT-6 Astra alleen voor lastige problemen waar je het verschil me](/codex-limiet-hoe-rek-je-je-codex-limiet-op-nl.jpg)
 
-- **Kies standaard GPT-5.6 Sol of Terra.** Gebruik GPT-6 Astra alleen voor lastige problemen waar je het verschil merkt: het kost een veelvoud van het tegoed.
+- **Kies standaard GPT-6.1 Sol of GPT-6 Sol.** Gebruik GPT-6 Astra alleen voor lastige problemen waar je het verschil merkt: het kost een veelvoud van het tegoed.
 - **Gebruik Luna voor simpele wijzigingen**, hernoemen en standaardcode.
 - **Houd taken klein en concreet.** Minder stappen betekent minder context die opnieuw wordt verstuurd.
 - **Begin opnieuw tussen taken die niets met elkaar te maken hebben**, zodat oude geschiedenis niet mee blijft gaan.
@@ -78,4 +78,6 @@ Beide zitten in plannen van $20, $100 en $200, met vergelijkbare limietsystemen.
 - [OpenAI Help: opgespaarde Codex-resets](https://help.openai.com/en/articles/20001498-how-banked-codex-resets-work)
 - [ChatGPT-abonnementen en Codex-prijzen](https://learn.chatgpt.com/docs/pricing)
 - [OpenAI Help: ChatGPT Pro-niveaus](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
+- [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
 <!-- autoimg -->

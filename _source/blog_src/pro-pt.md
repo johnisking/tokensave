@@ -14,7 +14,7 @@ Em 29 de setembro de 2026, a OpenAI dividiu o ChatGPT Pro em três planos: **Pro
 | Pro 200 | $200 | 10× | $20 | – |
 | Pro 500 | $500 | 25× | $20 | ✓ |
 
-Preços dos EUA, em dólares (US$). A página de ajuda da OpenAI diz apenas que o Pro 200 inclui mais uso que o Pro 100 e que o Pro 500 inclui o máximo; os multiplicadores 5×, 10× e 25× são os divulgados a partir do anúncio da OpenAI.
+Preços dos EUA, em dólares (US$). A página de ajuda da OpenAI diz apenas que o Pro 200 inclui mais uso que o Pro 100 e que o Pro 500 inclui o máximo; os multiplicadores 5×, 10× e 25× Plus não vêm da página de preços da OpenAI, e sim de uma publicação de Thibault Sottiaux (OpenAI) no X (5× e 10×, segundo o WinBuzzer) e de reportagens (25×, Windows Report).
 
 Os três planos Pro têm os mesmos recursos: modelos Pro, Codex, deep research, criação de imagens, memória e envio de arquivos. A única diferença de recurso é o **Ultrafast**, um modo mais rápido do GPT-6 Astra, exclusivo do Pro 500. Comprar créditos extras no Pro 100 ou no Pro 200 não libera esse modo.
 
@@ -22,7 +22,7 @@ Os três planos Pro têm os mesmos recursos: modelos Pro, Codex, deep research, 
 
 Divida o preço de cada plano pelo uso que ele oferece e todos chegam ao mesmo número: **$20 por "um Plus" de uso**. O Pro 500 não é mais vantajoso que o Pro 100; é só mais do mesmo, com velocidade extra.
 
-Antes não era assim. Até essa mudança, o Pro 200 dava **20×** o uso do Plus, o que saía a $10 por unidade — metade do preço de qualquer outro plano. Quem assina o Pro 200 agora leva **10×**. Se você já era assinante do Pro 200, mantém o limite antigo de 20× até **29 de outubro de 2026** e depois cai para 10×, pagando os mesmos $200.
+Antes não era assim. Até essa mudança, o Pro 200 dava **20×** o uso do Plus, o que saía a $10 por unidade — metade do preço de qualquer outro plano. Quem assina o Pro 200 agora leva **10×**. Se você teve uma assinatura ativa do Pro 200 em algum momento entre 22 e 29 de setembro de 2026, mantém o limite antigo de 20× até **29 de outubro de 2026** e depois cai para 10×, pagando os mesmos $200.
 
 A regra, então, é simples: **assine o menor plano cujo limite você não atinge.** Pagar por uma folga que você nunca usa é o único jeito de pagar caro demais.
 
@@ -64,6 +64,8 @@ O uso de cada pessoa é diferente. A [calculadora Assinatura vs API](/pt/plans) 
 ## Fontes
 
 - [Ajuda da OpenAI: níveis do ChatGPT Pro](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
+- [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
 - [Planos do ChatGPT e preços do Codex](https://learn.chatgpt.com/docs/pricing)
 - [Ajuda da OpenAI: notas de versão do ChatGPT](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
 - [Preços da API da OpenAI](https://developers.openai.com/api/docs/pricing)

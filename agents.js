@@ -8,6 +8,8 @@ import { T, tr } from './common.js';
 
 const PRICES = T.prices || {};
 const CACHE_RATE = 0.1;   // cached input billed at ~10% of the normal input price
+// Anthropic: cache reads on Opus 5.5 / Sonnet 5.5 are 0.05 of base input (platform.claude.com pricing, checked 2026-10-09)
+const CACHE_RATE_BY = { 'claude-opus-5-5': 0.05, 'claude-sonnet-5-5': 0.05 };
 const CTX_CAP = 180000;   // agents compact their context before it grows past this
 
 // Per task: steps, starting context (system prompt + tools + first files), context added per step, output per step
@@ -54,7 +56,7 @@ function perTask() {
 
 function taskCost(id, t) {
   const p = PRICES[id] || { in: 0, out: 0 };
-  const billedIn = state.cache ? t.fresh + t.cached * CACHE_RATE : t.input;
+  const billedIn = state.cache ? t.fresh + t.cached * (CACHE_RATE_BY[id] ?? CACHE_RATE) : t.input;
   return (billedIn / 1e6) * p.in + (t.out / 1e6) * p.out;
 }
 

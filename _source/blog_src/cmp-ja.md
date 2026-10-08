@@ -15,7 +15,7 @@ ChatGPT と Claude の料金プランは、いまやほぼ同じ価格帯に並�
 | $200 | Pro 200 | Plus の10倍* | Max 20× | Pro の20倍 |
 | $500 | Pro 500 | Plus の25倍 + Ultrafast | – | – |
 
-\* Pro 200 は2026年9月29日から、新規加入者は Plus の20倍から10倍に縮小されました。既存の Pro 200 加入者は10月29日まで以前の使用量が維持されます。
+\* Pro 200 は新規加入者について Plus の20倍から10倍に縮小されました。2026年9月22日〜9月29日のいずれかの時点で Pro 200 を契約していた人は、10月29日まで以前の使用量が維持されます。ChatGPT の倍率は OpenAI の公式ページではなく、OpenAI のティボー・ソティオ（Thibault Sottiaux）氏の X 投稿と報道（WinBuzzer、Windows Report）に基づく数値です。
 
 使用量の倍率はそれぞれの会社の$20プランが基準なので、「Plus の5倍」と「Pro の5倍」が同じ作業量というわけではありません。どちらの会社も正確なトークン数は公開していません。
 
@@ -78,6 +78,8 @@ GPT-6 Astra はトークンあたり Claude Opus 5.5 より150%高いです。�
 
 - [ChatGPT のプランと Codex 料金](https://learn.chatgpt.com/docs/pricing)
 - [OpenAI ヘルプ: ChatGPT Pro の各プラン](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
+- [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
 - [Claude ヘルプ: Max プランとは](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
 - [Claude ヘルプ: Pro・Max プランで Claude Code を使う](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 - [OpenAI API 料金](https://developers.openai.com/api/docs/pricing)

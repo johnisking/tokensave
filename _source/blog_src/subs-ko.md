@@ -32,7 +32,7 @@
 
 ## 1만 원 안팎 요금제는 조심하세요
 
-- **챗GPT Go(13,000원):** 대화 모델이 작은 GPT-5.6 Luna이고 광고가 붙을 수 있습니다. 일반 대화는 무료로도 무제한이라서, Go가 주는 건 업로드·이미지·메모리 한도 확대입니다. 자세한 비교는 [챗GPT Go vs Plus](/ko/blog/chatgpt-go-vs-plus)에 있습니다.
+- **챗GPT Go(13,000원):** 대화 모델이 작은 GPT-6 Luna이고 광고가 붙을 수 있습니다. 일반 대화는 무료로도 무제한이라서, Go가 주는 건 업로드·이미지·메모리 한도 확대입니다. 자세한 비교는 [챗GPT Go vs Plus](/ko/blog/chatgpt-go-vs-plus)에 있습니다.
 - **구글 AI Plus(7,500원):** 곧 Pro 모델을 쓸 수 없게 됩니다. 저장공간 400GB가 필요한 분에게는 여전히 괜찮습니다. [제미나이 요금제 개편 정리](/ko/blog/gemini-yogeumje-gaepyeon)를 참고하세요.
 
 ## 10만~30만 원 요금제: 단위당 가격을 보세요
@@ -60,5 +60,5 @@
 
 내 사용 방식으로 월 API 비용과 각 요금제를 나란히 보려면 [구독 vs API 계산기](/ko/plans)를 써 보세요. 클로드 코드나 Codex 같은 코딩 에이전트는 [코딩 에이전트 비용 계산기](/ko/agents)에서 계산할 수 있습니다.
 
-*출처: [챗GPT 가격](https://chatgpt.com/ko-KR/pricing/), [클로드 가격](https://claude.com/pricing), [구글 AI 요금제(대한민국)](https://one.google.com/about/google-ai-plans/?hl=ko), [챗GPT 웹 결제와 앱스토어 결제 비교](https://www.how-toai.com/blog/chatgpt-payment-web-krw-vs-appstore-currency-change-2026). 2026년 10월 6일 확인. 그록 가격은 xAI 요금제 페이지를 확인한 외부 정리 기준입니다. 가격과 한도는 자주 바뀌니 결제 전에 각 회사 페이지를 확인하세요.*
+*출처: [ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes), [챗GPT 가격](https://chatgpt.com/ko-KR/pricing/), [클로드 가격](https://claude.com/pricing), [구글 AI 요금제(대한민국)](https://one.google.com/about/google-ai-plans/?hl=ko), [챗GPT 웹 결제와 앱스토어 결제 비교](https://www.how-toai.com/blog/chatgpt-payment-web-krw-vs-appstore-currency-change-2026). 2026년 10월 6일 확인. 그록 가격은 xAI 요금제 페이지를 확인한 외부 정리 기준입니다. 가격과 한도는 자주 바뀌니 결제 전에 각 회사 페이지를 확인하세요.*
 <!-- autoimg -->

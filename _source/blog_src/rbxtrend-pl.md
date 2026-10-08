@@ -55,18 +55,18 @@ Cokolwiek wybierzesz, dodaj do formuły własny pomysł, zamiast kopiować hit. 
 
 ![Ile kosztuje zrobienie takiej gry?: Zestaw narzędzi, Koszt](/popularne-gry-roblox-ile-kosztuje-zrobienie-takiej-gry-pl.jpg)
 
-Mała gra w Roblox kosztuje zwykle od ok. 25–40 USD do ok. 110–150 USD, prawie wyłącznie za narzędzia AI. Publikacja w Roblox jest darmowa, a serwery utrzymuje Roblox.
+Mała gra w Roblox kosztuje zwykle od ok. 25–40 USD do ok. 110–150 USD, prawie wyłącznie za narzędzia AI. Publikacja w Roblox jest domyślnie darmowa (opcjonalna, jednorazowa opłata 1000 Robux, zwracana, jeśli gra utrzyma 25 zaangażowanych graczy przez 60 dni, poszerza jej zasięg na użytkowników w każdym wieku), a serwery utrzymuje Roblox.
 
 | Zestaw narzędzi | Koszt |
 |---|---|
 | Najtańszy: Gemini, darmowe audio, Google AI Pro, Roblox Assistant | ok. 25–40 USD |
 | Typowy: Midjourney, Suno, ElevenLabs, Claude Max 5× | ok. 110–150 USD |
 
-Większość pieniędzy idzie na plan AI do kodowania. Generowanie modeli 3D w Roblox Assistant jest w Studio darmowe, z dziennymi limitami. Więcej o kosztach znajdziesz w artykule [ile kosztuje gra z AI](/pl/blog/ile-kosztuje-gra-z-ai).
+Większość pieniędzy idzie na plan AI do kodowania. Roblox Assistant generuje w Studio modele 3D z opisu tekstowego lub obrazu referencyjnego; według przewodnika limit modeli proceduralnych to 50 na kroczące 24 godziny. Więcej o kosztach znajdziesz w artykule [ile kosztuje gra z AI](/pl/blog/ile-kosztuje-gra-z-ai).
 
 ## Jak sprawdzić to dla własnej gry?
 
-Nasz [kalkulator kosztów gry z AI](/pl/ai-game-cost-calculator) ma teraz tryb Roblox: kliknij „Use this” przy dowolnym trendzie na górze, a kalkulator przełączy się na Roblox Studio z Luau, darmowe modele 3D w Roblox Assistant i zestaw promptów napisanych pod Roblox (skrypty serwera i klienta, zapis przez DataStoreService, game passy). Instrukcję krok po kroku znajdziesz w artykule [jak zrobić grę w Roblox z AI](/pl/blog/gra-roblox-z-ai), a o tworzeniu gier bez kodowania przeczytasz w tekście o [vibe codingu](/pl/blog/vibe-coding-gra).
+Nasz [kalkulator kosztów gry z AI](/pl/ai-game-cost-calculator) ma teraz tryb Roblox: kliknij „Use this” przy dowolnym trendzie na górze, a kalkulator przełączy się na Roblox Studio z Luau, modele 3D w Roblox Assistant i zestaw promptów napisanych pod Roblox (skrypty serwera i klienta, zapis przez DataStoreService, game passy). Instrukcję krok po kroku znajdziesz w artykule [jak zrobić grę w Roblox z AI](/pl/blog/gra-roblox-z-ai), a o tworzeniu gier bez kodowania przeczytasz w tekście o [vibe codingu](/pl/blog/vibe-coding-gra).
 
 *Rankingi sprawdzone 6 października 2026 na [roblox.com/charts](https://www.roblox.com/charts). Nazwy gier podajemy tak, jak pokazuje je Roblox; aktualizujemy tę listę, gdy rankingi się zmieniają.*
 
@@ -75,4 +75,5 @@ Nasz [kalkulator kosztów gry z AI](/pl/ai-game-cost-calculator) ma teraz tryb R
 - [Roblox Creator Hub: passy (game passes)](https://create.roblox.com/docs/production/monetization/passes)
 - [Roblox Creator Hub: magazyny danych (DataStoreService)](https://create.roblox.com/docs/cloud-services/data-stores)
 - [Roblox Creator Hub: Assistant w Studio](https://create.roblox.com/docs/assistant/guide)
+- [Roblox Creator Hub: publikowanie gier i miejsc](https://create.roblox.com/docs/production/publishing/publish-experiences-and-places)
 <!-- autoimg -->

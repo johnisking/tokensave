@@ -1,6 +1,6 @@
 ![ChatGPT Go vs Plus: 249,99 TL mi 999,99 TL mi? Farklar ve kime uygun](/chatgpt-go-vs-plus-tr.jpg)
 
-ChatGPT Go vs Plus karşılaştırmasında ilk fark fiyat: ChatGPT Go fiyatı Türkiye'de ayda 249,99 TL, ChatGPT Plus fiyatı ise ayda 999,99 TL. Ağustos 2026'dan beri iki planda da günlük metin sohbeti sınırsız. Yani "mesaj hakkım bitti" artık Plus'a geçmek için bir neden değil. Fark artık şurada: size hangi model cevap veriyor, ne kadar düşünüyor, planla birlikte neler geliyor ve reklam görüyor musunuz. Aradaki 750 TL'nin size ne kazandırdığını ve kimin buna gerçekten ihtiyacı olduğunu anlatıyoruz.
+ChatGPT Go vs Plus karşılaştırmasında ilk fark fiyat: ChatGPT Go fiyatı Türkiye'de ayda 249,99 TL, ChatGPT Plus fiyatı ise ayda 999,99 TL. Ağustos 2026'dan beri Go'da (ücretsiz planda olduğu gibi) günlük metin sohbeti sınırsız; Plus'ta ise genişletilmiş sınırlar var. Yani "mesaj hakkım bitti" artık Plus'a geçmek için bir neden değil. Fark artık şurada: size hangi model cevap veriyor, ne kadar düşünüyor, planla birlikte neler geliyor ve reklam görüyor musunuz. Aradaki 750 TL'nin size ne kazandırdığını ve kimin buna gerçekten ihtiyacı olduğunu anlatıyoruz.
 
 ## Go ve Plus tek bakışta
 
@@ -9,9 +9,9 @@ ChatGPT Go vs Plus karşılaştırmasında ilk fark fiyat: ChatGPT Go fiyatı T�
 | | ChatGPT Go | ChatGPT Plus |
 |---|---|---|
 | Türkiye fiyatı | 249,99 TL / ay | 999,99 TL / ay |
-| Sohbet modeli | GPT-5.6 Luna | GPT-5.6 Sol |
+| Sohbet modeli | GPT-6 Luna | GPT-6 Sol |
 | Düşünme | Zor sorular için "Düşün" düğmesi | Orta ve Yüksek düşünme seviyeleri |
-| Metin sohbeti sınırı | Yok (6 Ağustos 2026'dan beri) | Yok (6 Ağustos 2026'dan beri) |
+| Metin sohbeti sınırı | Yok (6 Ağustos 2026'dan beri) | Genişletilmiş (sınırlar geçerli) |
 | ChatGPT Work ve Codex | Sınırlı (masaüstünde) | Dahil, GPT-6 modelleriyle |
 | Derin araştırma | Sınırlı | Daha geniş |
 | Projeler, zamanlanmış görevler, özel GPT'ler | Sınırlı | Dahil |
@@ -19,11 +19,11 @@ ChatGPT Go vs Plus karşılaştırmasında ilk fark fiyat: ChatGPT Go fiyatı T�
 
 Türkiye fiyatları 2 Ekim 2026'da güncellenen fiyat listesine dair haberlere dayanıyor. Geçerli olan, ödeme ekranında gördüğünüz tutardır. App Store ve Google Play'deki fiyat farklı olabilir.
 
-Ücretsiz plan da GPT-5.6 Luna kullanıyor ve onda da metin sohbeti sınırsız. Go'nun ekledikleri: dosya, görsel ve hafıza için daha yüksek sınırlar. OpenAI bu sınırları sık değiştiriyor. Güncel rakamlar için plan sayfasına bakın.
+Ücretsiz plan da GPT-6 Luna kullanıyor ve onda da metin sohbeti sınırsız. Go'nun ekledikleri: dosya, görsel ve hafıza için daha yüksek sınırlar. OpenAI bu sınırları sık değiştiriyor. Güncel rakamlar için plan sayfasına bakın.
 
 ## Asıl fark: Luna mı, Sol mü?
 
-Go, OpenAI'nin küçük ve hızlı modeli **GPT-5.6 Luna** ile cevap verir. Plus ise orta boy model **GPT-5.6 Sol** ile cevap verir ve cevaptan önce ne kadar düşüneceğini artırmanıza izin verir. Hızlı sorularda, bir mesajı yeniden yazdırırken ya da bir sayfayı özetletirken farkı pek hissetmezsiniz. Uzun belgelerde, karmaşık akıl yürütmede, kod yazarken ve yanlış cevabın size pahalıya patlayacağı her işte Sol açıkça daha güçlü.
+Go, OpenAI'nin küçük ve hızlı modeli **GPT-6 Luna** ile cevap verir. Plus ise orta boy model **GPT-6 Sol** ile cevap verir ve cevaptan önce ne kadar düşüneceğini artırmanıza izin verir. Hızlı sorularda, bir mesajı yeniden yazdırırken ya da bir sayfayı özetletirken farkı pek hissetmezsiniz. Uzun belgelerde, karmaşık akıl yürütmede, kod yazarken ve yanlış cevabın size pahalıya patlayacağı her işte Sol açıkça daha güçlü.
 
 Farkı somutlaştırmak için: API'de Sol sınıfı modeller, Luna sınıfı modellere göre token başına çok daha pahalı. Plus'ta OpenAI'ye ödediğiniz para kabaca bunun karşılığı.
 
@@ -63,5 +63,6 @@ Google AI Plus ayda 199,99 TL, Google AI Pro ayda 869,99 TL. Claude'un Pro'dan d
 
 ## Kaynaklar
 
+- [OpenAI Help: ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
 *Plan ayrıntıları: OpenAI yardım merkezi ve plan sayfaları, [Dupple](https://dupple.com/learn/chatgpt-go-vs-plus) özeti (Eylül 2026). Türkiye ChatGPT fiyatları: güncellenmiş Türkiye fiyat listesine dair 2 Ekim 2026 tarihli haberler. Google fiyatları: [gemini.google/tr](https://gemini.google/tr/subscriptions/). Kontrol tarihi: Ekim 2026. Abone olmadan önce chatgpt.com/pricing sayfasını kontrol edin.*
 <!-- autoimg -->

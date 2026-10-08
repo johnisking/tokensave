@@ -191,7 +191,7 @@ function estimate() {
     return [m, x];
   };
   const p = PRICES[state.model] || { in: 2, out: 10 };
-  const apiCode = (tokIn * ((1 - CACHE_HIT) + CACHE_HIT * CACHE_RATE) * p.in + tokOut * p.out) / 1e6;
+  const apiCode = (tokIn * ((1 - CACHE_HIT) + CACHE_HIT * (/^claude-(opus|sonnet)-5-5$/.test(state.model) ? 0.05 : CACHE_RATE)) * p.in + tokOut * p.out) / 1e6;
   const codeCost = (tool, months, scale = 1) => {
     const C = TOOLS.code[tool];
     if (tool === 'api') return { cost: apiCode * scale, months: 0, fits: true };

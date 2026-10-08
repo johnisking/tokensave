@@ -32,7 +32,7 @@ Plany za ok. 100 zł kosztują u trzech firm prawie tyle samo i większości os�
 
 ## Uwaga na tanie plany
 
-- **ChatGPT Go (34,99 zł):** czat działa na mniejszym modelu GPT-5.6 Luna i wyświetla reklamy, których nie da się wyłączyć. Zwykły czat jest nielimitowany nawet za darmo, więc Go daje głównie wyższe limity plików, obrazów i pamięci. Szczegóły: [ChatGPT Go czy Plus](/pl/blog/chatgpt-go-vs-plus).
+- **ChatGPT Go (34,99 zł):** czat działa na mniejszym modelu GPT-6 Luna i wyświetla reklamy, których nie da się wyłączyć. Zwykły czat jest nielimitowany nawet za darmo, więc Go daje głównie wyższe limity plików, obrazów i pamięci. Szczegóły: [ChatGPT Go czy Plus](/pl/blog/chatgpt-go-vs-plus).
 - **Google AI Plus (23,99 zł):** wkrótce traci model Pro. Nadal ma sens, jeśli potrzebujesz 400 GB w chmurze. Zobacz [co się zmienia w Gemini od 9 października](/pl/blog/gemini-za-darmo-flash-lite).
 
 ## Droższe plany: patrz na cenę za jednostkę
@@ -63,5 +63,5 @@ Wszystkie cztery firmy sprzedają też dostęp przez API, gdzie płacisz tylko z
 
 Wpisz, jak naprawdę korzystasz z AI, w [kalkulator subskrypcja vs API](/pl/plans), a zobaczysz miesięczny koszt API obok każdego planu z tabeli. Koszt pojedynczego promptu sprawdzisz w [liczniku tokenów](/pl/), a jak go obniżyć, opisuję w tekście [ile kosztuje prompt po polsku](/pl/blog/ile-kosztuje-prompt-po-polsku).
 
-*Źródła: ChatGPT wg [Promptowy](https://promptowy.com/chatgpt-przewodnik/) (25 września 2026), Google wg [Bez Halucynacji](https://bezhalucynacji.pl/ile-kosztuje-gemini-ceny-ai-plus-pro-i-ultra-w-zl) i [Promptowy](https://promptowy.com/gemini-za-darmo-zmiany-9-pazdziernika/), Claude wg [SSD Nodes](https://www.ssdnodes.com/learn/lang/pl/claude-plans-in-poland-what-you-pay) (kurs NBP z 16 września 2026), Grok wg [Promptowy](https://promptowy.com/ile-kosztuje-grok-abonament/), VAT dla firm wg [Monaltro](https://monaltro.pl/subskrypcje-ai-firma-vat-koszty-rozliczenie-2026/), podatek tokenowy wg [Promptowy](https://promptowy.com/podatek-tokenowy-2026-polski-tekst-osiem-modeli/). Stan na 6 października 2026. Ceny i limity często się zmieniają, więc przed zakupem sprawdź stronę danej firmy.*
+*Źródła: [ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes), ChatGPT wg [Promptowy](https://promptowy.com/chatgpt-przewodnik/) (25 września 2026), Google wg [Bez Halucynacji](https://bezhalucynacji.pl/ile-kosztuje-gemini-ceny-ai-plus-pro-i-ultra-w-zl) i [Promptowy](https://promptowy.com/gemini-za-darmo-zmiany-9-pazdziernika/), Claude wg [SSD Nodes](https://www.ssdnodes.com/learn/lang/pl/claude-plans-in-poland-what-you-pay) (kurs NBP z 16 września 2026), Grok wg [Promptowy](https://promptowy.com/ile-kosztuje-grok-abonament/), VAT dla firm wg [Monaltro](https://monaltro.pl/subskrypcje-ai-firma-vat-koszty-rozliczenie-2026/), podatek tokenowy wg [Promptowy](https://promptowy.com/podatek-tokenowy-2026-polski-tekst-osiem-modeli/). Stan na 6 października 2026. Ceny i limity często się zmieniają, więc przed zakupem sprawdź stronę danej firmy.*
 <!-- autoimg -->

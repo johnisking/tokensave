@@ -1,7 +1,7 @@
 <p><img fetchpriority="high" width="1200" height="630" alt="Claude Code Cost per Month: Pro vs Max vs API" src="/claude-code-cost-per-month-en.jpg" /></p>
 <p>Claude Code is included in Anthropic's Claude Pro and Max subscriptions, and it can also run on pay-as-you-go API credits. So what does it actually cost per month? It depends on how much you use it, and the difference between the cheapest and the most expensive way to pay for the same work can be ten times or more. Here are the real numbers.</p>
 <h2>Two ways to pay</h2>
-<p><img loading="lazy" width="1200" height="568" alt="Two ways to pay: Plan, Price per month, Usage" src="/claude-code-cost-per-month-two-ways-to-pay-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="560" alt="Two ways to pay: Plan, Price per month, Usage" src="/claude-code-cost-per-month-two-ways-to-pay-en.jpg" /></p>
 <p><strong>1. A subscription.</strong> Claude Code is included in these plans (US prices, checked October 2026):</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -57,12 +57,12 @@
 </tr>
 </tbody>
 </table></div>
-<p>Input that is read from the prompt cache costs about a tenth of the normal input price. There are no plan limits, only your account's rate limits, but every token is billed.</p>
+<p>Input that is read from the prompt cache costs 5% of the normal input price on Sonnet 5.5 and Opus 5.5 (95% off) and 10% on Haiku 4.5. There are no plan limits, only your account's rate limits, but every token is billed.</p>
 <h2>Why Claude Code uses so many tokens</h2>
 <p>Claude Code works in steps: read files, edit, run tests, read the output, try again. At every step it sends its <strong>whole working context</strong> back to the model: instructions, tool definitions, the files it has read and everything that happened before. A single feature-sized task can easily send <strong>1.6 million input tokens</strong>, even if the code it writes is short.</p>
-<p><strong>Prompt caching</strong> is what keeps this affordable: the repeated part of the context is billed at about 10% of the normal input price. Claude Code uses it automatically.</p>
+<p><strong>Prompt caching</strong> is what keeps this affordable: the repeated part of the context is billed at 5% of the normal input price on Sonnet 5.5 and Opus 5.5 (10% on Haiku 4.5). Claude Code uses it automatically.</p>
 <h2>What one task costs on the API</h2>
-<p><img loading="lazy" width="1200" height="536" alt="What one task costs on the API: Task, Steps, Haiku 4.5, Sonnet 5.5, Opus 5.5" src="/claude-code-cost-per-month-what-one-task-costs-on-the-api-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="524" alt="What one task costs on the API: Task, Steps, Haiku 4.5, Sonnet 5.5, Opus 5.5" src="/claude-code-cost-per-month-what-one-task-costs-on-the-api-en.jpg" /></p>
 <p>Using our <a href="/agents">coding agent cost model</a>, with caching on:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -79,26 +79,26 @@
 <td>Small fix</td>
 <td>~8</td>
 <td>$0.08</td>
-<td>$0.15</td>
-<td>$0.31</td>
+<td>$0.14</td>
+<td>$0.27</td>
 </tr>
 <tr>
 <td>New feature</td>
 <td>~25</td>
 <td>$0.36</td>
-<td>$0.72</td>
-<td>$1.43</td>
+<td>$0.57</td>
+<td>$1.14</td>
 </tr>
 <tr>
 <td>Big refactor</td>
 <td>~60</td>
 <td>$1.33</td>
-<td>$2.65</td>
-<td>$5.30</td>
+<td>$1.91</td>
+<td>$3.82</td>
 </tr>
 </tbody>
 </table></div>
-<p>Without caching, the same feature task on Sonnet would cost about $3.38 instead of $0.72.</p>
+<p>Without caching, the same feature task on Sonnet would cost about $3.38 instead of $0.57.</p>
 <h2>What a month costs</h2>
 <p>Assuming 22 working days:</p>
 <div class="overflow-x-auto"><table>
@@ -115,49 +115,49 @@
 <tr>
 <td>Light: 3 small fixes a day</td>
 <td>66</td>
-<td>~$10</td>
-<td>~$20</td>
+<td>~$9</td>
+<td>~$18</td>
 <td>API or Pro ($20)</td>
 </tr>
 <tr>
 <td>Regular: 5 features a day</td>
 <td>110</td>
-<td>~$79</td>
-<td>~$158</td>
+<td>~$63</td>
+<td>~$125</td>
 <td>Pro or Max 5×</td>
 </tr>
 <tr>
 <td>Heavy: 15 features a day</td>
 <td>330</td>
-<td>~$236</td>
-<td>~$473</td>
+<td>~$188</td>
+<td>~$375</td>
 <td>Max 5× or Max 20×</td>
 </tr>
 <tr>
 <td>Agents all day: 8 big tasks a day</td>
 <td>176</td>
-<td>~$466</td>
-<td>~$932</td>
+<td>~$336</td>
+<td>~$672</td>
 <td>Max 20×</td>
 </tr>
 </tbody>
 </table></div>
 <p>The pattern is clear:</p>
 <ul>
-<li><strong>Occasional use:</strong> the API can be cheaper than any plan. You pay $10 for a month where Pro would cost $20.</li>
-<li><strong>Daily use:</strong> a subscription quickly becomes much cheaper. A regular user on Opus would pay around $158 on the API versus $100 for Max 5×.</li>
+<li><strong>Occasional use:</strong> the API can be cheaper than any plan. You pay $9 for a month where Pro would cost $20.</li>
+<li><strong>Daily use:</strong> a subscription quickly becomes much cheaper. A regular user on Opus would pay around $125 on the API versus $100 for Max 5×.</li>
 <li><strong>Heavy use:</strong> Max is far cheaper than the API, as long as the usage limits are enough.</li>
 </ul>
 <p>The catch with plans is the limits. Anthropic does not publish exact token numbers for each plan, and heavy users hit the weekly cap. See <a href="/blog/claude-code-usage-limits">Claude Code usage limits explained</a>.</p>
 <h2>Converting tokens to dollars</h2>
 <p>A quick rule for Claude Sonnet 5.5:</p>
 <ul>
-<li>1 million input tokens = $2 (or $0.20 if cached)</li>
+<li>1 million input tokens = $2 (or $0.10 if cached)</li>
 <li>1 million output tokens = $10</li>
 </ul>
-<p>Because most of what Claude Code sends is cached context, a realistic blended price for agent work on Sonnet is usually well under $1 per million total tokens processed. For Opus, double it.</p>
+<p>Because most of what Claude Code sends is cached context, a realistic blended price for agent work on Sonnet is usually well under $1 per million total tokens processed. For Opus, add 100%.</p>
 <h2>How to decide</h2>
-<p><img loading="lazy" width="1200" height="796" alt="How to decide: Start on Pro if you code with it a few times a week.; Watch how often you hit the limit. If you hit it most we" src="/claude-code-cost-per-month-how-to-decide-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="792" alt="How to decide: Start on Pro if you code with it a few times a week.; Watch how often you hit the limit. If you hit it most we" src="/claude-code-cost-per-month-how-to-decide-en.jpg" /></p>
 <ol>
 <li><strong>Start on Pro</strong> if you code with it a few times a week.</li>
 <li><strong>Watch how often you hit the limit.</strong> If you hit it most weeks, Max 5× is likely cheaper than paying the API rate for the extra work.</li>
@@ -171,6 +171,7 @@
 <ul>
 <li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude plans and pricing (Anthropic)</a></li>
 <li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API pricing (Anthropic docs)</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">Prompt caching (Claude docs)</a></li>
 <li><a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Using Claude Code with your Pro or Max plan (Claude Help Center)</a></li>
 <li><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">Manage costs effectively (Claude Code docs)</a></li>
 </ul>

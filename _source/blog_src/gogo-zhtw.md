@@ -1,6 +1,6 @@
 ![ChatGPT Go 與 Plus 差在哪？NT$270 和 NT$690 怎麼選](/chatgpt-go-vs-plus-zh-tw.jpg)
 
-ChatGPT Go 在台灣 App Store 每月 NT$270，Plus 每月 NT$690（網頁訂閱以美元計價，分別是 US$8 和 US$20）。2026 年 8 月起，包括免費版在內的所有方案一般聊天都不限次數，「訊息不夠用所以升級」這個理由已經不存在了。**9 月 24 日起，台灣的免費版和 Go 用戶還開始看到廣告。** 現在兩者真正的差別是：哪個模型在回答、能想得多深、附帶哪些功能，以及有沒有廣告。多付 NT$420 到底差在哪、誰適合哪個，整理如下。
+ChatGPT Go 在台灣 App Store 每月 NT$270，Plus 每月 NT$690（網頁訂閱以美元計價，分別是 US$8 和 US$20）。2026 年 8 月起，免費版和 Go 的一般聊天都不限次數（Plus 則是擴充額度），「訊息不夠用所以升級」這個理由已經不存在了。**9 月 24 日起，台灣的免費版和 Go 用戶還開始看到廣告。** 現在兩者真正的差別是：哪個模型在回答、能想得多深、附帶哪些功能，以及有沒有廣告。多付 NT$420 到底差在哪、誰適合哪個，整理如下。
 
 ## Go 與 Plus 差別一覽
 
@@ -9,9 +9,9 @@ ChatGPT Go 在台灣 App Store 每月 NT$270，Plus 每月 NT$690（網頁訂閱
 | | ChatGPT Go | ChatGPT Plus |
 |---|---|---|
 | 月費（台灣 App Store） | NT$270 | NT$690 |
-| 日常聊天模型 | GPT-5.6 Luna | GPT-5.6 Sol |
+| 日常聊天模型 | GPT-6 Luna | GPT-6 Sol |
 | 思考模式 | 難題可按「思考」 | 可選中、高推理等級 |
-| 文字聊天上限 | 無 | 無 |
+| 文字聊天上限 | 無 | 擴充（有上限） |
 | GPT-6 高階推理模型 | – | 有 |
 | ChatGPT Work・Codex | 只能在桌面版有限使用 | 桌面、網頁、手機，額度更高 |
 | 深度研究 | 有限 | 擴充 |
@@ -26,7 +26,7 @@ ChatGPT Go 在台灣 App Store 每月 NT$270，Plus 每月 NT$690（網頁訂閱
 
 ## 真正的差別：Luna 還是 Sol
 
-Go 用 OpenAI 小而快的 **GPT-5.6 Luna** 回答；Plus 用中型的 **GPT-5.6 Sol** 回答，還能拉長思考時間。簡單提問、潤飾文字、摘要網頁時，幾乎感覺不出差別；但長篇文件、複雜推理、寫程式這類出錯代價高的工作，Sol 明顯更好。
+Go 用 OpenAI 小而快的 **GPT-6 Luna** 回答；Plus 用中型的 **GPT-6 Sol** 回答，還能拉長思考時間。簡單提問、潤飾文字、摘要網頁時，幾乎感覺不出差別；但長篇文件、複雜推理、寫程式這類出錯代價高的工作，Sol 明顯更好。
 
 用數字來看，API 上 Sol 等級的模型每個 Token 大約比 Luna 等級貴 20 倍。Plus 的月費，等於包含了讓 OpenAI 替你跑大模型的成本。
 
@@ -61,5 +61,5 @@ Go 用 OpenAI 小而快的 **GPT-5.6 Luna** 回答；Plus 用中型的 **GPT-5.6
 
 **香港用戶注意:** ChatGPT 並未正式支援香港地區，訂閱前請先確認 OpenAI 官方的支援地區。
 
-*資料來源：[數位時代：ChatGPT 方案懶人包](https://www.bnext.com.tw/article/89888/chatgpt-go)、[ChatGPT 價格頁](https://chatgpt.com/pricing/)、[MoneyHero（香港支援地區）](https://www.moneyhero.com.hk/zh/credit-card/blog/ai%E5%B7%A5%E5%85%B7%E6%94%B6%E8%B2%BB%E6%AF%94%E8%BC%83-chatgpt-claude-gemini%E6%9C%88%E8%B2%BB-%E9%A6%99%E6%B8%AF%E8%A8%82%E9%96%B1%E6%94%BB%E7%95%A5)。2026 年 10 月 6 日查證。訂閱前請以 chatgpt.com 方案頁面為準。*
+*資料來源：[ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)、[數位時代：ChatGPT 方案懶人包](https://www.bnext.com.tw/article/89888/chatgpt-go)、[ChatGPT 價格頁](https://chatgpt.com/pricing/)、[MoneyHero（香港支援地區）](https://www.moneyhero.com.hk/zh/credit-card/blog/ai%E5%B7%A5%E5%85%B7%E6%94%B6%E8%B2%BB%E6%AF%94%E8%BC%83-chatgpt-claude-gemini%E6%9C%88%E8%B2%BB-%E9%A6%99%E6%B8%AF%E8%A8%82%E9%96%B1%E6%94%BB%E7%95%A5)。2026 年 10 月 6 日查證。訂閱前請以 chatgpt.com 方案頁面為準。*
 <!-- autoimg -->

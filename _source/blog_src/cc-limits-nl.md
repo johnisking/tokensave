@@ -32,7 +32,7 @@ Hoe ver je daarmee komt, hangt sterk af van wat je doet. Grote bestanden, lange 
 
 ![Wat veranderde er in 2026?: 6 mei 2026; Zomer 2026; 14 september 2026](/claude-code-limiet-wat-veranderde-er-in-2026-nl.jpg)
 
-- **6 mei 2026:** Anthropic **verdubbelde de 5-uurslimieten van Claude Code** voor Pro, Max, Team en Enterprise met seats, en schrapte voor Pro en Max de extra verlaging van de limieten tijdens piekuren.
+- **6 mei 2026:** Anthropic **verhoogde de 5-uurslimieten van Claude Code met 100%** voor Pro, Max, Team en Enterprise met seats, en schrapte voor Pro en Max de extra verlaging van de limieten tijdens piekuren.
 - **Zomer 2026:** er gold tijdelijk een **verhoging van 50%** op de weeklimieten.
 - **14 september 2026:** Anthropic **verhoogde de standaard weeklimieten blijvend met 25%** voor Pro, Max, Team en Enterprise met seats. Dat verving de tijdelijke verhoging van 50%. Daardoor liggen de weeklimieten zo'n 17% lager dan in de zomer, maar nog steeds 25% boven het oorspronkelijke niveau.
 

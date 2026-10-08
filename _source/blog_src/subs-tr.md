@@ -37,7 +37,7 @@ Yaklaşık 20 dolarlık kademede ChatGPT Plus, Claude Pro ve Google AI Pro benze
 
 ## En ucuz planlara dikkat
 
-- **ChatGPT Go:** küçük model GPT-5.6 Luna ile cevap veriyor ve reklam gösteriyor. Metin sohbeti ücretsiz planda bile artık sınırsız. Go'nun size kattığı şey daha fazla dosya, görsel ve hafıza.
+- **ChatGPT Go:** küçük model GPT-6 Luna ile cevap veriyor ve reklam gösteriyor. Metin sohbeti ücretsiz planda bile artık sınırsız. Go'nun size kattığı şey daha fazla dosya, görsel ve hafıza.
 - **Google AI Plus:** yakında Pro modeli içermeyecek. 400 GB depolamaya ihtiyacınız varsa yine de mantıklı.
 
 ## Pahalı planlar: kullanım birimi başına fiyata bakın
@@ -73,5 +73,5 @@ Dört şirket de modellerini API üzerinden satıyor. API'de yalnızca kullandı
 
 Gerçek kullanımınızı [abonelik mi API mi hesaplayıcısına](/tr/plans) girin. Her planın yanında aylık API maliyetini görürsünüz. Sohbetinizin kaç token tuttuğunu [token hesaplayıcısı](/tr/) ile, video maliyetini de [video maliyet hesaplayıcısı](/tr/video) ile görebilirsiniz.
 
-*Kaynaklar: [Gemini Türkiye](https://gemini.google/tr/subscriptions/) (Google AI fiyatları), ChatGPT Türkiye fiyat listesine dair haberler (2 Ekim 2026), Grok fiyatı [Ranquia (Grok)](https://ranquia.com/precios/grok-precio-latam/). Ekim 2026'da kontrol edildi. Fiyatlar sık değişir; ödeme yapmadan önce her şirketin kendi sayfasına bakın.*
+*Kaynaklar: [ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes), [Gemini Türkiye](https://gemini.google/tr/subscriptions/) (Google AI fiyatları), ChatGPT Türkiye fiyat listesine dair haberler (2 Ekim 2026), Grok fiyatı [Ranquia (Grok)](https://ranquia.com/precios/grok-precio-latam/). Ekim 2026'da kontrol edildi. Fiyatlar sık değişir; ödeme yapmadan önce her şirketin kendi sayfasına bakın.*
 <!-- autoimg -->

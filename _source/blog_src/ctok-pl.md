@@ -24,7 +24,7 @@ W Polsce za Claude płaci się w dolarach z 23% VAT: Pro to ok. 92,59 zł, Max 5
 
 Bo prawie wszystko to tanie odczyty z cache, a nie nowy tekst. Trzydzieści dziewięć milionów tokenów w pięć godzin brzmi jak ogrom tekstu, ale nim nie jest. W zmierzonych sesjach **96% tokenów stanowiły odczyty z cache**: Claude Code na każdym kroku zadania ponownie czyta swój kontekst (Twoje pliki, dotychczasową rozmowę, wyniki narzędzi). Tylko około 0,6% tokenów to wyjście, czyli to, co Claude faktycznie napisał.
 
-Odczyty z cache są w API tanie – około jednej dziesiątej zwykłej ceny wejścia – więc limity Anthropic najwyraźniej nie liczą każdego tokena tak samo. Działają raczej jak **budżet kosztowy**. Mediana okna Max 5× odpowiadała mniej więcej **37 USD użycia API**, co w tej samej skali daje ok. 7 USD na okno Pro i ok. 150 USD na okno Max 20×.
+Odczyty z cache są w API tanie – 10% zwykłej ceny wejścia w Claude Opus 5, na którym mierzono, i 5% w Opus 5.5 i Sonnet 5.5 – więc limity Anthropic najwyraźniej nie liczą każdego tokena tak samo. Działają raczej jak **budżet kosztowy**. Mediana okna Max 5× odpowiadała mniej więcej **37 USD użycia API**, co w tej samej skali daje ok. 7 USD na okno Pro i ok. 150 USD na okno Max 20×.
 
 Dlatego sama liczba tokenów mówi mniej, niż mogłoby się wydawać. Dwie sesje z tą samą liczbą tokenów mogą zużyć zupełnie inną część limitu, zależnie od tego, ile jest w nich świeżego wejścia i wyjścia oraz jakiego modelu używasz.
 
@@ -58,4 +58,5 @@ Powiązane: [Claude Max vs Pro](/blog/claude-max-vs-pro) (po angielsku) · [limi
 - [Korzystanie z Claude Code w planie Pro lub Max (Centrum pomocy Claude)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 - [Plany i ceny Claude (Anthropic)](https://claude.com/pricing)
 - [Cennik API Claude (dokumentacja Anthropic)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Prompt caching (dokumentacja Claude)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
 <!-- autoimg -->

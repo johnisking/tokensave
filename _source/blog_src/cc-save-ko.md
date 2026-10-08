@@ -49,11 +49,11 @@ API에서 Claude Opus 5.5는 Sonnet 5.5보다 토큰당 100% 비싸고, 요금�
 
 ## 9. 캐시가 일하게 두기
 
-클로드 코드는 반복되는 맥락을 자동으로 캐시하고, 캐시된 입력은 보통 가격의 약 10%입니다. 세션 중간에 CLAUDE.md를 고치지 않고, 같은 작업을 잇는데 굳이 세션을 다시 시작하지 않는 것만으로도 도움이 됩니다.
+클로드 코드는 반복되는 맥락을 자동으로 캐시하고, 캐시된 입력은 Sonnet 5.5·Opus 5.5에서 보통 가격의 5%(Haiku 4.5는 10%)입니다. 세션 중간에 CLAUDE.md를 고치지 않고, 같은 작업을 잇는데 굳이 세션을 다시 시작하지 않는 것만으로도 도움이 됩니다.
 
 ## 얼마나 차이 날까
 
-토큰세이브 [코딩 에이전트 비용 계산 모델](/ko/agents) 기준으로, Sonnet 5.5에서 일반적인 기능 작업 하나는 캐싱을 켜고 약 $0.72입니다. 정확한 지시와 파일 위치를 줘서 25단계를 15단계로 줄이면 약 $0.40으로 내려갑니다. 작업마다 새 세션으로 시작하면 시작 맥락도 작게 유지됩니다. 한 달에 작업 100개라면 주간 한도에 걸리느냐 안 걸리느냐가 갈리는 차이입니다.
+토큰세이브 [코딩 에이전트 비용 계산 모델](/ko/agents) 기준으로, Sonnet 5.5에서 일반적인 기능 작업 하나는 캐싱을 켜고 약 $0.57입니다. 정확한 지시와 파일 위치를 줘서 25단계를 15단계로 줄이면 약 $0.33으로 내려갑니다. 작업마다 새 세션으로 시작하면 시작 맥락도 작게 유지됩니다. 한 달에 작업 100개라면 주간 한도에 걸리느냐 안 걸리느냐가 갈리는 차이입니다.
 
 ## 사용량 확인
 
@@ -63,6 +63,7 @@ API에서 Claude Opus 5.5는 Sonnet 5.5보다 토큰당 100% 비싸고, 요금�
 
 - [비용을 효과적으로 관리하기 (Claude Code 문서)](https://code.claude.com/docs/en/costs)
 - [Claude API 가격 (Anthropic 문서)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [프롬프트 캐싱 (Claude 문서)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
 - [tiktoken: OpenAI 토크나이저 (o200k_base)](https://github.com/openai/tiktoken)
 - [Pro·Max 요금제로 클로드 코드 사용하기 (Claude 도움말 센터)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 <!-- autoimg -->

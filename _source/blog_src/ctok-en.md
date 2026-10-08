@@ -20,7 +20,7 @@ Measured in Claude Code in September 2026, on Claude Opus 5:
 
 Thirty-nine million tokens in five hours sounds like a lot of text. It is not. In the measured sessions, **96% of the tokens were cache reads**: Claude Code re-reading its own context (your files, the conversation so far, the tool results) at every step of a task. Only about 0.6% of the tokens were output, Claude actually writing something.
 
-Cache reads are cheap on the API, about a tenth of the normal input price, so Anthropic's limits clearly do not count every token equally. They behave more like a **cost budget**. The median Max 5× window corresponded to roughly **$37 of API usage**, which puts a Pro window at around $7 and a Max 20× window at around $150 on the same scale.
+Cache reads are cheap on the API: 10% of the normal input price on Claude Opus 5, the model measured here, and 5% on Opus 5.5 and Sonnet 5.5. So Anthropic's limits clearly do not count every token equally. They behave more like a **cost budget**. The median Max 5× window corresponded to roughly **$37 of API usage**, which puts a Pro window at around $7 and a Max 20× window at around $150 on the same scale.
 
 That is why a token count tells you less than you would think. Two sessions with the same number of tokens can use very different shares of your limit, depending on how much is fresh input and output and which model you use.
 
@@ -54,4 +54,5 @@ Related: [Claude Max vs Pro](/blog/claude-max-vs-pro) · [Claude Code usage limi
 - [Using Claude Code with your Pro or Max plan (Claude Help Center)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 - [Claude plans and pricing (Anthropic)](https://claude.com/pricing)
 - [Claude API pricing (Anthropic docs)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Prompt caching (Claude docs)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
 <!-- autoimg -->

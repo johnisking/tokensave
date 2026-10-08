@@ -1,6 +1,6 @@
 ![ChatGPT Go ou Plus : 8 € ou 23 €, lequel choisir ?](/chatgpt-go-vs-plus-fr.jpg)
 
-ChatGPT Go coûte environ 8 € par mois en France, ChatGPT Plus 23 €. Depuis août 2026, les deux offrent le chat texte illimité : l'ancienne raison de passer à la formule supérieure, manquer de messages, a donc disparu. La différence se joue maintenant sur le modèle qui vous répond, sa capacité de réflexion, ce qui est inclus dans la formule, et la publicité. Voici ce que les 15 € de plus vous apportent, et pour qui ils valent le coup.
+ChatGPT Go coûte environ 8 € par mois en France, ChatGPT Plus 23 €. Depuis août 2026, Go (comme la version gratuite) offre le chat texte illimité, et Plus des limites élargies : l'ancienne raison de passer à la formule supérieure, manquer de messages, a donc disparu. La différence se joue maintenant sur le modèle qui vous répond, sa capacité de réflexion, ce qui est inclus dans la formule, et la publicité. Voici ce que les 15 € de plus vous apportent, et pour qui ils valent le coup.
 
 ## Go et Plus en un coup d'œil
 
@@ -9,9 +9,9 @@ ChatGPT Go coûte environ 8 € par mois en France, ChatGPT Plus 23 €. Depuis 
 | | ChatGPT Go | ChatGPT Plus |
 |---|---|---|
 | Prix en France | environ 8 € / mois | 23 € / mois |
-| Modèle de chat | GPT-5.6 Luna | GPT-5.6 Sol |
+| Modèle de chat | GPT-6 Luna | GPT-6 Sol |
 | Réflexion | bouton « Réfléchir » pour les questions difficiles | niveaux de réflexion Moyen et Élevé |
-| Limite du chat texte | aucune (depuis le 6 août 2026) | aucune (depuis le 6 août 2026) |
+| Limite du chat texte | aucune (depuis le 6 août 2026) | élargie (avec des limites) |
 | Raisonnement avancé GPT-6, Codex, ChatGPT Work | limité, sur ordinateur | inclus |
 | Projets, tâches planifiées, GPT personnalisés | limités | inclus |
 | Publicité | oui, depuis fin août 2026 | non |
@@ -24,7 +24,7 @@ Depuis fin août 2026, ChatGPT affiche des publicités dans 31 marchés europée
 
 ## La vraie différence : Luna contre Sol
 
-Go répond avec **GPT-5.6 Luna**, le petit modèle rapide d'OpenAI. Plus répond avec **GPT-5.6 Sol**, le modèle intermédiaire, et vous permet d'augmenter le temps de réflexion. Pour une question rapide, la reformulation d'un e-mail ou le résumé d'une page, vous ne verrez presque pas de différence. Pour les longs documents, les raisonnements délicats, le code, ou tout ce où une erreur vous coûte cher, Sol est nettement meilleur.
+Go répond avec **GPT-6 Luna**, le petit modèle rapide d'OpenAI. Plus répond avec **GPT-6 Sol**, le modèle intermédiaire, et vous permet d'augmenter le temps de réflexion. Pour une question rapide, la reformulation d'un e-mail ou le résumé d'une page, vous ne verrez presque pas de différence. Pour les longs documents, les raisonnements délicats, le code, ou tout ce où une erreur vous coûte cher, Sol est nettement meilleur.
 
 Pour donner un ordre de grandeur : sur l'API, les modèles de la classe Sol coûtent environ 20 fois plus cher par token que ceux de la classe Luna. C'est à peu près ce que vous payez à OpenAI pour les faire tourner avec Plus.
 
@@ -56,5 +56,5 @@ Si vous faites surtout du chat, payer au token peut revenir moins cher que les d
 
 Google AI Plus coûte 4,99 € mais perd bientôt le modèle Pro ([Gemini gratuit limité à Flash-Lite](/fr/blog/gemini-gratuit-flash-lite)). Mistral Vibe Pro (ex-Le Chat) coûte 17,99 €, Google AI Pro 21,99 €, et Claude Pro 20 $ hors taxes, environ 21,60 € TTC. Le tableau complet, avec les prix TTC, est dans notre [comparatif des abonnements IA](/fr/blog/abonnement-ia-prix-comparatif).
 
-*Sources : [Digitiz](https://digitiz.fr/chatgpt-quel-abonnement-choisir/), [Tech Insider](https://tech-insider.org/fr/abonnements-chatgpt-claude-gemini-mistral-2026/), [Journal du Geek (ChatGPT Ads en France)](https://www.journaldugeek.com/2026/08/19/une-semaine-apres-larrivee-de-la-pub-chatgpt-ads-debarque-en-france/), [Modperl (formules avec publicité)](https://www.modperl.com/publicite-chatgpt/), [Presse-citron](https://www.presse-citron.net/chatgpt-avantages-nouvel-abonnement-103-e/), et notre guide en anglais des [limites d'utilisation de ChatGPT](/blog/chatgpt-usage-limits). Vérifié le 6 octobre 2026. Consultez chatgpt.com/pricing avant de souscrire.*
+*Sources : [ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes), [Digitiz](https://digitiz.fr/chatgpt-quel-abonnement-choisir/), [Tech Insider](https://tech-insider.org/fr/abonnements-chatgpt-claude-gemini-mistral-2026/), [Journal du Geek (ChatGPT Ads en France)](https://www.journaldugeek.com/2026/08/19/une-semaine-apres-larrivee-de-la-pub-chatgpt-ads-debarque-en-france/), [Modperl (formules avec publicité)](https://www.modperl.com/publicite-chatgpt/), [Presse-citron](https://www.presse-citron.net/chatgpt-avantages-nouvel-abonnement-103-e/), et notre guide en anglais des [limites d'utilisation de ChatGPT](/blog/chatgpt-usage-limits). Vérifié le 6 octobre 2026. Consultez chatgpt.com/pricing avant de souscrire.*
 <!-- autoimg -->

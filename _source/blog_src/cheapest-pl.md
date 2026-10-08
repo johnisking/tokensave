@@ -45,7 +45,7 @@ Na start wybierz GPT-6 Luna, a do najprostszych zadań na masową skalę – GPT
 - **GPT-5 nano** do najprostszej pracy na największą skalę, gdzie liczy się każdy ułamek centa: tagowanie, sprawdzanie tak/nie, filtrowanie spamu.
 - **Qwen 3.8 Flash** i **Mistral Small** to najtańsze opcje spoza OpenAI – przydatne, jeśli chcesz mieć drugiego dostawcę albo modele open-weight, które później możesz hostować sam.
 - **Gemini 3.1 Flash-Lite** i **DeepSeek V4.1 Flash** kosztują mniej więcej o 100% więcej niż Luna, ale są o krok lepsze w pisaniu i rozumowaniu, a i tak wychodzą o około 87% taniej na zapytanie niż GPT-6 Sol. DeepSeek V4.1 Flash poza godzinami szczytu kosztuje połowę (0,15 / 0,60 USD), co stawia go tuż za GPT-6 Luna; zobacz [cennik DeepSeek V4.1 Flash](/blog/deepseek-v4-1-flash-api-pricing) (po angielsku). O darmowym dostępie do Gemini piszę w tekście [Gemini za darmo: Flash-Lite](/pl/blog/gemini-za-darmo-flash-lite).
-- **Claude Haiku 4.5** to najtańszy model Claude: 0,0047 USD za zapytanie, czyli około 900% więcej niż Luna. Wybierz go, gdy potrzebujesz konkretnie zachowania Claude, a nie ze względu na cenę.
+- **Claude Haiku 5.5** to najtańszy model Claude: 0,10 / 0,50 USD za milion tokenów przy promptach do 100 000 tokenów (powyżej drożej), czyli około 0,00059 USD za zapytanie – mniej więcej o 30% więcej niż Luna. Starszy Claude Haiku 4.5 (1 / 5 USD) kosztuje 0,0047 USD za zapytanie. Wybierz Haiku, gdy potrzebujesz konkretnie zachowania Claude.
 
 ## Kiedy najtańszy model kosztuje więcej?
 

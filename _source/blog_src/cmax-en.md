@@ -72,7 +72,7 @@ Only in one case. In February 2026 Anthropic opened **Claude for Open Source**: 
 
 ## Claude Max or ChatGPT Pro?
 
-At $200, Claude Max 20× is now 20× its base plan, while ChatGPT Pro 200 is 10× its base plan for new subscribers. The two companies' base plans are not the same size, so compare what you actually use. See [ChatGPT Pro vs Claude Max](/blog/chatgpt-pro-vs-claude-max).
+At $200, Claude Max 20× is now 20× its base plan, while ChatGPT Pro 200 is 10× its base plan for new subscribers (according to OpenAI's Thibault Sottiaux on X, as reported by WinBuzzer; OpenAI's pricing page gives no multiple). The two companies' base plans are not the same size, so compare what you actually use. See [ChatGPT Pro vs Claude Max](/blog/chatgpt-pro-vs-claude-max).
 
 ## Check your own numbers
 
@@ -86,4 +86,6 @@ Use the [coding agent calculator](/agents) to compare Pro, Max and the API for t
 - [Using Claude Code with your Pro or Max plan (Claude Help Center)](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 - [Extra usage for paid Claude plans (Claude Help Center)](https://support.claude.com/en/articles/12429409-extra-usage-for-max-20x-plans)
 - [Claude API pricing (Anthropic docs)](https://platform.claude.com/docs/en/about-claude/pricing)
+- [About ChatGPT Pro tiers (OpenAI Help Center)](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
 <!-- autoimg -->

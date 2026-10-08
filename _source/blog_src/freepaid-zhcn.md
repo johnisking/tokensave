@@ -6,7 +6,7 @@
 > - 价格：**免费 $0 · Go $8 · Plus $20 · Pro $100 起**（美国官方价格，各地区价格与税费不同）
 > - 大多数人**先用免费版，碰到下面三种情况之一再升级**就够了。
 
-如果你正在纠结要不要给 ChatGPT 付费，有件事要先知道：很多旧文章里说的“免费版每天只能发几条消息”已经过时了。OpenAI 在 2026 年 8 月取消了所有套餐（包括免费版）的日常文字对话上限。所以现在免费和付费的差别**不在用量，而在质量和附加功能**。下面把区别和升级时机讲清楚。
+如果你正在纠结要不要给 ChatGPT 付费，有件事要先知道：很多旧文章里说的“免费版每天只能发几条消息”已经过时了。OpenAI 在 2026 年 8 月取消了免费版和 Go 的日常文字对话上限（Pro 同样不限，Plus 为扩充额度）。所以现在免费和付费的差别**不在用量，而在质量和附加功能**。下面把区别和升级时机讲清楚。
 
 ## 免费版 vs 付费版一览
 
@@ -15,7 +15,7 @@
 | | 免费 | Go | Plus | Pro |
 |---|---|---|---|---|
 | 月费 | $0 | $8 | $20 | $100 起 |
-| 日常文字对话 | 不限 | 不限 | 不限 | 不限 |
+| 日常文字对话 | 不限 | 不限 | 扩充（有上限） | 不限 |
 | 回答的模型 | 轻量模型（Luna） | 轻量模型（Luna） | 中型模型（Sol）+ 可选思考强度 | Sol + 顶级 Pro 模型 |
 | 文件上传·图片·语音 | 有限 | 比免费多 | 更多 | 最多 |
 | 深度研究 | 有限 | – | 更多 | 最多 |
@@ -123,4 +123,4 @@ $20 左右这个价位，Google AI Pro、Claude Pro 也在同一档。哪个更�
 **付费版多少钱？**
 美国官方价格：Go $8、Plus $20、Pro $100 起（2026 年 10 月 6 日查询）。各地区价格与税费不同，付款前请在套餐页面再确认一次。
 
-*来源：[ChatGPT 套餐价格](https://chatgpt.com/pricing/)、[ChatGPT Free Tier FAQ](https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq)、[What is ChatGPT Plus?](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus)。2026 年 10 月 8 日查询。价格和额度经常变动，付款前请查看 chatgpt.com 的套餐页面。*
+*来源：[ChatGPT 套餐价格](https://chatgpt.com/pricing/)、[ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)、[ChatGPT Free Tier FAQ](https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq)、[What is ChatGPT Plus?](https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus)。2026 年 10 月 8 日查询。价格和额度经常变动，付款前请查看 chatgpt.com 的套餐页面。*

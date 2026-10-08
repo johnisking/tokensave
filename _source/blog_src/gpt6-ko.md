@@ -1,6 +1,6 @@
 ![GPT-6 API 가격 정리: Astra·Sol·Luna 비교와 실제 비용](/gpt-6-api-gagyeok-ko.jpg)
 
-OpenAI가 2026년 9월에 GPT-6 모델 세 개를 내놨습니다. 최상위 모델 **GPT-6 Astra**가 9월 4일, **GPT-6 Sol**과 **GPT-6 Luna**가 9월 22일입니다. 세 모델의 API 가격 차이가 워낙 커서, 할인보다 모델을 잘 고르는 게 훨씬 중요합니다. 가격, 실제 사용량 기준 비용, Claude·Gemini와의 비교를 정리했습니다.
+OpenAI가 2026년 9월에 GPT-6 모델 세 개를 내놨습니다. 최상위 모델 **GPT-6 Astra**가 9월 3일, **GPT-6 Sol**과 **GPT-6 Luna**가 9월 22일입니다. 세 모델의 API 가격 차이가 워낙 커서, 할인보다 모델을 잘 고르는 게 훨씬 중요합니다. 가격, 실제 사용량 기준 비용, Claude·Gemini와의 비교를 정리했습니다.
 
 ## GPT-6 API 가격
 
@@ -76,6 +76,7 @@ API 없이도 GPT-6를 쓸 수 있습니다. GPT-6 Astra는 챗GPT Pro, Business
 
 ## 출처
 
+- [OpenAI 도움말: ChatGPT 릴리스 노트](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
 - [OpenAI: GPT-6 Astra 모델·가격](https://developers.openai.com/api/docs/models/gpt-6-astra)
 - [OpenAI: GPT-6 Sol 모델·가격](https://developers.openai.com/api/docs/models/gpt-6-sol)
 - [OpenAI: GPT-6 Luna 모델·가격](https://developers.openai.com/api/docs/models/gpt-6-luna)

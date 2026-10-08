@@ -18,7 +18,7 @@ Pro 100 kost $100, Pro 200 $200 en Pro 500 $500 per maand. Voor elke dollar krij
 | Pro 200 | $200 | 10× | $20 | – |
 | Pro 500 | $500 | 25× | $20 | ✓ |
 
-Amerikaanse prijzen. De hulppagina van OpenAI zegt alleen dat Pro 200 meer gebruik geeft dan Pro 100, en Pro 500 het meest. De verhoudingen in de tabel komen uit berichtgeving over de aankondiging van OpenAI.
+Amerikaanse prijzen. De hulppagina van OpenAI zegt alleen dat Pro 200 meer gebruik geeft dan Pro 100, en Pro 500 het meest. De verhoudingen in de tabel staan niet op de prijspagina van OpenAI; ze komen uit een bericht op X van Thibault Sottiaux (OpenAI) en uit persberichten (WinBuzzer, Windows Report).
 
 In Nederland en België toont ChatGPT prijzen in euro, inclusief 21% btw: Go €8, Plus €23 en Pro €103 of €229 per maand (volgens LearnLLM). Die eurobedragen stammen van vóór de herindeling van 29 september. Ze horen bij de twee Pro-abonnementen die er toen al waren. Voor Pro 500 is nog geen bevestigde europrijs bekend, en ook de bedragen voor Pro 100 en 200 kunnen bij het afrekenen afwijken. Alle AI-abonnementen in euro vind je in [AI-abonnementen: prijzen in euro](/nl/blog/ai-abonnement-prijzen).
 
@@ -30,7 +30,7 @@ Nee. Sinds de wijziging is er geen korting meer voor een groter pakket. Elk Pro-
 
 Deel de prijs van elk abonnement door het gebruik dat je krijgt, en je komt steeds op hetzelfde getal uit: **$20 per "Plus aan gebruik"**. Pro 500 is geen betere deal dan Pro 100. Het is gewoon meer van hetzelfde, plus snelheid.
 
-Vroeger was dat anders. Tot deze wijziging gaf Pro 200 20× het gebruik van Plus. Dat kwam neer op $10 per eenheid, 50% goedkoper dan de rest. Nieuwe abonnees op Pro 200 krijgen nu de helft daarvan. Zat je al op Pro 200, dan houd je de oude, ruimere limiet tot **29 oktober 2026**. Daarna zakt die met 50%, voor dezelfde $200.
+Vroeger was dat anders. Tot deze wijziging gaf Pro 200 20× het gebruik van Plus. Dat kwam neer op $10 per eenheid, 50% goedkoper dan de rest. Nieuwe abonnees op Pro 200 krijgen nu de helft daarvan. Had je op enig moment tussen 22 en 29 september 2026 een actief Pro 200-abonnement, dan houd je de oude, ruimere limiet tot **29 oktober 2026**. Daarna zakt die met 50%, voor dezelfde $200.
 
 De regel is dus simpel: **koop het kleinste abonnement waarin je niet tegen de limiet aanloopt.** Betalen voor ruimte die je nooit gebruikt, is de enige manier om te veel te betalen.
 
@@ -78,6 +78,8 @@ Iedereen gebruikt ChatGPT anders. In de [rekenmachine abonnement vs API](/nl/pla
 ## Bronnen
 
 - [OpenAI Help: ChatGPT Pro-niveaus](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
+- [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
 - [ChatGPT-abonnementen en Codex-prijzen](https://learn.chatgpt.com/docs/pricing)
 - [OpenAI Help: release notes van ChatGPT](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
 - [OpenAI API-prijzen](https://developers.openai.com/api/docs/pricing)

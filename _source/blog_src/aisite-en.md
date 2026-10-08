@@ -14,14 +14,14 @@ Free plans and limits change often, so treat "free" below as "you can start with
 | Long documents, writing, code | Claude | Strong at long text and careful answers |
 | Google ecosystem | Gemini | Works with Gmail, Docs and Drive |
 | Answers with sources | Perplexity | Every answer cites the pages it used |
-| Study your own files | NotebookLM | Answers only from the documents you upload |
+| Study your own files | Gemini Notebook (formerly NotebookLM) | Answers only from the documents you upload |
 | Translation | DeepL | Natural translations, keeps formatting |
 | Quick designs | Canva | Templates plus AI image and text tools |
 | Cut out backgrounds | remove.bg | One click, no editing skills needed |
 | Voice and narration | ElevenLabs | Realistic text-to-speech |
 | Music | Suno | Full songs from a text prompt |
 | Video captions and edits | CapCut | Auto subtitles, simple AI editing |
-| Compare models | LMArena | Blind side-by-side tests and a public leaderboard |
+| Compare models | Arena (formerly LMArena) | Blind side-by-side tests and a public leaderboard |
 | Try open models | Hugging Face | Thousands of models and free demos |
 | Developers: try Gemini models | Google AI Studio | Test prompts and get an API key |
 | Know what it costs | TokenSave | Token and cost calculators for all of the above |
@@ -42,11 +42,11 @@ You don't need all of them. Pick one for daily use and keep a second for when th
 
 **Perplexity** (perplexity.ai) is a search engine that answers in sentences and links every claim to a source. Use it when you need to check facts, not just get an answer.
 
-**NotebookLM** (notebooklm.google.com) answers questions only from documents you give it: PDFs, notes, web pages, YouTube videos. Because it stays inside your sources it is far less likely to make things up, and it can turn a pile of material into a study guide or a short audio overview.
+**Gemini Notebook** (notebooklm.google.com), called NotebookLM until Google renamed it on July 16, 2026, answers questions only from documents you give it: PDFs, notes, web pages, YouTube videos. Because it stays inside your sources it is far less likely to make things up, and it can turn a pile of material into a study guide or a short audio overview.
 
 ## Writing and translation
 
-**DeepL** (deepl.com) produces translations that read more naturally than most, and it can translate whole Word or PDF files while keeping the layout.
+**DeepL** (deepl.com) produces translations that read more naturally than most, and it can translate whole Word or PDF files while keeping the layout (the free version allows one file a month, up to 5 MB).
 
 A tip if you write prompts in a language other than English: most AI models charge more tokens for the same request in other languages. Korean costs about 40% more tokens than English and Japanese about 80% more. [TokenSave's token counter](/) can translate a prompt to English on your device and add "Reply in [your language]" so the answer still comes back in your language.
 
@@ -70,7 +70,7 @@ AI video generation is where costs climb fastest. Before you burn credits, the [
 
 ## For tinkerers and developers
 
-**LMArena** (lmarena.ai) lets you send one prompt to two anonymous models and vote for the better answer. The votes feed a public leaderboard that is one of the most-cited rankings of AI models.
+**Arena** (arena.ai, formerly LMArena) lets you send one prompt to two anonymous models and vote for the better answer. The votes feed a public leaderboard that is one of the most-cited rankings of AI models.
 
 **Hugging Face** (huggingface.co) is the home of open AI models. Its Spaces let you try many of them in the browser without installing anything.
 
@@ -104,7 +104,9 @@ Everything runs in your browser, there is no sign-up, and it works in 41 languag
 - [Gemini Apps Help: Connect Google Workspace](https://support.google.com/gemini/answer/15229592?hl=en)
 - [Perplexity Help: What is Perplexity?](https://www.perplexity.ai/help-center/en/articles/10352155-what-is-perplexity)
 - [Google Help: Learn about Gemini Notebook (formerly NotebookLM)](https://support.google.com/gemininotebook/answer/16164461?hl=en&co=GENIE.Platform%3DDesktop)
+- [Google: NotebookLM is now Gemini Notebook](https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/)
 - [DeepL: Document translation](https://www.deepl.com/en/features/document-translation)
+- [DeepL plans (Free version limits)](https://www.deepl.com/en/pro)
 - [Canva: AI image generator](https://www.canva.com/ai-image-generator/)
 - [remove.bg: Remove image background](https://www.remove.bg/uploads)
 - [ElevenLabs pricing (free plan)](https://elevenlabs.io/pricing)

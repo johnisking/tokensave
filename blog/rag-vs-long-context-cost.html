@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=6f1a9fdb" />
+  <link rel="stylesheet" href="/styles.css?v=0b046568" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -103,9 +103,9 @@
 <p><strong>Long context:</strong> put the whole document in the prompt with every question. Simple to build: no search, no chunking, no index.</p>
 <p><strong>RAG:</strong> split the document into small chunks, index them, and for each question retrieve the handful of chunks most likely to contain the answer. Only those go into the prompt.</p>
 <h2>The cost per question</h2>
-<p><img loading="lazy" width="1200" height="624" alt="The cost per question: Approach, Input tokens per question, Input cost per question, 10,000 questions" src="/rag-vs-long-context-cost-the-cost-per-question-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="608" alt="The cost per question: Approach, Input tokens per question, Input cost per question, 10,000 questions" src="/rag-vs-long-context-cost-the-cost-per-question-en.jpg" /></p>
 <p>Take a 500-page product manual. At roughly 500 words per page, that is about 250,000 words, or around 330,000 tokens. It fits comfortably in the context window of current flagship models.</p>
-<p>Now answer questions about it on GPT-6 Sol, at $2 per million input tokens (checked October 1, 2026). Output cost is the same in every case, so we compare input only.</p>
+<p>Now answer questions about it on GPT-6 Sol, at $2 per million input tokens and $0.20 cached (checked October 9, 2026). OpenAI bills any prompt over 272,000 input tokens at double the input and cache rates for the whole request, so each long-context question here pays $4 per million input tokens ($0.40 cached), and its output costs 50% more too. We compare input only, so the real gap is slightly larger than shown.</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -119,14 +119,14 @@
 <tr>
 <td>Long context, no caching</td>
 <td>~333,000</td>
-<td>$0.67</td>
-<td>$6,660</td>
+<td>$1.33</td>
+<td>$13,320</td>
 </tr>
 <tr>
 <td>Long context, with prompt caching (90% off)</td>
 <td>~333,000 (mostly cached)</td>
-<td>about $0.07</td>
-<td>about $670</td>
+<td>about $0.13</td>
+<td>about $1,330</td>
 </tr>
 <tr>
 <td>RAG, 8 chunks of 500 tokens</td>
@@ -136,13 +136,13 @@
 </tr>
 </tbody>
 </table></div>
-<p>Even with caching, sending the whole manual costs around 600% more than RAG. Without caching, it is $0.67 per question against $0.009 for RAG.</p>
+<p>Even with caching, sending the whole manual costs around 1,400% more than RAG. Without caching, it is $1.33 per question against $0.009 for RAG.</p>
 <h2>It is not only about money</h2>
 <p><strong>Speed.</strong> Reading 330,000 tokens takes time. A long-context request can take many seconds before the first word appears, while a RAG request with 4,500 tokens starts almost immediately.</p>
 <p><strong>Accuracy.</strong> Long context is not automatically more accurate. Models tend to use information at the beginning and end of a long input better than information in the middle. A focused prompt with the right three passages often gets a sharper answer than the entire manual. See <a href="/blog/context-window-explained">Context windows explained</a>.</p>
 <p><strong>But retrieval can miss.</strong> RAG only works if the search finds the right chunks. If the answer depends on information spread across many sections, or the question is worded very differently from the text, retrieval may bring back the wrong passages, and the model cannot answer what it never sees.</p>
 <h2>When long context is the better choice</h2>
-<p><img loading="lazy" width="1200" height="829" alt="When long context is the better choice: Few questions per document. If you ask three questions about a contract and move on, building a retrieval syst" src="/rag-vs-long-context-cost-when-long-context-is-the-better-choice-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="825" alt="When long context is the better choice: Few questions per document. If you ask three questions about a contract and move on, building a retrieval syst" src="/rag-vs-long-context-cost-when-long-context-is-the-better-choice-en.jpg" /></p>
 <ul>
 <li><strong>Few questions per document.</strong> If you ask three questions about a contract and move on, building a retrieval system is not worth it.</li>
 <li><strong>Questions that need the whole document:</strong> "summarize this report", "list every deadline", "find contradictions between sections".</li>
@@ -150,7 +150,7 @@
 <li><strong>Documents that change constantly,</strong> where keeping an index up to date is more trouble than it is worth.</li>
 </ul>
 <h2>When RAG is the better choice</h2>
-<p><img loading="lazy" width="1200" height="796" alt="When RAG is the better choice: Many questions against the same large body of text; More text than any context window holds, such as thousands" src="/rag-vs-long-context-cost-when-rag-is-the-better-choice-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="792" alt="When RAG is the better choice: Many questions against the same large body of text; More text than any context window holds, such as thousands" src="/rag-vs-long-context-cost-when-rag-is-the-better-choice-en.jpg" /></p>
 <ul>
 <li><strong>Many questions against the same large body of text:</strong> help centers, internal wikis, product documentation, policy libraries.</li>
 <li><strong>More text than any context window holds,</strong> such as thousands of documents.</li>
@@ -193,6 +193,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=6f1a9fdb"></script>
+  <script type="module" src="/common.js?v=0b046568"></script>
 </body>
 </html>

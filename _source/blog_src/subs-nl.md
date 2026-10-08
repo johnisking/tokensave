@@ -38,7 +38,7 @@ ChatGPT Plus, Claude Pro en Google AI Pro kosten bijna hetzelfde. Het verschil z
 
 Soms, maar let op wat je inlevert.
 
-- **ChatGPT Go (€8):** hier antwoordt het kleinere model GPT-5.6 Luna. Wil je weten of het verschil met Plus de €15 extra waard is, lees dan [ChatGPT Go vs Plus](/nl/blog/chatgpt-go-vs-plus).
+- **ChatGPT Go (€8):** hier antwoordt het kleinere model GPT-6 Luna. Wil je weten of het verschil met Plus de €15 extra waard is, lees dan [ChatGPT Go vs Plus](/nl/blog/chatgpt-go-vs-plus).
 - **Google AI Plus (€4,99):** dit abonnement raakt binnenkort het Pro-model kwijt. Voor 400 GB opslag is de prijs nog steeds redelijk. De details staan in [Gemini gratis: alleen nog Flash-Lite](/nl/blog/gemini-gratis-flash-lite).
 
 ## Is €100 of €200 per maand goedkoper per eenheid?
@@ -55,7 +55,7 @@ Bij Claude en Google wel, bij ChatGPT niet. Kijk daarom naar de prijs per eenhei
 | Google AI Ultra (20x) | 20× AI Pro | ongeveer 50% goedkoper dan AI Pro |
 | ChatGPT Pro 100 / 200 / 500 | 5× / 10× / 25× Plus | gelijk aan Plus (in dollars) |
 
-Bij Claude Max 20x en Google AI Ultra (20x) daalt de prijs per eenheid hoe hoger je instapt. Werk je de hele dag met Claude Code, dan is Max 20x het voordeligst. Bij ChatGPT betaal je in elk Pro-abonnement $20 per "Plus aan gebruik". Hogerop geeft daar dus geen korting. Wat een coding-agent via de API zou kosten, zie je in de [rekenmachine voor coding-agents](/nl/agents).
+Bij Claude Max 20x en Google AI Ultra (20x) daalt de prijs per eenheid hoe hoger je instapt. Werk je de hele dag met Claude Code, dan is Max 20x het voordeligst. Bij ChatGPT betaal je in elk Pro-abonnement $20 per "Plus aan gebruik". De ChatGPT-verhoudingen staan niet op de prijspagina van OpenAI; ze komen uit een bericht op X van Thibault Sottiaux (OpenAI) en uit persberichten (WinBuzzer, Windows Report). Hogerop geeft daar dus geen korting. Wat een coding-agent via de API zou kosten, zie je in de [rekenmachine voor coding-agents](/nl/agents).
 
 ## Kun je als zzp'er of bedrijf zonder btw betalen?
 
@@ -75,5 +75,5 @@ Er is wel een addertje. Nederlands gebruikt ongeveer 29% meer tokens dan Engels 
 
 Vul je eigen gebruik in bij de [rekenmachine abonnement vs API](/nl/plans). Dan zie je de API-kosten per maand direct naast elk abonnement. Losse prompts tel je met de [tokenteller](/nl/).
 
-*Bronnen: [Wat kost ChatGPT? (LearnLLM)](https://learnllm.nl/kennisbank/chatgpt-handleiding/wat-kost-chatgpt/), [ChatGPT-prijzen](https://chatgpt.com/pricing), [Claude-prijzen](https://claude.com/pricing), [Google AI-abonnementen (Nederland)](https://gemini.google/nl/subscriptions/), [Grok-kosten (GIGA, in het Duits)](https://www.giga.de/tech/grok-kosten-2026-wie-teuer-ist-der-ki-chatbot--01KPQCHS1PBH2QR2CZHHFGBVM4). Stand: 6 oktober 2026. Prijzen en limieten veranderen vaak. Controleer ze bij de aanbieder voordat je een abonnement afsluit.*
+*Bronnen: [ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes), [Wat kost ChatGPT? (LearnLLM)](https://learnllm.nl/kennisbank/chatgpt-handleiding/wat-kost-chatgpt/), [ChatGPT-prijzen](https://chatgpt.com/pricing), [OpenAI Help: ChatGPT Pro-niveaus](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers), [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/), [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692), [Claude-prijzen](https://claude.com/pricing), [Google AI-abonnementen (Nederland)](https://gemini.google/nl/subscriptions/), [Grok-kosten (GIGA, in het Duits)](https://www.giga.de/tech/grok-kosten-2026-wie-teuer-ist-der-ki-chatbot--01KPQCHS1PBH2QR2CZHHFGBVM4). Stand: 6 oktober 2026. Prijzen en limieten veranderen vaak. Controleer ze bij de aanbieder voordat je een abonnement afsluit.*
 <!-- autoimg -->

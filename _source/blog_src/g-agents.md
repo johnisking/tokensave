@@ -27,21 +27,22 @@ Using API prices checked October 1, 2026:
 |---|---|---|---|
 | Claude Haiku 4.5 | $0.08 | $0.36 | $1.33 |
 | DeepSeek V4 Pro | $0.09 | $0.43 | $1.61 |
-| Claude Sonnet 5.5 | $0.15 | $0.72 | $2.65 |
+| Claude Sonnet 5.5 | $0.14 | $0.57 | $1.91 |
 | GPT-6 Sol | $0.15 | $0.72 | $2.65 |
 | Gemini 3.1 Pro | $0.16 | $0.75 | $2.76 |
-| Claude Opus 5.5 | $0.31 | $1.43 | $5.30 |
+| Claude Opus 5.5 | $0.27 | $1.14 | $3.82 |
 
-These figures assume **prompt caching**, where the repeated part of the context is billed at about 10% of the normal input price. Without caching, the same feature task on Claude Sonnet 5.5 costs about $3.38 instead of $0.72, almost five times as much. Make sure your agent uses caching.
+These figures assume **prompt caching**, where the repeated part of the context is billed at 5% of the normal input price on Claude Sonnet 5.5 and Opus 5.5 and at 10% on the other models in the table. Without caching, the same feature task on Claude Sonnet 5.5 costs about $3.38 instead of $0.57, so caching saves about 83%. Make sure your agent uses caching.
 
 ## From one task to a month
 
-![From one task to a month: Claude Sonnet 5.5 or GPT-6 Sol; Claude Opus 5.5; Claude Haiku 4.5](/ai-coding-agent-cost-from-one-task-to-a-month-en.jpg)
+![From one task to a month: GPT-6 Sol; Claude Sonnet 5.5; Claude Opus 5.5; Claude Haiku 4.5](/ai-coding-agent-cost-from-one-task-to-a-month-en.jpg)
 
 Ten feature-sized tasks a day, on 22 working days, is 220 tasks a month:
 
-- Claude Sonnet 5.5 or GPT-6 Sol: about **$158 a month**
-- Claude Opus 5.5: about **$315 a month**
+- GPT-6 Sol: about **$158 a month**
+- Claude Sonnet 5.5: about **$125 a month**
+- Claude Opus 5.5: about **$250 a month**
 - Claude Haiku 4.5: about **$79 a month**
 
 ## Subscription or API?

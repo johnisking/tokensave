@@ -14,15 +14,15 @@ Models with million-token context windows can read an entire manual, codebase or
 
 Take a 500-page product manual. At roughly 500 words per page, that is about 250,000 words, or around 330,000 tokens. It fits comfortably in the context window of current flagship models.
 
-Now answer questions about it on GPT-6 Sol, at $2 per million input tokens (checked October 1, 2026). Output cost is the same in every case, so we compare input only.
+Now answer questions about it on GPT-6 Sol, at $2 per million input tokens and $0.20 cached (checked October 9, 2026). OpenAI bills any prompt over 272,000 input tokens at double the input and cache rates for the whole request, so each long-context question here pays $4 per million input tokens ($0.40 cached), and its output costs 50% more too. We compare input only, so the real gap is slightly larger than shown.
 
 | Approach | Input tokens per question | Input cost per question | 10,000 questions |
 |---|---|---|---|
-| Long context, no caching | ~333,000 | $0.67 | $6,660 |
-| Long context, with prompt caching (90% off) | ~333,000 (mostly cached) | about $0.07 | about $670 |
+| Long context, no caching | ~333,000 | $1.33 | $13,320 |
+| Long context, with prompt caching (90% off) | ~333,000 (mostly cached) | about $0.13 | about $1,330 |
 | RAG, 8 chunks of 500 tokens | ~4,500 | $0.009 | $90 |
 
-Even with caching, sending the whole manual costs around 600% more than RAG. Without caching, it is $0.67 per question against $0.009 for RAG.
+Even with caching, sending the whole manual costs around 1,400% more than RAG. Without caching, it is $1.33 per question against $0.009 for RAG.
 
 ## It is not only about money
 

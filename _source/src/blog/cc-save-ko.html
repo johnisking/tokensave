@@ -26,15 +26,16 @@
 <h2>8. 작업에 맞는 모델 고르기</h2>
 <p>API에서 Claude Opus 5.5는 Sonnet 5.5보다 토큰당 100% 비싸고, 요금제에서는 한도를 더 빨리 씁니다. <strong>/model</strong>로 바꾸세요. 대부분의 코딩은 Sonnet, 어려운 설계나 까다로운 버그는 Opus, 단순 반복 수정은 Haiku면 됩니다.</p>
 <h2>9. 캐시가 일하게 두기</h2>
-<p>클로드 코드는 반복되는 맥락을 자동으로 캐시하고, 캐시된 입력은 보통 가격의 약 10%입니다. 세션 중간에 CLAUDE.md를 고치지 않고, 같은 작업을 잇는데 굳이 세션을 다시 시작하지 않는 것만으로도 도움이 됩니다.</p>
+<p>클로드 코드는 반복되는 맥락을 자동으로 캐시하고, 캐시된 입력은 Sonnet 5.5·Opus 5.5에서 보통 가격의 5%(Haiku 4.5는 10%)입니다. 세션 중간에 CLAUDE.md를 고치지 않고, 같은 작업을 잇는데 굳이 세션을 다시 시작하지 않는 것만으로도 도움이 됩니다.</p>
 <h2>얼마나 차이 날까</h2>
-<p>토큰세이브 <a href="/ko/agents">코딩 에이전트 비용 계산 모델</a> 기준으로, Sonnet 5.5에서 일반적인 기능 작업 하나는 캐싱을 켜고 약 $0.72입니다. 정확한 지시와 파일 위치를 줘서 25단계를 15단계로 줄이면 약 $0.40으로 내려갑니다. 작업마다 새 세션으로 시작하면 시작 맥락도 작게 유지됩니다. 한 달에 작업 100개라면 주간 한도에 걸리느냐 안 걸리느냐가 갈리는 차이입니다.</p>
+<p>토큰세이브 <a href="/ko/agents">코딩 에이전트 비용 계산 모델</a> 기준으로, Sonnet 5.5에서 일반적인 기능 작업 하나는 캐싱을 켜고 약 $0.57입니다. 정확한 지시와 파일 위치를 줘서 25단계를 15단계로 줄이면 약 $0.33으로 내려갑니다. 작업마다 새 세션으로 시작하면 시작 맥락도 작게 유지됩니다. 한 달에 작업 100개라면 주간 한도에 걸리느냐 안 걸리느냐가 갈리는 차이입니다.</p>
 <h2>사용량 확인</h2>
 <p>클로드 코드에서 <strong>/status</strong>를 치면 남은 사용량이 나옵니다. 한도 자체가 어떻게 돌아가는지는 <a href="/ko/blog/claude-code-sayongnyang-hando">클로드 코드 사용량 한도 정리</a>를, 요금제와 API 비교는 <a href="/ko/blog/claude-code-yogeum">클로드 코드 한 달 요금 계산</a>을 보세요.</p>
 <h2>출처</h2>
 <ul>
 <li><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">비용을 효과적으로 관리하기 (Claude Code 문서)</a></li>
 <li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API 가격 (Anthropic 문서)</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">프롬프트 캐싱 (Claude 문서)</a></li>
 <li><a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener">tiktoken: OpenAI 토크나이저 (o200k_base)</a></li>
 <li><a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Pro·Max 요금제로 클로드 코드 사용하기 (Claude 도움말 센터)</a></li>
 </ul>
