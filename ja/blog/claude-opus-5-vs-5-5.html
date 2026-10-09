@@ -148,7 +148,7 @@
 </table></div>
 <ul>
 <li><strong>キャッシュ読み取りが最も大きく下がりました。</strong> Opus 5 では入力価格の10%でしたが、Opus 5.5 では5%です。同じ文書や会話を繰り返し読む作業ほど差が大きくなります。</li>
-<li><strong>トークン数は同じです。</strong> どちらも Claude 4.7 以降の新しいトークナイザーを使うため、同じ文章ならトークン数は同じです。単価の差がそのまま費用の差になります。</li>
+<li><strong>同じ文章ならトークン数は同じです。</strong> どちらも Claude 4.7 以降の新しいトークナイザーを使うため、同じ文章を入れればトークン数は同じで、単価の差がそのまま費用の差になります。ただし、作業中にモデルが使うトークン量は変わることがあります（下の実測を参照）。</li>
 <li><strong>高速モード：</strong> Opus 5.5 には入力 $8、出力 $40 の高速モードが加わりました。Claude Code と API で使え、Anthropic によると速度は最大150%速くなります。</li>
 </ul>
 <h2>使ってみた感想：Max 20x の週間上限が余るようになった</h2>
@@ -161,7 +161,7 @@
 <p>上の公式料金と下の計算結果も同じ方向です。同じ作業をより少ない費用（＝より少ない上限）でこなすので、同じプランでより長く使えます。</p>
 <h2>同じ依頼で実際に測ってみた</h2>
 <p><img loading="lazy" width="1600" height="835" alt="同じ依頼で実測：Opus 5 と Opus 5.5 が作ったブロック崩しゲームの比較" src="/claude-opus-5-vs-5-5-ja-5.jpg" /></p>
-<p>感覚だけでは足りないので、2026年10月9日に Claude Code で両モデルに<strong>同じ依頼</strong>を1回ずつ出しました。ブラウザで動くブロック崩しゲーム（2レベル、スコアとライフ表示）を HTML ファイル1つで作るという依頼で、使用量は無料ツール ccusage で測りました。</p>
+<p>感覚だけでは足りないので、2026年10月9日に Claude Code で両モデルに<strong>同じ依頼</strong>を1回ずつ出しました（モデル名だけを変え、ほかの設定はそのまま）。ブラウザで動くブロック崩しゲーム（2レベル、スコアとライフ表示）を HTML ファイル1つで作るという依頼で、使用量は無料ツール ccusage で測りました。</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -213,7 +213,7 @@
 <p><img loading="lazy" width="1200" height="634" alt="同じ依頼で使ったトークンのグラフ：Opus 5 は188万、Opus 5.5 は67万トークン" src="/claude-opus-5-vs-5-5-ja-6.jpg" /></p>
 <ul>
 <li><strong>費用の差は単価の差（20%）よりずっと大きくなりました。</strong> Opus 5.5 は同じ依頼を処理しながら、トークンそのものを64%少なく使いました。特に前の会話を読み直すキャッシュ読み取りが66%減りました。Max プランで週間上限が余るようになった理由と同じ方向です。</li>
-<li><strong>機能は Opus 5 のほうが多くありました。</strong> Opus 5 のゲームには2回当てないと壊れないブロック、パーティクル効果、リスタート（R）キーがあり、Opus 5.5 は基本機能だけでした。ただ、画面は私の目には Opus 5.5 のほうがすっきりして見やすく感じました。トークンが少なかったのには、この機能の差も一部関係しています。</li>
+<li><strong>機能は Opus 5 のほうが多くありました。</strong> 2回当てないと壊れないブロックは両方にありましたが（Opus 5.5 はレベル2から）、Opus 5 にはパーティクル効果、いつでもリスタートできる R キー、レベルクリアのボーナス、ブロックに残り耐久の数字表示もありました。ただ、画面は私の目には Opus 5.5 のほうがすっきりして見やすく感じました。トークンが少なかったのには、この機能の差も一部関係しています。</li>
 <li><strong>Opus 5.5 のファイルは末尾が欠けていました。</strong> 最後の閉じタグ（<code>&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;</code>）がなく、最初は真っ白な画面でした。その3つを足すと正常に遊べました。Opus 5 のファイルはそのまま動きました。</li>
 <li><strong>注意：</strong> 各モデル1回ずつの結果なので、やり直すと数字が変わる可能性があります。費用は ccusage が API 料金で換算した値で、プランの利用者はこの金額を払うのではなく上限から差し引かれます。</li>
 </ul>
@@ -258,10 +258,10 @@
 </tbody>
 </table></div>
 <p>計算例：Opus 5.5 の文書への質問 = 新しい入力5,000 × $4 + キャッシュ45,000 × $0.20 + 出力1,000 × $20（すべて100万トークンあたり）= $0.049。</p>
-<p><strong>キャッシュを多く使うほど節約幅が大きくなります。</strong> 単純なチャットは20%しか安くなりませんが、会話を読み直し続けるコーディングエージェントは37%近く安くなります。Anthropic の「40%削減」はこうした作業を基準にしたものと考えられます。</p>
+<p><strong>キャッシュを多く使うほど節約幅が大きくなります。</strong> 単純なチャットは20%しか安くなりませんが、会話を読み直し続けるコーディングエージェントは37%近く安くなります。この表はトークン数を同じとした計算です。Anthropic は「40%削減」が、既定の設定で単価の値下げと<strong>作業あたりのトークン減少</strong>を合わせた結果だとしており、上の実測でもトークンは64%減りました。</p>
 <h2>性能比較（Anthropic の発表より）</h2>
 <p><img loading="lazy" width="1200" height="830" alt="性能比較（Anthropic の発表より）：Opus 5 と Opus 5.5 のベンチマーク棒グラフ" src="/claude-opus-5-vs-5-5-ja-4.jpg" /></p>
-<p>Anthropic が公開したベンチマークです。Opus 5.5 のスコアは最高設定（max effort）で、すべて Anthropic 自身による測定です。</p>
+<p>Anthropic が公開したベンチマークです。Opus 5.5 のスコアは最高設定（max effort）で、Terminal-Bench 4.0 だけは1段階下（xhigh）です。すべて Anthropic 自身による測定です。</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -308,6 +308,45 @@
 <li><strong>速度：</strong> Anthropic によると、出力の生成速度は Opus 5 より30%以上速くなっています。</li>
 <li><strong>注意：</strong> 会社自身が測ったスコアなので、自分の作業でも同じ差が出るかは試してみる必要があります。</li>
 </ul>
+<h2>独立評価：Artificial Analysis</h2>
+<p>会社の外で測ったスコアもあります。独立評価機関 Artificial Analysis の総合指標 Intelligence Index で、Opus 5.5（最高設定）は58点で1位になりました（報道ベース）。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>モデル</th>
+<th style="text-align: right;">Intelligence Index</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Opus 5.5（max effort）</td>
+<td style="text-align: right;">58</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">53</td>
+</tr>
+<tr>
+<td>Claude Fable 5.1</td>
+<td style="text-align: right;">53</td>
+</tr>
+<tr>
+<td>Claude Opus 5</td>
+<td style="text-align: right;">51</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>独立評価でも Opus 5.5 が上回りました。</strong> Opus 5 より7点高い結果です。</li>
+<li><strong>ただしトークンは多く使いました。</strong> 同じ評価で1タスクあたりの出力トークンは、Opus 5.5（最高設定）が約11万9,000、Opus 5 が約7万3,000で、Opus 5.5 が63%多くなりました。理由はすぐ下で説明します。</li>
+</ul>
+<h2>effort 設定で節約幅が変わる</h2>
+<ul>
+<li><strong>既定の設定が変わりました。</strong> Anthropic の移行ガイドによると、effort を指定しない場合、Opus 5 は high、Opus 5.5 は medium で動きます。「40%削減」はこの既定設定でのものです。</li>
+<li><strong>最高設定では節約がなくなることがあります。</strong> Artificial Analysis は、最高設定の Opus 5.5 が出力トークンを63%多く使い、1タスクあたりの費用は Opus 5 とほぼ同じだったとしています（報道ベース）。</li>
+<li><strong>私たちの実測は逆の結果でした。</strong> Claude Code でモデル名だけを変えて実行すると、Opus 5.5 のトークンは64%少なくなりました。設定と作業によって結果が大きく変わるということです。</li>
+<li><strong>おすすめ：</strong> medium から始め、品質が足りない作業だけ high 以上に上げましょう。xhigh・max を使うときは、Anthropic の案内どおり max_tokens を大きめ（64k から）に設定してください。</li>
+</ul>
 <h2>Pro・Max プランの利用者には</h2>
 <ul>
 <li>サブスクリプションでは、トークン単価ではなく<strong>上限</strong>が重要です。Anthropic は Opus 5.5 の公開に合わせて、Pro、Max、Team、シート制 Enterprise の5時間の使用上限を引き上げ、あとで使える上限リセットも提供するとしています。</li>
@@ -324,12 +363,50 @@
 <p><strong>短所</strong></p>
 <ul>
 <li><strong>依然として高いモデル：</strong> Sonnet 5.5（入力 $2、出力 $10）よりトークンあたり100%高くなります。簡単な作業なら Sonnet で十分です。</li>
-<li><strong>性能の数値は会社の発表：</strong> 独立した評価が集まるまでは、自分の作業で確認が必要です。</li>
+<li><strong>性能の数値の多くは会社の発表：</strong> 独立評価（Artificial Analysis）でも1位でしたが、自分の作業で確認が必要です。</li>
+<li><strong>最高設定では節約幅が縮む：</strong> 長く考えるため、出力トークンが増えます。</li>
 <li><strong>高速モードは高い：</strong> 通常モードより100%高くなります。</li>
 </ul>
+<h2>API の移行で変えるべきこと</h2>
+<p>Anthropic の移行ガイドによると、Opus 5 向けのコードをそのまま使うとエラー（400）になる部分があります。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>変更点</th>
+<th>Opus 5.5 でやること</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>thinking をオフにできない：<code>disabled</code>、<code>budget_tokens</code> はエラー</td>
+<td>thinking の設定を外し、effort で調整</td>
+</tr>
+<tr>
+<td>ツールの強制呼び出し不可：<code>tool_choice</code> の <code>any</code>・<code>tool</code> はエラー</td>
+<td><code>auto</code> と strict ツール、または構造化出力</td>
+</tr>
+<tr>
+<td>古いコンピューター操作ツール（<code>computer_20251124</code>）は API・Google Cloud でエラー</td>
+<td><code>computer_toolset_20260801</code> に変更</td>
+</tr>
+<tr>
+<td>途中の会話を編集したあと thinking ブロックを送り直すとエラー（2026年8月31日以降に作成したアカウント）</td>
+<td>会話履歴は後ろに追加するだけにする</td>
+</tr>
+<tr>
+<td>ツール呼び出しの間の説明文が thinking ブロックに移動</td>
+<td>画面に表示するなら <code>thinking.display</code> を設定</td>
+</tr>
+<tr>
+<td>拒否（<code>stop_reason: "refusal"</code>）の範囲が拡大</td>
+<td>拒否の処理と代替モデルを設定</td>
+</tr>
+</tbody>
+</table></div>
+<p>このほか、Priority Tier は Opus 5.5 では使えません。Claude Code やプランで使う場合、自分で直すコードはありません。</p>
 <h2>Opus 5 から乗り換えるべきか</h2>
 <ul>
-<li><strong>API で Opus 5 を使っているなら：</strong> 乗り換えをおすすめします。同じトークナイザーなのでプロンプトをほとんど変える必要がなく、費用は20〜37%下がり、性能は上がります。モデル名を <code>claude-opus-5-5</code> に変えて、結果を何回か比べてみてください。</li>
+<li><strong>API で Opus 5 を使っているなら：</strong> 乗り換えをおすすめします。費用は20〜37%下がり、性能は上がります。ただし、モデル名を変えるだけでは済みません。上の変更点を直し、effort を明示して、まず開発環境で試してください。</li>
 <li><strong>Claude Code で大きな作業をよく回すなら：</strong> キャッシュ割引の効果が最も大きいケースなので、得るものが大きいです。</li>
 <li><strong>Sonnet で足りる作業なら：</strong> Opus 5.5 に上げる必要はありません。難しい設計やデバッグだけを Opus に任せるのが最も経済的です。</li>
 </ul>
@@ -337,9 +414,11 @@
 <p><strong>Opus 5.5 は Opus 5 よりどれくらい安いですか？</strong>
 トークン単価は20%、キャッシュ読み取りは60%安くなります。実際の作業費用では、チャットで20%、キャッシュを多く使うコーディングエージェント作業で約37%安くなります。</p>
 <p><strong>トークン数も変わりますか？</strong>
-いいえ。両モデルとも同じ新しいトークナイザーを使うため、同じ文章ならトークン数は同じです。</p>
+同じ文章を入れればトークン数は同じです（同じトークナイザー）。ただし作業で使うトークンは違います。私たちの実測では Opus 5.5 が64%少なく、最高設定では逆に多く使うこともあります。</p>
 <p><strong>Opus 5.5 と Sonnet 5.5 のどちらを使うべきですか？</strong>
 ほとんどの作業は Sonnet 5.5 で十分で、トークンあたりの価格も半分です。難しいコーディング、長いエージェント作業、品質が重要な文章には Opus 5.5 を使いましょう。</p>
+<p><strong>Opus 5 向けの API コードをそのまま使えますか？</strong>
+いいえ。thinking のオフや <code>tool_choice</code> による強制呼び出しなどは、Opus 5.5 ではエラーになります。上の「API の移行で変えるべきこと」を確認してください。</p>
 <h2>自分の作業で計算する</h2>
 <p><a href="/ja/agents">コーディングエージェント費用計算機</a> で作業の大きさと1日の作業数を入れると、Opus 5.5、Sonnet 5.5、GPT-6 Sol の1か月の費用をすぐ比べられます。プロンプト1つの費用は <a href="/ja/">トークンカウンター</a> で確認できます。プランと API のどちらが得かは <a href="/ja/blog/claude-code-ryoukin">Claude Code の料金は月いくら？</a> を参考にしてください。</p>
 <p><em>2026年10月9日時点の料金です。料金は変わることがあるため、使う前に Anthropic の料金ページを確認してください。</em></p>
@@ -350,6 +429,8 @@
 <li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">Anthropic：プロンプトキャッシュのドキュメント</a></li>
 <li><a href="https://datanorth.ai/news/claude-opus-5-by-anthropic" target="_blank" rel="noopener">DataNorth：Claude Opus 5 リリースまとめ（2026年7月24日）</a></li>
 <li><a href="https://github.com/ryoppippi/ccusage" target="_blank" rel="noopener">ccusage：Claude Code 使用量計測ツール（GitHub）</a></li>
+<li><a href="https://platform.claude.com/docs/en/models/opus-5-5/migration-guide" target="_blank" rel="noopener">Anthropic：Claude Opus 5 から Opus 5.5 への移行ガイド</a></li>
+<li><a href="https://officechai.com/ai/claude-opus-5-5-creates-5-point-lead-over-gpt-6-astra-jumps-to-top-spot-on-artificial-analysis-intelligence-index/" target="_blank" rel="noopener">OfficeChai：Artificial Analysis Intelligence Index の報道</a></li>
 </ul>
 <!-- autoimg -->
 
