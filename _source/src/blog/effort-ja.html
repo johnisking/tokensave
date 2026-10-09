@@ -1,0 +1,246 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="Claude Opus 5.5 の effort 比較：low〜max を実測" src="/claude-opus-5-5-effort-ja.jpg" /></p>
+<p>Claude <strong>Opus 5.5</strong> には、どれだけ深く考えるかを決める <strong>effort</strong> 設定が low、medium、high、xhigh、max の5段階あります。段階を上げるほど結果は良くなるとされていますが、時間と費用がどれだけ増えるのかは公式資料に数字がありません。そこで2026年10月9日、同じゲーム制作の依頼を5段階で1回ずつ実行し、時間、トークン、費用、出来上がったものを直接比べました。最も速い段階と最も遅い段階の差は32秒と22分でした。段階ごとに何が変わったのか、どの作業にどの段階を使えばよいのかを、実際に使ってきた感想とあわせてまとめました。</p>
+<h2>effort とは</h2>
+<ul>
+<li><strong>考える量を決める設定です。</strong> Opus 5.5 は thinking をオフにできず、effort でどれだけ深く考えるかを調整します。考えたトークンにも出力トークンとして料金がかかります。</li>
+<li><strong>既定値は medium です。</strong> Opus 5 は high が既定でしたが、Opus 5.5 は1段階低い medium が既定です（Anthropic のドキュメントより）。</li>
+<li><strong>変え方：</strong> Claude Code では <code>--effort</code> オプションで low から max まで選べ、API では <code>effort</code> の値を指定します。</li>
+</ul>
+<h2>計測方法</h2>
+<ul>
+<li><strong>モデル：</strong> Claude Opus 5.5、Claude Code（Windows PC）</li>
+<li><strong>依頼（原文のまま）：</strong> "Make a brick-breaker game that runs in the browser as a single file named index.html in the current folder. It needs 2 levels, a score display and 3 lives, and it must be playable with the keyboard and the mouse. Write the file and finish." ブラウザで動くブロック崩しを HTML ファイル1つで、2レベル、スコア、ライフ3つ、キーボード・マウス操作で作るという内容です。</li>
+<li><strong>方法：</strong> 同じ依頼を effort だけ変えて5回実行しました。段階ごとに別のフォルダを使い、互いに影響しないようにしました。</li>
+<li><strong>計測：</strong> トークンと費用は無料ツール ccusage で、時間は開始・終了時刻で測りました。費用は API 料金に換算した値です。</li>
+</ul>
+<h2>計測結果：時間・トークン・費用</h2>
+<p><img loading="lazy" width="1200" height="656" alt="計測結果：時間・トークン・費用: effort, かかった時間, 出力トークン, 合計トークン, 費用, ゲームのコード" src="/claude-opus-5-5-effort-ja-2.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>effort</th>
+<th style="text-align: right;">かかった時間</th>
+<th style="text-align: right;">出力トークン</th>
+<th style="text-align: right;">合計トークン</th>
+<th style="text-align: right;">費用</th>
+<th style="text-align: right;">ゲームのコード</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>low</td>
+<td style="text-align: right;">32秒</td>
+<td style="text-align: right;">3,368</td>
+<td style="text-align: right;">129,315</td>
+<td style="text-align: right;">$0.48</td>
+<td style="text-align: right;">138行</td>
+</tr>
+<tr>
+<td>medium（既定）</td>
+<td style="text-align: right;">52秒</td>
+<td style="text-align: right;">6,299</td>
+<td style="text-align: right;">133,428</td>
+<td style="text-align: right;">$0.56</td>
+<td style="text-align: right;">358行</td>
+</tr>
+<tr>
+<td>high</td>
+<td style="text-align: right;">1分50秒</td>
+<td style="text-align: right;">12,376</td>
+<td style="text-align: right;">222,854</td>
+<td style="text-align: right;">$0.75</td>
+<td style="text-align: right;">523行</td>
+</tr>
+<tr>
+<td>xhigh</td>
+<td style="text-align: right;">4分32秒</td>
+<td style="text-align: right;">32,435</td>
+<td style="text-align: right;">472,082</td>
+<td style="text-align: right;">$1.36</td>
+<td style="text-align: right;">639行</td>
+</tr>
+<tr>
+<td>max</td>
+<td style="text-align: right;">22分22秒</td>
+<td style="text-align: right;">160,033</td>
+<td style="text-align: right;">2,504,957</td>
+<td style="text-align: right;">$5.25</td>
+<td style="text-align: right;">1,121行</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>low と medium はほとんど差がありません。</strong> low は費用が14%、時間が38%少なかったものの、金額では8セントの差です。</li>
+<li><strong>high は medium より費用が34%増えただけでした。</strong> 時間は52秒から1分50秒に延びました。</li>
+<li><strong>xhigh から大きく増えます。</strong> 費用は medium より143%多く、時間は4分32秒です。</li>
+<li><strong>max は別格です。</strong> medium が52秒・$0.56のところ、max は22分22秒・$5.25でした。出力トークンも6,299から160,033に増えました。</li>
+</ul>
+<p><img loading="lazy" width="1200" height="651" alt="effort 別のかかった時間と費用のグラフ：low の32秒・$0.48から max の22分22秒・$5.25まで" src="/claude-opus-5-5-effort-ja-6.jpg" /></p>
+<p><img loading="lazy" width="1200" height="650" alt="ccusage の実測記録：Opus 5.5 の effort 5段階のトークンと費用" src="/claude-opus-5-5-effort-ja-7.jpg" /></p>
+<h2>出来上がったもの：5つのゲーム画面</h2>
+<p><img loading="lazy" width="1680" height="1080" alt="effort 5段階で作ったブロック崩しゲーム5つの実際の画面比較" src="/claude-opus-5-5-effort-ja-5.jpg" /></p>
+<p>5つのゲームはすべてエラーなく動き、2レベル、スコア、ライフ3つ、キーボード・マウス操作という依頼はすべて満たしていました。違いは、その上に足された機能と見た目です。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>effort</th>
+<th>追加されたもの</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>low</td>
+<td>単色のブロック、最もシンプルな画面、一時停止なし</td>
+</tr>
+<tr>
+<td>medium</td>
+<td>虹色のブロック、一時停止、リスタート</td>
+</tr>
+<tr>
+<td>high</td>
+<td>＋パーティクル効果、ベストスコアの保存</td>
+</tr>
+<tr>
+<td>xhigh</td>
+<td>パーティクル効果、より洗練されたデザイン（ベストスコア保存はなし）</td>
+</tr>
+<tr>
+<td>max</td>
+<td>＋効果音、レベル名、インベーダー型のレベル2、画面の揺れ、勝利の花火</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>high 以上は自分で確認しようとしました。</strong> high と xhigh はコードの構文チェックを、max はゲームを自動でプレイするテストを試みました。どれも実行に承認が必要で実際には動かせず、コードを読み直して確認したと書いています。low と medium は確認せずにすぐ終えました。</li>
+<li><strong>2回当てないと壊れないブロック</strong>は、依頼していないのに全段階が入れていました。</li>
+</ul>
+<h2>段階別の詳しいレビュー</h2>
+<p>それぞれのゲームを実際に遊び、モデルが作業の最後に残した説明とコードもあわせて確認しました。</p>
+<h3>low：32秒、$0.48</h3>
+<p><img loading="lazy" width="1490" height="722" alt="effort low で作ったブロック崩しのスタート画面とプレイ画面" src="/claude-opus-5-5-effort-ja-11.jpg" /></p>
+<ul>
+<li><strong>作ったもの：</strong> レベル1は青いブロック4段、レベル2は2回当てると壊れるオレンジのブロックと空きが混ざり、ボールが速くなります。レベルクリア・ゲームオーバー・勝利画面とリスタートはあります。</li>
+<li><strong>良かった点：</strong> 依頼した機能は漏れなく入っていて、パドルのどこに当たるかでボールの角度が変わります。32秒で終わりました。</li>
+<li><strong>惜しい点：</strong> 黒い背景に単色のブロックで最も地味です。一時停止がなく、コードも138行で最短です。</li>
+<li><strong>向いている場面：</strong> 動くかどうかだけ早く確かめ、デザインは後で整えるとき。</li>
+</ul>
+<h3>medium：52秒、$0.56（既定値）</h3>
+<p><img loading="lazy" width="1490" height="722" alt="effort medium で作ったブロック崩しのスタート画面とプレイ画面" src="/claude-opus-5-5-effort-ja-12.jpg" /></p>
+<ul>
+<li><strong>作ったもの：</strong> レベル1は5×10の虹色のブロック、レベル2は空きのある配置に2〜3回当てると壊れるブロックが混ざります。残り回数がブロックに表示され、当たるほど薄くなります。</li>
+<li><strong>良かった点：</strong> 一時停止（P・Esc）、リスタート（Enter）、ウィンドウを離れると自動で一時停止する機能まで入っています。スコアもブロックの耐久とレベルで変わります。</li>
+<li><strong>惜しい点：</strong> 効果音やパーティクルのような演出はありません。</li>
+<li><strong>向いている場面：</strong> ほとんどの作業。low より8セント高いだけで、完成度は一段上です。</li>
+</ul>
+<h3>high：1分50秒、$0.75</h3>
+<p><img loading="lazy" width="1490" height="722" alt="effort high で作ったブロック崩しのスタート画面とプレイ画面" src="/claude-opus-5-5-effort-ja-13.jpg" /></p>
+<ul>
+<li><strong>作ったもの：</strong> レベル2はダイヤ型の配置に2〜3回当てると壊れるブロック。ブロックが壊れるとパーティクルが飛びます。</li>
+<li><strong>良かった点：</strong> レベルクリアのボーナス、残りライフのボーナス、ベストスコアの保存まであり、タッチ操作にも対応しています。自分で構文チェックも試みました。</li>
+<li><strong>惜しい点：</strong> 時間は medium より112%長くかかりました（52秒 → 1分50秒）。</li>
+<li><strong>向いている場面：</strong> すぐ人に見せるプロトタイプや、完成度が大事なコーディング。費用は medium より34%増えただけです。</li>
+</ul>
+<h3>xhigh：4分32秒、$1.36</h3>
+<p><img loading="lazy" width="1490" height="722" alt="effort xhigh で作ったブロック崩しのスタート画面とプレイ画面" src="/claude-opus-5-5-effort-ja-14.jpg" /></p>
+<ul>
+<li><strong>作ったもの：</strong> レベル2はダイヤ型で、周りを鋼鉄のブロックが囲み、1回当たるとひびが入ります。ブロックの色ごとに10〜50点と点数が違います。</li>
+<li><strong>良かった点：</strong> 画面が最も整って見え、マウスとキーボードを混ぜて使っても、最後に使った方で自然に動きます。</li>
+<li><strong>惜しい点：</strong> high にあったベストスコアの保存とタッチ操作がなくなりました。費用は medium より143%多いのに、high と比べて機能は増えていません。</li>
+<li><strong>向いている場面：</strong> 今回のような小さな作業には過剰です。Anthropic の案内どおり、長時間かかる大きな作業向けです。</li>
+</ul>
+<h3>max：22分22秒、$5.25</h3>
+<p><img loading="lazy" width="1490" height="722" alt="effort max で作ったブロック崩しのスタート画面とプレイ画面" src="/claude-opus-5-5-effort-ja-15.jpg" /></p>
+<ul>
+<li><strong>作ったもの：</strong> レベル名（"Rainbow Wall"、"Space Invader"）、インベーダー型のレベル2（銀色のブロック14個は2回当てると壊れる）、レベル2で細くなるパドル。</li>
+<li><strong>良かった点：</strong> 効果音（M でオン・オフ）、ベストスコアの保存、タッチ操作、画面の揺れ、勝利の花火、ウィンドウを離れると自動で一時停止まで、5つの中で最も多くを入れました。そのままゲームとして見えます。</li>
+<li><strong>惜しい点：</strong> ほかの段階よりはるかに長くかかりました。承認が必要で実行できなかった自動プレイテストの試みも含まれています。</li>
+<li><strong>向いている場面：</strong> 品質が最優先で時間と上限に余裕があるとき、またはほかの段階で解けない問題。</li>
+</ul>
+<h2>使ってみた感想：普段は medium、コーディングは high</h2>
+<p>私（ジェヒョン）は Claude Max 20x プランでゲームを作りながら Opus 5.5 を使っています。測定値ではなく、普段使って感じたことです。</p>
+<ul>
+<li><strong>普段の設定：</strong> effort は自動（auto）にしています。普段は medium で動き、コーディングのときは high まで上がります。</li>
+<li><strong>low：</strong> もどかしく感じて、何度か使ってやめました。</li>
+<li><strong>high：</strong> 明らかに結果が良いと感じました。</li>
+<li><strong>xhigh・max：</strong> 1回使ったくらいで、使う場面がほとんどないので使っていません。</li>
+</ul>
+<p>計測と比べると、low は速度は最も速かったものの、出来上がりが最もシンプルでした。「もどかしい」という感覚は、速度より出来上がりのほうだったわけです。high で結果が良くなる感覚と、xhigh・max を使う場面がない感覚は、数字とも一致しました。</p>
+<h2>Anthropic の案内</h2>
+<ul>
+<li><strong>medium も十分に強力です。</strong> Anthropic のテストでは、Opus 5.5 の medium はコーディングと知識作業で Opus 5 の high と同等以上でした。</li>
+<li><strong>low もコーディングでは medium に近いとしています。</strong> 費用はずっと少ないとのことです。ただ、今回の計測では出来上がりの差がはっきり出ました。</li>
+<li><strong>xhigh と max は、品質向上を確認できた作業にだけ使うよう勧めています。</strong></li>
+<li><strong>途中で effort を変えるとキャッシュが無効になることがあります。</strong> API ではメッセージ単位で変える方法を使えばキャッシュが保たれます。</li>
+<li><strong>独立評価も同じ傾向です。</strong> Artificial Analysis は、最高設定の Opus 5.5 が1タスクあたりの出力トークンを Opus 5 より63%多く使ったとしています（報道ベース）。</li>
+</ul>
+<h2>どの作業にどの effort を使うか</h2>
+<p><img loading="lazy" width="1200" height="926" alt="どの作業にどの effort を使うか: 作業, おすすめ effort, 理由" src="/claude-opus-5-5-effort-effort-ja.jpg" /></p>
+<p>計測、ジェヒョンの経験、Anthropic の案内をまとめたおすすめです。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>作業</th>
+<th>おすすめ effort</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文言の修正、ファイル整理などの簡単な作業</td>
+<td>low または medium</td>
+<td>速くて安いが、low は出来がシンプル</td>
+</tr>
+<tr>
+<td>普段のコーディング、機能追加など大半の作業</td>
+<td>medium（既定）</td>
+<td>52秒・$0.56で使える結果</td>
+</tr>
+<tr>
+<td>ゲーム・アプリのプロトタイプ、完成度が必要なコーディング</td>
+<td>high</td>
+<td>費用34%増で出来が明らかに良くなる</td>
+</tr>
+<tr>
+<td>30分以上かかる長い作業、大きなリファクタリング</td>
+<td>xhigh</td>
+<td>Anthropic の案内より</td>
+</tr>
+<tr>
+<td>ほかの段階で解けない難しい問題</td>
+<td>max</td>
+<td>時間と費用が大きく増えるので必要なときだけ</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>まずは medium から始めましょう。</strong> 結果が物足りない作業だけ high に上げれば十分です。</li>
+<li><strong>プランの利用者は上限で考えましょう。</strong> API 換算の費用が大きいほど Max・Pro の上限も早く減ります。max 1回で medium 9回分以上を使いました。</li>
+<li><strong>注意：</strong> 段階ごとに1回ずつ、比較的小さな作業で測った結果です。大きなプロジェクトでは差が変わる可能性があります。</li>
+</ul>
+<h2>結論：普段は medium、しっかり作るなら high</h2>
+<ul>
+<li><strong>普段：medium。</strong> 52秒・$0.56で使える結果が出ます。</li>
+<li><strong>完成度が必要なとき：high。</strong> 費用は medium より34%増えるだけで、出来は明らかに良くなりました。最もコスパの良い段階です。</li>
+<li><strong>xhigh：小さな作業にはおすすめしません。</strong> 費用は medium より143%多いのに、high より機能は増えませんでした。30分以上かかる大きな作業向けです。</li>
+<li><strong>max：本当に必要なときだけ。</strong> 出来は最も派手ですが、22分・$5.25かかりました。</li>
+<li><strong>low：おすすめしません。</strong> medium より8セント節約しても、出来がシンプルになるだけです。</li>
+</ul>
+<h2>よくある質問</h2>
+<p><strong>Opus 5.5 の既定の effort は？</strong>
+medium です。Opus 5 は high が既定でした。API で effort を指定しない場合、Opus 5.5 は medium で動きます。</p>
+<p><strong>max にすれば必ず良くなりますか？</strong>
+今回の計測では機能と演出が最も多かったものの、時間は22分、費用は$5.25で、medium（52秒・$0.56）との差が大きくなりました。簡単な作業には過剰です。</p>
+<p><strong>low にすると大きく節約できますか？</strong>
+今回の計測では、low は medium より14%安いだけでした。出来がシンプルになることを考えると、medium のほうが良い選択です。</p>
+<h2>自分の作業で計算する</h2>
+<p><a href="/ja/agents">コーディングエージェント費用計算機</a> で作業の大きさと1日の作業数を入れると、Opus 5.5 の1か月の費用がわかります。プロンプト1つの費用は <a href="/ja/">トークンカウンター</a> で確認できます。Opus 5 と 5.5 の料金・性能の違いは <a href="/ja/blog/claude-opus-5-vs-5-5">Claude Opus 5 と 5.5 の違い</a> にまとめました。</p>
+<p><em>2026年10月9日計測。費用は ccusage が API 料金に換算した値で、モデルや Claude Code の更新によって結果が変わる可能性があります。</em></p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/effort#recommended-effort-levels-for-claude-opus-5-5" target="_blank" rel="noopener">Anthropic：effort 設定のドキュメント</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5" target="_blank" rel="noopener">Anthropic：Claude Opus 5.5 のプロンプトガイド</a></li>
+<li><a href="https://platform.claude.com/docs/en/models/opus-5-5/migration-guide" target="_blank" rel="noopener">Anthropic：Claude Opus 5 から Opus 5.5 への移行ガイド</a></li>
+<li><a href="https://officechai.com/ai/claude-opus-5-5-creates-5-point-lead-over-gpt-6-astra-jumps-to-top-spot-on-artificial-analysis-intelligence-index/" target="_blank" rel="noopener">OfficeChai：Artificial Analysis Intelligence Index の報道</a></li>
+<li><a href="https://github.com/ryoppippi/ccusage" target="_blank" rel="noopener">ccusage：Claude Code 使用量計測ツール（GitHub）</a></li>
+</ul>
+<!-- autoimg -->

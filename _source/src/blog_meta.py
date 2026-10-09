@@ -689,6 +689,20 @@ OPUS55.append(_cc("ja", "/ja/blog/claude-opus-5-vs-5-5", "opus55-ja", "Claude Op
      "Jonhisking · 2026年10月9日", "作業の大きさと1日の作業数を入れて、Opus 5.5・Sonnet 5.5・GPT-6 Sol の1か月の費用を比べましょう。", "コーディングエージェント費用計算機を開く"))
 for _d in OPUS55: _d["date"] = "2026-10-09"
 
+# 2026-10-09: Claude Opus 5.5 effort levels measured (en, ko, ja)
+EFFORT = [
+ _cc("ko", "/ko/blog/claude-opus-5-5-effort", "effort-ko", "클로드 오퍼스 5.5 effort 비교: low부터 max까지 실측",
+     "오퍼스 5.5 effort 5단계를 같은 게임 요청으로 실측. medium 52초 $0.56, high 1분 50초 $0.75, max 22분 $5.25. 결과물 화면과 작업별 추천 effort까지.",
+     "Jonhisking · 2026년 10월 9일", "작업 크기와 하루 작업 수를 넣고 오퍼스 5.5·소넷 5.5·GPT-6 Sol의 한 달 비용을 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"),
+]
+EFFORT.insert(0, _cc("en", "/blog/claude-opus-5-5-effort", "effort-en", "Claude Opus 5.5 Effort Levels Tested: Low to Max",
+     "We ran the same game prompt at all five Opus 5.5 effort levels: medium took 52 s and $0.56, high 1 min 50 s and $0.75, max 22 min and $5.25. Results and picks.",
+     "Jonhisking · October 9, 2026", "Enter task size and tasks per day to compare a month on Opus 5.5, Sonnet 5.5 and GPT-6 Sol.", "Open the coding agent cost calculator"))
+EFFORT.append(_cc("ja", "/ja/blog/claude-opus-5-5-effort", "effort-ja", "Claude Opus 5.5 の effort 比較：low〜max を実測",
+     "Opus 5.5 の effort 5段階を同じゲーム制作の依頼で実測。medium は52秒・$0.56、high は1分50秒・$0.75、max は22分・$5.25。出来上がりの画面と作業別のおすすめまで。",
+     "Jonhisking · 2026年10月9日", "作業の大きさと1日の作業数を入れて、Opus 5.5・Sonnet 5.5・GPT-6 Sol の1か月の費用を比べましょう。", "コーディングエージェント費用計算機を開く"))
+for _d in EFFORT: _d["date"] = "2026-10-09"
+
 # 2026-10-09: GPT-6.1 Sol Ultrafast (en, ko, ja)
 ULTRAFAST = [
  _cc("en", "/blog/gpt-6-1-sol-ultrafast-pricing", "ultrafast-en", "GPT-6.1 Sol Ultrafast: Price, Speed and When It's Worth It",
