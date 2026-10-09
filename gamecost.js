@@ -139,7 +139,7 @@ const PAINTS = [];
 const state = {
   genre: 'merge', scale: 's', style: 'illust', anim: 'simple', sfx: 'normal', dim: '2d',
   chars: null, music: null, voice: 0, langs: 1, trailer: false,
-  feats: new Set(['ads', 'save']), engine: 'unity', platform: 'android',
+  feats: new Set(['ads', 'save']), engine: 'unity', platform: 'android', storeFee: false,
   imgTool: 'mj', codeTool: 'max5', musicTool: 'suno', sfxTool: 'eleven', d3Tool: 'meshy', model: 'claude-sonnet-5-5', name: '', idea: '',
 };
 
@@ -212,7 +212,7 @@ function estimate() {
         ['art', imgCost(img, m)], ['music', musicCost], ['sfx', sfxCost], ['code', c.cost, sub],
         ...(models3d ? [['d3', d3Cost(d3)]] : []), ...(state.trailer ? [['trailer', trailerCost]] : []),
         ...(state.feats.has('online') && !rbx ? [['server', SERVER_MONTH * m, t('monthsN', { n: m })]] : []),
-        ...(PLATFORM[state.platform].fee ? [['store', PLATFORM[state.platform].fee, t('pls_' + state.platform)]] : []),
+        ...(PLATFORM[state.platform].fee && state.storeFee ? [['store', PLATFORM[state.platform].fee, t('pls_' + state.platform)]] : []),
       ] };
     };
     const sum = ls => ls.reduce((s, [, v]) => s + v, 0);
@@ -450,6 +450,11 @@ function platChanged() {
 }
 seg('gcDim', 'dim'); seg('gcPlat', 'platform', v => v, platChanged); seg('gcImg', 'imgTool'); seg('gcCodeTool', 'codeTool'); seg('gcMusicTool', 'musicTool'); seg('gcSfxTool', 'sfxTool'); seg('gcD3Tool', 'd3Tool');
 seg('gcTrailer', 'trailer', v => v === 'true');
+// Store registration fee: many people already paid it (Google Play once, Apple yearly, Steam per game), so it is opt-in
+const feeBox = document.getElementById('gcFee'), feeWrap = document.getElementById('gcFeeWrap');
+const feeVis = () => { if (feeWrap) feeWrap.hidden = !PLATFORM[state.platform].fee; };
+if (feeBox) feeBox.addEventListener('change', () => { state.storeFee = feeBox.checked; render(); });
+PAINTS.push(feeVis); feeVis();
 // Popular choices as buttons, the rest in an "other" dropdown (genre, engine)
 function popOther(boxId, selId, key, onPick) {
   const box = document.getElementById(boxId), sel = document.getElementById(selId);

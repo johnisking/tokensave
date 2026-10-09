@@ -11,6 +11,20 @@ const store = {
 };
 
 const langSelect = document.getElementById('langSelect');
+// Pages that exist in several languages (blog posts, game calculator...) list their translations as
+// hreflang links: point the switcher at the same page in the other language instead of that language's home.
+if (langSelect) {
+  const alt = {};
+  document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(l => {
+    const code = l.getAttribute('hreflang').toLowerCase();
+    if (code === 'x-default') return;
+    try { const u = new URL(l.href, location.href); if (u.hostname === location.hostname || u.hostname === 'tokensave.app') alt[code] = u.pathname; } catch (_) {}
+  });
+  if (Object.keys(alt).length) {
+    [...langSelect.options].forEach(o => { const c = o.dataset.code; if (c && alt[c]) o.value = alt[c]; });
+    try { const all = JSON.parse(langSelect.dataset.all || '{}'); Object.assign(all, alt); langSelect.dataset.all = JSON.stringify(all); } catch (_) {}
+  }
+}
 if (langSelect) {
   // Language switcher — remembers the choice
   langSelect.addEventListener('change', e => {
