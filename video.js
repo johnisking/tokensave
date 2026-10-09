@@ -11,7 +11,7 @@
 //   FLUX 3 Video ... bfl.ai/pricing (text/image-to-video; HD=720p, FHD=1080p, UHD=4K; audio included)
 // Sora 2 is excluded: OpenAI removed it from the API on 2026-09-24.
 
-import { tr } from './common.js';
+import { tr, fx } from './common.js';
 
 // p: { resolution: { a: price per second WITH audio, n: price per second WITHOUT audio, label?: exact resolution } }
 // A price of null means that option is not offered.
@@ -78,7 +78,7 @@ const $ = id => document.getElementById(id);
 const els = { len: $('vLen'), clips: $('vClips'), list: $('vResults') };
 const state = { res: '720', audio: '1' };
 
-const money = n => '$' + (n < 0.1 ? n.toFixed(3) : n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+const money = n => fx(n, '$' + (n < 0.1 ? n.toFixed(3) : n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })));
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 function compute() {

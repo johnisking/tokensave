@@ -104,7 +104,7 @@ Jugamos cada juego y lo contrastamos con el resumen que el modelo dejó al final
 
 ## Experiencia real: medium para el día a día, high para programar
 
-Yo (Jaehyun) uso Opus 5.5 con el plan Claude Max 20x para crear juegos. Esto es lo que se siente en el uso diario, no una medición.
+Yo uso Opus 5.5 con el plan Claude Max 20x para crear juegos. Esto es lo que se siente en el uso diario, no una medición.
 
 - **Mi configuración:** dejo effort en automático. Normalmente funciona en medium y sube a high cuando estoy programando.
 - **low:** me pareció lento, así que lo usé en unas pocas ocasiones y lo dejé.
@@ -125,7 +125,7 @@ Comparado con las mediciones, low fue en realidad el más rápido pero dio el re
 
 ![Qué effort usar para cada tarea: Tarea, Effort recomendado, Por qué](/claude-opus-5-5-effort-que-effort-usar-para-cada-tarea-es.jpg)
 
-Nuestras recomendaciones, combinando las mediciones, la experiencia de Jaehyun y las indicaciones de Anthropic:
+Nuestras recomendaciones, combinando las mediciones, mi experiencia y las indicaciones de Anthropic:
 
 | Tarea | Effort recomendado | Por qué |
 |---|---|---|

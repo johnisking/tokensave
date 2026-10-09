@@ -104,7 +104,7 @@ Nous avons joué à chaque jeu et l'avons comparé au résumé laissé par le mo
 
 ## Retour d'expérience : medium au quotidien, high pour coder
 
-J'utilise (Jaehyun) Opus 5.5 avec l'abonnement Claude Max 20x pour créer des jeux. Il s'agit de mon ressenti au quotidien, pas d'une mesure.
+J'utilise Opus 5.5 avec l'abonnement Claude Max 20x pour créer des jeux. Il s'agit de mon ressenti au quotidien, pas d'une mesure.
 
 - **Mon réglage :** je laisse l'effort en automatique. Il tourne généralement en medium et monte en high quand je code.
 - **low :** je l'ai trouvé poussif, je l'ai essayé à quelques reprises puis j'ai arrêté.
@@ -125,7 +125,7 @@ Comparé aux mesures, low était en réalité le plus rapide mais donnait le ré
 
 ![Quel effort pour quelle tâche: Tâche, Effort recommandé, Pourquoi](/claude-opus-5-5-effort-quel-effort-pour-quelle-tache-fr.jpg)
 
-Nos recommandations, qui combinent les mesures, l'expérience de Jaehyun et les conseils d'Anthropic :
+Nos recommandations, qui combinent les mesures, mon expérience et les conseils d'Anthropic :
 
 | Tâche | Effort recommandé | Pourquoi |
 |---|---|---|

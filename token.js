@@ -3,7 +3,7 @@
 // UI strings come from window.T (injected per language page).
 // Prices: USD per 1M tokens (standard tier, short context). Last checked: 2026-09-29.
 
-import { tr } from './common.js';
+import { tr, fx } from './common.js';
 
 // =========================================================
 // 1) MODEL CONFIG
@@ -269,8 +269,8 @@ for (let i = 0; i < 10; i++) {
 }
 
 const fmt = n => n.toLocaleString('en-US');
-const money = n => '$' + (n < 0.01 ? n.toFixed(6) : n.toFixed(4));
-const moneyBig = n => '$' + (n >= 100 ? Math.round(n).toLocaleString('en-US') : n >= 1 ? n.toFixed(2) : n < 0.01 ? n.toFixed(6) : n.toFixed(4));
+const money = n => fx(n, '$' + (n < 0.01 ? n.toFixed(6) : n.toFixed(4)));
+const moneyBig = n => fx(n, '$' + (n >= 100 ? Math.round(n).toLocaleString('en-US') : n >= 1 ? n.toFixed(2) : n < 0.01 ? n.toFixed(6) : n.toFixed(4)));
 const clamp = (v, lo, hi, d) => { const n = Math.round(+v); return Number.isFinite(n) ? Math.min(hi, Math.max(lo, n)) : d; };
 
 // Chat mode: OpenAI-style messages. Content tokens + ~4 formatting tokens per message + 3 to prime the reply.

@@ -10,7 +10,7 @@
 //   GPT Image, Nano Banana Pro, Nano Banana (2.5 Flash), Seedream 5, Runway Gen-4 Image ... docs.dev.runwayml.com/guides/pricing
 // Resolutions: 0.5k = 512px, 1k = 1024px, 2k = 2048px (4 MP), 4k = 4096px (16 MP)
 
-import { tr } from './common.js';
+import { tr, fx } from './common.js';
 
 // FLUX.2: output billed per megapixel, rounded up; 0.5K rounds up to 1 MP, 2K = 4 MP, 4K not offered (max 4 MP)
 const flux = (first, extra) => ({ '0.5k': first, '1k': first, '2k': first + 3 * extra });
@@ -53,7 +53,7 @@ const $ = id => document.getElementById(id);
 const els = { count: $('iCount'), list: $('iResults') };
 const state = { res: '1k' };
 
-const money = n => '$' + (n < 0.1 ? n.toFixed(n < 0.01 ? 4 : 3) : n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+const money = n => fx(n, '$' + (n < 0.1 ? n.toFixed(n < 0.01 ? 4 : 3) : n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })));
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 function compute() {

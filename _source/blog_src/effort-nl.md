@@ -104,7 +104,7 @@ We hebben elk spel gespeeld en vergeleken met de samenvatting die het model aan 
 
 ## Praktijkervaring: medium voor dagelijks gebruik, high voor programmeren
 
-Ik (Jaehyun) gebruik Opus 5.5 met het Claude Max 20x-abonnement om spellen te bouwen. Dit is hoe het in dagelijks gebruik aanvoelt, geen meting.
+Ik gebruik Opus 5.5 met het Claude Max 20x-abonnement om spellen te bouwen. Dit is hoe het in dagelijks gebruik aanvoelt, geen meting.
 
 - **Mijn instelling:** ik laat effort op automatisch staan. Meestal draait het op medium en bij programmeren gaat het omhoog naar high.
 - **low:** het voelde traag aan, dus ik heb het even geprobeerd en ben ermee gestopt.
@@ -125,7 +125,7 @@ Vergeleken met de metingen was low juist het snelst, maar gaf het het kaalste re
 
 ![Welke effort voor welke taak: Taak, Aanbevolen effort, Waarom](/claude-opus-5-5-effort-welke-effort-voor-welke-taak-nl.jpg)
 
-Onze aanbevelingen, op basis van de metingen, de ervaring van Jaehyun en de richtlijnen van Anthropic:
+Onze aanbevelingen, op basis van de metingen, mijn ervaring en de richtlijnen van Anthropic:
 
 | Taak | Aanbevolen effort | Waarom |
 |---|---|---|

@@ -4,7 +4,7 @@
 // Plan prices: official US monthly prices, checked 2026-10-01 (Claude Pro/Max include Claude Code,
 // ChatGPT Plus/Pro include Codex). API prices come from src/llm_prices.json, injected by build.py as T.prices.
 
-import { T, tr } from './common.js';
+import { T, tr, fx } from './common.js';
 
 const PRICES = T.prices || {};
 const CACHE_RATE = 0.1;   // cached input billed at ~10% of the normal input price
@@ -38,7 +38,7 @@ const state = { size: 'feature', cache: true };
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const planMoney = n => Number.isInteger(n) ? '$' + n.toLocaleString('en-US') : '$' + n.toFixed(2);
-const money = n => '$' + (n >= 100 ? Math.round(n).toLocaleString('en-US') : n >= 1 ? n.toFixed(2) : n.toFixed(3));
+const money = n => fx(n, '$' + (n >= 100 ? Math.round(n).toLocaleString('en-US') : n >= 1 ? n.toFixed(2) : n.toFixed(3)));
 const big = n => n >= 1e9 ? (n / 1e9).toFixed(2) + 'B' : n >= 1e6 ? (n / 1e6).toFixed(1) + 'M' : n >= 1e3 ? Math.round(n / 1e3) + 'K' : String(Math.round(n));
 
 // Tokens for one task: full input, the part that would be read from cache, and output

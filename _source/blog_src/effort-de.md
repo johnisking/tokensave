@@ -104,7 +104,7 @@ Wir haben jedes Spiel gespielt und mit der Zusammenfassung des Modells am Ende s
 
 ## Praxis: medium im Alltag, high fürs Coden
 
-Ich (Jaehyun) nutze Opus 5.5 im Plan Claude Max 20x, um Spiele zu bauen. So fühlt es sich im täglichen Einsatz an, das ist keine Messung.
+Ich nutze Opus 5.5 im Plan Claude Max 20x, um Spiele zu bauen. So fühlt es sich im täglichen Einsatz an, das ist keine Messung.
 
 - **Meine Einstellung:** Ich lasse effort auf auto. Meist läuft es auf medium und geht beim Coden auf high hoch.
 - **low:** Es wirkte träge, deshalb habe ich es nur ein paar Läufe lang genutzt und dann aufgehört.
@@ -125,7 +125,7 @@ Im Vergleich mit den Messungen war low tatsächlich am schnellsten, lieferte abe
 
 ![Welcher effort für welche Aufgabe: Aufgabe, Empfohlener effort, Warum](/claude-opus-5-5-effort-welcher-effort-fur-welche-aufgabe-de.jpg)
 
-Unsere Empfehlungen, kombiniert aus den Messungen, Jaehyuns Erfahrung und Anthropics Hinweisen:
+Unsere Empfehlungen, kombiniert aus den Messungen, meiner Erfahrung und Anthropics Hinweisen:
 
 | Aufgabe | Empfohlener effort | Warum |
 |---|---|---|

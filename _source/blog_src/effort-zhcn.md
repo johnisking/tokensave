@@ -104,7 +104,7 @@
 
 ## 实际体验：日常用 medium，写代码用 high
 
-我（Jaehyun）用 Claude Max 20x 套餐里的 Opus 5.5 做游戏。以下是日常使用的感受，不是测量结果。
+我用 Claude Max 20x 套餐里的 Opus 5.5 做游戏。以下是日常使用的感受，不是测量结果。
 
 - **我的设置：** effort 保持自动。平时大多以 medium 运行，写代码时会升到 high。
 - **low：** 感觉不太灵光，用了几次就不用了。
@@ -125,7 +125,7 @@
 
 ![什么任务用哪个 effort: 任务, 推荐 effort, 理由](/claude-opus-5-5-effort-effort-zh-cn.jpg)
 
-结合测量结果、Jaehyun 的使用体验和 Anthropic 的指导，我们的建议如下：
+结合测量结果、我的使用体验和 Anthropic 的指导，我们的建议如下：
 
 | 任务 | 推荐 effort | 理由 |
 |---|---|---|

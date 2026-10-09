@@ -22,7 +22,7 @@ Price per million tokens, from Anthropic's official pricing page.
 
 ## Hands-on: my Max 20x weekly limit started to last
 
-I (Jaehyun) have used both Opus 5 and Opus 5.5 on the Claude Max 20x plan while building games. This is what it felt like in daily use, not a measured figure.
+I have used both Opus 5 and Opus 5.5 on the Claude Max 20x plan while building games. This is what it felt like in daily use, not a measured figure.
 
 - **Weekly limit:** With Opus 5, I would use up the weekly limit about a day before it reset. Since switching to Opus 5.5, I often finish the week at around 90% usage.
 - **External tasks:** The gap was biggest on token-heavy external tasks. Of the models I have used, Opus 5.5 felt like the one that burns the fewest tokens.
