@@ -1,0 +1,246 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="Claude Opus 5.5 effort-niveaus getest: van low tot max" src="/claude-opus-5-5-effort-nl.jpg" /></p>
+<p><strong>Claude Opus 5.5</strong> heeft een <strong>effort</strong>-instelling die bepaalt hoe diep het model nadenkt, met vijf niveaus: low, medium, high, xhigh en max. Hogere niveaus zouden betere resultaten moeten geven, maar de officiële documentatie noemt geen cijfers over hoeveel extra tijd en geld elk niveau kost. Daarom hebben we op 9 oktober 2026 dezelfde opdracht om een spel te bouwen op elk niveau één run laten doen en tijd, tokens, kosten en resultaat vergeleken. Het snelste niveau had 32 seconden nodig, het traagste 22 minuten. Hieronder lees je wat er per niveau veranderde en welk niveau bij welke taak past, aangevuld met praktijkervaring.</p>
+<h2>Wat effort is</h2>
+<ul>
+<li><strong>Het bepaalt hoeveel het model nadenkt.</strong> Nadenken kun je bij Opus 5.5 niet uitzetten; effort regelt hoe diep het gaat. Denktokens worden afgerekend als outputtokens.</li>
+<li><strong>De standaard is medium.</strong> Bij Opus 5 was high de standaard; Opus 5.5 staat standaard een niveau lager, op medium (volgens de documentatie van Anthropic).</li>
+<li><strong>Zo pas je het aan:</strong> in Claude Code met de optie <code>--effort</code> (low tot max); in de API met de waarde <code>effort</code>.</li>
+</ul>
+<h2>Hoe we hebben gemeten</h2>
+<ul>
+<li><strong>Model:</strong> Claude Opus 5.5 in Claude Code op een Windows-pc</li>
+<li><strong>Prompt (letterlijk):</strong> "Make a brick-breaker game that runs in the browser as a single file named index.html in the current folder. It needs 2 levels, a score display and 3 lives, and it must be playable with the keyboard and the mouse. Write the file and finish." De prompt vraagt om een brick-breaker-spel als één index.html-bestand in de huidige map, met 2 levels, een scoreweergave en 3 levens, speelbaar met toetsenbord en muis.</li>
+<li><strong>Methode:</strong> vijf runs met dezelfde prompt, waarbij alleen effort verschilde. Elk niveau draaide in een eigen map, zodat de runs elkaar niet konden beïnvloeden.</li>
+<li><strong>Meting:</strong> tokens en kosten met de gratis tool ccusage, tijd op basis van start- en eindtijdstempels. Kosten zijn omgerekend naar API-prijzen.</li>
+</ul>
+<h2>Resultaten: tijd, tokens en kosten</h2>
+<p><img loading="lazy" width="1200" height="640" alt="Resultaten: tijd, tokens en kosten: Effort, Tijd, Outputtokens, Totaal tokens, Kosten, Spelcode" src="/claude-opus-5-5-effort-resultaten-tijd-tokens-en-kosten-nl.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Effort</th>
+<th style="text-align: right;">Tijd</th>
+<th style="text-align: right;">Outputtokens</th>
+<th style="text-align: right;">Totaal tokens</th>
+<th style="text-align: right;">Kosten</th>
+<th style="text-align: right;">Spelcode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>low</td>
+<td style="text-align: right;">32 s</td>
+<td style="text-align: right;">3.368</td>
+<td style="text-align: right;">129.315</td>
+<td style="text-align: right;">$0.48</td>
+<td style="text-align: right;">138 regels</td>
+</tr>
+<tr>
+<td>medium (standaard)</td>
+<td style="text-align: right;">52 s</td>
+<td style="text-align: right;">6.299</td>
+<td style="text-align: right;">133.428</td>
+<td style="text-align: right;">$0.56</td>
+<td style="text-align: right;">358 regels</td>
+</tr>
+<tr>
+<td>high</td>
+<td style="text-align: right;">1 min 50 s</td>
+<td style="text-align: right;">12.376</td>
+<td style="text-align: right;">222.854</td>
+<td style="text-align: right;">$0.75</td>
+<td style="text-align: right;">523 regels</td>
+</tr>
+<tr>
+<td>xhigh</td>
+<td style="text-align: right;">4 min 32 s</td>
+<td style="text-align: right;">32.435</td>
+<td style="text-align: right;">472.082</td>
+<td style="text-align: right;">$1.36</td>
+<td style="text-align: right;">639 regels</td>
+</tr>
+<tr>
+<td>max</td>
+<td style="text-align: right;">22 min 22 s</td>
+<td style="text-align: right;">160.033</td>
+<td style="text-align: right;">2.504.957</td>
+<td style="text-align: right;">$5.25</td>
+<td style="text-align: right;">1.121 regels</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Low en medium liggen dicht bij elkaar.</strong> Low was 14% goedkoper en 38% sneller, maar dat scheelt 8 cent.</li>
+<li><strong>High kostte maar 34% meer dan medium.</strong> De tijd ging van 52 seconden naar 1 minuut 50 seconden.</li>
+<li><strong>Bij xhigh springen de kosten omhoog.</strong> Het kostte 143% meer dan medium en duurde 4 minuten 32 seconden.</li>
+<li><strong>Max is een klasse apart.</strong> Medium deed er 52 seconden over voor $0.56; max had 22 minuten 22 seconden nodig en kostte $5.25. De outputtokens stegen van 6.299 naar 160.033.</li>
+</ul>
+<p><img loading="lazy" width="1200" height="638" alt="Tijd en kosten per effort-niveau: van low met 32 s en $0.48 tot max met 22 min 22 s en $5.25" src="/claude-opus-5-5-effort-nl-6.jpg" /></p>
+<p><img loading="lazy" width="1200" height="615" alt="Meetgegevens van ccusage: tokens en kosten voor de vijf effort-niveaus van Opus 5.5" src="/claude-opus-5-5-effort-nl-7.jpg" /></p>
+<h2>De vijf spellen naast elkaar</h2>
+<p><img loading="lazy" width="1680" height="1080" alt="De vijf brick-breaker-spellen die op elk effort-niveau van Opus 5.5 zijn gebouwd, naast elkaar" src="/claude-opus-5-5-effort-nl-5.jpg" /></p>
+<p>Alle vijf de spellen draaiden zonder fouten en voldeden aan de opdracht: 2 levels, score, 3 levens, besturing met toetsenbord en muis. De verschillen zitten in wat elk niveau daar zelf aan toevoegde.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Effort</th>
+<th>Wat het toevoegde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>low</td>
+<td>Eenkleurige stenen, het kaalste scherm, geen pauze</td>
+</tr>
+<tr>
+<td>medium</td>
+<td>Regenboogstenen, pauze, opnieuw starten</td>
+</tr>
+<tr>
+<td>high</td>
+<td>+ deeltjeseffecten, opgeslagen beste score</td>
+</tr>
+<tr>
+<td>xhigh</td>
+<td>Deeltjeseffecten, verzorgder ontwerp (geen opgeslagen beste score)</td>
+</tr>
+<tr>
+<td>max</td>
+<td>+ geluidseffecten, levelnamen, een level 2 in de vorm van een invader, schermschudden, overwinningsvuurwerk</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Vanaf high probeerde het model zijn eigen werk te controleren.</strong> High en xhigh probeerden een syntaxcontrole van de code, max probeerde een geautomatiseerde speltest. Alle drie hadden daar toestemming voor nodig, dus geen van de controles is echt uitgevoerd; volgens elk model is de code in plaats daarvan opnieuw doorgelezen. Low en medium rondden af zonder controle.</li>
+<li><strong>Stenen die twee treffers nodig hebben</strong> verschenen op elk niveau, ook al hadden we daar niet om gevraagd.</li>
+</ul>
+<h2>Review per niveau</h2>
+<p>We hebben elk spel gespeeld en vergeleken met de samenvatting die het model aan het eind gaf en met de code zelf.</p>
+<h3>low: 32 s, $0.48</h3>
+<p><img loading="lazy" width="1490" height="722" alt="Startscherm en gameplay van het spel gebouwd op effort low" src="/claude-opus-5-5-effort-nl-11.jpg" /></p>
+<ul>
+<li><strong>Wat het bouwde:</strong> level 1 bestaat uit vier rijen blauwe stenen; level 2 combineert oranje stenen die twee treffers nodig hebben met open plekken, en de bal is sneller. Er zijn schermen voor level gehaald, game over en gewonnen, plus een herstart.</li>
+<li><strong>Goed:</strong> alle gevraagde functies zijn aanwezig, en waar de bal het batje raakt, bepaalt de hoek. Klaar in 32 seconden.</li>
+<li><strong>Zwak:</strong> de zwarte achtergrond en eenkleurige stenen maken het de kaalste versie. Geen pauze, en met 138 regels de kortste code.</li>
+<li><strong>Gebruik het als:</strong> je alleen wilt nagaan of iets werkt en het later toch nog bijschaaft.</li>
+</ul>
+<h3>medium: 52 s, $0.56 (standaard)</h3>
+<p><img loading="lazy" width="1490" height="722" alt="Startscherm en gameplay van het spel gebouwd op effort medium" src="/claude-opus-5-5-effort-nl-12.jpg" /></p>
+<ul>
+<li><strong>Wat het bouwde:</strong> level 1 is een 5×10-raster in regenboogkleuren; level 2 heeft open plekken en stenen die 2 of 3 treffers nodig hebben, met het aantal resterende treffers erop en vervagend naarmate ze schade oplopen.</li>
+<li><strong>Goed:</strong> pauze (P of Esc), opnieuw starten (Enter) en automatisch pauzeren als het venster de focus verliest. De score hangt af van de sterkte van de steen en het level.</li>
+<li><strong>Zwak:</strong> geen geluid of deeltjeseffecten.</li>
+<li><strong>Gebruik het als:</strong> meestal. Het kost 8 cent meer dan low en is duidelijk beter.</li>
+</ul>
+<h3>high: 1 min 50 s, $0.75</h3>
+<p><img loading="lazy" width="1490" height="722" alt="Startscherm en gameplay van het spel gebouwd op effort high" src="/claude-opus-5-5-effort-nl-13.jpg" /></p>
+<ul>
+<li><strong>Wat het bouwde:</strong> level 2 is een ruitpatroon van stenen die 2 of 3 treffers nodig hebben, en stenen spatten in deeltjes uiteen als ze breken.</li>
+<li><strong>Goed:</strong> een bonus voor het halen van een level, een bonus voor resterende levens, een opgeslagen beste score en aanraakbesturing. Het probeerde ook zelf een syntaxcontrole op de code.</li>
+<li><strong>Zwak:</strong> het duurde 112% langer dan medium (van 52 seconden naar 1 minuut 50 seconden).</li>
+<li><strong>Gebruik het als:</strong> je een prototype nodig hebt om aan anderen te laten zien, of voor programmeerwerk waar kwaliteit telt. Het kostte maar 34% meer dan medium.</li>
+</ul>
+<h3>xhigh: 4 min 32 s, $1.36</h3>
+<p><img loading="lazy" width="1490" height="722" alt="Startscherm en gameplay van het spel gebouwd op effort xhigh" src="/claude-opus-5-5-effort-nl-14.jpg" /></p>
+<ul>
+<li><strong>Wat het bouwde:</strong> level 2 is een ruit omringd door stalen stenen die na de eerste treffer barsten. Stenen zijn 10 tot 50 punten waard, afhankelijk van de kleur.</li>
+<li><strong>Goed:</strong> het netst ogende scherm, en muis en toetsenbord door elkaar gebruiken werkt soepel: wat je het laatst gebruikte, stuurt het batje.</li>
+<li><strong>Zwak:</strong> de opgeslagen beste score en aanraakbesturing die high wel had, zijn weggevallen. Het kostte 143% meer dan medium zonder extra functies ten opzichte van high.</li>
+<li><strong>Gebruik het als:</strong> niet voor kleine taken zoals deze. Volgens Anthropic is het bedoeld voor langlopend werk.</li>
+</ul>
+<h3>max: 22 min 22 s, $5.25</h3>
+<p><img loading="lazy" width="1490" height="722" alt="Startscherm en gameplay van het spel gebouwd op effort max" src="/claude-opus-5-5-effort-nl-15.jpg" /></p>
+<ul>
+<li><strong>Wat het bouwde:</strong> levels met een naam ("Rainbow Wall", "Space Invader"), een level 2 in de vorm van een invader waarvan de 14 zilveren stenen twee treffers nodig hebben, en een smaller batje in level 2.</li>
+<li><strong>Goed:</strong> geluidseffecten (aan/uit met M), opgeslagen beste score, aanraakbesturing, schermschudden, overwinningsvuurwerk en automatisch pauzeren: het meeste van alle niveaus. Het ziet eruit als een af spel.</li>
+<li><strong>Zwak:</strong> veruit het traagst, deels omdat het een geautomatiseerde speltest probeerde te draaien waarvoor toestemming nodig was.</li>
+<li><strong>Gebruik het als:</strong> kwaliteit het allerbelangrijkst is en je tijd en limieten over hebt, of als niets anders het probleem oplost.</li>
+</ul>
+<h2>Praktijkervaring: medium voor dagelijks gebruik, high voor programmeren</h2>
+<p>Ik (Jaehyun) gebruik Opus 5.5 met het Claude Max 20x-abonnement om spellen te bouwen. Dit is hoe het in dagelijks gebruik aanvoelt, geen meting.</p>
+<ul>
+<li><strong>Mijn instelling:</strong> ik laat effort op automatisch staan. Meestal draait het op medium en bij programmeren gaat het omhoog naar high.</li>
+<li><strong>low:</strong> het voelde traag aan, dus ik heb het even geprobeerd en ben ermee gestopt.</li>
+<li><strong>high:</strong> de resultaten zijn duidelijk beter.</li>
+<li><strong>xhigh en max:</strong> die heb ik ongeveer één poging gegeven en ik heb zelden een reden om ze te gebruiken.</li>
+</ul>
+<p>Vergeleken met de metingen was low juist het snelst, maar gaf het het kaalste resultaat; het trage gevoel ging dus over de output en niet over de snelheid. Het gevoel dat high betere resultaten geeft en dat xhigh en max zelden nodig zijn, kwam overeen met de cijfers.</p>
+<h2>Wat Anthropic aanraadt</h2>
+<ul>
+<li><strong>Medium is sterk.</strong> In de tests van Anthropic evenaarde of versloeg Opus 5.5 op medium Opus 5 op high bij programmeren en kenniswerk.</li>
+<li><strong>Low komt bij programmeren dicht bij medium,</strong> tegen veel lagere kosten, aldus Anthropic. In onze test was het verschil in output wel merkbaar.</li>
+<li><strong>Bewaar xhigh en max voor werk waarbij je een kwaliteitswinst hebt gemeten.</strong></li>
+<li><strong>Effort wijzigen midden in een gesprek kan de prompt cache breken.</strong> Gebruik in de API een effort-wijziging per bericht om de cache te behouden.</li>
+<li><strong>Onafhankelijke tests bevestigen dit.</strong> Artificial Analysis stelde vast dat Opus 5.5 op max effort per taak 63% meer outputtokens gebruikte dan Opus 5 (volgens persberichten).</li>
+</ul>
+<h2>Welke effort voor welke taak</h2>
+<p><img loading="lazy" width="1200" height="862" alt="Welke effort voor welke taak: Taak, Aanbevolen effort, Waarom" src="/claude-opus-5-5-effort-welke-effort-voor-welke-taak-nl.jpg" /></p>
+<p>Onze aanbevelingen, op basis van de metingen, de ervaring van Jaehyun en de richtlijnen van Anthropic:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Taak</th>
+<th>Aanbevolen effort</th>
+<th>Waarom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eenvoudige aanpassingen, hernoemen, bestanden opruimen</td>
+<td>low of medium</td>
+<td>Snel en goedkoop, maar de output van low is kaal</td>
+</tr>
+<tr>
+<td>Dagelijks programmeren en nieuwe functies</td>
+<td>medium (standaard)</td>
+<td>Bruikbaar resultaat in 52 seconden voor $0.56</td>
+</tr>
+<tr>
+<td>Prototypes van spellen of apps, programmeren waar kwaliteit telt</td>
+<td>high</td>
+<td>34% meer kosten voor duidelijk betere output</td>
+</tr>
+<tr>
+<td>Runs van meer dan 30 minuten, grote refactors</td>
+<td>xhigh</td>
+<td>Volgens de richtlijnen van Anthropic</td>
+</tr>
+<tr>
+<td>Lastige problemen die niets anders oplost</td>
+<td>max</td>
+<td>Alleen als het nodig is: tijd en kosten schieten omhoog</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Begin met medium.</strong> Zet alleen de taken waarbij het resultaat tekortschiet een niveau hoger, op high.</li>
+<li><strong>Met een abonnement denk je in limieten.</strong> Hoe hoger de kosten omgerekend naar API-prijzen, hoe sneller je Max- of Pro-limiet opraakt. Eén max-run verbruikte meer dan negen medium-runs.</li>
+<li><strong>Kanttekening:</strong> één run per niveau, bij een vrij kleine taak. Bij grotere projecten kunnen de verschillen anders uitvallen.</li>
+</ul>
+<h2>Conclusie: standaard medium, high als het ertoe doet</h2>
+<ul>
+<li><strong>Standaard: medium.</strong> Bruikbaar resultaat in 52 seconden voor $0.56.</li>
+<li><strong>Als kwaliteit telt: high.</strong> Maar 34% meer dan medium voor duidelijk betere output. De beste prijs-kwaliteitverhouding van de vijf.</li>
+<li><strong>xhigh: sla het over bij kleine taken.</strong> 143% meer dan medium, maar niet meer functies dan high. Alleen de moeite waard voor lange runs.</li>
+<li><strong>max: alleen als je het nodig hebt.</strong> Het meest spectaculaire resultaat, maar 22 minuten en $5.25.</li>
+<li><strong>low: niet aanbevolen.</strong> Met 8 cent besparing ten opzichte van medium krijg je alleen een kaler resultaat.</li>
+</ul>
+<h2>Veelgestelde vragen</h2>
+<p><strong>Wat is de standaard-effort van Opus 5.5?</strong>
+Medium. Bij Opus 5 was dat high. API-verzoeken waarin geen effort is ingesteld, draaien op Opus 5.5 op medium.</p>
+<p><strong>Is max altijd beter?</strong>
+In onze test voegde het de meeste functies en afwerking toe, maar het kostte 22 minuten en $5.25, tegenover 52 seconden en $0.56 voor medium. Te veel voor eenvoudig werk.</p>
+<p><strong>Bespaart low veel?</strong>
+In onze test was low maar 14% goedkoper dan medium. Gezien het kalere resultaat is medium de betere keuze.</p>
+<h2>Bereken het voor je eigen werk</h2>
+<p>Vul in de <a href="/nl/agents">kostencalculator voor coding agents</a> de taakgrootte en het aantal taken per dag in om een maand met Opus 5.5 te zien. De kosten van één prompt controleer je met de <a href="/nl/">tokenteller</a>. Voor de verschillen in prijs en prestaties tussen Opus 5 en 5.5, zie <a href="/blog/claude-opus-5-vs-5-5">Claude Opus 5 vs 5.5 (Engelstalig)</a>. Loop je tegen je gebruikslimiet aan, lees dan <a href="/nl/blog/claude-code-limiet">Claude Code limiet uitgelegd</a>.</p>
+<p><em>Gemeten op 9 oktober 2026. Kosten zijn de omrekening van ccusage naar API-prijzen; resultaten kunnen veranderen door updates van het model en van Claude Code.</em></p>
+<h2>Bronnen</h2>
+<ul>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/effort#recommended-effort-levels-for-claude-opus-5-5" target="_blank" rel="noopener">Anthropic: Effort</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5" target="_blank" rel="noopener">Anthropic: Prompten met Claude Opus 5.5</a></li>
+<li><a href="https://platform.claude.com/docs/en/models/opus-5-5/migration-guide" target="_blank" rel="noopener">Anthropic: Overstappen van Claude Opus 5 naar Opus 5.5</a></li>
+<li><a href="https://officechai.com/ai/claude-opus-5-5-creates-5-point-lead-over-gpt-6-astra-jumps-to-top-spot-on-artificial-analysis-intelligence-index/" target="_blank" rel="noopener">OfficeChai: rapport over de Artificial Analysis Intelligence Index</a></li>
+<li><a href="https://github.com/ryoppippi/ccusage" target="_blank" rel="noopener">ccusage: tool voor Claude Code-gebruik (GitHub)</a></li>
+</ul>
+<!-- autoimg -->

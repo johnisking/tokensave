@@ -17,7 +17,7 @@ MULT_OK = re.compile(r'(?-i:Max|Ultra|Pro)\s*\d+\s*[x×]|\d+\s*[x×]\s*(plan|요
 PLAN_CTX = re.compile(r'(?-i:Plus|Max\b|Ultra)|Pro ?\d|사용량|利用量|倍率|요금제', re.I)
 IMG_WORDS = {'ko': '이미지', 'ja': '画像', 'en': 'image'}
 VID_WORDS = {'ko': '영상', 'ja': '動画', 'en': 'video'}
-FAQ = re.compile(r'^## .*(FAQ|자주 묻는|よくある|Frequently|Preguntas|Perguntas|Sık|Częste|Häufig|Questions)', re.M | re.I)
+FAQ = re.compile(r'^## .*(FAQ|자주 묻는|よくある|Frequently|Preguntas|Perguntas|Sık|Częste|Häufig|Questions|Veelgestelde|Часті|常见问题|Sık sorulan)', re.M | re.I)
 SRC = re.compile(r'^[*_ ]*(## .*(Sources|출처|出典|Kaynaklar|Fuentes|Fontes|Fonti|Źródła|Quellen|Bronnen|Джерела|Источники|Kilder|Lähteet|Källor|Zdroje|Források|Surse|Πηγές|المصادر|منابع|स्रोत|উৎস|ذرائع|מקורות|แหล่งที่มา|Nguồn|Sumber|Mga sanggunian|来源|來源|ಮೂಲಗಳು|സ്രോതസ്സുകൾ|ஆதாரங்கள்|మూలాలు|ਸਰੋਤ|સ્રોતો)|(Sources?|출처|出典|Źródło|Źródła|Fuente|Fuentes|Fonte|Fontes|Quelle|Quellen|Source|Kaynak|Kaynaklar|Bron|Bronnen|Джерело|Джерела|来源|來源|資料來源|Nguồn|Sumber|स्रोत|المصدر|منبع|מקור|แหล่งที่มา|Zdroj|Πηγή|Kilde|Lähde|Källa|Forrás|Sursă|Fonte)\s*[:：])', re.M | re.I)
 
 

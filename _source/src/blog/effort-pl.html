@@ -1,0 +1,246 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="Claude Opus 5.5: test poziomów effort od low do max" src="/claude-opus-5-5-effort-pl.jpg" /></p>
+<p><strong>Claude Opus 5.5</strong> ma ustawienie <strong>effort</strong>, które decyduje o tym, jak głęboko model myśli. Poziomów jest pięć: low, medium, high, xhigh i max. Wyższe poziomy mają dawać lepsze wyniki, ale oficjalna dokumentacja nie podaje żadnych liczb, ile dodatkowego czasu i pieniędzy kosztuje każdy z nich. Dlatego 9 października 2026 roku wysłaliśmy to samo polecenie zbudowania gry na każdym poziomie i porównaliśmy czas, tokeny, koszt i efekt. Najszybszy poziom potrzebował 32 sekund, najwolniejszy 22 minut. Poniżej opisujemy, co zmieniało się na każdym poziomie i który poziom wybrać do jakiego zadania, a do tego dzielimy się doświadczeniem z codziennej pracy.</p>
+<h2>Czym jest effort</h2>
+<ul>
+<li><strong>Określa, ile model myśli.</strong> W Opus 5.5 myślenia nie da się wyłączyć; effort reguluje jego głębokość. Tokeny myślenia są rozliczane jako tokeny wyjściowe.</li>
+<li><strong>Domyślnie jest medium.</strong> Opus 5 domyślnie działał na high; Opus 5.5 domyślnie działa o poziom niżej, na medium (według dokumentacji Anthropic).</li>
+<li><strong>Jak to zmienić:</strong> w Claude Code służy do tego opcja <code>--effort</code> (od low do max); w API ustawia się wartość <code>effort</code>.</li>
+</ul>
+<h2>Jak mierzyliśmy</h2>
+<ul>
+<li><strong>Model:</strong> Claude Opus 5.5 w Claude Code na komputerze z Windows</li>
+<li><strong>Prompt (dosłownie):</strong> "Make a brick-breaker game that runs in the browser as a single file named index.html in the current folder. It needs 2 levels, a score display and 3 lives, and it must be playable with the keyboard and the mouse. Write the file and finish." Polecenie prosi o grę typu arkanoid działającą w przeglądarce jako jeden plik index.html, z 2 poziomami, licznikiem punktów i 3 życiami, sterowaną klawiaturą i myszą.</li>
+<li><strong>Metoda:</strong> ten sam prompt w pięciu przebiegach, zmieniało się tylko effort. Każdy poziom działał we własnym folderze, żeby przebiegi nie wpływały na siebie nawzajem.</li>
+<li><strong>Pomiar:</strong> tokeny i koszt za pomocą darmowego narzędzia ccusage, czas na podstawie znaczników startu i końca. Koszt przeliczono według cen API.</li>
+</ul>
+<h2>Wyniki: czas, tokeny i koszt</h2>
+<p><img loading="lazy" width="1200" height="640" alt="Wyniki: czas, tokeny i koszt: Effort, Czas, Tokeny wyjściowe, Tokeny łącznie, Koszt, Kod gry" src="/claude-opus-5-5-effort-wyniki-czas-tokeny-i-koszt-pl.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Effort</th>
+<th style="text-align: right;">Czas</th>
+<th style="text-align: right;">Tokeny wyjściowe</th>
+<th style="text-align: right;">Tokeny łącznie</th>
+<th style="text-align: right;">Koszt</th>
+<th style="text-align: right;">Kod gry</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>low</td>
+<td style="text-align: right;">32 s</td>
+<td style="text-align: right;">3 368</td>
+<td style="text-align: right;">129 315</td>
+<td style="text-align: right;">$0.48</td>
+<td style="text-align: right;">138 wierszy</td>
+</tr>
+<tr>
+<td>medium (domyślny)</td>
+<td style="text-align: right;">52 s</td>
+<td style="text-align: right;">6 299</td>
+<td style="text-align: right;">133 428</td>
+<td style="text-align: right;">$0.56</td>
+<td style="text-align: right;">358 wierszy</td>
+</tr>
+<tr>
+<td>high</td>
+<td style="text-align: right;">1 min 50 s</td>
+<td style="text-align: right;">12 376</td>
+<td style="text-align: right;">222 854</td>
+<td style="text-align: right;">$0.75</td>
+<td style="text-align: right;">523 wiersze</td>
+</tr>
+<tr>
+<td>xhigh</td>
+<td style="text-align: right;">4 min 32 s</td>
+<td style="text-align: right;">32 435</td>
+<td style="text-align: right;">472 082</td>
+<td style="text-align: right;">$1.36</td>
+<td style="text-align: right;">639 wierszy</td>
+</tr>
+<tr>
+<td>max</td>
+<td style="text-align: right;">22 min 22 s</td>
+<td style="text-align: right;">160 033</td>
+<td style="text-align: right;">2 504 957</td>
+<td style="text-align: right;">$5.25</td>
+<td style="text-align: right;">1 121 wierszy</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Low i medium niemal się nie różnią.</strong> Low kosztował o 14% mniej i trwał o 38% krócej, ale to zaledwie 8 centów.</li>
+<li><strong>High kosztował tylko o 34% więcej niż medium.</strong> Czas wzrósł z 52 sekund do 1 minuty 50 sekund.</li>
+<li><strong>Przy xhigh koszty wyraźnie skaczą.</strong> Wyszło o 143% drożej niż medium, a przebieg trwał 4 minuty 32 sekundy.</li>
+<li><strong>Max to zupełnie inna liga.</strong> Medium potrzebował 52 sekund i $0.56; max 22 minut 22 sekund i $5.25. Tokeny wyjściowe wzrosły z 6 299 do 160 033.</li>
+</ul>
+<p><img loading="lazy" width="1200" height="638" alt="Czas i koszt według poziomu effort: od low z 32 s i $0.48 do max z 22 min 22 s i $5.25" src="/claude-opus-5-5-effort-pl-6.jpg" /></p>
+<p><img loading="lazy" width="1200" height="615" alt="Zapis pomiaru ccusage: tokeny i koszt dla pięciu poziomów effort Opus 5.5" src="/claude-opus-5-5-effort-pl-7.jpg" /></p>
+<h2>Pięć gier obok siebie</h2>
+<p><img loading="lazy" width="1680" height="1080" alt="Pięć gier typu arkanoid zbudowanych na każdym poziomie effort Opus 5.5, obok siebie" src="/claude-opus-5-5-effort-pl-5.jpg" /></p>
+<p>Wszystkie pięć gier uruchomiło się bez błędów i spełniało wymagania: 2 poziomy, punkty, 3 życia, sterowanie klawiaturą i myszą. Różnice dotyczą tego, co każdy poziom dodał od siebie.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Effort</th>
+<th>Co dodał</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>low</td>
+<td>Jednokolorowe cegły, najskromniejszy ekran, brak pauzy</td>
+</tr>
+<tr>
+<td>medium</td>
+<td>Tęczowe cegły, pauza, restart</td>
+</tr>
+<tr>
+<td>high</td>
+<td>+ efekty cząsteczkowe, zapisywany najlepszy wynik</td>
+</tr>
+<tr>
+<td>xhigh</td>
+<td>Efekty cząsteczkowe, bardziej dopracowany wygląd (bez zapisywanego najlepszego wyniku)</td>
+</tr>
+<tr>
+<td>max</td>
+<td>+ efekty dźwiękowe, nazwy poziomów, poziom 2 w kształcie kosmicznego najeźdźcy, drganie ekranu, fajerwerki na zwycięstwo</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Od high w górę model próbował sam sprawdzić swoją pracę.</strong> High i xhigh próbowały sprawdzić składnię kodu, a max próbował uruchomić automatyczny test rozgrywki. We wszystkich trzech przypadkach potrzebna była zgoda na uruchomienie, więc żaden test faktycznie się nie wykonał; każdy z modeli pisze, że zamiast tego ponownie przeczytał kod. Low i medium zakończyły pracę bez sprawdzania.</li>
+<li><strong>Cegły wymagające dwóch uderzeń</strong> pojawiły się na każdym poziomie, choć wcale o nie nie prosiliśmy.</li>
+</ul>
+<h2>Przegląd poziom po poziomie</h2>
+<p>Zagraliśmy w każdą grę i porównaliśmy ją z podsumowaniem, które model zostawił na końcu, oraz z samym kodem.</p>
+<h3>low: 32 sekundy, $0.48</h3>
+<p><img loading="lazy" width="1490" height="722" alt="Ekran startowy i rozgrywka gry zbudowanej na effort low" src="/claude-opus-5-5-effort-pl-11.jpg" /></p>
+<ul>
+<li><strong>Co zbudował:</strong> poziom 1 to cztery rzędy niebieskich cegieł; poziom 2 łączy pomarańczowe cegły wymagające dwóch uderzeń z przerwami, a piłka jest szybsza. Są ekrany ukończenia poziomu, końca gry i wygranej oraz restart.</li>
+<li><strong>Plusy:</strong> jest każda wymagana funkcja, a miejsce, w którym piłka uderza w paletkę, zmienia kąt odbicia. Gotowe w 32 sekundy.</li>
+<li><strong>Minusy:</strong> czarne tło i jednokolorowe cegły sprawiają, że to najskromniejsza wersja. Brak pauzy, a 138 wierszy to najkrótszy kod.</li>
+<li><strong>Kiedy go używać:</strong> gdy chcesz tylko sprawdzić, czy coś działa, i dopracujesz to później.</li>
+</ul>
+<h3>medium: 52 sekundy, $0.56 (domyślny)</h3>
+<p><img loading="lazy" width="1490" height="722" alt="Ekran startowy i rozgrywka gry zbudowanej na effort medium" src="/claude-opus-5-5-effort-pl-12.jpg" /></p>
+<ul>
+<li><strong>Co zbudował:</strong> poziom 1 to tęczowa siatka 5×10; poziom 2 ma przerwy i cegły wymagające 2 lub 3 uderzeń, które pokazują liczbę pozostałych trafień i bledną, gdy są uszkadzane.</li>
+<li><strong>Plusy:</strong> pauza (P lub Esc), restart (Enter) i automatyczna pauza, gdy okno traci fokus. Punktacja zależy od wytrzymałości cegły i poziomu.</li>
+<li><strong>Minusy:</strong> brak dźwięku i efektów cząsteczkowych.</li>
+<li><strong>Kiedy go używać:</strong> w większości przypadków. Kosztuje o 8 centów więcej niż low i jest wyraźnie lepszy.</li>
+</ul>
+<h3>high: 1 minuta 50 sekund, $0.75</h3>
+<p><img loading="lazy" width="1490" height="722" alt="Ekran startowy i rozgrywka gry zbudowanej na effort high" src="/claude-opus-5-5-effort-pl-13.jpg" /></p>
+<ul>
+<li><strong>Co zbudował:</strong> poziom 2 to układ w kształcie rombu z cegieł wymagających 2 lub 3 uderzeń, a rozbijane cegły rozsypują się w cząsteczki.</li>
+<li><strong>Plusy:</strong> premia za ukończenie poziomu, premia za pozostałe życia, zapisywany najlepszy wynik i sterowanie dotykiem. Model sam też próbował sprawdzić składnię swojego kodu.</li>
+<li><strong>Minusy:</strong> trwał o 112% dłużej niż medium (z 52 sekund do 1 minuty 50 sekund).</li>
+<li><strong>Kiedy go używać:</strong> gdy potrzebujesz prototypu do pokazania innym albo kodu, w którym liczy się jakość. Kosztował tylko o 34% więcej niż medium.</li>
+</ul>
+<h3>xhigh: 4 minuty 32 sekundy, $1.36</h3>
+<p><img loading="lazy" width="1490" height="722" alt="Ekran startowy i rozgrywka gry zbudowanej na effort xhigh" src="/claude-opus-5-5-effort-pl-14.jpg" /></p>
+<ul>
+<li><strong>Co zbudował:</strong> poziom 2 to romb otoczony stalowymi cegłami, które pękają po pierwszym trafieniu. Cegły są warte od 10 do 50 punktów w zależności od koloru.</li>
+<li><strong>Plusy:</strong> najstaranniej wyglądający ekran, a łączenie myszy i klawiatury działa płynnie: paletką steruje to, czego użyłeś ostatnio.</li>
+<li><strong>Minusy:</strong> zniknęły zapisywany najlepszy wynik i sterowanie dotykiem, które miał high. Kosztował o 143% więcej niż medium, nie dodając żadnych funkcji ponad high.</li>
+<li><strong>Kiedy go używać:</strong> nie do tak małych zadań. Według Anthropic sprawdza się przy długotrwałej pracy.</li>
+</ul>
+<h3>max: 22 minuty 22 sekundy, $5.25</h3>
+<p><img loading="lazy" width="1490" height="722" alt="Ekran startowy i rozgrywka gry zbudowanej na effort max" src="/claude-opus-5-5-effort-pl-15.jpg" /></p>
+<ul>
+<li><strong>Co zbudował:</strong> poziomy z nazwami („Rainbow Wall”, „Space Invader”), poziom 2 w kształcie kosmicznego najeźdźcy z 14 srebrnymi cegłami wymagającymi dwóch uderzeń oraz węższą paletkę na poziomie 2.</li>
+<li><strong>Plusy:</strong> efekty dźwiękowe (M włącza i wyłącza), zapisywany najlepszy wynik, sterowanie dotykiem, drganie ekranu, fajerwerki na zwycięstwo i automatyczna pauza: najwięcej ze wszystkich poziomów. Wygląda jak skończona gra.</li>
+<li><strong>Minusy:</strong> zdecydowanie najwolniejszy, częściowo dlatego, że próbował uruchomić automatyczny test rozgrywki, który wymagał zgody.</li>
+<li><strong>Kiedy go używać:</strong> gdy jakość jest najważniejsza i masz zapas czasu oraz limitów albo gdy nic innego nie rozwiązuje problemu.</li>
+</ul>
+<h2>Z praktyki: na co dzień medium, do kodowania high</h2>
+<p>Ja (Jaehyun) używam Opus 5.5 w planie Claude Max 20x do tworzenia gier. Tak to wygląda w codziennym użyciu; to wrażenia, nie pomiar.</p>
+<ul>
+<li><strong>Moje ustawienie:</strong> zostawiam effort na auto. Zwykle działa na medium, a gdy koduję, przechodzi na high.</li>
+<li><strong>low:</strong> wydawał się ospały, więc po kilku podejściach przestałem go używać.</li>
+<li><strong>high:</strong> wyniki są wyraźnie lepsze.</li>
+<li><strong>xhigh i max:</strong> wypróbowałem je mniej więcej po jednym podejściu i rzadko mam powód, żeby po nie sięgać.</li>
+</ul>
+<p>W porównaniu z pomiarami low był w rzeczywistości najszybszy, ale dawał najskromniejszy efekt, więc wrażenie ospałości dotyczyło wyniku, a nie szybkości. Poczucie, że high daje lepsze wyniki, a xhigh i max rzadko są potrzebne, zgadzało się z liczbami.</p>
+<h2>Co zaleca Anthropic</h2>
+<ul>
+<li><strong>Medium jest mocny.</strong> W testach Anthropic Opus 5.5 na medium dorównywał lub przewyższał Opus 5 na high w kodowaniu i pracy z wiedzą.</li>
+<li><strong>Low zbliża się do medium w kodowaniu,</strong> przy znacznie niższym koszcie, jak podaje Anthropic. W naszym teście różnica w efekcie była zauważalna.</li>
+<li><strong>xhigh i max zostaw na zadania, w których zmierzyłeś wzrost jakości.</strong></li>
+<li><strong>Zmiana effort w trakcie rozmowy może unieważnić prompt cache.</strong> W API zmieniaj effort dla pojedynczej wiadomości, żeby zachować cache.</li>
+<li><strong>Niezależne testy to potwierdzają.</strong> Artificial Analysis ustaliło, że Opus 5.5 na effort max zużywał na zadanie o 63% więcej tokenów wyjściowych niż Opus 5 (według doniesień prasowych).</li>
+</ul>
+<h2>Jaki effort do jakiego zadania</h2>
+<p><img loading="lazy" width="1200" height="862" alt="Jaki effort do jakiego zadania: Zadanie, Zalecany effort, Dlaczego" src="/claude-opus-5-5-effort-jaki-effort-do-jakiego-zadania-pl.jpg" /></p>
+<p>Nasze zalecenia, łączące pomiary, doświadczenie Jaehyuna i wskazówki Anthropic:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Zadanie</th>
+<th>Zalecany effort</th>
+<th>Dlaczego</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proste poprawki, zmiana nazw, porządkowanie plików</td>
+<td>low lub medium</td>
+<td>Szybko i tanio, ale efekt low jest skromny</td>
+</tr>
+<tr>
+<td>Codzienne kodowanie i nowe funkcje</td>
+<td>medium (domyślny)</td>
+<td>Użyteczne wyniki w 52 sekundy za $0.56</td>
+</tr>
+<tr>
+<td>Prototypy gier lub aplikacji, kodowanie, w którym liczy się jakość</td>
+<td>high</td>
+<td>O 34% wyższy koszt za wyraźnie lepszy efekt</td>
+</tr>
+<tr>
+<td>Przebiegi dłuższe niż 30 minut, duże refaktoryzacje</td>
+<td>xhigh</td>
+<td>Zgodnie z wytycznymi Anthropic</td>
+</tr>
+<tr>
+<td>Trudne problemy, których nic innego nie rozwiązuje</td>
+<td>max</td>
+<td>Tylko w razie potrzeby: czas i koszt gwałtownie rosną</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Zacznij od medium.</strong> Na high przenoś tylko te zadania, w których wynik nie wystarcza.</li>
+<li><strong>W planie subskrypcyjnym myśl o limitach.</strong> Im wyższy koszt w przeliczeniu na ceny API, tym szybciej wyczerpuje się limit Max lub Pro. Jeden przebieg na max zużył więcej niż dziewięć przebiegów na medium.</li>
+<li><strong>Zastrzeżenie:</strong> po jednym przebiegu na poziom przy dość małym zadaniu. Przy większych projektach różnice mogą wyglądać inaczej.</li>
+</ul>
+<h2>Podsumowanie: domyślnie medium, high gdy liczy się jakość</h2>
+<ul>
+<li><strong>Domyślnie: medium.</strong> Użyteczne wyniki w 52 sekundy za $0.56.</li>
+<li><strong>Gdy liczy się jakość: high.</strong> Tylko o 34% więcej niż medium za wyraźnie lepszy efekt. Najlepszy stosunek ceny do jakości z całej piątki.</li>
+<li><strong>xhigh: pomiń przy małych zadaniach.</strong> O 143% drożej niż medium, a funkcji nie więcej niż w high. Opłaca się tylko przy długich przebiegach.</li>
+<li><strong>max: tylko gdy naprawdę go potrzebujesz.</strong> Najbardziej efektowny wynik, ale 22 minuty i $5.25.</li>
+<li><strong>low: niezalecany.</strong> Oszczędność 8 centów względem medium daje tylko skromniejszy efekt.</li>
+</ul>
+<h2>Częste pytania</h2>
+<p><strong>Jaki jest domyślny effort w Opus 5.5?</strong>
+Medium. Opus 5 domyślnie działał na high. Żądania API bez ustawionego effort działają w Opus 5.5 na medium.</p>
+<p><strong>Czy max zawsze jest lepszy?</strong>
+W naszym teście dodał najwięcej funkcji i dopracowania, ale potrzebował 22 minut i $5.25, wobec 52 sekund i $0.56 na medium. To za dużo jak na proste zadania.</p>
+<p><strong>Czy low pozwala dużo zaoszczędzić?</strong>
+W naszym teście low był tylko o 14% tańszy od medium. Biorąc pod uwagę skromniejszy efekt, lepszym wyborem jest medium.</p>
+<h2>Policz to dla swojej pracy</h2>
+<p>W <a href="/pl/agents">kalkulatorze kosztów agentów kodujących</a> wpisz wielkość zadania i liczbę zadań dziennie, aby zobaczyć koszt miesiąca na Opus 5.5. Koszt pojedynczego promptu sprawdzisz w <a href="/pl/">liczniku tokenów</a>. Różnice w cenie i wydajności między Opus 5 a 5.5 opisuje artykuł <a href="/blog/claude-opus-5-vs-5-5">Claude Opus 5 vs 5.5 (po angielsku)</a>. Jeśli pracujesz w planie subskrypcyjnym, zajrzyj też do tekstu <a href="/pl/blog/limity-claude-code">Limity Claude Code</a>.</p>
+<p><em>Pomiar z 9 października 2026 roku. Koszt to przeliczenie ccusage według cen API; wyniki mogą się zmienić wraz z aktualizacjami modelu i Claude Code.</em></p>
+<h2>Źródła</h2>
+<ul>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/effort#recommended-effort-levels-for-claude-opus-5-5" target="_blank" rel="noopener">Anthropic: Effort</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5" target="_blank" rel="noopener">Anthropic: Promptowanie Claude Opus 5.5</a></li>
+<li><a href="https://platform.claude.com/docs/en/models/opus-5-5/migration-guide" target="_blank" rel="noopener">Anthropic: Migracja z Claude Opus 5 na Opus 5.5</a></li>
+<li><a href="https://officechai.com/ai/claude-opus-5-5-creates-5-point-lead-over-gpt-6-astra-jumps-to-top-spot-on-artificial-analysis-intelligence-index/" target="_blank" rel="noopener">OfficeChai: raport Artificial Analysis Intelligence Index</a></li>
+<li><a href="https://github.com/ryoppippi/ccusage" target="_blank" rel="noopener">ccusage: narzędzie do śledzenia użycia Claude Code (GitHub)</a></li>
+</ul>
+<!-- autoimg -->
