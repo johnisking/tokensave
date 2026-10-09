@@ -675,6 +675,20 @@ MUSE13.append(_cc("ja", "/ja/blog/muse-spark-1-3-api-ryoukin", "muse13-ja", "Met
      "Jonhisking · 2026年10月9日", "プロンプトを貼り付けて、Muse Spark 1.3・GPT-6・Claude・Gemini など30以上のモデルのトークンと費用を比べましょう。", "トークンカウンターを開く"))
 for _d in MUSE13: _d["date"] = "2026-10-09"
 
+# 2026-10-09: Claude Opus 5 vs 5.5 (en, ko, ja)
+OPUS55 = [
+ _cc("ko", "/ko/blog/claude-opus-5-vs-5-5", "opus55-ko", "클로드 오퍼스 5 vs 5.5 차이: 가격·성능·실사용 후기",
+     "클로드 오퍼스 5.5는 오퍼스 5보다 토큰 단가 20%, 캐시 읽기 60% 저렴. 코딩 에이전트는 약 37% 절감. Max 20x 실사용 후기, 벤치마크, 갈아탈지 판단까지.",
+     "Jonhisking · 2026년 10월 9일", "작업 크기와 하루 작업 수를 넣고 오퍼스 5.5·소넷 5.5·GPT-6 Sol의 한 달 비용을 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"),
+]
+OPUS55.insert(0, _cc("en", "/blog/claude-opus-5-vs-5-5", "opus55-en", "Claude Opus 5 vs 5.5: Price, Performance and a Real Test",
+     "Opus 5.5 costs 20% less per token than Opus 5, 60% less on cache reads, and used 64% fewer tokens in our same-prompt test. Benchmarks and whether to switch.",
+     "Jonhisking · October 9, 2026", "Enter task size and tasks per day to compare a month on Opus 5.5, Sonnet 5.5 and GPT-6 Sol.", "Open the coding agent cost calculator"))
+OPUS55.append(_cc("ja", "/ja/blog/claude-opus-5-vs-5-5", "opus55-ja", "Claude Opus 5 と 5.5 の違い：料金・性能・実測レビュー",
+     "Claude Opus 5.5 は Opus 5 よりトークン単価20%、キャッシュ読み取り60%安い。同じ依頼の実測ではトークン64%減。Max 20x の使用感、ベンチマーク、乗り換えの判断まで。",
+     "Jonhisking · 2026年10月9日", "作業の大きさと1日の作業数を入れて、Opus 5.5・Sonnet 5.5・GPT-6 Sol の1か月の費用を比べましょう。", "コーディングエージェント費用計算機を開く"))
+for _d in OPUS55: _d["date"] = "2026-10-09"
+
 # 2026-10-09: GPT-6.1 Sol Ultrafast (en, ko, ja)
 ULTRAFAST = [
  _cc("en", "/blog/gpt-6-1-sol-ultrafast-pricing", "ultrafast-en", "GPT-6.1 Sol Ultrafast: Price, Speed and When It's Worth It",

@@ -13,7 +13,7 @@ import autoimg as A
 CJK = {'ko', 'ja', 'zh-CN', 'zh-TW'}
 TOOL_PATHS = ('/image', '/video', '/plans', '/agents', 'ai-game-cost-calculator', 'claude-token-counter')
 MULT = re.compile(r'(\d+(?:[.,]\d+)?\s*(?:배|倍|×|گنا|गुना|पट|ಪಟ್ಟು|மடங்கு|రెట్లు|ਗੁਣਾ|katı|razy|raza|fois|veces|vezes|times|krát|kertaa|φορές|gånger|برابر|ضعف|เท่า|lần)|gấp\s*\d|\b\d+(?:[.,]\d+)?x\b)', re.I)
-MULT_OK = re.compile(r'(?-i:Max|Ultra|Pro)\s*\d+\s*[x×]|\d+\s*[x×]\s*(plan|요금제|プラン|Plus)|[x×]\s*\d|(?-i:Plus)|사용량|利用量|usage|^\s*\||\d\s*×\s*\(|(times|razy)\s+(a |per |each |every |dzienn|w |co )|\*\*\d+\s*(times|razy)\*\*', re.I)  # counts and formulas, not ratios
+MULT_OK = re.compile(r'(?-i:Max|Ultra|Pro)\s*\d+\s*[x×]|\d+\s*[x×]\s*(plan|요금제|プラン|Plus)|[x×]\s*\d|(?-i:Plus)|사용량|利用量|usage|^\s*\||\d\s*×\s*\(|×\s*\$|(times|razy)\s+(a |per |each |every |dzienn|w |co )|\*\*\d+\s*(times|razy)\*\*', re.I)  # counts and formulas, not ratios
 PLAN_CTX = re.compile(r'(?-i:Plus|Max\b|Ultra)|Pro ?\d|사용량|利用量|倍率|요금제', re.I)
 IMG_WORDS = {'ko': '이미지', 'ja': '画像', 'en': 'image'}
 VID_WORDS = {'ko': '영상', 'ja': '動画', 'en': 'video'}

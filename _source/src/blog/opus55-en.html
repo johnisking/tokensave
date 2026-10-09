@@ -1,0 +1,253 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="Claude Opus 5 vs 5.5: Price, Performance and a Real Test" src="/claude-opus-5-vs-5-5-en.jpg" /></p>
+<p>Claude <strong>Opus 5.5</strong> is Anthropic's new top model, released on September 22, 2026. Compared with <strong>Opus 5</strong>, its token prices are 20% lower and cache reads are 60% cheaper. Anthropic says it costs "40% less to run on typical work"; our own math for a coding agent workload came out about 37% cheaper. When we gave both models the same game-building request, Opus 5.5 used 64% fewer tokens. Below: price, performance and measured results side by side, plus a Max 20x user's experience with both models and whether it is worth switching.</p>
+<h2>Opus 5 vs 5.5 pricing</h2>
+<p><img loading="lazy" width="1200" height="670" alt="Opus 5 vs 5.5 pricing: Item, Opus 5, Opus 5.5, Difference" src="/claude-opus-5-vs-5-5-opus-5-vs-5-5-pricing-en.jpg" /></p>
+<p>Price per million tokens, from Anthropic's official pricing page.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Opus 5</th>
+<th style="text-align: right;">Opus 5.5</th>
+<th style="text-align: right;">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input</td>
+<td style="text-align: right;">$5</td>
+<td style="text-align: right;">$4</td>
+<td style="text-align: right;">20% cheaper</td>
+</tr>
+<tr>
+<td>Output</td>
+<td style="text-align: right;">$25</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">20% cheaper</td>
+</tr>
+<tr>
+<td>Cache write (5 min)</td>
+<td style="text-align: right;">$6.25</td>
+<td style="text-align: right;">$5</td>
+<td style="text-align: right;">20% cheaper</td>
+</tr>
+<tr>
+<td>Cache read</td>
+<td style="text-align: right;">$0.50</td>
+<td style="text-align: right;">$0.20</td>
+<td style="text-align: right;"><strong>60% cheaper</strong></td>
+</tr>
+<tr>
+<td>Fast mode</td>
+<td style="text-align: right;">–</td>
+<td style="text-align: right;">$8 / $40</td>
+<td style="text-align: right;">New in Opus 5.5</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Cache reads dropped the most.</strong> On Opus 5 they cost 10% of the input price; on Opus 5.5 they cost 5%. The more a task re-reads the same documents or conversation, the bigger the gap.</li>
+<li><strong>Token counts are the same.</strong> Both models use the newer tokenizer introduced after Claude 4.7, so the same text produces the same number of tokens. The price difference goes straight through to cost.</li>
+<li><strong>Fast mode:</strong> Opus 5.5 adds a fast mode at $8 input and $40 output. It works in Claude Code and the API, and Anthropic says it is up to 150% faster.</li>
+</ul>
+<h2>Hands-on: my Max 20x weekly limit started to last</h2>
+<p>I (Jaehyun) have used both Opus 5 and Opus 5.5 on the Claude Max 20x plan while building games. This is what it felt like in daily use, not a measured figure.</p>
+<ul>
+<li><strong>Weekly limit:</strong> With Opus 5, I would use up the weekly limit about a day before it reset. Since switching to Opus 5.5, I often finish the week at around 90% usage.</li>
+<li><strong>External tasks:</strong> The gap was biggest on token-heavy external tasks. Of the models I have used, Opus 5.5 felt like the one that burns the fewest tokens.</li>
+<li><strong>Coding and value:</strong> For coding, it feels as capable as Fable 5.1, and it feels like much better value. For reference, Opus 5.5's API price ($4 input, $20 output) is 60% lower than Fable 5.1's ($10 input, $50 output).</li>
+</ul>
+<p>The official prices above and the calculations below point the same way. Doing the same work for less cost (that is, less of your limit) means the same plan lasts longer.</p>
+<h2>We measured it with the same request</h2>
+<p><img loading="lazy" width="1600" height="835" alt="Same request, measured: the brick-breaker games built by Opus 5 and Opus 5.5 side by side" src="/claude-opus-5-vs-5-5-en-5.jpg" /></p>
+<p>Feelings are not enough, so on October 9, 2026 we gave both models the <strong>same request</strong> once each in Claude Code: build a brick-breaker game that runs in the browser (two levels, score and lives) as a single HTML file. Usage was measured with the free tool ccusage.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Opus 5</th>
+<th style="text-align: right;">Opus 5.5</th>
+<th style="text-align: right;">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Output tokens</td>
+<td style="text-align: right;">36,640</td>
+<td style="text-align: right;">15,180</td>
+<td style="text-align: right;">59% fewer</td>
+</tr>
+<tr>
+<td>Cache write tokens</td>
+<td style="text-align: right;">74,533</td>
+<td style="text-align: right;">63,917</td>
+<td style="text-align: right;">14% fewer</td>
+</tr>
+<tr>
+<td>Cache read tokens</td>
+<td style="text-align: right;">1,774,025</td>
+<td style="text-align: right;">595,337</td>
+<td style="text-align: right;">66% fewer</td>
+</tr>
+<tr>
+<td>Total tokens</td>
+<td style="text-align: right;">1,885,246</td>
+<td style="text-align: right;">674,452</td>
+<td style="text-align: right;"><strong>64% fewer</strong></td>
+</tr>
+<tr>
+<td>Cost (at API prices)</td>
+<td style="text-align: right;">$2.55</td>
+<td style="text-align: right;">$0.93</td>
+<td style="text-align: right;"><strong>64% cheaper</strong></td>
+</tr>
+<tr>
+<td>Game code produced</td>
+<td style="text-align: right;">about 684 lines</td>
+<td style="text-align: right;">409 lines</td>
+<td style="text-align: right;">40% shorter</td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" width="1200" height="624" alt="Token chart for the same request: Opus 5 used 1.89M tokens, Opus 5.5 used 674K" src="/claude-opus-5-vs-5-5-en-6.jpg" /></p>
+<ul>
+<li><strong>The cost gap was far bigger than the price gap (20%).</strong> Handling the same request, Opus 5.5 used 64% fewer tokens in total. Cache reads, where the model re-reads the earlier conversation, fell 66%. That matches why the Max weekly limit started to last.</li>
+<li><strong>Opus 5 built more features.</strong> Its game had bricks that take two hits, particle effects and a restart (R) key; Opus 5.5 built the basics only. To my eye, though, Opus 5.5's screen looked cleaner and nicer. Part of the token gap comes from this feature difference.</li>
+<li><strong>Opus 5.5's file was cut short.</strong> The closing tags (<code>&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;</code>) were missing, so it showed a blank screen at first; adding those three tags made it play normally. Opus 5's file ran straight away.</li>
+<li><strong>Caveat:</strong> Each model ran once, so a rerun may give different numbers. Cost is ccusage's conversion at API prices; plan users do not pay this, it comes out of their limit.</li>
+</ul>
+<p><img loading="lazy" width="1200" height="553" alt="ccusage measurement record: Opus 5 and Opus 5.5 tokens and cost on October 9, 2026" src="/claude-opus-5-vs-5-5-en-7.jpg" /></p>
+<h2>Cost on real workloads</h2>
+<p><img loading="lazy" width="1200" height="735" alt="Cost on real workloads: Task, Opus 5, Opus 5.5, Difference" src="/claude-opus-5-vs-5-5-cost-on-real-workloads-en.jpg" /></p>
+<p>We calculated the cost of the same work on both models, keeping token counts equal and changing only the prices.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th style="text-align: right;">Opus 5</th>
+<th style="text-align: right;">Opus 5.5</th>
+<th style="text-align: right;">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 chat request (2,000 in / 500 out)</td>
+<td style="text-align: right;">$0.0225</td>
+<td style="text-align: right;">$0.018</td>
+<td style="text-align: right;">20% cheaper</td>
+</tr>
+<tr>
+<td>1 document question (50,000 in, 45,000 cached / 1,000 out)</td>
+<td style="text-align: right;">$0.0725</td>
+<td style="text-align: right;">$0.049</td>
+<td style="text-align: right;">32% cheaper</td>
+</tr>
+<tr>
+<td>1 coding agent feature (1.6M in, mostly cached / 17,500 out)</td>
+<td style="text-align: right;">$1.79</td>
+<td style="text-align: right;">$1.14</td>
+<td style="text-align: right;">37% cheaper</td>
+</tr>
+<tr>
+<td>Coding agent for a month (110 features)</td>
+<td style="text-align: right;">about $197</td>
+<td style="text-align: right;">about $125</td>
+<td style="text-align: right;">37% cheaper</td>
+</tr>
+</tbody>
+</table></div>
+<p>Example: Opus 5.5 document question = 5,000 new input × $4 + 45,000 cached × $0.20 + 1,000 output × $20 (all per million tokens) = $0.049.</p>
+<p><strong>The more you cache, the more you save.</strong> Plain chat is only 20% cheaper, but a coding agent that keeps re-reading the conversation gets close to 37% cheaper. Anthropic's "40% less" claim looks like it is based on work like this.</p>
+<h2>Performance (as reported by Anthropic)</h2>
+<p><img loading="lazy" width="1200" height="812" alt="Performance (as reported by Anthropic): benchmark bar chart, Opus 5 vs Opus 5.5" src="/claude-opus-5-vs-5-5-en-4.jpg" /></p>
+<p>Benchmarks published by Anthropic. Opus 5.5 scores use the highest setting (max effort), and all are Anthropic's own measurements.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Benchmark</th>
+<th style="text-align: right;">Opus 5</th>
+<th style="text-align: right;">Opus 5.5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Terminal-Bench 4.0 (terminal tasks)</td>
+<td style="text-align: right;">52.3%</td>
+<td style="text-align: right;">66.4%</td>
+</tr>
+<tr>
+<td>CursorBench 4.0 (coding)</td>
+<td style="text-align: right;">46.6%</td>
+<td style="text-align: right;">57.8%</td>
+</tr>
+<tr>
+<td>FrontierCode v1.1 (coding)</td>
+<td style="text-align: right;">48.0%</td>
+<td style="text-align: right;">54.4%</td>
+</tr>
+<tr>
+<td>AutomationBench (work automation)</td>
+<td style="text-align: right;">26.9%</td>
+<td style="text-align: right;">40.0%</td>
+</tr>
+<tr>
+<td>OSWorld 2.1 (computer use, subset)</td>
+<td style="text-align: right;">74.0%</td>
+<td style="text-align: right;">81.8%</td>
+</tr>
+<tr>
+<td>Humanity's Last Exam (with tools)</td>
+<td style="text-align: right;">63.6%</td>
+<td style="text-align: right;">67.7%</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>The biggest gains are in coding and agent work.</strong> Terminal tasks rose 14.1 points and work automation 13.1 points.</li>
+<li><strong>Speed:</strong> According to Anthropic, output is generated more than 30% faster than on Opus 5.</li>
+<li><strong>Caveat:</strong> These are the company's own scores; test on your own tasks to see whether you get the same gap.</li>
+</ul>
+<h2>For Pro and Max plan users</h2>
+<ul>
+<li>On a subscription, what matters is your <strong>limit</strong>, not the token price. Anthropic said that with the Opus 5.5 launch it raised the 5-hour usage limits on Pro, Max, Team and seat-based Enterprise, and is giving a limit reset you can use later.</li>
+<li>Because the model does the same work for less, you will likely fit more into the same limit. Anthropic does not publish exact limits per plan.</li>
+</ul>
+<h2>Pros and cons</h2>
+<p><img loading="lazy" width="1200" height="734" alt="Opus 5.5 pros and cons summary card" src="/claude-opus-5-vs-5-5-en-9.jpg" /></p>
+<p><strong>Pros</strong></p>
+<ul>
+<li><strong>Cheaper and better:</strong> token prices down 20% and cache reads down 60%, with higher benchmark scores.</li>
+<li><strong>Especially good for agent work:</strong> cache-heavy coding and automation cost about 37% less.</li>
+<li><strong>Optional fast mode:</strong> pay more for speed when you are in a hurry.</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li><strong>Still an expensive model:</strong> 100% more per token than Sonnet 5.5 ($2 input, $10 output). Sonnet is enough for simple work.</li>
+<li><strong>Performance figures come from the company:</strong> check on your own tasks until independent evaluations arrive.</li>
+<li><strong>Fast mode is pricey:</strong> 100% more than standard mode.</li>
+</ul>
+<h2>Should you switch from Opus 5?</h2>
+<ul>
+<li><strong>If you use Opus 5 through the API:</strong> switch. Same tokenizer, so prompts barely need changes; costs drop 20 to 37% while performance goes up. Change the model name to <code>claude-opus-5-5</code> and compare a few results.</li>
+<li><strong>If you run big jobs in Claude Code often:</strong> this is where the cache discount helps most.</li>
+<li><strong>If Sonnet is enough for the job:</strong> no need to move up to Opus 5.5. Giving only hard design and debugging to Opus is the most economical setup.</li>
+</ul>
+<h2>FAQ</h2>
+<p><strong>How much cheaper is Opus 5.5 than Opus 5?</strong>
+Token prices are 20% lower and cache reads 60% lower. On real workloads, chat is 20% cheaper and cache-heavy coding agent work about 37% cheaper.</p>
+<p><strong>Do token counts change?</strong>
+No. Both models use the same newer tokenizer, so the same text gives the same token count.</p>
+<p><strong>Opus 5.5 or Sonnet 5.5?</strong>
+Sonnet 5.5 is enough for most work at half the price per token. Use Opus 5.5 for hard coding, long agent runs and writing where quality matters.</p>
+<h2>Calculate it for your own work</h2>
+<p>In the <a href="/agents">coding agent cost calculator</a>, enter task size and tasks per day to compare a month on Opus 5.5, Sonnet 5.5 and GPT-6 Sol. Check the cost of a single prompt in the <a href="/">token counter</a>. To decide between a plan and the API, see <a href="/blog/claude-code-cost-per-month">Claude Code cost per month</a>.</p>
+<p><em>Prices as of October 9, 2026. Prices change; check Anthropic's pricing page before you rely on them.</em></p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.anthropic.com/claude-opus-5-5" target="_blank" rel="noopener">Anthropic: Claude Opus 5.5 announcement (September 22, 2026)</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Anthropic: Claude API pricing</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">Anthropic: Prompt caching docs</a></li>
+<li><a href="https://datanorth.ai/news/claude-opus-5-by-anthropic" target="_blank" rel="noopener">DataNorth: Claude Opus 5 launch summary (July 24, 2026)</a></li>
+<li><a href="https://github.com/ryoppippi/ccusage" target="_blank" rel="noopener">ccusage: Claude Code usage tool (GitHub)</a></li>
+</ul>
+<!-- autoimg -->
