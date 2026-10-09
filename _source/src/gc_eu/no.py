@@ -55,7 +55,7 @@ GC = dict(
   devIntro='Du er en erfaren spillutvikler. Hjelp meg å bygge "{name}", et {dim}-{genre}-spill for {plat} i {engine}.',
   qPlat="Lanseres på", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Nett",
   pls_android="Google Play, én gang", pls_mobile="Google Play 25 USD + Apple 99 USD/år", pls_pc="Steam Direct, per spill", pls_web="",
-  l_store="Butikkavgift", l_server="Server",
+  feeIncl="Ta med butikkens registreringsavgift (hvis du ikke har betalt den ennå)", l_store="Butikkavgift", l_server="Server",
   devIdea="Idé:",
   devScope="Omfang: {chars} figurer, {bg} bakgrunner, {items} gjenstander, {music} musikkspor, {sfx} lydeffekter, {langs} språk.",
   devFeats="Funksjoner:",

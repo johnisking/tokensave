@@ -55,7 +55,7 @@ GC = dict(
   devIntro='Olet kokenut pelinkehittäjä. Auta minua tekemään "{name}" – {dim}-peli, lajityyppi {genre}, alusta {plat}, pelimoottori {engine}.',
   qPlat="Julkaisualusta", pl_android="Android", pl_mobile="Android + iOS", pl_pc="PC (Steam)", pl_web="Selain",
   pls_android="Google Play, kertamaksu", pls_mobile="Google Play 25 USD + Apple 99 USD/v", pls_pc="Steam Direct, per peli", pls_web="",
-  l_store="Kauppamaksu", l_server="Palvelin",
+  feeIncl="Sisällytä kaupan rekisteröintimaksu (jos et ole vielä maksanut sitä)", l_store="Kauppamaksu", l_server="Palvelin",
   devIdea="Idea:",
   devScope="Laajuus: {chars} hahmoa, {bg} taustaa, {items} esinettä, {music} musiikkikappaletta, {sfx} ääniefektiä, {langs} kieltä.",
   devFeats="Ominaisuudet:",
