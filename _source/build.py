@@ -249,6 +249,51 @@ RANK_NAV = {"en": "AI Ranking", "ko": "AI 순위", "ja": "AIランキング", "z
     "da": "AI-rangliste", "fi": "AI-ranking", "no": "KI-rangering", "sk": "Rebríček AI", "mr": "AI क्रमवारी", "gu": "AI રેન્કિંગ",
     "kn": "AI ಶ್ರೇಯಾಂಕ", "ml": "AI റാങ്കിംഗ്", "ta": "AI தரவரிசை", "te": "AI ర్యాంకింగ్", "pa": "AI ਰੈਂਕਿੰਗ"}
 
+BLOG_NAV = {"en": "Blog", "ko": "블로그", "ja": "ブログ", "zh-CN": "博客", "zh-TW": "部落格", "es": "Blog", "pt": "Blog", "fr": "Blog",
+    "de": "Blog", "it": "Blog", "ru": "Блог", "uk": "Блог", "tr": "Blog", "ar": "المدونة", "fa": "وبلاگ", "hi": "ब्लॉग", "id": "Blog",
+    "vi": "Blog", "th": "บล็อก", "pl": "Blog", "nl": "Blog", "bn": "ব্লগ", "ur": "بلاگ", "fil": "Blog", "cs": "Blog", "sv": "Blogg",
+    "he": "בלוג", "el": "Ιστολόγιο", "ro": "Blog", "hu": "Blog", "da": "Blog", "fi": "Blogi", "no": "Blogg", "sk": "Blog", "mr": "ब्लॉग",
+    "gu": "બ્લૉગ", "kn": "ಬ್ಲಾಗ್", "ml": "ബ്ലോഗ്", "ta": "வலைப்பதிவு", "te": "బ్లాగ్", "pa": "ਬਲੌਗ"}
+
+BLOG_IDX = {  # language blog index pages: tag -> (title, description/intro)
+    "ko": ("블로그: AI 토큰·가격·비용 실측", "AI 토큰, API 가격, 구독 요금제, 영상·이미지 생성 비용을 직접 재고 정리한 글입니다. 최신 글부터 보여 드립니다."),
+    "ja": ("ブログ：AI のトークン・料金・費用の実測", "AI のトークン、API 料金、サブスクリプション、動画・画像生成の費用を実際に測ってまとめた記事です。新しい順に並べています。"),
+    "pl": ("Blog: tokeny, ceny i koszty AI", "Artykuły o tokenach, cenach API, subskrypcjach oraz kosztach generowania wideo i obrazów, od najnowszych."),
+    "es": ("Blog: tokens, precios y costos de la IA", "Artículos sobre tokens, precios de API, suscripciones y el costo de generar video e imágenes, de los más recientes a los más antiguos."),
+    "nl": ("Blog: AI-tokens, prijzen en kosten", "Artikelen over tokens, API-prijzen, abonnementen en de kosten van video- en beeldgeneratie, nieuwste eerst."),
+    "fr": ("Blog : tokens, prix et coûts de l'IA", "Articles sur les tokens, les prix des API, les abonnements et le coût de la génération de vidéos et d'images, du plus récent au plus ancien."),
+    "uk": ("Блог: токени, ціни й вартість ШІ", "Статті про токени, ціни API, підписки та вартість генерації відео й зображень, від найновіших."),
+    "pt": ("Blog: tokens, preços e custos de IA", "Artigos sobre tokens, preços de API, assinaturas e o custo de gerar vídeo e imagens, dos mais recentes aos mais antigos."),
+    "de": ("Blog: KI-Tokens, Preise und Kosten", "Artikel zu Tokens, API-Preisen, Abos und den Kosten für Video- und Bildgenerierung, die neuesten zuerst."),
+    "tr": ("Blog: yapay zekâ token, fiyat ve maliyetleri", "Token, API fiyatları, abonelikler ile video ve görsel üretim maliyetleri üzerine yazılar, en yeniden eskiye."),
+    "zh-TW": ("部落格：AI token、價格與費用", "關於 token、API 價格、訂閱方案，以及影片與圖片生成費用的文章，由新到舊排列。"),
+    "zh-CN": ("博客：AI token、价格与费用", "关于 token、API 价格、订阅方案，以及视频和图片生成费用的文章，按从新到旧排列。"),
+}
+BLOG_EN_LINK = {"ko": "영어 글 전체 보기", "ja": "英語の記事をすべて見る", "pl": "Wszystkie artykuły po angielsku", "es": "Todos los artículos en inglés",
+    "nl": "Alle artikelen in het Engels", "fr": "Tous les articles en anglais", "uk": "Усі статті англійською", "pt": "Todos os artigos em inglês",
+    "de": "Alle Artikel auf Englisch", "tr": "Tüm İngilizce yazılar", "zh-TW": "查看所有英文文章", "zh-CN": "查看所有英文文章"}
+
+_TS = {tag: slug for slug, tag, *_ in LANGS}
+BLOG_ALTS_EN = "\n".join(f'  <link rel="alternate" hreflang="{t_}" href="https://tokensave.app/{_TS[t_]}/blog/" />' for t_ in BLOG_IDX) + \
+    '\n  <link rel="alternate" hreflang="en" href="https://tokensave.app/blog/" />\n  <link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/" />'
+
+def blog_lang_posts(tag):
+    posts = [b for G in (BLOG, PRO, MISTRAL_FR, PROMPT_PL, *MULTI) for b in G if b["tag"] == tag]
+    posts.sort(key=lambda b: b.get("date", BLOG_DATE), reverse=True)
+    return posts
+
+def blog_lang_index_html(tag):
+    title, intro_ = BLOG_IDX[tag]
+    cards = "\n".join(
+        f'      <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{b["path"]}" class="block no-underline" style="text-decoration:none">'
+        f'<span class="block font-semibold text-zinc-100">{esc(b["title"])}</span>'
+        f'<span class="block mt-1 text-sm text-zinc-400">{esc(b["desc"])}</span></a></li>' for b in blog_lang_posts(tag))
+    return ('    <section class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">\n'
+            f'      <h1 class="text-3xl font-extrabold text-white">{esc(title)}</h1>\n'
+            f'      <p class="mt-3">{esc(intro_)}</p>\n'
+            '      <ul class="not-prose mt-6 grid gap-3" style="list-style:none;padding:0">\n' + cards + '\n      </ul>\n'
+            f'      <p class="mt-6"><a href="/blog/">{esc(BLOG_EN_LINK[tag])} →</a></p>\n    </section>')
+
 GC_NAV = {"en": "Game cost", "ko": "게임 제작비", "ja": "ゲーム制作費"}
 from gamecost_i18n import NAV as _GCN, EXTRA as _GCX
 GC_NAV.update(_GCN)
@@ -306,6 +351,13 @@ def render(base, body, values):
         href = GC_HREF.get(gl, "/ai-game-cost-calculator")
         values = dict(values, toolNav=values["toolNav"] + f'\n          <a href="{href}" class="{NAV_ON if here else NAV_OFF}"'
                       + (' aria-current="page"' if here else '') + f'>🎮 {esc(GC_NAV[gl])}</a>')
+    if "toolNav" in values:  # blog link in the top menu, in the page language
+        bl = values.get("htmlLang", "en")
+        bslug = "" if bl == "en" else bl.lower()
+        bhref = f"/{bslug}/blog/" if bl in BLOG_IDX else "/blog/"
+        here = "/blog" in values.get("url", "")
+        values = dict(values, toolNav=values["toolNav"] + f'\n          <a href="{bhref}" class="{NAV_ON if here else NAV_OFF}"'
+                      + (' aria-current="page"' if here else '') + f'>📝 {esc(BLOG_NAV.get(bl, BLOG_NAV["en"]))}</a>')
     out = base.replace("{{body}}", body)
     for k, v in values.items():
         out = out.replace("{{" + k + "}}", v)
@@ -447,7 +499,7 @@ def build():
         values = dict(
             htmlLang="en", dir="ltr", url=url, ogLocale="en_US", ogImage=f"{BASE}/og-token.jpg",
             title=esc(pg["title"]), desc=esc(pg["desc"]), lang=esc(S["en"]["lang"]),
-            homeUrl="/", hreflang="", langOptions=en_opts, langAll=en_all, toolNav=en_nav, ver=ver, adsHead=extras, faq="", guide="",
+            homeUrl="/", hreflang=(BLOG_ALTS_EN if pg["path"] == "/blog/" else ""), langOptions=en_opts, langAll=en_all, toolNav=en_nav, ver=ver, adsHead=extras, faq="", guide="",
             f1="", f2="", fAbout=esc(SITE["en"]["fAbout"]), fPrivacy=esc(SITE["en"]["fPrivacy"]),
             ldjson=js({"@context": "https://schema.org", "@type": "WebPage", "name": pg["title"], "url": url}),
             tjson=js({"static": True}),
@@ -530,6 +582,27 @@ def build():
         fp = os.path.join(DIST, pp["path"].lstrip("/") + ".html")
         os.makedirs(os.path.dirname(fp), exist_ok=True)
         open(fp, "w", encoding="utf-8").write(render(base, pp["body"], values))
+
+    # language blog index pages (/ko/blog/ ...)
+    BIDX_ALTS = "\n".join(f'  <link rel="alternate" hreflang="{t_}" href="{BASE}/{tag_slug_[t_]}/blog/" />' for t_ in BLOG_IDX) + \
+        f'\n  <link rel="alternate" hreflang="en" href="{BASE}/blog/" />\n  <link rel="alternate" hreflang="x-default" href="{BASE}/blog/" />'
+    for bt in BLOG_IDX:
+        slug = tag_slug_[bt]
+        url = f"{BASE}/{slug}/blog/"
+        nav = "\n".join(f'          <a href="{path_for(slug, t)}" class="{NAV_OFF}">{esc(NAV[bt][t["nav"]])}</a>' for t in TOOLS)
+        opts, opts_all = lang_menu(slug, bt, lambda sl: path_for(sl, TOOLS[0]))
+        btitle, bdesc = BLOG_IDX[bt]
+        values = dict(
+            htmlLang=bt, dir="ltr", url=url, ogLocale=tag_og_[bt], ogImage=f"{BASE}/og-token.jpg",
+            title=esc(btitle + " | TokenSave"), desc=esc(bdesc), lang=esc(S[bt]["lang"]),
+            homeUrl=path_for(slug, TOOLS[0]), hreflang=BIDX_ALTS, langOptions=opts, langAll=opts_all, toolNav=nav, ver=ver, adsHead=extras,
+            faq="", guide="", f1="", f2="", fAbout=esc(SITE[bt]["fAbout"]), fPrivacy=esc(SITE[bt]["fPrivacy"]),
+            ldjson=js({"@context": "https://schema.org", "@type": "CollectionPage", "name": btitle, "url": url, "inLanguage": bt}),
+            tjson=js({"static": True}), scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>',
+        )
+        fp = os.path.join(DIST, slug, "blog", "index.html")
+        os.makedirs(os.path.dirname(fp), exist_ok=True)
+        open(fp, "w", encoding="utf-8").write(render(base, blog_lang_index_html(bt), values))
 
     # AI game cost estimator (/ai-game-cost-calculator + ko/ja)
     import gamecost as GC
@@ -767,6 +840,8 @@ def build():
         f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}{GC.PATH["en"]}"/>'
     for p_ in GC.PATH.values():
         entries.append(f"\n  <url>\n    <loc>{BASE}{p_}</loc>\n    <lastmod>{GC.CHECKED}</lastmod>{gc_x}\n  </url>")
+    for bt in BLOG_IDX:
+        entries.append(f"\n  <url>\n    <loc>{BASE}/{tag_slug_[bt]}/blog/</loc>\n    <lastmod>{max(b.get('date', BLOG_DATE) for b in blog_lang_posts(bt))}</lastmod>\n  </url>")
     open(os.path.join(DIST, "sitemap.xml"), "w", encoding="utf-8").write(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
