@@ -734,3 +734,11 @@ for _d in ULTRAFAST: _d["date"] = "2026-10-09"
 for _b in PRO:
     _og = {"ko": "chatgpt-pro-500-200-100-ko.jpg", "en": "chatgpt-pro-500-200-100-en.jpg", "ja": "chatgpt-pro-500-200-100-ja.jpg"}.get(_b["tag"])
     if _og: _b["og"] = _og; _b["date"] = "2026-10-09"
+
+# 2026-10-10: Claude Sonnet 5.5 vs Opus 5.5, same game prompt measured
+SONNET55 = [
+ _cc("ko", "/ko/blog/claude-sonnet-5-5-vs-opus-5-5", "sonnet55-ko", "클로드 소넷 5.5 vs 오퍼스 5.5: 같은 게임 요청으로 실측 비교",
+     "소넷 5.5와 오퍼스 5.5에 같은 게임 요청을 시켜 실측. 소넷 high 58초 $0.30, 오퍼스 medium 52초 $0.56, 오퍼스 high 1분 50초 $0.75. 결과물과 작업별 추천까지.",
+     "Jonhisking · 2026년 10월 10일", "작업 크기와 하루 작업 수를 넣고 오퍼스 5.5·소넷 5.5·GPT-6 Sol의 한 달 비용을 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"),
+]
+for _d in SONNET55: _d["date"] = "2026-10-10"
