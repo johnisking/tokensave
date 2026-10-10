@@ -1,4 +1,4 @@
-![Claude Code Cost per Month: Pro vs Max vs API](/claude-code-cost-per-month-en.jpg)
+![Claude Code Pricing 2026: Cost per Month on Pro, Max or API](/claude-code-cost-per-month-en.jpg)
 
 Claude Code is included in Anthropic's Claude Pro and Max subscriptions, and it can also run on pay-as-you-go API credits. So what does it actually cost per month? It depends on how much you use it, and the difference between the cheapest and the most expensive way to pay for the same work can be ten times or more. Here are the real numbers.
 

@@ -1,4 +1,4 @@
-![GPT-6 API Pricing: Astra vs Sol vs Luna, and What It Costs](/gpt-6-api-pricing-en.jpg)
+![OpenAI API Pricing 2026: GPT-6 Astra, Sol and Luna Costs](/gpt-6-api-pricing-en.jpg)
 
 OpenAI released three GPT-6 models in September 2026: **GPT-6 Astra**, the flagship, on September 3, and **GPT-6 Sol** and **GPT-6 Luna** on September 22. Their API prices are very different, so picking the right one matters far more than any discount. Here are the prices, what they mean for real workloads, and how they compare with Claude and Gemini.
 

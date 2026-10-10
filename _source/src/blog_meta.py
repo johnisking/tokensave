@@ -232,7 +232,7 @@ _CTA = {"en": ("Set task size and tasks per day to compare Claude Code's API cos
         "ko": ("작업 크기와 하루 작업 수를 넣고, 클로드 코드의 API 비용을 Pro·Max와 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"),
         "ja": ("タスクの大きさと1日のタスク数を入れて、Claude Code の API 費用を Pro・Max と比べてみましょう。", "エージェント費用計算機を開く")}
 CC_COST = [
- _cc("en", "/blog/claude-code-cost-per-month", "cc-cost-en", "Claude Code Cost per Month: Pro vs Max vs API",
+ _cc("en", "/blog/claude-code-cost-per-month", "cc-cost-en", "Claude Code Pricing 2026: Cost per Month on Pro, Max or API",
      "What Claude Code really costs per month on Pro, Max 5x, Max 20x or the API, with cost per task and when each one is cheapest.", _BY["en"], *_CTA["en"]),
  _cc("ko", "/ko/blog/claude-code-yogeum", "cc-cost-ko", "클로드 코드 요금 한 달에 얼마? Pro·Max·API 비교",
      "클로드 코드를 Pro, Max 5×, Max 20×, API로 쓸 때 한 달 비용과 작업당 비용, 어떤 경우에 무엇이 가장 싼지 정리했습니다.", _BY["ko"], *_CTA["ko"]),
@@ -271,7 +271,7 @@ CMP = [
      "ChatGPT Plus・Pro と Claude Pro・Max を比較。2026年9月の変更後の1ドルあたり使用量、モデル、コーディングエージェント、選び方。", _BY["ja"], *_CTA_PL["ja"]),
 ]
 GPT6 = [
- _cc("en", "/blog/gpt-6-api-pricing", "gpt6-en", "GPT-6 API Pricing: Astra vs Sol vs Luna, and What It Costs",
+ _cc("en", "/blog/gpt-6-api-pricing", "gpt6-en", "OpenAI API Pricing 2026: GPT-6 Astra, Sol and Luna Costs",
      "GPT-6 Astra, Sol and Luna API prices per million tokens, real cost per request, comparison with Claude and Gemini, and which to use.", _BY["en"], *_CTA_TK["en"]),
  _cc("ko", "/ko/blog/gpt-6-api-gagyeok", "gpt6-ko", "GPT-6 API 가격 정리: Astra·Sol·Luna 비교와 실제 비용",
      "GPT-6 Astra·Sol·Luna의 100만 토큰당 API 가격, 요청당 실제 비용, Claude·Gemini 비교, 어떤 모델을 쓸지 정리했습니다.", _BY["ko"], *_CTA_TK["ko"]),
