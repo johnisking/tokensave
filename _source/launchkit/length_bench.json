@@ -1,9 +1,48 @@
 {
-  "_note": "Per-post length target = median length of the top Google results for the main keyword (words for Latin scripts, characters without spaces for ko/ja/zh). Measured article body only, approximate. Update when re-checking.",
-  "cursor-en": {"keyword": "cursor pricing", "checked": "2026-10-11", "median": 2150,
-    "samples": {"jetadmin.io": 3294, "vantage.sh": 1204, "eesel.ai": 2359, "morphllm.com": 2158, "cloudzero.com": 1900}},
-  "sonnet55-en": {"keyword": "sonnet vs opus", "checked": "2026-10-11", "median": 1650,
-    "samples": {"promptlayer.com": 829, "morphllm.com (coding)": 2381, "morphllm.com (4.6)": 1979, "cut-the-saas.com": 1338}},
-  "cursor-ko": {"keyword": "커서 요금제", "checked": "2026-10-11", "median": 3800,
-    "samples": {"foxcg.com": 3439, "omidsaffari.com": 11347, "brunch.co.kr": 1015, "wikidocs.net": 4291}}
+ "_note": "Per-post length target = median length of the top Google results for the main keyword (words for Latin scripts, characters without spaces for ko/ja/zh). Measured article body only, approximate. Update when re-checking.",
+ "cursor-en": {
+  "keyword": "cursor pricing",
+  "checked": "2026-10-11",
+  "median": 2150,
+  "samples": {
+   "jetadmin.io": 3294,
+   "vantage.sh": 1204,
+   "eesel.ai": 2359,
+   "morphllm.com": 2158,
+   "cloudzero.com": 1900
+  }
+ },
+ "sonnet55-en": {
+  "keyword": "sonnet vs opus",
+  "checked": "2026-10-11",
+  "median": 1650,
+  "samples": {
+   "promptlayer.com": 829,
+   "morphllm.com (coding)": 2381,
+   "morphllm.com (4.6)": 1979,
+   "cut-the-saas.com": 1338
+  }
+ },
+ "cursor-ko": {
+  "keyword": "커서 요금제",
+  "checked": "2026-10-11",
+  "median": 3800,
+  "samples": {
+   "foxcg.com": 3439,
+   "omidsaffari.com": 11347,
+   "brunch.co.kr": 1015,
+   "wikidocs.net": 4291
+  }
+ },
+ "ctc-en": {
+  "keyword": "claude token cost",
+  "checked": "2026-10-11",
+  "median": 2580,
+  "samples": {
+   "benchlm.ai": 2244,
+   "cloudzero.com": 2477,
+   "superblocks.com": 2682,
+   "finout.io": 3622
+  }
+ }
 }

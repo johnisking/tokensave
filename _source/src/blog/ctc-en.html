@@ -1,0 +1,420 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="How Much Does a Claude Token Cost? 2026 Prices Per Token" src="/claude-token-cost-en.jpg" /></p>
+<p>How much does a Claude token cost? Anthropic lists its API prices per million tokens, so a single token looks almost free. What you actually pay depends on how many tokens a request uses and which kind they are. This page has the current price of every Claude model, the cost of one token and of a few common messages, and the cost breakdown of four Claude Code runs we measured with ccusage on October 9. Prices were checked against Anthropic's official pricing page on October 11, 2026.</p>
+<h2>Claude token prices per million tokens (2026)</h2>
+<p><img loading="lazy" width="1200" height="640" alt="Claude token prices per million tokens (2026): Model, Input, Output, Cache write (5 min), Cache write (1 hour), Cache read" src="/claude-token-prices-per-million-tokens-en.jpg" /></p>
+<p>These are Anthropic's list prices for the current Claude models on the Claude API, in US dollars per million tokens (MTok). Haiku 5.5 has two rows: prompts up to 100,000 tokens, and prompts over 100,000 tokens.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">Input</th>
+<th style="text-align: right;">Output</th>
+<th style="text-align: right;">Cache write (5 min)</th>
+<th style="text-align: right;">Cache write (1 hour)</th>
+<th style="text-align: right;">Cache read</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fable 5.1</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">$50</td>
+<td style="text-align: right;">$12.50</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">$0.25</td>
+</tr>
+<tr>
+<td>Opus 5.5</td>
+<td style="text-align: right;">$4</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">$5</td>
+<td style="text-align: right;">$8</td>
+<td style="text-align: right;">$0.20</td>
+</tr>
+<tr>
+<td>Sonnet 5.5</td>
+<td style="text-align: right;">$2</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">$2.50</td>
+<td style="text-align: right;">$4</td>
+<td style="text-align: right;">$0.10</td>
+</tr>
+<tr>
+<td>Haiku 5.5 (up to 100K)</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$0.50</td>
+<td style="text-align: right;">$0.125</td>
+<td style="text-align: right;">$0.20</td>
+<td style="text-align: right;">$0.01</td>
+</tr>
+<tr>
+<td>Haiku 5.5 (over 100K)</td>
+<td style="text-align: right;">$0.50</td>
+<td style="text-align: right;">$2.50</td>
+<td style="text-align: right;">$0.625</td>
+<td style="text-align: right;">$1</td>
+<td style="text-align: right;">$0.05</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Output costs 400% more than input on every current model.</strong></li>
+<li><strong>Opus 5.5 costs 100% more than Sonnet 5.5, and Sonnet 5.5 costs 1,900% more than Haiku 5.5</strong> (for prompts up to 100K tokens). Of all the price differences on this page, the one between models is the largest.</li>
+<li><strong>Cache reads are the cheapest tokens.</strong> On Opus 5.5 and Sonnet 5.5 a cache read costs 5% of the input price, on Fable 5.1 2.5%, and on Haiku 5.5 10%.</li>
+<li><strong>Haiku 5.5 is the only current model with a long-prompt price.</strong> When a request's prompt goes over 100,000 tokens, every token in that request is billed at the higher row. Opus 5.5, Sonnet 5.5 and Fable 5.1 bill the whole 1M context window at the standard rate.</li>
+</ul>
+<p>Older models are still on sale at older prices. Opus 5, for example, is $5 input and $25 output, 25% more than Opus 5.5, and Sonnet 4.6 is $3 and $15, 50% more than Sonnet 5.5. If you are still calling an older model ID, moving to the 5.5 version lowers the price per token. See <a href="/blog/claude-opus-5-vs-5-5">Claude Opus 5 vs 5.5</a> for what changed.</p>
+<h2>How much does one Claude token cost?</h2>
+<p>Divide the per-million price by 1,000,000 and you get the price of one token. Per 1,000 tokens is easier to read:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">One input token</th>
+<th style="text-align: right;">One output token</th>
+<th style="text-align: right;">1,000 input tokens</th>
+<th style="text-align: right;">1,000 output tokens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Fable 5.1</td>
+<td style="text-align: right;">$0.00001</td>
+<td style="text-align: right;">$0.00005</td>
+<td style="text-align: right;">$0.01</td>
+<td style="text-align: right;">$0.05</td>
+</tr>
+<tr>
+<td>Claude Opus 5.5</td>
+<td style="text-align: right;">$0.000004</td>
+<td style="text-align: right;">$0.00002</td>
+<td style="text-align: right;">$0.004</td>
+<td style="text-align: right;">$0.02</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td style="text-align: right;">$0.000002</td>
+<td style="text-align: right;">$0.00001</td>
+<td style="text-align: right;">$0.002</td>
+<td style="text-align: right;">$0.01</td>
+</tr>
+<tr>
+<td>Claude Haiku 5.5</td>
+<td style="text-align: right;">$0.0000001</td>
+<td style="text-align: right;">$0.0000005</td>
+<td style="text-align: right;">$0.0001</td>
+<td style="text-align: right;">$0.0005</td>
+</tr>
+</tbody>
+</table></div>
+<p>So a Sonnet 5.5 output token costs one thousandth of a cent. One dollar buys 500,000 input tokens or 100,000 output tokens on Sonnet 5.5, 250,000 or 50,000 on Opus 5.5, and 10 million or 2 million on Haiku 5.5.</p>
+<p>A request is never one token, though. The next sections look at how many tokens text turns into and how many a real request uses.</p>
+<h2>What counts as a token in Claude?</h2>
+<p>A token is a piece of text the model reads or writes: often a whole short word, sometimes part of a longer word, a space, or a punctuation mark. Each model family splits text with its own tokenizer, so the same paragraph is a different number of tokens on Claude, GPT and Gemini.</p>
+<p>Two facts from Anthropic matter for cost:</p>
+<ul>
+<li><strong>Newer Claude models use more tokens for the same text.</strong> Anthropic says Claude 4.7 and later models use a new tokenizer that produces about 30% more tokens for the same text than earlier models. All the 5.x models above use it. The tokenizer change came with 4.7; the lower per-token prices came later, with 5.5.</li>
+<li><strong>Web content adds up fast.</strong> Anthropic's own rule of thumb is that an average 10 KB web page is about 2,500 tokens, a large 100 KB documentation page about 25,000, and a 500 KB research paper PDF about 125,000.</li>
+</ul>
+<p>How many tokens per word? On OpenAI's current tokenizer we measured about 1.1 to 1.3 tokens per English word (<a href="/blog/tokens-per-word">full results</a>). Anthropic doesn't publish a word ratio for Claude, so for the estimates on this page we use <strong>about 1.5 Claude tokens per English word</strong>: our GPT measurement plus the 30% our <a href="/claude-token-counter">token counter</a> adds for Claude over GPT. That 30% is our own estimate, not an Anthropic figure. For anything you'll pay real money for, count your actual text instead of trusting a ratio.</p>
+<p>Language matters even more. In our measurements on the same content, Korean used about 44% more tokens than English, Japanese about 79% more, Polish about 88% more and Spanish about 18% more. Those numbers were measured on GPT's tokenizer. We haven't measured the language gap on Claude, but if you prompt in a language other than English, count your text before assuming English-level costs.</p>
+<h2>How much does a Claude message cost?</h2>
+<p><img loading="lazy" width="1200" height="582" alt="How much does a Claude message cost?: Request, Tokens in / out, Haiku 5.5, Sonnet 5.5, Opus 5.5" src="/claude-token-cost-how-much-does-a-claude-message-cost-en.jpg" /></p>
+<p>Here are four everyday requests, priced with the estimate of 1.5 tokens per English word: a short question with a 300-word answer, a 5,000-word report summarized into 400 words, a 100-page document (about 40,000 words) with a 1,000-word answer, and a message deep in a chat that already holds 30,000 tokens of history, without caching. These are our calculations from the list prices, not measurements. Thinking tokens, tools and caching are left out to keep them simple.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Request</th>
+<th>Tokens in / out</th>
+<th style="text-align: right;">Haiku 5.5</th>
+<th style="text-align: right;">Sonnet 5.5</th>
+<th style="text-align: right;">Opus 5.5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Question + 300-word answer</td>
+<td>75 / 450</td>
+<td style="text-align: right;">$0.0002</td>
+<td style="text-align: right;">$0.005</td>
+<td style="text-align: right;">$0.009</td>
+</tr>
+<tr>
+<td>Summarize a 5,000-word report</td>
+<td>7,500 / 600</td>
+<td style="text-align: right;">$0.001</td>
+<td style="text-align: right;">$0.021</td>
+<td style="text-align: right;">$0.042</td>
+</tr>
+<tr>
+<td>100-page document + answer</td>
+<td>60,000 / 1,500</td>
+<td style="text-align: right;">$0.007</td>
+<td style="text-align: right;">$0.135</td>
+<td style="text-align: right;">$0.27</td>
+</tr>
+<tr>
+<td>Chat with 30K tokens of history</td>
+<td>30,000 / 600</td>
+<td style="text-align: right;">$0.003</td>
+<td style="text-align: right;">$0.066</td>
+<td style="text-align: right;">$0.132</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>A short answer costs less than a cent,</strong> on Sonnet 5.5 and on Opus 5.5.</li>
+<li><strong>In these examples the input cost more than the answer</strong> once a document was pasted in, even though each output token costs more.</li>
+<li><strong>Long chats cost more per message.</strong> Every message re-sends the whole conversation as input. On Sonnet 5.5 the 30,000-token chat costs $0.066 per message, against half a cent for the short question. With prompt caching on, that same message would cost about $0.009 on Sonnet 5.5 and $0.018 on Opus 5.5, because the history is read from cache at 5% of the input price.</li>
+</ul>
+<p>To get an exact count for your own text and its cost on every model, paste it into the <a href="/">token counter</a>.</p>
+<h2>Where the money actually goes: four measured Claude Code runs</h2>
+<p>The per-message math above assumes simple chat. Agents such as Claude Code work differently: they write large chunks of context into the prompt cache and re-read them at every step. To see what that does to cost, here are four runs we measured on October 9, 2026, each building the same small browser game in Claude Code with a different model and effort level (the full test is in <a href="/blog/claude-sonnet-5-5-vs-opus-5-5">Sonnet vs Opus 5.5</a>). The token counts come from ccusage.</p>
+<p><img loading="lazy" width="1200" height="627" alt="ccusage measurement record: input, output, cache write and cache read tokens for the four runs" src="/claude-sonnet-5-5-vs-opus-5-5-en-7.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Run</th>
+<th style="text-align: right;">Output tokens</th>
+<th style="text-align: right;">Cache write tokens</th>
+<th style="text-align: right;">Cache read tokens</th>
+<th style="text-align: right;">Total</th>
+<th style="text-align: right;">Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sonnet 5.5, medium</td>
+<td style="text-align: right;">4,100</td>
+<td style="text-align: right;">50,337</td>
+<td style="text-align: right;">60,632</td>
+<td style="text-align: right;">115,073</td>
+<td style="text-align: right;">$0.25</td>
+</tr>
+<tr>
+<td>Sonnet 5.5, high</td>
+<td style="text-align: right;">8,073</td>
+<td style="text-align: right;">53,980</td>
+<td style="text-align: right;">75,536</td>
+<td style="text-align: right;">137,593</td>
+<td style="text-align: right;">$0.30</td>
+</tr>
+<tr>
+<td>Opus 5.5, medium</td>
+<td style="text-align: right;">6,299</td>
+<td style="text-align: right;">53,002</td>
+<td style="text-align: right;">74,123</td>
+<td style="text-align: right;">133,428</td>
+<td style="text-align: right;">$0.56</td>
+</tr>
+<tr>
+<td>Opus 5.5, high</td>
+<td style="text-align: right;">12,376</td>
+<td style="text-align: right;">59,146</td>
+<td style="text-align: right;">151,326</td>
+<td style="text-align: right;">222,854</td>
+<td style="text-align: right;">$0.75</td>
+</tr>
+</tbody>
+</table></div>
+<p>Fresh input was only 4 to 6 tokens per run, so it is left out of the table. We split each run's cost by token type using Anthropic's prices:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Run</th>
+<th style="text-align: right;">Output share of cost</th>
+<th style="text-align: right;">Cache write share</th>
+<th style="text-align: right;">Cache read share</th>
+<th style="text-align: right;">Average cost per 1M tokens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sonnet 5.5, medium</td>
+<td style="text-align: right;">17%</td>
+<td style="text-align: right;">81%</td>
+<td style="text-align: right;">2%</td>
+<td style="text-align: right;">$2.16</td>
+</tr>
+<tr>
+<td>Sonnet 5.5, high</td>
+<td style="text-align: right;">27%</td>
+<td style="text-align: right;">71%</td>
+<td style="text-align: right;">2%</td>
+<td style="text-align: right;">$2.21</td>
+</tr>
+<tr>
+<td>Opus 5.5, medium</td>
+<td style="text-align: right;">22%</td>
+<td style="text-align: right;">75%</td>
+<td style="text-align: right;">3%</td>
+<td style="text-align: right;">$4.23</td>
+</tr>
+<tr>
+<td>Opus 5.5, high</td>
+<td style="text-align: right;">33%</td>
+<td style="text-align: right;">63%</td>
+<td style="text-align: right;">4%</td>
+<td style="text-align: right;">$3.37</td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" width="1200" height="590" alt="Where the cost went in four Claude Code runs: cache writes took 63 to 81% of the cost" src="/claude-token-cost-where-the-money-goes-en.jpg" /></p>
+<ul>
+<li><strong>Cache writes were 63% to 81% of the cost.</strong> Output, the game code itself, was 17% to 33%.</li>
+<li><strong>Cache reads were the most tokens but the least cost.</strong> In the Opus high run they were 68% of all tokens and 4% of the cost.</li>
+<li><strong>The costs only add up at the 1-hour cache-write rate.</strong> Pricing these cache writes at the 5-minute rate gives $0.17 instead of $0.25 for Sonnet medium and $0.57 instead of $0.75 for Opus high. ccusage's totals match the 1-hour price ($4 per million on Sonnet 5.5, $8 on Opus 5.5), which is twice the input price. That is our reading of the numbers: in these runs, Claude Code's cache writes were billed at the 1-hour rate.</li>
+<li><strong>The average token cost about the input price.</strong> Across each run, the blended price came to about $2.2 per million tokens on Sonnet 5.5 and $3.4 to $4.2 on Opus 5.5, close to each model's input price.</li>
+</ul>
+<p>A longer run looked different. In a separate Opus 5.5 run from our <a href="/blog/claude-opus-5-vs-5-5">Opus 5 vs 5.5 test</a>, cache reads were 88% of 674,452 tokens. The same arithmetic puts cache reads at 13% of that run's $0.93, cache writes at 55% and output at 33%, for an average of about $1.38 per million tokens. With more steps, more of the tokens were cheap cache reads. That is one run, so treat it as an example, not a rule.</p>
+<p>So for agent work, an estimate based on output tokens alone would have missed most of these bills. Cache writes need to be counted too.</p>
+<h2>Hidden costs that change the price per token</h2>
+<p>These official modifiers change what a token costs:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>What it does to cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thinking tokens</td>
+<td>Billed as output tokens. Higher effort means more of them.</td>
+</tr>
+<tr>
+<td>Batch API</td>
+<td>50% off input and output for jobs that can wait.</td>
+</tr>
+<tr>
+<td>Prompt cache write</td>
+<td>25% more than input (5 minutes) or 100% more (1 hour).</td>
+</tr>
+<tr>
+<td>Prompt cache read</td>
+<td>95% off input on Opus 5.5 and Sonnet 5.5.</td>
+</tr>
+<tr>
+<td>Fast mode (Opus 5.5, research preview)</td>
+<td>$8 input and $40 output: 100% more than standard.</td>
+</tr>
+<tr>
+<td>US-only inference</td>
+<td>10% more on every token category.</td>
+</tr>
+<tr>
+<td>Tool use</td>
+<td>A 286-token system prompt on the 5.5 models, plus your tool definitions, on every request.</td>
+</tr>
+<tr>
+<td>Web search</td>
+<td>$10 per 1,000 searches, plus the result tokens as input.</td>
+</tr>
+<tr>
+<td>Haiku 5.5 over 100K tokens</td>
+<td>400% more for the whole request.</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Thinking tokens count as output.</strong> When you raise effort, Claude spends more tokens reasoning before it answers, and those are billed at the output price. In our runs, high effort used 96% to 97% more output tokens than medium. See <a href="/blog/claude-opus-5-5-effort">Claude Opus 5.5 effort levels</a>.</li>
+<li><strong>Batch and caching discounts can be combined,</strong> according to Anthropic.</li>
+<li><strong>Tool definitions are input tokens.</strong> Every tool you include is sent with every request, whether Claude calls it or not.</li>
+</ul>
+<h2>How to pay less per Claude token</h2>
+<ol>
+<li><strong>Pick the smallest model that does the job.</strong> Anthropic positions Haiku 5.5 for classification, extraction and routing, at 95% less than Sonnet 5.5. Sonnet 5.5 is enough for most coding; in our test it was 55% to 60% cheaper than Opus 5.5 at the same effort.</li>
+<li><strong>Turn on prompt caching for anything repeated.</strong> A long system prompt, a document you ask several questions about, a growing chat. On the 5.5 models a cached read is 95% cheaper than fresh input.</li>
+<li><strong>Use the Batch API for work that can wait.</strong> Overnight summaries, bulk tagging and evals get 50% off.</li>
+<li><strong>Keep output short.</strong> Ask for the length you need; output is the most expensive token type.</li>
+<li><strong>Lower effort for simple tasks.</strong> Medium effort used about half the output tokens of high in our runs.</li>
+<li><strong>Start fresh conversations.</strong> In Claude Code, use /clear between unrelated tasks so old context stops being re-sent. More tips: <a href="/blog/claude-code-save-tokens">How to save tokens in Claude Code</a>.</li>
+</ol>
+<h2>My own usage on Max 5x</h2>
+<p>I started on the free plan and moved up through Pro to Max 5x, which I use now. I build games on it, and I do it by typing into the Claude app's chat window, not by running Claude Code in a terminal. This is how it feels in daily use, not a measurement.</p>
+<h3>Opus 5.5 made the limit last</h3>
+<p>On Opus 5, I used up the whole limit. Since Opus 5.5 came out, I haven't hit the limit once. Last week I used up to 93% of my weekly limit, as I remember it. For coding, Opus 5.5 feels like it's on Fable's level, and the value is far better.</p>
+<h3>I leave effort on auto</h3>
+<p>Most of the time it runs at medium, and it goes up to high for coding work. I tried low a few times, found it frustrating and stopped using it. High gives clearly better results. I've tried xhigh and max only about once.</p>
+<h3>Sonnet: cheaper per token, more rounds of fixes</h3>
+<p>With Sonnet, even when I explained in detail, the details I wanted often didn't come out right. The features get built, but getting the details right meant asking again and again, so I went through more build-and-fix rounds than with Opus.</p>
+<h3>What that means for cost (our reading)</h3>
+<p>Extra rounds are why a cheaper token doesn't always make a cheaper task. In the measured runs above, one Sonnet high run cost $0.30 and one Opus high run $0.75. Two more Sonnet requests of the same size would bring Sonnet to $0.90, more than Opus. Real fix-up requests vary in size, so this is simple arithmetic, not a measurement. On a plan, the same thing shows up as more of your limit used instead of more dollars.</p>
+<h2>Subscription vs API: what a token costs on a Claude plan</h2>
+<p>Claude Pro ($20 a month in the US) and Max ($100 or $200) don't bill per token at all. You get a usage allowance that resets every five hours, plus a weekly limit, and the Claude apps and Claude Code share it. Anthropic doesn't publish the allowance in tokens. Its pricing page also lists monthly API credits for the Claude Platform with Max: $100 on Max 5x and $200 on Max 20x.</p>
+<p>For heavy users, a plan has worked out much cheaper per token than the API. <a href="https://finopsllm.com/research/claude-pro-max-tokens-limit" target="_blank" rel="noopener">FinOps LLM</a> logged one user's Claude Code sessions: a typical Max 5x window came to roughly $37 of API-equivalent usage, and a Max 20x week to about 1.9 billion tokens, which we priced at around $1,800 at API rates, against $200 for the month. 96% of those tokens were cache reads. The details are in <a href="/blog/claude-pro-max-how-many-tokens">How many tokens do you get with Claude Pro and Max?</a>.</p>
+<p>If you use Claude every day, especially Claude Code, a plan is likely cheaper per token. If you call Claude from your own app, or use it a few times a week, pay-as-you-go API usage can cost less than $20 a month. The <a href="/plans">subscription vs API calculator</a> compares the two with your own usage.</p>
+<h2>Claude vs GPT and Gemini: price per token</h2>
+<p>On list price, Claude's current models match OpenAI's closest ones. Input / output prices per million tokens, from each provider's official pricing page on October 11, 2026 (Gemini 3.1 Pro is a preview model; the price shown is for prompts up to 200K tokens):</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Claude</th>
+<th>OpenAI</th>
+<th>Google</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cheapest</td>
+<td>Haiku 5.5: $0.10 / $0.50</td>
+<td>GPT-6 Luna: $0.10 / $0.50</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>Sonnet 5.5: $2 / $10</td>
+<td>GPT-6.1 Sol: $2 / $10</td>
+<td>Gemini 3.1 Pro: $2 / $12</td>
+</tr>
+<tr>
+<td>Top</td>
+<td>Fable 5.1: $10 / $50</td>
+<td>GPT-6 Astra: $10 / $50</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Between</td>
+<td>Opus 5.5: $4 / $20</td>
+<td>–</td>
+<td>–</td>
+</tr>
+</tbody>
+</table></div>
+<p>The same price doesn't give the same bill. Each model turns the same text into a different number of tokens, and each uses a different number of tokens to finish the same task. In our tests, Sonnet 5.5 used 35% fewer output tokens than Opus 5.5 on the same job. For a real comparison, cost per finished task tells you more than cost per token. For the full list of 22 models, see <a href="/blog/llm-api-pricing-comparison">LLM API pricing compared</a>.</p>
+<h2>Verdict</h2>
+<ul>
+<li><strong>One Claude token costs between $0.0000001 (Haiku 5.5 input) and $0.00005 (Fable 5.1 output).</strong> Sonnet 5.5, the usual default, is $2 per million input tokens and $10 per million output tokens.</li>
+<li><strong>A typical chat message costs less than a cent on Sonnet 5.5.</strong> Long documents and long conversations are what push it up.</li>
+<li><strong>In agent work, cache writes were the largest cost.</strong> In our four Claude Code runs they took 63% to 81% of the bill, and the average token cost about the input price.</li>
+<li><strong>The biggest price difference is between models.</strong> Opus 5.5 costs 100% more than Sonnet 5.5 per token; Haiku 5.5 costs 95% less than Sonnet 5.5.</li>
+</ul>
+<h2>FAQ</h2>
+<p><strong>How much does a Claude token cost?</strong>
+On Claude Sonnet 5.5, one input token costs $0.000002 and one output token $0.00001 ($2 and $10 per million). Opus 5.5 is $4 and $20 per million, Haiku 5.5 $0.10 and $0.50, and Fable 5.1 $10 and $50.</p>
+<p><strong>How much is 1,000 tokens on Claude?</strong>
+On Sonnet 5.5, 1,000 input tokens cost $0.002 and 1,000 output tokens cost $0.01. On Opus 5.5 it is $0.004 and $0.02. In English, 1,000 Claude tokens is roughly 650 to 700 words by our estimate.</p>
+<p><strong>Why is output more expensive than input?</strong>
+Anthropic doesn't explain the gap; it simply prices output higher. On all current Claude models, output costs 400% more than input, which is why long answers and high effort settings add up.</p>
+<p><strong>Are thinking tokens charged?</strong>
+Yes. Extended thinking tokens are billed as output tokens, so higher effort levels cost more even if the visible answer is the same length.</p>
+<p><strong>Is Claude more expensive than ChatGPT per token?</strong>
+At list price, no. Sonnet 5.5 and GPT-6.1 Sol are both $2 input and $10 output per million tokens, and Haiku 5.5 matches GPT-6 Luna. Real costs differ because the models count text differently and use different amounts of tokens per task.</p>
+<p><strong>Does a Claude Pro or Max subscription charge per token?</strong>
+No. Plans have usage limits that reset every five hours, plus a weekly limit. Anthropic doesn't publish them in tokens, and per-token prices apply only on the API, or if you turn on extra usage credits after hitting your limit.</p>
+<h2>Run the numbers</h2>
+<p>Paste any prompt into the <a href="/">token counter</a> to see its exact token count and cost on Claude, GPT and Gemini. For agents, the <a href="/agents">coding agent cost calculator</a> estimates a month of Claude Code on Opus 5.5 or Sonnet 5.5 from your task size and tasks per day. Related: <a href="/blog/claude-code-cost-per-month">Claude Code cost per month</a> · <a href="/blog/how-to-count-tokens-gpt-claude-gemini">How to count tokens for GPT, Claude and Gemini</a>.</p>
+<p><em>Prices checked October 11, 2026. Claude Code measurements from October 9, 2026, one run each; costs are ccusage conversions at API prices.</em></p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Anthropic: Pricing</a></li>
+<li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Anthropic: Claude plans and pricing</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/extended-thinking" target="_blank" rel="noopener">Anthropic: Extended thinking</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">Anthropic: Prompt caching</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI: API pricing</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Google: Gemini API pricing</a></li>
+<li><a href="https://finopsllm.com/research/claude-pro-max-tokens-limit" target="_blank" rel="noopener">FinOps LLM: Claude Pro and Max token limits</a></li>
+<li><a href="https://github.com/ryoppippi/ccusage" target="_blank" rel="noopener">ccusage: Claude Code usage tool (GitHub)</a></li>
+</ul>
+<!-- autoimg -->

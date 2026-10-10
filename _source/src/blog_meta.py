@@ -762,3 +762,10 @@ CURSOR.append(_cc("ko", "/ko/blog/cursor-pricing", "cursor-ko", "커서 요금�
      "커서(Cursor) 요금제 2026: Hobby 무료, Pro $20, Pro+ $60, Ultra $200. 노멀·맥스 모드 이후 바뀐 과금 방식, 무료 플랜 실측, 모델별 한 달 비용과 장단점.",
      "Jonhisking · 2026년 10월 11일", "작업 크기와 하루 작업 수를 넣고 오퍼스 5.5·소넷 5.5·GPT-6 Sol의 한 달 비용을 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"))
 for _d in CURSOR: _d["date"] = "2026-10-11"
+
+CTC = [
+ _cc("en", "/blog/claude-token-cost", "ctc-en", "How Much Does a Claude Token Cost? 2026 Prices Per Token",
+     "Claude token prices in 2026: Sonnet 5.5 $2/$10, Opus 5.5 $4/$20, Haiku 5.5 $0.10/$0.50 per million. Per-token and per-message costs, plus measured runs.",
+     "Jonhisking · October 11, 2026", "Paste any prompt to see its exact token count and cost on Claude, GPT and Gemini.", "Open the token counter"),
+]
+for _d in CTC: _d["date"] = "2026-10-11"
