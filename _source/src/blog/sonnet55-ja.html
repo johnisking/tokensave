@@ -1,0 +1,229 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="Claude Sonnet 5.5 vs Opus 5.5：同じ依頼で実測比較" src="/claude-sonnet-5-5-vs-opus-5-5-ja.jpg" /></p>
+<p>Claude <strong>Sonnet 5.5</strong> は、Opus 5.5 よりトークン単価が50%安いモデルです。単価が安いぶん、出来も落ちるのでしょうか。2026年10月9日、<a href="/ja/blog/claude-opus-5-5-effort">Opus 5.5 の effort 実測</a> とまったく同じブロック崩しの依頼を Sonnet 5.5 に medium と high で1回ずつ実行し、<strong>Opus 5.5</strong> と時間・トークン・費用・出来上がったものを1対1で比べました。最も安い組み合わせは37秒で $0.25、最も高い組み合わせは1分50秒で $0.75 でした。4つのゲームを実際に遊んだ感想と、普段2つのモデルを使ってきた経験もあわせてまとめました。</p>
+<h2>Sonnet 5.5 と Opus 5.5 の料金</h2>
+<p>Anthropic 公式の料金ページによる、100万トークンあたりの料金です。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th style="text-align: right;">Sonnet 5.5</th>
+<th style="text-align: right;">Opus 5.5</th>
+<th style="text-align: right;">差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>入力</td>
+<td style="text-align: right;">$2</td>
+<td style="text-align: right;">$4</td>
+<td style="text-align: right;">Sonnet が50%安い</td>
+</tr>
+<tr>
+<td>出力</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">Sonnet が50%安い</td>
+</tr>
+<tr>
+<td>キャッシュ書き込み（5分）</td>
+<td style="text-align: right;">$2.50</td>
+<td style="text-align: right;">$5</td>
+<td style="text-align: right;">Sonnet が50%安い</td>
+</tr>
+<tr>
+<td>キャッシュ読み込み</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$0.20</td>
+<td style="text-align: right;">Sonnet が50%安い</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>同じトークン量なら、Sonnet はちょうど50%安くなります。</strong> ただ実際の費用は、モデルが作業で使うトークン量によって変わります。そこで同じ依頼で実際に測りました。</li>
+<li><strong>どちらのモデルもキャッシュ読み込みは入力料金の5%です。</strong> 同じ資料や会話を何度も読む作業なら、どちらでもキャッシュの効果が大きくなります。</li>
+</ul>
+<h2>計測方法</h2>
+<ul>
+<li><strong>環境：</strong> Opus 5.5 の effort 実測と同じ Windows PC、同じ Claude Code</li>
+<li><strong>依頼（原文のまま）：</strong> "Make a brick-breaker game that runs in the browser as a single file named index.html in the current folder. It needs 2 levels, a score display and 3 lives, and it must be playable with the keyboard and the mouse. Write the file and finish." ブラウザで動くブロック崩しを HTML ファイル1つで、2レベル、スコア、ライフ3つ、キーボード・マウス操作で作るという内容です。</li>
+<li><strong>方法：</strong> Sonnet 5.5 を <code>--effort medium</code> と <code>--effort high</code> で1回ずつ実行し、同じ日に測った Opus 5.5 の medium・high の結果と比べました。段階ごとに別のフォルダを使いました。</li>
+<li><strong>計測：</strong> トークンと費用は無料ツール ccusage で、時間は開始・終了時刻で測りました。費用は API 料金に換算した値です。</li>
+</ul>
+<h2>計測結果：時間・トークン・費用</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>モデル · effort</th>
+<th style="text-align: right;">かかった時間</th>
+<th style="text-align: right;">出力トークン</th>
+<th style="text-align: right;">合計トークン</th>
+<th style="text-align: right;">費用</th>
+<th style="text-align: right;">ゲームのコード</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sonnet 5.5 · medium</td>
+<td style="text-align: right;">37秒</td>
+<td style="text-align: right;">4,100</td>
+<td style="text-align: right;">115,073</td>
+<td style="text-align: right;">$0.25</td>
+<td style="text-align: right;">198行</td>
+</tr>
+<tr>
+<td>Opus 5.5 · medium</td>
+<td style="text-align: right;">52秒</td>
+<td style="text-align: right;">6,299</td>
+<td style="text-align: right;">133,428</td>
+<td style="text-align: right;">$0.56</td>
+<td style="text-align: right;">358行</td>
+</tr>
+<tr>
+<td>Sonnet 5.5 · high</td>
+<td style="text-align: right;">58秒</td>
+<td style="text-align: right;">8,073</td>
+<td style="text-align: right;">137,593</td>
+<td style="text-align: right;">$0.30</td>
+<td style="text-align: right;">398行</td>
+</tr>
+<tr>
+<td>Opus 5.5 · high</td>
+<td style="text-align: right;">1分50秒</td>
+<td style="text-align: right;">12,376</td>
+<td style="text-align: right;">222,854</td>
+<td style="text-align: right;">$0.75</td>
+<td style="text-align: right;">523行</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>同じ effort なら Sonnet が55〜60%安くなりました。</strong> medium は $0.56 → $0.25（55%減）、high は $0.75 → $0.30（60%減）です。</li>
+<li><strong>単価だけでなく、トークンも少なく済みました。</strong> 出力トークンはどちらの段階でも Opus より35%少なく、単価の50%差にトークンの差が加わって、節約幅が50%を超えました。</li>
+<li><strong>時間も短くなりました。</strong> Sonnet は medium で29%、high で47%速く終わりました。</li>
+<li><strong>注目の組み合わせ：Sonnet high と Opus medium。</strong> Sonnet high は46%安く（$0.30 対 $0.56）、時間は6秒長く、コードはより長くなりました（398行 対 358行）。</li>
+</ul>
+<p><img loading="lazy" width="1200" height="580" alt="モデル・effort 別のかかった時間と費用：Sonnet medium の37秒・$0.25から Opus high の1分50秒・$0.75まで" src="/claude-sonnet-5-5-vs-opus-5-5-ja-6.jpg" /></p>
+<p><img loading="lazy" width="1200" height="635" alt="ccusage の実測記録：Sonnet 5.5 と Opus 5.5 の medium・high のトークンと費用" src="/claude-sonnet-5-5-vs-opus-5-5-ja-7.jpg" /></p>
+<h2>4つのゲームを比較</h2>
+<p><img loading="lazy" width="1228" height="1290" alt="Sonnet 5.5 と Opus 5.5 が medium・high で作ったブロック崩し4つの比較" src="/claude-sonnet-5-5-vs-opus-5-5-ja-5.jpg" /></p>
+<p>4つとも問題なく動き、依頼した機能（2レベル、スコア、ライフ3つ、キーボード・マウス操作）をすべて備えていました。違いは、その上に何を足したかです。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>モデル · effort</th>
+<th>追加したもの</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sonnet medium</td>
+<td>虹色のブロック、レベル2の市松模様の配置と2回当てないと壊れない最上段、一時停止</td>
+</tr>
+<tr>
+<td>Opus medium</td>
+<td>虹色のブロック、2〜3回当てないと壊れないブロック（残り回数を表示）、一時停止・リスタート、ウィンドウを離れると自動停止</td>
+</tr>
+<tr>
+<td>Sonnet high</td>
+<td>パーティクル効果、ハイスコア保存、レベルクリアボーナス、レベル2で狭くなるパドルと速くなるボール、自動停止</td>
+</tr>
+<tr>
+<td>Opus high</td>
+<td>パーティクル効果、ハイスコア保存、クリア・残りライフのボーナス、タッチ操作</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Sonnet high は Opus high とほぼ同じ機能構成でした。</strong> 足りなかったのはタッチ操作くらいです。</li>
+<li><strong>Sonnet medium が最もシンプルでした。</strong> 効果音やパーティクルといった飾りがありません。</li>
+</ul>
+<h2>段階ごとの詳しいレビュー</h2>
+<p>ゲームを実際に遊び、モデルが最後に残した要約とコードもあわせて確認しました。Opus 5.5 の medium・high のレビューは <a href="/ja/blog/claude-opus-5-5-effort">effort 比較の記事</a> にあります。</p>
+<h3>Sonnet 5.5 medium：37秒、$0.25</h3>
+<ul>
+<li><strong>作ったもの：</strong> レベル1は5段のブロック、レベル2は7段の市松模様の配置でボールが速くなり、最上段は2回当てないと壊れません。ゲームオーバーとクリアの画面があります。</li>
+<li><strong>良い点：</strong> 依頼した機能はすべて正常に動きます。4つの中で最も速く、最も安く済みました。</li>
+<li><strong>惜しい点：</strong> 効果音やパーティクルといったゲームらしい演出がなく、ライフもハートではなく文字だけで表示されます。コードも198行で最も短くなりました。</li>
+<li><strong>向いている作業：</strong> 動作だけ確認できればよい試作、簡単な修正。</li>
+</ul>
+<h3>Sonnet 5.5 high：58秒、$0.30</h3>
+<ul>
+<li><strong>作ったもの：</strong> レベル2は空きマスが混じった7段の配置に2回当てないと壊れないブロックがあり、ボールが速くなってパドルが狭くなります。</li>
+<li><strong>良い点：</strong> ブロックが壊れるとパーティクルが飛び、ハイスコア保存、レベルクリアボーナス、ウィンドウを離れると自動停止まで入っています。ライフは赤い点で表示されます。</li>
+<li><strong>惜しい点：</strong> 2回当てないと壊れないブロックは、コード上は細い白枠と1回当たった後に薄くなる表現でしか区別されず、プレイ中は気づきにくくなっていました。タッチ操作はありません。</li>
+<li><strong>向いている作業：</strong> 普段のコーディング、人に見せられる試作を安く作るとき。</li>
+</ul>
+<h2>実際に使ってみた感想</h2>
+<p>2つのゲームを実際に遊んだ感想と、普段ゲームを作りながら Sonnet を使ってきた経験です。測定値ではなく、体感です。</p>
+<h3>Sonnet medium：物足りないが、機能は正常</h3>
+<p>とてもシンプルで、ゲームらしい演出もハートもないので物足りないですが、機能的には正常に動いている感じです。</p>
+<p>画面を見るとすぐに違いがわかります。ブロックは壊れても何の演出もなく消え、ライフはハートではなく画面上部の「Lives: 3」という文字だけです。それでも、スコア、2レベル、ライフ3つ、キーボード・マウス操作と、依頼したものは1つも欠けていません。依頼書をチェックリストとして見れば合格ですが、ゲームとして見ると作り込みが足りません。「とりあえず動くか見たい」というときなら、これで十分です。</p>
+<h3>Sonnet high：Opus high 並み、ただし1か所が惜しい</h3>
+<p>Opus 5.5 の high レベルの出来です。ゲームの演出ではパーティクルをうまく作っていました。ブロックが壊れるたびに破片が飛び、medium とは手応えがまったく違います。ハイスコア保存とレベルクリアボーナスまで入っていて、画面だけなら Opus high と並べても大きく見劣りしません。</p>
+<p>ただ、2回当てないと壊れないブロックを、プレイヤーが気づけない作りにしていました。コードを見ると、このブロックは細い白枠だけで区別され、1回当たると少し薄くなる程度です。遊ぶ側からすると、ほかと同じに見えるブロックが1回当てても壊れないので、バグのように感じることもあります。機能は入れたのに、それをプレイヤーに見せる仕上げが抜けているわけです。</p>
+<h3>普段 Sonnet を使ってみると</h3>
+<p>細かく伝えても、思ったとおりにはなかなか実装されない感じがありました。機能を実装することはできますが、求めている細部まで持っていくには、何度も追加で依頼し続ける必要がある感じです。そのため、作っては直し、作っては直しを Opus よりも頻繁に繰り返していたと思います。</p>
+<p>今回の Sonnet high の2回で壊れるブロックも、同じ形と見ることができます。「2回当てないと壊れないブロック」という機能は作れても、「プレイヤーが見てすぐわかるように」という細部は、もう一度依頼して初めて埋まるという具合です。</p>
+<h3>費用で見ると</h3>
+<p>今回の計測は1回の依頼で終わる小さなゲームだったので、この差は数字に出ていません。単純計算で、Sonnet high（$0.30）に同じ大きさの依頼をあと2回すると $0.90 になり、Opus high 1回（$0.75）より高くなります。実際の修正依頼は大きさがまちまちなので費用も変わりますが、直す回数が増えるほど Sonnet の安い単価の利点がすぐに小さくなる点は、あわせて考える必要があります。</p>
+<h2>どの作業にどのモデルを使うか</h2>
+<p><img loading="lazy" width="1200" height="747" alt="どの作業にどのモデルを使うか: 作業, おすすめ, 理由" src="/claude-sonnet-5-5-vs-opus-5-5-ja-2.jpg" /></p>
+<p>計測結果と実際に使った経験を合わせたおすすめです。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>作業</th>
+<th>おすすめ</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>簡単な修正、動作確認用の試作</td>
+<td>Sonnet medium</td>
+<td>37秒、$0.25 で最も速く安い</td>
+</tr>
+<tr>
+<td>要件がシンプルなコーディング、新機能</td>
+<td>Sonnet high</td>
+<td>Opus medium より46%安く、出来は Opus high に近い</td>
+</tr>
+<tr>
+<td>細部まで合わせる必要がある作業</td>
+<td>Opus medium〜high</td>
+<td>Sonnet は細部まで詰めるのに修正依頼が多く必要だった</td>
+</tr>
+<tr>
+<td>完成度が大事な成果物</td>
+<td>Opus high</td>
+<td>最も高いが（$0.75）抜けが最も少ない</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>注意：</strong> 各1回、小さなゲーム1つで測った結果です。大きなプロジェクトや難しい問題では差が変わることがあります。</li>
+<li><strong>修正まで計算に入れましょう。</strong> 1回で終わる作業なら Sonnet が確実に安いですが、望む結果まで何度も直すなら、その回数だけ費用と時間が増えます。</li>
+</ul>
+<h2>結論：シンプルな作業は Sonnet high、細部は Opus</h2>
+<ul>
+<li><strong>最もコスパが良いのは Sonnet 5.5 high でした。</strong> $0.30 で Opus medium（$0.56）より46%安く、出来は Opus high 並みでした。</li>
+<li><strong>Sonnet medium は速くて安いものの、物足りません。</strong> 機能は正常ですが、ゲームらしい演出がありません。</li>
+<li><strong>細部まで合わせたいなら Opus です。</strong> 計測でも Opus high の抜けが最も少なく、普段の使用でも Sonnet は望む細部まで持っていくのに修正がより多く必要でした。</li>
+</ul>
+<h2>よくある質問</h2>
+<p><strong>Sonnet 5.5 は Opus 5.5 よりどれくらい安いですか？</strong>
+トークン単価は入力・出力とも50%安くなります。今回の計測ではトークンも35%少なく、同じ effort での実際の費用は55〜60%少なく済みました。</p>
+<p><strong>Sonnet 5.5 でもゲームは作れますか？</strong>
+はい。今回の計測で、Sonnet の medium と high はどちらも依頼した機能をすべて備えたゲームを問題なく作りました。high はパーティクル効果とハイスコア保存まで入れました。</p>
+<p><strong>では Opus 5.5 はいつ使えばいいですか？</strong>
+求める細部が多く、正確さが必要なときです。Sonnet は1回で終わる作業なら十分でしたが、細かい要求は何度も直す必要があることが多くありました。</p>
+<h2>自分の作業で計算する</h2>
+<p><a href="/ja/agents">コーディングエージェント費用計算機</a> で作業の大きさと1日の作業数を入れると、Opus 5.5 と Sonnet 5.5 の1か月の費用を比べられます。プロンプト1つの費用は <a href="/ja/">トークンカウンター</a> で確認できます。Opus 5 と 5.5 の違いは <a href="/ja/blog/claude-opus-5-vs-5-5">Claude Opus 5 と 5.5 の違い</a> にまとめました。</p>
+<p><em>2026年10月9日計測。費用は ccusage が API 料金に換算した値で、モデルや Claude Code の更新によって結果が変わる可能性があります。</em></p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Anthropic：料金</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/effort" target="_blank" rel="noopener">Anthropic：effort 設定のドキュメント</a></li>
+<li><a href="https://github.com/ryoppippi/ccusage" target="_blank" rel="noopener">ccusage：Claude Code 使用量計測ツール（GitHub）</a></li>
+</ul>
+<!-- autoimg -->

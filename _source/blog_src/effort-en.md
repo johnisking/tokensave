@@ -160,7 +160,7 @@ In our test low was only 14% cheaper than medium. Given the plainer result, medi
 
 ## Calculate it for your own work
 
-In the [coding agent cost calculator](/agents), enter task size and tasks per day to see a month on Opus 5.5. Check a single prompt's cost in the [token counter](/). For price and performance differences between Opus 5 and 5.5, see [Claude Opus 5 vs 5.5](/blog/claude-opus-5-vs-5-5).
+In the [coding agent cost calculator](/agents), enter task size and tasks per day to see a month on Opus 5.5. Check a single prompt's cost in the [token counter](/). For price and performance differences between Opus 5 and 5.5, see [Claude Opus 5 vs 5.5](/blog/claude-opus-5-vs-5-5). For the same prompt on the cheaper Sonnet 5.5, see [Claude Sonnet 5.5 vs Opus 5.5](/blog/claude-sonnet-5-5-vs-opus-5-5).
 
 *Measured October 9, 2026. Cost is ccusage's conversion at API prices; results may change with model and Claude Code updates.*
 

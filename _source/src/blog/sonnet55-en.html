@@ -1,0 +1,229 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="Claude Sonnet 5.5 vs Opus 5.5: Same Game Prompt, Measured" src="/claude-sonnet-5-5-vs-opus-5-5-en.jpg" /></p>
+<p>Claude <strong>Sonnet 5.5</strong> costs 50% less per token than Opus 5.5. Does a cheaper price mean a worse result? On October 9, 2026, I gave Sonnet 5.5 the exact brick-breaker prompt from my <a href="/blog/claude-opus-5-5-effort">Opus 5.5 effort test</a>, once at medium and once at high, and compared time, tokens, cost and the finished game one-to-one against <strong>Opus 5.5</strong>. The cheapest run took 37 seconds and $0.25; the most expensive took 1 min 50 s and $0.75. I also played all four games and added what I've found using both models day to day.</p>
+<h2>Sonnet 5.5 vs Opus 5.5 pricing</h2>
+<p>Prices per million tokens, from Anthropic's official pricing page.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Sonnet 5.5</th>
+<th style="text-align: right;">Opus 5.5</th>
+<th style="text-align: right;">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input</td>
+<td style="text-align: right;">$2</td>
+<td style="text-align: right;">$4</td>
+<td style="text-align: right;">Sonnet 50% cheaper</td>
+</tr>
+<tr>
+<td>Output</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">Sonnet 50% cheaper</td>
+</tr>
+<tr>
+<td>Cache write (5 min)</td>
+<td style="text-align: right;">$2.50</td>
+<td style="text-align: right;">$5</td>
+<td style="text-align: right;">Sonnet 50% cheaper</td>
+</tr>
+<tr>
+<td>Cache read</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$0.20</td>
+<td style="text-align: right;">Sonnet 50% cheaper</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>For the same number of tokens, Sonnet is exactly 50% cheaper.</strong> But real cost depends on how many tokens each model uses to do the work, so I measured it with the same prompt.</li>
+<li><strong>On both models, cache reads cost 5% of the input price.</strong> If a task re-reads the same documents or conversation, caching pays off on either one.</li>
+</ul>
+<h2>How I measured</h2>
+<ul>
+<li><strong>Setup:</strong> the same Windows PC and the same Claude Code as the Opus 5.5 effort test</li>
+<li><strong>Prompt (verbatim):</strong> "Make a brick-breaker game that runs in the browser as a single file named index.html in the current folder. It needs 2 levels, a score display and 3 lives, and it must be playable with the keyboard and the mouse. Write the file and finish."</li>
+<li><strong>Method:</strong> one run of Sonnet 5.5 with <code>--effort medium</code> and one with <code>--effort high</code>, compared with the Opus 5.5 medium and high runs measured the same day. Each run used its own folder.</li>
+<li><strong>Measurement:</strong> tokens and cost with the free tool ccusage, time from start and end timestamps. Cost is converted at API prices.</li>
+</ul>
+<h2>Results: time, tokens and cost</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model · effort</th>
+<th style="text-align: right;">Time</th>
+<th style="text-align: right;">Output tokens</th>
+<th style="text-align: right;">Total tokens</th>
+<th style="text-align: right;">Cost</th>
+<th style="text-align: right;">Game code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sonnet 5.5 · medium</td>
+<td style="text-align: right;">37 s</td>
+<td style="text-align: right;">4,100</td>
+<td style="text-align: right;">115,073</td>
+<td style="text-align: right;">$0.25</td>
+<td style="text-align: right;">198 lines</td>
+</tr>
+<tr>
+<td>Opus 5.5 · medium</td>
+<td style="text-align: right;">52 s</td>
+<td style="text-align: right;">6,299</td>
+<td style="text-align: right;">133,428</td>
+<td style="text-align: right;">$0.56</td>
+<td style="text-align: right;">358 lines</td>
+</tr>
+<tr>
+<td>Sonnet 5.5 · high</td>
+<td style="text-align: right;">58 s</td>
+<td style="text-align: right;">8,073</td>
+<td style="text-align: right;">137,593</td>
+<td style="text-align: right;">$0.30</td>
+<td style="text-align: right;">398 lines</td>
+</tr>
+<tr>
+<td>Opus 5.5 · high</td>
+<td style="text-align: right;">1 min 50 s</td>
+<td style="text-align: right;">12,376</td>
+<td style="text-align: right;">222,854</td>
+<td style="text-align: right;">$0.75</td>
+<td style="text-align: right;">523 lines</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>At the same effort, Sonnet was 55–60% cheaper.</strong> Medium went from $0.56 to $0.25 (55% less) and high from $0.75 to $0.30 (60% less).</li>
+<li><strong>It didn't just cost less per token, it used fewer tokens.</strong> Output tokens were 35% lower than Opus at both levels. The token gap on top of the 50% price gap pushed the savings past 50%.</li>
+<li><strong>It was faster too.</strong> Sonnet was 29% faster at medium and 47% faster at high.</li>
+<li><strong>The pairing worth noting: Sonnet high vs Opus medium.</strong> Sonnet high cost 46% less ($0.30 vs $0.56), took 6 seconds longer and wrote more code (398 vs 358 lines).</li>
+</ul>
+<p><img loading="lazy" width="1200" height="564" alt="Time and cost by model and effort: from Sonnet medium at 37 s and $0.25 to Opus high at 1 min 50 s and $0.75" src="/claude-sonnet-5-5-vs-opus-5-5-en-6.jpg" /></p>
+<p><img loading="lazy" width="1200" height="627" alt="ccusage measurement record: tokens and cost for Sonnet 5.5 and Opus 5.5 at medium and high" src="/claude-sonnet-5-5-vs-opus-5-5-en-7.jpg" /></p>
+<h2>Comparing the four games</h2>
+<p><img loading="lazy" width="1228" height="1290" alt="The four brick-breaker games built by Sonnet 5.5 and Opus 5.5 at medium and high, side by side" src="/claude-sonnet-5-5-vs-opus-5-5-en-5.jpg" /></p>
+<p>All four games ran without errors and had everything the prompt asked for (2 levels, score, 3 lives, keyboard and mouse controls). The difference is what each one added on top.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model · effort</th>
+<th>What it added</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sonnet medium</td>
+<td>Rainbow bricks, a checkerboard level 2 with a top row that takes two hits, pause</td>
+</tr>
+<tr>
+<td>Opus medium</td>
+<td>Rainbow bricks, bricks that take 2–3 hits (with hits left shown), pause and restart, auto-pause when the window loses focus</td>
+</tr>
+<tr>
+<td>Sonnet high</td>
+<td>Particle effects, saved high score, level-clear bonus, narrower paddle and faster ball in level 2, auto-pause</td>
+</tr>
+<tr>
+<td>Opus high</td>
+<td>Particle effects, saved high score, clear and lives-left bonus, touch controls</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Sonnet high had nearly the same feature set as Opus high.</strong> The main thing missing was touch controls.</li>
+<li><strong>Sonnet medium was the plainest.</strong> No sound or particle polish.</li>
+</ul>
+<h2>Detailed review by run</h2>
+<p>I played each game and checked the code alongside the summary each model left at the end. The Opus 5.5 medium and high reviews are in the <a href="/blog/claude-opus-5-5-effort">effort comparison</a>.</p>
+<h3>Sonnet 5.5 medium: 37 s, $0.25</h3>
+<ul>
+<li><strong>What it built:</strong> level 1 has 5 rows of bricks; level 2 is a 7-row checkerboard with a faster ball and a top row that takes two hits. There are game-over and win screens.</li>
+<li><strong>Good:</strong> everything requested works. It was the fastest and cheapest of the four.</li>
+<li><strong>Not so good:</strong> no game effects like sound or particles, and lives show as text instead of hearts. At 198 lines, the code is the shortest too.</li>
+<li><strong>Use it for:</strong> prototypes where you only need to see it work, simple edits.</li>
+</ul>
+<h3>Sonnet 5.5 high: 58 s, $0.30</h3>
+<ul>
+<li><strong>What it built:</strong> level 2 is a 7-row layout with gaps and bricks that take two hits, plus a faster ball and narrower paddle.</li>
+<li><strong>Good:</strong> particles burst when bricks break, and it added a saved high score, a level-clear bonus and auto-pause when the window loses focus. Lives show as red dots.</li>
+<li><strong>Not so good:</strong> in the code, the two-hit bricks are marked only by a thin white border and a fade after the first hit, so they were hard to notice while playing. No touch controls.</li>
+<li><strong>Use it for:</strong> everyday coding, cheap prototypes you can actually show people.</li>
+</ul>
+<h2>Hands-on impressions</h2>
+<p>This is how the two games felt to play, plus what I've found using Sonnet while building games. It's a feel, not a measurement.</p>
+<h3>Sonnet medium: plain, but it works</h3>
+<p>It's really simple, with no game effects and no hearts, so it feels flat, but functionally it works fine.</p>
+<p>You can see the difference right away. Bricks just disappear with no effect, and lives are shown as the text "Lives: 3" instead of hearts. Still, nothing the prompt asked for is missing: score, 2 levels, 3 lives, keyboard and mouse. Read as a checklist, it passes. Played as a game, it feels unfinished. For "let's just see if it runs," that's enough.</p>
+<h3>Sonnet high: Opus high level, with one weak spot</h3>
+<p>It's work on the level of Opus 5.5 high. The particles came out well. Every brick throws off pieces when it breaks, which feels completely different from medium. With a saved high score and a level-clear bonus as well, on screen alone it holds up next to Opus high.</p>
+<p>But it made the two-hit bricks so that the player can't tell them apart. In the code, they're marked only by a thin white border and fade a little after the first hit. From the player's side, a brick that looks like every other one doesn't break when you hit it, which can feel like a bug. The feature is there; the finishing touch that shows it to the player is missing.</p>
+<h3>Using Sonnet day to day</h3>
+<p>Even when I described what I wanted in detail, it often didn't come out quite right. It can build the features, but getting to the detail I want means asking for more again and again. So I think I went through the build-fix, build-fix loop more often than with Opus.</p>
+<p>The two-hit bricks in this Sonnet high run fit the same pattern. It built the feature "bricks that take two hits," but the detail "so the player can see it at a glance" would take another request.</p>
+<h3>What that means for cost</h3>
+<p>This test was a small game finished in one request, so that difference didn't show up in the numbers. As simple arithmetic, two more Sonnet high requests of the same size bring it to $0.90, more than one Opus high run ($0.75). Real fix-up requests vary in size, so costs vary too, but the more rounds of fixes you need, the faster Sonnet's lower price advantage shrinks.</p>
+<h2>Which model for which task</h2>
+<p><img loading="lazy" width="1200" height="735" alt="Which model for which task: Task, Pick, Why" src="/claude-sonnet-5-5-vs-opus-5-5-which-model-for-which-task-en.jpg" /></p>
+<p>Recommendations combining the measurements with hands-on use.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Pick</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple edits, prototypes just to see it work</td>
+<td>Sonnet medium</td>
+<td>Fastest and cheapest at 37 s and $0.25</td>
+</tr>
+<tr>
+<td>Straightforward coding, new features</td>
+<td>Sonnet high</td>
+<td>46% cheaper than Opus medium, results close to Opus high</td>
+</tr>
+<tr>
+<td>Work where details have to be just right</td>
+<td>Opus medium–high</td>
+<td>With Sonnet, getting the details right took more fix requests</td>
+</tr>
+<tr>
+<td>Output where polish matters</td>
+<td>Opus high</td>
+<td>Most expensive ($0.75) but missed the least</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Caveat:</strong> one run each, on one small game. Bigger projects or harder problems may show different gaps.</li>
+<li><strong>Count the fixes.</strong> If the job is done in one pass, Sonnet is clearly cheaper. If you need several rounds of fixes to get what you want, cost and time go up with every round.</li>
+</ul>
+<h2>Verdict: Sonnet high for straightforward work, Opus for detail</h2>
+<ul>
+<li><strong>The best value was Sonnet 5.5 high.</strong> At $0.30 it was 46% cheaper than Opus medium ($0.56), and the result was on the level of Opus high.</li>
+<li><strong>Sonnet medium is fast and cheap but plain.</strong> It works, but it has no game effects.</li>
+<li><strong>When details have to be right, use Opus.</strong> In the test, Opus high missed the least, and in daily use Sonnet needed more fix rounds to reach the detail I wanted.</li>
+</ul>
+<h2>FAQ</h2>
+<p><strong>How much cheaper is Sonnet 5.5 than Opus 5.5?</strong>
+Per-token prices are 50% lower for both input and output. In this test Sonnet also used 35% fewer tokens, so the actual cost at the same effort was 55–60% lower.</p>
+<p><strong>Can Sonnet 5.5 build a game?</strong>
+Yes. In this test, both Sonnet medium and high built games with every requested feature and no errors. High even added particle effects and a saved high score.</p>
+<p><strong>So when should I use Opus 5.5?</strong>
+When there are many details and they need to be exact. Sonnet was enough for work that's done in one pass, but detailed requirements often took several rounds of fixes.</p>
+<h2>Run the numbers for your own work</h2>
+<p>In the <a href="/agents">coding agent cost calculator</a>, enter task size and tasks per day to compare a month on Opus 5.5 and Sonnet 5.5. Check a single prompt's cost in the <a href="/">token counter</a>. For the differences between Opus 5 and 5.5, see <a href="/blog/claude-opus-5-vs-5-5">Claude Opus 5 vs 5.5</a>.</p>
+<p><em>Measured October 9, 2026. Costs are ccusage conversions at API prices; results can change with model and Claude Code updates.</em></p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Anthropic: Pricing</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/effort" target="_blank" rel="noopener">Anthropic: Effort</a></li>
+<li><a href="https://github.com/ryoppippi/ccusage" target="_blank" rel="noopener">ccusage: Claude Code usage tool (GitHub)</a></li>
+</ul>
+<!-- autoimg -->

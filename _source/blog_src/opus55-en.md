@@ -111,6 +111,7 @@ There are outside scores too. On the Intelligence Index from independent evaluat
 - **Our test went the other way.** In Claude Code with only the model name changed, Opus 5.5 used 64% fewer tokens. Results depend heavily on settings and the task.
 - **Our advice:** start at medium and raise effort only where quality falls short. At xhigh or max, give max_tokens plenty of room; Anthropic suggests starting at 64k.
 - **Measured by level:** we ran the same prompt from low to max in [Claude Opus 5.5 effort levels tested](/blog/claude-opus-5-5-effort).
+- **Compared with Sonnet 5.5:** the same prompt on Sonnet 5.5 is in [Claude Sonnet 5.5 vs Opus 5.5](/blog/claude-sonnet-5-5-vs-opus-5-5).
 
 ## For Pro and Max plan users
 

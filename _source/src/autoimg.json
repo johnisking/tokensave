@@ -21,6 +21,7 @@
 "/blog/claude-opus-5-5-effort": "claude-opus-5-5-effort-en.jpg",
 "/blog/claude-opus-5-vs-5-5": "claude-opus-5-vs-5-5-en.jpg",
 "/blog/claude-pro-max-how-many-tokens": "claude-pro-max-how-many-tokens-en.jpg",
+"/blog/claude-sonnet-5-5-vs-opus-5-5": "claude-sonnet-5-5-vs-opus-5-5-en.jpg",
 "/blog/codex-usage-limits": "codex-usage-limits-en.jpg",
 "/blog/context-window-explained": "context-window-explained-en.jpg",
 "/blog/cut-token-cost-non-english-prompts": "cut-token-cost-non-english-prompts-en.jpg",
@@ -95,6 +96,7 @@
 "/ja/blog/claude-max-vs-pro": "claude-max-vs-pro-ja.jpg",
 "/ja/blog/claude-opus-5-5-effort": "claude-opus-5-5-effort-ja.jpg",
 "/ja/blog/claude-opus-5-vs-5-5": "claude-opus-5-vs-5-5-ja.jpg",
+"/ja/blog/claude-sonnet-5-5-vs-opus-5-5": "claude-sonnet-5-5-vs-opus-5-5-ja.jpg",
 "/ja/blog/codex-shiyouryou-jougen": "codex-shiyouryou-jougen-ja.jpg",
 "/ja/blog/gemini-4-argon-api-ryoukin": "gemini-4-argon-api-ryoukin-ja.jpg",
 "/ja/blog/gemini-muryou-flash-lite": "gemini-muryou-flash-lite-ja.jpg",
@@ -119,6 +121,7 @@
 "/ko/blog/claude-max-vs-pro": "claude-max-vs-pro-ko.jpg",
 "/ko/blog/claude-opus-5-5-effort": "claude-opus-5-5-effort-ko.jpg",
 "/ko/blog/claude-opus-5-vs-5-5": "claude-opus-5-vs-5-5-ko.jpg",
+"/ko/blog/claude-sonnet-5-5-vs-opus-5-5": "claude-sonnet-5-5-vs-opus-5-5-ko.jpg",
 "/ko/blog/codex-sayongnyang-hando": "codex-sayongnyang-hando-ko.jpg",
 "/ko/blog/gemini-4-argon-api-gagyeok": "gemini-4-argon-api-gagyeok-ko.jpg",
 "/ko/blog/gemini-yogeumje-gaepyeon": "gemini-yogeumje-gaepyeon-ko.jpg",
@@ -176,6 +179,7 @@
 "/tr/blog/yapay-zeka-abonelik-fiyatlari": "yapay-zeka-abonelik-fiyatlari-tr.jpg",
 "/uk/blog/chatgpt-go-vs-plus": "chatgpt-go-vs-plus-uk.jpg",
 "/uk/blog/claude-opus-5-5-effort": "claude-opus-5-5-effort-uk.jpg",
+"/uk/blog/claude-sonnet-5-5-vs-opus-5-5": "claude-sonnet-5-5-vs-opus-5-5-uk.jpg",
 "/uk/blog/gemini-bezkoshtovno-flash-lite": "gemini-bezkoshtovno-flash-lite-uk.jpg",
 "/uk/blog/tokeny-ukrainska-gpt": "tokeny-ukrainska-gpt-uk.jpg",
 "/uk/blog/tsiny-pidpysok-shi": "tsiny-pidpysok-shi-uk.jpg",
@@ -186,6 +190,5 @@
 "/zh-tw/blog/ai-dingyue-jiage-bijiao": "ai-dingyue-jiage-bijiao-zh-tw.jpg",
 "/zh-tw/blog/chatgpt-go-vs-plus": "chatgpt-go-vs-plus-zh-tw.jpg",
 "/zh-tw/blog/gemini-mianfei-flash-lite": "gemini-mianfei-flash-lite-zh-tw.jpg",
-"/zh-tw/blog/zhongwen-fanti-token-gpt": "zhongwen-fanti-token-gpt-zh-tw.jpg",
-"/ko/blog/claude-sonnet-5-5-vs-opus-5-5": "claude-sonnet-5-5-vs-opus-5-5-ko.jpg"
+"/zh-tw/blog/zhongwen-fanti-token-gpt": "zhongwen-fanti-token-gpt-zh-tw.jpg"
 }

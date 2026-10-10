@@ -741,4 +741,13 @@ SONNET55 = [
      "소넷 5.5와 오퍼스 5.5에 같은 게임 요청을 시켜 실측. 소넷 high 58초 $0.30, 오퍼스 medium 52초 $0.56, 오퍼스 high 1분 50초 $0.75. 결과물과 작업별 추천까지.",
      "Jonhisking · 2026년 10월 10일", "작업 크기와 하루 작업 수를 넣고 오퍼스 5.5·소넷 5.5·GPT-6 Sol의 한 달 비용을 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"),
 ]
+SONNET55.insert(0, _cc("en", "/blog/claude-sonnet-5-5-vs-opus-5-5", "sonnet55-en", "Claude Sonnet 5.5 vs Opus 5.5: Same Game Prompt, Measured",
+     "Same game prompt on Sonnet 5.5 and Opus 5.5: Sonnet high took 58 s and $0.30, Opus medium 52 s and $0.56, Opus high 1 min 50 s and $0.75. Results and picks.",
+     "Jonhisking · October 10, 2026", "Enter task size and tasks per day to compare a month on Opus 5.5, Sonnet 5.5 and GPT-6 Sol.", "Open the coding agent cost calculator"))
+SONNET55.append(_cc("ja", "/ja/blog/claude-sonnet-5-5-vs-opus-5-5", "sonnet55-ja", "Claude Sonnet 5.5 vs Opus 5.5：同じ依頼で実測比較",
+     "Sonnet 5.5 と Opus 5.5 に同じゲーム制作を依頼して実測。Sonnet high は58秒・$0.30、Opus medium は52秒・$0.56、Opus high は1分50秒・$0.75。出来と作業別のおすすめまで。",
+     "Jonhisking · 2026年10月10日", "作業の大きさと1日の作業数を入れて、Opus 5.5・Sonnet 5.5・GPT-6 Sol の1か月の費用を比べましょう。", "コーディングエージェント費用計算機を開く"))
+SONNET55.append(_cc("uk", "/uk/blog/claude-sonnet-5-5-vs-opus-5-5", "sonnet55-uk", "Claude Sonnet 5.5 проти Opus 5.5: тест на однаковому запиті",
+     "Однаковий запит на гру для Sonnet 5.5 і Opus 5.5: Sonnet high — 58 с і $0.30, Opus medium — 52 с і $0.56, Opus high — 1 хв 50 с і $0.75. Що обрати.",
+     "Jonhisking · 10 жовтня 2026 р.", "Введіть розмір завдання й кількість завдань на день, щоб порівняти місяць на Opus 5.5, Sonnet 5.5 і GPT-6 Sol.", "Відкрити калькулятор вартості агентів для коду"))
 for _d in SONNET55: _d["date"] = "2026-10-10"

@@ -111,6 +111,7 @@ Anthropic が公開したベンチマークです。Opus 5.5 のスコアは最�
 - **私たちの実測は逆の結果でした。** Claude Code でモデル名だけを変えて実行すると、Opus 5.5 のトークンは64%少なくなりました。設定と作業によって結果が大きく変わるということです。
 - **おすすめ：** medium から始め、品質が足りない作業だけ high 以上に上げましょう。xhigh・max を使うときは、Anthropic の案内どおり max_tokens を大きめ（64k から）に設定してください。
 - **段階別の実測：** low から max まで同じ依頼で測った結果は [Claude Opus 5.5 の effort 比較](/ja/blog/claude-opus-5-5-effort) にまとめました。
+- **Sonnet 5.5 との比較：** 同じ依頼を Sonnet 5.5 で実行した結果は [Claude Sonnet 5.5 vs Opus 5.5](/ja/blog/claude-sonnet-5-5-vs-opus-5-5) にまとめました。
 
 ## Pro・Max プランの利用者には
 
