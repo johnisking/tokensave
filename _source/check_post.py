@@ -5,7 +5,7 @@
 Prints a PASS / WARN / FAIL table per article plus the manual questions.
 Exit code 1 if any FAIL.
 """
-import os, re, sys
+import os, re, sys, json
 ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ROOT)
 import autoimg as A
@@ -109,7 +109,17 @@ def check(src):
         n = len(re.sub(r'\s', '', body)); need = 2500; unit = '자'
     else:
         n = len(body.split()); need = 700; unit = '단어'
-    r('깊이', '분량', 'PASS' if n >= need else 'WARN', f'{n}{unit} (권장 {need} 이상)')
+    r('깊이', '분량', 'PASS' if n >= need else 'WARN', f'{n}{unit} (최소 {need} 이상)')
+    try:
+        bench = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'launchkit', 'length_bench.json'), encoding='utf-8')).get(src)
+    except Exception:
+        bench = None
+    if bench:
+        med = bench['median']
+        r('깊이', '상위 경쟁 글 대비 분량', 'PASS' if n >= med * 0.9 else 'WARN',
+          f'{n}{unit} / 상위 글 중앙값 {med}{unit} ("{bench["keyword"]}", {bench["checked"]})')
+    else:
+        r('깊이', '상위 경쟁 글 대비 분량', 'WARN', '상위 글 분량 미측정: launchkit/length_bench.json에 추가')
     dated = re.search(r'20\d\d', plain)
     r('깊이', '확인 날짜·연도 표기', 'PASS' if dated else 'WARN', '')
     return rows

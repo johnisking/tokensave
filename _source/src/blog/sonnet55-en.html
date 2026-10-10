@@ -1,6 +1,6 @@
-<p><img fetchpriority="high" width="1200" height="630" alt="Claude Sonnet 5.5 vs Opus 5.5: Same Game Prompt, Measured" src="/claude-sonnet-5-5-vs-opus-5-5-en.jpg" /></p>
+<p><img fetchpriority="high" width="1200" height="630" alt="Claude Sonnet vs Opus 5.5 for Coding: Real Cost and Speed" src="/claude-sonnet-5-5-vs-opus-5-5-en.jpg" /></p>
 <p>Claude <strong>Sonnet 5.5</strong> costs 50% less per token than Opus 5.5. Does a cheaper price mean a worse result? On October 9, 2026, I gave Sonnet 5.5 the exact brick-breaker prompt from my <a href="/blog/claude-opus-5-5-effort">Opus 5.5 effort test</a>, once at medium and once at high, and compared time, tokens, cost and the finished game one-to-one against <strong>Opus 5.5</strong>. The cheapest run took 37 seconds and $0.25; the most expensive took 1 min 50 s and $0.75. I also played all four games and added what I've found using both models day to day.</p>
-<h2>Sonnet 5.5 vs Opus 5.5 pricing</h2>
+<h2>How much cheaper is Sonnet than Opus?</h2>
 <p>Prices per million tokens, from Anthropic's official pricing page.</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -49,7 +49,7 @@
 <li><strong>Method:</strong> one run of Sonnet 5.5 with <code>--effort medium</code> and one with <code>--effort high</code>, compared with the Opus 5.5 medium and high runs measured the same day. Each run used its own folder.</li>
 <li><strong>Measurement:</strong> tokens and cost with the free tool ccusage, time from start and end timestamps. Cost is converted at API prices.</li>
 </ul>
-<h2>Results: time, tokens and cost</h2>
+<h2>Is Opus actually better than Sonnet? Measured time, tokens and cost</h2>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -104,7 +104,7 @@
 </ul>
 <p><img loading="lazy" width="1200" height="564" alt="Time and cost by model and effort: from Sonnet medium at 37 s and $0.25 to Opus high at 1 min 50 s and $0.75" src="/claude-sonnet-5-5-vs-opus-5-5-en-6.jpg" /></p>
 <p><img loading="lazy" width="1200" height="627" alt="ccusage measurement record: tokens and cost for Sonnet 5.5 and Opus 5.5 at medium and high" src="/claude-sonnet-5-5-vs-opus-5-5-en-7.jpg" /></p>
-<h2>Comparing the four games</h2>
+<h2>Which model built the better game?</h2>
 <p><img loading="lazy" width="1228" height="1290" alt="The four brick-breaker games built by Sonnet 5.5 and Opus 5.5 at medium and high, side by side" src="/claude-sonnet-5-5-vs-opus-5-5-en-5.jpg" /></p>
 <p>All four games ran without errors and had everything the prompt asked for (2 levels, score, 3 lives, keyboard and mouse controls). The difference is what each one added on top.</p>
 <div class="overflow-x-auto"><table>
@@ -166,8 +166,8 @@
 <p>The two-hit bricks in this Sonnet high run fit the same pattern. It built the feature "bricks that take two hits," but the detail "so the player can see it at a glance" would take another request.</p>
 <h3>What that means for cost</h3>
 <p>This test was a small game finished in one request, so that difference didn't show up in the numbers. As simple arithmetic, two more Sonnet high requests of the same size bring it to $0.90, more than one Opus high run ($0.75). Real fix-up requests vary in size, so costs vary too, but the more rounds of fixes you need, the faster Sonnet's lower price advantage shrinks.</p>
-<h2>Which model for which task</h2>
-<p><img loading="lazy" width="1200" height="735" alt="Which model for which task: Task, Pick, Why" src="/claude-sonnet-5-5-vs-opus-5-5-which-model-for-which-task-en.jpg" /></p>
+<h2>When to use Sonnet vs Opus</h2>
+<p><img loading="lazy" width="1200" height="735" alt="When to use Sonnet vs Opus: Task, Pick, Why" src="/claude-sonnet-5-5-vs-opus-5-5-when-to-use-sonnet-vs-opus-en.jpg" /></p>
 <p>Recommendations combining the measurements with hands-on use.</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -211,6 +211,8 @@
 <li><strong>When details have to be right, use Opus.</strong> In the test, Opus high missed the least, and in daily use Sonnet needed more fix rounds to reach the detail I wanted.</li>
 </ul>
 <h2>FAQ</h2>
+<p><strong>Is Sonnet or Opus better for coding?</strong>
+For everyday coding and new features with clear requirements, Sonnet 5.5 high was the better value in this test: 46% cheaper than Opus medium with a result close to Opus high. When the details have to be exact, Opus needed fewer rounds of fixes in daily use.</p>
 <p><strong>How much cheaper is Sonnet 5.5 than Opus 5.5?</strong>
 Per-token prices are 50% lower for both input and output. In this test Sonnet also used 35% fewer tokens, so the actual cost at the same effort was 55–60% lower.</p>
 <p><strong>Can Sonnet 5.5 build a game?</strong>

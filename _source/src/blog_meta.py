@@ -741,8 +741,8 @@ SONNET55 = [
      "소넷 5.5와 오퍼스 5.5에 같은 게임 요청을 시켜 실측. 소넷 high 58초 $0.30, 오퍼스 medium 52초 $0.56, 오퍼스 high 1분 50초 $0.75. 결과물과 작업별 추천까지.",
      "Jonhisking · 2026년 10월 10일", "작업 크기와 하루 작업 수를 넣고 오퍼스 5.5·소넷 5.5·GPT-6 Sol의 한 달 비용을 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"),
 ]
-SONNET55.insert(0, _cc("en", "/blog/claude-sonnet-5-5-vs-opus-5-5", "sonnet55-en", "Claude Sonnet 5.5 vs Opus 5.5: Same Game Prompt, Measured",
-     "Same game prompt on Sonnet 5.5 and Opus 5.5: Sonnet high took 58 s and $0.30, Opus medium 52 s and $0.56, Opus high 1 min 50 s and $0.75. Results and picks.",
+SONNET55.insert(0, _cc("en", "/blog/claude-sonnet-5-5-vs-opus-5-5", "sonnet55-en", "Claude Sonnet vs Opus 5.5 for Coding: Real Cost and Speed",
+     "Sonnet vs Opus 5.5 for coding, measured: Sonnet high took 58 s and $0.30, Opus high 1 min 50 s and $0.75. Cost, speed and when to use each.",
      "Jonhisking · October 10, 2026", "Enter task size and tasks per day to compare a month on Opus 5.5, Sonnet 5.5 and GPT-6 Sol.", "Open the coding agent cost calculator"))
 SONNET55.append(_cc("ja", "/ja/blog/claude-sonnet-5-5-vs-opus-5-5", "sonnet55-ja", "Claude Sonnet 5.5 vs Opus 5.5：同じ依頼で実測比較",
      "Sonnet 5.5 と Opus 5.5 に同じゲーム制作を依頼して実測。Sonnet high は58秒・$0.30、Opus medium は52秒・$0.56、Opus high は1分50秒・$0.75。出来と作業別のおすすめまで。",
@@ -751,3 +751,14 @@ SONNET55.append(_cc("uk", "/uk/blog/claude-sonnet-5-5-vs-opus-5-5", "sonnet55-uk
      "Однаковий запит на гру для Sonnet 5.5 і Opus 5.5: Sonnet high — 58 с і $0.30, Opus medium — 52 с і $0.56, Opus high — 1 хв 50 с і $0.75. Що обрати.",
      "Jonhisking · 10 жовтня 2026 р.", "Введіть розмір завдання й кількість завдань на день, щоб порівняти місяць на Opus 5.5, Sonnet 5.5 і GPT-6 Sol.", "Відкрити калькулятор вартості агентів для коду"))
 for _d in SONNET55: _d["date"] = "2026-10-10"
+
+# 2026-10-11: Cursor pricing (en), official prices + free plan test
+CURSOR = [
+ _cc("en", "/blog/cursor-pricing", "cursor-en", "Cursor Pricing 2026: Plans, Usage Pools and Real Monthly Cost",
+     "Cursor pricing in 2026: Hobby free, Pro $20, Pro+ $60, Ultra $200. How usage pools work, a free plan test, and what a month of agent use costs per model.",
+     "Jonhisking · October 11, 2026", "Enter task size and tasks per day to compare a month on Opus 5.5, Sonnet 5.5 and GPT-6 Sol.", "Open the coding agent cost calculator"),
+]
+CURSOR.append(_cc("ko", "/ko/blog/cursor-pricing", "cursor-ko", "커서 요금제 2026: 요금 폭탄 피하는 법과 실제 한 달 비용",
+     "커서(Cursor) 요금제 2026: Hobby 무료, Pro $20, Pro+ $60, Ultra $200. 노멀·맥스 모드 이후 바뀐 과금 방식, 무료 플랜 실측, 모델별 한 달 비용과 장단점.",
+     "Jonhisking · 2026년 10월 11일", "작업 크기와 하루 작업 수를 넣고 오퍼스 5.5·소넷 5.5·GPT-6 Sol의 한 달 비용을 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"))
+for _d in CURSOR: _d["date"] = "2026-10-11"

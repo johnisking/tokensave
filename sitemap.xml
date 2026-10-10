@@ -15484,7 +15484,7 @@
       <image:loc>https://tokensave.app/claude-sonnet-5-5-vs-opus-5-5-en-5.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/claude-sonnet-5-5-vs-opus-5-5-which-model-for-which-task-en.jpg</image:loc>
+      <image:loc>https://tokensave.app/claude-sonnet-5-5-vs-opus-5-5-when-to-use-sonnet-vs-opus-en.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -15557,6 +15557,56 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/claude-sonnet-5-5-vs-opus-5-5-uk-2.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/cursor-pricing</loc>
+    <lastmod>2026-10-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/cursor-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/cursor-pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/cursor-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-pricing-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-pricing-cursor-pricing-plans-2026-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-pricing-en-7.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-pricing-en-6.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-pricing-en-5.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-pricing-which-cursor-plan-should-you-pick-en.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/blog/cursor-pricing</loc>
+    <lastmod>2026-10-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/cursor-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/cursor-pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/cursor-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-pricing-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-pricing-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-pricing-ko-7.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-pricing-ko-6.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-pricing-ko-5.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-pricing-ko-3.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -16781,7 +16831,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/</loc>
