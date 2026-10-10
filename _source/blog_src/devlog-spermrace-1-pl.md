@@ -92,7 +92,7 @@ Gra wieloosobowa ze znajomymi (do 10 graczy w Derby, do 4 w pozostałych trybach
 | Premiera | Rejestracja dewelopera Google Play | 25 USD (jednorazowo) |
 | **Razem** | | **45 USD** |
 
-Teraz używam Claude Max 20×, ale Sperm Race powstała **w całości na planie Pro.** Skończyłem w ciągu miesiąca, więc zapłaciłem tylko za jeden miesiąc. Co dokładnie dają te plany, opisałem w artykule o [limitach Claude Pro i Max](/pl/blog/limity-claude-pro-max).
+Teraz używam Claude Max 5×, ale Sperm Race powstała **w całości na planie Pro.** Skończyłem w ciągu miesiąca, więc zapłaciłem tylko za jeden miesiąc. Co dokładnie dają te plany, opisałem w artykule o [limitach Claude Pro i Max](/pl/blog/limity-claude-pro-max).
 
 Dla porównania: jeśli wpiszesz małą grę do [kalkulatora kosztów gry z AI](/pl/ai-game-cost-calculator), standardowy zestaw (AI do grafiki i muzyki plus Claude Max) wychodzi 128–181 USD. Sperm Race kosztowała ok. 25–35% tej kwoty. Pełne zestawienie znajdziesz w artykule [ile kosztuje stworzenie gry z AI](/pl/blog/ile-kosztuje-gra-z-ai).
 

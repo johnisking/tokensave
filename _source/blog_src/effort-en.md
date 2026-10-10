@@ -104,7 +104,7 @@ We played each game and checked it against the summary the model left at the end
 
 ## Hands-on: medium day to day, high for coding
 
-I use Opus 5.5 on the Claude Max 20x plan to build games. This is how it feels in daily use, not a measurement.
+I use Opus 5.5 on the Claude Max 5x plan to build games. This is how it feels in daily use, not a measurement.
 
 - **My setting:** I leave effort on auto. It usually runs at medium and goes up to high when I'm coding.
 - **low:** it felt sluggish, so I used it a few times and stopped.

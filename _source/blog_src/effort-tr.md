@@ -104,7 +104,7 @@ Her oyunu oynadık ve modelin sonda bıraktığı özetle ve kodun kendisiyle ka
 
 ## Gerçek kullanım: günlük işte medium, kodlamada high
 
-Ben oyun geliştirmek için Opus 5.5'i Claude Max 20x planında kullanıyorum. Bu bir ölçüm değil, günlük kullanımda nasıl hissettirdiği.
+Ben oyun geliştirmek için Opus 5.5'i Claude Max 5x planında kullanıyorum. Bu bir ölçüm değil, günlük kullanımda nasıl hissettirdiği.
 
 - **Ayarım:** effort'u auto'da bırakıyorum. Genelde medium'da çalışıyor, kod yazarken high'a çıkıyor.
 - **low:** hantal geldi, birkaç kez kullanıp bıraktım.

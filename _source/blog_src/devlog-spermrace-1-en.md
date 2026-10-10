@@ -84,7 +84,7 @@ Multiplayer with friends (up to 10 players in Derby, 4 in the other modes) came 
 | Launch | Google Play developer registration | $25 (one-time) |
 | **Total** | | **$45** |
 
-I use Claude Max 20× now, but Sperm Race was built **entirely on the Pro plan.** It was done within a month, so I only paid for one month.
+I use Claude Max 5× now, but Sperm Race was built **entirely on the Pro plan.** It was done within a month, so I only paid for one month.
 
 For comparison, if you run a small game through the [AI game cost calculator](/ai-game-cost-calculator), the standard stack (image and music AI plus Claude Max) comes out at $128–181. Sperm Race came in at about 25–35% of that.
 

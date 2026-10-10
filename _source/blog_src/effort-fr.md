@@ -104,7 +104,7 @@ Nous avons joué à chaque jeu et l'avons comparé au résumé laissé par le mo
 
 ## Retour d'expérience : medium au quotidien, high pour coder
 
-J'utilise Opus 5.5 avec l'abonnement Claude Max 20x pour créer des jeux. Il s'agit de mon ressenti au quotidien, pas d'une mesure.
+J'utilise Opus 5.5 avec l'abonnement Claude Max 5x pour créer des jeux. Il s'agit de mon ressenti au quotidien, pas d'une mesure.
 
 - **Mon réglage :** je laisse l'effort en automatique. Il tourne généralement en medium et monte en high quand je code.
 - **low :** je l'ai trouvé poussif, je l'ai essayé à quelques reprises puis j'ai arrêté.

@@ -1,6 +1,6 @@
 ![Claude Opus 5 vs 5.5: Price, Performance and a Real Test](/claude-opus-5-vs-5-5-en.jpg)
 
-Claude **Opus 5.5** is Anthropic's new top model, released on September 22, 2026. Compared with **Opus 5**, its token prices are 20% lower and cache reads are 60% cheaper. Anthropic says it costs "40% less to run on typical work"; our own math for a coding agent workload came out about 37% cheaper. When we gave both models the same game-building request, Opus 5.5 used 64% fewer tokens. Below: price, performance and measured results side by side, plus a Max 20x user's experience with both models and whether it is worth switching.
+Claude **Opus 5.5** is Anthropic's new top model, released on September 22, 2026. Compared with **Opus 5**, its token prices are 20% lower and cache reads are 60% cheaper. Anthropic says it costs "40% less to run on typical work"; our own math for a coding agent workload came out about 37% cheaper. When we gave both models the same game-building request, Opus 5.5 used 64% fewer tokens. Below: price, performance and measured results side by side, plus a Max 5x user's experience with both models and whether it is worth switching.
 
 ## Opus 5 vs 5.5 pricing
 
@@ -20,9 +20,9 @@ Price per million tokens, from Anthropic's official pricing page.
 - **Same text, same token count.** Both models use the newer tokenizer introduced after Claude 4.7, so the same input text produces the same number of tokens and the price difference goes straight through to cost. How many tokens the model spends while working can still differ (see our test below).
 - **Fast mode:** Opus 5.5 adds a fast mode at $8 input and $40 output. It works in Claude Code and the API, and Anthropic says it is up to 150% faster.
 
-## Hands-on: my Max 20x weekly limit started to last
+## Hands-on: my Max 5x weekly limit started to last
 
-I have used both Opus 5 and Opus 5.5 on the Claude Max 20x plan while building games. This is what it felt like in daily use, not a measured figure.
+I have used both Opus 5 and Opus 5.5 on the Claude Max 5x plan while building games. This is what it felt like in daily use, not a measured figure.
 
 - **Weekly limit:** With Opus 5, I would use up the weekly limit about a day before it reset. Since switching to Opus 5.5, I often finish the week at around 90% usage.
 - **External tasks:** The gap was biggest on token-heavy external tasks. Of the models I have used, Opus 5.5 felt like the one that burns the fewest tokens.

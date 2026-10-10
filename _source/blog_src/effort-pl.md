@@ -104,7 +104,7 @@ Zagraliśmy w każdą grę i porównaliśmy ją z podsumowaniem, które model zo
 
 ## Z praktyki: na co dzień medium, do kodowania high
 
-Używam Opus 5.5 w planie Claude Max 20x do tworzenia gier. Tak to wygląda w codziennym użyciu; to wrażenia, nie pomiar.
+Używam Opus 5.5 w planie Claude Max 5x do tworzenia gier. Tak to wygląda w codziennym użyciu; to wrażenia, nie pomiar.
 
 - **Moje ustawienie:** zostawiam effort na auto. Zwykle działa na medium, a gdy koduję, przechodzi na high.
 - **low:** wydawał się ospały, więc po kilku podejściach przestałem go używać.

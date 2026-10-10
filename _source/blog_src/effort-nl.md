@@ -104,7 +104,7 @@ We hebben elk spel gespeeld en vergeleken met de samenvatting die het model aan 
 
 ## Praktijkervaring: medium voor dagelijks gebruik, high voor programmeren
 
-Ik gebruik Opus 5.5 met het Claude Max 20x-abonnement om spellen te bouwen. Dit is hoe het in dagelijks gebruik aanvoelt, geen meting.
+Ik gebruik Opus 5.5 met het Claude Max 5x-abonnement om spellen te bouwen. Dit is hoe het in dagelijks gebruik aanvoelt, geen meting.
 
 - **Mijn instelling:** ik laat effort op automatisch staan. Meestal draait het op medium en bij programmeren gaat het omhoog naar high.
 - **low:** het voelde traag aan, dus ik heb het even geprobeerd en ben ermee gestopt.

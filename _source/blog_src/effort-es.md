@@ -104,7 +104,7 @@ Jugamos cada juego y lo contrastamos con el resumen que el modelo dejó al final
 
 ## Experiencia real: medium para el día a día, high para programar
 
-Yo uso Opus 5.5 con el plan Claude Max 20x para crear juegos. Esto es lo que se siente en el uso diario, no una medición.
+Yo uso Opus 5.5 con el plan Claude Max 5x para crear juegos. Esto es lo que se siente en el uso diario, no una medición.
 
 - **Mi configuración:** dejo effort en automático. Normalmente funciona en medium y sube a high cuando estoy programando.
 - **low:** me pareció lento, así que lo usé en unas pocas ocasiones y lo dejé.

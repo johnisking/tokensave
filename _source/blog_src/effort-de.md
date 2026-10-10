@@ -104,7 +104,7 @@ Wir haben jedes Spiel gespielt und mit der Zusammenfassung des Modells am Ende s
 
 ## Praxis: medium im Alltag, high fürs Coden
 
-Ich nutze Opus 5.5 im Plan Claude Max 20x, um Spiele zu bauen. So fühlt es sich im täglichen Einsatz an, das ist keine Messung.
+Ich nutze Opus 5.5 im Plan Claude Max 5x, um Spiele zu bauen. So fühlt es sich im täglichen Einsatz an, das ist keine Messung.
 
 - **Meine Einstellung:** Ich lasse effort auf auto. Meist läuft es auf medium und geht beim Coden auf high hoch.
 - **low:** Es wirkte träge, deshalb habe ich es nur ein paar Läufe lang genutzt und dann aufgehört.
