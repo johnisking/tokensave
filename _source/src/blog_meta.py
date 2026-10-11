@@ -474,9 +474,10 @@ GPT61 = [_n6("/blog/gpt-6-1-sol-api-pricing", "gpt61-en", "GPT-6.1 Sol API Prici
 DS41 = [_n6("/blog/deepseek-v4-1-flash-api-pricing", "ds41-en", "DeepSeek V4.1 Flash API Pricing: Peak vs Off-Peak, and How It Compares",
     "DeepSeek V4.1 Flash is $0.15 / $0.60 per million tokens off-peak, $0.003 cached. Peak hours in your time zone and how it compares with GPT-6 Luna and Gemini.",
     *_CTA_TK["en"])]
-AGCMP = [_n6("/blog/claude-code-vs-codex-vs-cursor-cost", "agentcmp-en", "Claude Code vs Codex vs Cursor: What Each Costs in 2026",
-    "Claude Code, Codex and Cursor plans from $20 to $500 compared: usage limits vs a dollar budget, what $200 buys on each, and which is cheapest for how you code.",
+AGCMP = [_n6("/blog/claude-code-vs-codex-vs-cursor-cost", "agentcmp-en", "Claude Code vs Codex vs Cursor: Cost and a Real Test (2026)",
+    "Claude Code vs Codex vs Cursor in 2026: plans from free to $500, how each counts usage, benchmark scores, and the same prompt run in all three.",
     *_CTA["en"])]
+AGCMP[0]["byline"] = "Jonhisking · Updated October 12, 2026"
 GOPLUS = [_n6("/blog/chatgpt-go-vs-plus", "gogo-en", "ChatGPT Go vs Plus: Is the $20 Plan Worth $12 More?",
     "ChatGPT Go ($8) vs Plus ($20) in 2026: Luna vs Sol, thinking levels, Codex, ads and limits, who needs which, and when the API is cheaper than both.",
     *_CTA_PL["en"])]

@@ -78,5 +78,16 @@
    "jetadmin.io": 5000,
    "morphllm.com": 6500
   }
+ },
+ "agentcmp-en": {
+  "keyword": "claude code vs codex",
+  "checked": "2026-10-12",
+  "median": 2575,
+  "samples": {
+   "artificialanalysis.ai": 1500,
+   "designproject.io": 1900,
+   "respan.ai": 3250,
+   "datacamp.com": 3750
+  }
  }
 }
