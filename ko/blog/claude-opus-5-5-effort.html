@@ -51,7 +51,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=2e7efeec" />
+  <link rel="stylesheet" href="/styles.css?v=6881d21f" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -71,26 +71,15 @@
   <main class="max-w-5xl mx-auto px-4 py-6 sm:py-10">
 
     <!-- ===== Top bar: brand + tools + language ===== -->
-    <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
-      <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
-        <a href="/ko/" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300">
-          <img src="/favicon.svg" alt="TokenSave logo" width="22" height="22" /> TokenSave <span class="font-semibold text-zinc-400">토큰세이브</span>
+    <div class="mb-6">
+      <div class="flex items-center justify-between gap-3 mb-3">
+        <a href="/ko/" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300 whitespace-nowrap">
+          <img src="/favicon.svg" alt="TokenSave logo" width="22" height="22" /> TokenSave <span class="font-semibold text-zinc-400 whitespace-nowrap">토큰세이브</span>
         </a>
-        <nav class="flex flex-wrap gap-1 text-xs" aria-label="Tools">
-          <a href="/ko/" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">토큰 계산기</a>
-          <a href="/ko/video" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">영상 비용</a>
-          <a href="/ko/image" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">이미지 비용</a>
-          <a href="/ko/plans" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">구독 vs API</a>
-          <a href="/ko/agents" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">에이전트 비용</a>
-          <a href="/ko/compare/performance" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">📊 AI 순위</a>
-          <a href="/ko/ai-game-cost-calculator" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">🎮 게임 제작비</a>
-          <a href="/ko/blog/" class="px-2.5 py-1 rounded-md font-semibold tab-active" aria-current="page">📝 블로그</a>
-        </nav>
-      </div>
-      <label class="inline-flex items-center gap-1.5 text-xs text-zinc-400">
-        <span aria-hidden="true">🌐</span>
-        <span class="sr-only">언어</span>
-        <select id="langSelect" data-all="{&quot;en&quot;: &quot;/&quot;, &quot;ko&quot;: &quot;/ko/&quot;, &quot;ja&quot;: &quot;/ja/&quot;, &quot;zh-cn&quot;: &quot;/zh-cn/&quot;, &quot;zh-tw&quot;: &quot;/zh-tw/&quot;, &quot;es&quot;: &quot;/es/&quot;, &quot;pt&quot;: &quot;/pt/&quot;, &quot;fr&quot;: &quot;/fr/&quot;, &quot;de&quot;: &quot;/de/&quot;, &quot;it&quot;: &quot;/it/&quot;, &quot;ru&quot;: &quot;/ru/&quot;, &quot;uk&quot;: &quot;/uk/&quot;, &quot;tr&quot;: &quot;/tr/&quot;, &quot;ar&quot;: &quot;/ar/&quot;, &quot;fa&quot;: &quot;/fa/&quot;, &quot;hi&quot;: &quot;/hi/&quot;, &quot;id&quot;: &quot;/id/&quot;, &quot;vi&quot;: &quot;/vi/&quot;, &quot;th&quot;: &quot;/th/&quot;, &quot;pl&quot;: &quot;/pl/&quot;, &quot;nl&quot;: &quot;/nl/&quot;, &quot;bn&quot;: &quot;/bn/&quot;, &quot;ur&quot;: &quot;/ur/&quot;, &quot;fil&quot;: &quot;/fil/&quot;, &quot;cs&quot;: &quot;/cs/&quot;, &quot;sv&quot;: &quot;/sv/&quot;, &quot;he&quot;: &quot;/he/&quot;, &quot;el&quot;: &quot;/el/&quot;, &quot;ro&quot;: &quot;/ro/&quot;, &quot;hu&quot;: &quot;/hu/&quot;, &quot;da&quot;: &quot;/da/&quot;, &quot;fi&quot;: &quot;/fi/&quot;, &quot;no&quot;: &quot;/no/&quot;, &quot;sk&quot;: &quot;/sk/&quot;, &quot;mr&quot;: &quot;/mr/&quot;, &quot;gu&quot;: &quot;/gu/&quot;, &quot;kn&quot;: &quot;/kn/&quot;, &quot;ml&quot;: &quot;/ml/&quot;, &quot;ta&quot;: &quot;/ta/&quot;, &quot;te&quot;: &quot;/te/&quot;, &quot;pa&quot;: &quot;/pa/&quot;}" aria-label="언어" class="bg-zinc-900 border border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-zinc-200 focus:outline-none focus:ring-2 focus:ring-violet-500/50">
+        <label class="inline-flex items-center gap-1.5 text-xs text-zinc-400">
+          <span aria-hidden="true">🌐</span>
+          <span class="sr-only">언어</span>
+          <select id="langSelect" data-all="{&quot;en&quot;: &quot;/&quot;, &quot;ko&quot;: &quot;/ko/&quot;, &quot;ja&quot;: &quot;/ja/&quot;, &quot;zh-cn&quot;: &quot;/zh-cn/&quot;, &quot;zh-tw&quot;: &quot;/zh-tw/&quot;, &quot;es&quot;: &quot;/es/&quot;, &quot;pt&quot;: &quot;/pt/&quot;, &quot;fr&quot;: &quot;/fr/&quot;, &quot;de&quot;: &quot;/de/&quot;, &quot;it&quot;: &quot;/it/&quot;, &quot;ru&quot;: &quot;/ru/&quot;, &quot;uk&quot;: &quot;/uk/&quot;, &quot;tr&quot;: &quot;/tr/&quot;, &quot;ar&quot;: &quot;/ar/&quot;, &quot;fa&quot;: &quot;/fa/&quot;, &quot;hi&quot;: &quot;/hi/&quot;, &quot;id&quot;: &quot;/id/&quot;, &quot;vi&quot;: &quot;/vi/&quot;, &quot;th&quot;: &quot;/th/&quot;, &quot;pl&quot;: &quot;/pl/&quot;, &quot;nl&quot;: &quot;/nl/&quot;, &quot;bn&quot;: &quot;/bn/&quot;, &quot;ur&quot;: &quot;/ur/&quot;, &quot;fil&quot;: &quot;/fil/&quot;, &quot;cs&quot;: &quot;/cs/&quot;, &quot;sv&quot;: &quot;/sv/&quot;, &quot;he&quot;: &quot;/he/&quot;, &quot;el&quot;: &quot;/el/&quot;, &quot;ro&quot;: &quot;/ro/&quot;, &quot;hu&quot;: &quot;/hu/&quot;, &quot;da&quot;: &quot;/da/&quot;, &quot;fi&quot;: &quot;/fi/&quot;, &quot;no&quot;: &quot;/no/&quot;, &quot;sk&quot;: &quot;/sk/&quot;, &quot;mr&quot;: &quot;/mr/&quot;, &quot;gu&quot;: &quot;/gu/&quot;, &quot;kn&quot;: &quot;/kn/&quot;, &quot;ml&quot;: &quot;/ml/&quot;, &quot;ta&quot;: &quot;/ta/&quot;, &quot;te&quot;: &quot;/te/&quot;, &quot;pa&quot;: &quot;/pa/&quot;}" aria-label="언어" class="bg-zinc-900 border border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-zinc-200 focus:outline-none focus:ring-2 focus:ring-violet-500/50">
           <option value="/" data-code="en">English</option>
           <option value="/zh-cn/" data-code="zh-cn">简体中文</option>
           <option value="/es/" data-code="es">Español</option>
@@ -105,8 +94,19 @@
           <option value="/id/" data-code="id">Bahasa Indonesia</option>
           <option disabled>──────────</option>
           <option value="/languages">🌐 다른 언어…</option>
-        </select>
-      </label>
+          </select>
+        </label>
+      </div>
+      <nav class="flex flex-wrap gap-1 text-xs" aria-label="Tools">
+          <a href="/ko/" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">토큰 계산기</a>
+          <a href="/ko/video" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">영상 비용</a>
+          <a href="/ko/image" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">이미지 비용</a>
+          <a href="/ko/plans" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">구독 vs API</a>
+          <a href="/ko/agents" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">에이전트 비용</a>
+          <a href="/ko/compare/performance" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">📊 AI 순위</a>
+          <a href="/ko/ai-game-cost-calculator" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">🎮 게임 제작비</a>
+          <a href="/ko/blog/" class="px-2.5 py-1 rounded-md font-semibold tab-active" aria-current="page">블로그</a>
+      </nav>
     </div>
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
@@ -383,6 +383,6 @@ medium입니다. 오퍼스 5는 high가 기본이었습니다. API에서 effort�
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=2e7efeec"></script>
+  <script type="module" src="/common.js?v=6881d21f"></script>
 </body>
 </html>

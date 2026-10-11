@@ -55,22 +55,22 @@
   <main class="max-w-5xl mx-auto px-4 py-6 sm:py-10">
 
     <!-- ===== Top bar: brand + tools + language ===== -->
-    <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
-      <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
-        <a href="{{homeUrl}}" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300">
+    <div class="mb-6">
+      <div class="flex items-center justify-between gap-3 mb-3">
+        <a href="{{homeUrl}}" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300 whitespace-nowrap">
           <img src="/favicon.svg" alt="TokenSave logo" width="22" height="22" /> TokenSave
         </a>
-        <nav class="flex flex-wrap gap-1 text-xs" aria-label="Tools">
-{{toolNav}}
-        </nav>
-      </div>
-      <label class="inline-flex items-center gap-1.5 text-xs text-zinc-400">
-        <span aria-hidden="true">🌐</span>
-        <span class="sr-only">{{lang}}</span>
-        <select id="langSelect" data-all="{{langAll}}" aria-label="{{lang}}" class="bg-zinc-900 border border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-zinc-200 focus:outline-none focus:ring-2 focus:ring-violet-500/50">
+        <label class="inline-flex items-center gap-1.5 text-xs text-zinc-400">
+          <span aria-hidden="true">🌐</span>
+          <span class="sr-only">{{lang}}</span>
+          <select id="langSelect" data-all="{{langAll}}" aria-label="{{lang}}" class="bg-zinc-900 border border-zinc-800 rounded-lg px-2 py-1.5 text-xs text-zinc-200 focus:outline-none focus:ring-2 focus:ring-violet-500/50">
 {{langOptions}}
-        </select>
-      </label>
+          </select>
+        </label>
+      </div>
+      <nav class="flex flex-wrap gap-1 text-xs" aria-label="Tools">
+{{toolNav}}
+      </nav>
     </div>
 
 {{body}}

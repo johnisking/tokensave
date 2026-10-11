@@ -357,7 +357,7 @@ def render(base, body, values):
         bhref = f"/{bslug}/blog/" if bl in BLOG_IDX else "/blog/"
         here = "/blog" in values.get("url", "")
         values = dict(values, toolNav=values["toolNav"] + f'\n          <a href="{bhref}" class="{NAV_ON if here else NAV_OFF}"'
-                      + (' aria-current="page"' if here else '') + f'>📝 {esc(BLOG_NAV.get(bl, BLOG_NAV["en"]))}</a>')
+                      + (' aria-current="page"' if here else '') + f'>{esc(BLOG_NAV.get(bl, BLOG_NAV["en"]))}</a>')
     out = base.replace("{{body}}", body)
     for k, v in values.items():
         out = out.replace("{{" + k + "}}", v)
@@ -379,7 +379,7 @@ def brand_ko(out, values):
         out = out.replace('<meta property="og:site_name" content="TokenSave" />',
                           f'<meta property="og:site_name" content="{KO_BRAND}" />', 1)
         out = out.replace('alt="TokenSave logo" width="22" height="22" /> TokenSave',
-                          f'alt="TokenSave logo" width="22" height="22" /> TokenSave <span class="font-semibold text-zinc-400">{KO_BRAND}</span>', 1)
+                          f'alt="TokenSave logo" width="22" height="22" /> TokenSave <span class="font-semibold text-zinc-400 whitespace-nowrap">{KO_BRAND}</span>', 1)
     if url in (BASE + "/", BASE + "/ko/") and '"@type": "WebSite"' not in out:
         ld = json.dumps({"@context": "https://schema.org", "@type": "WebSite", "name": "TokenSave",
                          "alternateName": [KO_BRAND, "tokensave.app"], "url": BASE + "/"}, ensure_ascii=False)
