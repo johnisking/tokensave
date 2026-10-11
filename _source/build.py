@@ -362,6 +362,28 @@ def render(base, body, values):
     for k, v in values.items():
         out = out.replace("{{" + k + "}}", v)
     assert "{{" not in out, f"unfilled placeholder: {out[out.index('{{'):][:40]}"
+    return brand_ko(out, values)
+
+KO_BRAND = "토큰세이브"
+
+def brand_ko(out, values):
+    """Korean pages carry the Korean brand name so a search for 토큰세이브 finds the site;
+    the home pages also declare the site name for Google's site-name feature."""
+    url = values.get("url", "")
+    if values.get("htmlLang") == "ko":
+        m = re.search(r"<title>(.*?)</title>", out, re.S)
+        if m and KO_BRAND not in m.group(1):
+            t = m.group(1)
+            t = t[: -len(" | TokenSave")] if t.endswith(" | TokenSave") else t
+            out = out.replace(m.group(0), f"<title>{t} | {KO_BRAND}</title>", 1)
+        out = out.replace('<meta property="og:site_name" content="TokenSave" />',
+                          f'<meta property="og:site_name" content="{KO_BRAND}" />', 1)
+        out = out.replace('alt="TokenSave logo" width="22" height="22" /> TokenSave',
+                          f'alt="TokenSave logo" width="22" height="22" /> TokenSave <span class="font-semibold text-zinc-400">{KO_BRAND}</span>', 1)
+    if url in (BASE + "/", BASE + "/ko/") and '"@type": "WebSite"' not in out:
+        ld = json.dumps({"@context": "https://schema.org", "@type": "WebSite", "name": "TokenSave",
+                         "alternateName": [KO_BRAND, "tokensave.app"], "url": BASE + "/"}, ensure_ascii=False)
+        out = out.replace("</head>", f'<script type="application/ld+json">{ld}</script>\n</head>', 1)
     return out
 
 def build():
