@@ -769,3 +769,24 @@ CTC = [
      "Jonhisking · October 11, 2026", "Paste any prompt to see its exact token count and cost on Claude, GPT and Gemini.", "Open the token counter"),
 ]
 for _d in CTC: _d["date"] = "2026-10-11"
+
+PLUSPRO = [
+ _cc("en", "/blog/chatgpt-plus-vs-pro", "plusvspro-en", "ChatGPT Plus vs Pro (2026): $20 vs $100, $200 and $500",
+     "ChatGPT Plus vs Pro in 2026: what Pro 100, 200 and 500 add over Plus, price per unit of usage, context windows, Codex limits and when the API is cheaper.",
+     "Jonhisking · October 11, 2026", "Enter your messages per day and language to compare Plus, Pro and the API for your own usage.", "Open the subscription vs API calculator"),
+]
+for _d in PLUSPRO: _d["date"] = "2026-10-11"
+
+COPILOT = [
+ _cc("en", "/blog/github-copilot-pricing", "copilot-en", "GitHub Copilot Pricing 2026: Plans, AI Credits and Real Cost",
+     "GitHub Copilot pricing in 2026: Free, Pro $10, Pro+ $39, Max $100. How AI credits work, what each model costs, and how many tasks each plan covers.",
+     "Jonhisking · October 11, 2026", "Enter task size and tasks per day to estimate a month of agent work and compare it with Copilot's credits.", "Open the coding agent cost calculator"),
+]
+for _d in COPILOT: _d["date"] = "2026-10-11"
+
+CXPRICE = [
+ _cc("en", "/blog/codex-pricing", "codex-price-en", "Codex Pricing 2026: Free, Plus and Pro Plans, Credits and API",
+     "Codex pricing in 2026: free on ChatGPT Free, Plus $20, Pro $100 to $500. Usage limits by model, how Codex credits work, API rates and a free-plan test.",
+     "Jonhisking · October 11, 2026", "Enter task size and tasks per day to estimate a month of Codex or Claude Code work at API prices and compare it with each plan.", "Open the coding agent cost calculator"),
+]
+for _d in CXPRICE: _d["date"] = "2026-10-11"

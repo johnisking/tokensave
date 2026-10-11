@@ -1,0 +1,497 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="Codex Pricing 2026: Free, Plus and Pro Plans, Credits and API" src="/codex-pricing-en.jpg" /></p>
+<p>Codex pricing is simpler than it looks, and you may already be paying for it. OpenAI's coding agent is included in every ChatGPT plan, from Free at $0 to Pro 500 at $500 a month, and there is a separate pay-as-you-go route through an API key. What changes between plans is which models you get, whether you can run cloud tasks, and how much you can do before you hit a limit. This guide covers each plan, how Codex credits work, what the API costs, and what happened when we built the same small game twice on the free plan.</p>
+<h2>Codex pricing at a glance (2026)</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Plan</th>
+<th style="text-align: right;">Price per month (US)</th>
+<th>Codex models</th>
+<th>5-hour limit</th>
+<th style="text-align: center;">Cloud tasks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Free</td>
+<td style="text-align: right;">$0</td>
+<td>GPT-6 Luna (desktop app)</td>
+<td>None seen; one monthly meter</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Go</td>
+<td style="text-align: right;">$8</td>
+<td>GPT-6 Luna (desktop app)</td>
+<td>Not published</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Plus</td>
+<td style="text-align: right;">$20</td>
+<td>GPT-6 Astra, 6.1 Sol, 6 Sol, Luna</td>
+<td>Yes</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Pro 100 / 200 / 500</td>
+<td style="text-align: right;">$100 / $200 / $500</td>
+<td>Same as Plus, Ultrafast on Pro 500</td>
+<td>None</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Business</td>
+<td style="text-align: right;">$20 per user (annual), $25 (monthly)</td>
+<td>Same as Plus</td>
+<td>Yes, same as Plus</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Enterprise and Edu</td>
+<td style="text-align: right;">Contact sales</td>
+<td>Same as Plus</td>
+<td>Depends on contract</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>API key</td>
+<td style="text-align: right;">Pay per token</td>
+<td>API models</td>
+<td>None (pay per use)</td>
+<td style="text-align: center;">–</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Codex is not a separate subscription.</strong> OpenAI's pricing page says ChatGPT Work and Codex are included in the Free, Go, Plus, Pro, Business, Edu and Enterprise plans. There is no "Codex Pro" to buy on its own.</li>
+<li><strong>The free plan really includes Codex.</strong> It runs GPT-6 Luna at standard speed in the desktop app, subject to rollout. OpenAI describes it as a way to explore Codex on quick coding tasks.</li>
+<li><strong>Cloud tasks start at Plus.</strong> Codex Cloud, which runs tasks on OpenAI's servers and connects to GitHub for code review, is available on eligible Plus accounts, all Pro tiers, Business, Enterprise, Healthcare and Education. Free and Go are local only.</li>
+<li><strong>The API key route has no cloud features.</strong> You can use your own API key with the Codex CLI, SDK and IDE extension, and you pay standard API rates, but GitHub review, Slack and other cloud integrations are not available that way.</li>
+</ul>
+<h2>What each plan gets in Codex</h2>
+<p>The plans differ in more than the size of the allowance. Going by OpenAI's pricing page and help center:</p>
+<ul>
+<li><strong>Free ($0):</strong> GPT-6 Luna at standard speed in the desktop app. No cloud tasks and no image generation (to price images through the API instead, see the <a href="/image">image cost calculator</a>). OpenAI doesn't publish a usage limit for Free; it only says limits vary by plan. On our free account, the Codex app showed a single meter for remaining usage, labeled one month, with a reset date one month out. There was no 5-hour or weekly meter. Credit purchases are open to a limited group of Free users.</li>
+<li><strong>Go ($8):</strong> the same GPT-6 Luna access as Free, positioned for lightweight coding tasks. Go adds more general ChatGPT usage, but for Codex the published access is the same as Free.</li>
+<li><strong>Plus ($20):</strong> Codex on the web, the CLI, the IDE extension and iOS, plus cloud integrations. Plus can use the full GPT-6 line, from GPT-6 Astra for hard problems to GPT-6 Luna for quick edits, within a rolling 5-hour window. Plus users can buy extra credits when they hit a limit.</li>
+<li><strong>Pro ($100, $200 or $500):</strong> everything in Plus with a bigger allowance and, for now, no 5-hour limit. The allowance is weekly. Pro 500 adds Ultrafast mode for GPT-6 Astra and GPT-6.1 Sol. For how the three Pro tiers compare, see <a href="/blog/chatgpt-plus-vs-pro">ChatGPT Plus vs Pro</a>.</li>
+<li><strong>Business ($20 or $25 per user):</strong> the Standard seat has roughly the same Codex limits as Plus, and the workspace can buy Codex credit plans. Teams need at least two users.</li>
+<li><strong>Enterprise and Edu:</strong> priced by contract. With flexible pricing there are no fixed rate limits and usage is billed in credits; without it, the per-seat limits are roughly the same as Plus.</li>
+</ul>
+<p>On every plan, Codex shares one allowance with ChatGPT Work, ChatGPT for Excel and Workspace Agents. A long Codex session can leave less room for the other agent features, and the reverse is also true.</p>
+<h2>Codex usage limits by model</h2>
+<p><img loading="lazy" width="1200" height="607" alt="Codex usage limits by model: Model, Local messages per 5 hours (Plus and Business Standard)" src="/codex-pricing-codex-usage-limits-by-model-en.jpg" /></p>
+<p>OpenAI publishes estimated local messages per 5-hour window for Plus and Business Standard seats. These are ranges, not fixed limits:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">Local messages per 5 hours (Plus and Business Standard)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">5–45</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">15–160</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td style="text-align: right;">15–150</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">350–3,000</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>The model is the biggest lever.</strong> At the low end of each range, GPT-6 Luna gives you 7,000% as many messages as GPT-6 Astra (350 against 5). Picking Luna for simple edits and Astra only for hard bugs stretches a plan much further than upgrading does.</li>
+<li><strong>The ranges are wide because tasks are.</strong> A message that reads a few files costs far less than one that reads half a repository, plans, writes and runs tests. Cloud tasks can use more of the allowance than local messages.</li>
+<li><strong>Weekly limits may also apply</strong> on top of the 5-hour window.</li>
+<li><strong>Pro has no 5-hour window</strong> at the moment, so you can work in one long session until you reach the weekly allowance.</li>
+<li><strong>Speed modes cost more.</strong> On included subscription usage, Fast mode uses the allowance at 250% of the standard rate, and Ultrafast at 800%.</li>
+<li><strong>Images use the allowance faster too.</strong> OpenAI says image generation uses included limits at roughly 300% to 500% of the normal rate on average, depending on quality and size. The free plan doesn't include image generation.</li>
+</ul>
+<p>The full breakdown of the 5-hour window, the weekly cap and resets is in <a href="/blog/codex-usage-limits">Codex usage limits explained</a>.</p>
+<h2>How Codex credits work</h2>
+<p><img loading="lazy" width="1200" height="733" alt="How Codex credits work: Model, Input, Cached input, Output" src="/codex-pricing-how-codex-credits-work-en.jpg" /></p>
+<p>Credits are how you keep going after the included allowance runs out. Your plan's included usage is spent first; after that, Codex draws from your credit balance.</p>
+<p>OpenAI's rate card lists credits per million tokens for each model at standard speed:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">Input</th>
+<th style="text-align: right;">Cached input</th>
+<th style="text-align: right;">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">1,250</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">250</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">250</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">12.5</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">500</td>
+</tr>
+<tr>
+<td>GPT-5.6 Luna</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">30</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Who can buy credits.</strong> Plus and Pro users see an option to add credits when they hit a Codex limit, and can also buy them in Settings &gt; Usage in ChatGPT or Usage &amp; Billing in the Codex app. Business, Edu and Enterprise workspaces with flexible pricing buy workspace credits. Free and Go purchases are limited to a test group.</li>
+<li><strong>Credits expire after 12 months.</strong> Unused credits don't roll over past that date.</li>
+<li><strong>There is no charge for cache writes.</strong> Codex bills input, cached input and output only.</li>
+<li><strong>Fast and Ultrafast cost more.</strong> When you pay with credits, Fast mode is charged at 200% of the standard rate and Ultrafast at 600%.</li>
+<li><strong>A typical task is a few credits.</strong> OpenAI says a typical GPT-5.6 Sol task may use 2 to 15 credits.</li>
+</ul>
+<h3>What does one Codex credit cost?</h3>
+<p>OpenAI doesn't publish a fixed dollar price for credits on personal plans. The help center says purchase amounts and prices can vary by account, region and plan, and are shown in the purchase flow.</p>
+<p>What we can say is how the credit rates line up with OpenAI's API prices. For the three models we checked, the credit rate is exactly 25 credits for every dollar of the API list price:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>API price per 1M input / output</th>
+<th>Credits per 1M input / output</th>
+<th style="text-align: right;">Credits per $1 of API price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Luna</td>
+<td>$0.10 / $0.50</td>
+<td>2.5 / 12.5</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td>$2 / $10</td>
+<td>50 / 250</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td>$10 / $50</td>
+<td>250 / 1,250</td>
+<td style="text-align: right;">25</td>
+</tr>
+</tbody>
+</table></div>
+<p>In our reading, that means a credit is designed to be worth about $0.04 of API usage. If your purchase flow shows credits at that price, buying credits costs about the same as using an API key. This is our arithmetic, not an OpenAI price, so check the actual number before you buy.</p>
+<h2>Codex API pricing</h2>
+<p>If you would rather pay per token, you can sign in to the Codex CLI or IDE extension with an API key. You are then billed at standard API rates, with no plan limits:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">Input per 1M</th>
+<th style="text-align: right;">Cached input per 1M</th>
+<th style="text-align: right;">Output per 1M</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$0.01</td>
+<td style="text-align: right;">$0.50</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">$2</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$10</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">$1</td>
+<td style="text-align: right;">$50</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>No cloud features.</strong> The API key route covers the CLI, SDK and IDE extension only.</li>
+<li><strong>You can mix both.</strong> API key users can keep running local chats at API rates after they reach their plan limits.</li>
+<li><strong>Coding agents read far more than they write.</strong> Every step sends the instructions, tool definitions, files and earlier steps back to the model, so input tokens usually dominate the bill. Cached input is 90% to 95% cheaper than fresh input on these models, which is why long sessions cost less per step than you might expect.</li>
+</ul>
+<p>To compare a month of API use with a plan, enter your task size and tasks per day in the <a href="/agents">coding agent cost calculator</a>.</p>
+<h2>We tested Codex on the free plan</h2>
+<p>Published limits only tell you so much, so we ran a small test on October 11, 2026.</p>
+<ul>
+<li><strong>Plan:</strong> ChatGPT Free.</li>
+<li><strong>Model:</strong> GPT-6 Luna, the model the free plan offers in Codex.</li>
+<li><strong>Prompt:</strong> the same brick-breaker prompt from our <a href="/blog/claude-opus-5-5-effort">Claude Opus 5.5 effort test</a>: a browser game in a single index.html file, with 2 levels, a score display and 3 lives, playable with the keyboard and the mouse.</li>
+<li><strong>Runs:</strong> two, one at medium reasoning effort and one at extra high. Each run built its own file.</li>
+</ul>
+<p><img loading="lazy" width="1600" height="840" alt="Codex free plan test: the medium and extra high games side by side" src="/codex-pricing-free-plan-test-games-en.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th></th>
+<th>Medium</th>
+<th>Extra high</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time to finish</td>
+<td>39 s</td>
+<td>39 s</td>
+</tr>
+<tr>
+<td>Game code</td>
+<td>398 lines</td>
+<td>273 lines</td>
+</tr>
+<tr>
+<td>Title Codex chose</td>
+<td>Brick Breaker</td>
+<td>Neon Breakout</td>
+</tr>
+<tr>
+<td>Levels</td>
+<td>2 (5×10 bricks, then 7×12)</td>
+<td>2 (5×10, then 6×11 with a shaped layout)</td>
+</tr>
+<tr>
+<td>Effects</td>
+<td>None</td>
+<td>Particle bursts when a brick breaks, neon glow</td>
+</tr>
+<tr>
+<td>Tokens (Codex's own estimate)</td>
+<td>About 4,000–5,000</td>
+<td>About 4,000-something</td>
+</tr>
+<tr>
+<td>Free-plan usage</td>
+<td>Both runs together: 1% of the monthly meter</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Both games met every requirement in the prompt: two levels, a score, three lives, and keyboard and mouse controls. Both have a title screen, a pause control and win and game-over screens.</p>
+<h3>What playing them felt like</h3>
+<p>The person who ran the test played both games. In his words, translated from Korean:</p>
+<ul>
+<li><strong>Medium:</strong> "It feels kind of smooth, but there are no game effects, so the hits feel a bit weak."</li>
+<li><strong>Extra high:</strong> "The particles aren't flashy, but it's better than having none. I couldn't really tell the other features apart."</li>
+</ul>
+<h3>What the numbers mean (our reading)</h3>
+<ul>
+<li><strong>Higher effort changed the polish, not the time.</strong> Both runs took 39 seconds. The extra high version wrote 31% fewer lines but added particle effects, a glowing visual style and a collision check that splits each frame into small steps so a fast ball doesn't pass through bricks. That last part is invisible when you play, which fits with not noticing the other differences.</li>
+<li><strong>The token figures are Codex's own estimate, not a measurement.</strong> When asked, Codex said it couldn't know the exact count but put each run at roughly 4,000 to 5,000 tokens, with extra high in the 4,000s. That is close to the size of the code it wrote, so it most likely counts output only. The instructions, the reasoning and the context Codex sends at each step are not in that number.</li>
+<li><strong>The free plan handled this comfortably.</strong> Two complete games used 1% of the free plan's monthly meter, which then showed 99% remaining until the reset a month later. Taken at face value, that is room for roughly 200 games this size a month, though we only measured two and the meter rounds to whole percents. A small, self-contained task like this one is clearly within what OpenAI means by "quick coding tasks." A larger task on a real codebase reads more files and runs more steps, so expect it to use more.</li>
+<li><strong>At API prices, this task is cheap on Luna.</strong> Codex didn't report its full token count, so here is an assumption: if a run used as many total tokens as Claude Sonnet 5.5 did on the same prompt (115,073, almost all of it input), GPT-6 Luna's API prices would put it at just over one cent, even with no caching. This is an estimate under that assumption, not a measured cost.</li>
+</ul>
+<p>For comparison, the same prompt in Claude Code took 37 seconds and $0.25 on Sonnet 5.5 at medium effort, and 1 min 50 s and $0.75 on Opus 5.5 at high effort, measured with ccusage. Those runs are in <a href="/blog/claude-sonnet-5-5-vs-opus-5-5">Claude Sonnet 5.5 vs Opus 5.5</a>. The Claude figures are measured and the Codex token figures are self-reported, so treat the comparison as rough.</p>
+<h2>What a bigger Codex task costs</h2>
+<p>Our test was small on purpose. Real work usually means more steps, and every step re-sends the growing context.</p>
+<ul>
+<li><strong>A typical feature task is much bigger.</strong> In <a href="/blog/codex-usage-limits">Codex usage limits explained</a> we estimated that a 25-step feature task sends around 1.6 million input tokens. At API prices that is about $0.72 on a Sol-class model and about $3.60 on GPT-6 Astra.</li>
+<li><strong>The same task on Luna costs far less.</strong> GPT-6 Luna's input price is 95% lower than GPT-6.1 Sol's ($0.10 against $2 per million), so a task Luna can handle costs a small fraction as much.</li>
+<li><strong>Effort settings add reasoning tokens.</strong> Higher effort can mean more tokens per step. In our test the extra high run didn't take longer, but on a harder task the gap is usually larger.</li>
+</ul>
+<p>The practical upshot: the model you pick matters more than the plan you are on. A Plus user who sends routine work to Luna can go much further than a Pro user who sends everything to Astra.</p>
+<h2>Codex pricing changes in 2026</h2>
+<p>Codex pricing has changed several times this year, which is why older guides disagree with each other. The changes that matter, from OpenAI's own release notes and help center:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>April 2, 2026</td>
+<td>Codex moved from per-message pricing to credits based on API token usage, for Plus, Pro, Business and new Enterprise plans</td>
+</tr>
+<tr>
+<td>April 23, 2026</td>
+<td>The same token-based rate card extended to all existing Enterprise, Edu, Health, Gov and ChatGPT for Teachers plans</td>
+</tr>
+<tr>
+<td>Late July 2026</td>
+<td>GPT-5.6 Terra became 20% cheaper and GPT-5.6 Luna 80% cheaper</td>
+</tr>
+<tr>
+<td>September 29, 2026</td>
+<td>Pro split into Pro 100, Pro 200 and Pro 500; new Pro 200 subscribers get a smaller allowance than before, and Ultrafast is Pro 500 only</td>
+</tr>
+<tr>
+<td>October 14, 2026</td>
+<td>GPT-5.5 retires from ChatGPT, ChatGPT Work and Codex on all plans (the API is not affected)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Guides written before April describe message counts, not tokens.</strong> If a page quotes a fixed number of messages per plan without a model attached, it is probably out of date.</li>
+<li><strong>If you still use GPT-5.5 in Codex, switch before October 14.</strong> On the credit rate card, GPT-5.5 costs 125 credits per million input tokens; GPT-6.1 Sol costs 50.</li>
+</ul>
+<h2>Which Codex plan should you pick?</h2>
+<p><img loading="lazy" width="1200" height="925" alt="Which Codex plan should you pick?: You..., Pick, Why" src="/codex-pricing-which-codex-plan-should-you-pick-en.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>You...</th>
+<th>Pick</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Want to try Codex on small tasks</td>
+<td>Free</td>
+<td>GPT-6 Luna in the desktop app at no cost</td>
+</tr>
+<tr>
+<td>Code a few times a week and want cloud tasks</td>
+<td>Plus ($20)</td>
+<td>Full GPT-6 line, cloud tasks, GitHub review</td>
+</tr>
+<tr>
+<td>Hit the 5-hour window several times a week</td>
+<td>Pro 100</td>
+<td>No 5-hour limit, a larger weekly allowance</td>
+</tr>
+<tr>
+<td>Run Codex most of the day</td>
+<td>Pro 200 or Pro 500</td>
+<td>Larger weekly allowance; Ultrafast on Pro 500</td>
+</tr>
+<tr>
+<td>Use Codex now and then, in your own tools</td>
+<td>API key</td>
+<td>Pay only for what you use, no cloud features</td>
+</tr>
+<tr>
+<td>Need it for a team</td>
+<td>Business</td>
+<td>Plus-level limits per seat, workspace credit plans</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Start on the free plan if you're unsure.</strong> It costs nothing, and our test shows it can finish a small project.</li>
+<li><strong>Go is not a Codex upgrade.</strong> At $8 it adds general ChatGPT usage, but the published Codex access is the same GPT-6 Luna as Free.</li>
+<li><strong>Plus is the first plan that changes how you work.</strong> It adds the stronger models, cloud tasks and code review.</li>
+<li><strong>Upgrade to Pro for the time, not the models.</strong> Pro has the same models as Plus. What it buys is the end of the 5-hour wait.</li>
+</ul>
+<h2>Codex vs Claude Code vs Copilot: entry prices</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Free option</th>
+<th>Entry paid plan</th>
+<th>Next step</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Codex (ChatGPT)</td>
+<td>Yes, GPT-6 Luna</td>
+<td>Plus $20</td>
+<td>Pro 100 $100</td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td>No (Claude Free has no Claude Code)</td>
+<td>Claude Pro $20</td>
+<td>Max 5x $100</td>
+</tr>
+<tr>
+<td>GitHub Copilot</td>
+<td>Yes, 2,000 completions and limited chat</td>
+<td>Pro $10</td>
+<td>Pro+ $39</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Codex has the most usable free tier for agent work.</strong> Claude's free plan doesn't include Claude Code, and Copilot Free is mostly autocomplete with a small chat allowance.</li>
+<li><strong>At $20, Codex and Claude Code are priced the same,</strong> and both use allowances that reset on a schedule rather than a dollar balance.</li>
+<li><strong>Copilot is the cheapest paid entry</strong> at $10, but its credits are tied to API prices. See <a href="/blog/github-copilot-pricing">GitHub Copilot pricing</a>.</li>
+</ul>
+<p>For a monthly cost comparison by workload, see <a href="/blog/claude-code-vs-codex-vs-cursor-cost">Claude Code vs Codex vs Cursor: cost</a>.</p>
+<h2>How to make your Codex usage last longer</h2>
+<ol>
+<li><strong>Match the model to the task.</strong> Use GPT-6 Luna for small edits, explanations and boilerplate, GPT-6.1 Sol for normal feature work, and GPT-6 Astra only when the others get stuck.</li>
+<li><strong>Keep tasks small and specific.</strong> A clear request about one file costs less than "look through the project and improve it," because the agent reads less.</li>
+<li><strong>Avoid Fast mode unless you need it.</strong> It uses included usage at 250% of the standard rate.</li>
+<li><strong>Check your remaining usage.</strong> In the Codex CLI, /status shows the current session's token usage, and /usage shows your account's token activity by day, week or in total, and lets you apply a rate-limit reset if one is available. In the ChatGPT desktop app, Settings &gt; Usage shows when your limit resets. Check before starting a long job.</li>
+<li><strong>Use resets and credits deliberately.</strong> When you hit a limit, the options can include adding credits, applying a reset, upgrading or waiting. If you only hit the wall once in a while, credits or waiting are cheaper than a bigger plan.</li>
+</ol>
+<h2>Verdict</h2>
+<ul>
+<li><strong>Codex comes with every ChatGPT plan,</strong> including Free. You don't pay for it separately.</li>
+<li><strong>The free plan is enough to try it on real but small tasks.</strong> In our test it built a complete two-level game in 39 seconds, twice, for 1% of its monthly allowance.</li>
+<li><strong>Plus at $20 is where Codex becomes a daily tool,</strong> with the full GPT-6 line, cloud tasks and GitHub code review.</li>
+<li><strong>Pro is for removing the 5-hour wait,</strong> not for better models.</li>
+<li><strong>Model choice moves your costs more than plan choice.</strong> GPT-6 Luna's published message range starts at 7,000% of GPT-6 Astra's, and its API price is a small fraction of Astra's.</li>
+</ul>
+<h2>FAQ</h2>
+<p><strong>Is Codex free?</strong>
+Yes, in a limited form. Codex is included in the ChatGPT Free plan with GPT-6 Luna at standard speed in the desktop app. OpenAI doesn't publish the free plan's limits. On our account, Codex showed one monthly usage meter rather than 5-hour or weekly windows. Cloud tasks need Plus or higher.</p>
+<p><strong>How much does Codex cost?</strong>
+Codex has no separate price. It comes with ChatGPT plans: Free $0, Go $8, Plus $20, Pro $100, $200 or $500, and Business $20 per user billed annually. You can also use it with an API key at standard API rates.</p>
+<p><strong>Is Codex included in ChatGPT Plus?</strong>
+Yes. Plus includes Codex on the web, CLI, IDE extension and iOS, cloud tasks and the GPT-6 models, within a rolling 5-hour window.</p>
+<p><strong>How much is one Codex credit?</strong>
+OpenAI doesn't publish a fixed price for personal plans; it is shown in the purchase flow and can vary by region and plan. The credit rates equal 25 credits per dollar of API list price, which works out to about $0.04 per credit of API-equivalent usage.</p>
+<p><strong>What is Codex API pricing?</strong>
+With an API key you pay standard API rates, for example $0.10 input and $0.50 output per million tokens on GPT-6 Luna, $2 and $10 on GPT-6.1 Sol, and $10 and $50 on GPT-6 Astra.</p>
+<p><strong>What happens when I hit the Codex limit?</strong>
+Codex can finish the turn it is on. After that, depending on your plan, you can add credits, apply an available reset, upgrade, or wait for the 5-hour or weekly window to reset.</p>
+<h2>Run the numbers</h2>
+<p>The <a href="/agents">coding agent cost calculator</a> estimates a month of agent work on GPT-6, Claude Opus 5.5 and Sonnet 5.5 from your task size and tasks per day, and compares the API cost with each plan. For one prompt, the <a href="/">token counter</a> shows the exact cost on each model.</p>
+<p><em>Plan details and credit rates checked on OpenAI's pricing page and help center on October 11, 2026. The free-plan test is one run per effort level on October 11, 2026; Codex's token figures are its own estimates.</em></p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://learn.chatgpt.com/docs/pricing" target="_blank" rel="noopener">OpenAI: Pricing (ChatGPT Learn)</a></li>
+<li><a href="https://help.openai.com/en/articles/20001106-codex-rate-card-2" target="_blank" rel="noopener">OpenAI Help: Codex rate card</a></li>
+<li><a href="https://learn.chatgpt.com/docs/whats-new" target="_blank" rel="noopener">OpenAI: What's new in ChatGPT</a></li>
+<li><a href="https://learn.chatgpt.com/docs/cli/slash-commands/" target="_blank" rel="noopener">OpenAI: Slash commands in Codex CLI</a></li>
+<li><a href="https://help.openai.com/en/articles/9793128" target="_blank" rel="noopener">OpenAI Help: ChatGPT Pro plans</a></li>
+<li><a href="https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan" target="_blank" rel="noopener">OpenAI Help: Using Codex with your ChatGPT plan</a></li>
+<li><a href="https://help.openai.com/en/articles/12642688-using-credits-for-flexible-usage-in-chatgpt-freegopluspro-sora" target="_blank" rel="noopener">OpenAI Help: Using credits for flexible usage in ChatGPT</a></li>
+<li><a href="https://help.openai.com/en/articles/11481834-chatgpt-rate-card-business-enterpriseedu" target="_blank" rel="noopener">OpenAI Help: ChatGPT rate card (Business, Enterprise/Edu)</a></li>
+<li><a href="https://chatgpt.com/pricing" target="_blank" rel="noopener">OpenAI: ChatGPT pricing</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI: API pricing</a></li>
+</ul>
+<!-- autoimg -->

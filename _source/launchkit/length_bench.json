@@ -44,5 +44,39 @@
    "superblocks.com": 2682,
    "finout.io": 3622
   }
+ },
+ "plusvspro-en": {
+  "keyword": "chatgpt plus vs pro",
+  "checked": "2026-10-11",
+  "median": 2754,
+  "samples": {
+   "lorka.ai": 1378,
+   "toolcolumn.com": 1383,
+   "emergent.sh": 4125,
+   "sintra.ai": 5079
+  }
+ },
+ "copilot-en": {
+  "keyword": "github copilot pricing",
+  "checked": "2026-10-11",
+  "median": 2489,
+  "samples": {
+   "cloudzero.com": 2489,
+   "techjacksolutions.com": 2842,
+   "nocode.mba": 1620
+  }
+ },
+ "codex-price-en": {
+  "keyword": "codex pricing",
+  "checked": "2026-10-11",
+  "median": 3350,
+  "samples": {
+   "verdent.ai": 2000,
+   "cloudzero.com": 2200,
+   "uibakery.io": 2700,
+   "eesel.ai": 4000,
+   "jetadmin.io": 5000,
+   "morphllm.com": 6500
+  }
  }
 }
