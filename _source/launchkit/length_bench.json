@@ -166,5 +166,11 @@
   "checked": "2026-10-12",
   "median": 9800,
   "unit": "chars"
+ },
+ "ccguide-ko": {
+  "keyword": "클로드 코드 사용법",
+  "checked": "2026-10-12",
+  "median": 8200,
+  "unit": "chars"
  }
 }

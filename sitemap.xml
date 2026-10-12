@@ -15874,6 +15874,7 @@
     <loc>https://tokensave.app/ja/blog/claude-code-tsukaikata</loc>
     <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-tsukaikata"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-sayongbeop"/>
     <image:image>
       <image:loc>https://tokensave.app/claude-code-tsukaikata-ja.jpg</image:loc>
     </image:image>
@@ -15900,6 +15901,39 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/claude-code-tsukaikata-usage-ja.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/blog/claude-code-sayongbeop</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-tsukaikata"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-sayongbeop"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-sayongbeop-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-sayongbeop-ps1-error-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-sayongbeop-version-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-sayongbeop-mkdir-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-sayongbeop-theme-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-sayongbeop-start-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-sayongbeop-hello-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-sayongbeop-auto-mode-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-sayongbeop-usage-ko.jpg</image:loc>
     </image:image>
   </url>
   <url>
