@@ -16,7 +16,21 @@
 - [ ] 일본어·중국어 블로그 title 40자 초과 다수 → 핵심 키워드를 앞 25자 안에
 - [ ] 태국어 도구 페이지 본문이 얇음(150~250단어 수준) → FAQ/설명 보강 또는 우선순위 하향
 
+## P1 — 글 구조 (근거: `reports/2026-10-12-content.md`)
+- [ ] hreflang 재그룹: `gogo`·`subs`·`gemgp`·`rbxtrend`·`rbxhow` 5개 주제 39페이지가 언어끼리 연결 안 됨 — `src/blog_meta.py`, `build.py` 712~724행
+- [ ] `updated` 필드 추가 → byline "Updated …"·`dateModified`·sitemap lastmod (지금은 dateModified = 발행일) — `build.py` 765행, `update_prices.py`
+- [ ] 같은 검색어를 노리는 4쌍 정리: `compare/performance`↔`best-value-llm-october-2026`(en·ko·ja), Sonnet vs Opus compare↔blog, `chatgpt-plus-vs-pro`↔`chatgpt-pro-100-vs-200-vs-500`, Claude Pro/Max 3종 상호 링크
+
+## P2 — 글 업그레이드 (2세대 형식: 첫 문장에 답·실측·표 3+·출처·질문형 H2)
+- [ ] Claude Code 요금 en·ko·ja (`claude-code-cost-per-month` 877단어 / `claude-code-yogeum` / `claude-code-ryoukin`)
+- [ ] 사용량 한도 3종 (Claude Code·Codex·ChatGPT) en·ko·ja
+- [ ] Claude Max vs Pro en·ko·ja, LLM API 가격 비교 en·ko·ja, OpenAI API 가격, 토큰 세는 법(표 0개)
+- [ ] 1세대 영어 제목에 검색어·2026 넣기, `claude-token-cost` → "Claude API Pricing 2026…"
+- [ ] `/compare/` 29쌍: 수요 있는 쌍만 실측·출처 보강, 4주 노출 0인 쌍은 합치거나 noindex
+
 ## P2 — 콘텐츠 확장 (서치콘솔 데이터로 순서 재조정)
+- [ ] Gemini 요금제 총정리(Google AI Plus·Pro·Ultra) + Gemini API 가격 — en·ko·ja 모두 없음
+- [ ] GitHub Copilot 요금 한국어판 (en·ja만 있음)
 - [ ] 영어 전용인 핵심 글 한국어판: `what-is-a-token`, `cheapest-llm-api`, `deepseek-api-pricing`, `claude-code-vs-codex-vs-cursor-cost`, `prompt-caching-explained`, `batch-api-half-price`
 - [ ] 한·일에서 성과 좋은 글 → es/pt/de/fr로 확장 (사용자 많은 언어 우선)
 - [ ] 새 모델 출시 당일 가격 글 + compare 페이지 (지금까지 가장 빠르게 반응하는 형식)
