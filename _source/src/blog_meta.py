@@ -836,3 +836,11 @@ for _g in (CXPRICE, CPRO, CURSOR, COPILOT):
     for _d in _g:
         if _d["src"] in ("cxprice-ja", "cxprice-ko", "cplan-ja", "cplan-ko", "cursor-ja", "copilot-ja"):
             _d["date"] = "2026-10-12"
+
+# 2026-10-12 Claude Code install / usage guide
+CCGUIDE = [
+ _cc("ja", "/ja/blog/claude-code-tsukaikata", "ccguide-ja", "Claude Code の使い方｜インストールから最初の指示まで実画面で解説",
+     "Claude Code の使い方を Windows の実画面で解説。インストール方法、PowerShell の実行ポリシーのエラーの直し方、ログイン、最初の指示、権限モード、基本コマンド、/usage での使用量確認まで、2026年10月の公式情報でまとめました。",
+     "Jonhisking · 2026年10月12日", "作業の大きさと1日の作業数を入れて、Claude Code の1か月の API 費用を Pro・Max と比べてみましょう。", "コーディングエージェント費用計算機を開く"),
+]
+for _d in CCGUIDE: _d["date"] = "2026-10-12"

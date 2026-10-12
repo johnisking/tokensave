@@ -160,5 +160,11 @@
   "checked": "2026-10-12",
   "median": 2900,
   "unit": "chars"
+ },
+ "ccguide-ja": {
+  "keyword": "claude code 使い方",
+  "checked": "2026-10-12",
+  "median": 9800,
+  "unit": "chars"
  }
 }
