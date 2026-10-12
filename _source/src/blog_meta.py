@@ -645,6 +645,10 @@ INDIECOST = [_gm("ko", "/ko/blog/indie-game-gaebal-biyong", "인디게임 개발
      "인디게임 개발 비용 총정리: Unity·Godot·Unreal 엔진 비용과 장단점, Steam·Google Play·Apple 등록비와 준비물, 외주 vs AI로 혼자 만들기 비용 비교.",
      "Jonhisking · 2026년 10월 8일")]
 INDIECOST[0].update(src="indiecost-ko", date="2026-10-08")
+INDIECOST.append(_gm("en", "/blog/indie-game-development-cost", "Indie Game Development Cost: Solo Dev Budget, Fees, Real $20 Case",
+     "Indie game development cost for solo devs: free engines, store fees ($25 Google Play, $100 Steam, $99/yr Apple), outsourcing vs AI, and a real $20 game.",
+     "Jonhisking · October 12, 2026"))
+INDIECOST[-1].update(src="indiecost-en", date="2026-10-12")
 
 # 2026-10-09: Turkish localizations (subs, gogo, gemgp, freepaid)
 _TR_BY = "Jonhisking · 9 Ekim 2026"
