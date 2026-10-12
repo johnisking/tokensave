@@ -306,8 +306,8 @@ COUNT = [
 
 _CTA_AG = _CTA
 CHLIM = [
- _cc("en", "/blog/chatgpt-usage-limits", "chlim-en", "ChatGPT Usage Limits in 2026: What Is Still Capped and When It Resets",
-     "Text chat is unlimited on Free and Go since August 2026, but GPT-6 Astra, Work, Codex, files and images still have limits. What resets when, and how to check.", _BY["en"], *_CTA_PL["en"]),
+ _cc("en", "/blog/chatgpt-usage-limits", "chlim-en", "ChatGPT Usage Limits 2026: Every Plan and the 5-Hour Window",
+     "ChatGPT usage limits for Free, Go, Plus, Pro and Business: what is unlimited, GPT-6 Pro caps, the Work and Codex 5-hour window, resets and fixes.", "Jonhisking · Updated October 13, 2026", *_CTA_PL["en"]),
  _cc("ko", "/ko/blog/chatgpt-sayongnyang-hando", "chlim-ko", "챗GPT 사용량 한도 정리: 무엇이 아직 제한되고 언제 초기화될까",
      "2026년 8월부터 Free·Go의 일반 채팅은 무제한이지만 GPT-6 Astra, Work, Codex, 파일·이미지는 아직 한도가 있습니다. 초기화 시점과 확인 방법까지.", _BY["ko"], *_CTA_PL["ko"]),
  _cc("ja", "/ja/blog/chatgpt-shiyouryou-jougen", "chlim-ja", "ChatGPT の使用量上限まとめ：まだ制限があるものとリセットのタイミング",
@@ -598,6 +598,7 @@ RBX_PL = [[dict(tag="pl", path='/pl/blog/popularne-gry-roblox', src='rbxtrend-pl
 
 # Dutch localizations (2026-10-06)
 PRO.append(dict(tag="nl", path='/nl/blog/chatgpt-pro-100-200-500', src='pro-nl', title='ChatGPT Pro prijs: Pro 100, 200 en 500 vergeleken (2026)', desc='ChatGPT Pro 100, 200 en 500: wat kost elk abonnement, wat veranderde op 29 september en is ChatGPT Pro het waard? Plus: wanneer de API goedkoper is.', byline='Jonhisking · 6 oktober 2026', cta='Vul in hoe je AI gebruikt en zie of een abonnement of de API goedkoper is, met Nederlandse tokens meegerekend.', ctaBtn='Abonnement vs API berekenen', date="2026-10-06"))
+PRO.append(dict(tag="tr", path='/tr/blog/chatgpt-pro-100-200-500-fiyat', src='pro-tr', title='ChatGPT Pro fiyatı TL: Pro 100, 200 ve 500 hangisi? (2026)', desc="ChatGPT Pro 100 (5.299,99 TL), Pro 200 (9.999,99 TL) ve Pro 500 (26.499 TL) karşılaştırması: limitler, Ultrafast ve Türkiye'de birim başına en ucuz kademe.", byline='Jonhisking · 12 Ekim 2026', cta='Yapay zekâyı ne kadar kullandığınızı girin; abonelik mi yoksa API mi daha ucuz, Türkçe tokenlarla birlikte görün.', ctaBtn='Abonelik vs API hesapla', date="2026-10-12"))
 CHEAP.append(dict(tag="nl", path='/nl/blog/goedkoopste-ai-api', src='cheapest-nl', title='Goedkoopste AI API 2026: API-prijzen vergelijken per 1 miljoen tokens', desc='Goedkoopste AI API in oktober 2026: GPT-5 nano, GPT-6 Luna en Qwen 3.8 Flash. Kosten per 1 miljoen tokens en per verzoek, plus de Nederlandse tokentoeslag.', byline='Jonhisking · 6 oktober 2026', cta='Plak je tekst en zie hoeveel tokens hij gebruikt en wat dat kost in GPT, Claude en Gemini.', ctaBtn='Tokenteller openen', date="2026-10-06"))
 CTOK.append(dict(tag="nl", path='/nl/blog/claude-limiet', src='ctok-nl', title='Claude limiet: hoeveel tokens geven Claude Pro en Claude Max?', desc="Claude limiet in tokens: Max 5x geeft zo'n 39 miljoen tokens per 5 uur, Max 20x zo'n 1,9 miljard per week. Pro-schatting, prijzen in euro en API-kosten.", byline='Jonhisking · 6 oktober 2026', cta='Vul in hoe je Claude Code en Codex gebruikt en zie de maandkosten via de API naast elk abonnement.', ctaBtn='Open de calculator voor coding agents', date="2026-10-06"))
 CC_LIMITS.append(dict(tag="nl", path='/nl/blog/claude-code-limiet', src='cc-limits-nl', title='Claude Code limiet: de 5 uur limiet en de weeklimiet uitgelegd', desc='Claude Code limiet uitgelegd: hoe de 5 uur limiet en de weeklimiet werken, wat er in 2026 veranderde en wat je doet als je tegen een limiet aanloopt.', byline='Jonhisking · 6 oktober 2026', cta='Vul in hoe je Claude Code en Codex gebruikt en zie de maandkosten via de API naast elk abonnement.', ctaBtn='Open de calculator voor coding agents', date="2026-10-06"))
@@ -851,3 +852,7 @@ CCGUIDE.append(_cc("ko", "/ko/blog/claude-code-sayongbeop", "ccguide-ko", "클�
      "클로드 코드 설치 방법과 사용법을 윈도우 실제 화면으로 정리. PowerShell 실행 정책 오류 해결, 로그인, 첫 작업, 권한 모드, 기본 명령어, /usage 사용량 확인까지 2026년 10월 공식 문서 기준.",
      "Jonhisking · 2026년 10월 12일", "작업 크기와 하루 작업 수를 넣고 클로드 코드의 한 달 API 비용을 Pro·Max와 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"))
 for _d in CCGUIDE: _d["date"] = "2026-10-12"
+
+# 2026-10-13 chlim-en rewrite
+for _d in CHLIM:
+    if _d["src"] == "chlim-en": _d["date"] = "2026-10-13"

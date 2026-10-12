@@ -172,5 +172,11 @@
   "checked": "2026-10-12",
   "median": 8200,
   "unit": "chars"
+ },
+ "chlim-en": {
+  "keyword": "chatgpt usage limits",
+  "checked": "2026-10-12",
+  "median": 3460,
+  "unit": "words"
  }
 }
