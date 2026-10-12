@@ -308,10 +308,10 @@ _CTA_AG = _CTA
 CHLIM = [
  _cc("en", "/blog/chatgpt-usage-limits", "chlim-en", "ChatGPT Usage Limits 2026: Every Plan and the 5-Hour Window",
      "ChatGPT usage limits for Free, Go, Plus, Pro and Business: what is unlimited, GPT-6 Pro caps, the Work and Codex 5-hour window, resets and fixes.", "Jonhisking · Updated October 13, 2026", *_CTA_PL["en"]),
- _cc("ko", "/ko/blog/chatgpt-sayongnyang-hando", "chlim-ko", "챗GPT 사용량 한도 정리: 무엇이 아직 제한되고 언제 초기화될까",
-     "2026년 8월부터 Free·Go의 일반 채팅은 무제한이지만 GPT-6 Astra, Work, Codex, 파일·이미지는 아직 한도가 있습니다. 초기화 시점과 확인 방법까지.", _BY["ko"], *_CTA_PL["ko"]),
- _cc("ja", "/ja/blog/chatgpt-shiyouryou-jougen", "chlim-ja", "ChatGPT の使用量上限まとめ：まだ制限があるものとリセットのタイミング",
-     "2026年8月から Free・Go の通常のチャットは無制限。ただし GPT-6 Astra、Work、Codex、ファイル・画像には上限があります。リセット時期と確認方法も。", _BY["ja"], *_CTA_PL["ja"]),
+ _cc("ko", "/ko/blog/chatgpt-sayongnyang-hando", "chlim-ko", "챗GPT 사용량 한도 2026: 요금제별 정리와 5시간 제한",
+     "챗GPT 사용량 한도를 Free·Go·Plus·Pro·Business별로 정리. 무제한 대화의 범위, GPT-6 Pro 한도, Work·Codex 5시간 제한, 초기화와 한도에 걸렸을 때 대처법까지.", "Jonhisking · 2026년 10월 13일 업데이트", *_CTA_PL["ko"]),
+ _cc("ja", "/ja/blog/chatgpt-shiyouryou-jougen", "chlim-ja", "ChatGPT の回数制限・使用量上限まとめ2026：プラン別と5時間枠",
+     "ChatGPT の回数制限と使用量上限を Free・Go・Plus・Pro・Business 別に整理。無制限の範囲、GPT-6 Pro の上限、Work・Codex の5時間枠、リセットと対処法まで。", "Jonhisking · 2026年10月13日更新", *_CTA_PL["ja"]),
 ]
 CXLIM = [
  _cc("en", "/blog/codex-usage-limits", "cxlim-en", "Codex Usage Limits Explained: 5-Hour Window, Weekly Cap and Resets",
@@ -855,4 +855,4 @@ for _d in CCGUIDE: _d["date"] = "2026-10-12"
 
 # 2026-10-13 chlim-en rewrite
 for _d in CHLIM:
-    if _d["src"] == "chlim-en": _d["date"] = "2026-10-13"
+    if _d["src"] in ("chlim-en", "chlim-ko", "chlim-ja"): _d["date"] = "2026-10-13"

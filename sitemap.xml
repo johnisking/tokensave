@@ -12723,7 +12723,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/chatgpt-sayongnyang-hando</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-usage-limits"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-sayongnyang-hando"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-shiyouryou-jougen"/>
@@ -12735,7 +12735,7 @@
       <image:loc>https://tokensave.app/chatgpt-sayongnyang-hando-ko-2.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/chatgpt-sayongnyang-hando-gpt-6-astra-ko.jpg</image:loc>
+      <image:loc>https://tokensave.app/chatgpt-sayongnyang-hando-workcodex-ko.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/chatgpt-sayongnyang-hando-ko-4.jpg</image:loc>
@@ -12743,7 +12743,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/chatgpt-shiyouryou-jougen</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-usage-limits"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-sayongnyang-hando"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-shiyouryou-jougen"/>
@@ -12752,10 +12752,10 @@
       <image:loc>https://tokensave.app/chatgpt-shiyouryou-jougen-ja.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/chatgpt-shiyouryou-jougen-ja-2.jpg</image:loc>
+      <image:loc>https://tokensave.app/chatgpt-shiyouryou-jougen-chatgpt-ja.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/chatgpt-shiyouryou-jougen-gpt-6-astra-ja.jpg</image:loc>
+      <image:loc>https://tokensave.app/chatgpt-shiyouryou-jougen-work-codex-ja.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/chatgpt-shiyouryou-jougen-ja-4.jpg</image:loc>
@@ -17217,11 +17217,11 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-13</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-13</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/</loc>
