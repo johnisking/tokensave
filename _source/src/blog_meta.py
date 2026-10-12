@@ -234,12 +234,13 @@ _CTA = {"en": ("Set task size and tasks per day to compare Claude Code's API cos
 CC_COST = [
  _cc("en", "/blog/claude-code-cost-per-month", "cc-cost-en", "Claude Code Pricing 2026: $20, $100 or $200 a Month, or the API",
      "Claude Code costs $20 a month on Pro, $100 or $200 on Max, or pay per token on the API. Measured task costs, monthly cost by usage, and which to pick.", _BY["en"], *_CTA["en"]),
- _cc("ko", "/ko/blog/claude-code-yogeum", "cc-cost-ko", "클로드 코드 요금 한 달에 얼마? Pro·Max·API 비교",
-     "클로드 코드를 Pro, Max 5×, Max 20×, API로 쓸 때 한 달 비용과 작업당 비용, 어떤 경우에 무엇이 가장 싼지 정리했습니다.", _BY["ko"], *_CTA["ko"]),
- _cc("ja", "/ja/blog/claude-code-ryoukin", "cc-cost-ja", "Claude Code の料金は月いくら？Pro・Max・API を比較",
-     "Claude Code を Pro、Max 5×、Max 20×、API で使ったときの月額とタスクあたりの費用、どれがいちばん安いかを解説します。", _BY["ja"], *_CTA["ja"]),
+ _cc("ko", "/ko/blog/claude-code-yogeum", "cc-cost-ko", "클로드 코드 요금 2026: 월 $20·$100·$200, API 비교",
+     "클로드 코드 요금 2026: 프로 월 $20, Max 5x $100·Max 20x $200 또는 API. 작업 하나 실측 $0.25~0.75, 사용량별 한 달 비용, 구독이 API보다 싸지는 지점과 원화 환산까지.", _BY["ko"], *_CTA["ko"]),
+ _cc("ja", "/ja/blog/claude-code-ryoukin", "cc-cost-ja", "Claude Code の料金【2026】月$20〜$200とAPI実費",
+     "Claude Code の料金は Pro 月$20（年払いで月$17）、Max 5x $100、Max 20x $200、または API の従量課金。実測では1タスク Sonnet 5.5 で$0.25、Opus 5.5 で$0.56〜0.75。日本は消費税10%で Pro $22。無料プランでは使えません。", _BY["ja"], *_CTA["ja"]),
 ]
-CC_COST[0]["updated"] = "2026-10-12"  # rewritten: measured task costs, cost ranges, official averages
+for _b in CC_COST[:3]:  # en/ko/ja rewritten: measured task costs, cost ranges, official averages
+    _b["updated"] = "2026-10-12"
 CC_LIMITS = [
  _cc("en", "/blog/claude-code-usage-limits", "cc-limits-en", "Claude Code Usage Limits Explained: 5-Hour and Weekly Caps",
      "How Claude Code's 5-hour and weekly limits work on Pro and Max, what changed in 2026, how to check usage and what to do at the limit.", _BY["en"], *_CTA["en"]),
