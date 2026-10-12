@@ -1,93 +1,483 @@
-<p><img fetchpriority="high" width="1200" height="630" alt="ChatGPT の使用量上限まとめ：まだ制限があるものとリセットのタイミング" src="/chatgpt-shiyouryou-jougen-ja.jpg" /></p>
-<p>「上限に達しました」は、かつて ChatGPT でいちばん多い不満でした。2026年にルールは大きく変わり、普段のテキストチャットは Free と Go で上限がなくなり、Plus も上限が拡大されました。ただし、最新モデル、ChatGPT Work と Codex、ファイルのアップロード、画像、音声には今も上限があります。プランごとに何が制限されているのか、上限がどうリセットされるのか、残りをどう確認するのかをまとめました。</p>
-<h2>テキストチャット：2026年8月から Free・Go は上限なし</h2>
-<p>2026年8月6日、OpenAI は翌週から <strong>Free・Go</strong> のテキストチャットを無制限にし、難しい質問向けの「Think」ボタンを加えると発表しました。Plus はメッセージとアップロードが「拡大」されていますが、上限はあります。2026年10月7日からは、チャットのモデルは Plus・Pro・Business・Enterprise が GPT-6 Sol、Free と Go が GPT-6 Luna です。ただし無制限でも不正利用を防ぐための仕組みは残っているので、自動化された利用や極端な使い方は制限されることがあります。</p>
-<p>つまり、普通のテキストメッセージを送るだけなら、もうメッセージ数の上限を見ることはないはずです。</p>
-<h2>今も上限があるもの</h2>
-<p><img loading="lazy" width="1200" height="747" alt="今も上限があるもの: 機能, 上限は？" src="/chatgpt-shiyouryou-jougen-ja-2.jpg" /></p>
-<div class="overflow-x-auto"><table>
-<thead>
-<tr>
-<th>機能</th>
-<th>上限は？</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>普段のテキストチャット</td>
-<td>Free・Go はなし（2026年8月から）、Plus は拡大されたが上限あり</td>
-</tr>
-<tr>
-<td>ファイルのアップロード、画像生成、音声</td>
-<td>あり（プランごとに別々の上限）</td>
-</tr>
-<tr>
-<td>高い思考レベルと Pro モデル</td>
-<td>あり（プランによる）</td>
-</tr>
-<tr>
-<td>ChatGPT Work と Codex（GPT-6 Astra を含む）</td>
-<td>あり：含まれる使用枠、Plus・Business は5時間枠</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>プラン別の思考レベル。</strong> Plus は GPT-6 の高度な推論モデルを使えます。Pro ではさらに、GPT-6 Astra を使う Pro 推論オプションと、Pro 専用の GPT-5.6 Sol Pro が加わります。</p>
-<h2>GPT-6 Astra の上限</h2>
-<p><img loading="lazy" width="1200" height="568" alt="GPT-6 Astra の上限: プラン, 5時間あたりの GPT-6 Astra メッセージ数" src="/chatgpt-shiyouryou-jougen-gpt-6-astra-ja.jpg" /></p>
-<p>OpenAI のフラッグシップモデルである GPT-6 Astra は、ChatGPT Work と Codex から使います。OpenAI のヘルプセンターでは、5時間枠あたりのローカルメッセージ数の目安を次のように示しています。</p>
+<p><img fetchpriority="high" width="1200" height="630" alt="ChatGPT の回数制限・使用量上限まとめ2026：プラン別と5時間枠" src="/chatgpt-shiyouryou-jougen-ja.jpg" /></p>
+<p>「上限に達しました」は、かつて ChatGPT でいちばん多い不満でした。2026年の今もこの表示は出ますが、出る場所が変わっています。OpenAI は普段のテキストチャットの回数制限をなくしたあと、GPT-6 と GPT-6 Astra、ChatGPT Work と Codex が共有する使用枠、3段階の Pro プラン、そして独自のタイミングでリセットされる5時間枠を次々に加えました。そのため「ChatGPT はどれくらい使えるのか」という質問には、何をするかによって答えがいくつもあります。この記事では、ChatGPT の回数制限・使用量上限をプラン別、制限の種類別に分けて、それぞれがいつリセットされるのか、何が使用枠を早く減らすのか、上限に当たったときに何ができるのかを整理します。数値はすべて OpenAI のヘルプセンター、料金ページ、Codex のドキュメントを2026年10月13日に確認したものです。</p>
+<h2>ChatGPT に使用制限はある？</h2>
+<p>あります。ただし、多くの人が思っている場所にはありません。今の ChatGPT の制限は3種類に分かれていて、互いに独立しています。</p>
+<ol>
+<li><strong>チャット（Chat）の制限。</strong> 普段のテキストチャットは、すべての個人向けプランで無制限です（不正利用防止の仕組みは適用）。チャットの中で上限があるのは、高い思考レベル（Thinking）、Pro モデル（GPT-6 Pro と GPT-5.6 Sol Pro）、そしてファイルのアップロード、画像生成、データ分析、ディープリサーチなどのツールです。</li>
+<li><strong>Work と Codex の共有枠。</strong> ChatGPT Work と Codex は、プランごとに1つの使用枠を共有します。Plus と Business Standard では5時間枠と週の枠が同時にかかります。GPT-6 Astra や GPT-6.1 Sol を使うのはここで、ヘビーユーザーがいちばんよく当たる上限もこれです。</li>
+<li><strong>音声などその他の機能。</strong> ChatGPT の音声（GPT-Live）にはプランごとに1日の利用時間があり、ほかにも個別の上限を持つ機能があります。</li>
+</ol>
+<p>1つの上限に当たっても、ほかが使えなくなるわけではありません。Work の枠を使い切っても普通のチャットはたいてい続けられますし、GPT-6 Pro が週の上限に達すると、ChatGPT が別のモデルに切り替えることもあります。</p>
+<h2>プラン別の ChatGPT 使用量上限</h2>
+<p><img loading="lazy" width="1200" height="1068" alt="プラン別の ChatGPT 使用量上限: プラン, 月額（米国）, 普段のチャット, チャットの思考レベル, チャットの GPT-6 Pro, Work と Codex, 5時間枠" src="/chatgpt-shiyouryou-jougen-chatgpt-ja.jpg" /></p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
 <th>プラン</th>
-<th>5時間あたりの GPT-6 Astra メッセージ数</th>
+<th style="text-align: right;">月額（米国）</th>
+<th>普段のチャット</th>
+<th>チャットの思考レベル</th>
+<th>チャットの GPT-6 Pro</th>
+<th>Work と Codex</th>
+<th>5時間枠</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>Free</td>
+<td style="text-align: right;">$0</td>
+<td>無制限*</td>
+<td>Think（GPT-5.6 Luna）</td>
+<td>–</td>
+<td>限定的、デスクトップアプリ</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Go</td>
+<td style="text-align: right;">$8</td>
+<td>無制限*</td>
+<td>Think（GPT-5.6 Luna）</td>
+<td>–</td>
+<td>限定的、デスクトップアプリ</td>
+<td>–</td>
+</tr>
+<tr>
 <td>Plus</td>
-<td>約5〜45</td>
+<td style="text-align: right;">$20</td>
+<td>無制限*</td>
+<td>Medium、High</td>
+<td>–</td>
+<td>含まれる</td>
+<td>あり</td>
 </tr>
 <tr>
-<td>Standard Business</td>
-<td>約5〜45</td>
+<td>Pro 100</td>
+<td style="text-align: right;">$100</td>
+<td>無制限*</td>
+<td>Medium〜Extra High、Pro</td>
+<td>あり、週の枠</td>
+<td>より大きい枠</td>
+<td>なし</td>
 </tr>
 <tr>
-<td>Pro 100・200・500</td>
-<td>現在5時間枠なし</td>
+<td>Pro 200</td>
+<td style="text-align: right;">$200</td>
+<td>無制限*</td>
+<td>Medium〜Extra High、Pro</td>
+<td>あり、週の枠</td>
+<td>より大きい枠</td>
+<td>なし</td>
+</tr>
+<tr>
+<td>Pro 500</td>
+<td style="text-align: right;">$500</td>
+<td>無制限*</td>
+<td>Medium〜Extra High、Pro</td>
+<td>下の注を参照</td>
+<td>最大の枠、Ultrafast</td>
+<td>なし</td>
+</tr>
+<tr>
+<td>Business Standard</td>
+<td style="text-align: right;">1席ごと</td>
+<td>無制限*</td>
+<td>Medium〜Extra High、Pro</td>
+<td>月15回</td>
+<td>含まれる</td>
+<td>あり</td>
+</tr>
+<tr>
+<td>Business Premium</td>
+<td style="text-align: right;">1席ごと</td>
+<td>無制限*</td>
+<td>Medium〜Extra High、Pro</td>
+<td>週50回</td>
+<td>Standard の500%</td>
+<td>なし</td>
 </tr>
 </tbody>
 </table></div>
-<p>幅が大きいのは、長く複数ステップにわたるタスクは、短いタスクよりはるかに多くの枠を使うからです。週の上限がかかる場合もあります。Pro プランには現在 Work と Codex での5時間枠がありませんが、含まれる使用枠はあり、上位プランほど大きくなります。新規加入者の Pro 200 は Plus の10倍、Pro 500 は Plus の25倍です（2026年9月22日〜9月29日に Pro 200 を契約していた人は、10月29日まで以前の枠が維持されます）。倍率は OpenAI の公式ページではなく、OpenAI のティボー・ソティオ（Thibault Sottiaux）氏の X 投稿と報道（WinBuzzer、Windows Report）に基づく数値です。詳しくは <a href="/ja/blog/chatgpt-pro-ryokin-hikaku">ChatGPT Pro 料金比較：Pro 100・200・500</a> をご覧ください。</p>
-<h2>上限のリセット方法</h2>
-<p><img loading="lazy" width="1200" height="665" alt="上限のリセット方法: 5時間枠： 決まった時刻ではなく、その枠で最初にリクエストを送った時点から数える方式です。Plus と Business に適用され、Pro 100・Pro 200・Pro 500 には現在、Work と Codex での5時間枠がありません。" src="/chatgpt-shiyouryou-jougen-ja-4.jpg" /></p>
+<p>*不正利用防止の仕組みが適用されます。料金は米国の税抜き価格です。日本での支払額は <a href="/ja/blog/claude-ryoukin-plan">Claude と ChatGPT の料金比較</a> や契約時の決済画面で確認してください。</p>
 <ul>
-<li><strong>5時間枠：</strong> 決まった時刻ではなく、その枠で最初にリクエストを送った時点から数える方式です。Plus と Business に適用され、Pro 100・Pro 200・Pro 500 には現在、Work と Codex での5時間枠がありません。</li>
-<li><strong>週の上限：</strong> OpenAI によると、週の上限がかかる場合もあります。</li>
-<li><strong>ファイル・画像・音声：</strong> それぞれに別々の枠があります。</li>
+<li><strong>「無制限」は普段のテキストチャットだけです。</strong> OpenAI の料金ページは Free、Go、Plus、Pro のすべてで「普段のテキストチャット：無制限」と表示しています。Business のヘルプページは、無制限は Instant のチャットに限られ、「推論、Pro、ChatGPT Work、Codex、その他のツールを無制限にするものではない」と明記しています。</li>
+<li><strong>Pro 500 の GPT-6 Pro。</strong> OpenAI のヘルプでは、GPT-6 Pro の対象は Pro $100、Pro $200、Business、Enterprise と書かれています。Pro プランのページには、Pro 500 は「3つのプランの中で最も多い使用量」が含まれるとあります。自分のアカウントのモデル選択メニューで確認してください。</li>
+<li><strong>Pro の段階ごとの使用量。</strong> OpenAI のヘルプは、Pro 200 は Pro 100 より多く、Pro 500 が最も多いとしか書いていません。よく引用される数値（Pro 100 は Plus の5倍、新規の Pro 200 は10倍、Pro 500 は25倍）は、OpenAI 社員の X 投稿と報道（WinBuzzer、Windows Report）に基づくもので、料金ページにはありません。詳しくは <a href="/ja/blog/chatgpt-pro-ryokin-hikaku">ChatGPT Pro 料金比較</a> をご覧ください。</li>
 </ul>
+<h2>普段のチャット：無制限、ただし不正利用対策あり</h2>
+<p>2026年8月6日、OpenAI はリリースノートで、Free と Go のユーザーに翌週から「無制限のテキストチャット」と、難しい質問向けの Think ボタンを提供すると発表しました。現在の料金ページは、すべての個人向けプランで普段のテキストチャットを無制限と表示しています。</p>
+<p>「無制限」について知っておきたい点は3つです。</p>
+<ul>
+<li><strong>対象は普通のテキストの回答です。</strong> Free と Go では GPT-5.6 Luna が答え、Think ボタンも GPT-5.6 Luna を使います。Plus 以上では、アカウントに GPT-6 が届くと Instant を GPT-6 Sol が担当します。</li>
+<li><strong>ツールには今も上限があります。</strong> OpenAI は「ファイルのアップロード、画像生成、音声、データ分析、その他のツールには別の上限が引き続き適用される」と案内しています。料金ページも、Free と Go のアップロードを含むメッセージ、画像生成、ディープリサーチ、メモリー、Codex を「限定的」としています。</li>
+<li><strong>不正利用対策があります。</strong> 自動化された利用、アカウントの共有、転売は一時的な利用制限につながることがあり、その場合は OpenAI が通知するとしています。</li>
+</ul>
+<p>つまり、普通のテキストメッセージを送るだけなら、どのプランでもメッセージ数の上限を見ることはないはずです。それでも上限の表示が出るなら、思考レベル、Pro モデル、ツールのどれかを使っている可能性が高いと言えます。</p>
+<h2>回数制限の数字が記事ごとに違う理由</h2>
+<p>「ChatGPT の回数制限」で検索すると、「3時間あたり何回」といった固定の回数を載せた記事がまだ多く見つかります。これは以前のモデル時代の考え方で、今の OpenAI の公式説明とは合いません。</p>
+<ul>
+<li><strong>Work と Codex の枠は固定の回数ではありません。</strong> OpenAI は「使用枠は決まったメッセージ数やタスク数に対応しない」と書いています。同じ1メッセージでも、作業の大きさ、モデル、推論レベルで消費量が大きく変わるからです。</li>
+<li><strong>公式の数字は「目安の幅」です。</strong> 後で紹介する5時間あたりのメッセージ数も「推定であり、保証された回数ではない」とされています。</li>
+<li>
+<p><strong>チャットの回数制限はなくなりました。</strong> 普段のテキストチャットは無制限になったので、「無料版は○回まで」という数字は今のチャットには当てはまりません。上限があるのは思考レベル、Pro モデル、ツールです。</p>
+</li>
+<li>
+<p><strong>同じプランでも時期で枠が変わります。</strong> たとえば Pro 200 は、新規の契約では以前より少ない枠になりました。2026年9月22日から9月29日（太平洋時間午前10時）までのあいだに Pro 200 を契約していた人は、10月29日まで以前の枠を使えて、その後は新しい枠に移ります。料金は月$200のままです。同じ「Pro 200」でも、契約した時期によって使える量が違うということです。</p>
+</li>
+<li><strong>Fast や Ultrafast を使うかでも変わります。</strong> 同じプラン・同じモデルでも、Fast は Standard の250%、Ultrafast は800%の速さで枠を使うので、体感の回数は大きく変わります。</li>
+</ul>
+<p>記事によって数字が違うときは、いつ時点の情報か、チャットの話か Work・Codex の話か、どの速度モードの話かを確かめると混乱しにくくなります。</p>
+<h2>思考レベルと Pro モデル</h2>
+<p>チャットの思考（Thinking）スライダーがどのモデルで答えるかを決め、チャットの上限が実際にかかるのもここです。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>思考レベル</th>
+<th>モデル（GPT-6 選択時）</th>
+<th style="text-align: center;">Plus</th>
+<th style="text-align: center;">Pro</th>
+<th style="text-align: center;">Business</th>
+<th style="text-align: center;">Free・Go</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instant</td>
+<td>GPT-6 Sol</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">GPT-5.6 Luna</td>
+</tr>
+<tr>
+<td>Medium・High</td>
+<td>GPT-6 Sol</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Extra High</td>
+<td>GPT-6 Sol</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Pro</td>
+<td>GPT-6 Pro（GPT-6 Astra ベース）</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">–</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>思考レベルの上限はプランによって違います。</strong> 上限に達すると「ChatGPT は別の利用可能なモデルで続けることがあり」、情報があればリセット時刻を表示します。</li>
+<li><strong>GPT-6 Pro はどのプランでも無制限ではありません。</strong> OpenAI は「Pro のサブスクリプションには GPT-6 Pro モデルの無制限利用は含まれない」と明記しています。</li>
+<li><strong>Pro $100：</strong> GPT-6 Pro と GPT-5.6 Sol Pro が1つの週の枠を共有します。モデルを切り替えてもメッセージは増えません。</li>
+<li><strong>Pro $200：</strong> GPT-6 Pro の週の上限に達すると、GPT-5.6 Thinking の Medium に自動で切り替わります。GPT-5.6 Sol Pro は、1日の枠が残っている間は使えます。</li>
+<li><strong>Business：</strong> Standard の席は月15回、Premium の席は週50回の Pro メッセージを、GPT-6 Pro と GPT-5.6 Sol Pro で共有します。</li>
+<li><strong>Plus はチャットで GPT-6 Pro を使えません。</strong> 代わりに Work と Codex で、下の共有枠の範囲で GPT-6 Astra を使えます。</li>
+</ul>
+<h2>Work と Codex：共有の使用枠</h2>
+<p><img loading="lazy" width="1200" height="840" alt="Work と Codex：共有の使用枠: モデル, Plus, Business Standard" src="/chatgpt-shiyouryou-jougen-work-codex-ja.jpg" /></p>
+<p>「5時間制限」と言うとき、多くはこの枠のことです。ChatGPT Work と Codex は1つの使用枠を共有し、この枠は決まったメッセージ数ではありません。OpenAI は Plus と Business Standard について、5時間あたりのローカルメッセージ数を幅で示しています。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>モデル</th>
+<th style="text-align: right;">Plus</th>
+<th style="text-align: right;">Business Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">5〜45</td>
+<td style="text-align: right;">5〜45</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">15〜160</td>
+<td style="text-align: right;">15〜160</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td style="text-align: right;">15〜150</td>
+<td style="text-align: right;">15〜150</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">350〜3,000</td>
+<td style="text-align: right;">350〜3,000</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td style="text-align: right;">記載なし</td>
+<td style="text-align: right;">10〜100</td>
+</tr>
+<tr>
+<td>GPT-5.6 Terra</td>
+<td style="text-align: right;">記載なし</td>
+<td style="text-align: right;">25〜200</td>
+</tr>
+<tr>
+<td>GPT-5.6 Luna</td>
+<td style="text-align: right;">記載なし</td>
+<td style="text-align: right;">250〜2,000</td>
+</tr>
+</tbody>
+</table></div>
+<p>GPT-6 系の数値は OpenAI の Codex 料金ページと Astra のヘルプ記事、GPT-5.6 系は Business のモデルと上限のヘルプ記事に基づきます。Business のヘルプでは、Standard 席の GPT-6.1 Sol と GPT-6 Sol をまとめて15〜150としています。</p>
+<ul>
+<li><strong>幅が大きいのには理由があります。</strong> 1行の修正も、複数ステップの長い作業も同じ「1メッセージ」ですが、使う量は大きく違います。クラウドタスクはローカルのメッセージより多く使うことがあります。</li>
+<li><strong>Pro プランには現在、Work と Codex の5時間枠がありません。</strong> ただし含まれる使用枠はあり、Settings → Usage（設定 → 使用量）に表示されます。</li>
+<li><strong>Business Premium</strong> は Standard 席の500%にあたる Work と Codex の枠があり、5時間枠はありません。Standard 席は枠の中で Astra を「限定的に」使え、Premium は枠をすべて Astra に使えます。</li>
+<li><strong>Free と Go</strong> は、Codex の料金ページによると、デスクトップアプリで GPT-6 Luna を使って Codex と ChatGPT Work を限定的に使えます。</li>
+<li><strong>モデルを切り替えても枠は戻りません。</strong> OpenAI は、モデルを切り替えても「共有の使用枠は回復しない」としています。軽いモデルは、残りの枠を長持ちさせるだけです。</li>
+</ul>
+<h2>5時間枠のしくみ</h2>
+<p>Plus と Business Standard の Work と Codex には、2つの枠が同時にかかります。</p>
+<ul>
+<li><strong>5時間枠。</strong> 前の枠が終わったあと、Work か Codex に最初のメッセージを送った時点から始まります。決まった時刻ではないので、同じプランの2人でもリセット時刻が違うことがあります。</li>
+<li><strong>週の枠。</strong> 1週間に使える含まれる使用量の合計を決めます。</li>
+</ul>
+<p>使い続けるには、両方の枠に余裕が必要です。そのため、週の枠がたっぷり残っていても1時間の重い作業で5時間枠に当たることがありますし、週末にまとめて使うと、5時間枠が新しく始まっても火曜日に止まることがあります。</p>
+<p>Pro プランと Business Premium には5時間枠がありませんが、全体の使用枠とリセット時刻はあります。Free と Go にも5時間枠は見当たりません。後で紹介する無料プランの Codex テストでは、使用量メニューに月単位のバーが1本あるだけでした。</p>
+<h2>使用枠を早く減らすもの</h2>
+<p>プロンプトの長さだけでは見積もれません。OpenAI は、モデル、コンテキスト、推論、ツールの利用、検索、キャッシュを主な要因に挙げています。自分で調整できるのは次の点です。</p>
+<ul>
+<li><strong>モデル。</strong> GPT-6 Astra はタスクあたりいちばん多く、GPT-6 Luna はいちばん少なく使います。上の Plus の幅で比べると、Astra の5〜45回に対して Luna は350〜3,000回です。</li>
+<li><strong>推論レベル。</strong> 高いレベルほど多く使い、OpenAI も「必ずしも良い結果になるとは限らない」としています。Sol を High で使う前に、Astra を Low か Medium で試すことも勧めています。</li>
+<li><strong>速度モード。</strong> Fast モードは含まれる使用枠を Standard の250%の速さで使います。Pro プランでは Pro 500 だけにある Ultrafast は、GPT-6 Astra と GPT-6.1 Sol で800%の速さで使います。</li>
+<li><strong>画像。</strong> Work と Codex での画像生成は、画像なしの同じような作業より平均300〜500%の速さで枠を使います（品質とサイズによって変わります）。</li>
+<li><strong>コンテキスト。</strong> 大きな指示ファイル、たくさん接続した MCP サーバー、長い資料は、どれもメッセージごとにトークンを増やします。OpenAI は AGENTS.md を小さくし、使っていない MCP サーバーは切るよう勧めています。</li>
+</ul>
+<h2>音声・画像・ファイル</h2>
+<p>これらの機能にはそれぞれ上限があり、Free と Go のユーザーが今も上限の表示を見るいちばんの理由です。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>機能</th>
+<th>Free</th>
+<th>Go</th>
+<th>Plus</th>
+<th>Pro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>音声（GPT-Live）、1日</td>
+<td>限定的</td>
+<td>最大3時間（GPT-Live-1 mini）</td>
+<td>最大3時間</td>
+<td>Pro 100：最大15時間、Pro 200：無制限</td>
+</tr>
+<tr>
+<td>画像生成</td>
+<td>限定的</td>
+<td>より高い上限</td>
+<td>上限あり、より高品質</td>
+<td>無制限*</td>
+</tr>
+<tr>
+<td>ファイルのアップロード</td>
+<td>限定的</td>
+<td>より高い上限</td>
+<td>拡大</td>
+<td>Plus 以上</td>
+</tr>
+<tr>
+<td>ディープリサーチ</td>
+<td>限定的</td>
+<td>限定的</td>
+<td>拡大</td>
+<td>最大</td>
+</tr>
+</tbody>
+</table></div>
+<p>音声の時間は OpenAI の2026年9月9日のリリースノート、そのほかは料金ページに基づいています。ほとんどの機能は正確な回数を公開していません。Plus と Pro は、音声の上限に達しても GPT-Live mini に切り替わらなくなりました。デスクトップの Codex アプリの音声はまた別で、Codex の使用枠から1分あたり$0.05を使います。画像をたくさん作るなら、同じ画像を API で作った場合の費用を <a href="/ja/image">画像コスト計算機</a> で確認できます。</p>
+<h2>コンテキストウィンドウ：チャットの中の「トークン上限」</h2>
+<p><img loading="lazy" width="1200" height="591" alt="コンテキストウィンドウ：チャットの中の「トークン上限」: Free, Go, Plus, Pro" src="/chatgpt-shiyouryou-jougen-ja-4.jpg" /></p>
+<p>使用量の上限とは別に、どのチャットにもコンテキストウィンドウがあります。モデルが一度に扱えるテキストの最大量です。会話や文書がこれを超えると前の部分が見えなくなり、その手前から品質が落ちることもよくあります。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right;">Free</th>
+<th style="text-align: right;">Go</th>
+<th style="text-align: right;">Plus</th>
+<th style="text-align: right;">Pro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instant の全体コンテキスト</td>
+<td style="text-align: right;">27K トークン</td>
+<td style="text-align: right;">54K トークン</td>
+<td style="text-align: right;">54K トークン</td>
+<td style="text-align: right;">128K トークン</td>
+</tr>
+<tr>
+<td>Instant の最大入力（目安）</td>
+<td style="text-align: right;">約12ページ</td>
+<td style="text-align: right;">約40ページ</td>
+<td style="text-align: right;">約40ページ</td>
+<td style="text-align: right;">約250ページ</td>
+</tr>
+<tr>
+<td>推論の全体コンテキスト</td>
+<td style="text-align: right;">プランによる</td>
+<td style="text-align: right;">256K トークン</td>
+<td style="text-align: right;">256K トークン</td>
+<td style="text-align: right;">400K トークン</td>
+</tr>
+</tbody>
+</table></div>
+<p>実際に入力できる量は全体より小さくなります。システムの指示、メモリー、モデル自身の推論が同じ領域を使うからです。長い会話で前の内容を忘れ始めたら、短い要約を添えて新しいチャットを始めるのがいちばん簡単な対処法です。日本語は同じ内容でも英語よりトークンを多く使うので、長い指示は <a href="/ja/">トークンカウンター</a> で先に数えておくと安心です。1文字あたりのトークン数は <a href="/ja/blog/token-mojisuu">日本語のトークン数</a> にまとめています。</p>
+<h2>枠を長持ちさせるコツ</h2>
+<p>OpenAI は Codex の料金ページで、使用枠を長持ちさせる方法をいくつか挙げています。チャットにもそのまま使える考え方です。</p>
+<ul>
+<li><strong>プロンプトを絞る。</strong> 指示ははっきり書きつつ、関係のない背景説明は削ります。長い前置きは毎回トークンを使います。</li>
+<li><strong>資料を必要な分だけ渡す。</strong> 関係するファイルだけを渡し、できれば範囲や期間を絞ります。フォルダごと読ませるより、対象のファイルを指定したほうが枠の減りは小さくなります。</li>
+<li><strong>出力の形を決める。</strong> 読む人、形式、長さを先に伝え、必須の作業と「あればうれしい」改善を分けて頼みます。全部まとめて頼むと、出力も推論も長くなります。</li>
+<li><strong>AGENTS.md を小さくする。</strong> 大きなプロジェクトでは、AGENTS.md をフォルダごとに分けて、必要な場所だけで読み込まれるようにします。</li>
+<li><strong>MCP サーバーを減らす。</strong> つないだ MCP サーバーは、それぞれがメッセージにコンテキストを足します。使わないときは切っておきます。</li>
+<li><strong>まず軽い設定で試す。</strong> 推論レベルは Low か Medium から始め、結果が足りないときだけ上げます。OpenAI も、高い推論レベルは足りない情報やアクセス権を補えないと書いています。</li>
+</ul>
+<h2>日本語で使うときの注意</h2>
+<p>日本語は、同じ内容でも英語より多くのトークンを使います。私たちの測定では、日本語の文章は英語より約79%多くのトークンになりました。チャットのテキスト自体は無制限なので回数には影響しませんが、次の2点には効いてきます。</p>
+<ul>
+<li><strong>コンテキストウィンドウが早く埋まる。</strong> Free の Instant は全体で27K トークンなので、長い日本語の資料を貼ると英語より早く上限に近づきます。</li>
+<li><strong>Work と Codex の枠が早く減る。</strong> 枠はトークンの量で減るので、長い日本語の指示や資料は英語より多くの枠を使います。</li>
+</ul>
+<p>長い定型の指示は英語で書いておく、資料は必要な部分だけ貼る、といった工夫で差を小さくできます。自分の文章が何トークンになるかは <a href="/ja/">トークンカウンター</a> で確認できます。</p>
+<h2>業務で使うなら Pro か Business か</h2>
+<p>一人で使うなら Pro、チームで使うなら Business が基本ですが、上限の面でも違いがあります。</p>
+<ul>
+<li><strong>Business Standard</strong> は Plus に近い Work・Codex の枠で、5時間枠があります。チャットの Pro メッセージは月15回です。</li>
+<li><strong>Business Premium</strong> は Standard の500%の Work・Codex 枠で、5時間枠がありません。Pro メッセージは週50回です。</li>
+<li><strong>追加の利用</strong> は、Business ではワークスペースのクレジット、Pro では個人のクレジットで払います。Business では管理者がクレジットの使い方や支出の上限を設定できます。</li>
+<li><strong>Ultrafast</strong> は、個人プランでは Pro 500 だけです。Business で必要な場合は、対象となる Enterprise・Edu のワークスペースかどうかを確認します。</li>
+</ul>
+<p>Codex をほとんど使わない社員には Standard、毎日 Codex で開発する社員には Premium と、席の種類を分けて割り当てるのが無駄の少ない方法です。</p>
 <h2>使用量の確認方法</h2>
-<p>OpenAI のヘルプセンターによると、<strong>Settings → Usage</strong> で Work と Codex の残りの使用量とリセット時刻を確認できます。上限に当たったときは、いつから再開できるかも ChatGPT が表示します。</p>
+<ul>
+<li><strong>ChatGPT：</strong> <strong>Settings → Usage（設定 → 使用量）</strong> を開きます。Work と Codex の残りの枠、今どの枠にいるか、それぞれのリセット時刻、保存されたリセットとクレジットの残高が表示されます。</li>
+<li><strong>Codex CLI：</strong> セッション中に <code>/status</code> と入力すると、残りの上限が表示されます。</li>
+<li><strong>チャット：</strong> モデルの枠を使い切ると、情報があればリセット時刻を表示します。</li>
+</ul>
+<p>OpenAI は、1〜2週間に一度ダッシュボードを見て、自分の使うペースをつかむよう勧めています。</p>
+<h2>どの上限に当たった？</h2>
+<p>それぞれの上限は別々に動くので、どれに当たったかがわかれば解決が早くなります。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>こんな症状なら</th>
+<th>当たった上限はおそらく</th>
+<th>確認する場所</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Work や Codex が止まったが、普通のチャットはできる</td>
+<td>Work・Codex の5時間枠</td>
+<td>設定 → 使用量、5時間枠のリセット時刻</td>
+</tr>
+<tr>
+<td>5時間枠が新しく始まったのに Codex が止まったまま</td>
+<td>Work・Codex の週の枠</td>
+<td>設定 → 使用量、週のリセット日</td>
+</tr>
+<tr>
+<td>Pro の思考レベルが使えない、または Medium に変わる</td>
+<td>GPT-6 Pro の枠（Pro は週、Business は月または週）</td>
+<td>モデル選択メニューと表示されたリセット時刻</td>
+</tr>
+<tr>
+<td>High や Extra High の回答が別のモデルに切り替わる</td>
+<td>プランの思考レベルの上限</td>
+<td>チャットに表示されるリセット時刻</td>
+</tr>
+<tr>
+<td>画像・アップロード・ディープリサーチが断られる</td>
+<td>そのツール自体の上限</td>
+<td>アップグレードするか待つ。テキストチャットは可能</td>
+</tr>
+<tr>
+<td>音声が数時間で終わる</td>
+<td>1日の GPT-Live の時間</td>
+<td>翌日にリセット</td>
+</tr>
+<tr>
+<td>すべてが止まり、異常な利用についての通知が出る</td>
+<td>使用量の上限ではなく不正利用対策</td>
+<td>誤りだと思ったらサポートに連絡</td>
+</tr>
+</tbody>
+</table></div>
+<p>Business の席では、ワークスペースのクレジット設定も関係します。含まれる枠を使い切ったあとの追加の Astra 利用は、ワークスペースにクレジットがあり、支出の設定が許可している場合にだけ続けられます。</p>
 <h2>上限に当たったときの対処法</h2>
+<p>作業の途中で切られることはありません。Work や Codex の作業中に上限に達しても、公正な利用の範囲内で、その作業は最後まで終えられます。そのあとの選択肢はプランによって違います。</p>
 <ol>
-<li><strong>リセットを待つ。</strong> 5時間枠なら、長くても数時間です。</li>
-<li><strong>リセットやクレジットを使う。</strong> 対象の Plus・Pro アカウントは、貯まっているリセットを使ったり、即時リセットを購入したりできます。プランによってはクレジットで使い続けることもできます。</li>
-<li><strong>モデルを切り替える。</strong> 日常的な作業に GPT-6 Astra が必要なことはまれです。GPT-6 Sol や GPT-6 Luna なら、使う枠がずっと少なくて済みます。</li>
-<li><strong>アップグレードする。</strong> Pro 100 は Plus の5倍、Pro 200 は10倍、Pro 500 は25倍です。</li>
-<li><strong>API を使う。</strong> 特定のモデルを継続的にヘビーに使うなら、トークン単位の従量課金のほうがシンプルなこともあります。GPT-6 Astra は入力100万トークンあたり$10、出力100万トークンあたり$50です。<a href="/ja/blog/gpt-6-api-ryoukin">GPT-6 API 料金</a>をご覧ください。</li>
+<li><strong>リセットを待つ。</strong> 5時間枠なら長くても数時間で、時刻は設定 → 使用量に出ます。</li>
+<li><strong>保存されたリセットを使う。</strong> OpenAI はときどきリセットを配布します。たとえば Astra の公開時、2026年9月3日と4日に配布しました。フルリセットは5時間枠と週の枠の両方を回復し、週のリセット日を動かします。</li>
+<li><strong>即時リセットを購入する。</strong> 一部の国の対象となる個人の Plus・Pro アカウントは購入できます。両方の枠をすぐに回復しますが、あとのために保存することはできません。</li>
+<li><strong>クレジットを使う。</strong> Plus と Pro はクレジットを買って、Codex、Work、Office 用の拡張機能で使い続けられます。クレジットは使用量を買うもので、モデルを開放するものではないため、Pro 100・200 でクレジットを買っても Ultrafast は使えません。</li>
+<li><strong>ローカルの作業に API キーを使う。</strong> この場合はプランではなく API 料金で計算されます。</li>
+<li><strong>チャットでは別のモデルを使う。</strong> 思考レベルや Pro の上限に達したら、別のモデルを選ぶか、ChatGPT の自動切り替えに任せます。</li>
 </ol>
-<h2>チャットごとの「トークン上限」はある？</h2>
-<p>どのモデルにもコンテキストウィンドウ、つまり一度に扱えるテキスト量の上限があります。非常に長い会話や文書はいずれこれに達しますし、モデルはメッセージのたびに会話全体を読み直すため、その手前から品質が落ちていきます。短い要約を添えて新しいチャットを始めるだけで、思った以上に改善します。日本語は英語よりトークンを多く使うため、長い指示を英語で書けばトークンは約44%減ります。<a href="/ja/">トークンカウンター</a>の 💸 トークン節約 ボタンを使うと、自分の端末の中でプロンプトを英語に変換できます（デスクトップ版 Chrome 138以降 / Edge 148以降）。詳しくは<a href="/blog/context-window-explained">コンテキストウィンドウとは</a>（英語）をご覧ください。</p>
+<p>効かない方法も1つあります。サポートに頼むことです。OpenAI は、サポートは「ChatGPT や Codex の使用量の上限をリセットしない」としています。ただし、使用量の計算が間違っていそうなときは調査してくれます。</p>
+<h2>無料プランで実際に見たこと</h2>
+<p>私たちは <a href="/ja/blog/codex-ryoukin">Codex の料金テスト</a> のために、ChatGPT の無料アカウントで Codex を動かしました。同じブロック崩しゲームのプロンプトを GPT-6 Luna で、1回は medium、1回は extra high の推論で実行し、どちらも39秒で終わりました。使用量メニューには5時間や週のバーはなく、月単位のバーが1本あるだけで、ゲームを2つ作ったあとも99%が残っていて、リセットは1か月後でした。小さなゲーム2つで1か月の無料枠の約1%を使った計算なので、軽い Codex の利用なら無料でも十分そうです。実際のコードベースでの大きな作業は、より多くのファイルを読み、より多くのステップを踏むので、もっと多く使います。</p>
+<h2>Claude の上限とどう違う？</h2>
+<p>ChatGPT と並んでよく比べられる Claude も、2026年は似た形の上限を使っています。Anthropic のヘルプセンターによると、Claude の有料プランには5時間ごとにリセットされるセッションの上限と、全モデル共通の週の上限があり、Claude のアプリと Claude Code が同じ上限を共有します。</p>
+<p>違いは「チャットが無制限かどうか」です。ChatGPT は普段のテキストチャットを無制限にし、上限を思考レベル、Pro モデル、Work・Codex、ツールに寄せました。Claude はチャットも含めて同じ上限から使う仕組みなので、長い会話を続けるとコーディングに使える分も減ります。どちらも「5時間」と「週」の2つの枠を同時に見る必要がある点は同じです。Claude 側の詳しいしくみは <a href="/ja/blog/claude-code-shiyouryou-jougen">Claude Code の使用量上限まとめ</a> にまとめています。</p>
+<h2>当たる上限を避けるにはどのプラン？</h2>
+<ul>
+<li><strong>チャットだけで、ときどきファイルを上げる：</strong> Free か Go。テキストチャットは無制限で、Go はアップロード・画像・音声の上限が上がります。</li>
+<li><strong>思考レベルや画像生成の上限に当たる：</strong> Plus。Medium と High の思考レベルと、より広いツールの上限が付きます。</li>
+<li><strong>Work や Codex の5時間枠にほぼ毎日当たる：</strong> Pro 100。5時間枠がなくなり、使用枠も大きくなります。</li>
+<li><strong>GPT-6 Pro や Pro 100 の枠を毎週使い切る：</strong> Pro 200。</li>
+<li><strong>一日中エージェントを動かす、または Ultrafast が必要：</strong> Pro 500。Ultrafast がある唯一の Pro プランです。</li>
+<li><strong>チームを管理している：</strong> 通常は Business Standard、Codex を一日中使う人は Premium。</li>
+</ul>
 <h2>プランか API か</h2>
-<p>主にチャットで使うなら、8月の変更で Free と Go のプランは以前よりずっと使いやすくなりました。Codex や GPT-6 Astra をヘビーに使うなら、<a href="/ja/plans">サブスク vs API 計算機</a>や<a href="/ja/agents">コーディングエージェント費用計算機</a>で、プランの料金と同じ作業を API で行った場合の費用を比べてみてください。料金はドル建てなので、円での支払額は為替によって変わります。</p>
-<p><em>上限は頻繁に変わります。最新の数値は OpenAI の <a href="https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex" target="_blank" rel="noopener">GPT-6 Astra 使用量ヘルプページ</a>（英語）で確認してください。</em></p>
+<p>ほとんどがチャットなら、テキスト無制限のおかげでサブスクに勝つのは難しいでしょう。Codex や GPT-6 Astra をヘビーに使うなら、プランの料金と、同じ作業を API で行った場合の費用を比べてみてください。GPT-6 Astra の API は入力100万トークンあたり$10、出力100万トークンあたり$50です。<a href="/ja/blog/gpt-6-api-ryoukin">GPT-6 API 料金</a> を参考に、自分の使い方を <a href="/ja/plans">サブスク vs API 計算機</a> や、Codex・Claude Code 用の <a href="/ja/agents">コーディングエージェント費用計算機</a> に入れてみてください。料金はドル建てなので、円での支払額は為替によって変わります。</p>
+<h2>よくある質問</h2>
+<p><strong>ChatGPT の5時間制限とは？</strong>
+Plus と Business Standard の Work・Codex の使用枠にかかる2つの枠のうち、短いほうです。前の枠が終わったあと、Work か Codex の最初のメッセージから始まり、その枠で使える量を決めます。週の枠も同時にかかります。Pro プランと Business Premium には現在5時間枠がありません。</p>
+<p><strong>ChatGPT の無料版に回数制限はある？</strong>
+普段のテキストチャットにはありません。2026年8月から、Free と Go のテキストチャットは無制限です（不正利用防止の仕組みは適用）。ファイルのアップロード、画像生成、音声、データ分析などのツールには、まだ上限があります。</p>
+<p><strong>ChatGPT の上限は毎日リセットされる？</strong>
+上限の種類によって違います。Work と Codex は5時間枠と週の枠、音声は1日の時間、Pro プランの GPT-6 Pro は週の枠です。自分のアカウントの正確なリセット時刻は、設定 → 使用量で確認できます。</p>
+<p><strong>モデルを切り替えれば上限を回避できる？</strong>
+Work と Codex ではできません。すべてのモデルが同じ共有枠を使い、切り替えても回復しません。軽いモデルは残りを長持ちさせるだけです。チャットでは、思考レベルや Pro の上限に達したときに別のモデルに切り替えて使い続けられます。</p>
+<p><strong>上限のために ChatGPT Plus を契約する価値はある？</strong>
+テキストチャットだけなら、Free や Go でも無制限です。高い思考レベル、画像生成、頻繁なファイルのアップロード、GPT-6 Astra を使う Work・Codex が必要なら、Plus に意味があります。</p>
+<p><strong>Plus の5時間枠でどれくらい使える？</strong>
+決まった回数はありません。OpenAI の目安では、ローカルのメッセージで GPT-6 Astra なら5〜45回、GPT-6.1 Sol なら15〜160回、GPT-6 Luna なら350〜3,000回です。作業の大きさや推論レベルで大きく変わるので、設定 → 使用量で残りを見ながら使うのが確実です。</p>
+<p><strong>Go と Plus では上限がどう違う？</strong>
+普段のテキストチャットはどちらも無制限です。違いは、Plus には Medium・High の思考レベルと Work・Codex の本格的な枠（5時間枠と週の枠）があり、ツールの上限も拡大されている点です。Go はアップロード・画像・音声の上限が Free より高く、Codex と Work はデスクトップアプリで限定的に使えます。</p>
+<p><strong>無料プランの Codex はどれくらい使える？</strong>
+OpenAI は具体的な量を公開していません。私たちのテストでは、小さなブロック崩しゲームを2回作って月単位の枠の約1%を使いました。軽い作業なら無料でも試せますが、大きなコードベースでの作業はずっと多く使います。</p>
+<p><strong>サポートに上限をリセットしてもらえる？</strong>
+いいえ。使用量の計算が間違っている場合は調査しますが、上限のリセットはしません。リセットを待つ、保存されたリセットを使う、対象なら購入する、クレジットを使う、のいずれかになります。</p>
+<p><em>上限は頻繁に変わります。自分のアカウントは設定 → 使用量で、最新の数値は OpenAI のヘルプセンターで確認してください。</em></p>
 <h2>出典</h2>
 <ul>
-<li><a href="https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex" target="_blank" rel="noopener">Work と Codex での GPT-6 Astra の使用量管理（OpenAI ヘルプセンター）</a></li>
-<li><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener">ChatGPT リリースノート（OpenAI ヘルプセンター）</a></li>
+<li><a href="https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt" target="_blank" rel="noopener">OpenAI ヘルプセンター：GPT-6 and other models in ChatGPT</a></li>
+<li><a href="https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex" target="_blank" rel="noopener">OpenAI ヘルプセンター：Managing usage with GPT-6 Astra in Work and Codex</a></li>
+<li><a href="https://help.openai.com/en/articles/12003714-chatgpt-business-models-and-limits" target="_blank" rel="noopener">OpenAI ヘルプセンター：ChatGPT Business models and limits</a></li>
+<li><a href="https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers" target="_blank" rel="noopener">OpenAI ヘルプセンター：About ChatGPT Pro tiers</a></li>
+<li><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener">OpenAI ヘルプセンター：ChatGPT リリースノート</a></li>
+<li><a href="https://learn.chatgpt.com/docs/pricing" target="_blank" rel="noopener">ChatGPT Learn：Codex と ChatGPT Work の料金と使用量上限</a></li>
 <li><a href="https://chatgpt.com/pricing" target="_blank" rel="noopener">ChatGPT の料金</a></li>
-<li><a href="https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers" target="_blank" rel="noopener">ChatGPT Pro の各プランについて（OpenAI ヘルプセンター）</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener">OpenAI API：GPT-6 Astra のモデルと料金</a></li>
 <li><a href="https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/" target="_blank" rel="noopener">WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers</a></li>
-<li><a href="https://windowsreport.com/?p=1510692" target="_blank" rel="noopener">Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access</a></li>
-<li><a href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener">GPT-6 Astra のモデルと API 料金（OpenAI ドキュメント）</a></li>
+<li><a href="https://windowsreport.com/?p=1510692" target="_blank" rel="noopener">Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan</a></li>
 </ul>
 <!-- autoimg -->

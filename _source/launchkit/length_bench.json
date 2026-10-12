@@ -178,5 +178,17 @@
   "checked": "2026-10-12",
   "median": 3460,
   "unit": "words"
+ },
+ "chlim-ko": {
+  "keyword": "챗GPT 사용량 한도",
+  "checked": "2026-10-13",
+  "median": 6000,
+  "unit": "chars"
+ },
+ "chlim-ja": {
+  "keyword": "chatgpt 使用制限",
+  "checked": "2026-10-13",
+  "median": 14000,
+  "unit": "chars"
  }
 }
