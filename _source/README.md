@@ -14,3 +14,8 @@ Folders starting with `_` are not published by GitHub Pages, so the source lives
 - `VERIFY` — Google / Naver / Bing site-verification values.
 - CSS is compiled with Tailwind (`tw/`, `src/styles.css`); the first build runs `npm install` there.
 - `src/static/` — favicon, touch icon and share images, copied to the site root.
+
+## Articles (`src/blog_meta.py`, `blog_src/*.md`)
+- **Revised an article?** Set `"updated": "YYYY-MM-DD"` on its entry (e.g. `CC_COST[0]["updated"] = "2026-10-12"`). The byline then shows "Updated …" (en/ko/ja wording in `build.py` `_UPD`; add a language there before using it), and `dateModified`, the sitemap `lastmod` and `llms.txt` use that date. Only set it when the content really changed.
+- **Same article in several languages:** give each version the same `src` stem with a language suffix (`gogo-en`, `gogo-ko`, …). The build links them with hreflang even when they are listed in different groups.
+- **Build needs:** `pip install markdown pillow playwright` and the Noto CJK fonts (`fonts-noto-cjk`) for share images.

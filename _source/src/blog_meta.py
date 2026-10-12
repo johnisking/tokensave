@@ -232,13 +232,15 @@ _CTA = {"en": ("Set task size and tasks per day to compare Claude Code's API cos
         "ko": ("작업 크기와 하루 작업 수를 넣고, 클로드 코드의 API 비용을 Pro·Max와 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"),
         "ja": ("タスクの大きさと1日のタスク数を入れて、Claude Code の API 費用を Pro・Max と比べてみましょう。", "エージェント費用計算機を開く")}
 CC_COST = [
- _cc("en", "/blog/claude-code-cost-per-month", "cc-cost-en", "Claude Code Pricing 2026: Cost per Month on Pro, Max or API",
-     "What Claude Code really costs per month on Pro, Max 5x, Max 20x or the API, with cost per task and when each one is cheapest.", _BY["en"], *_CTA["en"]),
- _cc("ko", "/ko/blog/claude-code-yogeum", "cc-cost-ko", "클로드 코드 요금 한 달에 얼마? Pro·Max·API 비교",
-     "클로드 코드를 Pro, Max 5×, Max 20×, API로 쓸 때 한 달 비용과 작업당 비용, 어떤 경우에 무엇이 가장 싼지 정리했습니다.", _BY["ko"], *_CTA["ko"]),
- _cc("ja", "/ja/blog/claude-code-ryoukin", "cc-cost-ja", "Claude Code の料金は月いくら？Pro・Max・API を比較",
-     "Claude Code を Pro、Max 5×、Max 20×、API で使ったときの月額とタスクあたりの費用、どれがいちばん安いかを解説します。", _BY["ja"], *_CTA["ja"]),
+ _cc("en", "/blog/claude-code-cost-per-month", "cc-cost-en", "Claude Code Pricing 2026: $20, $100 or $200 a Month, or the API",
+     "Claude Code costs $20 a month on Pro, $100 or $200 on Max, or pay per token on the API. Measured task costs, monthly cost by usage, and which to pick.", _BY["en"], *_CTA["en"]),
+ _cc("ko", "/ko/blog/claude-code-yogeum", "cc-cost-ko", "클로드 코드 요금 2026: 월 $20·$100·$200, API 비교",
+     "클로드 코드 요금 2026: 프로 월 $20, Max 5x $100·Max 20x $200 또는 API. 작업 하나 실측 $0.25~0.75, 사용량별 한 달 비용, 구독이 API보다 싸지는 지점과 원화 환산까지.", _BY["ko"], *_CTA["ko"]),
+ _cc("ja", "/ja/blog/claude-code-ryoukin", "cc-cost-ja", "Claude Code の料金【2026】月$20〜$200とAPI実費",
+     "Claude Code の料金は Pro 月$20（年払いで月$17）、Max 5x $100、Max 20x $200、または API の従量課金。実測では1タスク Sonnet 5.5 で$0.25、Opus 5.5 で$0.56〜0.75。日本は消費税10%で Pro $22。無料プランでは使えません。", _BY["ja"], *_CTA["ja"]),
 ]
+for _b in CC_COST[:3]:  # en/ko/ja rewritten: measured task costs, cost ranges, official averages
+    _b["updated"] = "2026-10-12"
 CC_LIMITS = [
  _cc("en", "/blog/claude-code-usage-limits", "cc-limits-en", "Claude Code Usage Limits Explained: 5-Hour and Weekly Caps",
      "How Claude Code's 5-hour and weekly limits work on Pro and Max, what changed in 2026, how to check usage and what to do at the limit.", _BY["en"], *_CTA["en"]),
@@ -477,7 +479,7 @@ DS41 = [_n6("/blog/deepseek-v4-1-flash-api-pricing", "ds41-en", "DeepSeek V4.1 F
 AGCMP = [_n6("/blog/claude-code-vs-codex-vs-cursor-cost", "agentcmp-en", "Claude Code vs Codex vs Cursor: Cost and a Real Test (2026)",
     "Claude Code vs Codex vs Cursor in 2026: plans from free to $500, how each counts usage, benchmark scores, and the same prompt run in all three.",
     *_CTA["en"])]
-AGCMP[0]["byline"] = "Jonhisking · Updated October 12, 2026"
+AGCMP[0]["updated"] = "2026-10-12"
 GOPLUS = [_n6("/blog/chatgpt-go-vs-plus", "gogo-en", "ChatGPT Go vs Plus: Is the $20 Plan Worth $12 More?",
     "ChatGPT Go ($8) vs Plus ($20) in 2026: Luna vs Sol, thinking levels, Codex, ads and limits, who needs which, and when the API is cheaper than both.",
     *_CTA_PL["en"])]

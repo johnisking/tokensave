@@ -14,6 +14,12 @@ esc = lambda s: html.escape(str(s), quote=True)
 
 PROVIDER = {"openai": "OpenAI", "claude": "Anthropic", "gemini": "Google"}
 
+# Pairs that also have a full article with a real test: the comparison page links to it near the top.
+IN_DEPTH = {
+    ("claude-sonnet-5-5", "claude-opus-5-5"): ("/blog/claude-sonnet-5-5-vs-opus-5-5",
+        "Claude Sonnet vs Opus 5.5 for coding, the same task run on both with measured time, tokens and cost"),
+}
+
 def load_models(llm):
     src = open(os.path.join(HERE, "token.js"), encoding="utf-8").read()
     models, prov = {}, None
@@ -235,6 +241,9 @@ def build_all(llm):
         related = [(path(models[p], models[q]), f"{models[p]['name']} vs {models[q]['name']}")
                    for p, q in PAIRS if (p, q) != (x, y) and ({p, q} & {x, y})][:8]
         pg = build_page(a, b, models, checked, related)
+        if (x, y) in IN_DEPTH:  # an article tests this pair in depth: point to it so the two pages don't compete
+            href, label = IN_DEPTH[(x, y)]
+            pg["body"] = pg["body"].replace("<h2>API prices</h2>", f'<p>Hands-on test: <a href="{href}">{esc(label)}</a>.</p>\n      <h2>API prices</h2>', 1)
         line = perf.compare_line(a, b, eci)
         if "claude" in x or "claude" in y:
             line += '\n      <p>Counting tokens for Claude? Use the <a href="/claude-token-counter">Claude token counter</a>: Claude needs about 30% more tokens than GPT for the same text.</p>'
