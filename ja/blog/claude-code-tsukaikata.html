@@ -237,7 +237,7 @@
 <p>正しく入っていれば、バージョン番号のあとに <code>(Claude Code)</code> と表示されます。</p>
 <h3>「running scripts is disabled」と出た場合</h3>
 <p>実際に Windows の PowerShell で <code>claude --version</code> を実行したところ、バージョンではなく赤いエラーが出ました。</p>
-<p><img loading="lazy" width="1482" height="345" alt="PowerShell で claude --version を実行したときの実行ポリシーのエラー画面" src="/claude-code-tsukaikata-ps1-error-ja.jpg" /></p>
+<p><img loading="lazy" width="1482" height="487" alt="PowerShell で claude --version を実行したときの実行ポリシーのエラー画面" src="/claude-code-tsukaikata-ps1-error-ja.jpg" /></p>
 <p>エラーの中に <code>npm\claude.ps1 cannot be loaded because running scripts is disabled on this system</code> とあります。このパソコンには npm で Claude Code が入っていました。公式のトラブルシューティングによると、npm は各コマンドの起動用に <code>.ps1</code> というスクリプトファイルを作り、PowerShell の<strong>実行ポリシー</strong>がそのスクリプトの実行を止めているのが原因です。PowerShell のインストーラー（<code>irm ... | iex</code>）はスクリプトファイルを使わないので、この影響を受けません。</p>
 <p>公式ドキュメントが挙げている直し方は3つです。</p>
 <ol>
@@ -250,7 +250,7 @@
 <li><strong>npm ではなく PowerShell のインストーラーで入れ直す</strong>。スクリプトではなくバイナリが入ります。</li>
 </ol>
 <p>今回は設定を変えずに済む2つめの方法で確認しました。<code>claude.cmd --version</code> と打つと、バージョンが表示されました。</p>
-<p><img loading="lazy" width="1482" height="215" alt="claude.cmd --version で 2.1.295 (Claude Code) と表示された画面" src="/claude-code-tsukaikata-version-ja.jpg" /></p>
+<p><img loading="lazy" width="1482" height="357" alt="claude.cmd --version で 2.1.295 (Claude Code) と表示された画面" src="/claude-code-tsukaikata-version-ja.jpg" /></p>
 <p>表示は <code>2.1.295 (Claude Code)</code> でした。インストールの状態をもっと詳しく調べたいときは、<code>claude doctor</code> を実行すると、インストールの状態、設定ファイルのエラー、修正案などが表示されます。</p>
 <h3>「claude が見つからない」と出た場合</h3>
 <p><code>command not found: claude</code> や <code>'claude' is not recognized</code> と表示されるのは、インストール先のフォルダがまだ PATH に入っていないためです。まずターミナルを閉じて開き直し、それでも直らなければ公式の「Troubleshoot installation and login」の「Fix your PATH」の手順に従います。</p>
@@ -260,26 +260,26 @@
 <pre><code class="language-powershell">mkdir claude-test
 cd claude-test
 </code></pre>
-<p><img loading="lazy" width="1482" height="420" alt="PowerShell で mkdir と cd を使って claude-test フォルダを作り移動した画面" src="/claude-code-tsukaikata-mkdir-ja.jpg" /></p>
+<p><img loading="lazy" width="1482" height="522" alt="PowerShell で mkdir と cd を使って claude-test フォルダを作り移動した画面" src="/claude-code-tsukaikata-mkdir-ja.jpg" /></p>
 <p>実際の開発では、作業したいプロジェクトのフォルダに <code>cd</code> で移動してから起動します。</p>
 <h3>claude で起動し、テーマを選ぶ</h3>
 <p>フォルダの中で <code>claude</code>（npm 版で実行ポリシーのエラーが出る場合は <code>claude.cmd</code>）と入力すると、Claude Code が起動します。初回は文字の配色（テーマ）を選ぶ画面が出ます。</p>
-<p><img loading="lazy" width="1482" height="762" alt="Claude Code の初回起動時に表示されるテーマ選択画面" src="/claude-code-tsukaikata-theme-ja.jpg" /></p>
+<p><img loading="lazy" width="1482" height="904" alt="Claude Code の初回起動時に表示されるテーマ選択画面" src="/claude-code-tsukaikata-theme-ja.jpg" /></p>
 <p>選択肢は Auto（ターミナルに合わせる）、Dark mode、Light mode と、それぞれの色覚多様性対応版、ANSI カラーのみの版です。画面の下に差分表示の見本が出るので、読みやすいものを矢印キーで選んで Enter を押します。あとから <code>/theme</code> で変更できます。</p>
 <h3>ログインする</h3>
 <p>続いてログインです。公式ドキュメントでは、初回起動時にブラウザが開き、案内に従って Claude のアカウントで認証する流れになっています。一度ログインすれば認証情報が保存され、次回からは不要です。アカウントを切り替えたいときは、起動中の画面で <code>/login</code> と入力します。</p>
 <p>今回のパソコンでは、すでに Claude のデスクトップアプリを使っている状態で、ログインはそのまますぐにできました。</p>
 <h3>起動画面の見方</h3>
 <p>ログインが終わると、次のような画面になります。</p>
-<p><img loading="lazy" width="1482" height="442" alt="Claude Code の起動画面。バージョン、モデル、作業フォルダ、auto mode の表示" src="/claude-code-tsukaikata-start-ja.jpg" /></p>
+<p><img loading="lazy" width="1482" height="584" alt="Claude Code の起動画面。バージョン、モデル、作業フォルダ、auto mode の表示" src="/claude-code-tsukaikata-start-ja.jpg" /></p>
 <p>左上に、Claude Code のバージョン（v2.1.295）、使っているモデルとプラン（Opus 5.5 · Claude Max）、作業フォルダ（~\claude-test）が表示されています。いちばん下の <code>❯</code> の行が入力欄です。</p>
 <p>その上の黄色い行は、使っている MCP サーバー（外部ツールとの接続）の認証を求める案内で、<code>/mcp</code> から設定できます。MCP を使っていなければ表示されません。</p>
 <p>画面のいちばん下にある <strong>auto mode on</strong> は、権限モードの表示です。これについては後の章で説明します。</p>
 <h2>最初の指示を出してみる</h2>
-<p>入力欄に、やってほしいことを日本語でそのまま書いて Enter を押します。今回は練習として、ファイルを1つ作ってもらいました（画面は韓国語での指示ですが、日本語でも同じように動きます）。</p>
-<p><img loading="lazy" width="1482" height="762" alt="Claude Code に hallo.txt を作るよう頼み、3秒で書き込みが終わった画面" src="/claude-code-tsukaikata-hello-ja.jpg" /></p>
-<p>1回目は何も入力しないまま Enter を押してしまい、Claude から「メッセージが空でした。何をしましょうか」という返事と、今のフォルダが Git のリポジトリではないことが返ってきました。そこで「hallo.txt というファイルを作って、中に『안녕하세요（こんにちは）』と書いて」と頼むと、<code>Write(hallo.txt)</code> と表示されてファイルが作られ、作業時間は「Brewed for 3s」、つまり約3秒でした。</p>
-<p>Claude は指示に書いたとおりの名前でファイルを作り、完了の報告も指示と同じ韓国語で返してきました。名前や場所はそのまま使われるので、正確に書くのが大事です。</p>
+<p>入力欄に、やってほしいことを日本語でそのまま書いて Enter を押します。今回は練習として、ファイルを1つ作ってもらいました。</p>
+<p><img loading="lazy" width="1482" height="904" alt="Claude Code に hallo.txt を作るよう頼み、3秒で書き込みが終わった画面" src="/claude-code-tsukaikata-hello-ja.jpg" /></p>
+<p>1回目は何も入力しないまま Enter を押してしまい、Claude から「メッセージが空でした。何をしましょうか」という返事と、今のフォルダが Git のリポジトリではないことが返ってきました。そこで「hallo.txt というファイルを作って、中に『こんにちは』と書いて」という内容を頼むと、<code>Write(hallo.txt)</code> と表示されてファイルが作られ、作業時間は「Brewed for 3s」、つまり約3秒でした。</p>
+<p>Claude は指示に書いたとおりの名前でファイルを作り、完了の報告も指示と同じ言語で返してきました。名前や場所はそのまま使われるので、正確に書くのが大事です。</p>
 <h3>慣れてきたら試したい頼み方</h3>
 <p>公式のクイックスタートでは、実際のプロジェクトで次のような指示を試すよう勧めています（日本語に置き換えています）。</p>
 <ul>
@@ -439,7 +439,7 @@ cd claude-test
 <p>本格的にプロジェクトで使うなら、最初に <code>/init</code> を実行しておくと便利です。Claude がプロジェクトを調べて、構成やビルド方法などをまとめた <code>CLAUDE.md</code> を作ります。このファイルは毎回の会話の最初に読み込まれるので、同じ説明を何度も繰り返さずに済みます。</p>
 <h2>使用量を確認する（/usage）</h2>
 <p>サブスクリプションで使う場合、気になるのが使用量の上限です。Claude Code の中で <code>/usage</code> と入力すると、設定画面の Usage タブが開きます。</p>
-<p><img loading="lazy" width="1482" height="762" alt="Claude Code の /usage 画面。現在のセッション24%、今週45%、Fable 0%" src="/claude-code-tsukaikata-usage-ja.jpg" /></p>
+<p><img loading="lazy" width="1482" height="904" alt="Claude Code の /usage 画面。現在のセッション24%、今週45%、Fable 0%" src="/claude-code-tsukaikata-usage-ja.jpg" /></p>
 <p>この画面では、次の3つのメーターが確認できました。</p>
 <ul>
 <li><strong>Current session（現在のセッション）</strong>：24%。5時間ごとにリセットされる上限です。</li>
@@ -495,7 +495,7 @@ cd claude-test
 <p><strong>Claude Code は無料で使えますか？</strong>
 使えません。公式ドキュメントでは、Claude の無料プランには Claude Code が含まれないと明記されています。Pro 以上のプランか、Claude Console（API の従量課金）のアカウントが必要です。</p>
 <p><strong>Claude Code は日本語で使えますか？</strong>
-はい。指示は日本語でそのまま書けます。画面のメニューや表示は英語ですが、今回のテストでは韓国語の指示に韓国語で返事が来たように、Claude は指示と同じ言語で答えます。</p>
+はい。指示は日本語でそのまま書けます。画面のメニューや表示は英語ですが、Claude は指示と同じ言語で答えます。</p>
 <p><strong>Windows でも WSL は必要ですか？</strong>
 必要ありません。PowerShell か CMD からそのままインストールして使えます。Linux のツールを使いたい場合や、サンドボックス機能を使いたい場合は WSL 2 を選びます。</p>
 <p><strong><code>claude</code> と打つと「running scripts is disabled」と出ます。</strong>
