@@ -131,7 +131,7 @@ T = {
     chart={}, img="",
  ),
  "ko": dict(
-    title="AI 모델 성능·가격 비교 차트: LLM 성능 점수와 API 가격",
+    title="LLM 성능·가격 비교 차트: AI 모델 한눈에 보기",
     desc="AI 모델 {n}개의 성능(Epoch Capabilities Index)과 API 가격을 한 그래프로 비교했습니다. 최고 성능, 가성비, 최저가 모델을 한눈에. {d} 기준.",
     crumb='<a href="/compare/">전체 비교 (영어)</a> · 점수 {d} 기준 · 가격 {p} 기준',
     h1="AI 모델 성능·가격 비교 차트",
@@ -164,7 +164,7 @@ T = {
     img="ko-",
  ),
  "ja": dict(
-    title="AIモデル性能・料金比較チャート：LLMの性能スコアとAPI料金",
+    title="LLM性能・料金比較チャート：AIモデル一覧",
     desc="AIモデル{n}種の性能（Epoch Capabilities Index）とAPI料金を1つのグラフで比較。最高性能・コスパ・最安のモデルがひと目でわかります。{d}時点。",
     crumb='<a href="/compare/">比較一覧（英語）</a> · スコア {d} 時点 · 料金 {p} 時点',
     h1="AIモデル性能・料金比較チャート",
