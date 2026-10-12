@@ -1,0 +1,480 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="코덱스 요금 2026: 무료로 직접 써 본 결과와 가격" src="/codex-yogeum-ko.jpg" /></p>
+<p>오픈AI 코덱스(Codex)를 쓰려고 요금을 찾아보면 "코덱스 Pro" 같은 별도 상품이 보이지 않아 헷갈립니다. 코덱스는 어떤 요금제에서 쓸 수 있는지, 요금제마다 무엇이 달라지는지, 한도에 걸리면 비용이 얼마나 드는지 궁금한 분이 많을 겁니다. 2026년 10월 11일 OpenAI 가격 페이지와 고객센터를 확인하고, 같은 날 챗GPT 무료 계정으로 코덱스에 벽돌깨기 게임을 두 번 만들게 해 봤습니다. 이 글에서는 요금제별 가격, 무료 계정으로 해 본 테스트 결과, 크레딧과 API 가격, 요금제 고르는 법을 차례로 정리합니다.</p>
+<h2>코덱스 요금 한눈에 보기 (2026)</h2>
+<p><img loading="lazy" width="1200" height="979" alt="코덱스 요금 한눈에 보기 (2026): 요금제, 미국 월 가격, 한국 월 가격, 코덱스 모델, 5시간 한도, 클라우드 작업" src="/codex-yogeum-ko-2.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>요금제</th>
+<th style="text-align: right;">미국 월 가격</th>
+<th style="text-align: right;">한국 월 가격</th>
+<th>코덱스 모델</th>
+<th>5시간 한도</th>
+<th style="text-align: center;">클라우드 작업</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>무료</td>
+<td style="text-align: right;">$0</td>
+<td style="text-align: right;">0원</td>
+<td>GPT-6 Luna (데스크톱 앱)</td>
+<td>없음, 월 단위 미터 1개 (우리 계정 기준)</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Go</td>
+<td style="text-align: right;">$8</td>
+<td style="text-align: right;">13,000원</td>
+<td>GPT-6 Luna (데스크톱 앱)</td>
+<td>공개 안 됨</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Plus</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">29,000원</td>
+<td>GPT-6 Astra, 6.1 Sol, 6 Sol, Luna</td>
+<td>있음</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Pro 100 / 200 / 500</td>
+<td style="text-align: right;">$100 / $200 / $500</td>
+<td style="text-align: right;">159,000원부터</td>
+<td>Plus와 같음, Pro 500은 Ultrafast</td>
+<td>없음</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Business</td>
+<td style="text-align: right;">1인 $20 (연간), $25 (월간)</td>
+<td style="text-align: right;">–</td>
+<td>Plus와 같음</td>
+<td>있음, Plus와 같음</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Enterprise·Edu</td>
+<td style="text-align: right;">영업 문의</td>
+<td style="text-align: right;">–</td>
+<td>Plus와 같음</td>
+<td>계약에 따라 다름</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>API 키</td>
+<td style="text-align: right;">토큰당 과금</td>
+<td style="text-align: right;">–</td>
+<td>API 모델</td>
+<td>없음 (쓴 만큼 결제)</td>
+<td style="text-align: center;">–</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>원화 가격은 한국에서 접속했을 때 OpenAI 가격 페이지에 표시된 금액</strong>입니다(2026년 10월 확인, 결제 화면에서 최종 금액 확인 필요). 챗GPT는 한국에서 원화로 결제할 수 있습니다. Business는 달러 가격만 확인했습니다.</li>
+<li><strong>코덱스는 별도 구독이 아닙니다.</strong> OpenAI 가격 페이지는 ChatGPT Work와 코덱스가 무료, Go, Plus, Pro, Business, Edu, Enterprise 요금제에 포함된다고 안내합니다. 코덱스만 따로 사는 상품은 없습니다.</li>
+<li><strong>클라우드 작업은 Plus부터입니다.</strong> OpenAI 서버에서 작업을 돌리고 GitHub 코드 리뷰와 연결되는 Codex Cloud는 자격이 되는 Plus, 모든 Pro, Business, Enterprise, Healthcare, Education 계정(순차 제공)에서 쓸 수 있습니다. 무료와 Go는 내 컴퓨터에서만 돌아갑니다.</li>
+<li><strong>API 키로 쓰면 클라우드 기능이 없습니다.</strong> 코덱스 CLI, SDK, IDE 확장에 API 키로 로그인하면 표준 API 가격으로 결제되지만, GitHub 리뷰나 Slack 같은 클라우드 연동은 쓸 수 없습니다.</li>
+</ul>
+<h2>요금제별로 코덱스에서 달라지는 것</h2>
+<p><img loading="lazy" width="1200" height="1008" alt="요금제별로 코덱스에서 달라지는 것: 무료 (0원); Go (13,000원); Plus (29,000원)" src="/codex-yogeum-ko-3.jpg" /></p>
+<p>OpenAI 가격 페이지와 고객센터 기준입니다.</p>
+<ul>
+<li><strong>무료 (0원):</strong> 데스크톱 앱에서 GPT-6 Luna를 표준 속도로 씁니다(순차 제공). OpenAI는 "빠른 코딩 작업으로 코덱스를 살펴보는 용도"라고 설명합니다. 클라우드 작업과 이미지 생성은 없습니다(API로 이미지를 만들 때 비용은 <a href="/ko/image">이미지 비용 계산기</a>에서 확인할 수 있습니다). 무료 사용량 한도는 공개하지 않고 "요금제마다 다르다"고만 합니다. 크레딧 구매는 일부 무료 사용자에게만 열려 있습니다.</li>
+<li><strong>Go (13,000원):</strong> 코덱스 쪽은 무료와 같은 GPT-6 Luna이고, 가벼운 코딩 작업용으로 안내됩니다. 일반 챗GPT 사용량은 늘어나지만 코덱스 접근 자체는 무료와 같습니다.</li>
+<li><strong>Plus (29,000원):</strong> 웹, CLI, IDE 확장, iOS에서 코덱스를 쓰고 클라우드 연동까지 됩니다. 어려운 문제용 GPT-6 Astra부터 간단한 수정용 GPT-6 Luna까지 GPT-6 모델을 모두 쓰며, 5시간 단위 롤링 한도가 있습니다. 한도에 걸리면 크레딧을 추가로 살 수 있습니다.</li>
+<li><strong>Pro (159,000원부터):</strong> Plus 기능에 사용량이 더 많고, 현재 5시간 한도가 없습니다. 사용량은 주 단위입니다. Pro 500에는 GPT-6 Astra와 GPT-6.1 Sol의 Ultrafast 모드가 추가됩니다.</li>
+<li><strong>Business (1인 $20~25):</strong> Standard 좌석의 코덱스 한도는 Plus와 비슷하고, 워크스페이스 단위로 코덱스 크레딧을 살 수 있습니다. 2명부터 가입합니다.</li>
+<li><strong>Enterprise·Edu:</strong> 계약 가격입니다. 유연 요금(flexible pricing)이면 고정 한도 없이 크레딧으로 청구되고, 아니면 좌석당 한도가 Plus와 비슷합니다.</li>
+</ul>
+<p><strong>한 가지 주의할 점:</strong> 어느 요금제든 코덱스는 ChatGPT Work, 엑셀용 ChatGPT, Workspace Agents와 사용량을 함께 씁니다. 코덱스를 오래 돌리면 다른 에이전트 기능에 남는 양이 줄고, 반대도 마찬가지입니다. 챗GPT 무료와 유료의 다른 차이는 <a href="/ko/blog/chatgpt-muryo-yuryo-chai">챗GPT 무료 vs 유료 차이</a>에 정리했습니다.</p>
+<h2>챗GPT 무료 계정으로 코덱스를 직접 써 봤습니다</h2>
+<p><img loading="lazy" width="1200" height="840" alt="코덱스 무료, 직접 써 봤습니다: medium, extra high" src="/codex-yogeum-ko-4.jpg" /></p>
+<p>공개된 한도만으로는 감이 안 와서 2026년 10월 11일에 직접 테스트했습니다.</p>
+<p><img loading="lazy" width="1600" height="840" alt="코덱스 무료로 만든 게임 두 개: medium과 extra high 화면 비교" src="/codex-yogeum-test-ko.jpg" /></p>
+<ul>
+<li><strong>요금제:</strong> 챗GPT 무료</li>
+<li><strong>모델:</strong> GPT-6 Luna (무료 요금제의 코덱스 모델)</li>
+<li><strong>요청:</strong> <a href="/ko/blog/claude-opus-5-5-effort">클로드 오퍼스 5.5 effort 비교</a>에서 쓴 것과 같은 벽돌깨기 요청입니다. 브라우저 게임을 index.html 파일 하나로, 레벨 2개, 점수 표시, 목숨 3개, 키보드·마우스 조작으로 만들어 달라는 내용입니다.</li>
+<li><strong>실행:</strong> 추론 수준(effort) medium과 extra high로 한 번씩, 각각 따로 파일을 만들게 했습니다.</li>
+</ul>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th></th>
+<th>medium</th>
+<th>extra high</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>걸린 시간</td>
+<td>39초</td>
+<td>39초</td>
+</tr>
+<tr>
+<td>게임 코드</td>
+<td>398줄</td>
+<td>273줄</td>
+</tr>
+<tr>
+<td>코덱스가 붙인 제목</td>
+<td>Brick Breaker</td>
+<td>Neon Breakout</td>
+</tr>
+<tr>
+<td>레벨</td>
+<td>2개 (벽돌 5×10, 다음 7×12)</td>
+<td>2개 (5×10, 다음 모양을 낸 6×11)</td>
+</tr>
+<tr>
+<td>효과</td>
+<td>없음</td>
+<td>벽돌이 깨질 때 파티클, 네온 빛</td>
+</tr>
+<tr>
+<td>토큰 (코덱스 자체 추정)</td>
+<td>약 4,000~5,000개</td>
+<td>4,000개대</td>
+</tr>
+<tr>
+<td>무료 사용량</td>
+<td>두 번 합쳐 월 단위 미터의 1%</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>두 게임 모두 요청한 조건(레벨 2개, 점수, 목숨 3개, 키보드·마우스 조작)을 다 지켰고, 시작 화면, 일시정지, 클리어·게임 오버 화면도 있었습니다.</p>
+<p><strong>무료 계정의 사용량 화면</strong>도 확인했습니다. 코덱스 앱에는 남은 사용량을 보여 주는 미터가 하나뿐이었고, 기간은 '1개월', 초기화 날짜는 한 달 뒤였습니다. 5시간 한도나 주간 한도 미터는 없었습니다. 두 번 돌린 뒤 이 미터는 1%가 줄어 99%가 남았습니다.</p>
+<h3>직접 해 본 소감</h3>
+<p>테스트한 사람이 두 게임을 직접 해 보고 남긴 소감입니다.</p>
+<ul>
+<li><strong>medium:</strong> "부드러운 느낌이 드는데 게임 효과는 없어서 타격감은 아쉬운 느낌"</li>
+<li><strong>extra high:</strong> "파티클이 화려하진 않지만 없는 것보단 나았고, 그 외 다른 기능은 잘 모르겠다"</li>
+</ul>
+<h3>결과에서 알 수 있는 것 (우리 해석)</h3>
+<ul>
+<li><strong>effort를 올리니 시간은 같고 완성도만 달라졌습니다.</strong> 두 번 다 39초였습니다. extra high는 코드가 31% 짧았지만 파티클, 네온 스타일, 그리고 빠른 공이 벽돌을 뚫고 지나가지 않도록 한 프레임을 잘게 나눠 충돌을 검사하는 처리를 넣었습니다. 마지막 것은 플레이할 때 눈에 보이지 않아서, "그 외 다른 기능은 잘 모르겠다"는 소감과 맞아떨어집니다.</li>
+<li><strong>토큰 수는 측정값이 아니라 코덱스의 자체 추정입니다.</strong> 물어보니 정확한 수는 알 수 없다면서 한 번에 약 4,000~5,000개, extra high는 4,000개대라고 했습니다. 작성한 코드 크기와 비슷해서 출력만 센 것으로 보입니다. 지시문, 추론, 단계마다 다시 보내는 맥락은 빠져 있을 가능성이 큽니다.</li>
+<li><strong>무료로도 이 정도 작업은 넉넉했습니다.</strong> 게임 두 개에 월 미터의 1%였으니, 그대로 계산하면 이 크기 게임을 한 달에 약 200개 만들 수 있는 양입니다(우리 계산). 다만 두 번만 측정했고 미터는 1% 단위로 반올림됩니다. 실제 프로젝트에서 파일을 많이 읽고 단계가 길어지면 사용량을 더 많이 쓸 것으로 보입니다.</li>
+<li><strong>API 가격으로 쳐도 Luna는 쌉니다.</strong> 코덱스가 전체 토큰 수를 알려 주지 않아서 가정을 하나 두면, 같은 요청에서 클로드 소넷 5.5가 쓴 115,073토큰(거의 다 입력)만큼 썼다고 할 때 GPT-6 Luna API 가격으로는 캐시 없이도 1센트를 조금 넘습니다. 가정에 따른 추정이지 측정한 비용이 아닙니다.</li>
+</ul>
+<h3>같은 요청, 다른 도구와 비교</h3>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>도구 · 요금제</th>
+<th>모델</th>
+<th style="text-align: right;">걸린 시간</th>
+<th>비용·사용량</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>코덱스 · 챗GPT 무료</td>
+<td>GPT-6 Luna medium</td>
+<td style="text-align: right;">39초</td>
+<td>두 번 합쳐 월 미터의 1%</td>
+</tr>
+<tr>
+<td>커서 · 무료(Hobby)</td>
+<td>자동 선택 (Grok 4.6)</td>
+<td style="text-align: right;">1분 31초</td>
+<td>한 번에 월 한도의 15%</td>
+</tr>
+<tr>
+<td>클로드 코드 · API 가격 환산</td>
+<td>소넷 5.5 medium</td>
+<td style="text-align: right;">37초</td>
+<td>$0.25</td>
+</tr>
+<tr>
+<td>클로드 코드 · API 가격 환산</td>
+<td>오퍼스 5.5 high</td>
+<td style="text-align: right;">1분 50초</td>
+<td>$0.75</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>무료로 코딩 에이전트를 써 보기엔 코덱스가 가장 여유 있었습니다.</strong> 다만 코덱스와 커서의 미터는 서로 다른 기준이라 퍼센트를 그대로 비교할 수는 없습니다.</li>
+<li><strong>클로드는 무료 요금제에 클로드 코드가 없습니다.</strong> 클로드 쪽 수치는 ccusage로 잰 API 가격 환산 비용이고, 코덱스 토큰은 자체 추정이라 대략적인 비교로만 보세요.</li>
+</ul>
+<p>자세한 결과는 <a href="/ko/blog/claude-sonnet-5-5-vs-opus-5-5">클로드 소넷 5.5 vs 오퍼스 5.5 실측 비교</a>와 <a href="/ko/blog/cursor-pricing">커서 요금제</a>에 있습니다.</p>
+<h2>모델별 한도: 모델 선택이 요금제보다 중요합니다</h2>
+<p>OpenAI는 Plus와 Business Standard 좌석 기준으로 5시간당 예상 로컬 메시지 수를 범위로 안내합니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>모델</th>
+<th style="text-align: right;">5시간당 로컬 메시지 (Plus·Business Standard)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">5–45</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">15–160</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td style="text-align: right;">15–150</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">350–3,000</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>모델이 가장 큰 변수입니다.</strong> 범위 아래쪽 기준으로 GPT-6 Luna는 GPT-6 Astra의 7,000%만큼 메시지를 보낼 수 있습니다(350 대 5).</li>
+<li><strong>범위가 넓은 건 작업 크기가 제각각이라서입니다.</strong> 파일 몇 개만 읽는 요청과 저장소 절반을 읽고 계획·작성·테스트까지 하는 요청은 비용이 크게 다릅니다. 클라우드 작업은 로컬보다 사용량을 더 많이 쓸 수 있습니다.</li>
+<li><strong>주간 한도가 추가로 걸릴 수 있습니다.</strong> Pro는 현재 5시간 한도가 없어서 주간 사용량에 닿을 때까지 길게 작업할 수 있습니다.</li>
+<li><strong>빠른 모드는 사용량을 더 씁니다.</strong> 포함 사용량 기준으로 Fast 모드는 표준의 250%, Ultrafast는 800% 속도로 줄어듭니다.</li>
+</ul>
+<p>5시간·주간 한도와 초기화 방식은 <a href="/ko/blog/codex-sayongnyang-hando">코덱스 사용량 한도 정리</a>에 자세히 있습니다.</p>
+<h2>코덱스 크레딧: 한도를 넘었을 때</h2>
+<p>크레딧은 포함 사용량을 다 쓴 뒤 계속 쓰는 방법입니다. 요금제 사용량을 먼저 쓰고, 그다음 크레딧 잔액에서 차감됩니다. OpenAI 요율표의 100만 토큰당 크레딧(표준 속도)입니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>모델</th>
+<th style="text-align: right;">입력</th>
+<th style="text-align: right;">캐시된 입력</th>
+<th style="text-align: right;">출력</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">1,250</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">250</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">250</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">12.5</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>누가 살 수 있나:</strong> Plus와 Pro는 한도에 걸렸을 때나 챗GPT의 설정 &gt; 사용량, 코덱스 앱의 사용량·결제 화면에서 살 수 있습니다. 무료와 Go는 일부 테스트 그룹만 가능합니다.</li>
+<li><strong>유효 기간은 12개월</strong>입니다.</li>
+<li><strong>크레딧으로 낼 때 Fast는 표준의 200%, Ultrafast는 600%</strong>로 청구됩니다.</li>
+<li><strong>크레딧 1개의 가격은 공개되어 있지 않습니다.</strong> 개인 요금제의 구매 금액은 계정, 지역, 요금제에 따라 다르고 구매 화면에 표시됩니다. 다만 확인한 세 모델 모두 API 정가 $1당 25크레딧으로 맞춰져 있어서, 크레딧 1개는 약 $0.04어치 API 사용량으로 설계된 것으로 보입니다(우리 계산, OpenAI 공식 가격 아님).</li>
+</ul>
+<h2>코덱스 API 가격</h2>
+<p>토큰 단위로 내고 싶다면 코덱스 CLI나 IDE 확장에 API 키로 로그인하면 됩니다. 요금제 한도 없이 표준 API 가격으로 청구됩니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>모델</th>
+<th style="text-align: right;">입력 (100만 토큰)</th>
+<th style="text-align: right;">캐시된 입력</th>
+<th style="text-align: right;">출력</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$0.01</td>
+<td style="text-align: right;">$0.50</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">$2</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$10</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">$1</td>
+<td style="text-align: right;">$50</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>코딩 에이전트는 쓰는 것보다 읽는 게 훨씬 많습니다.</strong> 단계마다 지시문, 도구 정의, 파일, 이전 단계를 모델에 다시 보내서 입력 토큰이 청구서 대부분을 차지합니다.</li>
+<li><strong>큰 작업은 이렇게 늘어납니다.</strong> 25단계짜리 일반적인 기능 구현 작업은 입력이 약 160만 토큰이고, API 가격으로 Sol급 모델은 약 $0.72, GPT-6 Astra는 약 $3.60입니다(우리 추정).</li>
+<li><strong>Luna로 되는 작업이면 훨씬 쌉니다.</strong> GPT-6 Luna의 입력 가격은 GPT-6.1 Sol보다 95% 쌉니다.</li>
+<li><strong>한국어는 토큰을 더 씁니다.</strong> GPT 토크나이저에서 같은 내용이면 한국어가 영어보다 토큰이 약 44% 더 듭니다(우리 측정).</li>
+</ul>
+<h2>2026년 코덱스 요금 변화</h2>
+<p>올해 요금 구조가 여러 번 바뀌어서 예전 글과 숫자가 다를 수 있습니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>날짜</th>
+<th>변경 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026년 4월 2일</td>
+<td>Plus, Pro, Business, 신규 Enterprise의 코덱스가 메시지 단위에서 API 토큰 기반 크레딧으로 변경</td>
+</tr>
+<tr>
+<td>2026년 4월 23일</td>
+<td>같은 토큰 기반 요율표를 기존 Enterprise, Edu 등으로 확대</td>
+</tr>
+<tr>
+<td>2026년 7월 말</td>
+<td>GPT-5.6 Terra 20%, GPT-5.6 Luna 80% 인하</td>
+</tr>
+<tr>
+<td>2026년 9월 29일</td>
+<td>Pro가 Pro 100, 200, 500으로 나뉨. 신규 Pro 200은 예전보다 사용량이 적고, Ultrafast는 Pro 500 전용</td>
+</tr>
+<tr>
+<td>2026년 10월 14일</td>
+<td>모든 요금제의 챗GPT, ChatGPT Work, 코덱스에서 GPT-5.5 종료 (API는 영향 없음)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>모델 없이 "요금제당 메시지 몇 개"라고 적힌 글은 4월 이전 정보일 가능성이 큽니다.</strong></li>
+<li><strong>코덱스에서 아직 GPT-5.5를 쓴다면 10월 14일 전에 바꾸세요.</strong> 크레딧 요율로 GPT-5.5는 입력 100만 토큰당 125크레딧, GPT-6.1 Sol은 50크레딧입니다.</li>
+</ul>
+<h2>어떤 요금제를 고를까</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>이런 경우</th>
+<th>추천</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>작은 작업으로 코덱스를 써 보고 싶다</td>
+<td>무료</td>
+<td>GPT-6 Luna를 데스크톱 앱에서 무료로</td>
+</tr>
+<tr>
+<td>일주일에 몇 번 코딩하고 클라우드 작업도 쓰고 싶다</td>
+<td>Plus (29,000원)</td>
+<td>GPT-6 모델 전체, 클라우드 작업, GitHub 리뷰</td>
+</tr>
+<tr>
+<td>5시간 한도에 일주일에 여러 번 걸린다</td>
+<td>Pro 100</td>
+<td>5시간 한도 없음, 더 큰 주간 사용량</td>
+</tr>
+<tr>
+<td>하루 대부분 코덱스를 돌린다</td>
+<td>Pro 200 또는 Pro 500</td>
+<td>더 큰 주간 사용량, Pro 500은 Ultrafast</td>
+</tr>
+<tr>
+<td>가끔, 내 도구에서만 쓴다</td>
+<td>API 키</td>
+<td>쓴 만큼만 결제, 클라우드 기능 없음</td>
+</tr>
+<tr>
+<td>팀으로 쓴다</td>
+<td>Business</td>
+<td>좌석당 Plus 수준 한도, 워크스페이스 크레딧</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Go는 코덱스 업그레이드가 아닙니다.</strong> 일반 챗GPT 사용량은 늘지만 코덱스는 무료와 같은 GPT-6 Luna입니다.</li>
+<li><strong>Pro는 모델이 아니라 시간을 사는 요금제입니다.</strong> 모델은 Plus와 같고, 5시간 대기가 없어지는 것이 핵심입니다.</li>
+</ul>
+<h2>코덱스 vs 클로드 코드 vs 깃허브 코파일럿: 입문 가격</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>도구</th>
+<th>무료로 쓸 수 있나</th>
+<th>입문 유료 요금제</th>
+<th>다음 단계</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>코덱스 (챗GPT)</td>
+<td>예, GPT-6 Luna</td>
+<td>Plus $20</td>
+<td>Pro 100 $100</td>
+</tr>
+<tr>
+<td>클로드 코드</td>
+<td>아니요 (클로드 무료에는 없음)</td>
+<td>클로드 Pro $20</td>
+<td>Max 5x $100</td>
+</tr>
+<tr>
+<td>깃허브 코파일럿</td>
+<td>예, 자동완성 2,000회와 제한된 채팅</td>
+<td>Pro $10</td>
+<td>Pro+ $39</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>에이전트 작업을 무료로 해 볼 수 있는 곳으로는 코덱스가 가장 쓸 만합니다.</strong></li>
+<li><strong>$20에서는 코덱스와 클로드 코드의 가격이 같고</strong>, 둘 다 달러 잔액이 아니라 정해진 주기로 초기화되는 사용량 방식입니다. 클로드 쪽은 <a href="/ko/blog/claude-code-yogeum">클로드 코드 요금</a>, 고액 요금제끼리는 <a href="/ko/blog/chatgpt-pro-vs-claude-max">ChatGPT Pro vs Claude Max</a>를 참고하세요.</li>
+<li>작업량별 월 비용 비교는 <a href="/blog/claude-code-vs-codex-vs-cursor-cost">Claude Code vs Codex vs Cursor 비용</a>(영어)에 있고, 챗GPT·클로드·제미나이 원화 구독료는 <a href="/ko/blog/ai-gudokryo-bigyo">AI 구독료 원화 비교</a>에 있습니다.</li>
+</ul>
+<h2>정리</h2>
+<ul>
+<li><strong>코덱스는 모든 챗GPT 요금제에 포함됩니다.</strong> 무료도 포함이고, 코덱스만 따로 결제하는 상품은 없습니다.</li>
+<li><strong>무료 요금제에서도 작은 작업은 충분히 해 볼 수 있습니다.</strong> 직접 테스트에서 레벨 2개짜리 게임을 39초 만에 두 번 만들었고, 월 사용량의 1%만 썼습니다.</li>
+<li><strong>매일 쓰는 도구가 되는 건 Plus(29,000원)부터</strong>입니다. GPT-6 모델 전체, 클라우드 작업, GitHub 코드 리뷰가 열립니다.</li>
+<li><strong>Pro(159,000원부터)는 5시간 대기를 없애는 요금제</strong>이고, 더 좋은 모델이 생기는 것은 아닙니다.</li>
+<li><strong>요금제보다 모델 선택이 비용을 더 크게 바꿉니다.</strong> 간단한 일은 Luna, 보통 기능 작업은 Sol, 막힐 때만 Astra를 쓰면 같은 요금제로 훨씬 오래 씁니다.</li>
+</ul>
+<h2>자주 묻는 질문</h2>
+<p><strong>코덱스는 무료인가요?</strong>
+제한된 형태로 무료입니다. 챗GPT 무료 요금제에서 데스크톱 앱으로 GPT-6 Luna를 쓸 수 있습니다. OpenAI는 무료 한도를 공개하지 않았고, 우리 계정에는 5시간·주간 한도 대신 '1개월' 미터 하나만 있었습니다. 클라우드 작업은 Plus부터입니다.</p>
+<p><strong>코덱스 요금은 얼마인가요?</strong>
+코덱스만의 가격은 없고 챗GPT 요금제에 포함됩니다. 한국에서 접속했을 때 OpenAI 가격 페이지에 표시된 금액(2026년 10월 확인, 결제 화면에서 최종 금액 확인 필요)으로 무료 0원, Go 13,000원, Plus 29,000원, Pro 159,000원부터이고, Business는 1인 $20(연간)입니다. API 키로 쓰면 표준 API 가격으로 청구됩니다.</p>
+<p><strong>오픈AI 코덱스를 쓰려면 Plus가 꼭 필요한가요?</strong>
+아닙니다. 무료와 Go에서도 데스크톱 앱으로 GPT-6 Luna를 쓸 수 있습니다. Plus에서는 GPT-6 Astra·Sol 같은 더 강한 GPT-6 모델, 클라우드 작업, GitHub 코드 리뷰가 추가됩니다. 또 요금제와 상관없이 누구나 CLI나 IDE 확장에 API 키로 로그인해 API 가격으로 쓸 수 있습니다.</p>
+<p><strong>코덱스 무료 한도는 얼마나 되나요?</strong>
+공식 수치는 없습니다. 2026년 10월 11일 테스트에서는 작은 벽돌깨기 게임 두 개에 월 미터의 1%를 썼습니다. 그대로 계산하면 이 크기 작업을 한 달에 약 200번 할 수 있는 양이지만, 큰 프로젝트는 사용량을 더 많이 쓸 것으로 보입니다.</p>
+<p><strong>코덱스 크레딧 1개는 얼마인가요?</strong>
+개인 요금제의 크레딧 가격은 공개되어 있지 않고 구매 화면에 표시됩니다. 크레딧 요율이 API 정가 $1당 25크레딧이라, 크레딧 1개는 약 $0.04어치 API 사용량에 해당합니다(우리 계산).</p>
+<p><strong>코덱스 한도에 걸리면 어떻게 하나요?</strong>
+진행 중인 작업은 마칠 수 있습니다. 그다음에는 요금제에 따라 크레딧을 추가하거나, 쓸 수 있는 리셋을 적용하거나, 업그레이드하거나, 5시간·주간 한도가 초기화될 때까지 기다립니다.</p>
+<h2>내 사용량으로 계산해 보기</h2>
+<p><a href="/ko/agents">코딩 에이전트 비용 계산기</a>에 작업 크기와 하루 작업 수를 넣으면 GPT-6, 클로드 오퍼스 5.5, 소넷 5.5의 한 달 API 비용을 요금제와 비교해 볼 수 있습니다. 구독과 API 중 무엇이 나은지는 <a href="/ko/plans">AI 구독 vs API 계산기</a>에서, 프롬프트 하나의 토큰 수와 비용은 <a href="/ko/">토큰 계산기</a>에서 확인하세요. 영어로 된 자세한 원문은 <a href="/blog/codex-pricing">Codex pricing</a>에 있습니다.</p>
+<p><em>2026년 10월 11일 OpenAI 가격 페이지와 고객센터에서 요금제와 크레딧 요율을 확인했습니다. 무료 요금제 테스트는 2026년 10월 11일 effort별 1회씩 실행한 결과이고, 토큰 수는 코덱스의 자체 추정입니다.</em></p>
+<h2>출처</h2>
+<ul>
+<li><a href="https://learn.chatgpt.com/docs/pricing" target="_blank" rel="noopener">OpenAI: 요금제 (ChatGPT Learn)</a></li>
+<li><a href="https://chatgpt.com/pricing" target="_blank" rel="noopener">OpenAI: ChatGPT 요금제</a></li>
+<li><a href="https://help.openai.com/en/articles/20001106-codex-rate-card-2" target="_blank" rel="noopener">OpenAI 도움말: Codex 요율표</a></li>
+<li><a href="https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan" target="_blank" rel="noopener">OpenAI 도움말: ChatGPT 요금제로 Codex 쓰기</a></li>
+<li><a href="https://help.openai.com/en/articles/12642688-using-credits-for-flexible-usage-in-chatgpt-freegopluspro-sora" target="_blank" rel="noopener">OpenAI 도움말: 크레딧으로 유연하게 사용하기</a></li>
+<li><a href="https://help.openai.com/en/articles/9793128" target="_blank" rel="noopener">OpenAI 도움말: ChatGPT Pro 등급</a></li>
+<li><a href="https://help.openai.com/en/articles/11481834-chatgpt-rate-card-business-enterpriseedu" target="_blank" rel="noopener">OpenAI 도움말: ChatGPT 요율표 (Business, Enterprise/Edu)</a></li>
+<li><a href="https://learn.chatgpt.com/docs/whats-new" target="_blank" rel="noopener">OpenAI: ChatGPT 새 소식</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI: API 가격</a></li>
+<li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Anthropic: Claude 요금제</a></li>
+<li><a href="https://cursor.com/pricing" target="_blank" rel="noopener">Cursor: 요금제</a></li>
+<li><a href="https://github.com/features/copilot/plans" target="_blank" rel="noopener">GitHub: Copilot 요금제</a></li>
+</ul>
+<!-- autoimg -->

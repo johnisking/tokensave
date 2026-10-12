@@ -124,5 +124,41 @@
    "cometapi.com": 950,
    "pricepertoken.com": 1000
   }
+ },
+ "cxprice-ja": {
+  "keyword": "codex 料金",
+  "checked": "2026-10-12",
+  "median": 5000,
+  "unit": "chars"
+ },
+ "cplan-ja": {
+  "keyword": "claude 料金",
+  "checked": "2026-10-12",
+  "median": 7500,
+  "unit": "chars"
+ },
+ "cursor-ja": {
+  "keyword": "cursor 料金",
+  "checked": "2026-10-12",
+  "median": 4000,
+  "unit": "chars"
+ },
+ "copilot-ja": {
+  "keyword": "github copilot 料金",
+  "checked": "2026-10-12",
+  "median": 6500,
+  "unit": "chars"
+ },
+ "cplan-ko": {
+  "keyword": "클로드 요금제",
+  "checked": "2026-10-12",
+  "median": 3500,
+  "unit": "chars"
+ },
+ "cxprice-ko": {
+  "keyword": "코덱스 요금",
+  "checked": "2026-10-12",
+  "median": 2900,
+  "unit": "chars"
  }
 }

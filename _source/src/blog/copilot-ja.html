@@ -1,0 +1,407 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="GitHub Copilot の料金｜無料・Pro・Pro+・Max とAIクレジット" src="/github-copilot-ryoukin-ja.jpg" /></p>
+<p>GitHub Copilot の料金は、2026年6月1日に大きく変わりました。以前の「プレミアムリクエスト」の回数制はなくなり、個人向けの各プランには毎月「GitHub AI Credits（AIクレジット）」が付与されるようになっています。チャット、エージェント、CLI のタスクはどれも、使ったモデルのトークン単価でこのクレジットを消費します。この記事では、現在のプランと料金、日本での支払い（ドル建てと消費税）、AIクレジットの仕組み、Copilot 内のモデル別の価格、そして私たちが実測した4回のエージェント実行をもとに「各プランで実際のタスクを何回こなせるか」を試算します。プランの内容は、2026年10月11日に GitHub のプランページとドキュメントで確認しました。</p>
+<h2>GitHub Copilot の料金プラン一覧（2026年）</h2>
+<p><img loading="lazy" width="1200" height="751" alt="GitHub Copilot の料金プラン一覧（2026年）: プラン, 月額, 月のAIクレジット（基本＋フレックス）, クレジットの価値" src="/github-copilot-ryoukin-github-copilot-2026-ja.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>プラン</th>
+<th style="text-align: right;">月額</th>
+<th style="text-align: right;">月のAIクレジット（基本＋フレックス）</th>
+<th style="text-align: right;">クレジットの価値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Free</td>
+<td style="text-align: right;">$0</td>
+<td style="text-align: right;">少量の枠（自動モデル選択のみ）</td>
+<td style="text-align: right;">–</td>
+</tr>
+<tr>
+<td>Pro</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">1,000 + 500 = 1,500</td>
+<td style="text-align: right;">$15</td>
+</tr>
+<tr>
+<td>Pro+</td>
+<td style="text-align: right;">$39</td>
+<td style="text-align: right;">3,900 + 3,100 = 7,000</td>
+<td style="text-align: right;">$70</td>
+</tr>
+<tr>
+<td>Max</td>
+<td style="text-align: right;">$100</td>
+<td style="text-align: right;">10,000 + 10,000 = 20,000</td>
+<td style="text-align: right;">$200</td>
+</tr>
+<tr>
+<td>Business</td>
+<td style="text-align: right;">1ユーザー $19</td>
+<td style="text-align: right;">1ユーザー 1,900（組織で共有）</td>
+<td style="text-align: right;">$19</td>
+</tr>
+<tr>
+<td>Enterprise</td>
+<td style="text-align: right;">1ユーザー $39</td>
+<td style="text-align: right;">1ユーザー 3,900（組織で共有）</td>
+<td style="text-align: right;">$39</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>AIクレジット1つは$0.01です。</strong> Pro の1,500クレジットは$15分、Pro+ は$70分、Max は$200分のモデル利用にあたります。</li>
+<li><strong>基本クレジットは月額と同じ金額です。</strong> Pro の基本1,000クレジットは、ちょうど月額$10分です。その上に <strong>フレックス割り当て</strong> が加わります。GitHub はこれを「含まれる使用量の可変部分」と説明しており、モデルの価格が変わると量も変わる可能性があります。</li>
+<li><strong>個人プランのお得な部分はフレックス割り当てです。</strong> フレックスの量が今のままなら、支払う金額に対して Pro は50%、Pro+ は79%、Max は100%多く使える計算です。</li>
+<li><strong>Business と Enterprise にはフレックス割り当てがありません。</strong> 1ユーザーあたり1,900・3,900クレジットが組織全体で共有されるので、たくさん使う人が、あまり使わない人の分を使えます。</li>
+<li><strong>有料プランではコード補完はクレジットを消費しません。</strong> インラインの提案と「次の編集候補（next edit suggestions）」は Pro・Pro+・Max で無制限です。Free プランのコード補完は月2,000回までです。</li>
+</ul>
+<h2>日本での支払い：円価格はなくドル建て、消費税10%</h2>
+<p><img loading="lazy" width="1200" height="704" alt="日本での支払い：円価格はなくドル建て、消費税10%: プラン, 税抜き, 消費税10%込み" src="/github-copilot-ryoukin-ja-3.jpg" /></p>
+<p>GitHub のプランページとドキュメント（日本語版を含む）の価格は、すべて米ドル建てです。円建ての価格は確認できませんでした。日本語ドキュメントにも「1 AI credit = $0.01 USD」と書かれています。</p>
+<p>さらに GitHub は、2024年10月1日から、日本でクレジットカードや PayPal で支払うセルフサービスの利用者に <strong>日本の消費税（10%）</strong> を請求しています。請求書には税額がドルと円の両方で記載されます。これに当てはめると、税込みの月額は次のとおりです（当サイトの計算）。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>プラン</th>
+<th style="text-align: right;">税抜き</th>
+<th style="text-align: right;">消費税10%込み</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pro</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">$11</td>
+</tr>
+<tr>
+<td>Pro+</td>
+<td style="text-align: right;">$39</td>
+<td style="text-align: right;">$42.90</td>
+</tr>
+<tr>
+<td>Max</td>
+<td style="text-align: right;">$100</td>
+<td style="text-align: right;">$110</td>
+</tr>
+<tr>
+<td>Business（1ユーザー）</td>
+<td style="text-align: right;">$19</td>
+<td style="text-align: right;">$20.90</td>
+</tr>
+<tr>
+<td>Enterprise（1ユーザー）</td>
+<td style="text-align: right;">$39</td>
+<td style="text-align: right;">$42.90</td>
+</tr>
+</tbody>
+</table></div>
+<p>円での実際の支払額は、決済時の為替レートとカード会社の手数料によって変わります。請求書払いの企業契約など、支払い方法によって扱いが異なる場合があるので、自社の請求画面で確認してください。</p>
+<h2>各プランでできること</h2>
+<p><img loading="lazy" width="1200" height="907" alt="各プランでできること: Free; Pro（$10）; Pro+（$39）" src="/github-copilot-ryoukin-ja-4.jpg" /></p>
+<p>GitHub のプランページによる内容です。</p>
+<ul>
+<li><strong>Free:</strong> 月2,000回のコード補完、少量のチャットとエージェントの利用枠、自動モデル選択を通じた軽量モデル（Claude Haiku 4.5 や GPT-5 mini など）、Copilot CLI。本人確認された学生は、代わりにコード補完が無制限の Copilot Student を使えます。</li>
+<li><strong>Pro（$10）:</strong> Free の内容に加えて、無制限のコード補完と次の編集候補、Copilot cloud agent とコードレビュー、モデルの選択。</li>
+<li><strong>Pro+（$39）:</strong> Pro の内容に加えて、Anthropic の Claude や OpenAI Codex などのサードパーティ製コーディングエージェントへのタスクの委任（プレビュー）。含まれるクレジットは Pro より367%多くなります。</li>
+<li><strong>Max（$100）:</strong> Pro+ の内容に加えて、新しいモデルや機能への優先アクセス。含まれるクレジットは Pro+ より186%多くなります。</li>
+</ul>
+<p>有料プランはどれも、含まれるクレジットを使い切ったあと追加のクレジットを購入できます。</p>
+<h2>GitHub AI Credits（AIクレジット）の仕組み</h2>
+<p>Copilot とのやりとりは、すべてトークンを使います。モデルに送る入力トークン、モデルが書く出力トークン、そして再利用されるキャッシュのトークンです。GitHub は各トークンをモデルの単価で計算し、合計をクレジットに換算します。つまり、タスクの費用を決めるのは <strong>モデル</strong> と <strong>そのタスクが使うトークン数</strong> の2つです。</p>
+<ul>
+<li><strong>クレジットを使うもの:</strong> Copilot Chat、Copilot CLI、Copilot cloud agent、Copilot Spaces、Spark、サードパーティ製コーディングエージェント。</li>
+<li><strong>使わないもの:</strong> 有料プランでのコード補完と次の編集候補。</li>
+<li><strong>コードレビューは二重に課金されます。</strong> トークン分がクレジットで請求され、レビューを実行するエージェントは GitHub Actions の実行時間（分）も使います。コードレビューのモデルは自動で選ばれ表示されないので、1回あたりの費用は一定ではありません。</li>
+<li><strong>基本クレジットから先に使い、次にフレックス割り当てを使います。</strong> 使用状況のダッシュボードで両方を確認できます。</li>
+<li><strong>クレジットは毎月1日の00:00（UTC）にリセットされます。</strong> 契約した日に関係なく固定で、日本時間では1日の午前9時です。使い残したクレジットは翌月に繰り越せません。</li>
+<li><strong>自動モデル選択は10%安くなります。</strong> 有料プランでは、Chat、CLI、Copilot アプリ、cloud agent でモデルを Copilot に選ばせると、モデルの費用が10%割引されます。</li>
+</ul>
+<h3>クレジットを使い切ったら</h3>
+<p>GitHub は3つの選択肢を示しています。</p>
+<ol>
+<li><strong>アップグレードする。</strong> その月の残りはプランの差額だけを払えばよく、増えた枠はすぐに使えます。</li>
+<li><strong>追加利用の予算を設定する。</strong> 追加分も同じトークン単価で請求され、$10の予算で1,000クレジット分です。</li>
+<li><strong>毎月1日のリセットを待つ。</strong></li>
+</ol>
+<p>なお、2026年6月1日以降も旧方式のまま残った Pro・Pro+ の年払い契約者は、当面これまでのプレミアムリクエスト制での請求が続きます。該当する方は請求ページを確認してください。</p>
+<h2>Copilot 内のモデル別の価格</h2>
+<p>GitHub はすべてのモデルのトークン単価を公開しています。コーディングでよく使われるモデルについては、Copilot 内の単価は各社の API 定価と同じです。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>モデル</th>
+<th style="text-align: right;">入力</th>
+<th style="text-align: right;">キャッシュ入力</th>
+<th style="text-align: right;">キャッシュ書き込み</th>
+<th style="text-align: right;">出力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Haiku 5.5</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$0.01</td>
+<td style="text-align: right;">$0.125</td>
+<td style="text-align: right;">$0.50</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td style="text-align: right;">$2</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$2.50</td>
+<td style="text-align: right;">$10</td>
+</tr>
+<tr>
+<td>Claude Opus 5.5</td>
+<td style="text-align: right;">$4</td>
+<td style="text-align: right;">$0.20</td>
+<td style="text-align: right;">$5</td>
+<td style="text-align: right;">$20</td>
+</tr>
+<tr>
+<td>Claude Fable 5.1</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">$0.25</td>
+<td style="text-align: right;">$12.50</td>
+<td style="text-align: right;">$50</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$0.01</td>
+<td style="text-align: right;">$0.125</td>
+<td style="text-align: right;">$0.50</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">$2</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$2.50</td>
+<td style="text-align: right;">$10</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">$1</td>
+<td style="text-align: right;">$12.50</td>
+<td style="text-align: right;">$50</td>
+</tr>
+<tr>
+<td>Gemini 3.8 Flash</td>
+<td style="text-align: right;">$0.75</td>
+<td style="text-align: right;">$0.075</td>
+<td style="text-align: right;">–</td>
+<td style="text-align: right;">$3.75</td>
+</tr>
+<tr>
+<td>Grok 4.7</td>
+<td style="text-align: right;">$2</td>
+<td style="text-align: right;">$0.50</td>
+<td style="text-align: right;">–</td>
+<td style="text-align: right;">$6</td>
+</tr>
+</tbody>
+</table></div>
+<p>価格は100万トークンあたりで、各モデルの長文コンテキストのしきい値より短いプロンプトの場合です。しきい値を超えると高くなるモデルもあり、たとえば GPT-6 Astra は入力が272Kトークンを超えると入力$20・出力$75になります。Gemini 3.8 Flash は2026年12月31日までのキャンペーン価格です。</p>
+<ul>
+<li><strong>Copilot の単価は API と同じです。</strong> Claude Sonnet 5.5 は Copilot でも Anthropic の API でも100万トークンあたり$2と$10、GPT-6 Astra はどちらでも$10と$50です。自動選択の10%割引を除けば、Copilot による上乗せも値引きもありません。</li>
+<li><strong>実質的には「API の前払い＋おまけのクレジット」です。</strong> Pro は$10で$15分、Max は$100で$200分のモデル利用ができます。</li>
+<li><strong>プランよりモデル選びのほうが月の費用に効きます。</strong> Claude Opus 5.5 のトークンは Sonnet 5.5 より100%高く、GPT-6 Astra は GPT-6.1 Sol より400%高くなります。</li>
+</ul>
+<h2>各プランで何回タスクをこなせるか（試算）</h2>
+<p>Copilot は API 定価で課金されるので、実際のタスクの費用からプランの容量を見積もれます。私たちは2026年10月9日に、小さなブラウザゲームを作るという同じタスクを、Claude Sonnet 5.5 と Opus 5.5 の medium・high の4通りで Claude Code に実行させ、ccusage で API 価格に換算しました。テストの全容は <a href="/ja/blog/claude-sonnet-5-5-vs-opus-5-5">Claude Sonnet 5.5 と Opus 5.5 の比較</a>にあります。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>このくらいのタスク1回</th>
+<th style="text-align: right;">1回の費用</th>
+<th style="text-align: right;">Pro（$15分）</th>
+<th style="text-align: right;">Pro+（$70分）</th>
+<th style="text-align: right;">Max（$200分）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sonnet 5.5・medium</td>
+<td style="text-align: right;">$0.25</td>
+<td style="text-align: right;">約60回</td>
+<td style="text-align: right;">約280回</td>
+<td style="text-align: right;">約800回</td>
+</tr>
+<tr>
+<td>Sonnet 5.5・high</td>
+<td style="text-align: right;">$0.30</td>
+<td style="text-align: right;">約50回</td>
+<td style="text-align: right;">約233回</td>
+<td style="text-align: right;">約667回</td>
+</tr>
+<tr>
+<td>Opus 5.5・medium</td>
+<td style="text-align: right;">$0.56</td>
+<td style="text-align: right;">約27回</td>
+<td style="text-align: right;">約125回</td>
+<td style="text-align: right;">約357回</td>
+</tr>
+<tr>
+<td>Opus 5.5・high</td>
+<td style="text-align: right;">$0.75</td>
+<td style="text-align: right;">約20回</td>
+<td style="text-align: right;">約93回</td>
+<td style="text-align: right;">約267回</td>
+</tr>
+</tbody>
+</table></div>
+<p>これは当サイトの試算で、次のような注意点があります。</p>
+<ul>
+<li><strong>実行したのは Claude Code で、Copilot ではありません。</strong> Copilot のエージェントは独自の指示とコンテキストを送るので、同じタスクでもトークン数は同じになりません。</li>
+<li><strong>費用の大半はキャッシュ書き込みでした。</strong> この実行では費用の63%〜81%が、Anthropic の1時間キャッシュの料金でコンテキストをキャッシュに書き込む分でした。Copilot の Sonnet 5.5 のキャッシュ書き込み単価は$2.50で、Anthropic の5分キャッシュの料金と同じです。Copilot がこの料金でキャッシュするなら同じタスクはもっと安くなり、各プランでこなせる回数も増えますが、まだ測定していません。</li>
+<li><strong>ゲームは小さなものでした。</strong> 実際のコードベースでの機能追加は、読むファイルもステップも多くなります。大きなタスクはもっと高く、場合によってはずっと高くなると考えてください。</li>
+</ul>
+<p>effort（推論の深さ）による費用の違いは <a href="/ja/blog/claude-opus-5-5-effort">Claude Opus 5.5 の effort 設定</a>で解説しています。</p>
+<p>それでも、桁の感覚はつかめます。Pro では Sonnet での小さなエージェントタスクが月に数十回、Opus ならそれよりかなり少なくなります。私たちの試算では、エージェントを毎日使うなら、小さなタスクでひと月をまかなえる最初のプランが Pro+ です。</p>
+<h2>Copilot Pro+ は誰向けか</h2>
+<p>Pro から Pro+ に上げるか迷ったら、次の3つを判断のポイントにしてください。</p>
+<ul>
+<li><strong>クレジットの量:</strong> Pro+ は月$39で$70分（7,000クレジット）。Pro の1,500クレジットより367%多く、上の試算では Sonnet 5.5・high の小さなタスクを約233回こなせます。</li>
+<li><strong>サードパーティ製エージェント:</strong> Claude や OpenAI Codex にタスクを任せる機能（プレビュー）は Pro+ 以上で使えます。</li>
+<li><strong>費用対効果:</strong> 月額に対するクレジットの上乗せは Pro が50%、Pro+ が79%なので、たくさん使う人ほど Pro+ のほうが割安です。さらに使う人には、上乗せが100%の Max（$100で$200分）があります。</li>
+</ul>
+<p>エージェントをほとんど使わず補完が中心なら、Pro のままで十分です。</p>
+<h2>Free・Pro・Pro+・Max の選び方</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>こんな人は</th>
+<th>おすすめ</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>補完が中心で、チャットは少しだけ</td>
+<td>Free → Pro</td>
+<td>Free は補完が月2,000回、Pro は$10で無制限</td>
+</tr>
+<tr>
+<td>Sonnet クラスのモデルで週に数回チャットやエージェントを使う</td>
+<td>Pro（$10）</td>
+<td>$15分のクレジットで小さなタスクを数十回</td>
+</tr>
+<tr>
+<td>エージェントを毎日使う</td>
+<td>Pro+（$39）</td>
+<td>$70分のクレジットに加え、サードパーティ製エージェント（プレビュー）</td>
+</tr>
+<tr>
+<td>長いエージェントセッションや cloud agent を多用する</td>
+<td>Max（$100）</td>
+<td>$200分のクレジットで、月額に対する比率がいちばん高い</td>
+</tr>
+<tr>
+<td>会社で利用量を共有し、管理機能がほしい</td>
+<td>Business（$19）か Enterprise（$39）</td>
+<td>クレジットはユーザー間で共有、フレックス割り当てなし</td>
+</tr>
+</tbody>
+</table></div>
+<p>プランと同じくらい請求額を左右する習慣が2つあります。</p>
+<ul>
+<li><strong>安いモデルを基本にする。</strong> 10%割引のある自動選択や、Sonnet 5.5・GPT-6.1 Sol をふだん使いにし、Opus や GPT-6 Astra は必要なときだけ使いましょう。</li>
+<li><strong>エージェントのセッションを短くする。</strong> セッションが長いほど、ステップごとに送り直すコンテキストが増えます。別のタスクは新しいセッションで始めましょう。</li>
+</ul>
+<h2>Copilot Business と Enterprise</h2>
+<p>企業向けの Copilot Business は1ユーザー月$19、Enterprise は月$39で、1ユーザーあたり1,900・3,900クレジットが付きます。個人プランとの違いは、クレジットの分け方です。</p>
+<ul>
+<li><strong>クレジットは共有されます。</strong> GitHub の例では、Business ユーザーが100人の会社は、100人分の別々の枠ではなく、190,000クレジットの共有プールを1つ持ちます。たくさん使う人がいても、あまり使わない人の分で相殺されます。</li>
+<li><strong>シートを追加するとプールはすぐ増えます。</strong> 月の途中でシートを減らしても、プールが減るのは次のサイクルからです。</li>
+<li><strong>フレックス割り当てはありません。</strong> 含まれるクレジットはシートの価格と同じ金額です。</li>
+<li><strong>使い切ったときの扱いが違います。</strong> 会社のポリシーによって、超過分を有料で使い続けるか、利用が止まるかのどちらかです。ユーザーが自分でクレジットを買うことはできません。</li>
+<li><strong>会社のシートは個人プランを置き換えます。</strong> Pro・Pro+・Max を契約している人に会社が Business や Enterprise のシートを割り当てると、個人プランは自動的に解約され、日割りで返金されます。</li>
+</ul>
+<h2>Copilot・Cursor・Claude Code・Codex の料金比較</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>ツール</th>
+<th>無料</th>
+<th style="text-align: right;">入門</th>
+<th style="text-align: right;">中間</th>
+<th style="text-align: right;">個人向け最上位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub Copilot</td>
+<td>Free</td>
+<td style="text-align: right;">Pro $10</td>
+<td style="text-align: right;">Pro+ $39</td>
+<td style="text-align: right;">Max $100</td>
+</tr>
+<tr>
+<td>Cursor</td>
+<td>Hobby</td>
+<td style="text-align: right;">Pro $20</td>
+<td style="text-align: right;">Pro+ $60</td>
+<td style="text-align: right;">Ultra $200</td>
+</tr>
+<tr>
+<td>Claude（Claude Code を含む）</td>
+<td>無料（Claude Code なし）</td>
+<td style="text-align: right;">Pro $20</td>
+<td style="text-align: right;">Max 5x $100</td>
+<td style="text-align: right;">Max 20x $200</td>
+</tr>
+<tr>
+<td>ChatGPT（Codex を含む）</td>
+<td>無料（Codex は制限付き）</td>
+<td style="text-align: right;">Plus $20</td>
+<td style="text-align: right;">Pro 100 $100</td>
+<td style="text-align: right;">Pro 500 $500</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>いちばん安く始められるのは Copilot です。</strong> Pro の$10はほかの入門プランより50%安く、クレジットもドルで明示されています。</li>
+<li><strong>Claude と ChatGPT のプランは、クレジットではなく利用枠の方式です。</strong> 残高ではなく一定時間ごとにリセットされる上限があり、API 価格とも連動していないので、単純には比べられません。1ドルあたりの価値は使い方しだいです。Claude Code の料金は <a href="/ja/blog/claude-code-ryoukin">Claude Code の料金は月いくら？</a>、Codex の上限は <a href="/ja/blog/codex-shiyouryou-jougen">Codex の使用量上限まとめ</a> をご覧ください。</li>
+<li><strong>Cursor と Copilot はどちらもトークン単位の課金です。</strong> どちらもプランに使用量が含まれていますが、Cursor は Teams・Enterprise で他社モデルに独自のトークン料金を上乗せし、Copilot は定価のままです。Cursor の仕組みは <a href="/blog/cursor-pricing">Cursor の料金</a>（英語）で解説しています。</li>
+</ul>
+<p>ChatGPT・Gemini を含めたサブスクの円での比較は <a href="/ja/blog/ai-subscription-ryoukin-hikaku">生成AIのサブスク料金比較</a>、作業量別の月額比較は <a href="/blog/claude-code-vs-codex-vs-cursor-cost">Claude Code vs Codex vs Cursor</a>（英語）にあります。</p>
+<h2>まとめ</h2>
+<ul>
+<li><strong>Copilot Pro（$10）は、ここで比べた4つのツールでいちばん安い有料プランです。</strong> コード補完は無制限で、$15分のモデルクレジットが付きます。日本のカード払いでは消費税10%が加わり$11です。</li>
+<li><strong>どのプランも実質的には API の前払いです。</strong> Copilot は各モデルの定価で課金するので、月の費用はどのモデルを使い、エージェントのセッションをどれだけ長く回すかで決まります。</li>
+<li><strong>フレックス割り当ての恩恵がいちばん大きいのは Max です。</strong> $100で$200分になりますが、GitHub はこの量が変わる可能性があるとしています。</li>
+<li><strong>私たちの試算では、エージェントを毎日使うなら Pro+ が基準です。</strong> Pro のクレジットでは小さな Sonnet タスクが月に数十回、Pro+ なら数百回です。</li>
+</ul>
+<h2>よくある質問</h2>
+<p><strong>GitHub Copilot の料金はいくらですか？</strong>
+Copilot Free は$0、Pro は月$10、Pro+ は$39、Max は$100です。チーム向けは Business が1ユーザー月$19、Enterprise が$39です。いずれもドル建てで、日本のカード・PayPal 払いでは消費税10%が加わります。</p>
+<p><strong>GitHub Copilot は無料で使えますか？</strong>
+はい。Free プランでは月2,000回のコード補完と、自動モデル選択による少量のチャット・エージェント利用ができます。本人確認された学生は、補完が無制限の Copilot Student を使えます。</p>
+<p><strong>GitHub AI Credits とは何ですか？</strong>
+2026年6月1日から使われている Copilot の利用単位です。1クレジットは$0.01で、各操作はモデルのトークン単価に応じてクレジットを消費します。月に Pro は1,500、Pro+ は7,000、Max は20,000クレジットが含まれます。</p>
+<p><strong>コード補完でもクレジットは減りますか？</strong>
+いいえ。コード補完と次の編集候補はクレジットで課金されず、有料プランでは無制限です。</p>
+<p><strong>クレジットを使い切ったらどうなりますか？</strong>
+差額だけを払ってその月のうちにアップグレードするか、予算を設定して同じトークン単価で追加購入するか、毎月1日00:00（UTC）のリセットを待ちます。</p>
+<p><strong>Copilot は Claude Code や Cursor より安いですか？</strong>
+入門プランでは安く、$10と$20です。エージェントを多く使う場合はモデルと使用量しだいです。Copilot は各モデルの API 定価で課金しますが、Claude のプランは API 価格に連動しない利用枠の方式です。</p>
+<h2>自分で計算してみる</h2>
+<p><a href="/ja/agents">コーディングエージェント費用計算機</a>では、作業の大きさと1日のタスク数から、Claude Opus 5.5、Sonnet 5.5、GPT-6 系のモデルでの月の費用を見積もれます。Copilot の$15・$70・$200分のクレジットと比べてみてください。プロンプト1つの費用は<a href="/ja/">トークン計算機</a>、サブスクと API のどちらが得かは<a href="/ja/plans">AI サブスク vs API 計算機</a>で確認できます。</p>
+<p><em>プランの内容とモデルの価格は、2026年10月11日に GitHub のプランページとドキュメントで確認しました。タスクの試算は2026年10月9日の Claude Code での実測（各1回）にもとづいています。</em></p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://github.com/features/copilot/plans" target="_blank" rel="noopener">GitHub: Copilot plans and pricing</a></li>
+<li><a href="https://docs.github.com/en/copilot/get-started/plans" target="_blank" rel="noopener">GitHub Docs: Plans for GitHub Copilot</a></li>
+<li><a href="https://docs.github.com/en/copilot/concepts/billing-and-usage/individuals/billing" target="_blank" rel="noopener">GitHub Docs: Usage-based billing for individuals</a></li>
+<li><a href="https://docs.github.com/ja/copilot/concepts/billing/usage-based-billing-for-individuals" target="_blank" rel="noopener">GitHub Docs（日本語）: 個人向けの使用量ベースの課金</a></li>
+<li><a href="https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing" target="_blank" rel="noopener">GitHub Docs: Models and pricing for GitHub Copilot</a></li>
+<li><a href="https://docs.github.com/en/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing" target="_blank" rel="noopener">GitHub Docs: Usage-based billing for organizations and enterprises</a></li>
+<li><a href="https://docs.github.com/en/copilot/reference/copilot-billing/request-based-billing-legacy/copilot-requests" target="_blank" rel="noopener">GitHub Docs: Requests in GitHub Copilot (legacy)</a></li>
+<li><a href="https://github.blog/changelog/2024-08-01-japanese-consumption-tax-jct-on-your-github-account/" target="_blank" rel="noopener">GitHub Changelog: Japanese Consumption Tax (JCT) on your GitHub account</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Anthropic: Pricing</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI: API pricing</a></li>
+</ul>
+<!-- autoimg -->

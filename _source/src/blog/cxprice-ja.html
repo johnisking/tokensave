@@ -1,0 +1,503 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="Codex の料金は？無料・Plus・Pro・API をまとめて解説" src="/codex-ryoukin-ja.jpg" /></p>
+<p>OpenAI のコーディングエージェント「Codex」の料金は、調べるほど分かりにくく感じるかもしれません。プランの名前は ChatGPT と同じなのに、使えるモデルや上限はプランごとに違い、2026年に入ってからは料金の仕組みそのものが何度も変わりました。この記事では、Codex とは何かから、各プランで使える範囲、クレジットと API の料金、そして ChatGPT の無料プランで実際に小さなゲームを2回作ってみた結果までを順番に整理します。</p>
+<h2>Codex とは</h2>
+<p>Codex は、OpenAI が提供する AI コーディングエージェントです。指示を出すと、ファイルを読み、コードを書き、コマンドを実行し、結果を見て直すところまで自分で進めます。ChatGPT のデスクトップアプリ、Web、CLI（ターミナル）、IDE 拡張機能、iOS など、いくつかの入口から使えます。</p>
+<p>料金の面で最初に押さえておきたいのは、<strong>Codex は単体で契約するサービスではない</strong>という点です。OpenAI の料金ページでは、ChatGPT Work と Codex は Free・Go・Plus・Pro・Business・Edu・Enterprise の各プランに含まれると説明されています。「Codex Pro」のような Codex だけのサブスクリプションはありません。ChatGPT のプランを契約すれば、そのプランの範囲で Codex が使える、という仕組みです。</p>
+<p>もうひとつの使い方が <strong>API キー</strong>です。Codex CLI、SDK、IDE 拡張機能には API キーでサインインでき、その場合は使ったトークンの分だけ API 料金を払います。</p>
+<h2>Codex の料金一覧（2026年10月）</h2>
+<p><img loading="lazy" width="1200" height="979" alt="Codex の料金一覧（2026年10月）: プラン, 月額（米国価格）, Codex で使えるモデル, 5時間枠, クラウドタスク" src="/codex-ryoukin-codex-202610-ja.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>プラン</th>
+<th style="text-align: right;">月額（米国価格）</th>
+<th>Codex で使えるモデル</th>
+<th>5時間枠</th>
+<th style="text-align: center;">クラウドタスク</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Free</td>
+<td style="text-align: right;">$0</td>
+<td>GPT-6 Luna（デスクトップアプリ）</td>
+<td>確認できず（月単位のメーター1本）</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Go</td>
+<td style="text-align: right;">$8</td>
+<td>GPT-6 Luna（デスクトップアプリ）</td>
+<td>非公開</td>
+<td style="text-align: center;">–</td>
+</tr>
+<tr>
+<td>Plus</td>
+<td style="text-align: right;">$20</td>
+<td>GPT-6 Astra、6.1 Sol、6 Sol、Luna</td>
+<td>あり</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Pro 100 / 200 / 500</td>
+<td style="text-align: right;">$100 / $200 / $500</td>
+<td>Plus と同じ（Pro 500 は Ultrafast あり）</td>
+<td>なし</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Business</td>
+<td style="text-align: right;">1ユーザー $20（年払い）、$25（月払い）</td>
+<td>Plus と同じ</td>
+<td>あり（Plus と同程度）</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Enterprise・Edu</td>
+<td style="text-align: right;">要問い合わせ</td>
+<td>Plus と同じ</td>
+<td>契約による</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>API キー</td>
+<td style="text-align: right;">トークン単位の従量課金</td>
+<td>API のモデル</td>
+<td>なし（使った分だけ）</td>
+<td style="text-align: center;">–</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>料金は米ドルで案内されています。</strong> OpenAI のヘルプセンターでは、Plus の$20のように価格が米ドルで記載されています。日本から契約する場合は、決済画面に円の金額が表示されることがあるので、実際の支払額は契約時の決済画面で確認してください。</li>
+<li><strong>クラウドタスクは Plus から。</strong> OpenAI のサーバー上でタスクを走らせ、GitHub と連携してコードレビューもできる Codex Cloud は、対象の Plus、すべての Pro、Business、Enterprise、Healthcare、Education で使えます。Free と Go はローカルでの利用のみです。</li>
+<li><strong>API キーではクラウド機能は使えません。</strong> CLI・SDK・IDE 拡張機能で使えますが、GitHub レビューや Slack などのクラウド連携は対象外です。</li>
+</ul>
+<h2>プランごとに Codex でできること</h2>
+<p><img loading="lazy" width="1200" height="1340" alt="プランごとに Codex でできること: Free（$0）： デスクトップアプリで GPT-6 Luna を標準速度で使えます（段階的に提供）。クラウドタスクと画像生成はありません（画像を API で作る場合の費用は画像コスト計算機で確認できます）。OpenAI" src="/codex-ryoukin-ja-3.jpg" /></p>
+<p>上限の大きさだけでなく、できることそのものがプランで変わります。OpenAI の料金ページとヘルプセンターをもとにまとめます。</p>
+<ul>
+<li><strong>Free（$0）：</strong> デスクトップアプリで GPT-6 Luna を標準速度で使えます（段階的に提供）。クラウドタスクと画像生成はありません（画像を API で作る場合の費用は<a href="/ja/image">画像コスト計算機</a>で確認できます）。OpenAI は Free の使用量の上限を公開しておらず、「プランによって異なる」とだけ説明しています。私たちの無料アカウントでは、Codex アプリに残りの使用量を示すメーターが1本だけあり、期間は1か月、リセット日は1か月後でした。5時間や週単位のメーターは表示されませんでした。クレジットの購入は、一部の Free ユーザーに限って試験的に開かれています。</li>
+<li><strong>Go（$8）：</strong> Codex については Free と同じ GPT-6 Luna の利用で、軽いコーディング向けと位置づけられています。ChatGPT 全体の利用量は増えますが、公開されている Codex の内容は Free と同じです。</li>
+<li><strong>Plus（$20）：</strong> Web、CLI、IDE 拡張機能、iOS で Codex を使え、クラウド連携も付きます。難しい問題向けの GPT-6 Astra から、手早い編集向けの GPT-6 Luna まで GPT-6 の全ラインを、ローリング方式の5時間枠の範囲で使えます。上限に当たったときはクレジットを追加購入できます。</li>
+<li><strong>Pro（$100・$200・$500）：</strong> Plus のすべてに加えて使用枠が大きく、現時点では5時間枠がありません。使用枠は週単位です。Pro 500 では GPT-6 Astra と GPT-6.1 Sol の Ultrafast モードが使えます。</li>
+<li><strong>Business（1ユーザー $20 または $25）：</strong> Standard シートの Codex の上限は Plus とほぼ同じで、ワークスペースとして Codex のクレジットプランを購入できます。2ユーザー以上が必要です。</li>
+<li><strong>Enterprise・Edu：</strong> 契約による価格です。フレキシブル料金なら固定のレート制限はなくクレジットで課金され、そうでなければシートごとの上限は Plus とほぼ同じです。</li>
+</ul>
+<p>どのプランでも、Codex は ChatGPT Work、ChatGPT for Excel、Workspace Agents と<strong>同じ使用枠を共有</strong>します。Codex で長い作業をすると、ほかのエージェント機能に使える分が減り、その逆も同じです。</p>
+<h2>モデル別の使用量の目安</h2>
+<p><img loading="lazy" width="1200" height="621" alt="モデル別の使用量の目安: モデル, 5時間あたりのローカルメッセージ数（Plus・Business Standard）" src="/codex-ryoukin-ja-4.jpg" /></p>
+<p>OpenAI は Plus と Business（Standard）について、5時間枠あたりのローカルメッセージ数の目安を公開しています。固定の上限ではなく、幅のある目安です。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>モデル</th>
+<th style="text-align: right;">5時間あたりのローカルメッセージ数（Plus・Business Standard）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">5〜45</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">15〜160</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td style="text-align: right;">15〜150</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">350〜3,000</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>いちばん効くのはモデル選びです。</strong> 範囲の下限どうしで比べると、GPT-6 Luna のメッセージ数は GPT-6 Astra の7,000%（350対5）です。簡単な編集は Luna、難しいバグだけ Astra と使い分けるほうが、プランを上げるよりずっと枠が長持ちします。</li>
+<li><strong>幅が広いのはタスクの大きさがまちまちだからです。</strong> 数ファイルを読むだけのメッセージと、リポジトリの半分を読んで計画し、書いてテストまで回すメッセージでは消費がまったく違います。クラウドタスクはローカルより多く消費することがあります。</li>
+<li>5時間枠に加えて、<strong>週の上限</strong>がかかる場合もあります。</li>
+<li><strong>Pro には現在5時間枠がありません。</strong> 週の使用枠に達するまで、ひとつの長いセッションで作業を続けられます。</li>
+<li><strong>高速モードは消費が速くなります。</strong> プランに含まれる使用量では、Fast モードは標準の250%、Ultrafast は800%のペースで枠を消費します。</li>
+<li>画像生成も枠を速く使います。OpenAI によると、品質やサイズによって平均で通常の約300%〜500%です。</li>
+</ul>
+<p>5時間枠と週の上限、リセットの詳しい仕組みは <a href="/ja/blog/codex-shiyouryou-jougen">Codex の使用量上限まとめ</a>で解説しています。</p>
+<h2>Codex のクレジットの仕組み</h2>
+<p>クレジットは、プランに含まれる使用量を使い切ったあとも作業を続けるためのものです。まずプランの使用量が消費され、それがなくなるとクレジット残高から引かれます。</p>
+<p>OpenAI のレートカードでは、標準速度でのモデル別のクレジット消費が100万トークンあたりで示されています。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>モデル</th>
+<th style="text-align: right;">入力</th>
+<th style="text-align: right;">キャッシュ入力</th>
+<th style="text-align: right;">出力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">1,250</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">250</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">250</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">12.5</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">500</td>
+</tr>
+<tr>
+<td>GPT-5.6 Luna</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">30</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>購入できる人：</strong> Plus と Pro は、Codex の上限に当たったときに表示される案内から、または ChatGPT の Settings &gt; Usage、Codex アプリの Usage &amp; Billing から購入できます。フレキシブル料金の Business・Edu・Enterprise はワークスペース単位で購入します。Free と Go はテストグループに限られます。</li>
+<li><strong>有効期限は12か月</strong>で、それを過ぎた分は繰り越されません。</li>
+<li><strong>キャッシュ書き込みは課金されません。</strong> 対象は入力、キャッシュ入力、出力の3つだけです。</li>
+<li><strong>Fast と Ultrafast は割高です。</strong> クレジット払いでは、Fast は標準の200%、Ultrafast は600%で計算されます。</li>
+<li><strong>一般的なタスクは数クレジットです。</strong> OpenAI によると、GPT-5.6 Sol の典型的なタスクで2〜15クレジットほどです。</li>
+</ul>
+<h3>1クレジットはいくら？</h3>
+<p>個人向けプランのクレジットについて、OpenAI は固定のドル価格を公開していません。ヘルプセンターでは、購入できる量と価格はアカウント、地域、プランによって異なり、購入画面に表示されると説明されています。日本から買う場合も、購入画面の表示が正式な価格です。</p>
+<p>ただ、クレジットのレートと API 価格を並べると、はっきりした関係が見えます。確認した3モデルでは、どれも API 定価1ドルあたりちょうど25クレジットでした。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>モデル</th>
+<th>API 価格（100万トークンあたり 入力 / 出力）</th>
+<th>クレジット（100万トークンあたり 入力 / 出力）</th>
+<th style="text-align: right;">API 価格1ドルあたりのクレジット</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Luna</td>
+<td>$0.10 / $0.50</td>
+<td>2.5 / 12.5</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td>$2 / $10</td>
+<td>50 / 250</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td>$10 / $50</td>
+<td>250 / 1,250</td>
+<td style="text-align: right;">25</td>
+</tr>
+</tbody>
+</table></div>
+<p>私たちの解釈では、1クレジットは API 利用で約$0.04分に相当するよう設計されています。購入画面でクレジットがこの水準の価格なら、クレジットを買っても API キーで使っても費用はほぼ同じです。これは私たちの計算で、OpenAI が示した価格ではないため、購入前に実際の金額を確認してください。</p>
+<h2>Codex の API 料金</h2>
+<p>トークン単位で払いたい場合は、Codex CLI や IDE 拡張機能に API キーでサインインします。その場合は通常の API 料金がかかり、プランの上限はありません。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>モデル</th>
+<th style="text-align: right;">入力（100万トークン）</th>
+<th style="text-align: right;">キャッシュ入力（100万トークン）</th>
+<th style="text-align: right;">出力（100万トークン）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$0.01</td>
+<td style="text-align: right;">$0.50</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">$2</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$10</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">$1</td>
+<td style="text-align: right;">$50</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>クラウド機能は使えません。</strong> API キーで使えるのは CLI・SDK・IDE 拡張機能だけです。</li>
+<li><strong>プランと併用できます。</strong> API キーを設定しておけば、プランの上限に達したあともローカルのチャットを API 料金で続けられます。</li>
+<li><strong>コーディングエージェントは書くより読むほうがはるかに多い</strong>のが特徴です。ステップのたびに指示、ツール定義、ファイル、それまでの経緯をモデルに送り直すため、請求の大半は入力トークンになりがちです。これらのモデルではキャッシュ入力が通常の入力より90%〜95%安いので、長いセッションでも1ステップあたりの費用は思ったほど膨らみません。</li>
+</ul>
+<p>1か月の API 利用とプランを比べたいときは、<a href="/ja/agents">コーディングエージェント費用計算機</a>にタスクの大きさと1日のタスク数を入れてみてください。</p>
+<h2>ChatGPT の無料プランで Codex を試してみた</h2>
+<p>公開されている上限だけでは分からないこともあるので、2026年10月11日に小さなテストをしました。</p>
+<p><img loading="lazy" width="1600" height="840" alt="無料プランの Codex で作った2つのゲーム：medium と extra high を並べた画面" src="/codex-ryoukin-test-ja.jpg" /></p>
+<ul>
+<li><strong>プラン：</strong> ChatGPT Free</li>
+<li><strong>モデル：</strong> GPT-6 Luna（無料プランの Codex で使えるモデル）</li>
+<li><strong>プロンプト：</strong> <a href="/ja/blog/claude-opus-5-5-effort">Claude Opus 5.5 の effort テスト</a>と同じブロック崩しのプロンプト。index.html ひとつで動くブラウザゲームで、2ステージ、スコア表示、ライフ3つ、キーボードとマウスの両方で操作できるもの</li>
+<li><strong>実行：</strong> 推論レベル medium と extra high で1回ずつ。それぞれ別のファイルを作成</li>
+</ul>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th></th>
+<th>Medium</th>
+<th>Extra high</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>完成までの時間</td>
+<td>39秒</td>
+<td>39秒</td>
+</tr>
+<tr>
+<td>ゲームのコード</td>
+<td>398行</td>
+<td>273行</td>
+</tr>
+<tr>
+<td>Codex が付けたタイトル</td>
+<td>Brick Breaker</td>
+<td>Neon Breakout</td>
+</tr>
+<tr>
+<td>ステージ</td>
+<td>2（5×10ブロック、次に7×12）</td>
+<td>2（5×10、次に形のある6×11）</td>
+</tr>
+<tr>
+<td>演出</td>
+<td>なし</td>
+<td>ブロックが壊れるときのパーティクル、ネオン風の光</td>
+</tr>
+<tr>
+<td>トークン（Codex 自身の推定）</td>
+<td>約4,000〜5,000</td>
+<td>約4,000台</td>
+</tr>
+<tr>
+<td>無料プランの消費</td>
+<td>2回合わせて月間メーターの1%</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>どちらのゲームもプロンプトの条件（2ステージ、スコア、ライフ3つ、キーボードとマウス操作）をすべて満たしていました。タイトル画面、一時停止、クリア画面とゲームオーバー画面も両方にありました。</p>
+<h3>遊んでみた感想</h3>
+<p>テストをした本人が両方のゲームを遊びました。感想は韓国語から翻訳したものです。</p>
+<ul>
+<li><strong>Medium：</strong>「なめらかな感じはするけど、ゲームの演出がないので、当たったときの手応えが少し弱い。」</li>
+<li><strong>Extra high：</strong>「パーティクルは派手じゃないけど、ないよりはいい。ほかの機能の違いはあまり分からなかった。」</li>
+</ul>
+<h3>数字から読み取れること（私たちの解釈）</h3>
+<ul>
+<li><strong>effort を上げて変わったのは時間ではなく仕上がりでした。</strong> どちらも39秒です。extra high は行数が31%少ない一方で、パーティクル、光るビジュアル、そして速いボールがブロックをすり抜けないよう1フレームを細かく分けて当たり判定をする処理を加えていました。最後の処理は遊んでいても目に見えないので、「ほかの違いは分からなかった」という感想とも合います。</li>
+<li><strong>トークン数は測定値ではなく Codex 自身の推定です。</strong> 尋ねると、Codex は正確な数は分からないとしたうえで、1回あたり約4,000〜5,000トークン、extra high は4,000台だと答えました。書いたコードの量に近いので、おそらく出力だけを数えた数字です。各ステップで送られる指示、推論、コンテキストは含まれていないと考えられます。</li>
+<li><strong>無料プランでも余裕がありました。</strong> 完成したゲーム2本で月間メーターの1%を使い、その後は次のリセットまで残り99%と表示されました。単純に割ると月200本ほど作れる計算ですが、測ったのは2回だけで、メーターは1%単位で丸められています。この程度の小さく完結したタスクは、OpenAI の言う「手早いコーディングタスク」に十分収まっています。実際のコードベースでの大きなタスクは、読むファイルもステップも増えるので、もっと消費すると考えてください。</li>
+<li><strong>API 価格なら、このタスクは Luna でとても安く済みます。</strong> Codex は全体のトークン数を出さなかったので、ここからは仮定です。同じプロンプトで Claude Sonnet 5.5 が使った総トークン数（115,073、ほぼすべて入力）と同じだけ使ったとすると、GPT-6 Luna の API 価格では、キャッシュなしでも1セント強になります。測定した費用ではなく、この仮定に基づく推定です。</li>
+</ul>
+<p>比較として、同じプロンプトを Claude Code で実行すると、Sonnet 5.5（medium）で37秒・$0.25、Opus 5.5（high）で1分50秒・$0.75でした（ccusage で測定）。詳しくは <a href="/ja/blog/claude-sonnet-5-5-vs-opus-5-5">Claude Sonnet 5.5 vs Opus 5.5</a> にまとめています。Claude 側は測定値、Codex 側のトークン数は自己申告なので、大まかな比較として見てください。</p>
+<h2>大きめのタスクではいくらかかるか</h2>
+<p>テストはあえて小さくしました。実際の作業はステップが多く、ステップのたびに膨らんだコンテキストが送り直されます。</p>
+<ul>
+<li><strong>よくある機能追加タスクはずっと大きくなります。</strong> <a href="/ja/blog/codex-shiyouryou-jougen">Codex の使用量上限まとめ</a>では、25ステップの機能追加タスクで入力トークンが約160万になると試算しました。API 価格では Sol クラスのモデルで約$0.72、GPT-6 Astra で約$3.60です。</li>
+<li><strong>同じタスクを Luna でこなせれば、費用はずっと下がります。</strong> GPT-6 Luna の入力価格は GPT-6.1 Sol より95%安い（100万トークンあたり$0.10対$2）からです。</li>
+<li><strong>effort を上げると推論トークンが増えます。</strong> 今回のテストでは extra high でも時間は変わりませんでしたが、難しいタスクでは差が大きくなるのが普通です。</li>
+</ul>
+<p>つまり、費用を左右するのはプランよりもモデル選びです。日常的な作業を Luna に任せる Plus ユーザーのほうが、何でも Astra に投げる Pro ユーザーより長く使える、ということも十分ありえます。</p>
+<h2>2026年の Codex 料金の変更</h2>
+<p>Codex の料金は今年何度も変わっており、古い解説記事どうしで内容が食い違うのはそのためです。OpenAI のリリースノートとヘルプセンターから、重要な変更をまとめます。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>日付</th>
+<th>変更内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026年4月2日</td>
+<td>Plus・Pro・Business・新規 Enterprise で、メッセージ単位の料金から API のトークン使用量に基づくクレジットへ移行</td>
+</tr>
+<tr>
+<td>2026年4月23日</td>
+<td>同じトークンベースのレートカードを、既存の Enterprise・Edu・Health・Gov・ChatGPT for Teachers にも適用</td>
+</tr>
+<tr>
+<td>2026年7月下旬</td>
+<td>GPT-5.6 Terra が20%、GPT-5.6 Luna が80%値下げ</td>
+</tr>
+<tr>
+<td>2026年9月29日</td>
+<td>Pro が Pro 100・Pro 200・Pro 500 に分割。新規の Pro 200 は以前より使用枠が小さく、Ultrafast は Pro 500 のみ</td>
+</tr>
+<tr>
+<td>2026年10月14日</td>
+<td>GPT-5.5 が全プランの ChatGPT・ChatGPT Work・Codex から提供終了（API には影響なし）</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>4月より前に書かれた記事は、トークンではなくメッセージ数で説明しています。</strong> モデルを指定せずに「プランごとに何メッセージ」と書いているページは、おそらく情報が古いものです。「無料プランでは Codex は使えない」という説明も、現在の公式ページの内容とは異なります。</li>
+<li><strong>Codex でまだ GPT-5.5 を使っているなら、10月14日までに切り替えましょう。</strong> クレジットのレートカードでは、GPT-5.5 は入力100万トークンあたり125クレジット、GPT-6.1 Sol は50クレジットです。</li>
+</ul>
+<h2>どのプランを選ぶか</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>こんな人</th>
+<th>おすすめ</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小さなタスクで Codex を試したい</td>
+<td>Free</td>
+<td>デスクトップアプリで GPT-6 Luna を無料で使える</td>
+</tr>
+<tr>
+<td>週に何度かコードを書き、クラウドタスクも使いたい</td>
+<td>Plus（$20）</td>
+<td>GPT-6 の全ライン、クラウドタスク、GitHub レビュー</td>
+</tr>
+<tr>
+<td>週に何度も5時間枠に当たる</td>
+<td>Pro 100</td>
+<td>5時間枠がなく、週の使用枠が大きい</td>
+</tr>
+<tr>
+<td>一日の大半を Codex で作業する</td>
+<td>Pro 200 または Pro 500</td>
+<td>さらに大きな週の枠、Pro 500 は Ultrafast も</td>
+</tr>
+<tr>
+<td>たまに自分のツールから使う</td>
+<td>API キー</td>
+<td>使った分だけ。クラウド機能はなし</td>
+</tr>
+<tr>
+<td>チームで使う</td>
+<td>Business</td>
+<td>シートごとに Plus 程度の上限、ワークスペースのクレジット</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>迷ったらまず無料プランで。</strong> 費用はかからず、上のテストのとおり小さなプロジェクトなら完成させられます。</li>
+<li><strong>Go は Codex のアップグレードにはなりません。</strong> $8で ChatGPT 全体の利用量は増えますが、公開されている Codex の内容は Free と同じ GPT-6 Luna です。</li>
+<li><strong>使い方が変わるのは Plus からです。</strong> 強いモデル、クラウドタスク、コードレビューが加わります。</li>
+<li><strong>Pro は「モデル」ではなく「時間」のために。</strong> モデルは Plus と同じで、Pro で得られるのは5時間枠の待ち時間がなくなることです。</li>
+</ul>
+<p>ChatGPT と Claude の上位プランの違いは <a href="/ja/blog/chatgpt-pro-vs-claude-max">ChatGPT Pro vs Claude Max</a> で比較しています。</p>
+<h2>Codex・Claude Code・Copilot の入口価格</h2>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>ツール</th>
+<th>無料で使えるか</th>
+<th>最初の有料プラン</th>
+<th>その次</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Codex（ChatGPT）</td>
+<td>使える（GPT-6 Luna）</td>
+<td>Plus $20</td>
+<td>Pro 100 $100</td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td>使えない（Claude の Free には含まれない）</td>
+<td>Claude Pro $20</td>
+<td>Max 5x $100</td>
+</tr>
+<tr>
+<td>GitHub Copilot</td>
+<td>使える（補完2,000回と限られたチャット）</td>
+<td>Pro $10</td>
+<td>Pro+ $39</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>エージェントとして使える無料枠がいちばん実用的なのは Codex です。</strong> Claude の無料プランには Claude Code が含まれず、Copilot Free は主に補完と少しのチャットです。</li>
+<li><strong>$20では Codex と Claude Code は同じ価格</strong>で、どちらもドル残高ではなく、時間でリセットされる使用枠の方式です。Claude Code の料金は <a href="/ja/blog/claude-code-ryoukin">Claude Code の料金は月いくら？</a>で詳しく解説しています。</li>
+<li><strong>有料の入口がいちばん安いのは Copilot の$10</strong>ですが、クレジットは API 価格に連動しています。</li>
+</ul>
+<p>作業量ごとの月額比較は <a href="/blog/claude-code-vs-codex-vs-cursor-cost">Claude Code vs Codex vs Cursor: cost</a>（英語）、ChatGPT・Claude・Gemini の円での比較は<a href="/ja/blog/ai-subscription-ryoukin-hikaku">生成AIのサブスク料金比較</a>をご覧ください。</p>
+<h2>Codex の使用量を長持ちさせるコツ</h2>
+<ol>
+<li><strong>タスクに合ったモデルを選ぶ。</strong> 小さな編集、説明、定型コードは GPT-6 Luna、普通の機能開発は GPT-6.1 Sol、ほかで行き詰まったときだけ GPT-6 Astra にしましょう。</li>
+<li><strong>タスクは小さく具体的に。</strong> 「プロジェクトを見て改善して」より、ひとつのファイルについての明確な依頼のほうが、読む量が減るぶん安く済みます。</li>
+<li><strong>必要なとき以外は Fast モードを使わない。</strong> プランの使用量を標準の250%のペースで消費します。</li>
+<li><strong>残りの使用量を確認する。</strong> Codex CLI では /status で現在のセッションのトークン使用量、/usage で日・週・全期間のトークン利用状況が分かり、使えるリセットがあれば適用もできます。ChatGPT デスクトップアプリでは Settings &gt; Usage でリセット時刻を確認できます。長い作業の前にチェックしましょう。</li>
+<li><strong>リセットとクレジットを計画的に使う。</strong> 上限に当たったときは、クレジット追加、リセットの適用、アップグレード、待つ、という選択肢があります。たまにしか当たらないなら、上位プランよりクレジットか待つほうが安上がりです。</li>
+</ol>
+<h2>まとめ</h2>
+<ul>
+<li><strong>Codex はすべての ChatGPT プランに含まれています。</strong> Free も含め、別料金はかかりません。</li>
+<li><strong>料金は米ドルで案内されています。</strong> 日本から契約すると決済画面に円の金額が表示されることがあるので、支払額は決済画面で確認してください。</li>
+<li><strong>無料プランでも、小さな実作業なら十分試せます。</strong> 私たちのテストでは、2ステージのゲームを39秒で2回完成させ、消費は月の使用量の1%でした。</li>
+<li><strong>毎日の道具になるのは Plus（$20）から</strong>で、GPT-6 の全ライン、クラウドタスク、GitHub のコードレビューが使えます。</li>
+<li><strong>Pro は5時間枠の待ち時間をなくすためのプラン</strong>で、モデルが良くなるわけではありません。</li>
+<li><strong>費用を最も動かすのはプランよりモデル選びです。</strong> GPT-6 Luna のメッセージ数の目安は、下限で GPT-6 Astra の7,000%あり、API 価格は Astra のごく一部です。</li>
+</ul>
+<h2>よくある質問</h2>
+<p><strong>Codex は無料で使えますか？</strong>
+制限付きで使えます。ChatGPT の Free プランに Codex が含まれており、デスクトップアプリで GPT-6 Luna を標準速度で使えます。無料プランの上限は公開されていません。私たちのアカウントでは、5時間や週ではなく月単位のメーターが1本表示されていました。クラウドタスクには Plus 以上が必要です。</p>
+<p><strong>Codex の料金はいくらですか？</strong>
+Codex 単体の料金はありません。ChatGPT のプランに含まれ、Free $0、Go $8、Plus $20、Pro $100・$200・$500、Business は年払いで1ユーザー$20です。API キーを使って通常の API 料金で使うこともできます。</p>
+<p><strong>ChatGPT Plus に Codex は含まれますか？</strong>
+含まれます。Plus では Web、CLI、IDE 拡張機能、iOS で Codex が使え、クラウドタスクと GPT-6 の各モデルもローリング方式の5時間枠の範囲で利用できます。</p>
+<p><strong>日本円ではいくらになりますか？</strong>
+OpenAI のヘルプセンターでは、Plus の$20のように価格が米ドルで記載されています。日本から契約する場合は決済画面に円の金額が表示されることがあるので、実際に請求される金額は契約時の決済画面で確認してください。クレジットの価格も、地域やプランによって異なり、購入画面に表示されます。</p>
+<p><strong>Codex の1クレジットはいくらですか？</strong>
+個人向けプランでは固定価格が公開されておらず、購入画面に表示されます。クレジットのレートは API 定価1ドルあたり25クレジットにそろっているため、API 換算で1クレジット約$0.04になります（私たちの計算です）。</p>
+<p><strong>Codex の上限に当たったらどうなりますか？</strong>
+進行中のターンは最後まで終えられます。そのあとはプランに応じて、クレジットの追加、使えるリセットの適用、アップグレード、または5時間枠や週の枠のリセットを待つことになります。</p>
+<h2>自分で計算してみる</h2>
+<p><a href="/ja/agents">コーディングエージェント費用計算機</a>では、タスクの大きさと1日のタスク数から、GPT-6、Claude Opus 5.5、Sonnet 5.5 での1か月のエージェント作業の費用を見積もり、API 費用と各プランを比べられます。プロンプト1件のトークン数と各モデルでの費用は<a href="/ja/">トークンカウンター</a>で正確に分かります。サブスクと API のどちらが得かは <a href="/ja/plans">AI サブスク vs API 計算機</a>で比較できます。</p>
+<p><em>プランの内容とクレジットのレートは、2026年10月11日に OpenAI の料金ページとヘルプセンターで確認しました。無料プランのテストは2026年10月11日に各 effort で1回ずつ行ったもので、トークン数は Codex 自身の推定です。</em></p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://learn.chatgpt.com/docs/pricing" target="_blank" rel="noopener">OpenAI: Pricing（ChatGPT Learn）</a></li>
+<li><a href="https://help.openai.com/en/articles/20001106-codex-rate-card-2" target="_blank" rel="noopener">OpenAI ヘルプ: Codex rate card</a></li>
+<li><a href="https://learn.chatgpt.com/docs/whats-new" target="_blank" rel="noopener">OpenAI: What's new in ChatGPT</a></li>
+<li><a href="https://learn.chatgpt.com/docs/cli/slash-commands/" target="_blank" rel="noopener">OpenAI: Codex CLI のスラッシュコマンド</a></li>
+<li><a href="https://help.openai.com/en/articles/9793128" target="_blank" rel="noopener">OpenAI ヘルプ: ChatGPT Pro の各プラン</a></li>
+<li><a href="https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan" target="_blank" rel="noopener">OpenAI ヘルプ: ChatGPT のプランで Codex を使う</a></li>
+<li><a href="https://help.openai.com/en/articles/12642688-using-credits-for-flexible-usage-in-chatgpt-freegopluspro-sora" target="_blank" rel="noopener">OpenAI ヘルプ: ChatGPT のクレジットによる柔軟な利用</a></li>
+<li><a href="https://help.openai.com/en/articles/11481834-chatgpt-rate-card-business-enterpriseedu" target="_blank" rel="noopener">OpenAI ヘルプ: ChatGPT rate card（Business、Enterprise/Edu）</a></li>
+<li><a href="https://help.openai.com/ja-jp/articles/6950777" target="_blank" rel="noopener">OpenAI ヘルプ: ChatGPT Plus とは（日本語）</a></li>
+<li><a href="https://chatgpt.com/pricing" target="_blank" rel="noopener">OpenAI: ChatGPT の料金</a></li>
+<li><a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener">OpenAI: API の料金</a></li>
+</ul>
+<!-- autoimg -->

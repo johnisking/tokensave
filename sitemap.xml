@@ -15567,6 +15567,7 @@
     <lastmod>2026-10-11</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/cursor-pricing"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/cursor-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/cursor-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/cursor-pricing"/>
     <image:image>
       <image:loc>https://tokensave.app/cursor-pricing-en.jpg</image:loc>
@@ -15592,6 +15593,7 @@
     <lastmod>2026-10-11</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/cursor-pricing"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/cursor-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/cursor-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/cursor-pricing"/>
     <image:image>
       <image:loc>https://tokensave.app/cursor-pricing-ko.jpg</image:loc>
@@ -15610,6 +15612,26 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/cursor-pricing-ko-3.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/blog/cursor-ryoukin</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/cursor-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/cursor-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/cursor-ryoukin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/cursor-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-ryoukin-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-ryoukin-cursor-2026-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-ryoukin-ja-6.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/cursor-ryoukin-ja-5.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -15655,6 +15677,7 @@
     <loc>https://tokensave.app/blog/github-copilot-pricing</loc>
     <lastmod>2026-10-11</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/github-copilot-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/github-copilot-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/github-copilot-pricing"/>
     <image:image>
       <image:loc>https://tokensave.app/github-copilot-pricing-en.jpg</image:loc>
@@ -15670,9 +15693,30 @@
     </image:image>
   </url>
   <url>
+    <loc>https://tokensave.app/ja/blog/github-copilot-ryoukin</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/github-copilot-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/github-copilot-ryoukin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/github-copilot-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/github-copilot-ryoukin-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/github-copilot-ryoukin-github-copilot-2026-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/github-copilot-ryoukin-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/github-copilot-ryoukin-ja-4.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://tokensave.app/blog/codex-pricing</loc>
     <lastmod>2026-10-11</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/codex-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/codex-ryoukin"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/codex-yogeum"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/codex-pricing"/>
     <image:image>
       <image:loc>https://tokensave.app/codex-pricing-en.jpg</image:loc>
@@ -15688,6 +15732,52 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/codex-pricing-which-codex-plan-should-you-pick-en.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/blog/codex-ryoukin</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/codex-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/codex-ryoukin"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/codex-yogeum"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/codex-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-ryoukin-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-ryoukin-codex-202610-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-ryoukin-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-ryoukin-ja-4.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-ryoukin-test-ja.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/blog/codex-yogeum</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/codex-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/codex-ryoukin"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/codex-yogeum"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/codex-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-yogeum-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-yogeum-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-yogeum-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-yogeum-ko-4.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/codex-yogeum-test-ko.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -15724,6 +15814,8 @@
     <loc>https://tokensave.app/blog/claude-pro-price</loc>
     <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-pro-price"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-ryoukin-plan"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-yogeumje"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-pro-price"/>
     <image:image>
       <image:loc>https://tokensave.app/claude-pro-price-en.jpg</image:loc>
@@ -15736,6 +15828,46 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/claude-pro-price-claude-pro-vs-max-when-to-upgrade-en.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/blog/claude-ryoukin-plan</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-pro-price"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-ryoukin-plan"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-yogeumje"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-pro-price"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-ryoukin-plan-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-ryoukin-plan-claude-202610-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-ryoukin-plan-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-ryoukin-plan-ja-4.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/blog/claude-yogeumje</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-pro-price"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-ryoukin-plan"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-yogeumje"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-pro-price"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-yogeumje-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-yogeumje-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-yogeumje-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-yogeumje-ko-4.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -16960,11 +17092,11 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-12</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/</loc>

@@ -812,3 +812,27 @@ CPRO = [
      "Jonhisking · October 12, 2026", "Enter how you use AI to see whether a subscription or the API is cheaper for you.", "Compare plans vs API"),
 ]
 for _d in CPRO: _d["date"] = "2026-10-12"
+
+# 2026-10-12 ja/ko localized pricing posts
+CXPRICE.append(_cc("ja", "/ja/blog/codex-ryoukin", "cxprice-ja", "Codex の料金は？無料・Plus・Pro・API をまとめて解説",
+     "Codex は ChatGPT の全プランに含まれ、無料プランでも使えます。Free・Go・Plus・Pro の違い、クレジットと API の料金、無料プランで実際にゲームを作ったテスト結果まで、2026年10月の公式情報で解説します。",
+     "Jonhisking · 2026年10月12日", "作業の大きさと1日の作業数を入れて、Codex や Claude Code の1か月の API 費用をプランと比べてみましょう。", "コーディングエージェント費用計算機を開く"))
+CXPRICE.append(_cc("ko", "/ko/blog/codex-yogeum", "cxprice-ko", "코덱스 요금 2026: 무료로 직접 써 본 결과와 가격",
+     "오픈AI 코덱스 요금 정리: 무료부터 Plus 29,000원, Pro까지 요금제별 차이와 크레딧·API 가격, 챗GPT 무료로 직접 게임을 만들어 본 사용량 결과까지.",
+     "Jonhisking · 2026년 10월 12일", "작업 크기와 하루 작업 수를 넣고 코덱스·클로드 코드의 한 달 API 비용을 요금제와 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"))
+CPRO.append(_cc("ja", "/ja/blog/claude-ryoukin-plan", "cplan-ja", "Claude の料金プラン比較｜Free・Pro・Max と日本での価格",
+     "Claude の料金プランを Free・Pro・Max 5x・Max 20x・Team・Enterprise まで比較。日本での消費税10%の扱い、使用量の上限の仕組み、API 料金の基本、Pro と Max の選び方を2026年10月の公式情報で解説します。",
+     "Jonhisking · 2026年10月12日", "使い方を入れると、サブスクと API のどちらが安いかがわかります。", "サブスクと API を比べる"))
+CPRO.append(_cc("ko", "/ko/blog/claude-yogeumje", "cplan-ko", "클로드 요금제 총정리 2026: 무료·프로·Max 가격과 할인",
+     "클로드 요금제 2026 총정리: 무료·Pro·Max 가격과 무료 체험·할인·환불까지 Anthropic 공식 기준으로 정리하고 세 요금제를 다 써 본 경험을 담았습니다.",
+     "Jonhisking · 2026년 10월 12일", "사용 방식을 넣으면 구독과 API 중 어느 쪽이 더 싼지 알 수 있습니다.", "구독 vs API 비교하기"))
+CURSOR.append(_cc("ja", "/ja/blog/cursor-ryoukin", "cursor-ja", "Cursor の料金プラン2026｜無料版を試した月額の目安",
+     "Cursor の料金を2026年10月の公式情報で解説。Hobby 無料・Pro $20・Pro+ $60・Ultra $200の違い、使用量プールの仕組み、無料プランの実機テスト結果、モデル別の月額試算まで。",
+     "Jonhisking · 2026年10月12日", "作業の大きさと1日の作業数を入れて、Opus 5.5・Sonnet 5.5・GPT-6 の1か月の費用を比べてみましょう。", "コーディングエージェント費用計算機を開く"))
+COPILOT.append(_cc("ja", "/ja/blog/github-copilot-ryoukin", "copilot-ja", "GitHub Copilot の料金｜Free・Pro・Pro+・Max の違い",
+     "GitHub Copilot の料金を解説。Free・Pro $10・Pro+ $39・Max $100の違い、2026年6月開始のAIクレジット、消費税込みの支払額、実測にもとづく各プランのタスク回数の試算まで。",
+     "Jonhisking · 2026年10月12日", "作業の大きさと1日の作業数を入れて、1か月のエージェント作業の費用を Copilot のクレジットと比べてみましょう。", "コーディングエージェント費用計算機を開く"))
+for _g in (CXPRICE, CPRO, CURSOR, COPILOT):
+    for _d in _g:
+        if _d["src"] in ("cxprice-ja", "cxprice-ko", "cplan-ja", "cplan-ko", "cursor-ja", "copilot-ja"):
+            _d["date"] = "2026-10-12"
