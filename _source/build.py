@@ -321,7 +321,6 @@ SHORT_TITLES = {
     "/blog/write-shorter-prompts": "Write Shorter Prompts Without Losing Quality (Measured)",
     "/blog/rag-vs-long-context-cost": "RAG vs Long Context: Cost of Asking About Big Documents",
     "/blog/how-many-tokens-does-code-use": "How Many Tokens Does Code Use? Indentation & Comments",
-    "/blog/chatgpt-usage-limits": "ChatGPT Usage Limits in 2026: Caps and Reset Times",
     "/uk/blog/tokeny-ukrainska-gpt": "Українська в GPT: скільки токенів порівняно з англійською",
     "/compare/performance": "AI Model Comparison Chart 2026: Capability vs Price",
     "/fr/blog/mistral-chatgpt-cout-prompt-francais": "Mistral ou ChatGPT : le coût d'un prompt en français",
