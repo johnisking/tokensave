@@ -791,3 +791,24 @@ CXPRICE = [
      "Jonhisking · October 11, 2026", "Enter task size and tasks per day to estimate a month of Codex or Claude Code work at API prices and compare it with each plan.", "Open the coding agent cost calculator"),
 ]
 for _d in CXPRICE: _d["date"] = "2026-10-11"
+
+DSPRICE = [
+ _cc("en", "/blog/deepseek-api-pricing", "dsprice-en", "DeepSeek API Pricing 2026: Official Rates, Peak Hours, API Key",
+     "DeepSeek API pricing in 2026 from the official docs: V4.1 Flash and V4 Pro rates, peak and off-peak hours, how to get an API key, and real workload costs.",
+     "Jonhisking · October 12, 2026", "Paste a prompt to see its token count and cost on DeepSeek, GPT, Claude and Gemini models.", "Open the token counter"),
+]
+for _d in DSPRICE: _d["date"] = "2026-10-12"
+
+GROKPRICE = [
+ _cc("en", "/blog/grok-api-pricing", "grokprice-en", "Grok API Pricing 2026: Grok 4.7, 4.3, Tools and Imagine Costs",
+     "Grok API pricing in 2026: Grok 4.7, 4.5, 4.3 and grok-build per-token rates, the 200K long-context tier, tool and Imagine prices, and real workload costs.",
+     "Jonhisking · October 12, 2026", "Paste a prompt to see its token count and cost on Grok, GPT, Claude and Gemini models.", "Open the token counter"),
+]
+for _d in GROKPRICE: _d["date"] = "2026-10-12"
+
+CPRO = [
+ _cc("en", "/blog/claude-pro-price", "cpro-en", "Claude Pro Price 2026: What $20 Gets You, Limits, Free Trial",
+     "How much is Claude Pro in 2026? $20 a month or $17 billed annually. What it includes, how the usage limits work, whether there is a free trial, and Pro vs Max.",
+     "Jonhisking · October 12, 2026", "Enter how you use AI to see whether a subscription or the API is cheaper for you.", "Compare plans vs API"),
+]
+for _d in CPRO: _d["date"] = "2026-10-12"

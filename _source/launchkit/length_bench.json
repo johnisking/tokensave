@@ -89,5 +89,40 @@
    "respan.ai": 3250,
    "datacamp.com": 3750
   }
+ },
+ "dsprice-en": {
+  "keyword": "deepseek api pricing",
+  "checked": "2026-10-12",
+  "median": 3225,
+  "samples": {
+   "morphllm.com": 4250,
+   "tech-insider.org": 6000,
+   "nxcode.io": 2200,
+   "thepricer.org": 2000
+  }
+ },
+ "grokprice-en": {
+  "keyword": "grok api pricing",
+  "checked": "2026-10-12",
+  "median": 2750,
+  "samples": {
+   "developer.puter.com": 2800,
+   "cloudzero.com": 2750,
+   "morphllm.com": 2650,
+   "eesel.ai": 2450,
+   "cometapi.com": 2750
+  }
+ },
+ "cpro-en": {
+  "keyword": "claude pro price",
+  "checked": "2026-10-12",
+  "median": 2000,
+  "samples": {
+   "getmonetizely.com": 2400,
+   "eesel.ai": 2000,
+   "nocode.mba": 2000,
+   "cometapi.com": 950,
+   "pricepertoken.com": 1000
+  }
  }
 }
