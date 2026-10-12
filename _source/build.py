@@ -360,7 +360,6 @@ SHORT_TITLES = {
     "/blog/write-shorter-prompts": "Write Shorter Prompts Without Losing Quality (Measured)",
     "/blog/rag-vs-long-context-cost": "RAG vs Long Context: Cost of Asking About Big Documents",
     "/blog/how-many-tokens-does-code-use": "How Many Tokens Does Code Use? Indentation & Comments",
-    "/blog/chatgpt-usage-limits": "ChatGPT Usage Limits in 2026: Caps and Reset Times",
     "/uk/blog/tokeny-ukrainska-gpt": "Українська в GPT: скільки токенів порівняно з англійською",
     "/compare/performance": "AI Model Comparison Chart 2026: Capability vs Price",
     "/fr/blog/mistral-chatgpt-cout-prompt-francais": "Mistral ou ChatGPT : le coût d'un prompt en français",
@@ -419,10 +418,31 @@ def brand_ko(out, values):
                           f'<meta property="og:site_name" content="{KO_BRAND}" />', 1)
         out = out.replace('alt="TokenSave logo" width="22" height="22" /> TokenSave',
                           f'alt="TokenSave logo" width="22" height="22" /> TokenSave <span class="font-semibold text-zinc-400 whitespace-nowrap">{KO_BRAND}</span>', 1)
+    else:
+        out = brand_title(out, home=url in LANG_HOMES)
     if url in (BASE + "/", BASE + "/ko/") and '"@type": "WebSite"' not in out:
-        ld = json.dumps({"@context": "https://schema.org", "@type": "WebSite", "name": "TokenSave",
-                         "alternateName": [KO_BRAND, "tokensave.app"], "url": BASE + "/"}, ensure_ascii=False)
+        ld = json.dumps({"@context": "https://schema.org", "@graph": [ORG, {
+            "@type": "WebSite", "@id": BASE + "/#website", "name": "TokenSave",
+            "alternateName": [KO_BRAND, "tokensave.app"], "url": BASE + "/",
+            "publisher": {"@id": ORG["@id"]}}]}, ensure_ascii=False)
         out = out.replace("</head>", f'<script type="application/ld+json">{ld}</script>\n</head>', 1)
+    return out
+
+# Brand in every <title> so a search for "tokensave" matches the site name, not just the domain.
+# Long titles skip the suffix (Google cuts around 60-70 characters); home pages always get it.
+BRAND_SUFFIX, TITLE_MAX = " | TokenSave", 70
+LANG_HOMES = {BASE + (f"/{slug}/" if slug else "/") for slug, *_ in LANGS}
+ORG = {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave",
+       "alternateName": ["토큰세이브", "tokensave.app"], "url": "https://tokensave.app/",
+       "logo": "https://tokensave.app/favicon-192.png", "sameAs": ["https://github.com/johnisking/tokensave"]}
+
+def brand_title(out, home=False):
+    m = re.search(r"<title>(.*?)</title>", out, re.S)
+    if not m or "TokenSave" in m.group(1):
+        return out
+    t = m.group(1).strip()
+    if home or len(html.unescape(t)) + len(BRAND_SUFFIX) <= TITLE_MAX:
+        out = out.replace(m.group(0), f"<title>{t}{BRAND_SUFFIX}</title>", 1)
     return out
 
 def build():
@@ -473,7 +493,7 @@ def build():
                  "applicationCategory": "DeveloperApplication", "operatingSystem": "Any",
                  "isAccessibleForFree": True, "description": s["desc"],
                  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-                 "publisher": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"}},
+                 "publisher": {"@type": "Organization", "@id": BASE + "/#org", "name": "TokenSave", "url": BASE + "/"}},
                 {"@type": "FAQPage", "inLanguage": tag, "mainEntity": [
                     {"@type": "Question", "name": s[f"q{i}"],
                      "acceptedAnswer": {"@type": "Answer", "text": s[f"a{i}"]}} for i in (1, 2, 3, 4) if f"q{i}" in s]},
@@ -680,7 +700,7 @@ def build():
             {"@type": "WebApplication", "name": gp["h1"], "url": url, "inLanguage": gl, "applicationCategory": "DeveloperApplication",
              "operatingSystem": "Any", "isAccessibleForFree": True, "description": gp["desc"], "dateModified": GC.CHECKED,
              "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-             "publisher": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"}},
+             "publisher": {"@type": "Organization", "@id": BASE + "/#org", "name": "TokenSave", "url": BASE + "/"}},
             {"@type": "BreadcrumbList", "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + path_for(slug, TOOLS[0])},
                 {"@type": "ListItem", "position": 2, "name": gp["h1"], "item": url}]}, gp["faq_ld"]]}
@@ -803,7 +823,7 @@ def build():
                "url": url, "mainEntityOfPage": url, "datePublished": bdate, "dateModified": modified(b),
                "image": f"{BASE}/{b.get('og') or AUTOIMG.get(b['path'], gimg)}",
                "author": {"@type": "Person", "name": "Jonhisking"},
-               "publisher": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"}},
+               "publisher": {"@type": "Organization", "@id": BASE + "/#org", "name": "TokenSave", "url": BASE + "/"}},
               {"@type": "BreadcrumbList", "itemListElement": [
                   {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + tool_home},
                   {"@type": "ListItem", "position": 2, "name": b["title"], "item": url}]}]}

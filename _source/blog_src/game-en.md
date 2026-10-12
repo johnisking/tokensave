@@ -63,7 +63,7 @@ Best value costs about 40% of Typical. Free audio takes time to pick, and coding
 
 ## Costs people forget
 
-- **Store fees**: Google Play $25 once, Apple $99 a year, Steam $100 per game. Web is free
+- **Store fees**: Google Play $25 once, Apple $99 a year, Steam $100 per game. Web is free. Engine licenses and each store's launch steps are in [indie game development cost](/blog/indie-game-development-cost)
 - **Servers**: online play needs Photon, Firebase or a small server. The calculator uses $12 a month during development
 - **iOS too**: about 3 extra days for builds and review
 - **Languages**: about half a day per extra language

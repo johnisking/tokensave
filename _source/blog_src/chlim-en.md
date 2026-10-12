@@ -1,77 +1,226 @@
-![ChatGPT Usage Limits in 2026: What Is Still Capped and When It Resets](/chatgpt-usage-limits-en.jpg)
+![ChatGPT Usage Limits 2026: Every Plan and the 5-Hour Window](/chatgpt-usage-limits-en.jpg)
 
-"You've reached your limit" used to be the most common complaint about ChatGPT. In 2026 the rules changed a lot: everyday text chat no longer has a cap on Free and Go, and Plus has expanded limits, but the newest models, ChatGPT Work and Codex, file uploads, images and voice still do. Here is what is limited on each plan, how the limits reset, and how to check where you stand.
+"You've reached your limit" used to be the most common complaint about ChatGPT, and it still shows up in 2026, just in different places. OpenAI removed the cap on everyday text chat, then added GPT-6, GPT-6 Astra, a shared allowance for ChatGPT Work and Codex, three Pro tiers and a five-hour window that resets on its own schedule. The result is that "how much can I use ChatGPT?" now has several answers depending on what you are doing. This guide to ChatGPT usage limits in 2026 goes through every plan and every meter, how each one resets, what makes the allowance run out faster, and what you can do when you hit a wall. All numbers come from OpenAI's help center, pricing page and Codex documentation, checked on October 13, 2026.
 
-## Text chat: no cap on Free and Go since August 2026
+## Is there a limit to how much you can use ChatGPT?
 
-On August 6, 2026, OpenAI announced unlimited text chats for **Free and Go**, starting the following week, with a "Think" button for harder questions. Plus gets "expanded messages and uploads", with limits. Since October 7, 2026, Chat uses GPT-6 Sol on Plus, Pro, Business and Enterprise, and GPT-6 Luna on Free and Go. Unlimited chat is still subject to abuse guardrails, so automated or extreme use can be throttled.
+Yes, but not where most people expect. There are now three separate kinds of limits, and they do not draw from each other:
 
-So if you only send ordinary text messages on Free or Go, you should no longer see a message cap.
+1. **Chat limits.** Everyday text chat is unlimited on every consumer plan, subject to abuse guardrails. What is limited inside Chat is the higher thinking levels, the Pro models (GPT-6 Pro and GPT-5.6 Sol Pro) and tools such as file uploads, image generation, data analysis and deep research.
+2. **The Work and Codex allowance.** ChatGPT Work and Codex share one included allowance per plan. On Plus and Business Standard it runs on a five-hour window plus a weekly window. This is where GPT-6 Astra and GPT-6.1 Sol live, and it is the meter most heavy users hit.
+3. **Voice and other features.** ChatGPT Voice (GPT-Live) has daily hours per plan, and some features have their own allowances.
 
-## What is still limited
+Hitting one limit does not lock you out of the others. If your Work allowance is used up, you can usually still chat normally; if GPT-6 Pro hits its weekly limit, ChatGPT can fall back to another model.
 
-![What is still limited: Feature, Limited?](/chatgpt-usage-limits-what-is-still-limited-en.jpg)
+## ChatGPT usage limits by plan
 
-| Feature | Limited? |
-|---|---|
-| Everyday text chat | No on Free and Go (since August 2026); Plus: expanded, limits apply |
-| File uploads, image generation, voice | Yes, separate limits per plan |
-| Higher thinking levels and Pro models | Yes, by plan |
-| ChatGPT Work and Codex (including GPT-6 Astra) | Yes: included allowance, 5-hour window on Plus and Business |
+![ChatGPT usage limits by plan: Plan, Price per month, Everyday chat, Thinking levels in Chat, GPT-6 Pro in Chat, Work and Codex, Five-hour wi](/chatgpt-usage-limits-chatgpt-usage-limits-by-plan-en.jpg)
 
-**Thinking levels by plan.** Plus gets advanced reasoning models with GPT-6. Pro adds the Pro reasoning option, powered by GPT-6 Astra, and GPT-5.6 Sol Pro, which only Pro has.
+| Plan | Price per month | Everyday chat | Thinking levels in Chat | GPT-6 Pro in Chat | Work and Codex | Five-hour window |
+|---|---:|---|---|---|---|---|
+| Free | $0 | Unlimited* | Think (GPT-5.6 Luna) | – | Limited, desktop app | – |
+| Go | $8 | Unlimited* | Think (GPT-5.6 Luna) | – | Limited, desktop app | – |
+| Plus | $20 | Unlimited* | Medium, High | – | Included | Yes |
+| Pro 100 | $100 | Unlimited* | Medium to Extra High, Pro | Yes, weekly allowance | Larger allowance | No |
+| Pro 200 | $200 | Unlimited* | Medium to Extra High, Pro | Yes, weekly allowance | Larger allowance | No |
+| Pro 500 | $500 | Unlimited* | Medium to Extra High, Pro | See note below | Largest allowance, Ultrafast | No |
+| Business Standard | per seat | Unlimited* | Medium to Extra High, Pro | 15 Pro messages a month | Included | Yes |
+| Business Premium | per seat | Unlimited* | Medium to Extra High, Pro | 50 Pro messages a week | 500% of Standard | No |
 
-## GPT-6 Astra limits
+\*Subject to abuse-prevention safeguards. Prices are US list prices before tax.
 
-![GPT-6 Astra limits: Plan, GPT-6 Astra messages per 5 hours](/chatgpt-usage-limits-gpt-6-astra-limits-en.jpg)
+- **"Unlimited" means everyday text chat only.** OpenAI's pricing page lists everyday text chat as unlimited on Free, Go, Plus and Pro, and its Business help page says unlimited access applies to Instant chat and "does not make reasoning, Pro, ChatGPT Work, Codex, or other tools unlimited."
+- **GPT-6 Pro on Pro 500.** OpenAI's help center lists GPT-6 Pro for Pro $100, Pro $200, Business and Enterprise; its Pro tiers page says Pro 500 "offers the highest included usage of the three plans." Check the model picker on your account.
+- **Pro usage tiers.** OpenAI's help page only says Pro 200 includes more than Pro 100 and Pro 500 the most. The figures usually quoted (Pro 100 at 500% of Plus, new Pro 200 at 1,000%, Pro 500 at 2,500%) come from an OpenAI employee's post on X and press reports, not from OpenAI's pricing page. See [ChatGPT Pro 100 vs 200 vs 500](/blog/chatgpt-pro-100-vs-200-vs-500).
 
-GPT-6 Astra, OpenAI's flagship, is used through ChatGPT Work and Codex. OpenAI's help center gives estimated local message ranges per 5-hour window:
+## Everyday chat: unlimited, with guardrails
 
-| Plan | GPT-6 Astra messages per 5 hours |
-|---|---|
-| Plus | about 5–45 |
-| Standard Business | about 5–45 |
-| Pro 100 / 200 / 500 | no 5-hour limit currently |
+On August 6, 2026, OpenAI announced in its release notes that Free and Go users would get "unlimited text chats" from the following week, along with a Think button for harder questions. The pricing page now marks everyday text chat as unlimited on every consumer plan.
 
-The range is wide because one long, multi-step task uses far more of the allowance than a short one. Weekly limits may also apply. Pro plans currently have no five-hour limit in Work and Codex but still have an included allowance that grows with the tier: Pro 200 is 10× Plus for new subscribers and Pro 500 is 25× Plus (anyone with an active Pro 200 subscription between September 22 and September 29, 2026 keeps the previous allowance until October 29). These multiples come from OpenAI's Thibault Sottiaux on X and press reports (WinBuzzer, Windows Report), not from OpenAI's pricing page. See [ChatGPT Pro 100 vs 200 vs 500](/blog/chatgpt-pro-100-vs-200-vs-500).
+Three things are worth knowing about "unlimited":
 
-## How the limits reset
+- **It covers ordinary text answers.** On Free and Go, those come from GPT-5.6 Luna, and Think also uses Luna. On Plus and above, Instant is powered by GPT-6 Sol once GPT-6 reaches your account.
+- **Tools are still limited.** OpenAI says separate limits "continue to apply to file uploads, image generation, voice, data analysis, and other tools." On Free and Go, the pricing page lists messages with uploads, image generation, deep research, memory and Codex as limited.
+- **Guardrails apply.** Automated use, sharing an account or reselling access can lead to a temporary restriction. OpenAI says it will tell you when that happens.
 
-![How the limits reset: 5-hour window; Weekly limit; Files, images and voice](/chatgpt-usage-limits-how-the-limits-reset-en.jpg)
+So if you send normal text messages, you should not see a message cap on any plan. If you do, you are most likely using a thinking level, a Pro model or a tool.
 
-- **5-hour window:** rolling, starting from your first request in that window, not at a fixed time of day. It applies to Plus and Business; Pro 100, Pro 200 and Pro 500 currently have no five-hour usage limit in Work and Codex.
-- **Weekly limit:** OpenAI says weekly limits may also apply.
-- **Files, images and voice:** each has its own allowance.
+## Thinking levels and Pro models
+
+The Thinking slider decides which model answers you, and that is where Chat limits actually bite.
+
+| Thinking level | Model (GPT-6 selected) | Plus | Pro | Business | Free and Go |
+|---|---|:---:|:---:|:---:|:---:|
+| Instant | GPT-6 Sol | ✓ | ✓ | ✓ | GPT-5.6 Luna |
+| Medium, High | GPT-6 Sol | ✓ | ✓ | ✓ | – |
+| Extra High | GPT-6 Sol | – | ✓ | ✓ | – |
+| Pro | GPT-6 Pro (powered by GPT-6 Astra) | – | ✓ | ✓ | – |
+
+- **Thinking limits depend on your plan.** If you reach one, "ChatGPT may continue with another available model," and it shows when the allowance resets when that information is available.
+- **GPT-6 Pro is never unlimited.** OpenAI states plainly that "a Pro subscription does not include unlimited use of the GPT-6 Pro model."
+- **Pro $100:** GPT-6 Pro and GPT-5.6 Sol Pro draw from one weekly allowance, so switching between them does not give you more messages.
+- **Pro $200:** when you reach the GPT-6 Pro weekly limit, ChatGPT switches automatically to GPT-5.6 Thinking at Medium. GPT-5.6 Sol Pro stays available while its daily allowance lasts.
+- **Business:** Standard seats get 15 Pro messages a month and Premium seats 50 a week, shared across GPT-6 Pro and GPT-5.6 Sol Pro.
+- **Plus does not include GPT-6 Pro in Chat.** Plus users get GPT-6 Astra in Work and Codex instead, under the shared allowance below.
+
+## Work and Codex: the shared allowance
+
+![Work and Codex: the shared allowance: Model, Plus, Business Standard](/chatgpt-usage-limits-work-and-codex-the-shared-allowance-en.jpg)
+
+This is the limit people mean when they talk about the "five-hour limit." ChatGPT Work and Codex share one allowance, and it does not correspond to a fixed number of messages. OpenAI gives ranges of local messages per five-hour window for Plus and Business Standard:
+
+| Model | Plus | Business Standard |
+|---|---:|---:|
+| GPT-6 Astra | 5–45 | 5–45 |
+| GPT-6.1 Sol | 15–160 | 15–160 |
+| GPT-6 Sol | 15–150 | 15–150 |
+| GPT-6 Luna | 350–3,000 | 350–3,000 |
+| GPT-5.6 Sol | not listed | 10–100 |
+| GPT-5.6 Terra | not listed | 25–200 |
+| GPT-5.6 Luna | not listed | 250–2,000 |
+
+The GPT-6 rows are from OpenAI's Codex pricing page and Astra help article. The GPT-5.6 rows are from the Business models and limits page, which also groups GPT-6.1 Sol and GPT-6 Sol together at 15–150 for Standard seats.
+
+- **The range is wide on purpose.** A one-line fix and a long multi-step task are both "one message," but the second uses far more allowance. Cloud tasks can use more than local messages.
+- **Pro plans have no five-hour limit** in Work and Codex for now, but they still have an included allowance that shows in Settings → Usage.
+- **Business Premium** gets 500% of a Standard seat's included Work and Codex usage and no five-hour limit. Standard seats get "limited Astra usage" within their allowance; Premium seats can spend their full allowance on Astra.
+- **Free and Go** get limited Codex and ChatGPT Work in the desktop app with GPT-6 Luna, according to the Codex pricing page.
+- **Switching models does not refill the pool.** OpenAI says switching models "does not restore allowance in a shared usage pool." A smaller model only makes the remaining allowance go further.
+
+## The five-hour window, explained
+
+Plus and Business Standard have two windows on Work and Codex at the same time:
+
+- **Five-hour window.** It starts when you send your first Work or Codex message after the previous window ends. It is not a fixed clock time, so two people on the same plan can have windows that reset at different times.
+- **Weekly window.** It caps how much included work you can do across the week.
+
+You need allowance left in both to keep going. That is why you can hit the five-hour limit after an hour of heavy work even though your weekly meter still shows plenty left, and why a big weekend session can leave you blocked on Tuesday even with a fresh five-hour window.
+
+Pro plans and Business Premium skip the five-hour window but still have an overall allowance with reset times. Free and Go do not show a five-hour window either: when we tested Codex on the free plan (see below), the usage menu showed a single monthly meter.
+
+## What makes the allowance run out faster
+
+Prompt length alone is a poor guide. OpenAI lists model choice, context, reasoning, tool use, retrieval and caching as the main factors. The ones you control:
+
+- **Model.** GPT-6 Astra uses the most per task; GPT-6 Luna the least. In the Plus ranges above, Luna gets 350–3,000 messages where Astra gets 5–45.
+- **Reasoning level.** Higher effort uses more allowance and "does not always produce a better result." OpenAI even suggests trying Astra at Low or Medium before Sol at High.
+- **Speed modes.** Fast mode uses your included allowance at 250% of the Standard rate. Ultrafast, available only on Pro 500 among Pro plans, uses it at 800% for GPT-6 Astra and GPT-6.1 Sol.
+- **Images.** In Work and Codex, image generations use included limits about 300–500% as fast as similar turns without images, depending on quality and size.
+- **Context.** Large instruction files, many connected MCP servers and long source material all add tokens to every message. OpenAI recommends trimming AGENTS.md files and turning off MCP servers you are not using.
+
+## Voice, images and files
+
+These features have their own allowances and are the most common reason Free and Go users still see limits.
+
+| Feature | Free | Go | Plus | Pro |
+|---|---|---|---|---|
+| Voice (GPT-Live), per day | Limited | Up to 3 hours (GPT-Live-1 mini) | Up to 3 hours | Pro 100: up to 15 hours; Pro 200: unlimited |
+| Image generation | Limited | Higher limit | Limits apply, higher quality | Unlimited* |
+| File uploads | Limited | Higher limit | Expanded | At least Plus |
+| Deep research | Limited | Limited | Expanded | Maximum |
+
+Voice hours are from OpenAI's September 9, 2026 release notes; the rest is from the pricing page, which does not publish exact counts for most features. Plus and Pro no longer fall back to GPT-Live mini after reaching a voice limit. Voice in the desktop Codex app is different again: it uses your Codex usage budget at $0.05 per minute. If you generate a lot of images, the [image cost calculator](/image) shows what the same images would cost through the API.
+
+## Context window: the "token limit" inside a chat
+
+![Context window: the "token limit" inside a chat: Free, Go, Plus, Pro](/chatgpt-usage-limits-context-window-the-token-limit-inside-a-en.jpg)
+
+Separate from usage limits, every chat has a context window: the maximum amount of text the model can consider at once. When a conversation or document goes past it, older parts drop out of view, and quality often slips before that point.
+
+| | Free | Go | Plus | Pro |
+|---|---:|---:|---:|---:|
+| Instant: total context window | 27K tokens | 54K tokens | 54K tokens | 128K tokens |
+| Instant: approximate max input | ~12 pages | ~40 pages | ~40 pages | ~250 pages |
+| Reasoning: total context window | Varies | 256K tokens | 256K tokens | 400K tokens |
+
+The usable input is smaller than the total because the system instructions, memory and the model's own reasoning share the same space. Starting a new chat with a short summary is the simplest fix when a long conversation starts forgetting things. See [Context windows explained](/blog/context-window-explained) and, for how many tokens your text uses, [tokens per word](/blog/tokens-per-word).
 
 ## How to check your usage
 
-OpenAI's help center points to **Settings → Usage**, which shows your remaining allowance and reset times for Work and Codex. When you hit a limit, ChatGPT also tells you when you can continue.
+- **ChatGPT:** open **Settings → Usage**. It shows your remaining Work and Codex allowance, which window you are in and when each resets, plus any saved resets and your credit balance.
+- **Codex CLI:** type `/status` during a session to see your remaining limits.
+- **In Chat:** when a model allowance runs out, ChatGPT shows the reset time when that information is available.
 
-## What to do when you hit a limit
+OpenAI suggests checking the dashboard every week or two to learn your own pace.
 
-1. **Wait for the reset.** For the 5-hour window, usually a few hours at most.
-2. **Use a reset or credits.** Eligible Plus and Pro accounts can apply banked resets or buy an instant reset, and some plans can continue with credits.
-3. **Switch model.** Routine work rarely needs GPT-6 Astra; GPT-6 Sol or GPT-6 Luna use much less of the allowance.
-4. **Upgrade.** Pro 100 is 5× Plus, Pro 200 is 10× and Pro 500 is 25×.
-5. **Use the API.** For steady heavy use of a specific model, paying per token can be simpler. GPT-6 Astra costs $10 per million input tokens and $50 per million output tokens; see [GPT-6 API pricing](/blog/gpt-6-api-pricing).
+## Which limit did I hit?
 
-## Is there a "token limit" per chat?
+Because the meters are separate, the fastest way to fix a limit is to work out which one you reached. A quick guide:
 
-Every model has a context window: the maximum amount of text it can consider at once. Very long conversations or documents eventually hit it, and quality drops before that, because the model re-reads the whole conversation with every message. Starting a new chat with a short summary helps more than you might expect. See [Context windows explained](/blog/context-window-explained).
+| What you notice | The meter you probably hit | What to check |
+|---|---|---|
+| Work or Codex stops, but normal chat still works | Work and Codex five-hour window | Settings → Usage, reset time of the five-hour window |
+| A fresh five-hour window, but Codex still says you are out | Work and Codex weekly window | Settings → Usage, weekly reset date |
+| Pro thinking option greyed out or replaced by Medium | GPT-6 Pro allowance (weekly on Pro, monthly or weekly on Business) | Model picker and the reset time ChatGPT shows |
+| High or Extra High answers switch to another model | Thinking limit for your plan | Reset time shown in Chat |
+| Image, upload or deep research request refused | That tool's own allowance | Upgrade or wait; text chat still works |
+| Voice ends after a few hours | Daily GPT-Live hours | Resets the next day |
+| Everything stops and you see a notice about unusual activity | Abuse guardrails, not a usage limit | Contact Support if you think it is a mistake |
+
+On a Business seat, the workspace's credit settings matter too: once the included allowance is used, extra Astra usage only continues if the workspace has credits and its spending controls allow it.
+
+## What happens when you hit a limit
+
+You are not cut off mid-task. If you reach your limit during an active Work or Codex turn, the agent can finish that turn, subject to fair use. After that, your options depend on the plan:
+
+1. **Wait for the reset.** For the five-hour window that is at most a few hours; the reset time is in Settings → Usage.
+2. **Use a saved (banked) reset.** OpenAI sometimes grants resets, for example on September 3 and 4, 2026, during the Astra launch. A full banked reset refreshes both the five-hour and weekly limits and moves your weekly reset date.
+3. **Buy an instant reset.** Eligible personal Plus and Pro accounts can buy one in some countries. It refreshes both windows straight away but cannot be saved for later.
+4. **Use credits.** Plus and Pro users can buy credits to keep going in Codex, Work and the Office add-ins. Credits pay for usage; they do not unlock models such as Ultrafast on Pro 100 or 200.
+5. **Use an API key for local work.** Usage is then billed at API rates instead of your plan.
+6. **Fall back in Chat.** If a thinking or Pro limit is reached, choose another available model or let ChatGPT switch for you.
+
+One thing that does not work: asking Support. OpenAI says Support "does not reset ChatGPT or Codex usage limits," though it will investigate if usage looks miscounted.
+
+## What we saw on the free plan
+
+We ran Codex on a ChatGPT Free account for our [Codex pricing](/blog/codex-pricing) test: the same brick-breaker game prompt, once on medium and once on extra high reasoning, with GPT-6 Luna. Both runs finished in 39 seconds. The usage menu had no five-hour or weekly meter, only one monthly bar, and after both games it showed 99% remaining with the reset a month away. Two small games used about 1% of a month's free allowance, which suggests that light Codex use fits comfortably on Free. A larger task on a real codebase reads more files and runs more steps, so it will use more.
+
+## Which plan avoids the limits you hit?
+
+- **You only chat and sometimes upload a file:** Free or Go. Text chat is unlimited; Go raises the upload, image and voice limits.
+- **You hit limits on Thinking or image generation:** Plus. It adds Medium and High thinking and expanded tool limits.
+- **You hit the five-hour Work or Codex window most days:** Pro 100. It removes the five-hour window and enlarges the allowance.
+- **You run out of GPT-6 Pro or the Pro 100 allowance every week:** Pro 200.
+- **You run agents all day or need Ultrafast:** Pro 500, the only Pro tier with Ultrafast.
+- **You manage a team:** Business Standard for normal use, Premium for people who live in Codex.
 
 ## Plan or API?
 
-If you mostly chat, the August change makes the Free and Go plans much more useful than before. If you use Codex or GPT-6 Astra heavily, compare the plan price with what the same work costs on the API using the [Subscription vs API calculator](/plans) and the [coding agent calculator](/agents).
+If most of your use is chat, the unlimited text change makes the subscription hard to beat. If you use Codex or GPT-6 Astra heavily, compare the plan price with what the same work would cost on the API. GPT-6 Astra costs $10 per million input tokens and $50 per million output tokens on the API; see [GPT-6 API pricing](/blog/gpt-6-api-pricing). Enter your own usage in the [subscription vs API calculator](/plans), or use the [coding agent calculator](/agents) for Codex and Claude Code.
 
-*Limits change often. OpenAI's [GPT-6 Astra usage help page](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex) has the current numbers.*
+## FAQ
+
+**What is the 5-hour usage limit on ChatGPT?**
+It is the shorter of two windows on the Work and Codex allowance for Plus and Business Standard. It starts with your first Work or Codex message after the previous window ends and caps how much you can do in that window. A weekly window applies at the same time. Pro plans and Business Premium currently have no five-hour limit.
+
+**Does ChatGPT Free have a message limit?**
+Not for everyday text chat. Since August 2026, Free and Go have unlimited text chats, subject to abuse guardrails. File uploads, image generation, voice, data analysis and other tools still have limits.
+
+**Do ChatGPT limits reset daily?**
+It depends on the meter. Work and Codex use a rolling five-hour window and a weekly window; voice has daily hours; GPT-6 Pro has a weekly allowance on Pro plans. Settings → Usage shows the exact reset times for your account.
+
+**Does switching models get around the limit?**
+In Work and Codex, no: all models draw from one shared pool, and switching does not restore it. A cheaper model only makes the rest last longer. In Chat, reaching a thinking or Pro limit can fall back to another model, which lets you keep working.
+
+**Is ChatGPT Plus worth $20 for the limits?**
+If you only send text messages, Free or Go already gives you unlimited chat. Plus is worth it if you use the higher thinking levels, generate images, upload files often or want Work and Codex with GPT-6 Astra.
+
+**Can OpenAI Support reset my limit?**
+No. Support can investigate if usage was counted incorrectly, but it does not reset limits. Wait for the reset, use a saved reset, buy one if eligible, or use credits.
+
+*Limits change often. Check Settings → Usage for your own account, and OpenAI's help center for the current numbers.*
 
 ## Sources
 
-- [Managing usage with GPT-6 Astra in Work and Codex (OpenAI Help Center)](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)
-- [ChatGPT release notes (OpenAI Help Center)](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
+- [OpenAI Help Center: GPT-6 and other models in ChatGPT](https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt)
+- [OpenAI Help Center: Managing usage with GPT-6 Astra in Work and Codex](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)
+- [OpenAI Help Center: ChatGPT Business models and limits](https://help.openai.com/en/articles/12003714-chatgpt-business-models-and-limits)
+- [OpenAI Help Center: About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [OpenAI Help Center: ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
+- [ChatGPT Learn: Codex and ChatGPT Work pricing and usage limits](https://learn.chatgpt.com/docs/pricing)
 - [ChatGPT pricing](https://chatgpt.com/pricing)
-- [About ChatGPT Pro tiers (OpenAI Help Center)](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
+- [OpenAI API: GPT-6 Astra model and pricing](https://developers.openai.com/api/docs/models/gpt-6-astra)
 - [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/)
-- [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692)
-- [GPT-6 Astra model and API pricing (OpenAI docs)](https://developers.openai.com/api/docs/models/gpt-6-astra)
+- [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan](https://windowsreport.com/?p=1510692)
 <!-- autoimg -->
