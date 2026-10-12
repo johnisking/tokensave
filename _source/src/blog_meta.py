@@ -306,8 +306,8 @@ COUNT = [
 
 _CTA_AG = _CTA
 CHLIM = [
- _cc("en", "/blog/chatgpt-usage-limits", "chlim-en", "ChatGPT Usage Limits in 2026: What Is Still Capped and When It Resets",
-     "Text chat is unlimited on Free and Go since August 2026, but GPT-6 Astra, Work, Codex, files and images still have limits. What resets when, and how to check.", _BY["en"], *_CTA_PL["en"]),
+ _cc("en", "/blog/chatgpt-usage-limits", "chlim-en", "ChatGPT Usage Limits 2026: Every Plan and the 5-Hour Window",
+     "ChatGPT usage limits for Free, Go, Plus, Pro and Business: what is unlimited, GPT-6 Pro caps, the Work and Codex 5-hour window, resets and fixes.", "Jonhisking · Updated October 13, 2026", *_CTA_PL["en"]),
  _cc("ko", "/ko/blog/chatgpt-sayongnyang-hando", "chlim-ko", "챗GPT 사용량 한도 정리: 무엇이 아직 제한되고 언제 초기화될까",
      "2026년 8월부터 Free·Go의 일반 채팅은 무제한이지만 GPT-6 Astra, Work, Codex, 파일·이미지는 아직 한도가 있습니다. 초기화 시점과 확인 방법까지.", _BY["ko"], *_CTA_PL["ko"]),
  _cc("ja", "/ja/blog/chatgpt-shiyouryou-jougen", "chlim-ja", "ChatGPT の使用量上限まとめ：まだ制限があるものとリセットのタイミング",
@@ -848,3 +848,7 @@ CCGUIDE.append(_cc("ko", "/ko/blog/claude-code-sayongbeop", "ccguide-ko", "클�
      "클로드 코드 설치 방법과 사용법을 윈도우 실제 화면으로 정리. PowerShell 실행 정책 오류 해결, 로그인, 첫 작업, 권한 모드, 기본 명령어, /usage 사용량 확인까지 2026년 10월 공식 문서 기준.",
      "Jonhisking · 2026년 10월 12일", "작업 크기와 하루 작업 수를 넣고 클로드 코드의 한 달 API 비용을 Pro·Max와 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"))
 for _d in CCGUIDE: _d["date"] = "2026-10-12"
+
+# 2026-10-13 chlim-en rewrite
+for _d in CHLIM:
+    if _d["src"] == "chlim-en": _d["date"] = "2026-10-13"
