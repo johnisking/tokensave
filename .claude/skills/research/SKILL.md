@@ -40,4 +40,5 @@ description: 리서칭팀을 한 번에 돌려 블로그 글 리서치 브리프
 `fact-checker` 한 명만 띄워 결과를 그대로 요약해 보여 준다. 원고는 사용자가 고치라고 할 때만 고친다.
 
 ## 규칙
+- 키워드 조사는 유료 도구 없이 한다: `_source/launchkit/kwfree.py`(자동완성 확장 + 선택적으로 네이버 검색광고 월 검색량)와 검색 결과·커뮤니티 질문. 결과 CSV는 `_source/launchkit/kw/`에 둔다.
 - 게시는 하지 않는다. 체크리스트(`_source/launchkit/BLOG_CHECKLIST.md`)대로 재현의 "올려"를 받은 뒤에만 게시한다.

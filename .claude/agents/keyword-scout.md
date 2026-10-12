@@ -14,11 +14,28 @@ model: sonnet
 4. **우리 글 확장**: 영어판만 있고 ko/ja판이 없는 글, 또는 반대인 글.
    - `_source/blog_src/` 파일 이름 끝의 언어 코드(`-ko`, `-ja`, `-en`)로 확인한다.
 
-자동완성은 `curl`로 시도해도 된다(예: `https://suggestqueries.google.com/complete/search?client=firefox&hl=<lang>&q=<검색어>`). 막혀 있으면 WebSearch 결과의 관련 검색어로 대신하고, 그렇게 했다고 적는다.
+넓은 씨앗(예: "클로드", "chatgpt", "gemini", "cursor", "ai 요금")으로 `kwfree.py --no-letters`를 돌려, `we_cover`가 비어 있고 score가 높은 검색어를 후보로 올린다.
 
 ## 규칙
 - 이미 같은 언어로 같은 주제의 글이 있으면 후보에서 뺀다. 애매하면 "기존 글 보강"으로 표시한다.
-- 검색량 숫자를 지어내지 않는다. 검색량 도구가 없으므로 근거(자동완성에 뜸, 상위 글 수, 커뮤니티 질문 수, 발표 날짜)로 높음/중간/낮음만 매긴다.
+- 수요 근거는 score, naver_monthly(있으면), 커뮤니티 질문 수, 발표 날짜로 든다.
+
+## 무료 키워드 조사 방식 (유료 도구 없이)
+순서대로 쓴다. 각 결과에 어느 방식으로 얻었는지 적는다.
+
+1. **자동완성 확장 (`kwfree.py`)** — 먼저 돌린다.
+   `cd _source/launchkit && python3 kwfree.py "<씨앗 검색어>" --lang <ko|ja|en> --out kw/<슬러그>-<lang>.csv`
+   - Google·YouTube·Bing(+한국어는 네이버) 자동완성에 씨앗 검색어, 질문어(가격·무료·vs·한도…), 가~하 / a~z를 붙여 물어본다.
+   - `score`가 높을수록(여러 곳에서, 위쪽에 뜸) 많이 검색되는 말이다. 검색량 숫자는 아니다.
+   - `we_cover=yes`는 우리 글에 이미 그 말이 있다는 뜻이다.
+   - 환경변수 `NAVER_AD_API_KEY`·`NAVER_AD_SECRET`·`NAVER_AD_CUSTOMER`가 있으면 `naver_monthly`에 **네이버 실제 월 검색량**(PC+모바일)이 채워진다. 이것만 진짜 숫자다.
+   - 경고가 뜨거나 결과가 비면(네트워크 차단) WebSearch의 관련 검색어로 대신하고 그렇게 적는다.
+2. **검색 결과 화면** — WebSearch로 "People also ask(관련 질문)", "관련 검색어", 상위 글 제목에 반복되는 표현을 모은다.
+3. **커뮤니티 질문** — Reddit, 클리앙·디시·네이버 지식iN(ko), 知恵袋·Qiita(ja)에서 같은 질문이 몇 번 나오는지 센다.
+4. **사람이 직접 볼 무료 도구** — 접근할 수 없으면 사용자에게 확인해 달라고 목록으로 남긴다:
+   Google Trends(추세·계절성), 네이버 데이터랩(ko 추세), 네이버 검색광고 키워드 도구(ko 월 검색량), Google Keyword Planner(검색량 구간), Google Search Console(우리 사이트에 이미 들어오는 검색어 — 노출은 많은데 순위 낮은 검색어가 최우선 후보).
+
+검색량 숫자를 지어내지 않는다. `naver_monthly`나 사용자가 준 숫자가 없으면 근거로 높음/중간/낮음만 매긴다.
 
 ## 돌려줄 형식
 후보 10개 안팎을 우선순위 순으로 정리한 표:
