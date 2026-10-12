@@ -112,7 +112,11 @@ The tradeoff: a studio costs you money but little time. Building it yourself cos
 
 ## Real case: a game built for $20
 
-I had zero coding experience. I made **Sperm Race**, a silly racing game, by describing what I wanted to an AI in plain words. Here is everything it cost to build:
+I had zero coding experience. I made **Sperm Race**, a silly racing game, by describing what I wanted to an AI in plain words.
+
+![Sperm Race, the indie game built for $20: main menu and racing screens](/spermrace-screens-en.jpg)
+
+Here is everything it cost to build:
 
 | Item | What I used | Cost |
 |---|---|---|
@@ -121,6 +125,8 @@ I had zero coding experience. I made **Sperm Race**, a silly racing game, by des
 | Music | Free tracks from Pixabay | $0 |
 | Sound effects | Generated in code | $0 |
 | **Cost to build** | | **$20** |
+
+![Sperm Race's four modes, with every graphic drawn by Claude in code: Adventure, Racing, Derby, Survival](/blog-spermrace-modes.jpg)
 
 The first playable version took 3 days. Fixing bugs through Google Play's closed test took another 14. To publish, I paid the one-time **$25** Google Play fee on top. That fee is a release cost, not a build cost, and it covers every future game on the same account. The web version on itch.io was free to publish. How the first 3 days went is in [a beginner who vibe-coded a game](/blog/vibe-coding-a-game-beginner).
 
