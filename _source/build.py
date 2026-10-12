@@ -21,6 +21,45 @@ from blog_meta import BLOG, BLOG_DATE, PRO, MISTRAL_FR, PROMPT_PL, GUIDES, CC_CO
 CC = (CC_COST, CC_LIMITS, CC_SAVE, CXLIM, CMAX)
 MULTI = (CC_COST, CC_LIMITS, CC_SAVE, CMP, GPT6, API_CMP, TPW, COUNT, CHLIM, CXLIM, CMAX, AISITE, GEM4, RANK, GAME, GAME_HOWTO, DEVLOG1, DEVLOG2, CHEAP, CTOK, SUBS, GPT61, DS41, AGCMP, GOPLUS, RBX, KO6, JA6, RBX_JA, TW6, *EU6, *NL6, *RBX_PL, GCREV, FREEPAID, INDIECOST, MUSE13, ULTRAFAST, OPUS55, EFFORT, SONNET55, CURSOR, CTC, PLUSPRO, COPILOT, CXPRICE, DSPRICE, GROKPRICE, CPRO, CCGUIDE)
 PRO_BY_TAG = {b["tag"]: b for b in PRO}
+
+# Some batches list one language's articles together (KO6, JA6, TW6, EU6, NL6, RBX_PL), so the same article in
+# other languages sits in other groups. Articles whose src differs only by the language suffix (gogo-en, gogo-ko, ...)
+# are one article wherever they are listed, and get each other as hreflang alternates.
+_LANG_SFX = re.compile(r"-(?:en|ko|ja|zhtw|zhcn|[a-z]{2,3})$")
+_TOPIC = {}
+for _G in (BLOG, PRO, MISTRAL_FR, PROMPT_PL, *MULTI):
+    for _b in _G:
+        if _b.get("src"):
+            _TOPIC.setdefault(_LANG_SFX.sub("", _b["src"]), []).append(_b)
+
+def alternates(b, group):
+    """hreflang set for article b: one URL per language (same-language siblings are separate articles)."""
+    ids = {id(x) for x in group}
+    grp = list(group) + [x for x in _TOPIC.get(_LANG_SFX.sub("", b.get("src") or ""), []) if id(x) not in ids]
+    return [x for x in grp if x["tag"] != b["tag"] or x is b]
+
+# Articles may carry "updated" (ISO date) when their content was revised after "date". It is shown in the byline
+# and used for dateModified, the sitemap lastmod and llms.txt, so a re-checked price page says so.
+_UPD = {"en": lambda y, m, d: f" · Updated {('January February March April May June July August September October November December').split()[m - 1]} {d}, {y}",
+        "ko": lambda y, m, d: f" ({y}년 {m}월 {d}일 업데이트)",
+        "ja": lambda y, m, d: f"（{y}年{m}月{d}日更新）"}
+
+def modified(b):
+    return b.get("updated") or b.get("date", BLOG_DATE)
+
+def byline(b):
+    if not b.get("updated") or b["updated"] == b.get("date"):
+        return b["byline"]
+    y, m, d = map(int, b["updated"].split("-"))
+    return b["byline"] + _UPD[b["tag"]](y, m, d)  # add the language here before giving its articles "updated"
+
+def x_default(alts, group):
+    """x-default: the group's first English article if it is an alternate, else the English one of the same topic."""
+    first_en = next((x for x in group if x["tag"] == "en"), None)
+    if first_en is not None and any(x is first_en for x in alts):
+        return first_en
+    ids = {id(x) for x in group}
+    return next((x for x in alts if x["tag"] == "en" and id(x) not in ids), None)
 from i18n_view import MORE_LANGS
 from i18n_plans_all import PL, PNAV, PMETA
 from i18n_agents_all import AG, AGNAV, AGMETA
@@ -716,10 +755,9 @@ def build():
     for GROUP, gimg, gtool in [(BLOG, "blog-language-tax-chart-v5.png", TOOLS[0]), (PRO, "blog-chatgpt-pro-tiers.png", plans_tool), (MISTRAL_FR, "blog-mistral-francais.png", TOOLS[0]), (PROMPT_PL, "blog-prompt-polski.png", TOOLS[0])] + [
             ([g], og_by_key.get(g["tool"], "og-token.jpg"), tool_by_key[g["tool"]]) for g in GUIDES] + [
             (G, "og-token.jpg", tool_by_key["agents"]) for G in CC] + [(CMP, "og-token.jpg", plans_tool), (GPT6, "og-token.jpg", TOOLS[0]), (GEM4, "og-token.jpg", TOOLS[0]), (RANK, "og-token.jpg", TOOLS[0]), (API_CMP, "og-token.jpg", TOOLS[0]), (TPW, "og-token.jpg", TOOLS[0]), (COUNT, "og-token.jpg", TOOLS[0]), (CHLIM, "og-token.jpg", plans_tool), (AISITE, "og-token.jpg", TOOLS[0]), (GAME, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (GAME_HOWTO, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (DEVLOG1, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (DEVLOG2, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (CHEAP, "og-token.jpg", TOOLS[0]), (CTOK, "og-token.jpg", tool_by_key["agents"]), (SUBS, "og-token.jpg", plans_tool), (GPT61, "og-token.jpg", TOOLS[0]), (DS41, "og-token.jpg", TOOLS[0]), (AGCMP, "og-token.jpg", tool_by_key["agents"]), (GOPLUS, "og-token.jpg", plans_tool), (RBX, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (KO6, "og-token.jpg", plans_tool), (JA6, "og-token.jpg", plans_tool), (RBX_JA, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (TW6, "og-token.jpg", plans_tool), (GCREV, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (FREEPAID, "og-token.jpg", plans_tool), (INDIECOST, "og-token.jpg", {"page": "ai-game-cost-calculator"}), (MUSE13, "og-token.jpg", TOOLS[0]), (ULTRAFAST, "og-token.jpg", TOOLS[0]), (OPUS55, "og-token.jpg", tool_by_key["agents"]), (EFFORT, "og-token.jpg", tool_by_key["agents"]), (SONNET55, "og-token.jpg", tool_by_key["agents"]), (CURSOR, "og-token.jpg", tool_by_key["agents"]), (CTC, "og-token.jpg", TOOLS[0]), (PLUSPRO, "og-token.jpg", plans_tool), (COPILOT, "og-token.jpg", tool_by_key["agents"]), (CXPRICE, "og-token.jpg", tool_by_key["agents"]), (DSPRICE, "og-token.jpg", TOOLS[0]), (GROKPRICE, "og-token.jpg", TOOLS[0]), (CPRO, "og-token.jpg", plans_tool), (CCGUIDE, "og-token.jpg", tool_by_key["agents"])] + [(G, "og-token.jpg", plans_tool) for G in EU6] + [(G, "og-token.jpg", plans_tool) for G in NL6] + [(G, "og-token.jpg", {"page": "ai-game-cost-calculator"}) for G in RBX_PL]:
-      blog_en = next((b for b in GROUP if b["tag"] == "en"), None)
       def _alts_for(me):  # hreflang: one URL per language, and a same-language sibling is never this page's alternate
-          grp = [x for x in GROUP if x["tag"] != me["tag"] or x is me]
-          xd = blog_en if blog_en in grp else None
+          grp = alternates(me, GROUP)
+          xd = x_default(grp, GROUP)
           return "\n".join(f'  <link rel="alternate" hreflang="{x["tag"]}" href="{BASE}{x["path"]}" />' for x in grp) + (
               f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{xd["path"]}" />' if xd else "")
       tag_slug = {tag: slug for slug, tag, *_ in LANGS}
@@ -751,7 +789,7 @@ def build():
               IMAGES.setdefault(b["path"], []).append(img)
           body = f"""    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">{esc(b["title"])}</h1>
-        <p class="mt-2 text-xs text-zinc-500">{esc(b["byline"])}</p>
+        <p class="mt-2 text-xs text-zinc-500">{esc(byline(b))}</p>
   {article}{related_html(b)}
         <div class="not-prose mt-8 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 text-center">
           <p class="text-zinc-200">{esc(b["cta"])}</p>
@@ -762,7 +800,7 @@ def build():
           opts, opts_all = lang_menu(slug, tag, lambda sl: path_for(sl, TOOLS[0]))
           ld = {"@context": "https://schema.org", "@graph": [
               {"@type": "BlogPosting", "headline": b["title"], "description": b["desc"], "inLanguage": tag,
-               "url": url, "mainEntityOfPage": url, "datePublished": bdate, "dateModified": bdate,
+               "url": url, "mainEntityOfPage": url, "datePublished": bdate, "dateModified": modified(b),
                "image": f"{BASE}/{b.get('og') or AUTOIMG.get(b['path'], gimg)}",
                "author": {"@type": "Person", "name": "Jonhisking"},
                "publisher": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"}},
@@ -819,7 +857,7 @@ def build():
     _posts = sorted([b for G in (PRO, BLOG, *MULTI) for b in G if b["tag"] == "en" and "path" in b], key=lambda b: b.get("date", BLOG_DATE), reverse=True)
     _ll = os.path.join(DIST, "llms.txt")
     _llms = open(_ll, encoding="utf-8").read().rstrip() + "\n\n## Latest articles (English; Korean, Japanese and other versions are linked from each page)\n\n"
-    _llms += "".join(f"- [{b['title']}]({BASE}{b['path']}) ({b.get('date', BLOG_DATE)}): {b['desc']}\n" for b in _posts[:40])
+    _llms += "".join(f"- [{b['title']}]({BASE}{b['path']}) ({modified(b)}): {b['desc']}\n" for b in _posts[:40])
     open(_ll, "w", encoding="utf-8").write(_llms)
     if ADSENSE_PUB:
         open(os.path.join(DIST, "ads.txt"), "w").write(
@@ -841,13 +879,13 @@ def build():
         if pg["path"]:
             entries.append(f"\n  <url>\n    <loc>{BASE}{pg['path']}</loc>\n    <lastmod>{LASTMOD}</lastmod>\n  </url>")
     for GROUP in (BLOG, PRO, MISTRAL_FR, PROMPT_PL, *MULTI, *([g] for g in GUIDES)):
-      b_en = next((b for b in GROUP if b["tag"] == "en"), None)
       for b in GROUP:
-        grp = [x for x in GROUP if x["tag"] != b["tag"] or x is b]  # same-language siblings are separate articles, not alternates
+        grp = alternates(b, GROUP)
         b_alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{x["tag"]}" href="{BASE}{x["path"]}"/>' for x in grp)
-        if b_en and b_en in grp:
-            b_alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}{b_en["path"]}"/>'
-        entries.append(f"\n  <url>\n    <loc>{BASE}{b['path']}</loc>\n    <lastmod>{b.get('date', BLOG_DATE)}</lastmod>{b_alts}{img_tags(b['path'])}\n  </url>")
+        b_xd = x_default(grp, GROUP)
+        if b_xd:
+            b_alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}{b_xd["path"]}"/>'
+        entries.append(f"\n  <url>\n    <loc>{BASE}{b['path']}</loc>\n    <lastmod>{modified(b)}</lastmod>{b_alts}{img_tags(b['path'])}\n  </url>")
     perf_x = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{BASE}{PERF.PATH[l]}"/>' for l in PERF_LANGS)
     for cp in [cmp_hub] + cmp_pages:
         alts_ = perf_x if cp["path"] == "/compare/performance" else ""
@@ -863,7 +901,7 @@ def build():
     for p_ in GC.PATH.values():
         entries.append(f"\n  <url>\n    <loc>{BASE}{p_}</loc>\n    <lastmod>{GC.CHECKED}</lastmod>{gc_x}\n  </url>")
     for bt in BLOG_IDX:
-        entries.append(f"\n  <url>\n    <loc>{BASE}/{tag_slug_[bt]}/blog/</loc>\n    <lastmod>{max(b.get('date', BLOG_DATE) for b in blog_lang_posts(bt))}</lastmod>\n  </url>")
+        entries.append(f"\n  <url>\n    <loc>{BASE}/{tag_slug_[bt]}/blog/</loc>\n    <lastmod>{max(modified(b) for b in blog_lang_posts(bt))}</lastmod>\n  </url>")
     open(os.path.join(DIST, "sitemap.xml"), "w", encoding="utf-8").write(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'

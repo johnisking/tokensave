@@ -132,14 +132,14 @@ If you use one agent all day, the flat allowances from Anthropic and OpenAI usua
 
 ## What a month costs on the API, for reference
 
-From our [Claude Code cost per month](/blog/claude-code-cost-per-month) model, 22 working days:
+From our [Claude Code pricing](/blog/claude-code-cost-per-month) model, 22 working days, with cache reads at 5% of the input price. The range runs from new context billed at the input price to new context billed at the 1-hour cache-write rate, as in our measured runs:
 
 | How you use it | API with Claude Sonnet 5.5 | API with Claude Opus 5.5 | Cheapest plan that usually fits |
 |---|---|---|---|
-| Light: 3 small fixes a day | ~$10 | ~$20 | API, or any $20 plan |
-| Regular: 5 features a day | ~$79 | ~$158 | $20–$100 plan |
-| Heavy: 15 features a day | ~$236 | ~$473 | $100–$200 plan |
-| Agents all day | ~$466 | ~$932 | $200 plan |
+| Light: 3 small fixes a day | $9–14 | $18–28 | API, or any $20 plan |
+| Regular: 5 features a day | $63–90 | $125–179 | $20–$100 plan |
+| Heavy: 15 features a day | $188–269 | $375–537 | $100–$200 plan |
+| Agents all day | $336–446 | $672–893 | $200 plan |
 
 On Cursor, the API column is roughly what you would draw from your pool when using Claude models. On Codex, GPT-6.1 Sol's API prices are the same as Sonnet 5.5's ($2 input and $10 output per million tokens), and GPT-6 Luna's are 95% lower, so a similar workload on Luna would cost far less.
 

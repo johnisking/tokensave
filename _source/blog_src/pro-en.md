@@ -55,7 +55,7 @@ How and when each plan's limits reset is covered in [ChatGPT usage limits](/blog
 
 ![Which one should you pick?: You rarely hit the Plus limit; You hit the Plus limit a few times a week; You regularly run out on Pro 100](/chatgpt-pro-100-vs-200-vs-500-which-one-should-you-pick-en.jpg)
 
-- **You rarely hit the Plus limit:** stay on Plus ($20). None of the Pro plans give you a smarter answer for everyday chat; they give you more of it.
+- **You rarely hit the Plus limit:** stay on Plus ($20). None of the Pro plans give you a smarter answer for everyday chat; they give you more of it. (Not sure whether you need Pro at all? See [ChatGPT Plus vs Pro](/blog/chatgpt-plus-vs-pro) for what Pro adds feature by feature.)
 - **You hit the Plus limit a few times a week:** Pro 100. Five times the usage for five times the price, and the jump from $20 to $100 is the smallest step up.
 - **You regularly run out on Pro 100:** Pro 200. Same price per unit, twice the room.
 - **You run Codex or agents most of the day, or waiting on output costs you money:** Pro 500. It is the only Pro plan with Ultrafast (usage-based Enterprise and credit-based Edu plans can also get it), but note that faster generation uses your allowance faster too.

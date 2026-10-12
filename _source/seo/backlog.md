@@ -17,16 +17,21 @@
 - [ ] 태국어 도구 페이지 본문이 얇음(150~250단어 수준) → FAQ/설명 보강 또는 우선순위 하향
 
 ## P1 — 글 구조 (근거: `reports/2026-10-12-content.md`)
-- [ ] hreflang 재그룹: `gogo`·`subs`·`gemgp`·`rbxtrend`·`rbxhow` 5개 주제 39페이지가 언어끼리 연결 안 됨 — `src/blog_meta.py`, `build.py` 712~724행
-- [ ] `updated` 필드 추가 → byline "Updated …"·`dateModified`·sitemap lastmod (지금은 dateModified = 발행일) — `build.py` 765행, `update_prices.py`
-- [ ] 같은 검색어를 노리는 4쌍 정리: `compare/performance`↔`best-value-llm-october-2026`(en·ko·ja), Sonnet vs Opus compare↔blog, `chatgpt-plus-vs-pro`↔`chatgpt-pro-100-vs-200-vs-500`, Claude Pro/Max 3종 상호 링크
+- [x] hreflang 재그룹 (2026-10-12, `build.py` `alternates()`): `gogo`·`subs`·`gemgp`·`rbxtrend`·`rbxhow` 5개 주제 39페이지가 언어끼리 연결 안 됨 — `src/blog_meta.py`, `build.py` 712~724행
+- [x] `updated` 필드 추가 (2026-10-12) → byline "Updated …"·`dateModified`·sitemap lastmod (지금은 dateModified = 발행일) — `build.py` 765행, `update_prices.py`
+- [x] 같은 검색어를 노리는 4쌍 정리 (2026-10-12, 상호 링크·역할 문장·ko/ja 차트 제목 변경): `compare/performance`↔`best-value-llm-october-2026`(en·ko·ja), Sonnet vs Opus compare↔blog, `chatgpt-plus-vs-pro`↔`chatgpt-pro-100-vs-200-vs-500`, Claude Pro/Max 3종 상호 링크
 
 ## P2 — 글 업그레이드 (2세대 형식: 첫 문장에 답·실측·표 3+·출처·질문형 H2)
-- [ ] Claude Code 요금 en·ko·ja (`claude-code-cost-per-month` 877단어 / `claude-code-yogeum` / `claude-code-ryoukin`)
+- [x] Claude Code 요금 en·ko·ja (2026-10-12 재작성) (`claude-code-cost-per-month` 877단어 / `claude-code-yogeum` / `claude-code-ryoukin`)
 - [ ] 사용량 한도 3종 (Claude Code·Codex·ChatGPT) en·ko·ja
 - [ ] Claude Max vs Pro en·ko·ja, LLM API 가격 비교 en·ko·ja, OpenAI API 가격, 토큰 세는 법(표 0개)
 - [ ] 1세대 영어 제목에 검색어·2026 넣기, `claude-token-cost` → "Claude API Pricing 2026…"
 - [ ] `/compare/` 29쌍: 수요 있는 쌍만 실측·출처 보강, 4주 노출 0인 쌍은 합치거나 noindex
+
+## P2 — 후속 (2026-10-12 작업 중 발견)
+- [ ] 굵은 글씨 FAQ(**질문?** 다음 줄 답)도 FAQPage 구조화 데이터로 뽑기 — 지금은 H2 질문만 인식 (`build.py` `_qa`)
+- [ ] `src/llm_prices.json`·`/agents`·`/compare/`가 아직 Claude Haiku 4.5($1/$5) 기준 — 공식 가격표에는 Haiku 5.5($0.10/$0.50)가 현행 모델
+- [ ] 경쟁 글 분량 측정(`launchkit/length_bench.json`)에 "claude code pricing" 추가 — 이번 환경에서는 외부 사이트 접속이 막혀 못 잼
 
 ## P2 — 콘텐츠 확장 (서치콘솔 데이터로 순서 재조정)
 - [ ] Gemini 요금제 총정리(Google AI Plus·Pro·Ultra) + Gemini API 가격 — en·ko·ja 모두 없음

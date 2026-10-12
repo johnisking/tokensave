@@ -139,7 +139,7 @@ When there are many details and they need to be exact. Sonnet was enough for wor
 
 ## Run the numbers for your own work
 
-In the [coding agent cost calculator](/agents), enter task size and tasks per day to compare a month on Opus 5.5 and Sonnet 5.5. Check a single prompt's cost in the [token counter](/). For the differences between Opus 5 and 5.5, see [Claude Opus 5 vs 5.5](/blog/claude-opus-5-vs-5-5).
+In the [coding agent cost calculator](/agents), enter task size and tasks per day to compare a month on Opus 5.5 and Sonnet 5.5. Check a single prompt's cost in the [token counter](/), and API costs at other request sizes in the [Sonnet 5.5 vs Opus 5.5 API cost comparison](/compare/claude-sonnet-5-5-vs-claude-opus-5-5). For the differences between Opus 5 and 5.5, see [Claude Opus 5 vs 5.5](/blog/claude-opus-5-vs-5-5).
 
 *Measured October 9, 2026. Costs are ccusage conversions at API prices; results can change with model and Claude Code updates.*
 

@@ -55,7 +55,7 @@ Max는 두 한도를 모두 배수만큼 늘려 줍니다. Claude Code에서 **/
 - Max 5×의 주간 한도에 계속 걸립니다.
 - Opus를 기본 모델로 씁니다.
 
-이 정도 사용량이면 API로는 보통 훨씬 더 비쌉니다. 저희 비용 모델로 계산하면, 하루에 기능 단위 작업을 15개씩 하는 헤비 유저는 API로 Sonnet을 쓸 때 월 약 $236, Opus를 쓸 때 약 $473이 듭니다. Max 20×는 $200입니다. [Claude Code 월 비용](/ko/blog/claude-code-yogeum)을 참고하세요.
+이 정도 사용량이면 API로는 보통 훨씬 더 비쌉니다. 저희 비용 모델로 계산하면, 하루에 기능 단위 작업을 15개씩 하는 헤비 유저는 API로 Sonnet을 쓸 때 월 $188~269, Opus를 쓸 때 $375~537이 듭니다. Max 20×는 $200입니다. [Claude Code 월 비용](/ko/blog/claude-code-yogeum)을 참고하세요.
 
 ## 어떤 요금제든 사용량을 늘려 쓰는 법
 
@@ -73,6 +73,8 @@ $200 가격대에서 Claude Max 20×는 이제 기본 요금제의 20배이고, 
 ## 내 숫자로 확인하기
 
 [코딩 에이전트 계산기](/ko/agents)로 내 Claude Code 사용 방식에 맞춰 Pro, Max, API를 비교하거나, 대화 위주라면 [구독 vs API 계산기](/ko/plans)를 써 보세요.
+
+무료·프로·Max 요금제 전체와 원화 가격, 할인은 [클로드 요금제 총정리](/ko/blog/claude-yogeumje)에 정리했습니다.
 
 *가격과 한도는 바뀝니다. 업그레이드하기 전에 [claude.com/pricing](https://claude.com/pricing)을 확인하세요.*
 

@@ -45,7 +45,7 @@ There is no daily limit. You have a rolling 5-hour window, which starts with you
 
 Almost certainly yes if you use Claude Code heavily: a Max 20× week measured at about 1.9 billion tokens works out to roughly $1,800 at API prices for the same mix of models and cache reads, against $200 a month for the plan. For lighter use the answer can flip. Put in your own task size and tasks per day in the [coding agent cost calculator](/agents), or use the [Subscription vs API calculator](/plans) for chat.
 
-Related: [Claude Max vs Pro](/blog/claude-max-vs-pro) · [Claude Code usage limits explained](/blog/claude-code-usage-limits) · [How to save tokens in Claude Code](/blog/claude-code-save-tokens) · [Claude token counter](/claude-token-counter)
+Related: [Claude Max vs Pro](/blog/claude-max-vs-pro) · [Claude Pro price](/blog/claude-pro-price) · [Claude Code usage limits explained](/blog/claude-code-usage-limits) · [How to save tokens in Claude Code](/blog/claude-code-save-tokens) · [Claude token counter](/claude-token-counter)
 
 *Anthropic changes limits often and does not publish token quotas. Run **/status** in Claude Code to see where you stand.*
 
