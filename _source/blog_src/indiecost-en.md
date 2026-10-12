@@ -3,8 +3,8 @@
 > **30-second summary**
 > - Indie game development cost splits into four buckets: **engine, art and audio, code, and release**.
 > - Engines are **free to start** (Unity Personal, Godot, Unreal Engine). Release fees are **$25 once for Google Play, $100 per game on Steam, and $99 a year for Apple**.
-> - Outsourcing studios quote tens of thousands of dollars for a small game. **Building it yourself with AI** comes to about **$53–181** for a small 2D game (calculator estimate).
-> - My own game was built for **$20**: one month of Claude Pro and nothing else. It launched on Google Play in September 2026, has about **200 downloads** so far, and has earned **$0**.
+> - Outsourcing studios quote tens of thousands of dollars for a small game. **Building it yourself with AI** costs mostly AI subscriptions and store fees.
+> - My own game was built for **$20**: one month of Claude Pro. Claude drew the graphics, and the music is free from Pixabay. It launched on Google Play in September 2026, has about **200 downloads** so far, and has earned **$0**.
 
 Search for "indie game development cost" and most of what you find is written by outsourcing studios, with budgets from $10,000 to $1,000,000. That is useful if you are hiring a team. It is not useful if you plan to build the game yourself. This guide is for the solo developer: what is free, what you really have to pay for, and what my own game cost, including what happened after launch. Prices were checked on official pages on October 12, 2026.
 
@@ -99,14 +99,16 @@ Once a game earns money, your own country's tax rules apply too. Check with a lo
 
 Outsourcing studios publish their own budgets. According to their blogs, a small 2D indie game costs about **$20,000–$100,000** (Prolific Studio), and a prototype starts at about **$5,000** (Pixune). These are quotes for hiring a team, and they vary with scope, platform and art style.
 
-If you build it yourself with AI, your money goes to **AI subscriptions and store fees**. Here is a small 2D merge game in the [AI game cost calculator](/ai-game-cost-calculator):
+If you build it yourself with AI, your money goes to **AI subscriptions and store fees** instead, usually tens to a couple of hundred dollars for a small game. What it comes to depends on which tools you pick for code, art and music. The breakdown by size, genre and tool stack is in [AI game development cost by size and genre](/blog/ai-game-development-cost), and the [AI game cost calculator](/ai-game-cost-calculator) prices your own project.
 
-| Stack | Time (estimate) | Cost |
+| | Outsourcing studio | Building it yourself with AI |
 |---|---|---|
-| Best value (Gemini images + free music + Google AI Pro) | 14–22 days | $53–75 |
-| Typical (Midjourney + Suno + ElevenLabs + Claude Max 5×) | 14–22 days | $128–181 |
+| Money | Thousands to tens of thousands of dollars | AI subscriptions + store fees |
+| Your time | Little (briefing, feedback) | A lot (planning, testing, fixing) |
+| Control | Limited to what you specify | Full, you change anything any time |
+| Best for | Funded projects, deadlines | Learning, small games, testing ideas |
 
-The tradeoff: a studio costs you money but little time. Building it yourself costs little money, but **planning, testing and fixing take your own hours.** The full breakdown by size and genre is in [AI game development cost by size and genre](/blog/ai-game-development-cost).
+The tradeoff: a studio costs you money but little time. Building it yourself costs little money, but **planning, testing and fixing take your own hours.**
 
 ## Real case: a game built for $20
 
@@ -115,7 +117,7 @@ I had zero coding experience. I made **Sperm Race**, a silly racing game, by des
 | Item | What I used | Cost |
 |---|---|---|
 | Code | Claude Pro subscription | $20 (one month) |
-| Graphics | Drawn in code by the AI | $0 |
+| Graphics | Drawn by Claude itself (in code) | $0 |
 | Music | Free tracks from Pixabay | $0 |
 | Sound effects | Generated in code | $0 |
 | **Cost to build** | | **$20** |
@@ -158,7 +160,7 @@ My time per game varies a lot. Besides Sperm Race (about 2 weeks), a gold-rush t
 ## FAQ
 
 **How much does it cost to make an indie game?**
-Done yourself, it can be very little: my game cost $20 to build. With paid AI tools for art and music, a small 2D game comes to about $53–181. Hiring a studio starts in the thousands and often reaches tens of thousands of dollars.
+Done yourself, it can be very little: my game cost $20 to build, with Claude drawing the graphics and free music from Pixabay. Adding paid AI tools for art and music raises it, and the [AI game cost calculator](/ai-game-cost-calculator) shows by how much. Hiring a studio starts in the thousands and often reaches tens of thousands of dollars.
 
 **Can one person make an indie game for free?**
 Almost. The engines are free, free assets exist, and a web release on itch.io costs $0. In practice most solo developers pay for at least one AI or tool subscription to save time.
