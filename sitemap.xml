@@ -14654,6 +14654,8 @@
     <loc>https://tokensave.app/ko/blog/indie-game-gaebal-biyong</loc>
     <lastmod>2026-10-08</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/indie-game-gaebal-biyong"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/indie-game-development-cost"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/indie-game-development-cost"/>
     <image:image>
       <image:loc>https://tokensave.app/indie-game-gaebal-biyong-ko.jpg</image:loc>
     </image:image>
@@ -14671,6 +14673,31 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/indie-game-dev-time-factors-ko.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/indie-game-development-cost</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/indie-game-gaebal-biyong"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/indie-game-development-cost"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/indie-game-development-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/indie-game-development-cost-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/indie-game-development-cost-the-four-costs-of-an-indie-game-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/indie-game-development-cost-engine-costs-free-to-start-with-limits-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/spermrace-screens-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/blog-spermrace-modes.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/indie-game-development-cost-hidden-costs-people-forget-en.jpg</image:loc>
     </image:image>
   </url>
   <url>
