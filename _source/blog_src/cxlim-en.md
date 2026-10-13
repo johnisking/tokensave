@@ -39,6 +39,10 @@ Like every coding agent, Codex works in steps and sends its whole working contex
 
 OpenAI's help center points to **Settings → Usage** in ChatGPT, which shows your remaining allowance and reset times. Codex also warns you as you approach the limit.
 
+![ChatGPT Usage & billing screen on the Free plan, where Codex shares one monthly usage limit (99% left)](/codex-usage-limits-usage-billing-en.jpg)
+
+Here is that screen on a ChatGPT Free account in the Windows desktop app on October 13, 2026 (the menu is named **Usage & billing**). It confirms that Codex shares its allowance with Work, workspace agents and ChatGPT for Excel, while Chat conversations are not counted. On Free there is no five-hour or weekly meter, just one monthly bar: 99% left, resetting in 27 days 17 hours. A switch lets Codex use a saved usage reset, but only when you ask for it in a conversation and less than 10% of your limit is left; it never happens automatically. The **Usage limit resets** section counts the resets you hold (0 here) and says each one restores your five-hour limit, weekly limit or both.
+
 ## When you hit the limit
 
 ![When you hit the limit: Wait for the reset. The 5-hour window refills within hours.; Use a banked reset or buy an instant reset, avail](/codex-usage-limits-when-you-hit-the-limit-en.jpg)

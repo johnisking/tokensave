@@ -39,6 +39,10 @@ Como cualquier agente de programación, Codex trabaja por pasos y en cada paso v
 
 El centro de ayuda de OpenAI remite a **Settings → Usage** en ChatGPT, donde ves tu cuota restante y las horas de reinicio. Codex también te avisa cuando te acercas al límite.
 
+![Pantalla Uso y facturación de ChatGPT en el plan Free, donde Codex comparte un límite de uso mensual (queda el 99 %)](/codex-limites-de-uso-uso-y-facturacion-es.jpg)
+
+Así se ve esa pantalla en una cuenta de ChatGPT Free, en la app de escritorio para Windows, el 13 de octubre de 2026 (el menú se llama **Uso y facturación**). Confirma que Codex comparte la cuota con Work, los agentes del espacio de trabajo y ChatGPT para Excel, y que las conversaciones de Chat no cuentan. En el plan Free no hay medidor de 5 horas ni semanal, solo una barra mensual: quedaba el 99 % y se restablecía en 27 días y 17 horas. Un interruptor permite que Codex use un restablecimiento guardado, pero solo si se lo pides en la conversación y te queda menos del 10 % del límite; nunca se usa solo. La sección **Restablecimientos del límite** muestra cuántos tienes (0 en esta cuenta) y explica que cada uno recupera el límite de 5 horas, el semanal o ambos.
+
 ## Cuando llegas al límite
 
 ![Cuando llegas al límite: Espera al reinicio. La ventana de 5 horas se recarga en cuestión de horas.; Usa un reinicio acumulado o compra](/codex-limites-de-uso-cuando-llegas-al-limite-es.jpg)

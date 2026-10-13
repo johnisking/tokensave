@@ -143,6 +143,10 @@ The usable input is smaller than the total because the system instructions, memo
 
 OpenAI suggests checking the dashboard every week or two to learn your own pace.
 
+![ChatGPT Usage & billing screen on the Free plan: one monthly usage limit with 99% left and a reset in 27 days 17 hours](/chatgpt-usage-limits-usage-billing-en.jpg)
+
+This is the screen on a ChatGPT Free account in the Windows desktop app on October 13, 2026, where the menu is called **Usage & billing**. Three things stand out. It says Codex, Work, workspace agents and ChatGPT for Excel share one allowance, and that Chat conversations are not counted. Free shows a single monthly bar instead of five-hour and weekly meters; ours had 99% left with the reset 27 days away. And there is a switch that lets Codex spend a saved usage reset, but only when you ask for it in a conversation and less than 10% of your limit is left; resets are never used on their own. The **Usage limit resets** section below shows how many resets you hold (0 on this account) and what one restores: the five-hour limit, the weekly limit or both.
+
 ## Which limit did I hit?
 
 Because the meters are separate, the fastest way to fix a limit is to work out which one you reached. A quick guide:
