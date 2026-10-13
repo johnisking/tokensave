@@ -55,6 +55,7 @@
 <p>Anthropic 2026'da Claude Code limitlerini birkaç kez değiştirdi. Haberlere göre Mayıs 2026'da Pro, Max, Team ve koltuk bazlı Enterprise planlarında 5 saatlik limitler artırıldı ve Pro ile Max'te yoğun saatlerdeki ek kısıtlama kaldırıldı. Yaz boyunca haftalık limitlerde geçici bir artış uygulandı. Eylül 2026'da ise standart haftalık limitler kalıcı olarak %25 artırıldı; bu artış geçici yaz artışının yerini aldığı için, Eylül ortasından beri haftalık limite yazdan daha erken ulaşıyorsanız bu beklenen bir durum. Haberlere göre bu, orijinal seviyeye göre %25 fazla ama yaz dönemindeki geçici seviyeye göre yaklaşık %17 daha az kullanım demek. Bu tarihler Anthropic'in yardım sayfalarında ayrıca yer almıyor.</p>
 <p>Limitler sık değiştiği için güncel kuralları her zaman Anthropic'in <a href="https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Claude Code plan yardım sayfasından</a> kontrol edin.</p>
 <h2>Limitinizi nasıl kontrol edersiniz? /usage komutu</h2>
+<p><img loading="lazy" width="1200" height="672" alt="Limitinizi nasıl kontrol edersiniz? /usage komutu: Satır, Ne demek, Bizim değerimiz, Sıfırlanma" src="/claude-code-limit-limitinizi-nasil-kontrol-edersiniz-usage-tr.jpg" /></p>
 <p>Claude Code içinde <strong>/usage</strong> yazın. Kendi Max 5x hesabımızda 13 Ekim 2026'da gördüğümüz rapor şöyleydi:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -96,6 +97,7 @@
 <li><strong>/clear limiti sıfırlamaz.</strong> /clear yalnızca konuşma bağlamını temizler. Sonraki adımlar daha az token harcar, ama harcanmış kullanım geri gelmez.</li>
 </ul>
 <h2>Hangi limite takıldınız?</h2>
+<p><img loading="lazy" width="1200" height="672" alt="Hangi limite takıldınız?: Dolan limit, Model değiştirmek işe yarar mı?, En hızlı çözüm" src="/claude-code-limit-hangi-limite-takildiniz-tr.jpg" /></p>
 <p>Ne yapacağınız, hangi limitin dolduğuna bağlı. Önce /usage'a bakın:</p>
 <div class="overflow-x-auto"><table>
 <thead>
@@ -118,7 +120,7 @@
 </tr>
 <tr>
 <td>Modele özel haftalık</td>
-<td>Evet, /model ile başka bir modele geçip aynı bağlamla devam edebilirsiniz</td>
+<td>Evet, aynı bağlamla devam edersiniz</td>
 <td>/model ile Sonnet'e geçin</td>
 </tr>
 </tbody>
@@ -129,7 +131,6 @@
 <li><strong>429 / rate_limit_error:</strong> Claude Code'u API anahtarıyla kullanıyorsanız, hesabınızın dakika başına istek veya token sınırına takıldınız demektir. Bu genellikle kısa bir beklemeyle geçer; plan limitinizle ilgili değildir.</li>
 </ul>
 <h2>Limit dolduğunda ne yapmalı?</h2>
-<p><img loading="lazy" width="1200" height="866" alt="Limit dolduğunda ne yapmalı?: Sıfırlanmayı bekleyin. 5 saatlik limitte bu genellikle birkaç saat demektir.; Kullanım kredisini açın. Pro ve " src="/claude-code-limit-limit-doldugunda-ne-yapmali-tr.jpg" /></p>
 <ol>
 <li><strong>Sıfırlanmayı bekleyin.</strong> 5 saatlik limitte bu genellikle birkaç saat demektir.</li>
 <li><strong>Kullanım kredisini açın.</strong> Pro ve Max planlarında kullanım kredilerini açarsanız, limite ulaştığınızda durmak yerine ayrıca ücretlendirilerek devam edebilirsiniz. Max'te bu; 5 saatlik, haftalık ve Fable haftalık limitlerinin hepsi için geçerlidir.</li>

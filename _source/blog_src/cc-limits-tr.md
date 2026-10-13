@@ -42,6 +42,8 @@ Limitler sık değiştiği için güncel kuralları her zaman Anthropic'in [Clau
 
 ## Limitinizi nasıl kontrol edersiniz? /usage komutu
 
+![Limitinizi nasıl kontrol edersiniz? /usage komutu: Satır, Ne demek, Bizim değerimiz, Sıfırlanma](/claude-code-limit-limitinizi-nasil-kontrol-edersiniz-usage-tr.jpg)
+
 Claude Code içinde **/usage** yazın. Kendi Max 5x hesabımızda 13 Ekim 2026'da gördüğümüz rapor şöyleydi:
 
 | Satır | Ne demek | Bizim değerimiz | Sıfırlanma |
@@ -64,13 +66,15 @@ Claude Code ayrıca bir limite yaklaştığınızda sizi uyarır. Uzun bir işe 
 
 ## Hangi limite takıldınız?
 
+![Hangi limite takıldınız?: Dolan limit, Model değiştirmek işe yarar mı?, En hızlı çözüm](/claude-code-limit-hangi-limite-takildiniz-tr.jpg)
+
 Ne yapacağınız, hangi limitin dolduğuna bağlı. Önce /usage'a bakın:
 
 | Dolan limit | Model değiştirmek işe yarar mı? | En hızlı çözüm |
 |---|---|---|
 | 5 saatlik oturum | Hayır, tüm modeller aynı limitten düşer | Sıfırlanmayı bekleyin veya kullanım kredisini açın |
 | Haftalık (tüm modeller) | Hayır | Kullanım kredisi, API veya plan yükseltme |
-| Modele özel haftalık | Evet, /model ile başka bir modele geçip aynı bağlamla devam edebilirsiniz | /model ile Sonnet'e geçin |
+| Modele özel haftalık | Evet, aynı bağlamla devam edersiniz | /model ile Sonnet'e geçin |
 
 ### "Usage limit reached" ile 429 hatası aynı şey değil
 
@@ -78,8 +82,6 @@ Ne yapacağınız, hangi limitin dolduğuna bağlı. Önce /usage'a bakın:
 - **429 / rate_limit_error:** Claude Code'u API anahtarıyla kullanıyorsanız, hesabınızın dakika başına istek veya token sınırına takıldınız demektir. Bu genellikle kısa bir beklemeyle geçer; plan limitinizle ilgili değildir.
 
 ## Limit dolduğunda ne yapmalı?
-
-![Limit dolduğunda ne yapmalı?: Sıfırlanmayı bekleyin. 5 saatlik limitte bu genellikle birkaç saat demektir.; Kullanım kredisini açın. Pro ve ](/claude-code-limit-limit-doldugunda-ne-yapmali-tr.jpg)
 
 1. **Sıfırlanmayı bekleyin.** 5 saatlik limitte bu genellikle birkaç saat demektir.
 2. **Kullanım kredisini açın.** Pro ve Max planlarında kullanım kredilerini açarsanız, limite ulaştığınızda durmak yerine ayrıca ücretlendirilerek devam edebilirsiniz. Max'te bu; 5 saatlik, haftalık ve Fable haftalık limitlerinin hepsi için geçerlidir.
