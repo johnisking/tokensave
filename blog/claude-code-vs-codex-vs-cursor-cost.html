@@ -36,11 +36,11 @@
   <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Claude Code vs Codex vs Cursor: Cost and a Real Test (2026)", "description": "Claude Code vs Codex vs Cursor in 2026: plans from free to $500, how each counts usage, benchmark scores, and the same prompt run in all three.", "inLanguage": "en", "url": "https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost", "mainEntityOfPage": "https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost", "datePublished": "2026-10-06", "dateModified": "2026-10-06", "image": "https://tokensave.app/claude-code-vs-codex-vs-cursor-cost-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Claude Code vs Codex vs Cursor: Cost and a Real Test (2026)", "item": "https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Claude Code vs Codex vs Cursor: Cost and a Real Test (2026)", "description": "Claude Code vs Codex vs Cursor in 2026: plans from free to $500, how each counts usage, benchmark scores, and the same prompt run in all three.", "inLanguage": "en", "url": "https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost", "mainEntityOfPage": "https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost", "datePublished": "2026-10-06", "dateModified": "2026-10-12", "image": "https://tokensave.app/claude-code-vs-codex-vs-cursor-cost-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Claude Code vs Codex vs Cursor: Cost and a Real Test (2026)", "item": "https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=6881d21f" />
+  <link rel="stylesheet" href="/styles.css?v=d9a705c4" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -100,7 +100,7 @@
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">Claude Code vs Codex vs Cursor: Cost and a Real Test (2026)</h1>
-        <p class="mt-2 text-xs text-zinc-500">Jonhisking · Updated October 12, 2026</p>
+        <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 6, 2026 · Updated October 12, 2026</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="Claude Code vs Codex vs Cursor: Cost and a Real Test (2026)" src="/claude-code-vs-codex-vs-cursor-cost-en.jpg" /></p>
 <p>Claude Code, OpenAI's Codex and Cursor all sell a $20 plan and a $200 plan, so on the pricing page they look interchangeable. They are not. Claude Code and Codex give you a usage allowance that refills on a schedule, while Cursor bills model usage at API prices from a monthly pool. Their free options differ too, and so does how much work each one gets out of a task. This comparison covers the plans, how each tool counts usage, what independent benchmarks show, and what happened when we gave all three the same prompt.</p>
 <h2>Claude Code vs Codex vs Cursor at a glance</h2>
@@ -386,7 +386,7 @@
 </ul>
 <p>If you use one agent all day, the flat allowances from Anthropic and OpenAI usually go further than paying API prices, because they aren't tied to per-token rates. Cursor wins on flexibility (any model in one editor) and on seeing the cost of each task.</p>
 <h2>What a month costs on the API, for reference</h2>
-<p>From our <a href="/blog/claude-code-cost-per-month">Claude Code cost per month</a> model, 22 working days:</p>
+<p>From our <a href="/blog/claude-code-cost-per-month">Claude Code pricing</a> model, 22 working days, with cache reads at 5% of the input price. The range runs from new context billed at the input price to new context billed at the 1-hour cache-write rate, as in our measured runs:</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -399,26 +399,26 @@
 <tbody>
 <tr>
 <td>Light: 3 small fixes a day</td>
-<td>~$10</td>
-<td>~$20</td>
+<td>$9–14</td>
+<td>$18–28</td>
 <td>API, or any $20 plan</td>
 </tr>
 <tr>
 <td>Regular: 5 features a day</td>
-<td>~$79</td>
-<td>~$158</td>
+<td>$63–90</td>
+<td>$125–179</td>
 <td>$20–$100 plan</td>
 </tr>
 <tr>
 <td>Heavy: 15 features a day</td>
-<td>~$236</td>
-<td>~$473</td>
+<td>$188–269</td>
+<td>$375–537</td>
 <td>$100–$200 plan</td>
 </tr>
 <tr>
 <td>Agents all day</td>
-<td>~$466</td>
-<td>~$932</td>
+<td>$336–446</td>
+<td>$672–893</td>
 <td>$200 plan</td>
 </tr>
 </tbody>
@@ -497,6 +497,6 @@ Yes. Claude Code shares its allowance with the Claude app, and Codex shares one 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=6881d21f"></script>
+  <script type="module" src="/common.js?v=d9a705c4"></script>
 </body>
 </html>

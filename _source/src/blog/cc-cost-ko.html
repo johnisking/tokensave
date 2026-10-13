@@ -1,178 +1,327 @@
-<p><img fetchpriority="high" width="1200" height="630" alt="클로드 코드 요금 한 달에 얼마? Pro·Max·API 비교" src="/claude-code-yogeum-ko.jpg" /></p>
-<p>클로드 코드(Claude Code)는 Claude Pro·Max 구독에 포함되어 있고, 사용한 만큼 내는 API로도 쓸 수 있습니다. 그럼 한 달에 실제로 얼마가 들까요? 쓰는 양에 따라 다르고, 같은 작업이라도 어떻게 결제하느냐에 따라 10배 넘게 차이가 납니다. 실제 숫자로 정리했습니다.</p>
-<h2>결제 방법은 두 가지</h2>
-<p><img loading="lazy" width="1200" height="568" alt="결제 방법은 두 가지: 요금제, 월 가격, 사용량" src="/claude-code-yogeum-ko-2.jpg" /></p>
-<p><strong>1. 구독 요금제.</strong> 클로드 코드가 포함된 요금제입니다(미국 가격, 2026년 10월 확인).</p>
+<p><img fetchpriority="high" width="1200" height="630" alt="클로드 코드 요금 2026: 월 $20·$100·$200, API 비교" src="/claude-code-yogeum-ko.jpg" /></p>
+<p><strong>클로드 코드 요금 한 줄 정리:</strong> 클로드 코드(Claude Code)는 클로드 유료 요금제에 모두 포함되어 있습니다. <strong>프로(Pro) 월 $20</strong>(연간 결제 시 월 $17), <strong>Max 5x 월 $100</strong>, <strong>Max 20x 월 $200</strong>입니다. 요금제 없이 API 종량제로 쓴 토큰만큼 낼 수도 있는데, 우리 실측에서 작은 작업 하나가 <strong>소넷 5.5로 $0.25, 오퍼스 5.5로 $0.56~0.75</strong>였습니다. 무료 요금제에는 클로드 코드가 없습니다. 아래 가격은 모두 Anthropic 공식 가격 페이지 기준이며, 2026년 10월 12일에 확인했습니다.</p>
+<p>Anthropic은 원화 가격표를 따로 내놓지 않았습니다. 1달러=1,340원으로 가정한 우리 계산으로는 프로 $20이 약 2만 7천원, Max 5x $100이 약 13만 4천원, Max 20x $200이 약 26만 8천원입니다. 세금 전 대략적인 금액이고, 실제 청구액은 카드사 환율과 해외 결제 수수료에 따라 달라집니다.</p>
+<p>어느 방식이 가장 싼지는 얼마나 쓰느냐에 달려 있습니다. 이 글에서는 클로드 코드 요금제별로 무엇이 들어 있는지, API로 작업 하나에 실제로 얼마가 드는지(직접 측정), 사용량 네 단계별 한 달 비용, 그리고 구독이 토큰 종량제보다 싸지는 지점을 차례로 정리합니다.</p>
+<h2>클로드 코드 요금 한눈에 보기 (2026)</h2>
+<p><img loading="lazy" width="1200" height="788" alt="클로드 코드 요금 한눈에 보기 (2026): 요금제, 가격, 클로드 코드, 5시간당 사용량" src="/claude-code-yogeum-ko-2.jpg" /></p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
 <th>요금제</th>
-<th>월 가격</th>
-<th>사용량</th>
+<th>가격</th>
+<th style="text-align: center;">클로드 코드</th>
+<th>5시간당 사용량</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Pro</td>
-<td>$20 (연간 결제 시 월 $17)</td>
-<td>기본</td>
+<td>무료 (Free)</td>
+<td>$0</td>
+<td style="text-align: center;">없음</td>
+<td>–</td>
 </tr>
 <tr>
-<td>Max 5×</td>
-<td>$100</td>
-<td>Pro의 5배</td>
+<td>프로 (Pro)</td>
+<td>월 $20 (연간 결제 시 월 $17)</td>
+<td style="text-align: center;">포함</td>
+<td>무료의 500% 이상</td>
 </tr>
 <tr>
-<td>Max 20×</td>
-<td>$200</td>
-<td>Pro의 20배</td>
+<td>Max 5x</td>
+<td>월 $100</td>
+<td style="text-align: center;">포함</td>
+<td>프로의 500%</td>
+</tr>
+<tr>
+<td>Max 20x</td>
+<td>월 $200</td>
+<td style="text-align: center;">포함</td>
+<td>프로의 2,000%</td>
+</tr>
+<tr>
+<td>API (Claude Console)</td>
+<td>토큰당 종량제</td>
+<td style="text-align: center;">사용 가능</td>
+<td>요금제 한도 없음, 쓴 토큰 전부 청구</td>
 </tr>
 </tbody>
 </table></div>
-<p>정액으로 내고 사용량 한도가 있습니다. 클로드 코드와 Claude 앱(웹·데스크톱·모바일)이 <strong>같은 한도를 나눠 씁니다.</strong></p>
-<p><strong>2. API.</strong> 토큰 단위로 Anthropic API 가격을 냅니다.</p>
+<ul>
+<li><strong>가격은 세금 별도입니다.</strong> 한국에서 붙는 세금은 Anthropic이 따로 적어 두지 않았으니, 최종 금액은 결제 화면에서 확인하세요. Max는 월간 결제만 되고, 두 Max 요금제 모두 연간 할인이 없습니다.</li>
+<li><strong>한도 하나를 같이 씁니다.</strong> 터미널과 IDE(VS Code, Cursor, JetBrains)에서 쓰는 클로드 코드는 웹·데스크톱·모바일의 클로드와 같은 5시간 한도와 주간 한도를 나눠 씁니다. 앱에서 긴 대화를 하면 코딩에 쓸 양이 그만큼 줄어듭니다.</li>
+<li><strong>대량 할인은 Max 20x에만 있습니다.</strong> 프로 가격의 1,000%를 내고 프로 사용량의 2,000%를 받으니, 같은 사용량당 가격이 50% 쌉니다. Max 5x는 사용량당 가격이 프로와 같습니다.</li>
+<li><strong>Max에 들어 있는 월 API 크레딧으로는 클로드 코드 비용을 낼 수 없습니다.</strong> 가격 페이지에는 Claude Platform에서 개발용으로 쓰는 API 크레딧이 월 $100(Max 5x) 또는 $200(Max 20x) 들어 있다고 나옵니다. 하지만 Anthropic 고객센터는 이 크레딧을 클로드 코드나 클로드 앱에서는 쓸 수 없다고 안내합니다.</li>
+<li><strong>Team과 Enterprise.</strong> Anthropic 가격 FAQ에 따르면 클로드 코드는 모든 유료 요금제에 포함됩니다. Team 좌석은 Standard가 월 $25(연간 결제 시 $20), Premium이 월 $125(연간 $100)이고, 최소 2석부터입니다. Enterprise는 좌석당 $20에 API 요금 기준 사용료가 더해집니다.</li>
+<li><strong>앱에서 결제하면 가격이 다를 수 있습니다.</strong> 원화 기준 비교, 할인과 환불은 <a href="/ko/blog/claude-yogeumje">클로드 요금제 총정리</a>에 정리했습니다.</li>
+</ul>
+<h2>클로드 코드 무료로 쓸 수 있나요?</h2>
+<p>아닙니다. 클로드 무료 요금제에는 클로드 코드가 없고, 클로드 코드 체험판도 없습니다. 적은 돈으로 시작하는 방법은 두 가지입니다.</p>
+<ul>
+<li><strong>API.</strong> Claude Console 계정을 만들고 쓴 토큰만큼만 냅니다. 일주일에 작은 작업 몇 개 정도라면 한 달 $20보다 훨씬 적게 듭니다(아래 한 달 비용 표 참고).</li>
+<li><strong>프로 한 달.</strong> $20를 내고 한 달 써 본 뒤, 한도에 얼마나 자주 걸리는지 보고 정합니다.</li>
+</ul>
+<p>정말 무료인 코딩 에이전트를 찾는다면, OpenAI의 코덱스(Codex)는 챗GPT 무료 요금제에서 GPT-6 Luna로 돌아갑니다. 같은 벽돌깨기 게임 요청을 챗GPT 무료 계정의 코덱스로 돌려 본 결과는 <a href="/ko/blog/codex-yogeum">코덱스 요금 2026</a>에 있습니다.</p>
+<h2>클로드 코드 API 가격 (100만 토큰당)</h2>
+<p><img loading="lazy" width="1200" height="596" alt="클로드 코드 API 가격 (100만 토큰당): 모델, 입력, 출력, 캐시 쓰기(1시간), 캐시 읽기" src="/claude-code-yogeum-api-100-ko.jpg" /></p>
+<p>클로드 코드를 요금제 대신 API 크레딧으로 쓰면 Anthropic의 표준 API 가격을 그대로 냅니다. Claude API 가격 페이지 기준, 100만 토큰당 가격입니다.</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
 <th>모델</th>
-<th>입력 100만 토큰</th>
-<th>출력 100만 토큰</th>
+<th style="text-align: right;">입력</th>
+<th style="text-align: right;">출력</th>
+<th style="text-align: right;">캐시 쓰기(1시간)</th>
+<th style="text-align: right;">캐시 읽기</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Claude Haiku 4.5</td>
-<td>$1</td>
-<td>$5</td>
+<td>Fable 5.1</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">$50</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">$0.25</td>
 </tr>
 <tr>
-<td>Claude Sonnet 5.5</td>
-<td>$2</td>
-<td>$10</td>
+<td>오퍼스 5.5</td>
+<td style="text-align: right;">$4</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">$8</td>
+<td style="text-align: right;">$0.20</td>
 </tr>
 <tr>
-<td>Claude Opus 5.5</td>
-<td>$4</td>
-<td>$20</td>
+<td>소넷 5.5</td>
+<td style="text-align: right;">$2</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">$4</td>
+<td style="text-align: right;">$0.10</td>
+</tr>
+<tr>
+<td>하이쿠 5.5 (프롬프트 10만 토큰 이하)</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$0.50</td>
+<td style="text-align: right;">$0.20</td>
+<td style="text-align: right;">$0.01</td>
 </tr>
 </tbody>
 </table></div>
-<p>프롬프트 캐시에서 읽는 입력은 Sonnet 5.5와 Opus 5.5에서는 보통 입력 가격의 5%(95% 할인), Haiku 4.5에서는 10%입니다. 요금제 한도는 없지만 쓰는 토큰은 전부 청구됩니다.</p>
-<h2>클로드 코드는 왜 토큰을 많이 쓸까</h2>
-<p>클로드 코드는 단계별로 일합니다. 파일을 읽고, 고치고, 테스트를 돌리고, 결과를 보고, 다시 시도합니다. 그리고 <strong>단계마다 작업 맥락 전체</strong>(지시문, 도구 정의, 읽은 파일, 이전 단계)를 모델에 다시 보냅니다. 그래서 기능 하나 추가하는 작업에도 입력 토큰이 <strong>160만 개</strong> 정도 쉽게 들어갑니다. 작성하는 코드가 짧아도 그렇습니다.</p>
-<p>이 비용을 감당할 만하게 만드는 게 <strong>프롬프트 캐싱</strong>입니다. 반복되는 맥락은 Sonnet 5.5·Opus 5.5에서 입력 가격의 5%(Haiku 4.5는 10%)로 계산되고, 클로드 코드는 이걸 자동으로 씁니다.</p>
-<h2>API로 작업 하나에 드는 비용</h2>
-<p><img loading="lazy" width="1200" height="536" alt="API로 작업 하나에 드는 비용: 작업, 단계, Haiku 4.5, Sonnet 5.5, Opus 5.5" src="/claude-code-yogeum-ko-3.jpg" /></p>
-<p>토큰세이브 <a href="/ko/agents">코딩 에이전트 비용 계산기</a> 기준, 캐싱을 켠 경우입니다.</p>
+<ul>
+<li><strong>오퍼스 5.5는 소넷 5.5보다 토큰당 100% 비쌉니다.</strong> Fable 5.1은 오퍼스 5.5보다 150% 비쌉니다.</li>
+<li><strong>클로드 코드를 감당할 만한 가격으로 만드는 건 캐시 읽기입니다.</strong> 오퍼스 5.5와 소넷 5.5에서 캐시 읽기는 입력 가격의 5%, Fable 5.1에서는 2.5%입니다. 클로드 코드는 작업 맥락을 자동으로 캐시합니다.</li>
+<li><strong>요금제에서 Fable을 쓰려면:</strong> 프로는 유료 사용 크레딧으로만 Fable을 쓸 수 있고, Max에는 Fable용 주간 한도가 따로 있습니다.</li>
+</ul>
+<h2>작업 하나에 실제로 드는 비용: 4회 실측</h2>
+<p>2026년 10월 9일, 클로드 코드에 같은 요청을 네 번 줬습니다. 브라우저에서 돌아가는 벽돌깨기 게임을 파일 하나로, 레벨 2개, 점수, 목숨 3개, 키보드·마우스 조작으로 만들어 달라는 요청입니다. 토큰 수는 무료 도구 ccusage로 쟀고, API 가격으로 환산했습니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>모델 · effort</th>
+<th style="text-align: right;">걸린 시간</th>
+<th style="text-align: right;">게임 코드</th>
+<th style="text-align: right;">API 가격 환산 비용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>소넷 5.5 · medium</td>
+<td style="text-align: right;">37초</td>
+<td style="text-align: right;">198줄</td>
+<td style="text-align: right;">$0.25</td>
+</tr>
+<tr>
+<td>소넷 5.5 · high</td>
+<td style="text-align: right;">58초</td>
+<td style="text-align: right;">398줄</td>
+<td style="text-align: right;">$0.30</td>
+</tr>
+<tr>
+<td>오퍼스 5.5 · medium</td>
+<td style="text-align: right;">52초</td>
+<td style="text-align: right;">358줄</td>
+<td style="text-align: right;">$0.56</td>
+</tr>
+<tr>
+<td>오퍼스 5.5 · high</td>
+<td style="text-align: right;">1분 50초</td>
+<td style="text-align: right;">523줄</td>
+<td style="text-align: right;">$0.75</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>네 번 모두 제대로 돌아가는 게임이 나왔습니다.</strong> effort를 올리거나 오퍼스를 쓰면 완성도가 올라갔을 뿐, 되고 안 되고의 차이는 아니었습니다.</li>
+<li><strong>비용의 63~81%는 캐시 쓰기였습니다.</strong> 게임 코드 자체(출력)는 17~33%였습니다. 캐시 읽기는 토큰 수로는 가장 많았지만 비용으로는 2~4%에 그쳤습니다.</li>
+<li><strong>합계는 1시간 캐시 쓰기 가격으로 계산해야 맞아떨어집니다.</strong> 입력 가격의 200%인 가격입니다. ccusage 숫자를 우리가 읽은 결과로는, 이번 실측에서 클로드 코드의 캐시 쓰기는 1시간 가격으로 청구됐습니다.</li>
+<li><strong>effort도 가격을 움직입니다.</strong> 생각(thinking) 토큰은 출력으로 청구되고, high는 medium보다 출력 토큰을 96~97% 더 썼습니다.</li>
+</ul>
+<p>게임 화면을 포함한 전체 결과는 <a href="/ko/blog/claude-sonnet-5-5-vs-opus-5-5">클로드 소넷 5.5 vs 오퍼스 5.5 실측 비교</a>와 <a href="/ko/blog/claude-opus-5-5-effort">클로드 오퍼스 5.5 effort 비교</a>에 있습니다.</p>
+<h2>작업 크기별 예상 비용</h2>
+<p>파일 하나짜리 게임은 작은 작업입니다. 더 큰 작업은 토큰세이브 <a href="/ko/agents">코딩 에이전트 비용 계산기</a>의 계산 방식으로 추정했습니다. 에이전트는 단계별로 일하고, 단계마다 작업 맥락 전체(지시문, 도구 정의, 읽은 파일, 그때까지의 모든 내용)를 모델에 다시 보냅니다. 낮은 값은 계산기 기준(새 맥락을 입력 가격으로 계산)이고, 높은 값은 실측처럼 새 맥락을 1시간 캐시 쓰기 가격으로 계산한 값입니다.</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
 <th>작업</th>
-<th>단계</th>
-<th>Haiku 4.5</th>
-<th>Sonnet 5.5</th>
-<th>Opus 5.5</th>
+<th style="text-align: right;">단계</th>
+<th style="text-align: right;">보내는 토큰</th>
+<th style="text-align: right;">소넷 5.5</th>
+<th style="text-align: right;">오퍼스 5.5</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>작은 수정</td>
-<td>~8</td>
-<td>$0.08</td>
-<td>$0.14</td>
-<td>$0.27</td>
+<td style="text-align: right;">약 8</td>
+<td style="text-align: right;">약 20만</td>
+<td style="text-align: right;">$0.14~0.21</td>
+<td style="text-align: right;">$0.27~0.43</td>
 </tr>
 <tr>
 <td>새 기능</td>
-<td>~25</td>
-<td>$0.36</td>
-<td>$0.57</td>
-<td>$1.14</td>
+<td style="text-align: right;">약 25</td>
+<td style="text-align: right;">약 160만</td>
+<td style="text-align: right;">$0.57~0.81</td>
+<td style="text-align: right;">$1.14~1.63</td>
 </tr>
 <tr>
 <td>대규모 리팩터링</td>
-<td>~60</td>
-<td>$1.33</td>
-<td>$1.91</td>
-<td>$3.82</td>
+<td style="text-align: right;">약 60</td>
+<td style="text-align: right;">약 770만</td>
+<td style="text-align: right;">$1.91~2.54</td>
+<td style="text-align: right;">$3.82~5.07</td>
 </tr>
 </tbody>
 </table></div>
-<p>캐싱이 없으면 Sonnet으로 새 기능 작업 하나가 $0.57가 아니라 약 $3.38입니다.</p>
-<h2>한 달 비용</h2>
-<p>한 달 작업일 22일 기준입니다.</p>
+<ul>
+<li><strong>클로드 코드가 보내는 토큰 대부분은 다시 읽는 맥락입니다.</strong> 작은 수정은 토큰의 82%, 대규모 리팩터링은 96%가 캐시 읽기입니다. 그래서 토큰 160만 개를 보내는 기능 작업도 소넷으로는 $1보다 한참 적게 듭니다.</li>
+<li><strong>캐싱이 없다면</strong> 같은 기능 작업이 소넷 5.5로 $0.57가 아니라 약 $3.38입니다.</li>
+<li><strong>실측한 게임(소넷 $0.25~0.30)은 작은 수정과 새 기능 사이에 들어갑니다.</strong> 파일 하나짜리 게임이 딱 그 정도 크기입니다.</li>
+</ul>
+<h2>클로드 코드 한 달 비용</h2>
+<p>작업일 22일 기준으로, API로 낼 때의 네 가지 사용 패턴입니다.</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
 <th>사용 방식</th>
-<th>월 작업 수</th>
-<th>API (Sonnet)</th>
-<th>API (Opus)</th>
-<th>보통 맞는 가장 싼 요금제</th>
+<th style="text-align: right;">월 작업 수</th>
+<th style="text-align: right;">API, 소넷 5.5</th>
+<th style="text-align: right;">API, 오퍼스 5.5</th>
+<th>보통 맞는 요금제</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>가볍게: 하루 작은 수정 3개</td>
-<td>66</td>
-<td>약 $9</td>
-<td>약 $18</td>
-<td>API 또는 Pro($20)</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">$9~14</td>
+<td style="text-align: right;">$18~28</td>
+<td>API 또는 프로</td>
 </tr>
 <tr>
 <td>보통: 하루 기능 5개</td>
-<td>110</td>
-<td>약 $63</td>
-<td>약 $125</td>
-<td>Pro 또는 Max 5×</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">$63~90</td>
+<td style="text-align: right;">$125~179</td>
+<td>프로 또는 Max 5x</td>
 </tr>
 <tr>
 <td>많이: 하루 기능 15개</td>
-<td>330</td>
-<td>약 $188</td>
-<td>약 $375</td>
-<td>Max 5× 또는 Max 20×</td>
+<td style="text-align: right;">330</td>
+<td style="text-align: right;">$188~269</td>
+<td style="text-align: right;">$375~537</td>
+<td>Max 5x 또는 Max 20x</td>
 </tr>
 <tr>
 <td>종일 에이전트: 하루 큰 작업 8개</td>
-<td>176</td>
-<td>약 $336</td>
-<td>약 $672</td>
-<td>Max 20×</td>
+<td style="text-align: right;">176</td>
+<td style="text-align: right;">$336~446</td>
+<td style="text-align: right;">$672~893</td>
+<td>Max 20x</td>
 </tr>
 </tbody>
 </table></div>
-<p>정리하면 이렇습니다.</p>
+<p>Anthropic이 직접 내놓은 기준점도 하나 있습니다. Anthropic에 따르면 기업 도입 사례 전체에서 클로드 코드는 평균이 <strong>개발자 1명당 활동일 하루 약 $13, 한 달 $150~250</strong>이고, 사용자의 90%는 활동일 하루 $30 아래에 머뭅니다. 우리 표의 '많이·소넷'(하루 $8.50~12)과 '많이·오퍼스'(하루 $17~24) 사이에 해당합니다.</p>
+<h2>구독이 API보다 싸지는 지점</h2>
+<p>Anthropic은 요금제 한도를 토큰이나 달러로 공개하지 않습니다. 그래서 손익분기점은 추정할 수밖에 없습니다. <a href="https://finopsllm.com/research/claude-pro-max-tokens-limit" target="_blank" rel="noopener">FinOps LLM</a>은 헤비 유저 한 명의 클로드 코드 세션을 한도에 막힐 때까지 기록했습니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>요금제</th>
+<th style="text-align: right;">가격</th>
+<th>5시간 한 번을 API 가격으로 환산</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>프로</td>
+<td style="text-align: right;">월 $20</td>
+<td>약 $7 <em>(우리 추정)</em></td>
+</tr>
+<tr>
+<td>Max 5x</td>
+<td style="text-align: right;">월 $100</td>
+<td><strong>약 $37</strong> (실측 중앙값)</td>
+</tr>
+<tr>
+<td>Max 20x</td>
+<td style="text-align: right;">월 $200</td>
+<td>약 $150 <em>(우리 추정)</em></td>
+</tr>
+</tbody>
+</table></div>
+<p>프로와 Max 20x 값은 실측한 Max 5x 값을 Anthropic이 밝힌 요금제 간 사용량 비율로 환산한 것이니, 대략적인 크기로만 보세요. Max 20x의 한 주는 약 19억 토큰으로 측정됐는데, API 가격으로 약 $1,800입니다. 한 달 요금은 $200입니다.</p>
+<p>위의 하루 비용과 나란히 놓으면 이렇습니다.</p>
 <ul>
-<li><strong>가끔 쓰면</strong> API가 어떤 요금제보다 쌀 수 있습니다. Pro가 $20인 달에 API로는 $9 정도입니다.</li>
-<li><strong>매일 쓰면</strong> 구독이 금방 훨씬 싸집니다. Opus로 보통 수준을 쓰면 API로 약 $125, Max 5×는 $100입니다.</li>
-<li><strong>많이 쓰면</strong> 한도가 충분한 한 Max가 API보다 훨씬 쌉니다.</li>
+<li><strong>가볍게 쓸 때:</strong> 작업일 하루 약 $0.90 아래로 쓰는 한 API가 프로의 월 $20보다 쌉니다. 소넷으로 하루 작은 수정 3개($0.40~0.60)는 넉넉히 아래이고, 오퍼스($0.80~1.30)면 거의 비슷합니다.</li>
+<li><strong>소넷으로 보통 쓸 때(하루 $2.80~4.10):</strong> 이 추정으로는 프로의 5시간 한 번 안에 들어가므로 프로가 더 쌉니다. 오퍼스(하루 $5.70~8.10)라면 프로 5시간 한도의 경계 근처입니다. 거의 매일 한도에 걸린다면 Max 5x입니다.</li>
+<li><strong>많이 쓰거나 에이전트를 돌릴 때:</strong> Max입니다. 같은 한 달을 API로 내면 $188~893입니다.</li>
 </ul>
-<p>요금제의 함정은 한도입니다. Anthropic은 요금제별 정확한 토큰 수를 공개하지 않고, 많이 쓰는 사람은 주간 한도에 걸립니다. <a href="/ko/blog/claude-code-sayongnyang-hando">클로드 코드 사용량 한도 정리</a>를 참고하세요.</p>
-<h2>토큰을 돈으로 바꾸면</h2>
-<p>Claude Sonnet 5.5 기준 간단한 계산법입니다.</p>
+<p>주간 한도도 따로 봐야 합니다. Max 5x에서 5시간 한도는 괜찮은데 주간 한도에 걸린다면, 다음 단계는 Max 20x입니다.</p>
+<h2>내 사용 경험</h2>
+<p>저는 Max 5x 요금제로 클로드를 매일 씁니다. 오퍼스 5를 쓸 때는 한도를 다 쓰곤 했는데, 오퍼스 5.5로 바뀐 뒤로는 한도에 걸린 적이 없습니다. 다만 최근 한 주는 주간 한도의 93%까지 쓴 적이 있습니다. 소넷은 디테일을 맞추려면 수정을 더 여러 번 거쳐야 해서, 토큰이 싸다고 완성된 작업까지 꼭 싸게 끝나지는 않았습니다. 측정값이 아니라 제 경험입니다.</p>
+<h2>예상 밖으로 비용이 나가는 곳</h2>
+<p><img loading="lazy" width="1200" height="974" alt="예상 밖으로 비용이 나가는 곳: 환경 변수에 API 키가 있을 때. ANTHROPIC_API_KEY가 설정되어 있으면 클로드 코드는 프로·Max 로그인 대신 이 키를 쓰고, API 요금으로 청구됩니다. 요금제로 결제하고 싶다면 이" src="/claude-code-yogeum-ko-4.jpg" /></p>
 <ul>
-<li>입력 100만 토큰 = $2 (캐시에서 읽으면 $0.10)</li>
-<li>출력 100만 토큰 = $10</li>
+<li><strong>환경 변수에 API 키가 있을 때.</strong> <code>ANTHROPIC_API_KEY</code>가 설정되어 있으면 클로드 코드는 프로·Max 로그인 대신 이 키를 쓰고, API 요금으로 청구됩니다. 요금제로 결제하고 싶다면 이 변수를 지우세요.</li>
+<li><strong>한도를 넘긴 뒤의 유료 사용 크레딧.</strong> 유료 요금제는 한도에 걸린 뒤에도 유료 사용 크레딧(usage credits)으로 계속 쓸 수 있고, 이 크레딧은 표준 API 가격으로 청구됩니다.</li>
+<li><strong>빠른 모드(fast mode).</strong> 오퍼스 5.5의 빠른 출력(리서치 프리뷰)은 API에서 100만 토큰당 입력 $8, 출력 $40으로, 표준 가격보다 100% 비쌉니다.</li>
+<li><strong>긴 세션.</strong> 단계마다 대화 전체를 다시 보냅니다. 관련 없는 작업 사이에는 <strong>/clear</strong>, 긴 작업에는 <strong>/compact</strong>를 쓰세요.</li>
+<li><strong>한국어로 지시할 때.</strong> 같은 내용이면 한국어는 영어보다 토큰이 약 44%, 일본어는 약 79% 더 듭니다(GPT 토크나이저 기준 우리 측정). CLAUDE.md처럼 단계마다 함께 전송되는 긴 지시문은 영어로 쓰면 그만큼 줄일 수 있습니다. 측정 결과는 <a href="/ko/blog/korean-tokens-gpt">한국어 프롬프트, 영어로 보내면 토큰 31% 절약</a>에 있습니다.</li>
 </ul>
-<p>클로드 코드가 보내는 것의 대부분은 캐시된 맥락이라, 에이전트 작업의 실제 평균 단가는 Sonnet 기준 처리 토큰 100만 개당 $1보다 한참 아래인 경우가 많습니다. Opus는 그보다 100% 더 든다고 보면 됩니다.</p>
-<h2>어떻게 고를까</h2>
-<p><img loading="lazy" width="1200" height="732" alt="어떻게 고를까: 일주일에 몇 번 쓰는 정도라면 Pro로 시작하세요.; 한도에 얼마나 자주 걸리는지 보세요. 거의 매주 걸린다면, 추가 작업을 API로 내는 것보다 Max 5×가 쌀 가능성이 큽니다.; 자동화, CI" src="/claude-code-yogeum-ko-4.jpg" /></p>
+<p>지금 얼마나 썼는지 보려면 클로드 코드 안에서 <strong>/usage</strong>(세션 비용을 정가 기준으로 보여 줌, 주로 API 사용자용)나 <strong>/status</strong>(요금제 사용량이 얼마나 남았는지)를 입력하세요. 명령어 입력 방법은 <a href="/ko/blog/claude-code-sayongbeop">클로드 코드 사용법</a>에, 비용을 더 줄이는 방법은 <a href="/ko/blog/claude-code-token-jeolyak">클로드 코드 토큰 절약 방법 9가지</a>에 있습니다.</p>
+<h2>무엇을 고를까</h2>
 <ol>
-<li>일주일에 몇 번 쓰는 정도라면 <strong>Pro로 시작</strong>하세요.</li>
-<li><strong>한도에 얼마나 자주 걸리는지</strong> 보세요. 거의 매주 걸린다면, 추가 작업을 API로 내는 것보다 Max 5×가 쌀 가능성이 큽니다.</li>
-<li>자동화, CI 파이프라인, 사용량이 들쭉날쭉한 경우에는 <strong>API</strong>가 낫습니다.</li>
-<li><strong>작업마다 모델을 고르세요.</strong> 대부분의 코딩은 Sonnet으로 충분하고, Opus는 토큰당 100% 비쌉니다.</li>
+<li><strong>일주일에 작은 작업 몇 개:</strong> API. 한 달 $20보다 적게 들 가능성이 큽니다.</li>
+<li><strong>소넷으로 매일 코딩:</strong> 프로 월 $20, 연간 결제 시 월 $17.</li>
+<li><strong>프로의 5시간 한도에 거의 매일 걸리거나, 하루 종일 오퍼스로 코딩:</strong> Max 5x 월 $100.</li>
+<li><strong>에이전트를 몇 시간씩 돌리거나 Max 5x의 주간 한도에 걸릴 때:</strong> Max 20x 월 $200. 사용량당 가격이 싸지는 유일한 요금제입니다.</li>
+<li><strong>CI 파이프라인과 자동화:</strong> API. 작업마다 토큰당 비용을 예측할 수 있습니다.</li>
 </ol>
+<p>어떤 요금제든 작업마다 모델을 고르세요. 소넷 5.5는 토큰 단가가 오퍼스 5.5의 50%이면서 대부분의 코딩 작업을 처리하고, 우리 실측에서도 같은 effort 기준으로 55~60% 쌌습니다. 요금제 한도는 <a href="/ko/blog/claude-code-sayongnyang-hando">클로드 코드 사용량 한도 정리</a>에, 요금제끼리의 비교는 <a href="/ko/blog/claude-max-vs-pro">Claude Max vs Pro 비교</a>에 정리했습니다.</p>
+<h2>자주 묻는 질문</h2>
+<p><strong>클로드 코드 요금은 한 달에 얼마인가요?</strong>
+클로드 프로는 월 $20(연간 결제 시 월 $17), Max 5x는 $100, Max 20x는 $200입니다. API로 쓰면 보통 수준(하루 기능 5개)의 한 달이 소넷 5.5로 약 $63~90, 오퍼스 5.5로 약 $125~179입니다.</p>
+<p><strong>클로드 코드 가격은 한국 돈으로 얼마인가요?</strong>
+Anthropic은 원화 가격을 따로 내놓지 않았습니다. 1달러=1,340원으로 가정한 우리 계산으로는 프로 약 2만 7천원, Max 5x 약 13만 4천원, Max 20x 약 26만 8천원입니다. 세금 전 금액이고, 실제 청구액은 카드사 환율과 수수료에 따라 달라집니다.</p>
+<p><strong>클로드 프로에 클로드 코드가 포함되나요?</strong>
+네. 클로드 코드는 프로, Max, Team, Enterprise에 포함되고, 클로드 앱과 같은 사용량 한도를 함께 씁니다.</p>
+<p><strong>클로드 코드는 무료인가요?</strong>
+아닙니다. 무료 요금제에는 포함되지 않습니다. 가끔 쓴다면 토큰당 내는 API가 가장 싼 방법입니다.</p>
+<p><strong>클로드 코드는 API와 구독 중 어느 쪽이 싼가요?</strong>
+일주일에 작은 작업 몇 개라면 API가 쌉니다. 거의 매일 코딩한다면 프로나 Max가 싸고, 차이도 큰 편입니다. 많이 쓴 Max 20x의 한 주를 API 가격으로 환산하면 약 $1,800였습니다.</p>
+<p><strong>Max에 들어 있는 월 API 크레딧을 클로드 코드에 쓸 수 있나요?</strong>
+아닙니다. Anthropic 고객센터는 Max에 포함된 월 API 크레딧을 클로드 코드나 클로드 앱에서는 쓸 수 없다고 안내합니다.</p>
+<p><strong>클로드 코드에 쓴 비용은 어떻게 확인하나요?</strong>
+/usage를 입력하면 세션의 토큰 사용량과 정가 기준 비용이 나오고, /status를 입력하면 요금제 사용량이 얼마나 남았는지 나옵니다.</p>
 <h2>내 한 달 비용 계산해 보기</h2>
-<p><a href="/ko/agents">코딩 에이전트 비용 계산기</a>에서 작업 크기, 하루 작업 수, 작업일을 넣으면 Claude·GPT·Gemini 모델의 API 비용을 Claude·ChatGPT 요금제와 나란히 비교해 줍니다. 어떤 방식이든 토큰을 덜 쓰려면 <a href="/ko/blog/claude-code-token-jeolyak">클로드 코드 토큰 절약 방법</a>을 보세요.</p>
-<p><em>가격과 한도는 자주 바뀝니다. 결정하기 전에 <a href="https://claude.com/pricing" target="_blank" rel="noopener">claude.com/pricing</a>을 확인하세요.</em></p>
+<p><a href="/ko/agents">코딩 에이전트 비용 계산기</a>에 작업 크기, 하루 작업 수, 작업일을 넣으면 클로드 코드의 API 비용을 클로드·챗GPT의 모든 요금제와 나란히 비교해 줍니다. 다른 코딩 에이전트는 <a href="/ko/blog/codex-yogeum">코덱스 요금</a>과 <a href="/ko/blog/cursor-pricing">커서 요금제</a>를, 프로 요금제 자체는 <a href="/ko/blog/claude-yogeumje">클로드 요금제 총정리</a>를 보세요.</p>
+<p><em>2026년 10월 12일에 가격과 한도를 확인했습니다. Anthropic은 한도를 자주 바꾸니, 결정하기 전에 <a href="https://claude.com/pricing" target="_blank" rel="noopener">claude.com/pricing</a>을 확인하세요. 원화 금액은 1달러=1,340원으로 가정한 단순 계산(대략적인 값)입니다.</em></p>
 <h2>출처</h2>
 <ul>
-<li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude 요금제 (Anthropic)</a></li>
+<li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude 요금제와 가격 (Anthropic)</a></li>
 <li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API 가격 (Anthropic 문서)</a></li>
-<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">프롬프트 캐싱 (Claude 문서)</a></li>
-<li><a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Pro·Max 요금제로 클로드 코드 사용하기 (Claude 도움말 센터)</a></li>
 <li><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">비용을 효과적으로 관리하기 (Claude Code 문서)</a></li>
+<li><a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Pro·Max 요금제로 클로드 코드 사용하기 (Claude 도움말 센터)</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">프롬프트 캐싱 (Claude 문서)</a></li>
+<li><a href="https://finopsllm.com/research/claude-pro-max-tokens-limit" target="_blank" rel="noopener">Claude Pro·Max에 포함된 토큰 양 (FinOps LLM)</a></li>
 </ul>
 <!-- autoimg -->

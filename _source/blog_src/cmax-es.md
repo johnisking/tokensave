@@ -55,7 +55,7 @@ Si ese es tu caso, $20 es más que suficiente. Algún uso extra ocasional se pue
 - Chocas una y otra vez con el límite semanal de Max 5×.
 - Usas Opus como modelo predeterminado.
 
-A este nivel, la API normalmente costaría mucho más. Según nuestro modelo de costos, un usuario intensivo que hace 15 tareas del tamaño de una funcionalidad al día gastaría alrededor de $236 al mes en la API con Sonnet, o unos $473 con Opus. Max 20× cuesta $200. Consulta [Precio de Claude Code al mes](/es/blog/claude-code-precio).
+A este nivel, la API normalmente costaría mucho más. Según nuestro modelo de costos, un usuario intensivo que hace 15 tareas del tamaño de una funcionalidad al día gastaría entre $188 y $269 al mes en la API con Sonnet, o entre $375 y $537 con Opus. Max 20× cuesta $200. Consulta [Precio de Claude Code al mes](/es/blog/claude-code-precio).
 
 ## Trucos para que la cuota rinda más en cualquier plan
 

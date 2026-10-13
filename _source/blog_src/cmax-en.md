@@ -55,7 +55,7 @@ If that is you, $20 is plenty. Occasional extra usage can be covered by usage cr
 - You keep hitting Max 5×'s weekly limit.
 - You use Opus as your default model.
 
-At this level, the API would usually cost far more. On our cost model, a heavy user running 15 feature-sized tasks a day would spend around $236 a month on the API with Sonnet, or about $473 with Opus. Max 20× is $200. See [Claude Code cost per month](/blog/claude-code-cost-per-month).
+At this level, the API would usually cost far more. On our cost model, a heavy user running 15 feature-sized tasks a day would spend around $188–269 a month on the API with Sonnet, or $375–537 with Opus. Max 20× is $200. See [Claude Code cost per month](/blog/claude-code-cost-per-month).
 
 ## Things that make the allowance go further on any plan
 
@@ -77,6 +77,8 @@ At $200, Claude Max 20× is now 20× its base plan, while ChatGPT Pro 200 is 10�
 ## Check your own numbers
 
 Use the [coding agent calculator](/agents) to compare Pro, Max and the API for the way you use Claude Code, or the [Subscription vs API calculator](/plans) for chat use.
+
+Related: [Claude Pro price](/blog/claude-pro-price) for everything the $20 plan includes and whether there is a free trial · [How many tokens Claude Pro and Max give you](/blog/claude-pro-max-how-many-tokens), measured.
 
 *Prices and limits change. Check [claude.com/pricing](https://claude.com/pricing) before you upgrade.*
 

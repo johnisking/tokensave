@@ -12136,7 +12136,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/blog/claude-code-cost-per-month</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-code-cost-per-month"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-yogeum"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-ryoukin"/>
@@ -12146,18 +12146,18 @@
       <image:loc>https://tokensave.app/claude-code-cost-per-month-en.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/claude-code-cost-per-month-two-ways-to-pay-en.jpg</image:loc>
+      <image:loc>https://tokensave.app/claude-code-cost-per-month-claude-code-pricing-at-a-glance-2026-en.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/claude-code-cost-per-month-what-one-task-costs-on-the-api-en.jpg</image:loc>
+      <image:loc>https://tokensave.app/claude-code-cost-per-month-claude-code-on-the-api-price-per-million-en.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/claude-code-cost-per-month-how-to-decide-en.jpg</image:loc>
+      <image:loc>https://tokensave.app/claude-code-cost-per-month-costs-that-catch-people-out-en.jpg</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/claude-code-yogeum</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-code-cost-per-month"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-yogeum"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-ryoukin"/>
@@ -12170,7 +12170,7 @@
       <image:loc>https://tokensave.app/claude-code-yogeum-ko-2.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/claude-code-yogeum-ko-3.jpg</image:loc>
+      <image:loc>https://tokensave.app/claude-code-yogeum-api-100-ko.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/claude-code-yogeum-ko-4.jpg</image:loc>
@@ -12178,7 +12178,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/claude-code-ryoukin</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-code-cost-per-month"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-yogeum"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-ryoukin"/>
@@ -12188,10 +12188,10 @@
       <image:loc>https://tokensave.app/claude-code-ryoukin-ja.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/claude-code-ryoukin-ja-2.jpg</image:loc>
+      <image:loc>https://tokensave.app/claude-code-ryoukin-claude-code-2026-ja.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/claude-code-ryoukin-ja-3.jpg</image:loc>
+      <image:loc>https://tokensave.app/claude-code-ryoukin-api-100-ja.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/claude-code-ryoukin-ja-4.jpg</image:loc>
@@ -13684,6 +13684,17 @@
     <loc>https://tokensave.app/blog/ai-subscription-price-comparison</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-gudokryo-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/precio-suscripciones-ia"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/preco-assinaturas-ia"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/tsiny-pidpysok-shi"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/ki-abo-preisvergleich"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ceny-subskrypcji-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-abonelik-fiyatlari"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/ai-abonnement-prijzen"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
     <image:image>
       <image:loc>https://tokensave.app/ai-subscription-price-comparison-en.jpg</image:loc>
@@ -13736,7 +13747,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost"/>
     <image:image>
@@ -13759,6 +13770,17 @@
     <loc>https://tokensave.app/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/chatgpt-go-vs-plus"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
     <image:image>
       <image:loc>https://tokensave.app/chatgpt-go-vs-plus-en.jpg</image:loc>
@@ -13777,6 +13799,7 @@
     <loc>https://tokensave.app/blog/roblox-trending-games</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/roblox-trending-games"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/popularne-gry-roblox"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/roblox-trending-games"/>
     <image:image>
       <image:loc>https://tokensave.app/roblox-trending-games-en.jpg</image:loc>
@@ -13790,25 +13813,77 @@
   </url>
   <url>
     <loc>https://tokensave.app/blog/how-to-make-a-roblox-game-with-ai</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/how-to-make-a-roblox-game-with-ai"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/roblox-game-tsukurikata"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gra-roblox-z-ai"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/roblox-game-mandeulgi"/>
     <image:image>
       <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-en.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-what-you-need-en.jpg</image:loc>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-hub-en.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-step-3-make-the-3d-models-en.jpg</image:loc>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-login-en.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-what-it-costs-en.jpg</image:loc>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-signup-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-templates-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-editor-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-error-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-assistant-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-redblock-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-stones-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-stones-en.gif</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-stones-play-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-car-store-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-car-drive-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-usage-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-apikey-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/how-to-make-a-roblox-game-with-ai-mcp-en.jpg</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/gemini-yogeumje-gaepyeon</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-yogeumje-gaepyeon"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-muryou-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/gemini-mianfei-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/gemini-gratuit-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/gemini-bezkoshtovno-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/gemini-kostenlos-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gemini-za-darmo-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/gemini-ucretsiz-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/gemini-gratis-flash-lite"/>
     <image:image>
       <image:loc>https://tokensave.app/gemini-yogeumje-gaepyeon-ko.jpg</image:loc>
     </image:image>
@@ -13826,6 +13901,18 @@
     <loc>https://tokensave.app/ko/blog/ai-gudokryo-bigyo</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-gudokryo-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/precio-suscripciones-ia"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/preco-assinaturas-ia"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/tsiny-pidpysok-shi"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/ki-abo-preisvergleich"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ceny-subskrypcji-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-abonelik-fiyatlari"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/ai-abonnement-prijzen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
     <image:image>
       <image:loc>https://tokensave.app/ai-gudokryo-bigyo-ko.jpg</image:loc>
     </image:image>
@@ -13843,6 +13930,18 @@
     <loc>https://tokensave.app/ko/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
     <image:image>
       <image:loc>https://tokensave.app/chatgpt-go-vs-plus-ko.jpg</image:loc>
     </image:image>
@@ -13860,6 +13959,16 @@
     <loc>https://tokensave.app/ja/blog/gemini-muryou-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-muryou-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-yogeumje-gaepyeon"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/gemini-mianfei-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/gemini-gratuit-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/gemini-bezkoshtovno-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/gemini-kostenlos-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gemini-za-darmo-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/gemini-ucretsiz-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/gemini-gratis-flash-lite"/>
     <image:image>
       <image:loc>https://tokensave.app/gemini-muryou-flash-lite-ja.jpg</image:loc>
     </image:image>
@@ -13877,6 +13986,18 @@
     <loc>https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-gudokryo-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/precio-suscripciones-ia"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/preco-assinaturas-ia"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/tsiny-pidpysok-shi"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/ki-abo-preisvergleich"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ceny-subskrypcji-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-abonelik-fiyatlari"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/ai-abonnement-prijzen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
     <image:image>
       <image:loc>https://tokensave.app/ai-subscription-ryoukin-hikaku-ja.jpg</image:loc>
     </image:image>
@@ -13894,6 +14015,18 @@
     <loc>https://tokensave.app/ja/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
     <image:image>
       <image:loc>https://tokensave.app/chatgpt-go-vs-plus-ja.jpg</image:loc>
     </image:image>
@@ -13909,25 +14042,78 @@
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/roblox-game-tsukurikata</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/roblox-game-tsukurikata"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/how-to-make-a-roblox-game-with-ai"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gra-roblox-z-ai"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/roblox-game-mandeulgi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/how-to-make-a-roblox-game-with-ai"/>
     <image:image>
       <image:loc>https://tokensave.app/roblox-game-tsukurikata-ja.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/roblox-game-tsukurikata-roblox-202610-ja.jpg</image:loc>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-hub-ja.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/roblox-game-tsukurikata-ja-3.jpg</image:loc>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-login-ja.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/roblox-game-tsukurikata-ja-4.jpg</image:loc>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-signup-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-templates-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-editor-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-error-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-assistant-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-redblock-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-stones-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-stones-ja.gif</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-stones-play-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-car-store-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-car-drive-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-usage-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-apikey-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-tsukurikata-mcp-ja.jpg</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/zh-tw/blog/gemini-mianfei-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/gemini-mianfei-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-yogeumje-gaepyeon"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-muryou-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/gemini-gratuit-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/gemini-bezkoshtovno-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/gemini-kostenlos-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gemini-za-darmo-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/gemini-ucretsiz-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/gemini-gratis-flash-lite"/>
     <image:image>
       <image:loc>https://tokensave.app/gemini-mianfei-flash-lite-zh-tw.jpg</image:loc>
     </image:image>
@@ -13945,6 +14131,18 @@
     <loc>https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-gudokryo-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/precio-suscripciones-ia"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/preco-assinaturas-ia"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/tsiny-pidpysok-shi"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/ki-abo-preisvergleich"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ceny-subskrypcji-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-abonelik-fiyatlari"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/ai-abonnement-prijzen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
     <image:image>
       <image:loc>https://tokensave.app/ai-dingyue-jiage-bijiao-zh-tw.jpg</image:loc>
     </image:image>
@@ -13962,6 +14160,18 @@
     <loc>https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
     <image:image>
       <image:loc>https://tokensave.app/chatgpt-go-vs-plus-zh-tw.jpg</image:loc>
     </image:image>
@@ -13979,6 +14189,16 @@
     <loc>https://tokensave.app/fr/blog/gemini-gratuit-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/gemini-gratuit-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-yogeumje-gaepyeon"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-muryou-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/gemini-mianfei-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/gemini-bezkoshtovno-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/gemini-kostenlos-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gemini-za-darmo-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/gemini-ucretsiz-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/gemini-gratis-flash-lite"/>
     <image:image>
       <image:loc>https://tokensave.app/gemini-gratuit-flash-lite-fr.jpg</image:loc>
     </image:image>
@@ -13996,6 +14216,18 @@
     <loc>https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-gudokryo-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/precio-suscripciones-ia"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/preco-assinaturas-ia"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/tsiny-pidpysok-shi"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/ki-abo-preisvergleich"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ceny-subskrypcji-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-abonelik-fiyatlari"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/ai-abonnement-prijzen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
     <image:image>
       <image:loc>https://tokensave.app/abonnement-ia-prix-comparatif-fr.jpg</image:loc>
     </image:image>
@@ -14013,6 +14245,18 @@
     <loc>https://tokensave.app/fr/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
     <image:image>
       <image:loc>https://tokensave.app/chatgpt-go-vs-plus-fr.jpg</image:loc>
     </image:image>
@@ -14030,6 +14274,16 @@
     <loc>https://tokensave.app/es/blog/gemini-gratis-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-yogeumje-gaepyeon"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-muryou-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/gemini-mianfei-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/gemini-gratuit-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/gemini-bezkoshtovno-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/gemini-kostenlos-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gemini-za-darmo-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/gemini-ucretsiz-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/gemini-gratis-flash-lite"/>
     <image:image>
       <image:loc>https://tokensave.app/gemini-gratis-flash-lite-es.jpg</image:loc>
     </image:image>
@@ -14047,6 +14301,18 @@
     <loc>https://tokensave.app/es/blog/precio-suscripciones-ia</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/precio-suscripciones-ia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-gudokryo-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/preco-assinaturas-ia"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/tsiny-pidpysok-shi"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/ki-abo-preisvergleich"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ceny-subskrypcji-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-abonelik-fiyatlari"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/ai-abonnement-prijzen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
     <image:image>
       <image:loc>https://tokensave.app/precio-suscripciones-ia-es.jpg</image:loc>
     </image:image>
@@ -14064,6 +14330,18 @@
     <loc>https://tokensave.app/es/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
     <image:image>
       <image:loc>https://tokensave.app/chatgpt-go-vs-plus-es.jpg</image:loc>
     </image:image>
@@ -14081,6 +14359,16 @@
     <loc>https://tokensave.app/pt/blog/gemini-gratis-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-yogeumje-gaepyeon"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-muryou-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/gemini-mianfei-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/gemini-gratuit-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/gemini-bezkoshtovno-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/gemini-kostenlos-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gemini-za-darmo-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/gemini-ucretsiz-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/gemini-gratis-flash-lite"/>
     <image:image>
       <image:loc>https://tokensave.app/gemini-gratis-flash-lite-pt.jpg</image:loc>
     </image:image>
@@ -14098,6 +14386,18 @@
     <loc>https://tokensave.app/pt/blog/preco-assinaturas-ia</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/preco-assinaturas-ia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-gudokryo-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/precio-suscripciones-ia"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/tsiny-pidpysok-shi"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/ki-abo-preisvergleich"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ceny-subskrypcji-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-abonelik-fiyatlari"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/ai-abonnement-prijzen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
     <image:image>
       <image:loc>https://tokensave.app/preco-assinaturas-ia-pt.jpg</image:loc>
     </image:image>
@@ -14115,6 +14415,18 @@
     <loc>https://tokensave.app/pt/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
     <image:image>
       <image:loc>https://tokensave.app/chatgpt-go-vs-plus-pt.jpg</image:loc>
     </image:image>
@@ -14132,6 +14444,16 @@
     <loc>https://tokensave.app/uk/blog/gemini-bezkoshtovno-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/gemini-bezkoshtovno-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-yogeumje-gaepyeon"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-muryou-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/gemini-mianfei-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/gemini-gratuit-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/gemini-kostenlos-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gemini-za-darmo-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/gemini-ucretsiz-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/gemini-gratis-flash-lite"/>
     <image:image>
       <image:loc>https://tokensave.app/gemini-bezkoshtovno-flash-lite-uk.jpg</image:loc>
     </image:image>
@@ -14149,6 +14471,18 @@
     <loc>https://tokensave.app/uk/blog/tsiny-pidpysok-shi</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/tsiny-pidpysok-shi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-gudokryo-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/precio-suscripciones-ia"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/preco-assinaturas-ia"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/ki-abo-preisvergleich"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ceny-subskrypcji-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-abonelik-fiyatlari"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/ai-abonnement-prijzen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
     <image:image>
       <image:loc>https://tokensave.app/tsiny-pidpysok-shi-uk.jpg</image:loc>
     </image:image>
@@ -14166,6 +14500,18 @@
     <loc>https://tokensave.app/uk/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
     <image:image>
       <image:loc>https://tokensave.app/chatgpt-go-vs-plus-uk.jpg</image:loc>
     </image:image>
@@ -14183,6 +14529,16 @@
     <loc>https://tokensave.app/de/blog/gemini-kostenlos-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/gemini-kostenlos-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-yogeumje-gaepyeon"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-muryou-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/gemini-mianfei-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/gemini-gratuit-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/gemini-bezkoshtovno-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gemini-za-darmo-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/gemini-ucretsiz-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/gemini-gratis-flash-lite"/>
     <image:image>
       <image:loc>https://tokensave.app/gemini-kostenlos-flash-lite-de.jpg</image:loc>
     </image:image>
@@ -14200,6 +14556,18 @@
     <loc>https://tokensave.app/de/blog/ki-abo-preisvergleich</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/ki-abo-preisvergleich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-gudokryo-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/precio-suscripciones-ia"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/preco-assinaturas-ia"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/tsiny-pidpysok-shi"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ceny-subskrypcji-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-abonelik-fiyatlari"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/ai-abonnement-prijzen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
     <image:image>
       <image:loc>https://tokensave.app/ki-abo-preisvergleich-de.jpg</image:loc>
     </image:image>
@@ -14217,6 +14585,18 @@
     <loc>https://tokensave.app/de/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
     <image:image>
       <image:loc>https://tokensave.app/chatgpt-go-vs-plus-de.jpg</image:loc>
     </image:image>
@@ -14234,6 +14614,16 @@
     <loc>https://tokensave.app/pl/blog/gemini-za-darmo-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gemini-za-darmo-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-yogeumje-gaepyeon"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-muryou-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/gemini-mianfei-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/gemini-gratuit-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/gemini-bezkoshtovno-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/gemini-kostenlos-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/gemini-ucretsiz-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/gemini-gratis-flash-lite"/>
     <image:image>
       <image:loc>https://tokensave.app/gemini-za-darmo-flash-lite-pl.jpg</image:loc>
     </image:image>
@@ -14251,6 +14641,18 @@
     <loc>https://tokensave.app/pl/blog/ceny-subskrypcji-ai</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ceny-subskrypcji-ai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-gudokryo-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/precio-suscripciones-ia"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/preco-assinaturas-ia"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/tsiny-pidpysok-shi"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/ki-abo-preisvergleich"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-abonelik-fiyatlari"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/ai-abonnement-prijzen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
     <image:image>
       <image:loc>https://tokensave.app/ceny-subskrypcji-ai-pl.jpg</image:loc>
     </image:image>
@@ -14268,6 +14670,18 @@
     <loc>https://tokensave.app/pl/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
     <image:image>
       <image:loc>https://tokensave.app/chatgpt-go-vs-plus-pl.jpg</image:loc>
     </image:image>
@@ -14285,6 +14699,18 @@
     <loc>https://tokensave.app/tr/blog/yapay-zeka-abonelik-fiyatlari</loc>
     <lastmod>2026-10-09</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-abonelik-fiyatlari"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-gudokryo-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/precio-suscripciones-ia"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/preco-assinaturas-ia"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/tsiny-pidpysok-shi"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/ki-abo-preisvergleich"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ceny-subskrypcji-ai"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/ai-abonnement-prijzen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
     <image:image>
       <image:loc>https://tokensave.app/yapay-zeka-abonelik-fiyatlari-tr.jpg</image:loc>
     </image:image>
@@ -14302,6 +14728,18 @@
     <loc>https://tokensave.app/tr/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-09</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
     <image:image>
       <image:loc>https://tokensave.app/chatgpt-go-vs-plus-tr.jpg</image:loc>
     </image:image>
@@ -14319,6 +14757,16 @@
     <loc>https://tokensave.app/tr/blog/gemini-ucretsiz-flash-lite</loc>
     <lastmod>2026-10-09</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/gemini-ucretsiz-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-yogeumje-gaepyeon"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-muryou-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/gemini-mianfei-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/gemini-gratuit-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/gemini-bezkoshtovno-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/gemini-kostenlos-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gemini-za-darmo-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/gemini-gratis-flash-lite"/>
     <image:image>
       <image:loc>https://tokensave.app/gemini-ucretsiz-flash-lite-tr.jpg</image:loc>
     </image:image>
@@ -14336,6 +14784,16 @@
     <loc>https://tokensave.app/nl/blog/gemini-gratis-flash-lite</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-yogeumje-gaepyeon"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-muryou-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/gemini-mianfei-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/gemini-gratuit-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/gemini-gratis-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/gemini-bezkoshtovno-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/gemini-kostenlos-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gemini-za-darmo-flash-lite"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/gemini-ucretsiz-flash-lite"/>
     <image:image>
       <image:loc>https://tokensave.app/gemini-gratis-flash-lite-nl.jpg</image:loc>
     </image:image>
@@ -14353,6 +14811,18 @@
     <loc>https://tokensave.app/nl/blog/ai-abonnement-prijzen</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/ai-abonnement-prijzen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-gudokryo-bigyo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-subscription-ryoukin-hikaku"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/ai-dingyue-jiage-bijiao"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/abonnement-ia-prix-comparatif"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/precio-suscripciones-ia"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/preco-assinaturas-ia"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/tsiny-pidpysok-shi"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/ki-abo-preisvergleich"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ceny-subskrypcji-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-abonelik-fiyatlari"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-subscription-price-comparison"/>
     <image:image>
       <image:loc>https://tokensave.app/ai-abonnement-prijzen-nl.jpg</image:loc>
     </image:image>
@@ -14370,6 +14840,18 @@
     <loc>https://tokensave.app/nl/blog/chatgpt-go-vs-plus</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://tokensave.app/zh-tw/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/chatgpt-go-vs-plus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/chatgpt-go-vs-plus"/>
     <image:image>
       <image:loc>https://tokensave.app/chatgpt-go-vs-plus-nl.jpg</image:loc>
     </image:image>
@@ -14387,6 +14869,8 @@
     <loc>https://tokensave.app/pl/blog/popularne-gry-roblox</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/popularne-gry-roblox"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/roblox-trending-games"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/roblox-trending-games"/>
     <image:image>
       <image:loc>https://tokensave.app/popularne-gry-roblox-pl.jpg</image:loc>
     </image:image>
@@ -14401,6 +14885,10 @@
     <loc>https://tokensave.app/pl/blog/gra-roblox-z-ai</loc>
     <lastmod>2026-10-06</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gra-roblox-z-ai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/how-to-make-a-roblox-game-with-ai"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/roblox-game-tsukurikata"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/roblox-game-mandeulgi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/how-to-make-a-roblox-game-with-ai"/>
     <image:image>
       <image:loc>https://tokensave.app/gra-roblox-z-ai-pl.jpg</image:loc>
     </image:image>
@@ -15993,6 +16481,66 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/claude-code-sayongbeop-usage-ko.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/blog/roblox-game-mandeulgi</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/roblox-game-mandeulgi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/how-to-make-a-roblox-game-with-ai"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/roblox-game-tsukurikata"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/gra-roblox-z-ai"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/how-to-make-a-roblox-game-with-ai"/>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-hub-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-login-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-signup-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-templates-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-editor-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-error-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-assistant-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-redblock-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-stones-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-stones-ko.gif</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-stones-play-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-car-store-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-car-drive-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-usage-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-apikey-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/roblox-game-mandeulgi-mcp-ko.jpg</image:loc>
     </image:image>
   </url>
   <url>

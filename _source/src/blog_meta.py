@@ -232,13 +232,15 @@ _CTA = {"en": ("Set task size and tasks per day to compare Claude Code's API cos
         "ko": ("작업 크기와 하루 작업 수를 넣고, 클로드 코드의 API 비용을 Pro·Max와 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"),
         "ja": ("タスクの大きさと1日のタスク数を入れて、Claude Code の API 費用を Pro・Max と比べてみましょう。", "エージェント費用計算機を開く")}
 CC_COST = [
- _cc("en", "/blog/claude-code-cost-per-month", "cc-cost-en", "Claude Code Pricing 2026: Cost per Month on Pro, Max or API",
-     "What Claude Code really costs per month on Pro, Max 5x, Max 20x or the API, with cost per task and when each one is cheapest.", _BY["en"], *_CTA["en"]),
- _cc("ko", "/ko/blog/claude-code-yogeum", "cc-cost-ko", "클로드 코드 요금 한 달에 얼마? Pro·Max·API 비교",
-     "클로드 코드를 Pro, Max 5×, Max 20×, API로 쓸 때 한 달 비용과 작업당 비용, 어떤 경우에 무엇이 가장 싼지 정리했습니다.", _BY["ko"], *_CTA["ko"]),
- _cc("ja", "/ja/blog/claude-code-ryoukin", "cc-cost-ja", "Claude Code の料金は月いくら？Pro・Max・API を比較",
-     "Claude Code を Pro、Max 5×、Max 20×、API で使ったときの月額とタスクあたりの費用、どれがいちばん安いかを解説します。", _BY["ja"], *_CTA["ja"]),
+ _cc("en", "/blog/claude-code-cost-per-month", "cc-cost-en", "Claude Code Pricing 2026: $20, $100 or $200 a Month, or the API",
+     "Claude Code costs $20 a month on Pro, $100 or $200 on Max, or pay per token on the API. Measured task costs, monthly cost by usage, and which to pick.", _BY["en"], *_CTA["en"]),
+ _cc("ko", "/ko/blog/claude-code-yogeum", "cc-cost-ko", "클로드 코드 요금 2026: 월 $20·$100·$200, API 비교",
+     "클로드 코드 요금 2026: 프로 월 $20, Max 5x $100·Max 20x $200 또는 API. 작업 하나 실측 $0.25~0.75, 사용량별 한 달 비용, 구독이 API보다 싸지는 지점과 원화 환산까지.", _BY["ko"], *_CTA["ko"]),
+ _cc("ja", "/ja/blog/claude-code-ryoukin", "cc-cost-ja", "Claude Code の料金【2026】月$20〜$200とAPI実費",
+     "Claude Code の料金は Pro 月$20（年払いで月$17）、Max 5x $100、Max 20x $200、または API の従量課金。実測では1タスク Sonnet 5.5 で$0.25、Opus 5.5 で$0.56〜0.75。日本は消費税10%で Pro $22。無料プランでは使えません。", _BY["ja"], *_CTA["ja"]),
 ]
+for _b in CC_COST[:3]:  # en/ko/ja rewritten: measured task costs, cost ranges, official averages
+    _b["updated"] = "2026-10-12"
 CC_LIMITS = [
  _cc("en", "/blog/claude-code-usage-limits", "cc-limits-en", "Claude Code Usage Limits Explained: 5-Hour and Weekly Caps",
      "How Claude Code's 5-hour and weekly limits work on Pro and Max, what changed in 2026, how to check usage and what to do at the limit.", _BY["en"], *_CTA["en"]),
@@ -477,15 +479,15 @@ DS41 = [_n6("/blog/deepseek-v4-1-flash-api-pricing", "ds41-en", "DeepSeek V4.1 F
 AGCMP = [_n6("/blog/claude-code-vs-codex-vs-cursor-cost", "agentcmp-en", "Claude Code vs Codex vs Cursor: Cost and a Real Test (2026)",
     "Claude Code vs Codex vs Cursor in 2026: plans from free to $500, how each counts usage, benchmark scores, and the same prompt run in all three.",
     *_CTA["en"])]
-AGCMP[0]["byline"] = "Jonhisking · Updated October 12, 2026"
+AGCMP[0]["updated"] = "2026-10-12"
 GOPLUS = [_n6("/blog/chatgpt-go-vs-plus", "gogo-en", "ChatGPT Go vs Plus: Is the $20 Plan Worth $12 More?",
     "ChatGPT Go ($8) vs Plus ($20) in 2026: Luna vs Sol, thinking levels, Codex, ads and limits, who needs which, and when the API is cheaper than both.",
     *_CTA_PL["en"])]
 RBX = [_n6("/blog/roblox-trending-games", "rbxtrend-en", "What's Trending on Roblox Right Now (October 2026): 8 Game Types",
     "The 8 game formulas climbing the Roblox charts in October 2026, with real examples and player counts, why each works, and what it takes to build one with AI.",
     *_CTA_GM["en"]),
-       _n6("/blog/how-to-make-a-roblox-game-with-ai", "rbxhow-en", "How to Make a Roblox Game with AI (2026): Steps, Tools, Cost",
-    "Make a Roblox game with Roblox Assistant, Cube 3D models and Claude Code: the steps from idea to publishing, what it costs, and how DevEx pays you.",
+       _n6("/blog/how-to-make-a-roblox-game-with-ai", "rbxhow-en", "How to Make a Roblox Game in 2026: Step by Step with Roblox AI",
+    "How to make a Roblox game from a real first session: install Studio, add a script, fix the common error, build with Roblox Assistant, free limits and MCP.",
     *_CTA_GM["en"])]
 _BY6K = "Jonhisking · 2026년 10월 6일"
 def _k6(path, src, title, desc, cta, btn):
@@ -515,8 +517,8 @@ JA6 = [
      "ChatGPT Go（1,400円）とPlus（3,000円）の違い：LunaとSolのモデル差、推論レベル、Codex、広告、どちらが向いているか、APIのほうが安いケースまで。",
      *_CTA_PL["ja"]),
 ]
-RBX_JA = [_j6("/ja/blog/roblox-game-tsukurikata", "rbx-ja", "AIでRobloxゲームを作る方法：手順・費用・今伸びているジャンル【2026年】",
-     "Roblox AssistantとAIでロブロックスのゲームを作る6つの手順、今チャートで伸びている8ジャンル、費用（約4,000円〜）、DevExでの収益化まで。",
+RBX_JA = [_j6("/ja/blog/roblox-game-tsukurikata", "rbxhow-ja", "Robloxゲームの作り方：インストールからAIで最初のゲームまで【2026】",
+     "Robloxゲームの作り方を実際の画面で解説。Studioのインストール、スクリプトの入れ方とよくあるエラー、AIアシスタントで飛び石を作る手順、無料の使用量とMCP、公開条件まで。",
      *_CTA_GM["ja"])]
 _CTA_PL_TW = ("輸入你的使用方式，看每月 API 費用和 ChatGPT・Claude・Gemini 各方案並排比較。", "開啟訂閱 vs API 計算機")
 _BY6T = "Jonhisking · 2026年10月6日"
@@ -857,3 +859,12 @@ for _d in CCGUIDE: _d["date"] = "2026-10-12"
 # 2026-10-13 chlim-en rewrite
 for _d in CHLIM:
     if _d["src"] in ("chlim-en", "chlim-ko", "chlim-ja"): _d["date"] = "2026-10-13"
+
+# 2026-10-13 Roblox how-to rewrite (en) + Korean version, real Studio session
+for _d in RBX:
+    if _d["src"] == "rbxhow-en": _d["updated"] = "2026-10-13"
+RBXKO = [_cc("ko", "/ko/blog/roblox-game-mandeulgi", "rbxhow-ko", "로블록스 게임 만들기: 스튜디오 설치부터 AI로 첫 게임까지 (2026)",
+     "로블록스 게임 만들기 실제 화면 가이드. 스튜디오 설치, 스크립트 넣기와 자주 나는 오류, AI 어시스턴트로 징검다리 만들기, 무료 사용량·MCP, 공개 조건까지.",
+     "Jonhisking · 2026년 10월 13일", *_CTA_GM["ko"])]
+RBXKO[0]["date"] = "2026-10-13"
+RBX_JA[0]["updated"] = "2026-10-13"

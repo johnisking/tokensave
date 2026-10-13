@@ -18,6 +18,8 @@ ChatGPT Plus costs $20 a month. ChatGPT Pro now comes in three sizes, $100, $200
 - **Ultrafast is Pro 500 only.** It is a faster mode for GPT-6 Astra and GPT-6.1 Sol. It draws down your included usage much faster than the standard mode, per OpenAI's help center. Pro 100 and Pro 200 don't include it.
 - **Outside the US, prices differ.** In Korea, for example, OpenAI's pricing page lists Plus at ₩29,000 and Pro from ₩159,000 a month.
 
+This page answers whether to move from Plus to Pro at all. If you already know you need Pro and are choosing its size, see [ChatGPT Pro 100 vs 200 vs 500](/blog/chatgpt-pro-100-vs-200-vs-500).
+
 ## What Plus includes
 
 Plus is OpenAI's main paid plan. According to the pricing page, it adds these to the free plan and Go:
