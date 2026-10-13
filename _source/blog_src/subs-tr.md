@@ -32,7 +32,7 @@ Ekim 2026'da kontrol edildi. Kur için referans: 1 USD ≈ 49 TL (1 Ekim 2026). 
 Yaklaşık 20 dolarlık kademede ChatGPT Plus, Claude Pro ve Google AI Pro benzer seviyede. Çoğu kişi için bu plan yeterli. Asıl fark kullanımda:
 
 - **ChatGPT Plus:** en çok özelliğe sahip olan. Görsel üretme, sesli sohbet, derin araştırma, özel GPT'ler, Codex ve ChatGPT Work var. Görsel maliyetini [görsel maliyet hesaplayıcısı](/tr/image) ile görebilirsiniz.
-- **Claude Pro:** uzun metin yazmada ve kodlamada güçlü, Claude Code dahil. 5 saatlik bir limit ve haftalık bir limit var; ikisi de uygulama ile Claude Code arasında ortak.
+- **Claude Pro:** uzun metin yazmada ve kodlamada güçlü, Claude Code dahil. 5 saatlik bir limit ve haftalık bir limit var; ikisi de uygulama ile Claude Code arasında ortak. Ayrıntılar: [Claude Code limiti rehberi](/tr/blog/claude-code-limit).
 - **Google AI Pro:** 5 TB depolama ve Gmail, Dokümanlar ve E-Tablolar içinde Gemini. Zaten Google hizmetlerini yoğun kullanıyorsanız en çok getiriyi bu sağlar.
 
 ## En ucuz planlara dikkat
