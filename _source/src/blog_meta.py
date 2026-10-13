@@ -486,8 +486,8 @@ GOPLUS = [_n6("/blog/chatgpt-go-vs-plus", "gogo-en", "ChatGPT Go vs Plus: Is the
 RBX = [_n6("/blog/roblox-trending-games", "rbxtrend-en", "What's Trending on Roblox Right Now (October 2026): 8 Game Types",
     "The 8 game formulas climbing the Roblox charts in October 2026, with real examples and player counts, why each works, and what it takes to build one with AI.",
     *_CTA_GM["en"]),
-       _n6("/blog/how-to-make-a-roblox-game-with-ai", "rbxhow-en", "How to Make a Roblox Game with AI (2026): Steps, Tools, Cost",
-    "Make a Roblox game with Roblox Assistant, Cube 3D models and Claude Code: the steps from idea to publishing, what it costs, and how DevEx pays you.",
+       _n6("/blog/how-to-make-a-roblox-game-with-ai", "rbxhow-en", "How to Make a Roblox Game in 2026: Step by Step with Roblox AI",
+    "How to make a Roblox game from a real first session: install Studio, add a script, fix the common error, build with Roblox Assistant, free limits and MCP.",
     *_CTA_GM["en"])]
 _BY6K = "Jonhisking · 2026년 10월 6일"
 def _k6(path, src, title, desc, cta, btn):
@@ -517,8 +517,8 @@ JA6 = [
      "ChatGPT Go（1,400円）とPlus（3,000円）の違い：LunaとSolのモデル差、推論レベル、Codex、広告、どちらが向いているか、APIのほうが安いケースまで。",
      *_CTA_PL["ja"]),
 ]
-RBX_JA = [_j6("/ja/blog/roblox-game-tsukurikata", "rbx-ja", "AIでRobloxゲームを作る方法：手順・費用・今伸びているジャンル【2026年】",
-     "Roblox AssistantとAIでロブロックスのゲームを作る6つの手順、今チャートで伸びている8ジャンル、費用（約4,000円〜）、DevExでの収益化まで。",
+RBX_JA = [_j6("/ja/blog/roblox-game-tsukurikata", "rbxhow-ja", "Robloxゲームの作り方：インストールからAIで最初のゲームまで【2026】",
+     "Robloxゲームの作り方を実際の画面で解説。Studioのインストール、スクリプトの入れ方とよくあるエラー、AIアシスタントで飛び石を作る手順、無料の使用量とMCP、公開条件まで。",
      *_CTA_GM["ja"])]
 _CTA_PL_TW = ("輸入你的使用方式，看每月 API 費用和 ChatGPT・Claude・Gemini 各方案並排比較。", "開啟訂閱 vs API 計算機")
 _BY6T = "Jonhisking · 2026年10月6日"
@@ -858,3 +858,12 @@ for _d in CCGUIDE: _d["date"] = "2026-10-12"
 # 2026-10-13 chlim-en rewrite
 for _d in CHLIM:
     if _d["src"] in ("chlim-en", "chlim-ko", "chlim-ja"): _d["date"] = "2026-10-13"
+
+# 2026-10-13 Roblox how-to rewrite (en) + Korean version, real Studio session
+for _d in RBX:
+    if _d["src"] == "rbxhow-en": _d["updated"] = "2026-10-13"
+RBXKO = [_cc("ko", "/ko/blog/roblox-game-mandeulgi", "rbxhow-ko", "로블록스 게임 만들기: 스튜디오 설치부터 AI로 첫 게임까지 (2026)",
+     "로블록스 게임 만들기 실제 화면 가이드. 스튜디오 설치, 스크립트 넣기와 자주 나는 오류, AI 어시스턴트로 징검다리 만들기, 무료 사용량·MCP, 공개 조건까지.",
+     "Jonhisking · 2026년 10월 13일", *_CTA_GM["ko"])]
+RBXKO[0]["date"] = "2026-10-13"
+RBX_JA[0]["updated"] = "2026-10-13"

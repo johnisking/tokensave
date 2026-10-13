@@ -190,5 +190,23 @@
   "checked": "2026-10-13",
   "median": 14000,
   "unit": "chars"
+ },
+ "rbxhow-ko": {
+  "keyword": "로블록스 게임 만들기",
+  "checked": "2026-10-13",
+  "median": 6080,
+  "unit": "chars"
+ },
+ "rbxhow-en": {
+  "keyword": "how to make a roblox game",
+  "checked": "2026-10-13",
+  "median": 2160,
+  "unit": "words"
+ },
+ "rbxhow-ja": {
+  "keyword": "ロブロックス ゲーム 作り方",
+  "checked": "2026-10-13",
+  "median": 6114,
+  "unit": "chars"
  }
 }

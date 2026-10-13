@@ -1,0 +1,200 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="Robloxゲームの作り方：インストールからAIで最初のゲームまで【2026】" src="/roblox-game-tsukurikata-ja.jpg" /></p>
+<p>Robloxゲームの作り方を調べると「プログラミングができなくても大丈夫」という話がよく出てきますが、実際にRoblox Studioを初めて開くとボタンが数十個並んでいて、どこから手をつければいいのか迷います。この記事では、Roblox Studioを初めてインストールした日に、ブロックを1つ置くところから、AIアシスタントで踏むと消える飛び石コースを作り、無料の車のアセットを入れて走らせるところまで、実際に進めた画面を順番にまとめました。途中でスクリプトを入れる場所を間違えてつまずいた部分とその原因もそのまま載せています。動作環境や公開条件など変わる可能性がある情報は、2026年10月13日にRobloxの公式ドキュメントで確認しました。</p>
+<p><img loading="lazy" width="1200" height="586" alt="Robloxクリエイターハブのトップ画面と「作成を始める」ボタン" src="/roblox-game-tsukurikata-hub-ja.jpg" /></p>
+<h2>Robloxゲームを作る前に必要なもの</h2>
+<p>Robloxのゲームは<strong>Roblox Studio</strong>という無料アプリで作ります。公式ドキュメントに書かれている動作環境は次のとおりです。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>最低</th>
+<th>推奨</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OS</td>
+<td>Windows 10、macOS 10.14</td>
+<td>Windows 11、macOS 14以降</td>
+</tr>
+<tr>
+<td>メモリ（RAM）</td>
+<td>3GB</td>
+<td>8GB</td>
+</tr>
+<tr>
+<td>画面解像度</td>
+<td>1600×900以上</td>
+<td>1600×900以上</td>
+</tr>
+<tr>
+<td>料金</td>
+<td>無料</td>
+<td>無料</td>
+</tr>
+</tbody>
+</table></div>
+<p>Robloxのアカウントも必要です。遊ぶときに使っているアカウントがあればそのまま使えて、なければインストールの途中で作れます。公式ドキュメントでは、Roblox Studioは<strong>WindowsとMacのみ</strong>対応です。スマホやiPadで作る方法は、後半の「スマホでRobloxゲームを作る：Build」で紹介します。</p>
+<h2>ステップ1：Roblox Studioのインストールとログイン</h2>
+<ol>
+<li>クリエイターハブ（create.roblox.com）で<strong>作成を始める</strong>を押し、<strong>Studioをダウンロード</strong>を押します。</li>
+<li>Windowsは<code>RobloxStudioInstaller.exe</code>、Macは<code>RobloxStudio.dmg</code>がダウンロードされます。Windowsでは実行前にセキュリティの確認が出るので、発行元がRoblox Corporationであることを確かめて実行します。</li>
+<li>インストールが終わるとStudioが開き、ログイン画面が表示されます。</li>
+</ol>
+<p><img loading="lazy" width="1200" height="758" alt="Roblox Studioのログイン画面" src="/roblox-game-tsukurikata-login-ja.jpg" /></p>
+<p><strong>ログイン</strong>を押すとブラウザが開きます。アカウントがなければ<strong>アカウント作成</strong>を押し、生年月日、ユーザー名、パスワードを入れて登録します。ユーザー名の欄には「本名を使わないで」という案内が出ます。</p>
+<p><img loading="lazy" width="1200" height="638" alt="Robloxのアカウント作成画面" src="/roblox-game-tsukurikata-signup-ja.jpg" /></p>
+<p>登録が終わると「Roblox Studioに進む」画面と利用規約の同意画面が続けて出て、同意するとStudioに戻ってスタート画面が開きます。最初にツアーをすすめる画面が出ますが、飛ばしてもかまいません。</p>
+<h2>ステップ2：テンプレートを選ぶ</h2>
+<p>スタート画面の<strong>新規</strong>または<strong>テンプレート</strong>を押すと、あらかじめ作られたマップが並びます。私の画面に出たテンプレートは15種類でした。</p>
+<p><img loading="lazy" width="1200" height="758" alt="Roblox Studioのテンプレート一覧" src="/roblox-game-tsukurikata-templates-ja.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>種類</th>
+<th>テンプレート</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空のマップ</td>
+<td>Baseplate、Classic Baseplate、Flat Terrain</td>
+</tr>
+<tr>
+<td>ゲームジャンル</td>
+<td>Platformer、Laser Tag、FPS System、Racing、Classic Obby</td>
+</tr>
+<tr>
+<td>街・背景</td>
+<td>Village、Castle、Suburban、Pirate Island、Starting Place、Modern City</td>
+</tr>
+<tr>
+<td>その他</td>
+<td>UGC Homestore</td>
+</tr>
+</tbody>
+</table></div>
+<p>初めてなら<strong>Baseplate</strong>がいちばんわかりやすいです。床とキャラクターが出てくるスポーン地点しかないので、自分が何を置いたのかがすぐにわかります。障害物レース（オビー）を作りたいならClassic Obby、レースゲームならRacingを開いて手を入れるほうが早く進みます。</p>
+<h2>ステップ3：ブロックを置いて色を変える</h2>
+<p><img loading="lazy" width="1200" height="758" alt="Baseplateでスポーン地点の色を変えた画面" src="/roblox-game-tsukurikata-editor-ja.jpg" /></p>
+<p>Studioの画面は大きく4つに分かれています。</p>
+<ul>
+<li><strong>中央の3D画面：</strong> ゲームのマップです。マウスの右ボタンを押したままドラッグすると視点が回り、W・A・S・Dで移動します。</li>
+<li><strong>上のホームタブ：</strong> パーツ（ブロック）の追加、移動、スケール、回転、カラー、アンカーのボタンがあります。</li>
+<li><strong>右のエクスプローラー：</strong> マップに入っているものがツリーで表示されます。Workspaceの下にあるものが、実際にマップに置かれているものです。</li>
+<li><strong>右下のプロパティ：</strong> 選んだものの色（Color）、素材（Material）、透明度（Transparency）などを変えます。</li>
+</ul>
+<p>ホームタブの<strong>パーツ</strong>を押すと灰色のブロックが出てきます。プロパティのColorを押すと色の選択画面が開くので、試しにスポーン地点を黄緑色に変えてみました。ブロックが転がったり押されたりしないように、上の<strong>アンカー</strong>（いかりのアイコン）をオンにしておきます。上の青い▶を押すと、自分のキャラクターですぐにテストできます。</p>
+<h2>ステップ4：スクリプトを入れる、そして最初につまずいたところ</h2>
+<p>ブロックに動きをつけるには<strong>スクリプト</strong>が必要です。RobloxではLuau（ルアウ）という言語を使います。踏むと半透明になり、1秒後に消えるブロックのコードは次のとおりです。</p>
+<pre><code class="language-lua">local part = script.Parent
+local touched = false
+
+part.Touched:Connect(function(hit)
+    if touched then return end
+    local humanoid = hit.Parent:FindFirstChildOfClass(&quot;Humanoid&quot;)
+    if humanoid then
+        touched = true
+        part.Transparency = 0.5
+        task.wait(1)
+        part:Destroy()
+    end
+end)
+</code></pre>
+<p>入れ方は、エクスプローラーでブロック（Part）にマウスを乗せて<strong>＋ → Script</strong>を選び、開いた編集画面の<code>print("Hello world!")</code>を消してこのコードを貼り付けるだけです。</p>
+<p>言葉にすると簡単ですが、私は実際にここでつまずきました。テストを押してもブロックが消えず、出力画面には赤い文字でこんなエラーが出ました。</p>
+<p><img loading="lazy" width="1200" height="758" alt="Touched is not a valid member of Workspace のエラーが出た出力画面" src="/roblox-game-tsukurikata-error-ja.jpg" /></p>
+<p>原因は3つ重なっていました。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>症状</th>
+<th>原因</th>
+<th>直し方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Touched is not a valid member of Workspace</code></td>
+<td>スクリプトがブロックの中ではなく、Workspaceの直下に入っていた</td>
+<td>エクスプローラーでScriptをドラッグしてPartの上に置く</td>
+</tr>
+<tr>
+<td>最後の行の1文字のミス</td>
+<td>貼り付けるときに<code>s</code>が1文字余計に入った</td>
+<td>消す（1文字でもスクリプト全体が止まる）</td>
+</tr>
+<tr>
+<td>直した内容が消える</td>
+<td>テスト（▶）中に直していた</td>
+<td>赤い■でテストを止めてから直す</td>
+</tr>
+</tbody>
+</table></div>
+<p>エクスプローラーで何がどこの下に入っているかが、最初はいちばんわかりにくいところです。やり直したときも、今度はスクリプトが床（Baseplate）の下に、新しいブロックはTextureの下に入ってしまいました。そこで「もっと簡単な方法」に切り替えました。それが次のAIアシスタントです。</p>
+<h2>ステップ5：RobloxのAIアシスタントでゲームを作る</h2>
+<p>Roblox Studioには<strong>アシスタント（Assistant）</strong>というAIが入っています。公式ドキュメントによると、質問に答えるだけでなく、オブジェクトやスクリプトの作成・修正、クリエイターストアのアセットの挿入、3Dモデルの生成までできます。画面のいちばん上の列の右にある<strong>アシスタント</strong>ボタンを押すと、右側にチャット画面が開きます。</p>
+<p><img loading="lazy" width="1200" height="758" alt="Roblox Studioでアシスタント画面を開いたところ" src="/roblox-game-tsukurikata-assistant-ja.jpg" /></p>
+<p>日本語でそのまま頼めます。私が送った依頼は4つでした。</p>
+<ol>
+<li>「赤いブロックを1つ作ってスポーン地点の前に置き、プレイヤーが踏んだら半透明になって1秒後に消えるようにして」</li>
+<li>（修正）消えたブロックが元に戻るリスポーン機能を追加</li>
+<li>10個がつながるように飛び石の形で作成</li>
+<li>（修正）10個すべてに1つ目のブロックと同じ機能と、リスポーン機能を入れるよう依頼</li>
+</ol>
+<p><img loading="lazy" width="1200" height="758" alt="アシスタントが作った赤いブロック" src="/roblox-game-tsukurikata-redblock-ja.jpg" /></p>
+<p>依頼1つあたり<strong>15〜30秒</strong>ほどでした。ステップ4で手作業ではうまくいかなかった「踏むと消えるブロック」が最初の依頼1回でできあがり、ブロックもスクリプトも正しい場所に入っていました。</p>
+<p>3つ目の依頼のあと、アシスタントは作った内容をこうまとめてくれました。ブロックの大きさは3×1×3、ブロックの間は4スタッドでジャンプして渡れる間隔、スポーン地点の前から一列に10個です。新しいブロックはRedSteppingStonesというフォルダーにまとめたうえで、「この飛び石にも、踏むと消えて再生成される機能を入れますか？」と先に聞いてきました。</p>
+<p><img loading="lazy" width="1200" height="758" alt="アシスタントが作った赤い飛び石10個" src="/roblox-game-tsukurikata-stones-ja.jpg" /></p>
+<p>4つ目の依頼まで終えると、踏むと半透明になり、1秒後に消え、3秒後に同じ場所に戻ってくる飛び石コースが完成しました。</p>
+<p><img loading="lazy" width="400" height="191" alt="飛び石を踏むとブロックが消えていく様子" src="/roblox-game-tsukurikata-stones-ja.gif" /></p>
+<p><img loading="lazy" width="1200" height="758" alt="一人称視点で飛び石を渡るテスト画面" src="/roblox-game-tsukurikata-stones-play-ja.jpg" /></p>
+<p>スクリーンショットの時刻で見ると、アシスタントを最初に開いてから10個の飛び石を渡るテストまで約15分でした。自分でスクリプトを入れて迷っていた時間より短く済みました。</p>
+<p><strong>依頼をうまく書くコツ。</strong> Robloxの公式Buildガイドでも、ゲームの遊び方を具体的に書くようすすめています。最初の依頼のように、色・位置・動き・時間まで1文に入れておくと、あとから直す回数が減ります。</p>
+<h2>ステップ6：保存する</h2>
+<p>作ったゲームは2通りの方法で保存できます。</p>
+<ul>
+<li><strong>ファイル → 名前を付けて保存：</strong> 自分のパソコンに<code>.rbxl</code>ファイルとして保存します。私はこの方法でダウンロードフォルダーに保存しました。</li>
+<li><strong>ファイル → 公開（Publish）：</strong> Robloxのクラウドに上げて自分のアカウントに結びつけます。別のパソコンからも続きを作れます。公開しても最初は自分と編集権限のある人しか入れません。</li>
+</ul>
+<h2>無料アセットで車を入れてみる</h2>
+<p>左の<strong>ツールボックス</strong>にあるクリエイターストアで、ほかの人が作ったモデルを検索して入れられます。無料のものが多く、有料のものもあります。試しに無料の「Drift Car mobile」を入れてみると、メーター付きの車がそのまま運転できました。</p>
+<p><img loading="lazy" width="1200" height="758" alt="クリエイターストアから無料の車のアセットを入れた画面" src="/roblox-game-tsukurikata-car-store-ja.jpg" /></p>
+<p><img loading="lazy" width="1200" height="758" alt="無料の車のアセットを運転するテスト画面" src="/roblox-game-tsukurikata-car-drive-ja.jpg" /></p>
+<p>ただし、ほかの人が作ったモデルにはスクリプトが入っていることが多いです。入れたあとはエクスプローラーで、どんなスクリプトが一緒に入ってきたかを一度確認しておくと安心です。</p>
+<h2>RobloxのAIは無料？使用量・APIキー・MCP</h2>
+<p>アシスタント画面右上の<strong>…</strong>メニューからアシスタント設定を開くと、使用量、APIキー、MCPサーバー、スキルの4つのタブがあります。</p>
+<p><img loading="lazy" width="902" height="637" alt="アシスタント設定の使用量画面、無料使用量を6%使用" src="/roblox-game-tsukurikata-usage-ja.jpg" /></p>
+<p><strong>使用量。</strong> 無料使用量のバーがあり、上の4つの依頼（ブロック、リスポーン、飛び石、飛び石の機能）を終えたあとで<strong>6%使用済み</strong>、<strong>6日後にリセット</strong>と表示されていました。無料分を使い切ったらRobuxで追加の使用量を買う設定をオンにでき、1日の支出上限も決められます（私の画面ではこの設定はオフで、上限の欄には500 Robuxと表示されていました）。公式ドキュメントには無料使用量が正確にどれくらいかは書かれていないので、この6%は「この程度の作業でこれくらい使う」という目安として見てください。</p>
+<p><img loading="lazy" width="902" height="637" alt="アシスタント設定のAPIキー画面" src="/roblox-game-tsukurikata-apikey-ja.jpg" /></p>
+<p><strong>APIキー。</strong> 標準のモデルは「Roblox デフォルト」で、1日の使用上限に従います。かわりに、Anthropic（Claude）、OpenAI、GoogleのAPIキーを自分で入れてほかのAIを使うこともできます。この場合の費用は各社のAPI料金で別にかかり、データがその会社に共有されるという注意も表示されます。APIで使うとどれくらいかかるかは<a href="/ja/">トークン計算機</a>で事前に計算できます。</p>
+<p><img loading="lazy" width="902" height="637" alt="アシスタント設定のMCPサーバー画面" src="/roblox-game-tsukurikata-mcp-ja.jpg" /></p>
+<p><strong>MCPサーバー。</strong> 「StudioをMCPサーバーとして使用」をオンにすると、外部のAIコーディングツールが開いているStudioを直接操作できます。公式ドキュメントによると、スクリプトの読み書き、Luauコードの実行、プレイテストの開始・停止、キャラクターの移動やキー入力の再現、画面のキャプチャまでできます。クイック接続に対応しているのはAntigravity、Codex CLI、Claude Code、Claude Desktop、Cursor、Gemini CLI、Visual Studio Codeです（私の画面にはインストール済みの4つだけが出ていました）。Claude Codeが初めてなら<a href="/ja/blog/claude-code-tsukaikata">Claude Code の使い方</a>、料金は<a href="/ja/blog/claude-code-ryoukin">Claude Code の料金</a>と<a href="/ja/blog/codex-ryoukin">Codex の料金</a>を参考にしてください。</p>
+<h2>スマホでRobloxゲームを作る：Build</h2>
+<p>StudioはPC専用ですが、2026年7月にRobloxのスマホアプリに<strong>Build</strong>というAI制作機能が加わりました。公式ドキュメントによると、アプリのBuildタブに作りたいゲームを文章で書くと、AIが遊び方、キャラクター、背景、音まで作り、ボタン1つで公開できます。今はクリッカー、アーケード、横スクロールなど<strong>2D・2.5Dのゲーム</strong>が中心で、1日の無料の依頼回数が決まっていて、超えるとRobuxでクレジットを買います。</p>
+<h2>ゲームの公開と収益：先に知っておきたい条件</h2>
+<p>今回は公開まではしていませんが、公式ドキュメントに書かれている条件をまとめておきます。</p>
+<ul>
+<li><strong>16歳以上に公開：</strong> アカウント作成から2日以上たっていること、顔による年齢推定か身分証で年齢確認をすることが必要です。最初の質問（年齢制限のあるコンテンツかどうか）に答えると公開されます。</li>
+<li><strong>全年齢に公開：</strong> 上の条件に加えて、本人確認、2段階認証、そしてRoblox Plus（またはPremium）を2か月続けて契約するか、返金される1,000 Robuxの公開手数料が必要です。手数料は、60日間アクティブなプレイヤー25人を保てば返ってきます。</li>
+<li><strong>収益：</strong> パス、デベロッパー製品、サブスクリプション、有料プライベートサーバーなどでRobuxを稼ぎ、開発者換金プログラム（DevEx）で現金にします。標準レートは1 Robuxあたり$0.0038で、30,000 Robuxが$114です。13歳以上で、30,000 Robux以上を稼いでいることが申請の条件です。</li>
+</ul>
+<h2>実際に使ってみた感想</h2>
+<p>AIアシスタントのおかげで、初めての人でもインストールから1時間ちょっとで「踏むと消える飛び石」くらいは作れました。ただ、使ってみた正直な感想はこうです。</p>
+<blockquote>
+<p>ちゃんとしたゲームを作るには無料の上限が足りなさそうで、アシスタントの画面が思ったより狭く、ゲーム画面を隠しはしないものの、アシスタントだけを別ウィンドウに出せたらよかった。無料のアセットやテンプレート、それに有料のものも種類が多いので、作りやすそうだ。</p>
+</blockquote>
+<p>飛び石ひとつで無料使用量の6%を使ったので、マップやショップ、セーブ機能までそろったゲームをアシスタントだけで作るには、無料分では足りなくなる可能性が高いです。大きな作業は、Robuxで追加の使用量を買うか、MCPでClaude CodeやCodexのようなツールをつなぐ方法もあわせて考えておく必要があります。</p>
+<h2>自分のゲームはどれくらいの期間と費用がかかる？</h2>
+<p>飛び石は入り口にすぎず、実際のゲームはジャンルと規模によって期間も費用も大きく変わります。<a href="/ja/ai-game-cost-calculator">AIゲーム制作費計算機</a>でリリース先にRobloxを選び、ジャンルと規模を入れると、予想される期間、AIツールの費用、そのまま使える最初のプロンプトまで出てきます。</p>
+<h2>よくある質問</h2>
+<p><strong>Robloxのゲーム作りは無料ですか？</strong>
+Roblox Studioのインストール、ゲーム制作、クラウドへの保存（Publish）は無料です。アシスタントのAIには無料の使用量があり、超えるとRobuxで追加購入します。全年齢への公開には、Plus・Premiumの契約か、返金される1,000 Robuxの手数料の条件があります。</p>
+<p><strong>プログラミングができなくても作れますか？</strong>
+簡単なゲームなら作れます。今回の消える飛び石は、コードを1行も自分で書かずに、アシスタントに日本語で頼むだけで作れました。ただ、エラーが出たときにエクスプローラーの構造（何がどこの下にあるか）を読めると、迷う時間がかなり減ります。</p>
+<p><strong>スマホやiPadで作れますか？</strong>
+Roblox StudioはWindowsとMac専用です。スマホでは、RobloxアプリのBuild機能で2D・2.5DのゲームをAIで作れます。</p>
+<p><strong>作ったゲームを友だちに見せるには？</strong>
+公開前でも、ファイル → アーリーテスターを招待で、年齢の近い友だちを最大10人まで招待できます。</p>
+<p><em>出典：Roblox クリエイターハブ <a href="https://create.roblox.com/docs/ja-jp/studio/setup" target="_blank" rel="noopener">Roblox Studio のセットアップ</a>、<a href="https://create.roblox.com/docs/en-us/production/publishing/publish-experiences-and-places" target="_blank" rel="noopener">ゲームとプレースの作成・公開</a>、<a href="https://create.roblox.com/docs/en-us/assistant/guide" target="_blank" rel="noopener">Assistant for Studio</a>、<a href="https://create.roblox.com/docs/en-us/studio/mcp" target="_blank" rel="noopener">Studio MCP サーバーへの接続</a>、<a href="https://create.roblox.com/docs/en-us/ai/build" target="_blank" rel="noopener">Create games with Build</a>、<a href="https://create.roblox.com/docs/en-us/production/monetization/developer-exchange" target="_blank" rel="noopener">Developer Exchange</a>（2026年10月13日確認）。画面は2026年10月13日にWindows 11で撮影しました。</em></p>
+<!-- autoimg -->
