@@ -87,6 +87,7 @@
 </tbody>
 </table></div>
 <p>Rapor ayrıca o oturumdaki token dağılımını da gösteriyor. Opus 5.5 ile çalıştığımız oturumda doğrudan yazdığımız giriş yalnızca <strong>138 token</strong>, modelin çıktısı <strong>4,7 bin token</strong>, önbellekten okunan bağlam ise <strong>20,7 milyon token</strong> idi. Yani limiti tüketen şey yazdığınız istem değil, Claude Code'un her adımda yeniden okuduğu bağlam. Bu yüzden aşağıdaki "bağlamı küçük tutma" önerileri limiti en çok uzatan şeyler.</p>
+<p><strong>/status</strong> ile karıştırmayın: /status hesabınızı, planınızı (ör. Max 5x), kullanılan modeli ve bağlı MCP sunucularının sayısını gösterir, ama kullanım yüzdesini göstermez. Limit için doğru komut /usage.</p>
 <p>Claude Code ayrıca bir limite yaklaştığınızda sizi uyarır. Uzun bir işe başlamadan önce /usage'a bakın, işin ortasında değil.</p>
 <h2>Limit ne zaman sıfırlanır?</h2>
 <ul>
@@ -151,7 +152,7 @@
 <li>Birbiriyle ilgisiz işler arasında yeni bir oturum başlatın (<strong>/clear</strong>), uzun bir oturumu <strong>/compact</strong> ile özetleyin.</li>
 <li>Claude'un dosya aramasına izin vermek yerine doğru dosyaları siz gösterin.</li>
 <li>CLAUDE.md talimatlarınızı kısa tutun: her adımda yeniden gönderilirler.</li>
-<li>Kullanmadığınız MCP sunucularını kapatın; /context ile bağlamı neyin doldurduğunu kontrol edin.</li>
+<li>Kullanmadığınız MCP sunucularını kapatın. Kaç sunucunun bağlı olduğunu /status, bağlamı neyin doldurduğunu /context gösterir.</li>
 <li><strong>/model opusplan</strong> ayarı planlamayı Opus'a, uygulamayı Sonnet'e yaptırır. Opus'un kalitesini planlamada alırken kullanım hakkını daha yavaş tüketirsiniz.</li>
 <li>Rutin işler için Sonnet kullanın, Opus'u zor problemlere saklayın. Effort ayarının token kullanımına etkisini <a href="/tr/blog/claude-opus-5-5-effort">Opus 5.5 effort seviyeleri</a> yazımızda test ettik.</li>
 </ul>
