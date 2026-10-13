@@ -25,13 +25,15 @@ MODIFIERS = {
     'ko': ['가격', '요금', '요금제', '무료', '얼마', '비교', '차이', 'vs', '한도', '사용법', '추천', '할인', '결제', '해지', 'api'],
     'ja': ['料金', '価格', '無料', '比較', '違い', 'vs', '制限', '使い方', 'おすすめ', '安く', '支払い', '解約', 'api'],
     'en': ['price', 'pricing', 'cost', 'free', 'vs', 'limit', 'how to', 'alternative', 'cheap', 'discount', 'per month', 'api', 'worth it'],
+    'tr': ['fiyat', 'fiyatı', 'ücretsiz', 'ücretli', 'kaç tl', 'tl', 'abonelik', 'vs', 'farkı', 'limit', 'nasıl kullanılır', 'indirim', 'iptal', 'öğrenci', 'api'],
 }
 LETTERS = {
     'ko': list('가나다라마바사아자차카타파하'),
     'ja': list('あかさたなはまやらわ'),
     'en': list('abcdefghijklmnopqrstuvwxyz'),
+    'tr': list('abcçdefgğhıijklmnoöprsştuüvyz'),
 }
-HL = {'ko': ('ko', 'kr', 'ko-KR'), 'ja': ('ja', 'jp', 'ja-JP'), 'en': ('en', 'us', 'en-US')}
+HL = {'ko': ('ko', 'kr', 'ko-KR'), 'ja': ('ja', 'jp', 'ja-JP'), 'en': ('en', 'us', 'en-US'), 'tr': ('tr', 'tr', 'tr-TR')}
 
 
 def _get(url, timeout=8):
