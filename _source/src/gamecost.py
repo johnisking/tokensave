@@ -163,8 +163,9 @@ T = {
 
 from roblox_i18n import RBX
 import roblox_trends as RBXT
+from gamecost_v2 import V2, RATE_CUR
 for _k in ("en", "ko", "ja"):
-    T[_k].update(RBX[_k])
+    T[_k].update(RBX[_k]); T[_k].update(V2[_k])
 
 PRICE_ROWS = [
     ("Midjourney", "Basic $10 · Standard $30 · Pro $60 / month", "https://docs.midjourney.com/docs/plans"),
@@ -191,6 +192,7 @@ PRICE_ROWS = [
     ("Higgsfield", "Starter $15 · Plus $39 · Ultra $99 / month", "https://higgsfield.ai/pricing"),
     ("Claude", "Pro $20 · Max 5× $100 · Max 20× $200 / month", "https://claude.com/pricing"),
     ("Cursor", "Pro $20 / month", "https://cursor.com/pricing"),
+    ("ChatGPT (Codex)", "Plus $20 · Pro $100 / $200 / $500 / month", "https://chatgpt.com/pricing"),
     ("Windsurf", "Pro $20 / month", "https://windsurf.com/pricing"),
     ("GitHub Copilot", "Pro $10 · Pro+ $39 / month (agent use draws AI credits)", "https://github.com/features/copilot/plans"),
     ("Google AI Pro", "$19.99 / month (Gemini CLI, Gemini app)", "https://one.google.com/about/google-ai-plans/"),
@@ -218,7 +220,7 @@ READ = {"en": ("/blog/ai-game-development-cost", "How much does it cost to make 
 
 from gamecost_i18n import EXTRA as _EXTRA, NAV as NAV_EXTRA
 for _tag, (_slug, _t) in _EXTRA.items():
-    _t.update(RBX[_tag])
+    _t.update(RBX[_tag]); _t.update(V2[_tag])
     assert set(_t) == set(T["en"]), (_tag, set(T["en"]) ^ set(_t))
     T[_tag] = _t
     PATH[_tag] = f"/{_slug}/{SLUG}"
@@ -246,7 +248,7 @@ def build_page(lang, llm):
     panes = "".join(f'''<div data-pane="{k}"{"" if k == "dev" else " hidden"}>
         <div class="flex justify-end mb-2"><button data-copy="{k}" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white">{e("copy")}</button></div>
         <pre id="gcP_{k}" class="ltr whitespace-pre-wrap break-words text-xs sm:text-[13px] leading-relaxed bg-zinc-950/80 border border-zinc-800 rounded-xl p-4 max-h-[28rem] overflow-auto text-zinc-200"></pre></div>''' for k, _ in tabs)
-    how = "".join(f"<li>{esc(x)}</li>" for x in t["how"])
+    how = "".join(f"<li>{esc(x)}</li>" for x in list(t["how"]) + [t["howPace"]])
     prices = "".join(f'<tr class="border-t border-zinc-800"><td class="py-1.5 pe-3 font-semibold"><a href="{u}" rel="nofollow noopener" target="_blank" class="hover:text-violet-300">{esc(n)}</a></td><td class="py-1.5 text-zinc-400">{esc(p)}</td></tr>' for n, p, u in PRICE_ROWS)
     dd = lambda a, b: esc(t["days"].replace("{n}", f"{a}–{b}"))
     sum_rows = "".join(f'<tr><td class="font-semibold">{esc(t["g_" + gg])}</td>' + "".join(f'<td class="tabular-nums whitespace-nowrap">{dd(v[0], v[1])} · ${v[2]}–{v[3]}</td>' for v in (SUM[gg][s] for s in "sml")) + "</tr>" for gg in SUM_G)
@@ -278,6 +280,11 @@ def build_page(lang, llm):
         <div><label for="gcName" class="block text-xs text-zinc-400 font-semibold mb-2">{e("name")}</label><input id="gcName" maxlength="60" placeholder="{e("namePh")}" {TXT_IN}></div>
         <div><label for="gcIdea" class="block text-xs text-zinc-400 font-semibold mb-2">{e("idea")}</label><input id="gcIdea" maxlength="160" placeholder="{e("ideaPh")}" {TXT_IN}></div>
       </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5">
+        {_field(e("qHours"), _seg("gcHours", [("2", e("h2")), ("4", e("h4")), ("8", e("h8"))]))}
+        {_field(e("qExp"), _seg("gcExp", [("none", e("exNone")), ("some", e("exSome")), ("dev", e("exDev"))]))}
+        <div><label for="gcRate" class="block text-xs text-zinc-400 font-semibold mb-2">{esc(t["qRate"].replace("{cur}", RATE_CUR[lang]))}</label><input id="gcRate" type="number" min="0" step="any" inputmode="decimal" placeholder="{e("ratePh")}" {NUM}></div>
+      </div>
       <div class="grid grid-cols-1 gap-4">
         {_field(e("qGenre"), f'<div id="gcGenre" class="grid grid-cols-3 sm:grid-cols-6 p-1 bg-zinc-950/70 border border-zinc-800 rounded-lg gap-1">{genre_btns}</div><select id="gcGenreOther" hidden class="mt-2 w-full sm:w-72 bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py-2 text-sm">{other_opts}</select>')}
         <div class="max-w-xl">{_field(e("qScale"), f'<div id="gcScale" class="grid grid-cols-4 p-1 bg-zinc-950/70 border border-zinc-800 rounded-lg gap-1">{scale}</div>')}</div>
@@ -301,7 +308,7 @@ def build_page(lang, llm):
       <h2 class="{H2} mt-6">{e("qTools")}</h2>
       <div class="grid grid-cols-1 gap-4">
         {_field(e("qImg"), _seg("gcImg", [("mj", "Midjourney"), ("leonardo", "Leonardo"), ("gemini", "Gemini"), ("gptimg", "GPT Image"), ("pixel", "PixelLab"), ("scenario", "Scenario"), ("ludo", "Ludo.ai"), ("godmode", "God Mode AI"), ("autosprite", "AutoSprite"), ("layer", "Layer.ai")], "grid-cols-3 sm:grid-cols-5"))}
-        {_field(e("qCode"), _seg("gcCodeTool", [("pro", "Claude Pro"), ("max5", "Max 5×"), ("max20", "Max 20×"), ("cursor", "Cursor"), ("windsurf", "Windsurf"), ("copilot", "Copilot Pro+"), ("gemini", "Gemini"), ("api", "API")], "grid-cols-4 sm:grid-cols-8"))}
+        {_field(e("qCode"), _seg("gcCodeTool", [("pro", "Claude Pro"), ("max5", "Max 5×"), ("max20", "Max 20×"), ("cursor", "Cursor"), ("windsurf", "Windsurf"), ("copilot", "Copilot Pro+"), ("gemini", "Gemini"), ("codexplus", "ChatGPT Plus"), ("codexpro", "ChatGPT Pro"), ("rbxai", "Roblox AI"), ("api", "API")], "grid-cols-3 sm:grid-cols-6"))}
         <div class="max-w-xs"><label for="gcModel" class="block text-xs text-zinc-400 font-semibold mb-2">{e("qModel")}</label><select id="gcModel" class="w-full bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py-2 text-sm">{model_opts}</select></div>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
@@ -322,7 +329,13 @@ def build_page(lang, llm):
       <h2 class="{H2}">{e("cmpTitle")}</h2>
       <div id="gcCur" class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-zinc-400 mb-3"></div>
       <div id="gcCompare"></div>
+      <div class="mt-4 flex justify-center"><button id="gcShare" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-violet-500/40 bg-violet-500/10 text-violet-200 hover:bg-violet-500/20">{e("share")}</button></div>
       <p id="gcRef" class="mt-4 text-center text-xs sm:text-sm text-zinc-400"></p>
+      <div id="gcFb" class="mt-4 border-t border-zinc-800 pt-4">
+        <div class="text-sm font-bold text-zinc-200">{e("fbTitle")}</div>
+        <p class="text-xs text-zinc-500 mt-1 mb-2">{e("fbSub")}</p>
+        <div class="flex flex-wrap gap-2 items-center"><input id="gcFbDays" type="number" min="1" max="1999" inputmode="numeric" placeholder="{e("fbPh")}" class="w-40 bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py-1.5 text-sm tabular-nums"><button id="gcFbSend" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white">{e("fbSend")}</button></div>
+      </div>
     </section>
 
     <section class="{CARD} mt-5">
@@ -353,7 +366,7 @@ def build_page(lang, llm):
     faq_ld = {"@type": "FAQPage", "inLanguage": lang, "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq_all]}
     runtime_keys = [k for k in t if k.startswith(("g_", "f_", "st", "dev", "r", "l_", "c", "p_", "p", "tier_")) or k in
-                    ("defName", "defIdea", "days", "monthsN", "capWarn", "hireRef", "noTrailer", "copied", "packTitle", "tDev", "tArt", "tMusic", "tSfx", "tTrailer")]
+                    ("defName", "defIdea", "days", "monthsN", "capWarn", "hireRef", "noTrailer", "copied", "packTitle", "hoursN", "workNote", "shared", "fbThanks", "tDev", "tArt", "tMusic", "tSfx", "tTrailer")]
     gc = {k: t[k] for k in runtime_keys if isinstance(t[k], str)}
     return dict(path=PATH[lang], title=t["title"], desc=t["desc"], h1=t["h1"], body=body, faq_ld=faq_ld, gc=gc,
                 models={k: n for k, n in models})

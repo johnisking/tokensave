@@ -115,6 +115,9 @@ const TOOLS = {
     gemini:{ name: 'Google AI Pro (Gemini)', monthly: 20, capPerDay: 25e6 },
     copilot:{ name: 'GitHub Copilot Pro+', monthly: 39, capPerDay: 10e6 },
     windsurf:{ name: 'Windsurf Pro', monthly: 20, capPerDay: 8e6 },
+    codexplus:{ name: 'ChatGPT Plus (Codex)', monthly: 20, capPerDay: 8e6 },
+    codexpro:{ name: 'ChatGPT Pro 100 (Codex)', monthly: 100, capPerDay: 30e6 },
+    rbxai: { name: 'Roblox Assistant', monthly: 0, free: true },                 // in Studio, free usage that resets; extra usage can be bought with Robux
     api:   { name: 'API', monthly: 0 },
   },
   d3:    { meshy: { name: 'Meshy', plans: [[20, 1000], [40, 3000], [100, 8000]], perModel: 20 },
@@ -133,13 +136,15 @@ const PRESETS = {
 };
 const KEYS = ['imgTool', 'codeTool', 'musicTool', 'sfxTool', 'd3Tool'];
 const isRbx = () => state.platform === 'roblox';
-const presetOf = k => isRbx() ? { ...PRESETS[k], d3Tool: 'cube' } : PRESETS[k];
+const presetOf = k => isRbx() ? { ...PRESETS[k], d3Tool: 'cube', ...(k === 'value' ? { codeTool: 'rbxai' } : {}) } : PRESETS[k];
+// Pace: size anchors are full-time (≈ 8 h/day) builds by someone with no coding background
+const EXP = { none: 1, some: 0.85, dev: 0.7 };
 const PAINTS = [];
 
 const state = {
   genre: 'merge', scale: 's', style: 'illust', anim: 'simple', sfx: 'normal', dim: '2d',
   chars: null, music: null, voice: 0, langs: 1, trailer: false,
-  feats: new Set(['ads', 'save']), engine: 'unity', platform: 'android', storeFee: false,
+  feats: new Set(['ads', 'save']), engine: 'unity', platform: 'android', storeFee: false, hours: 8, exp: 'none', rate: 0,
   imgTool: 'mj', codeTool: 'max5', musicTool: 'suno', sfxTool: 'eleven', d3Tool: 'meshy', model: 'claude-sonnet-5-5', name: '', idea: '',
 };
 
@@ -162,6 +167,8 @@ function estimate() {
   if (rbx && state.feats.has('online')) { loc -= 2000; days -= 7; } // Roblox handles servers, matchmaking and replication
   if (state.langs > 1) { days += 0.5 * (state.langs - 1); loc += 150; }
   if (state.dim === '3d' && !rbx) { days *= 1.25; loc *= 1.15; }
+  days *= EXP[state.exp] || 1;
+  const pace = 8 / (state.hours || 8);            // calendar days = full-time work days × 8 / hours per day
   const frames = rbx ? 0 : chars * a.actions * a.frames;            // Roblox: avatars + built-in animations, no sprite sheets
   const images = rbx ? items + ui + 4 : frames + bg + items + ui;   // Roblox: icons + UI + game icon + 3 thumbnails
   const attempts = 3;                                   // keep about 1 of 3 generations
@@ -169,7 +176,10 @@ function estimate() {
   const codeDays = days * CODE_SHARE;
   const tokIn = codeDays * DAY_IN, tokOut = codeDays * DAY_OUT;
   const monthsOf = d => Math.max(1, Math.ceil(d / 30));
-  const months = monthsOf(days), mLo = monthsOf(days * 0.8), mHi = monthsOf(days * 1.3);
+  const cal = days * pace;
+  const months = monthsOf(cal), mLo = monthsOf(cal * 0.8), mHi = monthsOf(cal * 1.3);
+  const rateUsd = state.rate > 0 ? state.rate / (CUR ? CUR[1] : 1) / (money.tax && CUR ? 1 + CUR[2] : 1) : 0;
+  const timeValue = rateUsd * days * 8;           // your own hours: work days × 8 h × hourly value (no tax)
 
   // --- AI tool costs (scenario 2 = default stack, scenario 3 = user's picks) ---
   const imgCost = (tool, months) => {
@@ -195,6 +205,7 @@ function estimate() {
   const codeCost = (tool, months, scale = 1) => {
     const C = TOOLS.code[tool];
     if (tool === 'api') return { cost: apiCode * scale, months: 0, fits: true };
+    if (C.free) return { cost: 0, months: 0, fits: true };
     const perDay = (DAY_IN + DAY_OUT);
     return { cost: C.monthly * months, months, fits: perDay <= C.capPerDay };
   };
@@ -213,6 +224,7 @@ function estimate() {
         ...(models3d ? [['d3', d3Cost(d3)]] : []), ...(state.trailer ? [['trailer', trailerCost]] : []),
         ...(state.feats.has('online') && !rbx ? [['server', SERVER_MONTH * m, t('monthsN', { n: m })]] : []),
         ...(PLATFORM[state.platform].fee && state.storeFee ? [['store', PLATFORM[state.platform].fee, t('pls_' + state.platform)]] : []),
+        ...(timeValue ? [['time', timeValue * scale, t('hoursN', { n: Math.round(days * 8 * scale) })]] : []),
       ] };
     };
     const sum = ls => ls.reduce((s, [, v]) => s + v, 0);
@@ -222,7 +234,7 @@ function estimate() {
   };
 
   return {
-    chars, bg, items, ui, frames, images, gens, music, sfx, loc: Math.round(loc / 100) * 100, days: Math.round(days),
+    chars, bg, items, ui, frames, images, gens, music, sfx, loc: Math.round(loc / 100) * 100, days: Math.round(days), work: days, cal,
     tokIn, tokOut, months, models3d, rbx,
     presets: Object.fromEntries(Object.keys(PRESETS).map(k => [k, presetOf(k)]).map(([k, P]) => [k, ai(P.imgTool, P.codeTool, P.musicTool, P.sfxTool, P.d3Tool)])),
     mine: ai(state.imgTool, state.codeTool, state.musicTool, state.sfxTool, state.d3Tool), apiCode,
@@ -369,7 +381,8 @@ function render() {
       ${note ? `<p class="text-[11px] text-amber-300/80 mt-2">${note}</p>` : ''}
     </div>`;
   const days = n => t('days', { n });
-  const aiTime = `${days(Math.round(e.days * 0.8))} – ${days(Math.round(e.days * 1.3))}`;
+  const aiTime = `${days(Math.round(e.cal * 0.8))} – ${days(Math.round(e.cal * 1.3))}` +
+    (state.hours < 8 ? `<span class="block text-[11px] text-zinc-500">${t('workNote', { w: Math.round(e.work), h: state.hours })}</span>` : '');
   const toolNames = P => [...new Set([TOOLS.img[P.imgTool].name, TOOLS.music[P.musicTool].name.split(' (')[0], TOOLS.sfx[P.sfxTool].name.split(' (')[0],
     TOOLS.code[P.codeTool].name + (P.codeTool === 'api' ? ` (${(window.T.modelNames || {})[state.model] || state.model})` : '')])].join(' + ');
   const matched = Object.keys(PRESETS).find(k => KEYS.every(x => presetOf(k)[x] === state[x]));
@@ -387,7 +400,7 @@ function render() {
   $('#gcCompare').innerHTML =
     `<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3">${cards}</div>
      <p class="text-[11px] text-zinc-500 mb-3">${t('pHint')}</p>` +
-    col(title, toolNames(state), e.mine.lines, e.mine.lo, e.mine.hi, aiTime, true, e.mine.codeFits ? '' : t('capWarn'));
+    col(title, toolNames(state), e.mine.lines, e.mine.lo, e.mine.hi, aiTime, true, state.codeTool === 'rbxai' ? t('rbxaiNote') : e.mine.codeFits ? '' : t('capWarn'));
 
   const HIRE_MIN = { s: 5000, m: 15000, l: 30000, xl: 80000 };
   $('#gcRef').innerHTML = (e.rbx ? `<span class="block mb-3 text-start text-zinc-300 border border-emerald-500/30 bg-emerald-500/5 rounded-xl px-4 py-3">💰 ${t('rbxMoney')}</span>` : '') +
@@ -439,17 +452,20 @@ function num(id, key) {
   });
 }
 
+seg('gcHours', 'hours', Number); seg('gcExp', 'exp');
 seg('gcScale', 'scale'); seg('gcStyle', 'style'); seg('gcAnim', 'anim'); seg('gcSfx', 'sfx');
 // Roblox: Studio + Luau, 3D, free Cube models; leaving Roblox restores the usual defaults
 let lastPlat = state.platform;
 function platChanged() {
   if (isRbx() && lastPlat !== 'roblox') Object.assign(state, { engine: 'roblox', dim: '3d', d3Tool: 'cube' });
-  if (!isRbx() && lastPlat === 'roblox') Object.assign(state, { engine: state.engine === 'roblox' ? 'unity' : state.engine, dim: '2d', d3Tool: state.d3Tool === 'cube' ? 'meshy' : state.d3Tool });
+  if (!isRbx() && lastPlat === 'roblox') Object.assign(state, { engine: state.engine === 'roblox' ? 'unity' : state.engine, dim: '2d', d3Tool: state.d3Tool === 'cube' ? 'meshy' : state.d3Tool, codeTool: state.codeTool === 'rbxai' ? 'max5' : state.codeTool });
   lastPlat = state.platform;
   PAINTS.forEach(f => f());
 }
 seg('gcDim', 'dim'); seg('gcPlat', 'platform', v => v, platChanged); seg('gcImg', 'imgTool'); seg('gcCodeTool', 'codeTool'); seg('gcMusicTool', 'musicTool'); seg('gcSfxTool', 'sfxTool'); seg('gcD3Tool', 'd3Tool');
 seg('gcTrailer', 'trailer', v => v === 'true');
+PAINTS.push(() => { const b = document.querySelector('#gcCodeTool [data-v="rbxai"]'); if (b) b.hidden = !isRbx(); });
+document.getElementById('gcRate')?.addEventListener('input', ev => { const v = parseFloat(ev.target.value); state.rate = Number.isFinite(v) && v > 0 ? v : 0; render(); });
 // Store registration fee: many people already paid it (Google Play once, Apple yearly, Steam per game), so it is opt-in
 const feeBox = document.getElementById('gcFee'), feeWrap = document.getElementById('gcFeeWrap');
 const feeVis = () => { if (feeWrap) feeWrap.hidden = !PLATFORM[state.platform].fee; };
@@ -523,6 +539,50 @@ document.getElementById('gcDownload').addEventListener('click', () => {
   a.download = `${name}-prompts.md`; a.click(); track('gc_download'); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
 });
 
-syncNums();
+// ---------------- Share link (all answers in the query string; nothing is sent anywhere) ----------------
+const SHARE_KEYS = { g: 'genre', s: 'scale', st: 'style', a: 'anim', x: 'sfx', d: 'dim', c: 'chars', m: 'music', v: 'voice', l: 'langs', tr: 'trailer', e: 'engine', p: 'platform',
+  sf: 'storeFee', it: 'imgTool', ct: 'codeTool', mt: 'musicTool', xt: 'sfxTool', dt: 'd3Tool', md: 'model', h: 'hours', ex: 'exp', r: 'rate', n: 'name', i: 'idea' };
+function shareUrl() {
+  const q = new URLSearchParams();
+  for (const [k, f] of Object.entries(SHARE_KEYS)) { const v = state[f]; if (v !== null && v !== '' && v !== undefined) q.set(k, String(v)); }
+  q.set('f', [...state.feats].join('.'));
+  return location.origin + location.pathname + '?' + q.toString();
+}
+function loadShared() {
+  const q = new URLSearchParams(location.search); if (!q.has('g')) return false;
+  const NUMS = ['chars', 'music', 'voice', 'langs', 'hours', 'rate'], BOOLS = ['trailer', 'storeFee'];
+  for (const [k, f] of Object.entries(SHARE_KEYS)) {
+    if (!q.has(k)) continue; const v = q.get(k);
+    state[f] = NUMS.includes(f) ? (Number.isFinite(+v) ? +v : state[f]) : BOOLS.includes(f) ? v === 'true' : v;
+  }
+  if (!GENRE[state.genre]) state.genre = 'merge'; if (!SCALE[state.scale]) state.scale = 's'; if (!PLATFORM[state.platform]) state.platform = 'android';
+  if (!TOOLS.code[state.codeTool]) state.codeTool = 'max5'; if (![2, 4, 8].includes(state.hours)) state.hours = 8; if (!EXP[state.exp]) state.exp = 'none';
+  if (q.has('f')) state.feats = new Set(q.get('f').split('.').filter(f => FEAT[f]));
+  lastPlat = state.platform;
+  const set = (id, v) => { const el = document.getElementById(id); if (el && v !== null && v !== undefined) el.value = v; };
+  set('gcName', state.name); set('gcIdea', state.idea); set('gcVoice', state.voice); set('gcLangs', state.langs); set('gcModel', state.model); if (state.rate) set('gcRate', state.rate);
+  const fee = document.getElementById('gcFee'); if (fee) fee.checked = !!state.storeFee;
+  document.querySelectorAll('#gcFeats [data-f]').forEach(c => { c.checked = state.feats.has(c.dataset.f); });
+  PAINTS.forEach(f => f());
+  return true;
+}
+document.getElementById('gcShare')?.addEventListener('click', async ev => {
+  const btn = ev.currentTarget, url = shareUrl();
+  try { history.replaceState(null, '', url); } catch (_) {}
+  try { await navigator.clipboard.writeText(url); } catch (_) {}
+  track('gc_share'); const old = btn.textContent; btn.textContent = t('shared'); setTimeout(() => (btn.textContent = old), 1600);
+});
+// Real build time from visitors (GA event only) — to check the estimate against reality
+document.getElementById('gcFbSend')?.addEventListener('click', () => {
+  const inp = document.getElementById('gcFbDays'), d = parseInt(inp.value, 10);
+  if (!(d > 0 && d < 2000)) { inp.focus(); return; }
+  const e = estimate();
+  track('gc_actual', { gc_actual_days: d, gc_est_days: Math.round(e.cal), gc_hours: state.hours, gc_exp: state.exp });
+  document.getElementById('gcFb').innerHTML = `<p class="text-sm text-emerald-300">${t('fbThanks')}</p>`;
+});
+
+const shared = loadShared();
+if (!shared) syncNums(); else { const e0 = estimate(); if (state.chars === null) $('#gcChars').value = e0.chars; else $('#gcChars').value = state.chars; if (state.music === null) $('#gcMusic').value = e0.music; else $('#gcMusic').value = state.music; }
 curControls();
 render();
+if (shared) track('gc_shared_open');
