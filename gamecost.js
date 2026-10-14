@@ -10,7 +10,7 @@ const CUR = ({ ko: ['KRW', 1345, 0.10, 'ko-KR'], ja: ['JPY', 158, 0.10, 'ja-JP']
   es: ['EUR', 0.885, 0.21, 'es-ES'], nl: ['EUR', 0.885, 0.21, 'nl-NL'], pl: ['PLN', 3.90, 0.23, 'pl-PL'], sv: ['SEK', 10.0, 0.25, 'sv-SE'], pt: ['BRL', 5.21, 0, 'pt-BR'],
   'zh-CN': ['CNY', 6.72, 0, 'zh-CN'], ru: ['RUB', 83.5, 0.20, 'ru-RU'], uk: ['UAH', 44.6, 0.20, 'uk-UA'],
   it: ['EUR', 0.885, 0.22, 'it-IT'], el: ['EUR', 0.885, 0.24, 'el-GR'], fi: ['EUR', 0.885, 0.255, 'fi-FI'], sk: ['EUR', 0.885, 0.23, 'sk-SK'],
-  cs: ['CZK', 21.7, 0.21, 'cs-CZ'], hu: ['HUF', 324, 0.27, 'hu-HU'], ro: ['RON', 4.75, 0.21, 'ro-RO'], da: ['DKK', 6.63, 0.25, 'da-DK'], no: ['NOK', 9.56, 0.25, 'nb-NO'] })[document.documentElement.lang] || null;
+  cs: ['CZK', 21.7, 0.21, 'cs-CZ'], hu: ['HUF', 324, 0.27, 'hu-HU'], ro: ['RON', 4.75, 0.21, 'ro-RO'], da: ['DKK', 6.63, 0.25, 'da-DK'], no: ['NOK', 9.56, 0.25, 'nb-NO'], tr: ['TRY', 49.28, 0.20, 'tr-TR'] })[document.documentElement.lang] || null;
 const money = { local: !!CUR, tax: !!(CUR && CUR[2]) };
 const usdRaw = n => Number.isInteger(n) && n < 1000 ? '$' + n : n >= 1000 ? '$' + Math.round(n).toLocaleString('en-US') : n >= 100 ? '$' + Math.round(n) : '$' + n.toFixed(n < 10 ? 2 : 0);
 const usd = n => {

@@ -5,7 +5,7 @@ Roblox Assistant note, share link and real-build-time feedback."""
 # Currency the "your time" input uses on each page (same as gamecost.js CUR)
 RATE_CUR = {"en": "USD", "ko": "KRW", "ja": "JPY", "zh-CN": "CNY", "es": "EUR", "fr": "EUR", "pt": "BRL", "ru": "RUB", "uk": "UAH",
             "pl": "PLN", "sv": "SEK", "de": "EUR", "nl": "EUR", "it": "EUR", "el": "EUR", "fi": "EUR", "sk": "EUR", "cs": "CZK",
-            "hu": "HUF", "ro": "RON", "da": "DKK", "no": "NOK"}
+            "hu": "HUF", "ro": "RON", "da": "DKK", "no": "NOK", "tr": "TRY"}
 
 V2 = {
 "en": dict(qPace="How you'll work", qHours="Hours per day", h2="1–2 h", h4="3–4 h", h8="Full-time (8 h)",
@@ -206,6 +206,15 @@ V2 = {
   fbTitle="Har du allerede laget et slikt spill?", fbSub="Fortell oss hvor mange dager det faktisk tok, så blir estimatet mer presist. Bare tallet sendes.",
   fbPh="Antall dager", fbSend="Send", fbThanks="Takk! Svaret ditt er lagret.",
   howPace="Tidene forutsetter fulltidsarbeid (ca. 8 timer om dagen) av noen uten kodeerfaring, slik referansespillene ble laget. Færre timer om dagen forlenger kalendertiden; litt erfaring korter den med ca. 15 % og en utvikler med ca. 30 % (vårt anslag)."),
+"tr": dict(qPace="Nasıl çalışacaksınız", qHours="Günlük saat", h2="1–2 saat", h4="3–4 saat", h8="Tam zamanlı (8 saat)",
+  qExp="Kodlama deneyimi", exNone="Yok", exSome="Biraz", exDev="Geliştirici",
+  qRate="Zamanınızın değeri (saatlik {cur})", ratePh="0 = hesaba katma", l_time="Zamanınız", hoursN="{n} saat",
+  workNote="Günde {h} saatle {w} tam iş günü",
+  rbxaiNote="Roblox Assistant, her dönem sıfırlanan ücretsiz bir kullanım hakkı içinde ücretsiz; sonrasında Robux ile ek kullanım alabilirsiniz. Testimizde 4 istek ücretsiz hakkın %6'sını harcadı; bu yüzden bütün bir oyun büyük ihtimalle bu hakkı aşar.",
+  share="🔗 Tahmin bağlantısını kopyala", shared="Bağlantı kopyalandı ✓",
+  fbTitle="Böyle bir oyun yaptınız mı?", fbSub="Tahmini iyileştirmek için gerçekte kaç gün sürdüğünü yazın. Yalnızca sayı gönderilir.",
+  fbPh="Gün sayısı", fbSend="Gönder", fbThanks="Teşekkürler! Cevabınız kaydedildi.",
+  howPace="Süreler, kodlama geçmişi olmayan birinin tam zamanlı (günde yaklaşık 8 saat) çalıştığını varsayar; referans oyunlar böyle yapıldı. Günde daha az saat çalışmak takvim süresini uzatır; biraz deneyim süreyi yaklaşık %15, geliştirici olmak yaklaşık %30 kısaltır (bizim tahminimiz)."),
 }
 assert all(set(v) == set(V2["en"]) for v in V2.values())
 assert set(V2) == set(RATE_CUR)

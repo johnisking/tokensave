@@ -499,7 +499,7 @@ NAV["nl"] = "Gamekosten"
 
 # European languages (2026-10-07)
 import importlib as _il
-for _k in ['it', 'cs', 'sk', 'el', 'ro', 'hu', 'da', 'fi', 'no']:
+for _k in ['it', 'cs', 'sk', 'el', 'ro', 'hu', 'da', 'fi', 'no', 'tr']:
     _m = _il.import_module('gc_eu.' + _k)
     EXTRA[_k] = (_k, _m.GC)
     NAV[_k] = _m.NAV

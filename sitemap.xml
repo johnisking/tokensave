@@ -13276,6 +13276,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-game-seisakuhi"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/wat-kost-een-game-maken-met-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-ile-oyun-yapmak-maliyet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
     <image:image>
       <image:loc>https://tokensave.app/ai-game-development-cost-en.jpg</image:loc>
@@ -13298,6 +13299,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-game-seisakuhi"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/wat-kost-een-game-maken-met-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-ile-oyun-yapmak-maliyet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
     <image:image>
       <image:loc>https://tokensave.app/ai-game-jejakbi-ko.jpg</image:loc>
@@ -13320,6 +13322,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-game-seisakuhi"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/wat-kost-een-game-maken-met-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-ile-oyun-yapmak-maliyet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
     <image:image>
       <image:loc>https://tokensave.app/ai-game-seisakuhi-ja.jpg</image:loc>
@@ -13342,6 +13345,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-game-seisakuhi"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/wat-kost-een-game-maken-met-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-ile-oyun-yapmak-maliyet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
     <image:image>
       <image:loc>https://tokensave.app/ile-kosztuje-gra-z-ai-pl.jpg</image:loc>
@@ -13364,6 +13368,7 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-game-seisakuhi"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/wat-kost-een-game-maken-met-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-ile-oyun-yapmak-maliyet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
     <image:image>
       <image:loc>https://tokensave.app/wat-kost-een-game-maken-met-ai-nl.jpg</image:loc>
@@ -13376,6 +13381,35 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/wat-kost-een-game-maken-met-ai-welke-toolset-kies-je-voordeligst-typisc-nl.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/tr/blog/yapay-zeka-ile-oyun-yapmak-maliyet</loc>
+    <lastmod>2026-10-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/ai-game-development-cost"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/ai-game-jejakbi"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/ai-game-seisakuhi"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/blog/ile-kosztuje-gra-z-ai"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/blog/wat-kost-een-game-maken-met-ai"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/blog/yapay-zeka-ile-oyun-yapmak-maliyet"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/ai-game-development-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/yapay-zeka-ile-oyun-yapmak-maliyet-tr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/yapay-zeka-ile-oyun-yapmak-maliyet-boyuta-gore-maliyet-ve-sure-ne-kadar-tr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/yapay-zeka-ile-oyun-yapmak-maliyet-para-nereye-gidiyor-tr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/yapay-zeka-ile-oyun-yapmak-maliyet-oyun-turu-tr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/yapay-zeka-oyun-maliyeti-arac-setleri-tr.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/yapay-zeka-oyun-maliyeti-kendi-oyunum-tahmin-tr.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -17239,6 +17273,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17266,6 +17301,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17293,6 +17329,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17320,6 +17357,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17347,6 +17385,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17374,6 +17413,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17401,6 +17441,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17428,6 +17469,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17455,6 +17497,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17482,6 +17525,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17509,6 +17553,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17536,6 +17581,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17563,6 +17609,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17590,6 +17637,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17617,6 +17665,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17644,6 +17693,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17671,6 +17721,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17698,6 +17749,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17725,6 +17777,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17752,6 +17805,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17779,6 +17833,7 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17806,6 +17861,35 @@
     <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/tr/ai-game-cost-calculator</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://tokensave.app/es/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://tokensave.app/fr/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://tokensave.app/pt/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://tokensave.app/ru/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://tokensave.app/uk/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://tokensave.app/pl/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://tokensave.app/sv/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tokensave.app/de/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://tokensave.app/nl/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tokensave.app/it/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://tokensave.app/cs/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://tokensave.app/sk/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://tokensave.app/el/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://tokensave.app/ro/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="hu" href="https://tokensave.app/hu/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="da" href="https://tokensave.app/da/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://tokensave.app/fi/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="no" href="https://tokensave.app/no/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://tokensave.app/tr/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -17846,7 +17930,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/tr/blog/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/zh-tw/blog/</loc>

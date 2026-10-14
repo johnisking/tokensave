@@ -208,5 +208,14 @@
   "checked": "2026-10-13",
   "median": 6114,
   "unit": "chars"
+ },
+ "game-tr": {
+  "keyword": "yapay zeka ile oyun yapmak maliyet",
+  "checked": "2026-10-14",
+  "median": 1400,
+  "samples": {
+   "webtekno.com (mobil oyun nasıl yapılır)": 1400
+  },
+  "note": "Turkish SERP mostly news; only one comparable guide measured"
  }
 }
