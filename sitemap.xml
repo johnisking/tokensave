@@ -13828,6 +13828,7 @@
     <loc>https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost</loc>
     <lastmod>2026-10-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-vs-codex"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost"/>
     <image:image>
       <image:loc>https://tokensave.app/claude-code-vs-codex-vs-cursor-cost-en.jpg</image:loc>
@@ -13843,6 +13844,31 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/claude-code-vs-codex-vs-cursor-cost-what-independent-benchmarks-say-en.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/blog/claude-code-vs-codex</loc>
+    <lastmod>2026-10-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-vs-codex"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-vs-codex-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-vs-codex-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-vs-codex-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-vs-codex-ko-4.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-vs-codex-ko-5.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-vs-codex-ko-6.jpg</image:loc>
     </image:image>
   </url>
   <url>

@@ -43,7 +43,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=bb650508" />
+  <link rel="stylesheet" href="/styles.css?v=198ce12b" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -393,7 +393,7 @@
 <li><strong>긴 세션.</strong> 단계마다 대화 전체를 다시 보냅니다. 관련 없는 작업 사이에는 <strong>/clear</strong>, 긴 작업에는 <strong>/compact</strong>를 쓰세요.</li>
 <li><strong>한국어로 지시할 때.</strong> 같은 내용이면 한국어는 영어보다 토큰이 약 44%, 일본어는 약 79% 더 듭니다(GPT 토크나이저 기준 우리 측정). CLAUDE.md처럼 단계마다 함께 전송되는 긴 지시문은 영어로 쓰면 그만큼 줄일 수 있습니다. 측정 결과는 <a href="/ko/blog/korean-tokens-gpt">한국어 프롬프트, 영어로 보내면 토큰 31% 절약</a>에 있습니다.</li>
 </ul>
-<p>지금 얼마나 썼는지 보려면 클로드 코드 안에서 <strong>/usage</strong>(세션 비용을 정가 기준으로 보여 줌, 주로 API 사용자용)나 <strong>/status</strong>(요금제 사용량이 얼마나 남았는지)를 입력하세요. 명령어 입력 방법은 <a href="/ko/blog/claude-code-sayongbeop">클로드 코드 사용법</a>에, 비용을 더 줄이는 방법은 <a href="/ko/blog/claude-code-token-jeolyak">클로드 코드 토큰 절약 방법 9가지</a>에 있습니다.</p>
+<p>지금 얼마나 썼는지 보려면 클로드 코드 안에서 <strong>/usage</strong>를 입력하세요. 요금제 사용자는 5시간·주간 한도를 몇 % 썼는지와 초기화 시각이, API 사용자는 세션의 정가 기준 비용이 나옵니다. <strong>/status</strong>는 계정·요금제·모델 정보를 보여 줄 뿐 사용량은 나오지 않습니다. 명령어 입력 방법은 <a href="/ko/blog/claude-code-sayongbeop">클로드 코드 사용법</a>에, 비용을 더 줄이는 방법은 <a href="/ko/blog/claude-code-token-jeolyak">클로드 코드 토큰 절약 방법 9가지</a>에 있습니다.</p>
 <h2>무엇을 고를까</h2>
 <ol>
 <li><strong>일주일에 작은 작업 몇 개:</strong> API. 한 달 $20보다 적게 들 가능성이 큽니다.</li>
@@ -417,7 +417,7 @@ Anthropic은 원화 가격을 따로 내놓지 않았습니다. 1달러=1,340원
 <p><strong>Max에 들어 있는 월 API 크레딧을 클로드 코드에 쓸 수 있나요?</strong>
 아닙니다. Anthropic 고객센터는 Max에 포함된 월 API 크레딧을 클로드 코드나 클로드 앱에서는 쓸 수 없다고 안내합니다.</p>
 <p><strong>클로드 코드에 쓴 비용은 어떻게 확인하나요?</strong>
-/usage를 입력하면 세션의 토큰 사용량과 정가 기준 비용이 나오고, /status를 입력하면 요금제 사용량이 얼마나 남았는지 나옵니다.</p>
+/usage를 입력하면 요금제 한도(5시간·주간)를 몇 % 썼는지와 초기화 시각, 세션의 토큰 사용량이 나옵니다. /status는 계정과 요금제, 모델 정보를 보여 줍니다.</p>
 <h2>내 한 달 비용 계산해 보기</h2>
 <p><a href="/ko/agents">코딩 에이전트 비용 계산기</a>에 작업 크기, 하루 작업 수, 작업일을 넣으면 클로드 코드의 API 비용을 클로드·챗GPT의 모든 요금제와 나란히 비교해 줍니다. 다른 코딩 에이전트는 <a href="/ko/blog/codex-yogeum">코덱스 요금</a>과 <a href="/ko/blog/cursor-pricing">커서 요금제</a>를, 프로 요금제 자체는 <a href="/ko/blog/claude-yogeumje">클로드 요금제 총정리</a>를 보세요.</p>
 <p><em>2026년 10월 12일에 가격과 한도를 확인했습니다. Anthropic은 한도를 자주 바꾸니, 결정하기 전에 <a href="https://claude.com/pricing" target="_blank" rel="noopener">claude.com/pricing</a>을 확인하세요. 원화 금액은 1달러=1,340원으로 가정한 단순 계산(대략적인 값)입니다.</em></p>
@@ -433,7 +433,7 @@ Anthropic은 원화 가격을 따로 내놓지 않았습니다. 1달러=1,340원
 <!-- autoimg -->
 
         <h2>다른 글</h2>
-        <ul><li><a href="/ko/blog/nano-banana-gagyeok">나노바나나 가격: API 1장 45원, 무료 한도 총정리 (2026)</a></li><li><a href="/ko/blog/roblox-game-mandeulgi">로블록스 게임 만들기: 스튜디오 설치부터 AI로 첫 게임까지 (2026)</a></li><li><a href="/ko/blog/claude-code-token-jeolyak">클로드 코드 토큰 절약 방법 9가지</a></li><li><a href="/ko/blog/claude-code-sayongnyang-hando">클로드 코드 사용량 한도 정리: 5시간·주간 한도와 확인 방법</a></li><li><a href="/ko/blog/chatgpt-pro-vs-claude-max">챗GPT Pro vs Claude Max 요금제 비교: $100·$200 어디가 더 많이 줄까</a></li></ul>
+        <ul><li><a href="/ko/blog/nano-banana-gagyeok">나노바나나 가격: API 1장 45원, 무료 한도 총정리 (2026)</a></li><li><a href="/ko/blog/claude-code-vs-codex">클로드 코드 vs 코덱스: 같은 프롬프트 실측·요금 비교</a></li><li><a href="/ko/blog/claude-code-token-jeolyak">클로드 코드 토큰 절약 방법 9가지</a></li><li><a href="/ko/blog/claude-code-sayongnyang-hando">클로드 코드 사용량 한도 정리: 5시간·주간 한도와 확인 방법</a></li><li><a href="/ko/blog/chatgpt-pro-vs-claude-max">챗GPT Pro vs Claude Max 요금제 비교: $100·$200 어디가 더 많이 줄까</a></li></ul>
         <div class="not-prose mt-8 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 text-center">
           <p class="text-zinc-200">작업 크기와 하루 작업 수를 넣고, 클로드 코드의 API 비용을 Pro·Max와 비교해 보세요.</p>
           <a href="/ko/agents" class="mt-3 inline-block tab-active rounded-lg px-4 py-2 font-semibold no-underline" style="text-decoration:none">코딩 에이전트 비용 계산기 열기 →</a>
@@ -456,6 +456,6 @@ Anthropic은 원화 가격을 따로 내놓지 않았습니다. 1달러=1,340원
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=bb650508"></script>
+  <script type="module" src="/common.js?v=198ce12b"></script>
 </body>
 </html>

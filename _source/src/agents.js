@@ -1,7 +1,7 @@
 // TokenSave — AI coding agent cost page (tokensave.app/agents)
 // Estimates the monthly API cost of coding agents (Claude Code, Codex, Gemini CLI…) and compares it with plans.
 // An agent re-sends its whole working context on every step, so input tokens grow with each step.
-// Plan prices: official US monthly prices, checked 2026-10-01 (Claude Pro/Max include Claude Code,
+// Plan prices: official US monthly prices, checked 2026-10-14 (Claude Pro/Max include Claude Code,
 // ChatGPT Plus/Pro include Codex). API prices come from src/llm_prices.json, injected by build.py as T.prices.
 
 import { T, tr, fx } from './common.js';
@@ -9,7 +9,11 @@ import { T, tr, fx } from './common.js';
 const PRICES = T.prices || {};
 const CACHE_RATE = 0.1;   // cached input billed at ~10% of the normal input price
 // Anthropic: cache reads on Opus 5.5 / Sonnet 5.5 are 0.05 of base input (platform.claude.com pricing, checked 2026-10-09)
-const CACHE_RATE_BY = { 'claude-opus-5-5': 0.05, 'claude-sonnet-5-5': 0.05 };
+// OpenAI: GPT-6.1 Sol cached input is $0.10 on $2 (0.05); GPT-6 Sol, Astra and Luna are 0.1 (developers.openai.com pricing, checked 2026-10-14)
+const CACHE_RATE_BY = { 'claude-opus-5-5': 0.05, 'claude-sonnet-5-5': 0.05, 'gpt-6-1-sol': 0.05 };
+// Long-prompt pricing: a request whose prompt is over `over` tokens is billed at these rates instead
+// (Claude Haiku 5.5: $0.10/$0.50 up to 100K, $0.50/$2.50 above; platform.claude.com pricing, checked 2026-10-14)
+const TIER = { 'claude-haiku-5-5': { over: 100000, in: 0.5, out: 2.5 } };
 const CTX_CAP = 180000;   // agents compact their context before it grows past this
 
 // Per task: steps, starting context (system prompt + tools + first files), context added per step, output per step
@@ -21,10 +25,10 @@ const SIZES = {
 
 const GROUPS = [
   { name: 'Claude', tool: 'Claude Code', main: 'claude-sonnet-5-5',
-    models: [['claude-sonnet-5-5', 'Claude Sonnet 5.5'], ['claude-opus-5-5', 'Claude Opus 5.5'], ['claude-haiku-4-5', 'Claude Haiku 4.5']],
+    models: [['claude-sonnet-5-5', 'Claude Sonnet 5.5'], ['claude-opus-5-5', 'Claude Opus 5.5'], ['claude-haiku-5-5', 'Claude Haiku 5.5'], ['claude-haiku-4-5', 'Claude Haiku 4.5']],
     plans: [['Claude Pro', 20], ['Claude Max 5×', 100], ['Claude Max 20×', 200]] },
-  { name: 'OpenAI', tool: 'Codex', main: 'gpt-6-sol',
-    models: [['gpt-6-sol', 'GPT-6 Sol'], ['gpt-6-astra', 'GPT-6 Astra'], ['gpt-6-luna', 'GPT-6 Luna']],
+  { name: 'OpenAI', tool: 'Codex', main: 'gpt-6-1-sol',
+    models: [['gpt-6-1-sol', 'GPT-6.1 Sol'], ['gpt-6-sol', 'GPT-6 Sol'], ['gpt-6-astra', 'GPT-6 Astra'], ['gpt-6-luna', 'GPT-6 Luna']],
     plans: [['ChatGPT Plus', 20], ['ChatGPT Pro 100', 100], ['ChatGPT Pro 200', 200], ['ChatGPT Pro 500', 500]] },
   { name: 'Gemini · DeepSeek · Grok', tool: 'Gemini CLI · Cline · Aider', main: 'gemini-3-1-pro',
     models: [['gemini-3-1-pro', 'Gemini 3.1 Pro'], ['gemini-4-argon', 'Gemini 4 Argon'], ['gemini-3-8-flash', 'Gemini 3.8 Flash'], ['deepseek-v4-pro', 'DeepSeek V4 Pro'], ['grok-code-fast-1', 'Grok Code Fast 1']],
@@ -56,7 +60,21 @@ function perTask() {
 
 function taskCost(id, t) {
   const p = PRICES[id] || { in: 0, out: 0 };
-  const billedIn = state.cache ? t.fresh + t.cached * (CACHE_RATE_BY[id] ?? CACHE_RATE) : t.input;
+  const rate = CACHE_RATE_BY[id] ?? CACHE_RATE;
+  const tier = TIER[id];
+  if (tier) {  // price each step by its own prompt size
+    const z = SIZES[state.size];
+    let cost = 0;
+    for (let k = 0; k < z.steps; k++) {
+      const ctx = Math.min(z.start + z.grow * k, CTX_CAP);
+      const fresh = Math.min(k === 0 ? z.start : z.grow + z.out, ctx);
+      const pr = ctx > tier.over ? tier : p;
+      const billedIn = state.cache ? fresh + (ctx - fresh) * rate : ctx;
+      cost += (billedIn / 1e6) * pr.in + (z.out / 1e6) * pr.out;
+    }
+    return cost;
+  }
+  const billedIn = state.cache ? t.fresh + t.cached * rate : t.input;
   return (billedIn / 1e6) * p.in + (t.out / 1e6) * p.out;
 }
 

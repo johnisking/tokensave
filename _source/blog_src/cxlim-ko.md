@@ -1,10 +1,12 @@
 ![Codex 사용량 한도 정리: 5시간·주간 한도와 초기화](/codex-sayongnyang-hando-ko.jpg)
 
-OpenAI의 코딩 에이전트 Codex는 ChatGPT Plus, Pro, Business 요금제에 포함되어 있고, 요즘 사용량 한도에 가장 많이 걸리는 곳이기도 합니다. Codex는 ChatGPT Work와 사용량을 함께 쓰고, Plus와 Business에는 5시간 단위 한도가 있고(주간 한도가 추가로 적용될 수 있음), 어떤 모델을 쓰느냐에 따라 소진 속도가 크게 다릅니다. 어떻게 돌아가는지, 어떻게 하면 더 오래 쓸 수 있는지 정리했습니다.
+OpenAI의 코딩 에이전트 Codex는 ChatGPT 무료·Go 요금제에서도 쓸 수 있고(GPT-6 Luna) Plus, Pro, Business 요금제에도 포함되어 있으며, 요즘 사용량 한도에 가장 많이 걸리는 곳이기도 합니다. Codex는 ChatGPT Work와 사용량을 함께 쓰고, Plus와 Business에는 5시간 단위 한도가 있고(주간 한도가 추가로 적용될 수 있음), 어떤 모델을 쓰느냐에 따라 소진 속도가 크게 다릅니다. 어떻게 돌아가는지, 어떻게 하면 더 오래 쓸 수 있는지 정리했습니다.
 
 ## Codex가 포함된 요금제
 
 Codex(와 ChatGPT Work) 사용량은 **Plus**($20), **Pro**($100, $200, $500), **Business** Standard·Premium 좌석에 포함됩니다. 무제한은 아닙니다. 요금제마다 포함된 사용량이 정해져 있습니다.
+
+**무료**와 **Go**($8) 요금제에서도 GPT-6 Luna로 Codex를 쓸 수 있습니다. 다만 클라우드 작업은 Plus부터이고, 우리 무료 계정에서는 5시간·주간 한도 대신 한 달 단위 사용량 막대 하나만 보였습니다. 자세한 테스트는 [코덱스 요금 글](/ko/blog/codex-yogeum)에 있습니다.
 
 ## 한도는 두 가지가 동시에
 
