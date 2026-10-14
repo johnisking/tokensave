@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-01",
+  "checked": "2026-10-14",
   "source": "https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json",
   "models": {
     "gpt-6-astra": {
@@ -129,10 +129,10 @@
       "ctx": 1048576
     },
     "gemini-4-argon": {
-      "in": 4.0,
-      "out": 20.0,
+      "in": 2.0,
+      "out": 10.0,
       "key": "gemini/gemini-4-argon",
-      "ctx": 1000000
+      "ctx": 1048576
     },
     "deepseek-v4-pro": {
       "in": 1.32,
