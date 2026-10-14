@@ -879,3 +879,7 @@ NBKO = [_cc("ko", "/ko/blog/nano-banana-gagyeok", "nbprice-ko", "나노바나나
      "나노바나나 가격을 구글 공식 가격표로 정리. 2.1·2·Lite·프로 해상도별 API 장당 가격과 Batch 할인, API 무료 등급 여부, 제미나이 앱 무료 한도, AI 스튜디오 직접 사용 결과, 용도별 비용 계산까지.",
      "Jonhisking · 2026년 10월 14일", "모델과 해상도, 장수를 넣고 나노바나나와 다른 이미지 AI의 비용을 비교해 보세요.", "AI 이미지 비용 계산기 열기")]
 NBKO[0]["date"] = "2026-10-14"
+NBKO.append(_cc("ja", "/ja/blog/nano-banana-ryoukin", "nbprice-ja", "Nano Banana 料金：API は1枚約5円、無料版の上限も（2026）",
+     "Nano Banana の料金を Google 公式の料金表で解説。2.1・2・Lite・Pro の解像度別の1枚単価と Batch 割引、API の無料枠の有無、Gemini 無料版の上限、日本語プロンプトでの実測比較、用途別の費用まで。",
+     "Jonhisking · 2026年10月14日", "モデルと解像度、枚数を入れて、Nano Banana とほかの画像 AI の費用を比べてみましょう。", "AI 画像生成コスト計算ツールを開く"))
+NBKO[-1]["date"] = "2026-10-14"

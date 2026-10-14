@@ -227,5 +227,15 @@
    "glbgpt.com (is nano banana api free)": 5500
   },
   "note": "approximate, chars without spaces"
+ },
+ "nbprice-ja": {
+  "keyword": "Nano Banana 料金",
+  "checked": "2026-10-14",
+  "median": 4750,
+  "samples": {
+   "blog.laozhang.ai/ja": 4500,
+   "docs.apiyi.com/ja": 5000
+  },
+  "note": "approximate, chars without spaces"
  }
 }

@@ -16652,6 +16652,7 @@
     <loc>https://tokensave.app/ko/blog/nano-banana-gagyeok</loc>
     <lastmod>2026-10-14</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/nano-banana-gagyeok"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/nano-banana-ryoukin"/>
     <image:image>
       <image:loc>https://tokensave.app/nano-banana-gagyeok-ko.jpg</image:loc>
     </image:image>
@@ -16684,6 +16685,45 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/nano-banana-gagyeok-yongdobyeol-biyong-ko.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/blog/nano-banana-ryoukin</loc>
+    <lastmod>2026-10-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/nano-banana-gagyeok"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/nano-banana-ryoukin"/>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-ryoukin-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-ryoukin-model-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-ryoukin-api-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-ryoukin-batch-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-ryoukin-gemini-plan-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-ryoukin-gemini-muryou-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-ryoukin-ai-studio-1-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-ryoukin-ai-studio-2-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-ryoukin-menu-hikaku-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-ryoukin-pro-prompt-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-ryoukin-youto-ja.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -17962,7 +18002,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-14</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/</loc>
