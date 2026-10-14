@@ -869,3 +869,9 @@ RBXKO = [_cc("ko", "/ko/blog/roblox-game-mandeulgi", "rbxhow-ko", "로블록스 
      "Jonhisking · 2026년 10월 13일", *_CTA_GM["ko"])]
 RBXKO[0]["date"] = "2026-10-13"
 RBX_JA[0]["updated"] = "2026-10-13"
+
+# 2026-10-14 Nano Banana price / API / free limits (ko)
+NBKO = [_cc("ko", "/ko/blog/nano-banana-gagyeok", "nbprice-ko", "나노바나나 가격: API 1장 45원, 무료 한도 총정리 (2026)",
+     "나노바나나 가격을 구글 공식 가격표로 정리. 2.1·2·Lite·프로 해상도별 API 장당 가격과 Batch 할인, API 무료 등급 여부, 제미나이 앱 무료 한도, AI 스튜디오 직접 사용 결과, 용도별 비용 계산까지.",
+     "Jonhisking · 2026년 10월 14일", "모델과 해상도, 장수를 넣고 나노바나나와 다른 이미지 AI의 비용을 비교해 보세요.", "AI 이미지 비용 계산기 열기")]
+NBKO[0]["date"] = "2026-10-14"

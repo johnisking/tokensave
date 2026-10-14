@@ -1,8 +1,8 @@
 <p><img fetchpriority="high" width="1200" height="630" alt="AI Image Generation Cost per Image, Compared" src="/ai-image-cost-per-image-en.jpg" /></p>
 <p>AI image prices are quoted per image, and the range is wider than most people expect: from about one cent to forty cents for a single picture. For a one-off that hardly matters. For a product catalog, a game's art pipeline or an app that generates images for users, it is the difference between a rounding error and a real line in the budget.</p>
 <h2>Price per 1024px image</h2>
-<p><img loading="lazy" width="1200" height="1052" alt="Price per 1024px image: Model, Maker, 1 image, 1,000 images" src="/ai-image-cost-per-image-price-per-1024px-image-en.jpg" /></p>
-<p>API prices checked September 30, 2026:</p>
+<p><img loading="lazy" width="1200" height="1024" alt="Price per 1024px image: Model, Maker, 1 image, 1,000 images" src="/ai-image-cost-per-image-price-per-1024px-image-en.jpg" /></p>
+<p>API prices checked September 30, 2026 (Google's Nano Banana prices rechecked October 14, 2026):</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -44,6 +44,12 @@
 <td>$30</td>
 </tr>
 <tr>
+<td>Nano Banana 2.1</td>
+<td>Google</td>
+<td>$0.034</td>
+<td>$34</td>
+</tr>
+<tr>
 <td>Nano Banana 2 Lite</td>
 <td>Google</td>
 <td>$0.034</td>
@@ -74,25 +80,26 @@
 <td>$70</td>
 </tr>
 <tr>
+<td>Nano Banana Pro</td>
+<td>Google</td>
+<td>$0.134</td>
+<td>$134</td>
+</tr>
+<tr>
 <td>GPT Image 2.5 · high*</td>
 <td>OpenAI</td>
 <td>$0.160</td>
 <td>$160</td>
 </tr>
-<tr>
-<td>Nano Banana Pro*</td>
-<td>Google</td>
-<td>$0.200</td>
-<td>$200</td>
-</tr>
 </tbody>
 </table></div>
 <p>* Rate from Runway's API for that model.</p>
 <h2>Resolution changes the price</h2>
-<p><img loading="lazy" width="1200" height="658" alt="Resolution changes the price: Nano Banana 2 goes from $0.067 at 1K to $0.101 at 2K and $0.151 at 4K.; FLUX.2 bills per megapixel; GPT Image " src="/ai-image-cost-per-image-resolution-changes-the-price-en.jpg" /></p>
+<p><img loading="lazy" width="1200" height="792" alt="Resolution changes the price: Nano Banana 2.1 goes from $0.0336 at 1K to $0.0504 at 2K and $0.113 at 4K. It replaced Nano Banana 2 ($0.067 a" src="/ai-image-cost-per-image-resolution-changes-the-price-en.jpg" /></p>
 <p>Most models charge more for larger images, but not in the same way:</p>
 <ul>
-<li><strong>Nano Banana 2</strong> goes from $0.067 at 1K to $0.101 at 2K and $0.151 at 4K.</li>
+<li><strong>Nano Banana 2.1</strong> goes from $0.0336 at 1K to $0.0504 at 2K and $0.113 at 4K. It replaced Nano Banana 2 ($0.067 at 1K) as Google's default image model in October 2026.</li>
+<li><strong>Nano Banana Pro</strong> costs the same $0.134 at 1K and 2K, then $0.24 at 4K.</li>
 <li><strong>FLUX.2</strong> bills per megapixel: the first megapixel at one price, each additional one cheaper. A 2048px image is 4 MP.</li>
 <li><strong>GPT Image 2.5 · medium</strong> costs the same $0.05 at 1K and 2K, then $0.11 at 4K.</li>
 </ul>
@@ -105,7 +112,7 @@
 <p><img loading="lazy" width="1200" height="626" alt="Which one to pick: Bulk and drafts; Good quality at a fair price; Hardest prompts, text in images, final assets" src="/ai-image-cost-per-image-which-one-to-pick-en.jpg" /></p>
 <ul>
 <li><strong>Bulk and drafts:</strong> GPT Image 2.5 low, FLUX.2 [klein], Grok Imagine Image.</li>
-<li><strong>Good quality at a fair price:</strong> FLUX.2 [pro], Nano Banana 2, Seedream 5.</li>
+<li><strong>Good quality at a fair price:</strong> FLUX.2 [pro], Nano Banana 2.1, Seedream 5.</li>
 <li><strong>Hardest prompts, text in images, final assets:</strong> Nano Banana Pro, GPT Image 2.5 high, FLUX.2 [max].</li>
 </ul>
 <p>Quality is subjective, so test your own prompts on two or three models before you commit to one for a large batch.</p>

@@ -101,7 +101,7 @@ I = dict(
     a2="Malé modely jako FLUX.2 [klein], Grok Imagine a GPT Image v nízké kvalitě stojí kolem $0.01–0.02 za obrázek. Prémiové modely ve 4K mohou stát $0.15–0.40 za obrázek.",
     q3="Co je Nano Banana?",
     a3="Nano Banana je přezdívka obrázkových modelů Google Gemini. Nano Banana 2 je Gemini 3.1 Flash Image a Nano Banana Pro je Gemini 3 Pro Image.",
-    f1="Oficiální ceníkové ceny ze stránek s ceníky API jednotlivých poskytovatelů, ověřeno 30. září 2026. OpenAI a Nano Banana Pro jsou uvedeny podle sazeb Runway API.",
+    f1="Oficiální ceníkové ceny ze stránek s ceníky API jednotlivých poskytovatelů, ověřeno 30. září 2026. OpenAI je uvedeno podle sazeb Runway API.",
 )
 
 NAV = dict(

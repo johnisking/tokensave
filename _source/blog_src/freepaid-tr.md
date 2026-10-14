@@ -95,7 +95,7 @@ ChatGPT Plus fiyatına yakın seviyede Google AI Pro ve Claude Pro var. Google A
 | İş | Model | Maliyet |
 |---|---|---|
 | YouTube küçük resimleri veya ürün sayfaları için 30 [görsel](/tr/image) (2K, yüksek kalite) | GPT Image 2.5 high | $4,80 (yaklaşık 235 TL) |
-| Aynı 30 görsel 4K | Nano Banana Pro | $12,00 (yaklaşık 590 TL) |
+| Aynı 30 görsel 4K | Nano Banana Pro | $7,20 (yaklaşık 350 TL) |
 | 8 saniyelik 10 [video](/tr/video) (1080p) | Veo 3.1 Fast | $9,60 (yaklaşık 470 TL) |
 | Aynı 10 video en yüksek kalitede | Veo 3.1 | $32,00 (yaklaşık 1.570 TL) |
 

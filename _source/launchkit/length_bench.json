@@ -217,5 +217,15 @@
    "webtekno.com (mobil oyun nasıl yapılır)": 1400
   },
   "note": "Turkish SERP mostly news; only one comparable guide measured"
+ },
+ "nbprice-ko": {
+  "keyword": "나노바나나 가격",
+  "checked": "2026-10-14",
+  "median": 6000,
+  "samples": {
+   "wikidocs.net (나노 바나나 API 가격)": 7000,
+   "glbgpt.com (is nano banana api free)": 5500
+  },
+  "note": "approximate, chars without spaces"
  }
 }
