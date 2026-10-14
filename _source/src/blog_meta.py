@@ -480,6 +480,10 @@ AGCMP = [_n6("/blog/claude-code-vs-codex-vs-cursor-cost", "agentcmp-en", "Claude
     "Claude Code vs Codex vs Cursor in 2026: plans from free to $500, how each counts usage, benchmark scores, and the same prompt run in all three.",
     *_CTA["en"])]
 AGCMP[0]["updated"] = "2026-10-12"
+AGCMP.append(_cc("ko", "/ko/blog/claude-code-vs-codex", "agentcmp-ko", "클로드 코드 vs 코덱스: 같은 프롬프트 실측·요금 비교",
+     "클로드 코드와 코덱스에 같은 프롬프트를 주고 직접 돌려 봤습니다. 37초 대 39초, 월 $20·$100·$200 요금제, 5시간·주간 한도, 독립 벤치마크 68 대 63까지 비교합니다.",
+     "Jonhisking · 2026년 10월 14일", "작업 크기와 하루 작업 수를 넣고, 클로드 코드·코덱스의 API 비용을 각 요금제와 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"))
+AGCMP[-1]["date"] = "2026-10-14"
 GOPLUS = [_n6("/blog/chatgpt-go-vs-plus", "gogo-en", "ChatGPT Go vs Plus: Is the $20 Plan Worth $12 More?",
     "ChatGPT Go ($8) vs Plus ($20) in 2026: Luna vs Sol, thinking levels, Codex, ads and limits, who needs which, and when the API is cheaper than both.",
     *_CTA_PL["en"])]

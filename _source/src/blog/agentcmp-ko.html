@@ -1,0 +1,373 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="클로드 코드 vs 코덱스: 같은 프롬프트 실측·요금 비교" src="/claude-code-vs-codex-ko.jpg" /></p>
+<p><strong>클로드 코드 vs 코덱스 한 줄 정리:</strong> 둘 다 월 $20 요금제로 시작하고, 사용량은 5시간·주간 한도로 셉니다. 같은 프롬프트로 직접 돌려 보니 작은 작업에서는 속도가 비슷했고(37초 대 39초), 코덱스는 무료 요금제로도 돌아갔습니다. 독립 벤치마크에서는 클로드 코드가 점수가 높고(68 대 63), 코덱스는 작업당 비용이 93% 낮았습니다. 이 글에서는 요금제, 사용량 계산 방식, 직접 테스트 결과, 벤치마크, 용도별 선택 기준까지 한 번에 비교합니다.</p>
+<p>클로드 코드(Claude Code)는 Anthropic이, 코덱스(Codex)는 OpenAI가 만든 AI 코딩 에이전트입니다. 요금표만 보면 $20, $100, $200 요금제가 나란히 있어서 비슷해 보입니다. 하지만 무료로 쓸 수 있는지, 한도를 어떻게 세는지, 작업 하나에 토큰을 얼마나 쓰는지가 꽤 다릅니다. 요금은 2026년 10월 11~14일 각 회사 공식 페이지 기준입니다.</p>
+<h2>클로드 코드 vs 코덱스 한눈에 보기</h2>
+<p><img loading="lazy" width="1200" height="951" alt="클로드 코드 vs 코덱스 한눈에 보기: 클로드 코드, 코덱스" src="/claude-code-vs-codex-ko-2.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th></th>
+<th>클로드 코드</th>
+<th>코덱스</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>만든 곳</td>
+<td>Anthropic</td>
+<td>OpenAI</td>
+</tr>
+<tr>
+<td>쓰는 곳</td>
+<td>터미널, IDE, Claude 앱</td>
+<td>챗GPT 앱, CLI, IDE, 웹</td>
+</tr>
+<tr>
+<td>모델</td>
+<td>Claude만 (소넷, 오퍼스 등)</td>
+<td>OpenAI만 (GPT-6 Luna, 6.1 Sol 등)</td>
+</tr>
+<tr>
+<td>무료로 쓰기</td>
+<td>불가 (Claude 무료 요금제에 없음)</td>
+<td>가능 (챗GPT 무료, GPT-6 Luna)</td>
+</tr>
+<tr>
+<td>첫 유료 요금제</td>
+<td>Claude Pro $20</td>
+<td>챗GPT Plus $20</td>
+</tr>
+<tr>
+<td>사용량 세는 방식</td>
+<td>5시간 한도 + 주간 한도</td>
+<td>Plus는 5시간 + 주간, Pro는 주간</td>
+</tr>
+<tr>
+<td>한도를 같이 쓰는 곳</td>
+<td>Claude 앱 (웹·데스크톱·모바일)</td>
+<td>챗GPT의 다른 에이전트 기능</td>
+</tr>
+</tbody>
+</table></div>
+<p>가장 큰 차이는 일하는 방식입니다. 클로드 코드는 터미널에서 진행 상황을 보면서 방향을 잡아 주는 데 강하고, 코덱스는 일을 맡겨 두면 알아서 끝내는 쪽에 가깝습니다. 커뮤니티 후기에서도 "클로드는 내가 원하는 방향으로 맞춰 간다", "코덱스는 알아서 방향을 잡는다"는 평가가 함께 나옵니다. 어느 쪽이 편한지는 사람마다 갈립니다.</p>
+<h2>요금제 비교 (2026)</h2>
+<p><img loading="lazy" width="1200" height="772" alt="요금제 비교 (2026): 가격, 클로드 코드 (Anthropic), 코덱스 (OpenAI)" src="/claude-code-vs-codex-ko-3.jpg" /></p>
+<p>미국 달러 기준 월 가격입니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>가격</th>
+<th>클로드 코드 (Anthropic)</th>
+<th>코덱스 (OpenAI)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>무료</td>
+<td>없음</td>
+<td>챗GPT 무료 (GPT-6 Luna)</td>
+</tr>
+<tr>
+<td>$8</td>
+<td>없음</td>
+<td>챗GPT Go (GPT-6 Luna)</td>
+</tr>
+<tr>
+<td>$20</td>
+<td>Claude Pro (연간 결제 시 월 약 $17)</td>
+<td>챗GPT Plus</td>
+</tr>
+<tr>
+<td>$100</td>
+<td>Max 5x</td>
+<td>Pro 100</td>
+</tr>
+<tr>
+<td>$200</td>
+<td>Max 20x</td>
+<td>Pro 200</td>
+</tr>
+<tr>
+<td>$500</td>
+<td>없음</td>
+<td>Pro 500</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Claude Max는 이름이 곧 사용량입니다.</strong> Anthropic 안내 기준으로 Max 5x는 Pro 사용량의 500%, Max 20x는 2,000%입니다.</li>
+<li><strong>챗GPT Pro의 사용량 비율은 공식 수치가 아닙니다.</strong> OpenAI는 "윗 단계일수록 더 많이 쓴다"고만 안내합니다. 보도와 OpenAI 직원의 X 글 기준으로 Pro 100·200·500이 Plus의 약 500%·1,000%·2,500%입니다.</li>
+<li><strong>무료로 진짜 에이전트를 돌릴 수 있는 건 코덱스뿐입니다.</strong> Claude 무료 요금제에는 클로드 코드가 없습니다.</li>
+<li><strong>연간 할인은 클로드 Pro에만 있습니다.</strong> Claude Pro는 연간 $200 선결제가 가능하고, Max와 챗GPT 요금제는 월 결제만 있습니다.</li>
+</ul>
+<p>요금제별 자세한 내용은 <a href="/ko/blog/claude-code-yogeum">클로드 코드 요금 정리</a>와 <a href="/ko/blog/codex-yogeum">코덱스 요금 정리</a>에 있습니다.</p>
+<h2>사용량은 어떻게 세나</h2>
+<h3>클로드 코드: 5시간 한도와 주간 한도</h3>
+<p>5시간 단위 한도와 그 위의 주간 한도가 있고, 둘 다 Claude 앱과 같이 씁니다. 앱에서 긴 대화를 하면 코딩에 쓸 한도가 그만큼 줄어듭니다. Max 요금제는 Fable 모델용 주간 한도가 따로 있습니다. 남은 양은 클로드 코드 안에서 <strong>/usage</strong>로 확인합니다. Anthropic은 한도를 토큰 수로 공개하지 않습니다. 자세한 내용은 <a href="/ko/blog/claude-code-sayongnyang-hando">클로드 코드 사용량 한도 정리</a>를 보세요.</p>
+<h3>코덱스: 5시간·주간 한도, 무료는 월 미터</h3>
+<p>OpenAI 안내 기준으로 Plus와 Business는 5시간 단위 한도가 있고 주간 한도가 추가로 걸릴 수 있습니다. Pro 요금제는 현재 5시간 한도 없이 주간 한도만 있습니다. 내 컴퓨터에서 돌리는 로컬 작업과 클라우드 작업은 같은 사용량을 나눠 쓰고, 클라우드 작업이 더 많이 씁니다. 클라우드 작업은 Plus부터 됩니다.</p>
+<p>우리 무료 계정에서는 5시간이나 주간 미터가 없었습니다. '1개월'짜리 사용량 막대 하나만 보였습니다. 자세한 내용은 <a href="/ko/blog/codex-sayongnyang-hando">코덱스 사용량 한도 정리</a>를 보세요.</p>
+<ul>
+<li><strong>둘 다 작업당 가격을 숨깁니다.</strong> 화면에는 달러가 아니라 한도의 몇 %를 썼는지만 나옵니다.</li>
+<li><strong>한도가 차면 기다리거나 추가 사용량을 삽니다.</strong> 클로드 코드는 사용 크레딧을 켜거나 API로 넘어갈 수 있습니다.</li>
+</ul>
+<h2>같은 프롬프트로 직접 돌려 봤다</h2>
+<p><img loading="lazy" width="1200" height="716" alt="같은 프롬프트로 직접 돌려 봤다: 도구 · 모델 · effort, 요금제, 걸린 시간, 게임 코드, 사용량·비용" src="/claude-code-vs-codex-ko-4.jpg" /></p>
+<p>요금표와 벤치마크만으로는 감이 안 와서, 2026년 10월 9~11일에 같은 일을 시켜 봤습니다. 프롬프트는 이렇습니다.</p>
+<blockquote>
+<p>"현재 폴더에 index.html 한 파일로 브라우저에서 돌아가는 벽돌깨기 게임을 만들어 줘. 레벨 2개, 점수 표시, 목숨 3개가 있어야 하고, 키보드와 마우스로 할 수 있어야 해. 파일을 쓰고 끝내."</p>
+</blockquote>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>도구 · 모델 · effort</th>
+<th>요금제</th>
+<th>걸린 시간</th>
+<th>게임 코드</th>
+<th>사용량·비용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>클로드 코드 · 소넷 5.5 · medium</td>
+<td>Max 5x</td>
+<td>37초</td>
+<td>198줄</td>
+<td>API 가격 환산 $0.25</td>
+</tr>
+<tr>
+<td>클로드 코드 · 소넷 5.5 · high</td>
+<td>Max 5x</td>
+<td>58초</td>
+<td>398줄</td>
+<td>API 가격 환산 $0.30</td>
+</tr>
+<tr>
+<td>클로드 코드 · 오퍼스 5.5 · medium</td>
+<td>Max 5x</td>
+<td>52초</td>
+<td>358줄</td>
+<td>API 가격 환산 $0.56</td>
+</tr>
+<tr>
+<td>클로드 코드 · 오퍼스 5.5 · high</td>
+<td>Max 5x</td>
+<td>1분 50초</td>
+<td>523줄</td>
+<td>API 가격 환산 $0.75</td>
+</tr>
+<tr>
+<td>코덱스 · GPT-6 Luna · medium</td>
+<td>무료</td>
+<td>39초</td>
+<td>398줄</td>
+<td>코덱스 2회 합쳐 무료 월 사용량의 1%</td>
+</tr>
+<tr>
+<td>코덱스 · GPT-6 Luna · extra high</td>
+<td>무료</td>
+<td>39초</td>
+<td>273줄</td>
+<td>(위에 포함)</td>
+</tr>
+</tbody>
+</table></div>
+<p>모든 실행이 요청한 기능(레벨 2개, 점수, 목숨 3개, 키보드·마우스 조작)을 갖춘 게임을 만들었습니다. 클로드 코드 비용은 ccusage로 재서 API 가격으로 환산했고, 코덱스는 앱의 사용량 미터에 나온 값입니다. 코덱스 쪽은 <a href="/ko/blog/codex-yogeum">코덱스 요금 글</a>의 무료 요금제 테스트와 같은 실행입니다.</p>
+<h3>직접 해 본 소감</h3>
+<p>테스트한 게임을 모두 직접 플레이해 봤습니다.</p>
+<ul>
+<li><strong>소넷 5.5 medium:</strong> 굉장히 심플하고 각종 게임 효과도 없고 하트도 없어서 밋밋하지만, 기능적으로는 정상 작동하는 느낌입니다.</li>
+<li><strong>소넷 5.5 high:</strong> 오퍼스 5.5 high 수준의 작업물입니다. 파티클을 잘 만들었습니다.</li>
+<li><strong>코덱스 GPT-6 Luna medium:</strong> "부드러운 느낌이 드는데 게임 효과는 없어서 타격감은 아쉬운 느낌"</li>
+<li><strong>코덱스 GPT-6 Luna extra high:</strong> "파티클이 화려하진 않지만 없는 것보단 나았고, 그 외 다른 기능은 잘 모르겠다"</li>
+</ul>
+<p>소넷과 오퍼스 결과는 <a href="/ko/blog/claude-sonnet-5-5-vs-opus-5-5">클로드 소넷 5.5 vs 오퍼스 5.5</a>와 <a href="/ko/blog/claude-opus-5-5-effort">오퍼스 5.5 effort 비교</a>에 화면과 함께 자세히 정리해 두었습니다.</p>
+<h3>숫자를 어떻게 읽을까 (우리 해석)</h3>
+<ul>
+<li><strong>작은 작업에서는 속도가 비슷했습니다.</strong> medium 기준으로 클로드 코드 소넷 37초, 코덱스 GPT-6 Luna 39초였습니다.</li>
+<li><strong>코덱스는 effort를 올려도 시간이 같았습니다.</strong> extra high도 39초였고, 대신 파티클 같은 마무리가 추가됐습니다. 클로드 코드는 effort를 올리면 시간과 비용이 같이 늘었습니다.</li>
+<li><strong>코덱스 무료 요금제는 여유가 컸습니다.</strong> 두 번 돌리고 월 사용량의 1%였으니, 단순 계산으로 이런 게임을 한 달에 약 200번 만들 수 있는 양입니다. 미터가 1% 단위라 정확한 값은 아닙니다.</li>
+<li><strong>품질 순위로 보면 안 됩니다.</strong> GPT-6 Luna는 OpenAI의 가벼운 모델이고, 소넷과 오퍼스는 Anthropic의 중간·최상위 모델입니다. 이 테스트는 각 도구를 기본 설정에 가깝게 썼을 때 작은 일을 어떻게 처리하는지를 보여 줄 뿐입니다.</li>
+</ul>
+<h2>독립 벤치마크는 뭐라고 하나</h2>
+<p><img loading="lazy" width="1200" height="840" alt="독립 벤치마크는 뭐라고 하나: 항목, 클로드 코드 (소넷 5.5, max), 코덱스 (GPT-6.1 Sol, xhigh)" src="/claude-code-vs-codex-ko-5.jpg" /></p>
+<p>큰 작업에서는 독립 평가 기관 Artificial Analysis의 Coding Agent Index를 참고할 수 있습니다. 코딩 에이전트 벤치마크 3개를 합친 지수이고, 각 도구를 최상위 설정(클로드 코드는 소넷 5.5 max, 코덱스는 GPT-6.1 Sol xhigh)으로 돌린 결과입니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th style="text-align: right;">클로드 코드 (소넷 5.5, max)</th>
+<th style="text-align: right;">코덱스 (GPT-6.1 Sol, xhigh)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coding Agent Index</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">63</td>
+</tr>
+<tr>
+<td>DeepSWE v1.1</td>
+<td style="text-align: right;">72%</td>
+<td style="text-align: right;">73%</td>
+</tr>
+<tr>
+<td>Terminal-Bench 4.0</td>
+<td style="text-align: right;">66%</td>
+<td style="text-align: right;">55%</td>
+</tr>
+<tr>
+<td>SWE-Atlas-QnA</td>
+<td style="text-align: right;">67%</td>
+<td style="text-align: right;">61%</td>
+</tr>
+<tr>
+<td>작업당 비용</td>
+<td style="text-align: right;">$14.19</td>
+<td style="text-align: right;">$1.04</td>
+</tr>
+<tr>
+<td>작업당 시간</td>
+<td style="text-align: right;">1.5시간</td>
+<td style="text-align: right;">15.5분</td>
+</tr>
+<tr>
+<td>작업당 토큰</td>
+<td style="text-align: right;">2,770만</td>
+<td style="text-align: right;">320만</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>점수는 클로드 코드가 높았습니다.</strong> 세 벤치마크 중 두 개에서 앞섰습니다.</li>
+<li><strong>비용과 시간은 코덱스가 훨씬 적었습니다.</strong> 작업당 비용은 93% 낮았고, 시간은 약 6분의 1, 토큰은 88% 적었습니다.</li>
+<li><strong>effort를 낮추면 비용 차이가 줄어듭니다.</strong> 같은 지수에서 클로드 코드 소넷 5.5 high는 55점에 작업당 $1.24, 코덱스 GPT-6.1 Sol medium은 61점에 $0.70입니다.</li>
+</ul>
+<p>각 회사가 직접 발표한 수치도 있습니다. Anthropic 발표 기준으로 Terminal-Bench 4.0에서 소넷 5.5는 70.6%, 오퍼스 5.5는 66.4%이고, 같은 표에 OpenAI 보고치로 실린 GPT-6 Astra는 57.9%입니다. GPT-6.1 Sol의 이 벤치마크 수치는 발표되지 않았고 측정 조건도 회사마다 달라서, 회사 발표 수치로 순위를 매기지는 않는 편이 안전합니다.</p>
+<p>우리 작은 테스트와 같은 흐름입니다. 코덱스는 토큰을 아껴 쓰고, 클로드 코드는 높은 effort에서 작업당 더 많은 일을 하는 대신 토큰을 많이 씁니다. 구독에서는 달러가 보이지 않지만, 늘어난 토큰은 그대로 한도에서 빠집니다.</p>
+<h2>커서는 어디에 맞나</h2>
+<p>커서(Cursor)는 둘과 결이 다른 도구입니다. 자체 코드 에디터 안에서 Claude, GPT, Gemini, Grok 모델을 골라 쓰고, 모델 사용료를 API 가격 그대로 월 사용량에서 차감합니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th></th>
+<th>클로드 코드</th>
+<th>코덱스</th>
+<th>커서</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>모델 선택</td>
+<td>Claude만</td>
+<td>OpenAI만</td>
+<td>여러 회사 모델</td>
+</tr>
+<tr>
+<td>과금 방식</td>
+<td>5시간·주간 한도</td>
+<td>5시간·주간 한도</td>
+<td>월 사용량을 API 가격으로 차감</td>
+</tr>
+<tr>
+<td>같은 테스트</td>
+<td>37초~1분 50초</td>
+<td>39초</td>
+<td>1분 31초 (무료, Grok 4.6, 월 무료 사용량의 15%)</td>
+</tr>
+</tbody>
+</table></div>
+<p>모델을 바꿔 가며 쓰고 작업당 비용을 보고 싶다면 커서가 맞습니다. 자세한 요금은 <a href="/ko/blog/cursor-pricing">커서 요금제 정리</a>에 있습니다.</p>
+<h2>둘을 같이 쓰는 방법</h2>
+<p>클로드 코드와 코덱스를 함께 쓰는 사람도 많습니다. 흔한 방식은 이렇습니다.</p>
+<ul>
+<li><strong>설계와 어려운 디버깅은 클로드 코드, 반복 작업은 코덱스.</strong> 코덱스는 토큰을 적게 쓰니, 단순한 수정이나 테스트 작성을 맡기면 클로드 한도를 아낄 수 있습니다.</li>
+<li><strong>한도가 찼을 때 갈아타기.</strong> 클로드 코드의 5시간 한도가 차면 기다리는 동안 코덱스로 이어서 작업합니다.</li>
+<li><strong>서로 리뷰시키기.</strong> 한쪽이 짠 코드를 다른 쪽에 검토시키면 놓친 버그를 찾는 데 도움이 됩니다.</li>
+</ul>
+<p>두 구독을 동시에 쓰기 전에, 한쪽 요금제를 한 단계 올리는 것과 비용을 먼저 비교해 보세요. 클로드 코드 토큰을 아끼는 방법은 <a href="/ko/blog/claude-code-token-jeolyak">클로드 코드 토큰 절약 방법 9가지</a>에 정리해 두었습니다.</p>
+<h2>제 설정</h2>
+<p>저는 Claude Max 5x 요금제로 매일 씁니다. 오퍼스 5를 쓸 때는 한도가 자주 찼는데, 오퍼스 5.5부터는 한 번도 안 찼습니다. 최근 한 주는 93%까지 갔습니다. OpenAI 쪽은 무료 요금제이고, 위 코덱스 테스트도 무료 요금제로 했습니다.</p>
+<h2>누구에게 무엇이 맞나</h2>
+<p><img loading="lazy" width="1200" height="994" alt="누구에게 무엇이 맞나: 상황, 추천, 이유" src="/claude-code-vs-codex-ko-6.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>상황</th>
+<th>추천</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>돈 안 내고 AI 코딩 에이전트를 써 보고 싶다</td>
+<td>코덱스 (챗GPT 무료)</td>
+<td>무료로 게임 하나를 월 사용량 1% 미만으로 만들었음</td>
+</tr>
+<tr>
+<td>어려운 작업에서 최고 성능이 필요하다</td>
+<td>클로드 코드</td>
+<td>독립 벤치마크 최고 점수, Max 요금제로 API보다 저렴하게</td>
+</tr>
+<tr>
+<td>긴 작업을 적은 비용으로 많이 돌리고 싶다</td>
+<td>코덱스</td>
+<td>작업당 토큰 88% 적음</td>
+</tr>
+<tr>
+<td>진행 상황을 보면서 같이 조종하고 싶다</td>
+<td>클로드 코드</td>
+<td>터미널에서 단계별로 확인하며 방향을 잡기 쉬움</td>
+</tr>
+<tr>
+<td>일주일에 몇 번만 쓴다</td>
+<td>아무 $20 요금제 또는 API</td>
+<td>가볍게 쓰면 API가 월 $20보다 쌀 수 있음</td>
+</tr>
+<tr>
+<td>한도에 자주 걸린다</td>
+<td>쓰던 쪽 요금제를 한 단계 올리기</td>
+<td>두 번째 구독보다 보통 효율적</td>
+</tr>
+</tbody>
+</table></div>
+<h2>결론</h2>
+<ul>
+<li><strong>둘 다 $20로 시작하지만 무료로 쓸 수 있는 건 코덱스뿐입니다.</strong> 우리 테스트에서 무료 요금제로도 충분히 돌아갔습니다.</li>
+<li><strong>클로드 코드는 높은 effort에서 작업당 더 많은 일을 합니다.</strong> 독립 벤치마크 점수가 가장 높고, 그만큼 토큰을 많이 씁니다.</li>
+<li><strong>코덱스는 가볍고 경제적입니다.</strong> 작업당 비용과 시간이 적고, Pro 요금제는 5시간 한도 없이 주간 한도만 있습니다.</li>
+<li><strong>매일 많이 쓴다면 $100·$200 정액 요금제가 API보다 보통 쌉니다.</strong></li>
+</ul>
+<h2>자주 묻는 질문</h2>
+<p><strong>클로드 코드와 코덱스 중 뭐가 더 나은가요?</strong>
+독립 평가(Artificial Analysis)에서는 클로드 코드(소넷 5.5 max)가 68점, 코덱스(GPT-6.1 Sol xhigh)가 63점입니다. 대신 작업당 비용은 $14.19 대 $1.04입니다. 높은 점수와 낮은 비용 중 무엇이 중요한지에 따라 답이 달라집니다.</p>
+<p><strong>클로드 코드와 코덱스의 차이는 뭔가요?</strong>
+클로드 코드는 Claude 모델, 코덱스는 OpenAI 모델로 일합니다. 커뮤니티 후기로는 클로드 코드가 진행 상황을 보며 같이 조종하기 좋고, 코덱스는 일을 맡겨 두는 방식에 강하다는 평이 많습니다. 요금은 둘 다 $20부터지만, 무료로 쓸 수 있는 건 코덱스뿐입니다.</p>
+<p><strong>코덱스가 클로드 코드보다 싼가요?</strong>
+시작 가격은 둘 다 월 $20입니다. 코덱스는 무료 요금제가 있고 작업당 토큰을 훨씬 적게 써서, 같은 한도로 더 많은 일을 하는 경우가 많습니다.</p>
+<p><strong>클로드 코드는 무료로 쓸 수 있나요?</strong>
+아니요. 클로드 코드는 유료 Claude 요금제(Pro, Max, Team, Enterprise)나 API 키가 있어야 씁니다.</p>
+<p><strong>코덱스는 무료인가요?</strong>
+제한된 형태로 무료입니다. 챗GPT 무료 요금제에서 데스크톱 앱으로 GPT-6 Luna를 쓸 수 있고, 클라우드 작업은 Plus부터입니다.</p>
+<p><strong>클로드 코드와 코덱스를 같이 써도 되나요?</strong>
+네. 어려운 작업은 클로드 코드, 반복 작업은 코덱스에 맡기면 클로드 한도를 아낄 수 있습니다.</p>
+<p><strong>채팅 앱과 한도를 같이 쓰나요?</strong>
+네. 클로드 코드는 Claude 앱과, 코덱스는 챗GPT의 다른 에이전트 기능과 한도를 같이 씁니다.</p>
+<h2>내 한 달 비용 계산해 보기</h2>
+<p>작업 크기와 하루 작업 수를 <a href="/ko/agents">코딩 에이전트 비용 계산기</a>에 넣으면 API 비용을 Claude와 챗GPT 요금제 옆에 나란히 볼 수 있습니다.</p>
+<p><em>요금제 정보는 2026년 10월 11~14일 각 회사 가격 페이지 기준입니다. 테스트는 2026년 10월 9~11일 설정별 1회 실행 결과이고, 클로드 코드 비용은 ccusage로, 코덱스와 커서 사용량은 각 앱의 미터로 확인했습니다.</em></p>
+<h2>출처</h2>
+<ul>
+<li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude 요금제와 가격 (Anthropic)</a></li>
+<li><a href="https://support.claude.com/en/articles/11049741-what-is-the-max-plan" target="_blank" rel="noopener">Max 요금제 안내 (Claude 도움말 센터)</a></li>
+<li><a href="https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Pro·Max 요금제로 Claude Code 사용하기 (Claude 도움말 센터)</a></li>
+<li><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">Claude Code 비용 관리 (Claude Code 문서)</a></li>
+<li><a href="https://www.anthropic.com/news/claude-sonnet-5-5" target="_blank" rel="noopener">Claude Sonnet 5.5 발표 (Anthropic)</a></li>
+<li><a href="https://www.anthropic.com/news/claude-opus-5-5" target="_blank" rel="noopener">Claude Opus 5.5 발표 (Anthropic)</a></li>
+<li><a href="https://developers.openai.com/codex/pricing" target="_blank" rel="noopener">Codex 요금과 한도 (OpenAI)</a></li>
+<li><a href="https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan" target="_blank" rel="noopener">ChatGPT 요금제로 Codex 쓰기 (OpenAI 도움말)</a></li>
+<li><a href="https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers" target="_blank" rel="noopener">ChatGPT Pro 안내 (OpenAI 도움말)</a></li>
+<li><a href="https://cursor.com/pricing" target="_blank" rel="noopener">Cursor 요금</a></li>
+<li><a href="https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex" target="_blank" rel="noopener">Artificial Analysis: Claude Code vs Codex</a></li>
+</ul>
+<!-- autoimg -->

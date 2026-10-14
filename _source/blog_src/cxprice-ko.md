@@ -179,7 +179,7 @@ OpenAI는 Plus와 Business Standard 좌석 기준으로 5시간당 예상 로컬
 
 - **에이전트 작업을 무료로 해 볼 수 있는 곳으로는 코덱스가 가장 쓸 만합니다.**
 - **$20에서는 코덱스와 클로드 코드의 가격이 같고**, 둘 다 달러 잔액이 아니라 정해진 주기로 초기화되는 사용량 방식입니다. 클로드 쪽은 [클로드 코드 요금](/ko/blog/claude-code-yogeum), 고액 요금제끼리는 [ChatGPT Pro vs Claude Max](/ko/blog/chatgpt-pro-vs-claude-max)를 참고하세요.
-- 작업량별 월 비용 비교는 [Claude Code vs Codex vs Cursor 비용](/blog/claude-code-vs-codex-vs-cursor-cost)(영어)에 있고, 챗GPT·클로드·제미나이 원화 구독료는 [AI 구독료 원화 비교](/ko/blog/ai-gudokryo-bigyo)에 있습니다.
+- 클로드 코드와의 직접 비교는 [클로드 코드 vs 코덱스](/ko/blog/claude-code-vs-codex)에 있고, 챗GPT·클로드·제미나이 원화 구독료는 [AI 구독료 원화 비교](/ko/blog/ai-gudokryo-bigyo)에 있습니다.
 
 ## 정리
 

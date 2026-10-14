@@ -144,7 +144,7 @@ Windows PC에 커서를 설치하고 무료 플랜으로 가입한 뒤, Claude C
 | 에이전트 여러 개, 자동화 | Ultra ($200) | 파워 유저는 월 $200 이상이 흔함 |
 | Claude가 주 목적이다 | Claude Code와 먼저 비교 | Claude 가격은 같음, 아래 링크 참고 |
 
-Claude 쪽 요금제별 숫자는 [Claude Code 한 달 비용](/blog/claude-code-cost-per-month)(영어)과 [Claude Code vs Codex vs Cursor](/blog/claude-code-vs-codex-vs-cursor-cost)(영어)에 정리돼 있습니다.
+Claude 쪽 요금제별 숫자는 [클로드 코드 요금 정리](/ko/blog/claude-code-yogeum)와 [클로드 코드 vs 코덱스 비교](/ko/blog/claude-code-vs-codex)에 정리돼 있습니다.
 
 ## 결론: 무료로 써 보고, 매일 쓰면 Pro+
 
