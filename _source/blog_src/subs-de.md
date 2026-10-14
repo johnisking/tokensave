@@ -34,7 +34,7 @@ ChatGPT Plus, Claude Pro und Google AI Pro kosten fast gleich viel, und für die
 
 ## Vorsicht bei den Tarifen unter 10 €
 
-- **ChatGPT Go (7,99 €):** Hier antwortet das kleinere Modell GPT-6 Luna, und seit August siehst du in Deutschland Werbung. Mehr dazu unter [ChatGPT Go vs. Plus](/de/blog/chatgpt-go-vs-plus).
+- **ChatGPT Go (7,99 €):** Hier antwortet das kleinere Modell GPT-5.6 Luna, und seit August siehst du in Deutschland Werbung. Mehr dazu unter [ChatGPT Go vs. Plus](/de/blog/chatgpt-go-vs-plus).
 - **Google AI Plus (4,99 €):** Der Tarif verliert demnächst das Pro-Modell. Für die 400 GB Speicher ist er trotzdem ein fairer Preis. Die Details stehen unter [Gemini: kostenlos nur noch Flash-Lite](/de/blog/gemini-kostenlos-flash-lite).
 
 ## 100 € oder 200 €: Achte auf den Preis pro Einheit

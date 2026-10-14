@@ -32,7 +32,7 @@ ChatGPT、Claude、Gemini、Grok は、それぞれ有料プランを3〜5つ用
 
 ## 1,000円前後のプランは要注意
 
-- **ChatGPT Go（1,400円）:** 会話のモデルは小さい GPT-6 Luna で、広告が表示されることがあります。普段の会話は無料でも無制限なので、Go で増えるのはアップロード・画像・メモリの上限です。詳しくは[ChatGPT Go と Plus の違い](/ja/blog/chatgpt-go-vs-plus)へ。
+- **ChatGPT Go（1,400円）:** 会話のモデルは小さい GPT-5.6 Luna で、広告が表示されることがあります。普段の会話は無料でも無制限なので、Go で増えるのはアップロード・画像・メモリの上限です。詳しくは[ChatGPT Go と Plus の違い](/ja/blog/chatgpt-go-vs-plus)へ。
 - **Google AI Plus（725円）:** まもなく Pro モデルが使えなくなります。400GB のストレージが必要な人には今も悪くありません。[Gemini 無料版の変更まとめ](/ja/blog/gemini-muryou-flash-lite)を参照してください。
 
 ## 1万円以上のプランは「単価」を見る

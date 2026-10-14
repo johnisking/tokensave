@@ -35,7 +35,7 @@ Na faixa dos R$ 100, os três planos custam quase o mesmo, e para a maioria das 
 
 ## Cuidado com os planos baratos
 
-- **ChatGPT Go (R$ 39,99):** usa o modelo menor, o GPT-6 Luna, e mostra anúncios no Brasil desde agosto de 2026. Como o chat de texto já é ilimitado no plano grátis, o que o Go acrescenta são limites maiores para envio de arquivos, imagens e memória. Veja a comparação completa em [ChatGPT Go vs Plus](/pt/blog/chatgpt-go-vs-plus).
+- **ChatGPT Go (R$ 39,99):** usa o modelo menor, o GPT-5.6 Luna, e mostra anúncios no Brasil desde agosto de 2026. Como o chat de texto já é ilimitado no plano grátis, o que o Go acrescenta são limites maiores para envio de arquivos, imagens e memória. Veja a comparação completa em [ChatGPT Go vs Plus](/pt/blog/chatgpt-go-vs-plus).
 - **Google AI Plus (R$ 24,99):** vai perder o modelo Pro. Continua valendo para quem precisa dos 400 GB de armazenamento. Explicamos a mudança em [Gemini grátis só com Flash-Lite](/pt/blog/gemini-gratis-flash-lite).
 
 ## Planos caros: olhe o preço por unidade de uso

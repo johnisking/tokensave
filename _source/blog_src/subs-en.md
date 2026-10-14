@@ -16,7 +16,7 @@ US monthly prices, checked October 1, 2026 (Grok: October 5, 2026):
 | ~$200 | Pro 200 $200 | Max 20× $200 | Ultra 20× $199.99 | – |
 | $300+ | Pro 500 $500 | – | – | Heavy $300 |
 
-The $20 tier is where ChatGPT, Claude and Google meet, and it is the right plan for most people (Claude Pro is $17 a month billed yearly). Grok's tiers are named SuperGrok Lite ($10), SuperGrok ($30), SuperGrok Plus ($100) and SuperGrok Heavy ($300). Below $20, ChatGPT Go chats with the smaller GPT-6 Luna model and Google AI Plus costs $4.99; Claude has no plan below Pro. Grok is also bundled with X: X Premium ($8) raises Grok limits inside X, and X Premium+ ($40) includes SuperGrok.
+The $20 tier is where ChatGPT, Claude and Google meet, and it is the right plan for most people (Claude Pro is $17 a month billed yearly). Grok's tiers are named SuperGrok Lite ($10), SuperGrok ($30), SuperGrok Plus ($100) and SuperGrok Heavy ($300). Below $20, ChatGPT Go chats with the smaller GPT-5.6 Luna model and Google AI Plus costs $4.99; Claude has no plan below Pro. Grok is also bundled with X: X Premium ($8) raises Grok limits inside X, and X Premium+ ($40) includes SuperGrok.
 
 ## How much more do you get for $100 or $200?
 

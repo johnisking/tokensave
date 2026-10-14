@@ -1,6 +1,6 @@
 ![ChatGPT Go vs Plus: Is the $20 Plan Worth $12 More?](/chatgpt-go-vs-plus-en.jpg)
 
-ChatGPT Go costs $8 a month and ChatGPT Plus costs $20. Since August 2026 Go, like the free plan, has unlimited everyday text chat (Plus has expanded limits instead), so running out of messages is no longer a reason to upgrade from Go. The difference now is which model answers you, how hard it thinks, and what else comes with the plan. Here is what the extra $12 buys and who needs it.
+ChatGPT Go costs $8 a month and ChatGPT Plus costs $20. Since August 2026 Go, like the free plan, has unlimited everyday text chat (as on Plus), so running out of messages is no longer a reason to upgrade from Go. The difference now is which model answers you, how hard it thinks, and what else comes with the plan. Here is what the extra $12 buys and who needs it.
 
 ## Go vs Plus at a glance
 
@@ -9,9 +9,9 @@ ChatGPT Go costs $8 a month and ChatGPT Plus costs $20. Since August 2026 Go, li
 | | ChatGPT Go | ChatGPT Plus |
 |---|---|---|
 | Price | $8 / month | $20 / month |
-| Everyday chat model | GPT-6 Luna | GPT-6 Sol |
+| Everyday chat model | GPT-5.6 Luna | GPT-6 Sol |
 | Thinking | "Think" button for harder questions | Medium and High thinking levels |
-| Text chat limit | None (since Aug 6, 2026) | Expanded (limits apply) |
+| Text chat limit | None (since Aug 6, 2026) | None |
 | ChatGPT Work and Codex | Limited | Included, with GPT-6 models |
 | Deep research | Limited | Expanded |
 | Ads | May include ads | No ads |
@@ -20,7 +20,7 @@ US prices. Go's limits on uploads, images and research are lower than Plus; Open
 
 ## The real difference: Luna vs Sol
 
-Go answers with **GPT-6 Luna**, OpenAI's small, fast model. Plus answers with **GPT-6 Sol**, the mid-size model, and lets you turn up how long it thinks. For quick questions, rewriting a message or summarizing a page, you will rarely notice. For long documents, tricky reasoning, coding and anything where a wrong answer costs you, Sol is clearly stronger.
+Go answers with **GPT-5.6 Luna**, OpenAI's small, fast model. Plus answers with **GPT-6 Sol**, the mid-size model, and lets you turn up how long it thinks. For quick questions, rewriting a message or summarizing a page, you will rarely notice. For long documents, tricky reasoning, coding and anything where a wrong answer costs you, Sol is clearly stronger.
 
 To put a number on the gap: on the API, GPT-6 Sol costs $2 / $10 per million tokens, against $0.10 / $0.50 for GPT-6 Luna. That is roughly what you are paying OpenAI to run for you on Plus.
 

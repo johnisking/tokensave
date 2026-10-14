@@ -2,20 +2,20 @@
 
 **Kort: ChatGPT Go (€8) is genoeg voor alledaagse vragen, maar Plus (€23) geeft je een sterker model, diepere denkstanden, volledige toegang tot Codex en geen advertenties.**
 
-ChatGPT Go kost €8 per maand, ChatGPT Plus €23, allebei inclusief 21% btw. In België betaal je dezelfde prijs. Sinds 6 augustus 2026 is gewone tekstchat in de gratis versie en in Go onbeperkt; Plus heeft in plaats daarvan ruimere limieten. De oude reden om te upgraden, geen berichten meer over hebben, valt dus weg. Sinds 24 augustus toont ChatGPT in Nederland en België bovendien advertenties, in de gratis versie en in Go. Het gaat nu om drie vragen: **welk model antwoordt je, hoe grondig denkt het na, en zie je reclame?** Hieronder lees je wat die €15 extra je oplevert en voor wie dat de moeite waard is.
+ChatGPT Go kost €8 per maand, ChatGPT Plus €23, allebei inclusief 21% btw. In België betaal je dezelfde prijs. Sinds 6 augustus 2026 is gewone tekstchat in de gratis versie en in Go onbeperkt, net als in Plus. De oude reden om te upgraden, geen berichten meer over hebben, valt dus weg. Sinds 24 augustus toont ChatGPT in Nederland en België bovendien advertenties, in de gratis versie en in Go. Het gaat nu om drie vragen: **welk model antwoordt je, hoe grondig denkt het na, en zie je reclame?** Hieronder lees je wat die €15 extra je oplevert en voor wie dat de moeite waard is.
 
 ## Wat is het verschil tussen ChatGPT Go en Plus?
 
 ![Wat is het verschil tussen ChatGPT Go en Plus?: ChatGPT Go, ChatGPT Plus](/chatgpt-go-vs-plus-wat-is-het-verschil-tussen-chatgpt-go-en-nl.jpg)
 
-Het grootste verschil is het model: Go gebruikt het kleine GPT-6 Luna, Plus het middelgrote GPT-6 Sol. Daarnaast krijg je bij Plus denkstanden, ruimere toegang tot Codex en ChatGPT Work, en geen advertenties.
+Het grootste verschil is het model: Go gebruikt het kleine GPT-5.6 Luna, Plus het middelgrote GPT-6 Sol. Daarnaast krijg je bij Plus denkstanden, ruimere toegang tot Codex en ChatGPT Work, en geen advertenties.
 
 | | ChatGPT Go | ChatGPT Plus |
 |---|---|---|
 | Prijs | €8 / maand | €23 / maand |
-| Model voor dagelijks gebruik | GPT-6 Luna | GPT-6 Sol |
+| Model voor dagelijks gebruik | GPT-5.6 Luna | GPT-6 Sol |
 | Nadenken | knop "Nadenken" voor lastige vragen | denkstanden Gemiddeld en Hoog |
-| Limiet tekstchat | geen | ruimer (met limieten) |
+| Limiet tekstchat | geen | geen |
 | Geavanceerd redeneren met GPT-6 | – | ja |
 | ChatGPT Work en Codex | beperkt, op desktop | desktop, web en mobiel, hogere limieten |
 | Deep Research | beperkt | uitgebreid |
@@ -26,7 +26,7 @@ De limieten voor uploads, afbeeldingen en onderzoek past OpenAI vaak aan. De act
 
 ## Luna of Sol: merk je het verschil?
 
-Bij korte vragen merk je het nauwelijks, bij lang en precies werk wel. In Go antwoordt **GPT-6 Luna**, het kleine, snelle model van OpenAI. In Plus antwoordt **GPT-6 Sol**, het middelgrote model, en je kunt het langer laten nadenken. Een mail herschrijven of een webpagina samenvatten gaat met allebei prima. Bij lange documenten, lastige redeneringen, programmeervragen en alles waarbij een fout antwoord je iets kost, is Sol duidelijk beter.
+Bij korte vragen merk je het nauwelijks, bij lang en precies werk wel. In Go antwoordt **GPT-5.6 Luna**, het kleine, snelle model van OpenAI. In Plus antwoordt **GPT-6 Sol**, het middelgrote model, en je kunt het langer laten nadenken. Een mail herschrijven of een webpagina samenvatten gaat met allebei prima. Bij lange documenten, lastige redeneringen, programmeervragen en alles waarbij een fout antwoord je iets kost, is Sol duidelijk beter.
 
 Via de API kost een Luna-model ongeveer 95% minder per token dan een Sol-model. Dat verschil betaal je bij Plus ongeveer terug, omdat OpenAI voor jou een veel groter model laat draaien.
 

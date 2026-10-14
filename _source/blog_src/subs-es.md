@@ -37,7 +37,7 @@ En el escalón de unos 20 € (o 20 US$), ChatGPT, Claude y Google cuestan casi 
 
 ## Cuidado con los planes de menos de 10 €
 
-- **ChatGPT Go:** responde con el modelo pequeño GPT-6 Luna y muestra anuncios. Como el chat de texto ya es ilimitado incluso gratis, lo que te da Go son más archivos, imágenes y memoria. Lo explicamos en [ChatGPT Go vs Plus](/es/blog/chatgpt-go-vs-plus).
+- **ChatGPT Go:** responde con el modelo pequeño GPT-5.6 Luna y muestra anuncios. Como el chat de texto ya es ilimitado incluso gratis, lo que te da Go son más archivos, imágenes y memoria. Lo explicamos en [ChatGPT Go vs Plus](/es/blog/chatgpt-go-vs-plus).
 - **Google AI Plus:** pronto dejará de incluir el modelo Pro. Sigue valiendo la pena si necesitas los 400 GB de almacenamiento. Detalles en [Gemini gratis pasa a Flash-Lite](/es/blog/gemini-gratis-flash-lite).
 
 ## Planes caros: mira el precio por unidad de uso

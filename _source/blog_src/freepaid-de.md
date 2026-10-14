@@ -6,7 +6,7 @@
 > - Preise (inkl. MwSt.): **Kostenlos 0 € · Go 7,99 € · Plus 22,99 € · Pro ab 102,99 €**
 > - Für die meisten gilt: **Kostenlos anfangen und erst upgraden, wenn du an eine der drei Grenzen unten stößt.**
 
-Du überlegst, ob du für ChatGPT bezahlen sollst? Dann vorab eine wichtige Info: Was in älteren Artikeln steht, etwa „kostenlos gibt es nur ein paar Nachrichten am Tag“, stimmt nicht mehr. OpenAI hat im August 2026 das Limit für normale Textchats im kostenlosen Tarif und in Go abgeschafft (Pro ist ebenfalls unbegrenzt, Plus hat erweiterte Limits). Der Unterschied zwischen kostenlos und bezahlt ist deshalb heute **nicht die Menge, sondern die Qualität und die Zusatzfunktionen**. Hier erfährst du, was sich unterscheidet und wann sich ein Upgrade lohnt.
+Du überlegst, ob du für ChatGPT bezahlen sollst? Dann vorab eine wichtige Info: Was in älteren Artikeln steht, etwa „kostenlos gibt es nur ein paar Nachrichten am Tag“, stimmt nicht mehr. OpenAI hat im August 2026 das Limit für normale Textchats im kostenlosen Tarif und in Go abgeschafft (in Plus und Pro ist er ebenfalls unbegrenzt). Der Unterschied zwischen kostenlos und bezahlt ist deshalb heute **nicht die Menge, sondern die Qualität und die Zusatzfunktionen**. Hier erfährst du, was sich unterscheidet und wann sich ein Upgrade lohnt.
 
 ## Kostenlos vs. bezahlt auf einen Blick
 
@@ -15,7 +15,7 @@ Du überlegst, ob du für ChatGPT bezahlen sollst? Dann vorab eine wichtige Info
 | | Kostenlos | Go | Plus | Pro |
 |---|---|---|---|---|
 | Preis pro Monat | 0 € | 7,99 € | 22,99 € | ab 102,99 € |
-| Normaler Textchat | unbegrenzt | unbegrenzt | erweitert (mit Limits) | unbegrenzt |
+| Normaler Textchat | unbegrenzt | unbegrenzt | unbegrenzt | unbegrenzt |
 | Modell, das antwortet | kleines Modell (Luna) | kleines Modell (Luna) | mittleres Modell (Sol) + wählbare Denkstufe | Sol + Pro-Spitzenmodell |
 | Datei-Uploads, Bilder, Sprache | eingeschränkt | mehr als kostenlos | noch mehr | am meisten |
 | Deep Research | eingeschränkt | – | erweitert | maximal |

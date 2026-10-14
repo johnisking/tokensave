@@ -1,6 +1,6 @@
 ![ChatGPT Go vs Plus: diferença, preço em reais e anúncios](/chatgpt-go-vs-plus-pt.jpg)
 
-No Brasil, o ChatGPT Go custa R$ 39,99 por mês e o ChatGPT Plus custa R$ 99,90. Desde agosto de 2026, o Go (assim como o plano grátis) tem chat de texto do dia a dia ilimitado e o Plus tem limites ampliados, então ninguém mais precisa trocar de plano porque as mensagens acabaram. Hoje a diferença está em qual modelo responde, em quanto ele pensa, no que vem junto com o plano e nos anúncios, que no Brasil já aparecem no Go. Veja o que os R$ 60 a mais compram e para quem eles valem.
+No Brasil, o ChatGPT Go custa R$ 39,99 por mês e o ChatGPT Plus custa R$ 99,90. Desde agosto de 2026, o Go (assim como o plano grátis) tem chat de texto do dia a dia ilimitado, assim como o Plus, então ninguém mais precisa trocar de plano porque as mensagens acabaram. Hoje a diferença está em qual modelo responde, em quanto ele pensa, no que vem junto com o plano e nos anúncios, que no Brasil já aparecem no Go. Veja o que os R$ 60 a mais compram e para quem eles valem.
 
 ## Go vs Plus lado a lado
 
@@ -9,9 +9,9 @@ No Brasil, o ChatGPT Go custa R$ 39,99 por mês e o ChatGPT Plus custa R$ 99,90.
 | | ChatGPT Go | ChatGPT Plus |
 |---|---|---|
 | Preço no Brasil | R$ 39,99 / mês | R$ 99,90 / mês |
-| Modelo do chat | GPT-6 Luna | GPT-6 Sol |
+| Modelo do chat | GPT-5.6 Luna | GPT-6 Sol |
 | Níveis de raciocínio | Botão "Pensar" para perguntas mais difíceis | Instant, Médio e Alto |
-| Limite do chat de texto | Nenhum (desde 6 de agosto de 2026) | Ampliado (com limites) |
+| Limite do chat de texto | Nenhum (desde 6 de agosto de 2026) | Nenhum |
 | ChatGPT Work e Codex | Limitado (no computador) | Incluídos, com raciocínio avançado do GPT-6 |
 | Projetos, tarefas agendadas, GPTs personalizados | Confira na página do plano | Incluídos |
 | Anúncios | Sim, no Brasil desde agosto de 2026 | Não |
@@ -20,7 +20,7 @@ Os dois planos são cobrados em reais, sem IOF. Os preços são do Canaltech (ou
 
 ## A diferença que importa: Luna vs Sol
 
-O Go responde com o **GPT-6 Luna**, o modelo pequeno e rápido da OpenAI, que é o mesmo do plano grátis. O Plus responde com o **GPT-6 Sol**, o modelo intermediário, e deixa você escolher quanto ele pensa. Em perguntas rápidas, reescrita de mensagens ou resumo de uma página, a diferença quase não aparece. Já em documentos longos, raciocínio difícil, programação e qualquer tarefa em que um erro custa caro, o Sol é claramente melhor.
+O Go responde com o **GPT-5.6 Luna**, o modelo pequeno e rápido da OpenAI, que é o mesmo do plano grátis. O Plus responde com o **GPT-6 Sol**, o modelo intermediário, e deixa você escolher quanto ele pensa. Em perguntas rápidas, reescrita de mensagens ou resumo de uma página, a diferença quase não aparece. Já em documentos longos, raciocínio difícil, programação e qualquer tarefa em que um erro custa caro, o Sol é claramente melhor.
 
 Para ter uma ideia do tamanho da diferença: na API, os modelos da classe Sol custam cerca de 20 vezes mais por token que os da classe Luna. No Plus, é mais ou menos isso que você paga para a OpenAI rodar por você.
 

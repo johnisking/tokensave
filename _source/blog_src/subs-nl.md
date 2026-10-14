@@ -38,7 +38,7 @@ ChatGPT Plus, Claude Pro en Google AI Pro kosten bijna hetzelfde. Het verschil z
 
 Soms, maar let op wat je inlevert.
 
-- **ChatGPT Go (€8):** hier antwoordt het kleinere model GPT-6 Luna. Wil je weten of het verschil met Plus de €15 extra waard is, lees dan [ChatGPT Go vs Plus](/nl/blog/chatgpt-go-vs-plus).
+- **ChatGPT Go (€8):** hier antwoordt het kleinere model GPT-5.6 Luna. Wil je weten of het verschil met Plus de €15 extra waard is, lees dan [ChatGPT Go vs Plus](/nl/blog/chatgpt-go-vs-plus).
 - **Google AI Plus (€4,99):** dit abonnement raakt binnenkort het Pro-model kwijt. Voor 400 GB opslag is de prijs nog steeds redelijk. De details staan in [Gemini gratis: alleen nog Flash-Lite](/nl/blog/gemini-gratis-flash-lite).
 
 ## Is €100 of €200 per maand goedkoper per eenheid?

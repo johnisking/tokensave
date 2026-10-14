@@ -1,6 +1,6 @@
 ![ChatGPT Go vs Plus: diferencias, precio en euros y pesos, y anuncios](/chatgpt-go-vs-plus-es.jpg)
 
-ChatGPT Go es el plan barato de OpenAI: 9,99 € en España cuando se lanzó y 110 pesos en México. ChatGPT Plus cuesta unos 23 € en España (399 pesos en la App Store de México). Desde agosto de 2026, Go (igual que el plan gratuito) tiene chat de texto ilimitado y Plus tiene límites ampliados, así que quedarse sin mensajes ya no es motivo para subir de plan. Ahora la diferencia está en qué modelo te responde, cuánto razona, qué funciones incluye y si ves anuncios. Esto es lo que te dan los euros o pesos de más, y para quién vale la pena.
+ChatGPT Go es el plan barato de OpenAI: 9,99 € en España cuando se lanzó y 110 pesos en México. ChatGPT Plus cuesta unos 23 € en España (399 pesos en la App Store de México). Desde agosto de 2026, Go (igual que el plan gratuito) tiene chat de texto ilimitado, igual que Plus, así que quedarse sin mensajes ya no es motivo para subir de plan. Ahora la diferencia está en qué modelo te responde, cuánto razona, qué funciones incluye y si ves anuncios. Esto es lo que te dan los euros o pesos de más, y para quién vale la pena.
 
 ## Go vs Plus de un vistazo
 
@@ -11,18 +11,18 @@ ChatGPT Go es el plan barato de OpenAI: 9,99 € en España cuando se lanzó y 1
 | España | 9,99 € (web, al lanzarse) · 7,99 € (App Store) | 23 € (web) · 22,99 € (App Store) |
 | México | 110 MXN (web, al lanzarse) · 129 MXN (App Store) | 399 MXN (App Store) |
 | Colombia | 20.900 COP | 20 US$ de referencia |
-| Modelo del chat | GPT-6 Luna | GPT-6 Sol |
+| Modelo del chat | GPT-5.6 Luna | GPT-6 Sol |
 | Razonamiento | Botón "Pensar" para preguntas difíciles | Niveles Medio y Alto |
-| Límite de chat de texto | Ninguno (desde el 6 de agosto de 2026) | Ampliado (con límites) |
+| Límite de chat de texto | Ninguno (desde el 6 de agosto de 2026) | Ninguno |
 | ChatGPT Work y Codex | Limitado (en escritorio) | Incluidos, con modelos GPT-6 |
 | Proyectos, tareas programadas, GPT personalizados | Limitado | Incluidos |
 | Anuncios | Sí | No |
 
-El plan gratuito también usa GPT-6 Luna y también tiene chat de texto ilimitado. Lo que suma Go son límites más altos de archivos, imágenes y memoria. OpenAI cambia estos límites a menudo, así que revisa la página del plan para ver las cifras actuales.
+El plan gratuito también usa GPT-5.6 Luna y también tiene chat de texto ilimitado. Lo que suma Go son límites más altos de archivos, imágenes y memoria. OpenAI cambia estos límites a menudo, así que revisa la página del plan para ver las cifras actuales.
 
 ## La diferencia real: Luna o Sol
 
-Go responde con **GPT-6 Luna**, el modelo pequeño y rápido de OpenAI. Plus responde con **GPT-6 Sol**, el modelo mediano, y te deja aumentar cuánto piensa antes de contestar. Para preguntas rápidas, reescribir un mensaje o resumir una página, casi no notarás la diferencia. Para documentos largos, razonamientos complicados, programación o cualquier cosa en la que un error te cueste caro, Sol es claramente mejor.
+Go responde con **GPT-5.6 Luna**, el modelo pequeño y rápido de OpenAI. Plus responde con **GPT-6 Sol**, el modelo mediano, y te deja aumentar cuánto piensa antes de contestar. Para preguntas rápidas, reescribir un mensaje o resumir una página, casi no notarás la diferencia. Para documentos largos, razonamientos complicados, programación o cualquier cosa en la que un error te cueste caro, Sol es claramente mejor.
 
 Para ponerle un número: por API, los modelos de la clase Sol cuestan unas 20 veces más por token que los de la clase Luna. Eso es, más o menos, lo que pagas a OpenAI por usarlo en Plus.
 

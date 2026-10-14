@@ -31,7 +31,7 @@ ChatGPT、Claude、Gemini、Grok 現在各自有 3 到 5 個付費方案，名�
 
 ## NT$300 以下的方案要注意
 
-- **ChatGPT Go（NT$270）:** 聊天模型是較小的 GPT-6 Luna，而且有廣告、不能關。一般聊天免費版也不限次數，所以 Go 多給的主要是上傳、圖片、記憶的額度。詳見[ChatGPT Go 與 Plus 差在哪](/zh-tw/blog/chatgpt-go-vs-plus)。
+- **ChatGPT Go（NT$270）:** 聊天模型是較小的 GPT-5.6 Luna，而且有廣告、不能關。一般聊天免費版也不限次數，所以 Go 多給的主要是上傳、圖片、記憶的額度。詳見[ChatGPT Go 與 Plus 差在哪](/zh-tw/blog/chatgpt-go-vs-plus)。
 - **Google AI Plus（NT$260）:** 即將不能用 Pro 模型，需要 200GB 雲端空間的人還是划算。詳見[Gemini 免費版只剩 Flash-Lite](/zh-tw/blog/gemini-mianfei-flash-lite)。
 
 ## US$100 以上的方案：看「單位價格」

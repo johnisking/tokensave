@@ -658,15 +658,15 @@ INDIECOST[-1].update(src="indiecost-en", date="2026-10-12")
 _TR_BY = "Jonhisking · 9 Ekim 2026"
 _TR_CTA = ("Yapay zekâyı ne kadar kullandığınızı girin; abonelik mi yoksa API mi daha ucuz, Türkçe tokenlarla birlikte görün.", "Abonelik vs API hesapla")
 for _p, _src, _ti, _de in [
-    ("/tr/blog/yapay-zeka-abonelik-fiyatlari", "subs-tr", "Yapay zeka abonelik fiyatları 2026: ChatGPT, Claude, Gemini TL fiyatları",
+    ("/tr/blog/yapay-zeka-abonelik-fiyatlari", "subs-tr", "Yapay zeka abonelik fiyatları 2026: ChatGPT, Claude, Gemini TL",
      "ChatGPT Go 249,99 TL, Plus 999,99 TL, Google AI Pro 869,99 TL, Claude Pro $20 + KDV. Türkiye'deki tüm yapay zeka abonelik fiyatları ve API ile karşılaştırma."),
-    ("/tr/blog/chatgpt-go-vs-plus", "gogo-tr", "ChatGPT Go vs Plus: 249,99 TL mi 999,99 TL mi? Farklar ve kime uygun",
+    ("/tr/blog/chatgpt-go-vs-plus", "gogo-tr", "ChatGPT Go vs Plus: 249,99 TL mi 999,99 TL mi? Farklar",
      "ChatGPT Go vs Plus: Go 249,99 TL ve reklamlı, Plus 999,99 TL ve reklamsız. Model, düşünme modu, Codex farkları ve hangi planın size uygun olduğu."),
-    ("/tr/blog/gemini-ucretsiz-flash-lite", "gemgp-tr", "Gemini ücretsiz artık Flash-Lite: 9 Ekim değişikliği ve Google AI fiyatları",
+    ("/tr/blog/gemini-ucretsiz-flash-lite", "gemgp-tr", "Gemini ücretsiz artık Flash-Lite: 9 Ekim değişikliği ve fiyatlar",
      "9 Ekim 2026'dan itibaren Gemini ücretsiz sadece Flash-Lite kullanıyor. Google AI Plus 199,99 TL, Pro 869,99 TL. Ne değişti ve API ile ucuz alternatif."),
 ]:
     _d = _cc("tr", _p, _src, _ti, _de, _TR_BY, *_TR_CTA); _d["date"] = "2026-10-09"; EU6.append([_d])
-FREEPAID.append(dict(_cc("tr", "/tr/blog/chatgpt-ucretsiz-mi-ucretli-mi", "freepaid-tr", "ChatGPT ücretsiz mi ücretli mi? Ücretsiz, Go, Plus, Pro farkları ve TL fiyatları",
+FREEPAID.append(dict(_cc("tr", "/tr/blog/chatgpt-ucretsiz-mi-ucretli-mi", "freepaid-tr", "ChatGPT ücretsiz mi ücretli mi? Planlar ve TL fiyatları 2026",
      "ChatGPT ücretsiz mi ücretli mi? Ağustos 2026'dan beri sohbet ücretsizde de sınırsız. Go 249,99 TL, Plus 999,99 TL, Pro farkları ve ne zaman yükseltmeli.",
      _TR_BY, *_TR_CTA), date="2026-10-09"))
 

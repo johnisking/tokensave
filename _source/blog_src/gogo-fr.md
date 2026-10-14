@@ -1,6 +1,6 @@
 ![ChatGPT Go ou Plus : 8 € ou 23 €, lequel choisir ?](/chatgpt-go-vs-plus-fr.jpg)
 
-ChatGPT Go coûte environ 8 € par mois en France, ChatGPT Plus 23 €. Depuis août 2026, Go (comme la version gratuite) offre le chat texte illimité, et Plus des limites élargies : l'ancienne raison de passer à la formule supérieure, manquer de messages, a donc disparu. La différence se joue maintenant sur le modèle qui vous répond, sa capacité de réflexion, ce qui est inclus dans la formule, et la publicité. Voici ce que les 15 € de plus vous apportent, et pour qui ils valent le coup.
+ChatGPT Go coûte environ 8 € par mois en France, ChatGPT Plus 23 €. Depuis août 2026, Go (comme la version gratuite) offre le chat texte illimité, comme Plus : l'ancienne raison de passer à la formule supérieure, manquer de messages, a donc disparu. La différence se joue maintenant sur le modèle qui vous répond, sa capacité de réflexion, ce qui est inclus dans la formule, et la publicité. Voici ce que les 15 € de plus vous apportent, et pour qui ils valent le coup.
 
 ## Go et Plus en un coup d'œil
 
@@ -9,9 +9,9 @@ ChatGPT Go coûte environ 8 € par mois en France, ChatGPT Plus 23 €. Depuis 
 | | ChatGPT Go | ChatGPT Plus |
 |---|---|---|
 | Prix en France | environ 8 € / mois | 23 € / mois |
-| Modèle de chat | GPT-6 Luna | GPT-6 Sol |
+| Modèle de chat | GPT-5.6 Luna | GPT-6 Sol |
 | Réflexion | bouton « Réfléchir » pour les questions difficiles | niveaux de réflexion Moyen et Élevé |
-| Limite du chat texte | aucune (depuis le 6 août 2026) | élargie (avec des limites) |
+| Limite du chat texte | aucune (depuis le 6 août 2026) | aucune |
 | Raisonnement avancé GPT-6, Codex, ChatGPT Work | limité, sur ordinateur | inclus |
 | Projets, tâches planifiées, GPT personnalisés | limités | inclus |
 | Publicité | oui, depuis fin août 2026 | non |
@@ -24,7 +24,7 @@ Depuis fin août 2026, ChatGPT affiche des publicités dans 31 marchés europée
 
 ## La vraie différence : Luna contre Sol
 
-Go répond avec **GPT-6 Luna**, le petit modèle rapide d'OpenAI. Plus répond avec **GPT-6 Sol**, le modèle intermédiaire, et vous permet d'augmenter le temps de réflexion. Pour une question rapide, la reformulation d'un e-mail ou le résumé d'une page, vous ne verrez presque pas de différence. Pour les longs documents, les raisonnements délicats, le code, ou tout ce où une erreur vous coûte cher, Sol est nettement meilleur.
+Go répond avec **GPT-5.6 Luna**, le petit modèle rapide d'OpenAI. Plus répond avec **GPT-6 Sol**, le modèle intermédiaire, et vous permet d'augmenter le temps de réflexion. Pour une question rapide, la reformulation d'un e-mail ou le résumé d'une page, vous ne verrez presque pas de différence. Pour les longs documents, les raisonnements délicats, le code, ou tout ce où une erreur vous coûte cher, Sol est nettement meilleur.
 
 Pour donner un ordre de grandeur : sur l'API, les modèles de la classe Sol coûtent environ 20 fois plus cher par token que ceux de la classe Luna. C'est à peu près ce que vous payez à OpenAI pour les faire tourner avec Plus.
 

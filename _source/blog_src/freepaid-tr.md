@@ -1,4 +1,4 @@
-![ChatGPT ücretsiz mi ücretli mi? Ücretsiz, Go, Plus, Pro farkları ve TL fiyatları](/chatgpt-ucretsiz-mi-ucretli-mi-tr.jpg)
+![ChatGPT ücretsiz mi ücretli mi? Planlar ve TL fiyatları 2026](/chatgpt-ucretsiz-mi-ucretli-mi-tr.jpg)
 
 > **30 saniyede özet**
 > - Ağustos 2026'dan beri **normal sohbet ücretsiz planda da sınırsız**. "Mesaj hakkım bitti" artık para ödemek için bir sebep değil.
@@ -6,7 +6,7 @@
 > - Türkiye fiyatları (aylık): **Ücretsiz 0 TL · Go 249,99 TL · Plus 999,99 TL · Pro 5.299,99 TL'den başlıyor**
 > - Çoğu kişi için en iyisi: **Ücretsiz başla, aşağıdaki üç durumdan birine takılınca yükselt.**
 
-"ChatGPT ücretsiz mi ücretli mi kullanmalıyım?" diye düşünüyorsan önce şunu bil: Eski yazılardaki "ücretsiz planda günde sadece birkaç mesaj atabilirsin" bilgisi artık geçerli değil. OpenAI, Ağustos 2026'da normal metin sohbetindeki limiti Ücretsiz ve Go planlarında kaldırdı (Pro da sınırsız, Plus'ta genişletilmiş sınırlar var). Yani bugün ChatGPT ücretli fark **miktarda değil, kalitede ve ek özelliklerde**. Aşağıda neyin farklı olduğunu ve ne zaman yükseltmenin mantıklı olduğunu anlatıyoruz.
+"ChatGPT ücretsiz mi ücretli mi kullanmalıyım?" diye düşünüyorsan önce şunu bil: Eski yazılardaki "ücretsiz planda günde sadece birkaç mesaj atabilirsin" bilgisi artık geçerli değil. OpenAI, Ağustos 2026'da normal metin sohbetindeki limiti Ücretsiz ve Go planlarında kaldırdı (Plus ve Pro'da da sınırsız). Yani bugün ChatGPT ücretli fark **miktarda değil, kalitede ve ek özelliklerde**. Aşağıda neyin farklı olduğunu ve ne zaman yükseltmenin mantıklı olduğunu anlatıyoruz.
 
 ## Ücretsiz ve ücretli planlar tek bakışta
 
@@ -15,7 +15,7 @@
 | | Ücretsiz | Go | Plus | Pro |
 |---|---|---|---|---|
 | Aylık fiyat | 0 TL | 249,99 TL | 999,99 TL | 5.299,99 TL'den başlıyor |
-| Normal metin sohbeti | Sınırsız | Sınırsız | Genişletilmiş (sınırlar geçerli) | Sınırsız |
+| Normal metin sohbeti | Sınırsız | Sınırsız | Sınırsız | Sınırsız |
 | Cevap veren model | Hafif model (Luna) | Hafif model (Luna) | Orta boy model (Sol) + düşünme seviyesi seçimi | Sol + en üst seviye Pro model |
 | Dosya yükleme, görsel, ses | Sınırlı | Ücretsizden fazla | Daha fazla | En fazla |
 | Derin araştırma (Deep Research) | Sınırlı | – | Genişletilmiş | En yüksek |

@@ -39,7 +39,7 @@ Pour la plupart des gens, cette gamme suffit. La différence se fait sur l'usage
 
 ## Les formules à moins de 10 € : à regarder de près
 
-- **ChatGPT Go (8 €) :** le modèle est le plus petit, GPT-6 Luna, et la formule affiche des publicités depuis fin août 2026. Comme le chat texte est déjà illimité en gratuit, Go apporte surtout des limites plus larges sur les fichiers, les images et la mémoire. Comparaison complète : [ChatGPT Go ou Plus](/fr/blog/chatgpt-go-vs-plus).
+- **ChatGPT Go (8 €) :** le modèle est le plus petit, GPT-5.6 Luna, et la formule affiche des publicités depuis fin août 2026. Comme le chat texte est déjà illimité en gratuit, Go apporte surtout des limites plus larges sur les fichiers, les images et la mémoire. Comparaison complète : [ChatGPT Go ou Plus](/fr/blog/chatgpt-go-vs-plus).
 - **Google AI Plus (4,99 €) :** le modèle Pro va disparaître de cette formule. Détails dans [Gemini gratuit limité à Flash-Lite](/fr/blog/gemini-gratuit-flash-lite).
 
 ## 100 à 220 € : regardez le prix par unité d'usage

@@ -1,4 +1,4 @@
-![Yapay zeka abonelik fiyatları 2026: ChatGPT, Claude, Gemini TL fiyatları](/yapay-zeka-abonelik-fiyatlari-tr.jpg)
+![Yapay zeka abonelik fiyatları 2026: ChatGPT, Claude, Gemini TL](/yapay-zeka-abonelik-fiyatlari-tr.jpg)
 
 ChatGPT, Claude, Gemini ve Grok artık her biri üç ila beş ücretli plan satıyor. Plan adları birbirini tutmuyor, fiyatlar da her ülkede aynı değil. Türkiye'de ChatGPT ve Google fiyatları TL olarak görünüyor; Claude ve Grok ise dolarla ücret alıyor. Bu yazıda yapay zeka abonelik fiyatlarını TL ve dolar olarak tek tabloda topladık: ChatGPT fiyat TL listesi, Gemini fiyat bilgisi ve Claude fiyatları. Pahalı planların ne kadar fazla kullanım verdiğini ve aboneliğe gerçekten ihtiyacınız olup olmadığını da anlatıyoruz.
 
@@ -37,7 +37,7 @@ Yaklaşık 20 dolarlık kademede ChatGPT Plus, Claude Pro ve Google AI Pro benze
 
 ## En ucuz planlara dikkat
 
-- **ChatGPT Go:** küçük model GPT-6 Luna ile cevap veriyor ve reklam gösteriyor. Metin sohbeti ücretsiz planda bile artık sınırsız. Go'nun size kattığı şey daha fazla dosya, görsel ve hafıza.
+- **ChatGPT Go:** küçük model GPT-5.6 Luna ile cevap veriyor ve reklam gösteriyor. Metin sohbeti ücretsiz planda bile artık sınırsız. Go'nun size kattığı şey daha fazla dosya, görsel ve hafıza.
 - **Google AI Plus:** yakında Pro modeli içermeyecek. 400 GB depolamaya ihtiyacınız varsa yine de mantıklı.
 
 ## Pahalı planlar: kullanım birimi başına fiyata bakın
@@ -66,6 +66,17 @@ Kesin tutar için ödeme ekranına ve kart ekstrenize bakın. Bu bilgiler yol g�
 - **Web ve uygulama fiyatı her zaman aynı değil.** Telefondan abone olmadan önce karşılaştırın. Uygulamayı silmek aboneliği iptal etmez.
 - **Dolarla ödenen planlarda tutar her ay kura göre değişir.** Yurt dışı harcamada komisyon almayan bir kart biraz tasarruf sağlar.
 - **Ortak hesaplardan ve aracı satıcılardan uzak durun.** Kullanım koşullarını ihlal ettiği için hesabınız kapatılabilir. Başkaları sohbetlerinizi görebilir.
+
+## Sık sorulan sorular
+
+**En ucuz yapay zeka aboneliği hangisi?**
+Türkiye'de listelenen ücretli planlar arasında en ucuzu Google AI Plus (199,99 TL), ardından ChatGPT Go (249,99 TL) geliyor. Claude'un Pro'dan daha ucuz bir planı yok.
+
+**Ücretsiz planlar yetmez mi?**
+Günlük sohbet için çoğu zaman yeter. ChatGPT'de normal metin sohbeti ücretsiz planda da sınırsız. Ücretli planlar daha güçlü modeller, daha yüksek dosya ve görsel limitleri ve kodlama araçları için anlamlı.
+
+**Dolarla ödenen planlarda neden fiyat her ay değişiyor?**
+Claude gibi dolar üzerinden faturalanan planlarda kartınız tutarı o günün kuruyla TL'ye çevirir; Türkiye fatura adresinde KDV de eklenebilir. Bu yüzden ödediğiniz TL tutarı aydan aya değişebilir.
 
 ## Aboneliğe ihtiyacınız var mı?
 

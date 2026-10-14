@@ -32,7 +32,7 @@ Plany za ok. 100 zł kosztują u trzech firm prawie tyle samo i większości os�
 
 ## Uwaga na tanie plany
 
-- **ChatGPT Go (34,99 zł):** czat działa na mniejszym modelu GPT-6 Luna i wyświetla reklamy, których nie da się wyłączyć. Zwykły czat jest nielimitowany nawet za darmo, więc Go daje głównie wyższe limity plików, obrazów i pamięci. Szczegóły: [ChatGPT Go czy Plus](/pl/blog/chatgpt-go-vs-plus).
+- **ChatGPT Go (34,99 zł):** czat działa na mniejszym modelu GPT-5.6 Luna i wyświetla reklamy, których nie da się wyłączyć. Zwykły czat jest nielimitowany nawet za darmo, więc Go daje głównie wyższe limity plików, obrazów i pamięci. Szczegóły: [ChatGPT Go czy Plus](/pl/blog/chatgpt-go-vs-plus).
 - **Google AI Plus (23,99 zł):** wkrótce traci model Pro. Nadal ma sens, jeśli potrzebujesz 400 GB w chmurze. Zobacz [co się zmienia w Gemini od 9 października](/pl/blog/gemini-za-darmo-flash-lite).
 
 ## Droższe plany: patrz na cenę za jednostkę

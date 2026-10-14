@@ -1,4 +1,4 @@
-![Gemini ücretsiz artık Flash-Lite: 9 Ekim değişikliği ve Google AI fiyatları](/gemini-ucretsiz-flash-lite-tr.jpg)
+![Gemini ücretsiz artık Flash-Lite: 9 Ekim değişikliği ve fiyatlar](/gemini-ucretsiz-flash-lite-tr.jpg)
 
 Google, Gemini uygulamasında hangi planda hangi modeli kullanabileceğinizi değiştiriyor. **9 Ekim'den itibaren Gemini ücretsiz sürümünde yalnızca Gemini Flash-Lite kalıyor.** Bu, Google'ın en küçük modeli. Google AI Plus (₺199,99/ay) da Pro modelini kaybediyor. Şimdiye kadar ücretsiz sürümle Pro'yu ve Deep Research'ü epey kullanabiliyordunuz. Yani fark hissedilecek. Bu yazıda neyin değiştiğini, Google AI Pro fiyatı dahil her planın Türkiye'deki ücretini ve Gemini Pro'yu API ile kullanmanın aylık maliyetini bulacaksınız.
 
