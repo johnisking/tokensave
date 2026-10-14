@@ -1,7 +1,7 @@
 // TokenSave — AI Token Counter page (tokensave.app)
 // 100% client-side. The text you type never leaves the browser.
 // UI strings come from window.T (injected per language page).
-// Prices: USD per 1M tokens (standard tier, short context). Last checked: 2026-09-29.
+// Prices: USD per 1M tokens (standard tier, short context; `long` = price above a prompt-size threshold). Last checked: 2026-10-14.
 
 import { tr, fx } from './common.js';
 
@@ -31,6 +31,8 @@ const PROVIDERS = {
     { id: 'claude-fable-5-1',  name: 'Claude Fable 5.1',  in: 10.00, out: 50.00, ratio: 1.30 },
     { id: 'claude-opus-5-5',   name: 'Claude Opus 5.5',   in: 4.00,  out: 20.00, ratio: 1.30 },
     { id: 'claude-sonnet-5-5', name: 'Claude Sonnet 5.5', in: 2.00,  out: 10.00, ratio: 1.30 },
+    // Haiku 5.5 (2026-10-07): $0.10/$0.50 up to a 100K-token prompt, $0.50/$2.50 above (platform.claude.com, checked 2026-10-14)
+    { id: 'claude-haiku-5-5',  name: 'Claude Haiku 5.5',  in: 0.10,  out: 0.50,  ratio: 1.30, long: { over: 100000, in: 0.50, out: 2.50 } },
     { id: 'claude-haiku-4-5',  name: 'Claude Haiku 4.5',  in: 1.00,  out: 5.00,  ratio: 1.05 },
   ],
   gemini: [
@@ -337,13 +339,16 @@ function render() {
   els.words.textContent = fmt(words);
   const outTok = clamp(els.outNum.value, 0, 128000, 0);
   const reqs = clamp(els.reqs.value, 1, 100000000, 1);
-  const cIn = tokens / 1e6 * model.in, cOut = outTok / 1e6 * model.out, cReq = cIn + cOut;
+  // Models with long-prompt pricing bill the whole request at the higher rate once the prompt passes the threshold
+  const rateFor = n => (model.long && n > model.long.over ? model.long : model);
+  const rate = rateFor(tokens);
+  const cIn = tokens / 1e6 * rate.in, cOut = outTok / 1e6 * rate.out, cReq = cIn + cOut;
   els.inTokNote.textContent = '(' + fmt(tokens) + ')';
   els.costIn.textContent = money(cIn);
   els.costOut.textContent = money(cOut);
   els.costReq.textContent = moneyBig(cReq);
   els.costMonth.textContent = moneyBig(cReq * reqs);
-  els.priceNote.textContent = tr('note', { name: model.name, in: model.in, out: model.out });
+  els.priceNote.textContent = tr('note', { name: model.name, in: rate.in, out: rate.out });
 
   // Context window: how much of the model's maximum input this text uses
   const ctx = model.ctx || 128000;
@@ -364,7 +369,8 @@ function render() {
     const d = o - tokens;
     els.tokSaved.textContent = '↓' + fmt(d) + ' (−' + Math.round(d / o * 100) + '%)';
     els.monthSaved.textContent = tr('monthSaved', {
-      a: moneyBig((o / 1e6 * model.in + cOut) * reqs), b: moneyBig(cReq * reqs), s: moneyBig(d / 1e6 * model.in * reqs) });
+      a: moneyBig((o / 1e6 * rateFor(o).in + outTok / 1e6 * rateFor(o).out) * reqs), b: moneyBig(cReq * reqs),
+      s: moneyBig(((o / 1e6 * rateFor(o).in + outTok / 1e6 * rateFor(o).out) - cReq) * reqs) });
   }
   els.tokSaved.classList.toggle('hidden', !(o > tokens));
   els.monthSaved.classList.toggle('hidden', !(o > tokens));

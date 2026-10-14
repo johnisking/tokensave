@@ -18,7 +18,7 @@ const SIZES = { short: [60, 300], chat: [150, 500], long: [2000, 700] };
 const PROVIDERS = [
   { name: 'ChatGPT', models: [['gpt-6-sol', 'GPT-6 Sol', 1.0], ['gpt-6-luna', 'GPT-6 Luna', 1.0]],
     plans: [['Go', 8], ['Plus', 20], ['Pro 100', 100], ['Pro 200', 200], ['Pro 500', 500]], main: 1 },
-  { name: 'Claude', models: [['claude-sonnet-5-5', 'Claude Sonnet 5.5', 1.3], ['claude-haiku-4-5', 'Claude Haiku 4.5', 1.05]],
+  { name: 'Claude', models: [['claude-sonnet-5-5', 'Claude Sonnet 5.5', 1.3], ['claude-haiku-5-5', 'Claude Haiku 5.5', 1.3], ['claude-haiku-4-5', 'Claude Haiku 4.5', 1.05]],
     plans: [['Pro', 20], ['Max 5×', 100], ['Max 20×', 200]], main: 0 },
   { name: 'Gemini', models: [['gemini-3-1-pro', 'Gemini 3.1 Pro', 0.95], ['gemini-3-8-flash', 'Gemini 3.8 Flash', 0.95]],
     plans: [['AI Plus', 4.99], ['AI Pro', 19.99], ['AI Ultra 5×', 99.99], ['AI Ultra 20×', 199.99]], main: 1, prefix: 'Google ' },

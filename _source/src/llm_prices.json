@@ -215,7 +215,8 @@
     "claude-haiku-5-5": {
       "in": 0.1,
       "out": 0.5,
-      "key": "claude-haiku-5-5"
+      "key": "claude-haiku-5-5",
+      "ctx": 1000000
     }
   },
   "seen": [
