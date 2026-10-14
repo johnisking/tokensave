@@ -95,7 +95,7 @@ Wenn du für ein Projekt viele Bilder oder Videos brauchst, musst du nicht sofor
 | Aufgabe | Modell | Kosten |
 |---|---|---|
 | 30 [Bilder](/de/image) für YouTube-Thumbnails oder Produktseiten (2K, hohe Qualität) | GPT Image 2.5 high | ca. 4,25 € |
-| Dieselben 30 Bilder in 4K | Nano Banana Pro | ca. 10,60 € |
+| Dieselben 30 Bilder in 4K | Nano Banana Pro | ca. 6,40 € |
 | 10 [Videos](/de/video) à 8 Sekunden (1080p) | Veo 3.1 Fast | ca. 8,50 € |
 | Dieselben 10 Videos in höchster Qualität | Veo 3.1 | ca. 28,30 € |
 

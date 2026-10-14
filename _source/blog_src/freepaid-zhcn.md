@@ -95,7 +95,7 @@ $20 左右这个价位，Google AI Pro、Claude Pro 也在同一档。哪个更�
 | 任务 | 模型 | 费用 |
 |---|---|---|
 | 视频封面·商品详情页 [图片](/zh-cn/image) 30 张（2K，高质量） | GPT Image 2.5 high | $4.80 |
-| 同样 30 张改成 4K | Nano Banana Pro | $12.00 |
+| 同样 30 张改成 4K | Nano Banana Pro | $7.20 |
 | 8 秒 [视频](/zh-cn/video) 10 条（1080p） | Veo 3.1 Fast | $9.60 |
 | 同样 10 条用最高质量 | Veo 3.1 | $32.00 |
 

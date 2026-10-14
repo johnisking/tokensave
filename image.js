@@ -3,11 +3,11 @@
 //   official = the model maker's own API pricing page
 //   runway   = Runway API pricing page (1 credit = $0.01)
 // Sources:
-//   Nano Banana 2 / 2 Lite .... ai.google.dev/gemini-api/docs/pricing
+//   Nano Banana 2.1 / 2 / 2 Lite / Pro ... ai.google.dev/gemini-api/docs/pricing (checked 2026-10-14; Nano Banana / Gemini 2.5 Flash Image shut down 2026-10-02)
 //   Grok Imagine .............. docs.x.ai/developers/pricing (Imagine API)
 //   FLUX.2 .................... bfl.ai/pricing (first MP + each additional MP; 1 MP = 1024x1024, max 4 MP)
 //   Luma Uni-1.1 .............. lumalabs.ai/api/pricing (text-to-image at 2048px)
-//   GPT Image, Nano Banana Pro, Nano Banana (2.5 Flash), Seedream 5, Runway Gen-4 Image ... docs.dev.runwayml.com/guides/pricing
+//   GPT Image, Seedream 5, Runway Gen-4 Image ... docs.dev.runwayml.com/guides/pricing
 // Resolutions: 0.5k = 512px, 1k = 1024px, 2k = 2048px (4 MP), 4k = 4096px (16 MP)
 
 import { tr, fx } from './common.js';
@@ -16,14 +16,14 @@ import { tr, fx } from './common.js';
 const flux = (first, extra) => ({ '0.5k': first, '1k': first, '2k': first + 3 * extra });
 
 const MODELS = [
+  { name: 'Nano Banana 2.1',             sub: 'Gemini Nano Banana 2.1', by: 'Google', src: 'official',
+    p: { '1k': 0.0336, '2k': 0.0504, '4k': 0.113 } },
   { name: 'Nano Banana 2',               sub: 'Gemini 3.1 Flash Image', by: 'Google', src: 'official',
     p: { '0.5k': 0.045, '1k': 0.067, '2k': 0.101, '4k': 0.151 } },
   { name: 'Nano Banana 2 Lite',          sub: 'Gemini 3.1 Flash Lite Image', by: 'Google', src: 'official',
     p: { '1k': 0.0336 } },
-  { name: 'Nano Banana Pro',             sub: 'Gemini 3 Pro Image', by: 'Google', src: 'runway',
-    p: { '1k': 0.20, '2k': 0.20, '4k': 0.40 } },
-  { name: 'Nano Banana',                 sub: 'Gemini 2.5 Flash Image', by: 'Google', src: 'runway',
-    p: { '1k': 0.05 } },
+  { name: 'Nano Banana Pro',             sub: 'Gemini 3 Pro Image', by: 'Google', src: 'official',
+    p: { '1k': 0.134, '2k': 0.134, '4k': 0.24 } },
   { name: 'GPT Image 2.5 · low',         by: 'OpenAI', src: 'runway', p: { '1k': 0.01, '2k': 0.01, '4k': 0.02 } },
   { name: 'GPT Image 2.5 · medium',      by: 'OpenAI', src: 'runway', p: { '1k': 0.05, '2k': 0.05, '4k': 0.11 } },
   { name: 'GPT Image 2.5 · high',        by: 'OpenAI', src: 'runway', p: { '1k': 0.16, '2k': 0.16, '4k': 0.19 } },

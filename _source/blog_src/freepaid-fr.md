@@ -95,7 +95,7 @@ Un projet qui demande beaucoup d'images ou de vidéos ne justifie pas forcément
 | Tâche | Modèle | Coût |
 |---|---|---|
 | 30 [images](/fr/image) pour miniatures YouTube ou fiches produits (2K, haute qualité) | GPT Image 2.5 high | environ 4,25 € |
-| Les mêmes 30 images en 4K | Nano Banana Pro | environ 10,60 € |
+| Les mêmes 30 images en 4K | Nano Banana Pro | environ 6,40 € |
 | 10 [vidéos](/fr/video) de 8 secondes (1080p) | Veo 3.1 Fast | environ 8,50 € |
 | Les mêmes 10 vidéos en qualité maximale | Veo 3.1 | environ 28,30 € |
 

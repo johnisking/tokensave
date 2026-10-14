@@ -95,7 +95,7 @@ If a project comes up that needs a lot of images or video, you don't have to jum
 | Task | Model | Cost |
 |---|---|---|
 | 30 [images](/image) for YouTube thumbnails or product pages (2K, high quality) | GPT Image 2.5 high | $4.80 |
-| The same 30 at 4K | Nano Banana Pro | $12.00 |
+| The same 30 at 4K | Nano Banana Pro | $7.20 |
 | Ten 8-second [videos](/video) (1080p) | Veo 3.1 Fast | $9.60 |
 | The same 10 at top quality | Veo 3.1 | $32.00 |
 
