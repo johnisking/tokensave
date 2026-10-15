@@ -39,6 +39,7 @@ contact@jonhisking.com
 
 ## Latest articles (English; Korean, Japanese and other versions are linked from each page)
 
+- [Nano Banana Pricing & Free Limits (2026)](https://tokensave.app/blog/nano-banana-pricing) (2026-10-15): Nano Banana API cost per image for 2.1, 2, Lite and Pro, Batch discounts, free Gemini app limits, and a free vs 2.1 vs Pro image test.
 - [ChatGPT Usage Limits 2026: Every Plan and the 5-Hour Window](https://tokensave.app/blog/chatgpt-usage-limits) (2026-10-13): ChatGPT usage limits for Free, Go, Plus, Pro and Business: what is unlimited, GPT-6 Pro caps, the Work and Codex 5-hour window, resets and fixes.
 - [Indie Game Development Cost: Solo Dev Budget, Fees, Real $20 Case](https://tokensave.app/blog/indie-game-development-cost) (2026-10-12): Indie game development cost for solo devs: free engines, store fees ($25 Google Play, $100 Steam, $99/yr Apple), outsourcing vs AI, and a real $20 game.
 - [DeepSeek API Pricing 2026: Official Rates, Peak Hours, API Key](https://tokensave.app/blog/deepseek-api-pricing) (2026-10-12): DeepSeek API pricing in 2026 from the official docs: V4.1 Flash and V4 Pro rates, peak and off-peak hours, how to get an API key, and real workload costs.
@@ -78,4 +79,3 @@ contact@jonhisking.com
 - [ChatGPT Pro vs Claude Max: Which $100 or $200 Plan Gives More?](https://tokensave.app/blog/chatgpt-pro-vs-claude-max) (2026-10-02): ChatGPT Plus/Pro vs Claude Pro/Max compared: usage per dollar after the September 2026 changes, models, coding agents and which to pick.
 - [OpenAI API Pricing 2026: GPT-6 Astra, Sol and Luna Costs](https://tokensave.app/blog/gpt-6-api-pricing) (2026-10-02): GPT-6 Astra, Sol and Luna API prices per million tokens, real cost per request, comparison with Claude and Gemini, and which to use.
 - [LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek](https://tokensave.app/blog/llm-api-pricing-comparison) (2026-10-02): Input and output API prices of 22 models side by side, the real cost of 10,000 requests, the cheapest LLM APIs, and how to choose.
-- [Tokens per Word, Measured: English and 11 Other Languages](https://tokensave.app/blog/tokens-per-word) (2026-10-02): How many tokens per word and per character on current GPT models: about 1.1-1.3 per English word, and the real numbers for other languages.

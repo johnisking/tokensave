@@ -16653,6 +16653,8 @@
     <lastmod>2026-10-14</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/nano-banana-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/nano-banana-ryoukin"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/nano-banana-pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/nano-banana-pricing"/>
     <image:image>
       <image:loc>https://tokensave.app/nano-banana-gagyeok-ko.jpg</image:loc>
     </image:image>
@@ -16692,6 +16694,8 @@
     <lastmod>2026-10-14</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/nano-banana-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/nano-banana-ryoukin"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/nano-banana-pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/nano-banana-pricing"/>
     <image:image>
       <image:loc>https://tokensave.app/nano-banana-ryoukin-ja.jpg</image:loc>
     </image:image>
@@ -16724,6 +16728,38 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/nano-banana-ryoukin-youto-ja.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/nano-banana-pricing</loc>
+    <lastmod>2026-10-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/nano-banana-gagyeok"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/nano-banana-ryoukin"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/nano-banana-pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/nano-banana-pricing"/>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-pricing-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-pricing-how-much-does-the-nano-banana-api-cost-p-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-pricing-how-much-does-batch-save-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-pricing-how-many-images-can-you-make-on-the-free-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-pricing-i-tested-the-free-gemini-app-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-pricing-poster-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-pricing-infographic-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/nano-banana-pricing-what-does-it-cost-for-real-workloads-en.jpg</image:loc>
     </image:image>
   </url>
   <url>

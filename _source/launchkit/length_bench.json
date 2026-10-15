@@ -237,5 +237,16 @@
    "docs.apiyi.com/ja": 5000
   },
   "note": "approximate, chars without spaces"
+ },
+ "nbprice-en": {
+  "keyword": "nano banana pricing",
+  "checked": "2026-10-15",
+  "median": 2500,
+  "samples": {
+   "myarchitectai.com (Nano Banana API pricing)": 2500,
+   "eesel.ai (Nano Banana 2 Lite pricing)": 2800,
+   "zenmux.ai (Nano Banana API cost)": 620
+  },
+  "note": "approximate, words; median of top 3 = 2500"
  }
 }

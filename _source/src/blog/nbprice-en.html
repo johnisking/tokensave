@@ -1,0 +1,368 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="Nano Banana Pricing &amp; Free Limits (2026)" src="/nano-banana-pricing-en.jpg" /></p>
+<p>Nano Banana is one of those products whose price is hard to pin down. The name keeps moving between models, Google bills images as output tokens rather than as images, and the pricing table is split by model and by resolution. On top of that, two things changed in early October: Nano Banana 2.1 became generally available on October 6, and the original Nano Banana (Gemini 2.5 Flash Image) was shut down in the API on October 2. A lot of the per-image numbers you will find in older articles now point at a model you can no longer call.</p>
+<p>So I went back to Google's official pricing page (the version updated October 13, 2026) and worked out what each model costs per image, what you can still do for free, and what real workloads come to in dollars. I also ran the same two English prompts through the free Gemini app, Nano Banana 2.1 and Nano Banana Pro to see whether paying more actually buys you a better picture.</p>
+<p>All prices are in US dollars and exclude sales tax.</p>
+<h2>How many Nano Banana models are there?</h2>
+<p>As of October 14, 2026, four image models are sold under the Nano Banana name in the Gemini API.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Model ID</th>
+<th>What it is for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nano Banana 2.1</td>
+<td>gemini-nano-banana-2.1</td>
+<td>Generally available since October 6. Google's recommended default for new projects</td>
+</tr>
+<tr>
+<td>Nano Banana 2</td>
+<td>gemini-3.1-flash-image</td>
+<td>The previous default. The only one with a 0.5K option</td>
+</tr>
+<tr>
+<td>Nano Banana 2 Lite</td>
+<td>gemini-3.1-flash-lite-image</td>
+<td>Fastest and cheapest to call. 1K only, weaker at multi-image references and multi-turn edits</td>
+</tr>
+<tr>
+<td>Nano Banana Pro</td>
+<td>gemini-3-pro-image</td>
+<td>The top model. Built for complex scenes, text rendering and brand consistency</td>
+</tr>
+</tbody>
+</table></div>
+<p>The original Nano Banana, gemini-2.5-flash-image, is listed in Google's documentation as shut down on October 2, 2026. If you see "$0.039 per image" quoted somewhere, that was the price of this retired model, not of anything you can buy today. Code that still calls gemini-2.5-flash-image will return an error and needs a new model ID.</p>
+<p>Every image from every Nano Banana model carries a SynthID watermark, an invisible marker that identifies the picture as AI-generated. You can't switch it off on any tier.</p>
+<h2>How much does the Nano Banana API cost per image?</h2>
+<p><img loading="lazy" width="1200" height="637" alt="How much does the Nano Banana API cost per image?: Model, 0.5K, 1K, 2K, 4K" src="/nano-banana-pricing-how-much-does-the-nano-banana-api-cost-p-en.jpg" /></p>
+<p>Google meters image output in tokens. Nano Banana 2.1, for example, charges $30 per million output image tokens, and a 1K image (1024×1024) counts as 1,120 tokens, which works out to $0.0336 per image. Converted the same way, here is the per-image price for a standard request.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>0.5K</th>
+<th>1K</th>
+<th>2K</th>
+<th>4K</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nano Banana 2.1</td>
+<td>n/a</td>
+<td>$0.0336</td>
+<td>$0.0504</td>
+<td>$0.113</td>
+</tr>
+<tr>
+<td>Nano Banana 2</td>
+<td>$0.045</td>
+<td>$0.067</td>
+<td>$0.101</td>
+<td>$0.151</td>
+</tr>
+<tr>
+<td>Nano Banana 2 Lite</td>
+<td>n/a</td>
+<td>$0.0336</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Nano Banana Pro</td>
+<td>n/a</td>
+<td>$0.134</td>
+<td>$0.134</td>
+<td>$0.24</td>
+</tr>
+</tbody>
+</table></div>
+<p>A few things in that table are easy to miss.</p>
+<ul>
+<li><strong>2.1 is cheaper than 2.</strong> The newer model costs half as much at 1K ($0.0336 against $0.067). The catch is on the input side: 2.1 charges $1.50 per million input tokens, up from $0.50 on Nano Banana 2. If your workflow feeds in several reference photos and long instructions for every edit, run the input numbers too before you assume you are saving money.</li>
+<li><strong>2.1 and Lite cost the same per 1K image.</strong> Both are $0.0336. Lite's input is cheaper ($0.25 per million tokens) and it is faster, but Google says it only renders 1K and is not the model for multi-image references or back-and-forth editing.</li>
+<li><strong>Pro charges the same for 1K and 2K.</strong> If you are paying for Pro anyway, ask for 2K.</li>
+<li><strong>4K is still noticeably more expensive.</strong> Even on 2.1, a 4K image is $0.113, about 236% more than 1K. For web pages and social posts, 1K or 2K is usually plenty.</li>
+</ul>
+<h2>How much does Batch save?</h2>
+<p><img loading="lazy" width="1200" height="607" alt="How much does Batch save?: Model, 1K, 2K, 4K" src="/nano-banana-pricing-how-much-does-batch-save-en.jpg" /></p>
+<p>If you don't need the image back right away, send the job through the Batch API and you pay 50% of the standard rate. Google's target turnaround is 24 hours, and most jobs finish sooner.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>1K</th>
+<th>2K</th>
+<th>4K</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nano Banana 2.1</td>
+<td>$0.0168</td>
+<td>$0.0252</td>
+<td>$0.0567</td>
+</tr>
+<tr>
+<td>Nano Banana 2</td>
+<td>$0.034</td>
+<td>$0.050</td>
+<td>$0.076</td>
+</tr>
+<tr>
+<td>Nano Banana 2 Lite</td>
+<td>$0.0168</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Nano Banana Pro</td>
+<td>$0.067</td>
+<td>$0.067</td>
+<td>$0.12</td>
+</tr>
+</tbody>
+</table></div>
+<p>Nano Banana 2 also offers 0.5K in Batch for $0.022. Batch fits jobs where you generate a lot and pick later: a full catalogue of product shots, a few hundred item icons for a game, or variations of an ad you want to A/B test next week.</p>
+<h2>Is the Nano Banana API free?</h2>
+<p>No. On Google's pricing page, the Free tier column reads "Not available" for Nano Banana 2.1, 2, 2 Lite and Pro alike. Unlike the text models, getting an API key is not enough to generate images at no cost. You can only call the image models from a paid-tier project with billing turned on. The trade-off is that, on the paid tier, Google does not use your prompts and outputs to improve its products.</p>
+<p>There are two ways to try Nano Banana for free:</p>
+<ul>
+<li><strong>The Gemini app (web and mobile).</strong> Google's help center lists "Generate images with Nano Banana 2" as available on every plan, including accounts with no AI plan.</li>
+<li><strong>Google AI Studio.</strong> The developer playground. My results there are further down.</li>
+</ul>
+<h2>How many images can you make on the free Gemini app?</h2>
+<p><img loading="lazy" width="1200" height="682" alt="How many images can you make on the free Gemini app?: Plan, US price per month, Usage limit" src="/nano-banana-pricing-how-many-images-can-you-make-on-the-free-en.jpg" /></p>
+<p>Google does not publish an image count any more. Here is what its help page says about each plan.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>US price per month</th>
+<th>Usage limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No AI plan</td>
+<td>$0</td>
+<td>Standard limits</td>
+</tr>
+<tr>
+<td>Google AI Plus</td>
+<td>$7.99</td>
+<td>2x higher than standard limits</td>
+</tr>
+<tr>
+<td>Google AI Pro</td>
+<td>$19.99</td>
+<td>4x higher than standard limits</td>
+</tr>
+<tr>
+<td>Google AI Ultra</td>
+<td>$99.99 / $199.99</td>
+<td>5x or 20x higher than AI Pro limits</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>Limits are based on compute, not on a number of messages. They <strong>refresh every 5 hours until you reach a weekly cap.</strong></li>
+<li>Google says "some features (like media generation or Deep Research) will consume more of your usage." If you spend a session making images, you will hit the limit sooner than you would by chatting.</li>
+<li>"Redo images with Nano Banana Pro" is marked as available only on AI Plus and above. Free accounts don't get it.</li>
+</ul>
+<p>Most "X images a day on the free plan" figures online come from older help pages or from someone's personal count. The current documentation has no number, so the only reliable way to know where you stand on a free account is to use it and see whether a limit notice appears.</p>
+<h2>I tested the free Gemini app</h2>
+<p><img loading="lazy" width="1200" height="728" alt="I tested the free Gemini app: Poster; Infographic; Limits" src="/nano-banana-pricing-i-tested-the-free-gemini-app-en.jpg" /></p>
+<p>On October 14, I opened the Gemini app on a free Google account with no AI plan (the "Upgrade" button was showing in the top right corner) and left the model picker on its default setting. I used two prompts written to stress different things.</p>
+<ul>
+<li><strong>Prompt 1, a poster with exact text:</strong> "A vintage travel poster for a fictional national park called "Silverpine Valley". Big title "SILVERPINE VALLEY" at the top, subtitle "Est. 1924 · Explore the Wild North" below it. A hiker with a red backpack standing on a ridge at sunrise. At the bottom, three small icons labeled "Hike", "Camp" and "Stargaze". Flat screen-print style with a limited 5-color palette."</li>
+<li><strong>Prompt 2, an infographic with structure:</strong> "A clean 16:9 infographic titled "How Your Coffee Gets to You". Five numbered steps in a left-to-right flow: 1 Farm, 2 Harvest, 3 Roast, 4 Ship, 5 Brew. Each step has a small line icon and a one-line caption under it. Consistent icon style, thin connecting arrows, white background, one accent color #C46B2C, modern sans-serif type, no other text."</li>
+</ul>
+<p>Each image appeared within about 30 seconds. What came back:</p>
+<ul>
+<li><strong>Poster:</strong> a landscape image, 1024×559. Every word was spelled correctly and all three icons had their labels. The subtitle, though, came out in all caps ("EST. 1924 · EXPLORE THE WILD NORTH") instead of the mixed case I typed, and so did the icon labels.</li>
+<li><strong>Infographic:</strong> 1024×572, close to the 16:9 I asked for. The title, the five numbered step names and the arrows were all there and correct, the icons matched in style, and the accent colour was used for the numbers and icons. One small slip: the caption under "Farm" says the cherries are "grown and harvested", which repeats the next step.</li>
+<li><strong>Limits:</strong> no limit warning appeared during either generation.</li>
+<li><strong>Which model?</strong> The app doesn't tell you which image model made the picture. Google's help page says free accounts generate with Nano Banana 2.</li>
+</ul>
+<p>Both free images are 1024 pixels wide. If you need a 2K or 4K file, that is something you get from the API, not from the free app.</p>
+<h2>Testing Nano Banana 2.1 and Pro in AI Studio</h2>
+<p>Google AI Studio lets you pick the exact model, so I ran the same two prompts on Nano Banana 2.1 and Nano Banana Pro there, both at 1K with the aspect ratio left on auto. To be transparent: this test was done on an account with a Google AI Pro subscription, without an API key connected. On that account, AI Studio produced the images without charging anything, but it also showed a notice above the Run button saying the model requires a paid API key. What AI Studio lets you do for free can vary by account and change over time, and anything you build into an app or service will need a paid key in the end.</p>
+<p>The output sizes differed from the free app. Nano Banana 2.1 returned the poster in portrait (848×1264) and the infographic at 1376×768. Pro returned both in landscape (1408×768 and 1376×768).</p>
+<h2>Free Gemini vs 2.1 vs Pro: is there a quality difference?</h2>
+<p><img loading="lazy" width="1600" height="524" alt="The same vintage travel poster prompt run on the free Gemini app, Nano Banana 2.1 and Nano Banana Pro" src="/nano-banana-pricing-poster-en.jpg" /></p>
+<p>The poster is the kind of prompt Pro is supposed to win: exact text, specific casing and a layout with small labelled elements.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Gemini app (free)</th>
+<th>Nano Banana 2.1</th>
+<th>Nano Banana Pro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title "SILVERPINE VALLEY"</td>
+<td>Correct</td>
+<td>Correct</td>
+<td>Correct</td>
+</tr>
+<tr>
+<td>Subtitle wording</td>
+<td>Correct</td>
+<td>Correct</td>
+<td>Correct</td>
+</tr>
+<tr>
+<td>Subtitle in mixed case as typed</td>
+<td>No, all caps</td>
+<td>No, all caps</td>
+<td>Yes, in a script face</td>
+</tr>
+<tr>
+<td>Three labelled icons</td>
+<td>Yes, caps</td>
+<td>Yes, caps and small</td>
+<td>Yes, mixed case in badges</td>
+</tr>
+<tr>
+<td>Hiker with red backpack at sunrise</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table></div>
+<p>All three got every word right, which is a real improvement over where image models were a year ago. The difference was in following the details: only Pro kept "Est. 1924 · Explore the Wild North" and "Hike / Camp / Stargaze" in the case I typed. If you are making a poster where the client signed off on exact copy, that matters. If you just need a nice-looking poster, the free version was arguably the most striking of the three.</p>
+<p><img loading="lazy" width="2069" height="590" alt="The same five-step coffee infographic prompt run on the free Gemini app, Nano Banana 2.1 and Nano Banana Pro" src="/nano-banana-pricing-infographic-en.jpg" /></p>
+<p>The infographic went the other way.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Gemini app (free)</th>
+<th>Nano Banana 2.1</th>
+<th>Nano Banana Pro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Five step names (Farm … Brew)</td>
+<td>All correct</td>
+<td>All correct, in caps</td>
+<td>Missing, numbers only</td>
+</tr>
+<tr>
+<td>One-line captions</td>
+<td>Correct</td>
+<td>Correct</td>
+<td>One typo ("Rosted")</td>
+</tr>
+<tr>
+<td>Consistent line icons and arrows</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Accent colour #C46B2C</td>
+<td>Used</td>
+<td>Used</td>
+<td>Used, also on the title</td>
+</tr>
+</tbody>
+</table></div>
+<p>Nano Banana Pro, the most expensive model, dropped the five step names entirely and only drew the numbers, then misspelled "Roasted" in a caption. The free app and 2.1 both delivered exactly the structure I asked for. Nano Banana 2.1's version was the cleanest of the three, with large numbers and step names that read well at a glance.</p>
+<p>So across two prompts, there was no clear winner. Pro was the most faithful on typography and casing, but it was also the only model that left out requested content. Keep in mind that this is one image per model per prompt, and image models are random: run the same prompt again and you may get a different result. What the test does show is that paying about 300% more per image for Pro does not guarantee fewer mistakes. Whatever model you use, read every word in the image before you publish it.</p>
+<h2>What does it cost for real workloads?</h2>
+<p><img loading="lazy" width="1200" height="607" alt="What does it cost for real workloads?: Workload, Images, Nano Banana 2.1, Nano Banana Pro" src="/nano-banana-pricing-what-does-it-cost-for-real-workloads-en.jpg" /></p>
+<p>Here are some common jobs, priced at standard rates.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Workload</th>
+<th>Images</th>
+<th>Nano Banana 2.1</th>
+<th>Nano Banana Pro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blog header images</td>
+<td>30 a month, 1K</td>
+<td>$1.01</td>
+<td>$4.02</td>
+</tr>
+<tr>
+<td>Shopify product shots</td>
+<td>150, 2K</td>
+<td>$7.56</td>
+<td>$20.10</td>
+</tr>
+<tr>
+<td>Daily social posts</td>
+<td>90 a month × 2 tries, 1K</td>
+<td>$6.05</td>
+<td>$24.12</td>
+</tr>
+<tr>
+<td>A thousand images</td>
+<td>1,000, 1K</td>
+<td>$33.60</td>
+<td>$134.00</td>
+</tr>
+</tbody>
+</table></div>
+<p>The social-post row assumes three posts a day for a month and two generations for each post, because the first try is not always the keeper. Send any of these through Batch and the cost is cut in half.</p>
+<p>Header images for a blog cost about a dollar a month on 2.1. Compare that with a subscription: Google AI Pro is $19.99 a month in the US, and the same $19.99 buys roughly 595 1K images from Nano Banana 2.1 through the API. The difference is convenience. The API needs code, or a key pasted into another app, while the Gemini app works the moment you open it and also gives you the chatbot, storage and everything else in the plan.</p>
+<h2>Is Nano Banana expensive compared with other image AIs?</h2>
+<p>At $0.0336 for a 1K image, Nano Banana 2.1 sits at the cheaper end of the market. OpenAI's GPT Image prices vary widely with the quality setting, from about one cent to nearly 30 cents an image, and even within Google's lineup, Pro costs about 300% more than 2.1 at 1K. To compare per-image prices across models and resolutions side by side, try the <a href="/image">AI image generation cost calculator</a>. If you want the full cross-vendor table, see <a href="/blog/ai-image-cost-per-image">AI image generation cost per image, compared</a>, and to estimate what your prompts cost in input tokens, paste them into the <a href="/">token counter</a>.</p>
+<h2>What do you need to use Nano Banana through the API?</h2>
+<p>You need an API key even if you never write code yourself, because that is how other apps and automation tools connect to Nano Banana. The setup is short.</p>
+<ol>
+<li><strong>Create an API key in Google AI Studio.</strong> Open the API keys menu (the key icon at the bottom left) and create a new key.</li>
+<li><strong>Turn on billing.</strong> Because the image models have no free tier, the Google Cloud project behind your key needs a billing account before any image call will work. Depending on where you live, sales tax or VAT may be added.</li>
+<li><strong>Set the model ID.</strong> If you are starting fresh, use gemini-nano-banana-2.1. Resolution (1K, 2K or 4K) and aspect ratio are chosen per request.</li>
+</ol>
+<p>Treat the API key like a password. If it ends up in a public GitHub repo or a blog post, anyone can generate images on your bill. Once billing is on, set a budget alert in the Google Cloud console so a runaway script can't surprise you.</p>
+<h2>How to keep Nano Banana costs down</h2>
+<ul>
+<li><strong>Draft at 1K, finish at 2K or 4K.</strong> Explore compositions at the cheapest resolution and only re-render the keepers.</li>
+<li><strong>Use Batch when you can wait.</strong> Same images, half the price.</li>
+<li><strong>Edit in conversation instead of starting over.</strong> Nano Banana 2.1 is good at multi-turn edits, so describing what to change is usually cheaper than regenerating. Long conversations do add input tokens at $1.50 per million, so start a fresh thread once an edit session drags on.</li>
+<li><strong>Save Pro for the final asset.</strong> Use it when exact typography and layout matter, then check its output as carefully as any other model's.</li>
+<li><strong>Don't pay for 4K by default.</strong> At $0.113 on 2.1 and $0.24 on Pro, 4K only makes sense for print or large displays.</li>
+</ul>
+<h2>Which Nano Banana should you use?</h2>
+<ul>
+<li><strong>Starting out, or most everyday work:</strong> Nano Banana 2.1. Google recommends it for new projects, it is cheaper than Nano Banana 2, and it goes up to 4K.</li>
+<li><strong>High volumes of 1K images, as fast as possible:</strong> Nano Banana 2 Lite. Same output price as 2.1, cheaper input, faster, but weaker at multi-turn edits and multiple references.</li>
+<li><strong>Posters, packaging and brand work where exact text styling matters:</strong> Nano Banana Pro. It costs about 300% more than 2.1 at 1K, so a common pattern is to explore with 2.1 and render only the final image on Pro.</li>
+<li><strong>Existing projects on Nano Banana 2:</strong> Google hasn't announced a shutdown date, but it now treats 2 as the previous generation. Moving to 2.1 lowers the output price; check that your input costs don't rise more than you save before you switch the model ID.</li>
+<li><strong>No budget at all:</strong> the free Gemini app. In my test it got every word right on both prompts, at 1024 pixels wide.</li>
+</ul>
+<h2>FAQ</h2>
+<p><strong>How much does Nano Banana 2.1 cost per image?</strong> On a standard request, $0.0336 at 1K, $0.0504 at 2K and $0.113 at 4K. Batch requests cost half.</p>
+<p><strong>Is there a free tier for the Nano Banana API?</strong> No. Google lists the free tier as "Not available" for every Nano Banana model. To try it for free, use the Gemini app or Google AI Studio.</p>
+<p><strong>How many images can I make on the free Gemini app?</strong> Google doesn't publish a number. Free accounts get "standard limits", which refresh every 5 hours up to a weekly cap, and image generation uses more of that allowance than text.</p>
+<p><strong>Can I still use the original Nano Banana (Gemini 2.5 Flash Image)?</strong> Not in the API. It was shut down on October 2, 2026, and calls to gemini-2.5-flash-image will fail. Google's notice points to Nano Banana 2 or 2 Lite as replacements, and 2.1 is cheaper than 2 for new work.</p>
+<p><strong>Is Nano Banana Pro worth about 300% more?</strong> It depends on the job. In my test, Pro was the only model to keep the exact casing on a poster, but it also left out the step names on an infographic and made a typo. For final, text-heavy brand assets it can be worth it; for drafts and social images, 2.1 or the free app did as well or better.</p>
+<h2>Summary</h2>
+<p>Nano Banana 2.1 is now the default, and through the API it costs $0.0336 for a 1K image, or $0.0168 with Batch. That is small enough that a blog or side project barely notices it. There is no free API tier, so start with the free Gemini app or AI Studio and move to the API once you need volume, higher resolutions or automation. Free app limits are based on usage, not image counts, and refresh every 5 hours. In my English tests, the free app, 2.1 and Pro all spelled every word correctly; Pro followed text styling best but was also the only one to drop content, so check every image whichever model you pay for.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini Developer API pricing (Google, updated 2026-10-13)</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/image-generation" target="_blank" rel="noopener">Image generation with Nano Banana (Google documentation)</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/changelog" target="_blank" rel="noopener">Gemini API release notes: Nano Banana 2.1 generally available, October 6, 2026</a></li>
+<li><a href="https://support.google.com/gemini/answer/16275805?hl=en" target="_blank" rel="noopener">Gemini app limits and upgrades for Google AI subscribers (Google Help)</a></li>
+<li><a href="https://one.google.com/intl/en_us/about/google-ai-plans/" target="_blank" rel="noopener">Google AI plans (Google One)</a></li>
+<li><a href="https://9to5google.com/2026/05/19/google-ai-ultra-100/" target="_blank" rel="noopener">Google AI Ultra now starts at $100 (9to5Google, May 19, 2026)</a></li>
+<li><a href="https://techcabal.com/2026/06/05/google-ai-subscription-plans-explained/" target="_blank" rel="noopener">Google's AI subscription plans explained (TechCabal, June 5, 2026)</a></li>
+</ul>
+<p><em>Checked on October 14, 2026. US plan prices are from the sources above. Google changes prices and limits often, so check the official pricing page before you subscribe or pay.</em></p>
+<!-- autoimg -->
