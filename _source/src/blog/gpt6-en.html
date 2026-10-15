@@ -1,120 +1,581 @@
 <p><img fetchpriority="high" width="1200" height="630" alt="OpenAI API Pricing 2026: GPT-6 Astra, Sol and Luna Costs" src="/gpt-6-api-pricing-en.jpg" /></p>
-<p>OpenAI released three GPT-6 models in September 2026: <strong>GPT-6 Astra</strong>, the flagship, on September 3, and <strong>GPT-6 Sol</strong> and <strong>GPT-6 Luna</strong> on September 22. Their API prices are very different, so picking the right one matters far more than any discount. Here are the prices, what they mean for real workloads, and how they compare with Claude and Gemini.</p>
-<h2>GPT-6 API prices</h2>
-<p><img loading="lazy" width="1200" height="544" alt="GPT-6 API prices: Model, Input, Cached input, Output" src="/gpt-6-api-pricing-gpt-6-api-prices-en.jpg" /></p>
-<p>Per million tokens:</p>
+<p>GPT-6 API pricing per 1M tokens is <strong>$0.10 input and $0.50 output for GPT-6 Luna</strong>, <strong>$2 and $10 for both GPT-6 Sol and GPT-6.1 Sol</strong>, <strong>$10 and $50 for GPT-6 Astra</strong>, and <strong>$12 and $60 for GPT-6.1 Sol Ultrafast</strong>, so GPT-6 Luna is the cheapest OpenAI GPT-6 API: 95% less than Sol. Below: every price dimension, what real requests and a month of traffic cost, how GPT-6 compares with Claude and Gemini, and which model to call.</p>
+<p>OpenAI released GPT-6 Astra on September 3, 2026, GPT-6 Sol and GPT-6 Luna on September 22, GPT-6.1 Sol on September 29, and the Ultrafast mode of GPT-6.1 Sol on October 8.</p>
+<h2>GPT-6 API pricing (per 1M tokens)</h2>
+<p><img loading="lazy" width="1200" height="775" alt="GPT-6 API pricing (per 1M tokens): Model, API name, Input, Cached input, Output, Best for" src="/gpt-6-api-pricing-gpt-6-api-pricing-per-1m-tokens-en.jpg" /></p>
+<p>OpenAI's standard API prices, in US dollars per million tokens:</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
 <th>Model</th>
-<th>Input</th>
-<th>Cached input</th>
-<th>Output</th>
+<th>API name</th>
+<th style="text-align: right;">Input</th>
+<th style="text-align: right;">Cached input</th>
+<th style="text-align: right;">Output</th>
+<th>Best for</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>GPT-6 Astra</td>
-<td>$10</td>
-<td>$1</td>
-<td>$50</td>
+<td>GPT-6 Luna</td>
+<td><code>gpt-6-luna</code></td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$0.01</td>
+<td style="text-align: right;">$0.50</td>
+<td>High-volume, simple tasks</td>
 </tr>
 <tr>
 <td>GPT-6 Sol</td>
-<td>$2</td>
-<td>$0.20</td>
-<td>$10</td>
+<td><code>gpt-6-sol</code></td>
+<td style="text-align: right;">$2.00</td>
+<td style="text-align: right;">$0.20</td>
+<td style="text-align: right;">$10.00</td>
+<td>Older; same price, pricier cache</td>
 </tr>
 <tr>
-<td>GPT-6 Luna</td>
-<td>$0.10</td>
-<td>$0.01</td>
-<td>$0.50</td>
+<td>GPT-6.1 Sol</td>
+<td><code>gpt-6.1-sol</code></td>
+<td style="text-align: right;">$2.00</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$10.00</td>
+<td>Default for apps, agents and coding</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td><code>gpt-6-astra</code></td>
+<td style="text-align: right;">$10.00</td>
+<td style="text-align: right;">$1.00</td>
+<td style="text-align: right;">$50.00</td>
+<td>Hardest reasoning and agent work</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol Ultrafast</td>
+<td><code>gpt-6.1-sol</code>, Ultrafast mode</td>
+<td style="text-align: right;">$12.00</td>
+<td style="text-align: right;">$0.60</td>
+<td style="text-align: right;">$60.00</td>
+<td>Speed when someone is waiting</td>
 </tr>
 </tbody>
 </table></div>
-<p>Astra costs 400% more than Sol. Luna is far cheaper again: $0.10 input and $0.50 output per million tokens, against $10 and $50 for Astra, in the same model family.</p>
-<p>Requests with more than 272,000 input tokens are billed at a higher rate, so very long contexts cost more than this table suggests.</p>
-<h2>How that compares with GPT-5.6</h2>
-<p>Sol and Luna launched at 50% less than the price of the models they replace. GPT-5.6 Sol was $4 input and $20 output; GPT-5.6 Luna was $0.20 and $1.20. If you are still on GPT-5.6, switching model names alone cuts the bill by 50%.</p>
-<h2>What it costs in practice</h2>
-<p><img loading="lazy" width="1200" height="828" alt="What it costs in practice: Model, One request, 10,000 requests" src="/gpt-6-api-pricing-what-it-costs-in-practice-en.jpg" /></p>
-<p>A typical request with 2,000 input tokens and 500 output tokens:</p>
+<p>Per 1,000 tokens, that is $0.0001 in and $0.0005 out on Luna, $0.002 and $0.01 on Sol, and $0.01 and $0.05 on Astra.</p>
+<ul>
+<li><strong>The model you pick is the biggest price lever.</strong> Luna costs 95% less than Sol, and Sol costs 80% less than Astra.</li>
+<li><strong>Output costs 400% more than input</strong> on every GPT-6 model, and hidden reasoning tokens are billed as output.</li>
+<li><strong>Cached input is 90% off</strong> on Luna, GPT-6 Sol and Astra, and <strong>95% off on GPT-6.1 Sol</strong>.</li>
+<li><strong>Ultrafast is a mode, not a model.</strong> It costs 500% more than standard GPT-6.1 Sol and 20% more than Astra. See <a href="/blog/gpt-6-1-sol-ultrafast-pricing">GPT-6.1 Sol Ultrafast pricing</a>.</li>
+</ul>
+<p>The rates above are OpenAI's. The long-prompt tier, Batch, Flex and Priority, Astra Ultrafast and web search prices further down come from LiteLLM's price list (October 15, 2026), because we could not load OpenAI's page for this update; confirm them on OpenAI's pricing page.</p>
+<h2>GPT-6 Sol vs GPT-6.1 Sol: which to call</h2>
+<p><img loading="lazy" width="1200" height="544" alt="GPT-6 Sol vs GPT-6.1 Sol: which to call: Request, GPT-6 Sol, GPT-6.1 Sol, Saving" src="/gpt-6-api-pricing-gpt-6-sol-vs-gpt-6-1-sol-which-to-call-en.jpg" /></p>
+<p>GPT-6.1 Sol arrived one week after GPT-6 Sol at the same list price, $2 input and $10 output. The only price change is cached input, which fell from $0.20 to $0.10 per million. According to OpenAI, 6.1 Sol is also better at coding, agent work and factual accuracy: 6.4 points higher on the DeepSWE coding benchmark and about 32% fewer factual errors at low reasoning effort.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Request</th>
+<th style="text-align: right;">GPT-6 Sol</th>
+<th style="text-align: right;">GPT-6.1 Sol</th>
+<th style="text-align: right;">Saving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chat: 2,000 in / 500 out, nothing cached</td>
+<td style="text-align: right;">$0.0090</td>
+<td style="text-align: right;">$0.0090</td>
+<td style="text-align: right;">0%</td>
+</tr>
+<tr>
+<td>Chatbot: 10,000 cached + 1,000 new in / 500 out</td>
+<td style="text-align: right;">$0.0090</td>
+<td style="text-align: right;">$0.0080</td>
+<td style="text-align: right;">11%</td>
+</tr>
+<tr>
+<td>Agent step: 45,000 cached + 5,000 new in / 1,000 out</td>
+<td style="text-align: right;">$0.0290</td>
+<td style="text-align: right;">$0.0245</td>
+<td style="text-align: right;">16%</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Call GPT-6.1 Sol.</strong> A one-off request costs the same, and anything that resends instructions, documents or history costs 11% to 16% less. LiteLLM lists identical Batch, Flex and Priority prices for both. Keep <code>gpt-6-sol</code> only for a prompt tuned to it that you haven't re-tested. Full breakdown: <a href="/blog/gpt-6-1-sol-api-pricing">GPT-6.1 Sol API pricing</a>.</p>
+<p>GPT-6.1 Sol also has two faster modes, at the prices OpenAI listed when we checked for our Ultrafast article on October 9:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>GPT-6.1 Sol mode</th>
+<th style="text-align: right;">Input</th>
+<th style="text-align: right;">Cached input</th>
+<th style="text-align: right;">Output</th>
+<th style="text-align: right;">Chat request (2,000 / 500)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard</td>
+<td style="text-align: right;">$2</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">$0.009</td>
+</tr>
+<tr>
+<td>Fast</td>
+<td style="text-align: right;">$4</td>
+<td style="text-align: right;">$0.20</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">$0.018</td>
+</tr>
+<tr>
+<td>Ultrafast</td>
+<td style="text-align: right;">$12</td>
+<td style="text-align: right;">$0.60</td>
+<td style="text-align: right;">$60</td>
+<td style="text-align: right;">$0.054</td>
+</tr>
+</tbody>
+</table></div>
+<p>OpenAI says Ultrafast runs up to 700% faster than standard Sol; pay for it only when a person is waiting. In Codex and ChatGPT Work, individuals need the Pro 500 plan for it.</p>
+<h2>GPT-6 Luna: the cheapest GPT-6 API</h2>
+<p>If you want a cheap GPT-6 API, this is it: $0.10 per million input tokens, $0.01 cached and $0.50 output. A chat request of 2,000 input and 500 output tokens costs $0.00045, so 10,000 cost $4.50, against $90 on GPT-6.1 Sol.</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
 <th>Model</th>
-<th>One request</th>
-<th>10,000 requests</th>
+<th>Input / output per 1M</th>
+<th style="text-align: right;">1 request (2,000 / 500)</th>
+<th style="text-align: right;">10,000 requests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Luna, Batch or Flex*</td>
+<td>$0.05 / $0.25</td>
+<td style="text-align: right;">$0.000225</td>
+<td style="text-align: right;">$2.25</td>
+</tr>
+<tr>
+<td>GPT-5 nano</td>
+<td>$0.05 / $0.40</td>
+<td style="text-align: right;">$0.00030</td>
+<td style="text-align: right;">$3.00</td>
+</tr>
+<tr>
+<td><strong>GPT-6 Luna</strong></td>
+<td><strong>$0.10 / $0.50</strong></td>
+<td style="text-align: right;"><strong>$0.00045</strong></td>
+<td style="text-align: right;"><strong>$4.50</strong></td>
+</tr>
+<tr>
+<td>Claude Haiku 5.5</td>
+<td>$0.10 / $0.50</td>
+<td style="text-align: right;">$0.00059</td>
+<td style="text-align: right;">$5.85</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td>$2 / $10</td>
+<td style="text-align: right;">$0.0090</td>
+<td style="text-align: right;">$90</td>
+</tr>
+</tbody>
+</table></div>
+<p>*Batch and Flex prices per LiteLLM's price list (October 15, 2026); confirm on OpenAI's pricing page. The Haiku 5.5 row allows for Claude's tokenizer, which counts about 30% more tokens for the same English text.</p>
+<ul>
+<li><strong>Only GPT-5 nano is cheaper at standard rates</strong>, and Luna through Batch or Flex undercuts it for work that can wait. See <a href="/blog/cheapest-llm-api">the cheapest LLM APIs, ranked</a>.</li>
+<li><strong>Claude Haiku 5.5 has the same list price</strong> but costs about 30% more per request because of the token count.</li>
+<li><strong>Use Luna for</strong> classification, extraction, routing, tagging, short answers and short summaries. It is also what the ChatGPT Free plan runs in Codex.</li>
+<li><strong>Move up to Sol</strong> for longer writing, multi-step reasoning and anything Luna gets wrong; a failed answer plus a retry costs more than starting on Sol.</li>
+</ul>
+<p>Head to head: <a href="/compare/gpt-6-luna-vs-gpt-6-sol">GPT-6 Luna vs GPT-6 Sol</a> · <a href="/compare/gpt-6-luna-vs-gemini-3-8-flash">GPT-6 Luna vs Gemini 3.8 Flash</a> · <a href="/compare/deepseek-v4-flash-vs-gpt-6-luna">DeepSeek V4 Flash vs GPT-6 Luna</a>.</p>
+<h2>GPT-6 Astra pricing</h2>
+<p>GPT-6 Astra, the flagship, costs $10 per million input tokens, $1 cached and $50 output: 400% more than Sol. A 2,000 / 500 chat request costs $0.045.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>GPT-6 Astra</th>
+<th style="text-align: right;">Input</th>
+<th style="text-align: right;">Cached input</th>
+<th style="text-align: right;">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard</td>
+<td style="text-align: right;">$10</td>
+<td style="text-align: right;">$1</td>
+<td style="text-align: right;">$50</td>
+</tr>
+<tr>
+<td>Prompt over 272K tokens*</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">$2</td>
+<td style="text-align: right;">$75</td>
+</tr>
+<tr>
+<td>Batch or Flex*</td>
+<td style="text-align: right;">$5</td>
+<td style="text-align: right;">–</td>
+<td style="text-align: right;">$25</td>
+</tr>
+<tr>
+<td>Priority*</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">–</td>
+<td style="text-align: right;">$100</td>
+</tr>
+<tr>
+<td>Ultrafast*</td>
+<td style="text-align: right;">$60</td>
+<td style="text-align: right;">$6</td>
+<td style="text-align: right;">$300</td>
+</tr>
+</tbody>
+</table></div>
+<p>*Per LiteLLM's price list (October 15, 2026); confirm on OpenAI's pricing page. LiteLLM gives no cached price for Batch, Flex or Priority.</p>
+<ul>
+<li><strong>Astra Ultrafast</strong> is listed at 500% more than standard Astra. Our <a href="/blog/codex-pricing">Codex pricing</a> article found an Ultrafast mode for Astra on Pro 500; the API price is LiteLLM's.</li>
+<li><strong>Astra vs 6.1 Sol Ultrafast:</strong> on a cache-heavy agent step (below), Astra costs $0.145 and 6.1 Sol Ultrafast $0.147, so the choice is intelligence or speed.</li>
+<li><strong>When Astra pays off:</strong> long agent runs, hard reasoning and tasks where a wrong answer is expensive. Send only those to Astra.</li>
+</ul>
+<p>Head to head: <a href="/compare/gpt-6-sol-vs-gpt-6-astra">GPT-6 Sol vs GPT-6 Astra</a> · <a href="/compare/gpt-6-astra-vs-claude-opus-5-5">GPT-6 Astra vs Claude Opus 5.5</a> · <a href="/compare/gpt-6-astra-vs-claude-fable-5-1">GPT-6 Astra vs Claude Fable 5.1</a>.</p>
+<h2>Long prompts: the 272K-token tier</h2>
+<p>LiteLLM lists a 922,000-token maximum input for every GPT-6 model, but once a prompt passes 272,000 input tokens, the whole request is billed at a higher rate. Per LiteLLM's price list (October 15, 2026), input and cached input cost 100% more and output 50% more; our GPT-6.1 Sol article reported the same surcharge from OpenAI's page on October 6. Confirm on OpenAI's pricing page.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model, prompt over 272K</th>
+<th style="text-align: right;">Input</th>
+<th style="text-align: right;">Cached input</th>
+<th style="text-align: right;">Output</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>GPT-6 Luna</td>
-<td>$0.00045</td>
-<td>$4.50</td>
-</tr>
-<tr>
-<td>Gemini 3.8 Flash</td>
-<td>$0.0034</td>
-<td>$34</td>
+<td style="text-align: right;">$0.20</td>
+<td style="text-align: right;">$0.02</td>
+<td style="text-align: right;">$0.75</td>
 </tr>
 <tr>
 <td>GPT-6 Sol</td>
-<td>$0.009</td>
-<td>$90</td>
+<td style="text-align: right;">$4</td>
+<td style="text-align: right;">$0.40</td>
+<td style="text-align: right;">$15</td>
 </tr>
 <tr>
-<td>Claude Sonnet 5.5</td>
-<td>$0.009</td>
-<td>$90</td>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">$4</td>
+<td style="text-align: right;">$0.20</td>
+<td style="text-align: right;">$15</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">$2</td>
+<td style="text-align: right;">$75</td>
+</tr>
+</tbody>
+</table></div>
+<p>The jump is steep. On GPT-6.1 Sol, a 250,000-token document with a 2,000-token answer costs $0.52; a 300,000-token document costs $1.23, 137% more for 20% more input. On Astra the same two cost $2.60 and $6.15. Near the line, trim the document, split it, or retrieve only the relevant parts.</p>
+<h2>Batch, Flex and Priority</h2>
+<p>GPT-6 has three more processing tiers. Input / output per million tokens, per LiteLLM's price list (October 15, 2026); confirm on OpenAI's pricing page:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">Batch</th>
+<th style="text-align: right;">Flex</th>
+<th style="text-align: right;">Standard</th>
+<th style="text-align: right;">Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">$0.05 / $0.25</td>
+<td style="text-align: right;">$0.05 / $0.25</td>
+<td style="text-align: right;">$0.10 / $0.50</td>
+<td style="text-align: right;">$0.20 / $1.00</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td style="text-align: right;">$1 / $5</td>
+<td style="text-align: right;">$1 / $5</td>
+<td style="text-align: right;">$2 / $10</td>
+<td style="text-align: right;">$4 / $20</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">$1 / $5</td>
+<td style="text-align: right;">$1 / $5</td>
+<td style="text-align: right;">$2 / $10</td>
+<td style="text-align: right;">$4 / $20</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">$5 / $25</td>
+<td style="text-align: right;">$5 / $25</td>
+<td style="text-align: right;">$10 / $50</td>
+<td style="text-align: right;">$20 / $100</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Batch: 50% off.</strong> Upload a file of requests and collect results later, typically within 24 hours. Good for tagging, bulk summaries and evaluations. See <a href="/blog/batch-api-half-price">Batch APIs: half-price AI</a>.</li>
+<li><strong>Flex: also 50% off.</strong> Check OpenAI's docs for how its speed and availability differ before using it for anything a user waits on.</li>
+<li><strong>Priority: 100% more</strong>, for traffic where speed matters more than cost.</li>
+<li><strong>Web search:</strong> LiteLLM lists the web search tool at $10 per 1,000 calls on every GPT-6 model.</li>
+</ul>
+<h2>What a request really costs</h2>
+<p>Three common requests at standard rates. These are calculations from the list prices, not measurements:</p>
+<ul>
+<li><strong>Chat reply:</strong> 2,000 input tokens (instructions, history and the question) and 500 output tokens, nothing cached.</li>
+<li><strong>RAG question:</strong> 20,000 input tokens of retrieved passages plus the question, and 500 output tokens. The passages change with every question, so nothing is cached.</li>
+<li><strong>Coding-agent step:</strong> 50,000 input tokens, 45,000 of them cached (instructions, files and earlier steps), and 1,000 output tokens. A <strong>task</strong> here is 30 such steps.</li>
+</ul>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">Chat reply</th>
+<th style="text-align: right;">RAG question</th>
+<th style="text-align: right;">Agent step</th>
+<th style="text-align: right;">Agent task (30 steps)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">$0.00045</td>
+<td style="text-align: right;">$0.00225</td>
+<td style="text-align: right;">$0.00145</td>
+<td style="text-align: right;">$0.04</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td style="text-align: right;">$0.0090</td>
+<td style="text-align: right;">$0.045</td>
+<td style="text-align: right;">$0.0290</td>
+<td style="text-align: right;">$0.87</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">$0.0090</td>
+<td style="text-align: right;">$0.045</td>
+<td style="text-align: right;">$0.0245</td>
+<td style="text-align: right;">$0.74</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">$0.045</td>
+<td style="text-align: right;">$0.225</td>
+<td style="text-align: right;">$0.145</td>
+<td style="text-align: right;">$4.35</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol Ultrafast</td>
+<td style="text-align: right;">$0.054</td>
+<td style="text-align: right;">$0.27</td>
+<td style="text-align: right;">$0.147</td>
+<td style="text-align: right;">$4.41</td>
+</tr>
+</tbody>
+</table></div>
+<p>The agent step on GPT-6.1 Sol: 5,000 new input tokens at $2 per million ($0.010), 45,000 cached at $0.10 ($0.0045) and 1,000 output at $10 ($0.010), for $0.0245.</p>
+<ul>
+<li><strong>Input can outweigh output.</strong> In the RAG question, input is 89% of the cost on Sol, even though each output token costs 400% more.</li>
+<li><strong>Caching changes agent costs.</strong> Without the cache, the agent step would cost $0.11 on GPT-6.1 Sol; caching takes 78% off.</li>
+<li><strong>The task column is a rough guide.</strong> Real steps grow as a session gets longer, and higher reasoning effort adds output.</li>
+</ul>
+<p>To price your own prompt, paste it into the <a href="/">token counter</a> or the <a href="/openai-token-counter">OpenAI token counter</a>. For agents, try the <a href="/agents">coding agent cost calculator</a>.</p>
+<h2>Monthly cost at 1,000 / 10,000 / 100,000 requests</h2>
+<p>The chat reply above (2,000 in / 500 out) at three monthly volumes:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">1,000 requests</th>
+<th style="text-align: right;">10,000 requests</th>
+<th style="text-align: right;">100,000 requests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Luna, Batch*</td>
+<td style="text-align: right;">$0.23</td>
+<td style="text-align: right;">$2.25</td>
+<td style="text-align: right;">$22.50</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">$0.45</td>
+<td style="text-align: right;">$4.50</td>
+<td style="text-align: right;">$45</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol, Batch*</td>
+<td style="text-align: right;">$4.50</td>
+<td style="text-align: right;">$45</td>
+<td style="text-align: right;">$450</td>
+</tr>
+<tr>
+<td>GPT-6 Sol or GPT-6.1 Sol</td>
+<td style="text-align: right;">$9</td>
+<td style="text-align: right;">$90</td>
+<td style="text-align: right;">$900</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align: right;">$45</td>
+<td style="text-align: right;">$450</td>
+<td style="text-align: right;">$4,500</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol Ultrafast</td>
+<td style="text-align: right;">$54</td>
+<td style="text-align: right;">$540</td>
+<td style="text-align: right;">$5,400</td>
+</tr>
+</tbody>
+</table></div>
+<p>*Batch prices per LiteLLM's price list (October 15, 2026); confirm on OpenAI's pricing page.</p>
+<p>For the 20,000-token RAG question, 100,000 requests a month cost $225 on Luna, $4,500 on Sol and $22,500 on Astra.</p>
+<h2>GPT-6 vs Claude and Gemini</h2>
+<p>At list price, GPT-6 matches Anthropic tier for tier. Input / output per million tokens, from each provider's pricing page as checked for our <a href="/blog/claude-token-cost">Claude token cost</a> article on October 11, 2026 (Gemini 3.1 Pro is a preview model; the price is for prompts up to 200K tokens):</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>OpenAI</th>
+<th>Claude</th>
+<th>Google</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cheapest</td>
+<td>GPT-6 Luna: $0.10 / $0.50</td>
+<td>Haiku 5.5: $0.10 / $0.50</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>GPT-6.1 Sol: $2 / $10</td>
+<td>Sonnet 5.5: $2 / $10</td>
+<td>Gemini 3.1 Pro: $2 / $12</td>
+</tr>
+<tr>
+<td>Top</td>
+<td>GPT-6 Astra: $10 / $50</td>
+<td>Fable 5.1: $10 / $50</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Between</td>
+<td>–</td>
+<td>Opus 5.5: $4 / $20</td>
+<td>–</td>
+</tr>
+</tbody>
+</table></div>
+<p>The same price per token doesn't give the same bill: Claude turns the same text into about 30% more tokens than GPT, and Gemini about 5% fewer. The 2,000 / 500 chat request, counted by each tokenizer:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">1 request</th>
+<th style="text-align: right;">10,000 requests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Luna</td>
+<td style="text-align: right;">$0.00045</td>
+<td style="text-align: right;">$4.50</td>
+</tr>
+<tr>
+<td>Claude Haiku 5.5</td>
+<td style="text-align: right;">$0.00059</td>
+<td style="text-align: right;">$5.85</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td style="text-align: right;">$0.0090</td>
+<td style="text-align: right;">$90</td>
 </tr>
 <tr>
 <td>Gemini 3.1 Pro</td>
-<td>$0.010</td>
-<td>$100</td>
+<td style="text-align: right;">$0.0095</td>
+<td style="text-align: right;">$95</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td style="text-align: right;">$0.0117</td>
+<td style="text-align: right;">$117</td>
 </tr>
 <tr>
 <td>Claude Opus 5.5</td>
-<td>$0.018</td>
-<td>$180</td>
+<td style="text-align: right;">$0.0234</td>
+<td style="text-align: right;">$234</td>
 </tr>
 <tr>
 <td>GPT-6 Astra</td>
-<td>$0.045</td>
-<td>$450</td>
+<td style="text-align: right;">$0.045</td>
+<td style="text-align: right;">$450</td>
+</tr>
+<tr>
+<td>Claude Fable 5.1</td>
+<td style="text-align: right;">$0.0585</td>
+<td style="text-align: right;">$585</td>
 </tr>
 </tbody>
 </table></div>
-<p>Prices for the other models are list API prices checked October 1, 2026.</p>
-<p>GPT-6 Sol costs exactly the same per token as Claude Sonnet 5.5. GPT-6 Astra costs 150% more than Claude Opus 5.5.</p>
-<h2>Which GPT-6 model should you use?</h2>
-<p><strong>GPT-6 Luna</strong> for high-volume, simple work: classification, extraction, routing, short answers, summaries of short texts. At $0.10 per million input tokens it is cheap enough to run on every request.</p>
-<p><strong>GPT-6 Sol</strong> as the default for most apps and coding work: chat assistants, writing, analysis, agents. It is the sensible middle.</p>
-<p><strong>GPT-6 Astra</strong> only where you can measure that it does better: long, multi-step agent work, hard reasoning, tasks where a mistake is expensive. Route only those requests to it.</p>
-<p>A common setup is to send everything to Sol or Luna by default and escalate to Astra when a cheaper model fails or the task is flagged as hard.</p>
-<h2>Ways to pay less</h2>
-<p><img loading="lazy" width="1200" height="898" alt="Ways to pay less: Use prompt caching. Cached input is 90% cheaper than the normal price on all three models. Put fixed instructi" src="/gpt-6-api-pricing-ways-to-pay-less-en.jpg" /></p>
+<ul>
+<li><strong>Claude Sonnet 5.5 costs about 30% more per request than GPT-6.1 Sol</strong>, and Gemini 3.1 Pro about 6% more.</li>
+<li><strong>GPT-6 Astra costs about 92% more per request than Claude Opus 5.5</strong>, and Claude Fable 5.1 about 30% more than Astra.</li>
+<li><strong>Cost per token isn't cost per task.</strong> Models spend different numbers of tokens on the same job; test on your own prompts.</li>
+</ul>
+<p>All 22 models: <a href="/blog/llm-api-pricing-comparison">LLM API pricing compared</a>. Head to head: <a href="/compare/gpt-6-sol-vs-claude-sonnet-5-5">GPT-6 Sol vs Claude Sonnet 5.5</a> · <a href="/compare/gpt-6-1-sol-vs-claude-sonnet-5-5">GPT-6.1 Sol vs Claude Sonnet 5.5</a> · <a href="/compare/gemini-3-1-pro-vs-gpt-6-sol">Gemini 3.1 Pro vs GPT-6 Sol</a>.</p>
+<h2>How to cut your GPT-6 API bill</h2>
+<p><img loading="lazy" width="1200" height="1004" alt="How to cut your GPT-6 API bill: Route by difficulty. Start on Luna, escalate hard or failed requests to 6.1 Sol and only the hardest to Astra." src="/gpt-6-api-pricing-how-to-cut-your-gpt-6-api-bill-en.jpg" /></p>
 <ol>
-<li><strong>Use prompt caching.</strong> Cached input is 90% cheaper than the normal price on all three models. Put fixed instructions and documents at the start of the prompt. See <a href="/blog/prompt-caching-explained">Prompt caching explained</a>.</li>
-<li><strong>Use the Batch API</strong> for work that can wait, typically at 50% off. See <a href="/blog/batch-api-half-price">Batch APIs</a>.</li>
-<li><strong>Keep output short.</strong> Output costs 400% more than input on every GPT-6 model.</li>
-<li><strong>Watch reasoning.</strong> Hidden reasoning tokens are billed as output. Use the lowest reasoning effort that works. See <a href="/blog/reasoning-models-cost">Reasoning models</a>.</li>
-<li><strong>Write prompts in English.</strong> On the GPT tokenizer, the same prompt uses about 44% more tokens in Korean and 79% more in Japanese than in English.</li>
+<li><strong>Route by difficulty.</strong> Start on Luna, escalate hard or failed requests to 6.1 Sol and only the hardest to Astra. At 100,000 chat requests, 80% on Luna and 20% on 6.1 Sol costs $216 against $900 all on Sol: 76% less.</li>
+<li><strong>Move to GPT-6.1 Sol.</strong> Same list price as GPT-6 Sol, with a 50% lower cache price. If you are still on GPT-5.6 Sol ($4 / $20), switching cuts the per-token price by 50%; moving from GPT-5.6 Luna ($0.20 / $1.20) to GPT-6 Luna cuts input by 50% and output by 58%. See <a href="/compare/gpt-5-6-vs-gpt-6-sol">GPT-5.6 vs GPT-6 Sol</a>.</li>
+<li><strong>Cache everything that repeats.</strong> Fixed instructions, tools and documents first, the changing part last; cached reads are 90% to 95% off. See <a href="/blog/prompt-caching-explained">Prompt caching explained</a>.</li>
+<li><strong>Batch work that can wait.</strong> Batch and Flex are 50% off, per LiteLLM's list.</li>
+<li><strong>Keep output and reasoning short.</strong> Reasoning tokens are billed as output. Use the lowest reasoning effort that works. See <a href="/blog/reasoning-models-cost">Reasoning models and cost</a>.</li>
+<li><strong>Stay under 272K tokens</strong> per prompt.</li>
+<li><strong>Skip Priority and Ultrafast</strong> unless someone is waiting.</li>
+<li><strong>Prompt in English if you can.</strong> On the GPT tokenizer, Korean uses about 44% more tokens and Japanese 79% more. See <a href="/blog/token-cost-by-language">token cost by language</a>.</li>
 </ol>
-<h2>GPT-6 in ChatGPT plans</h2>
-<p>You do not need the API to use GPT-6. GPT-6 Astra is available to ChatGPT Pro, Business Premium and Enterprise users, and is rolling out to Plus, first in ChatGPT's Work section and Codex. For heavy use, a plan can be much cheaper than paying Astra's API rate. Compare in the <a href="/plans">Subscription vs API calculator</a>.</p>
-<h2>Calculate your own cost</h2>
-<p>Paste a typical prompt into the <a href="/">token counter</a> to see its exact token count on GPT models and its cost on every GPT-6 model, Claude and Gemini side by side.</p>
-<p><em>Prices change. Check <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener">OpenAI's pricing page</a> before a large job.</em></p>
+<p>For your own coding, a ChatGPT plan can beat the API: Codex includes GPT-6 Luna on Free and the full GPT-6 line from Plus ($20 a month). Compare in <a href="/blog/codex-pricing">Codex pricing</a> and the <a href="/plans">subscription vs API calculator</a>.</p>
+<h2>FAQ</h2>
+<p><strong>How much does the GPT-6 API cost?</strong>
+Per million tokens: GPT-6 Luna $0.10 input and $0.50 output, GPT-6 Sol and GPT-6.1 Sol $2 and $10, GPT-6 Astra $10 and $50, and GPT-6.1 Sol Ultrafast $12 and $60. Cached input is $0.01, $0.20, $0.10, $1 and $0.60 respectively.</p>
+<p><strong>What is the cheapest GPT-6 API?</strong>
+GPT-6 Luna, at $0.10 input and $0.50 output per million tokens: about $0.00045 for a 2,000-token prompt with a 500-token answer. Per LiteLLM's price list, Batch and Flex bring that down to $0.05 and $0.25.</p>
+<p><strong>Is GPT-6.1 Sol more expensive than GPT-6 Sol?</strong>
+No. Both cost $2 input and $10 output per million tokens. GPT-6.1 Sol's cached input is cheaper, $0.10 against $0.20, so it costs the same or less on every request.</p>
+<p><strong>How much does GPT-6 Astra cost?</strong>
+$10 per million input tokens, $1 cached and $50 output, 400% more than Sol: about $0.045 for a typical chat request. Per LiteLLM, prompts over 272,000 tokens cost $20 / $75 and Batch $5 / $25.</p>
+<p><strong>Does GPT-6 cost more for long prompts?</strong>
+Yes. Per LiteLLM's price list, once a prompt passes 272,000 input tokens the whole request is billed 100% more for input and 50% more for output, on every GPT-6 model.</p>
+<p><strong>Is GPT-6 cheaper than Claude?</strong>
+At list price they tie: Luna matches Haiku 5.5, 6.1 Sol matches Sonnet 5.5 and Astra matches Fable 5.1. Per request GPT-6 usually costs less, because Claude turns the same English text into about 30% more tokens.</p>
+<p><em>Prices checked October 15, 2026 (core prices match OpenAI's pricing page as of our October 11 check; tier details from LiteLLM).</em></p>
 <h2>Sources</h2>
 <ul>
-<li><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener">OpenAI Help: ChatGPT release notes</a></li>
-<li><a href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener">OpenAI: GPT-6 Astra model and pricing</a></li>
-<li><a href="https://developers.openai.com/api/docs/models/gpt-6-sol" target="_blank" rel="noopener">OpenAI: GPT-6 Sol model and pricing</a></li>
-<li><a href="https://developers.openai.com/api/docs/models/gpt-6-luna" target="_blank" rel="noopener">OpenAI: GPT-6 Luna model and pricing</a></li>
+<li><a href="https://openai.com/api/pricing/" target="_blank" rel="noopener">OpenAI: API pricing</a></li>
+<li><a href="https://platform.openai.com/docs/pricing" target="_blank" rel="noopener">OpenAI: API docs pricing</a></li>
+<li><a href="https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json" target="_blank" rel="noopener">LiteLLM: model prices and context windows (GitHub)</a></li>
 <li><a href="https://openai.com/index/introducing-gpt-6-sol-and-luna/" target="_blank" rel="noopener">OpenAI: Introducing GPT-6 Sol and Luna</a></li>
+<li><a href="https://openai.com/index/introducing-gpt-6-1-sol/" target="_blank" rel="noopener">OpenAI: Introducing GPT-6.1 Sol</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener">OpenAI: GPT-6 Astra model page</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-sol" target="_blank" rel="noopener">OpenAI: GPT-6 Sol model page</a></li>
+<li><a href="https://developers.openai.com/api/docs/models/gpt-6-luna" target="_blank" rel="noopener">OpenAI: GPT-6 Luna model page</a></li>
 <li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Claude API pricing</a></li>
 <li><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini API pricing</a></li>
+<li>Our related posts: <a href="/blog/gpt-6-1-sol-api-pricing">GPT-6.1 Sol API pricing</a> · <a href="/blog/gpt-6-1-sol-ultrafast-pricing">GPT-6.1 Sol Ultrafast pricing</a> · <a href="/blog/claude-token-cost">Claude token cost</a> · <a href="/blog/cheapest-llm-api">The cheapest LLM APIs</a> · <a href="/blog/codex-pricing">Codex pricing</a></li>
 </ul>
 <!-- autoimg -->

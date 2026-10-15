@@ -274,12 +274,13 @@ CMP = [
 ]
 GPT6 = [
  _cc("en", "/blog/gpt-6-api-pricing", "gpt6-en", "OpenAI API Pricing 2026: GPT-6 Astra, Sol and Luna Costs",
-     "GPT-6 Astra, Sol and Luna API prices per million tokens, real cost per request, comparison with Claude and Gemini, and which to use.", _BY["en"], *_CTA_TK["en"]),
+     "GPT-6 API pricing: Luna $0.10/$0.50, Sol and 6.1 Sol $2/$10, Astra $10/$50 per 1M tokens. Cached, long-prompt and Batch rates, cost per request, vs Claude.", _BY["en"], *_CTA_TK["en"]),
  _cc("ko", "/ko/blog/gpt-6-api-gagyeok", "gpt6-ko", "GPT-6 API 가격 정리: Astra·Sol·Luna 비교와 실제 비용",
      "GPT-6 Astra·Sol·Luna의 100만 토큰당 API 가격, 요청당 실제 비용, Claude·Gemini 비교, 어떤 모델을 쓸지 정리했습니다.", _BY["ko"], *_CTA_TK["ko"]),
  _cc("ja", "/ja/blog/gpt-6-api-ryoukin", "gpt6-ja", "GPT-6 の API 料金まとめ：Astra・Sol・Luna の比較と実際の費用",
      "GPT-6 Astra・Sol・Luna の100万トークンあたり API 料金、リクエストあたりの実費、Claude・Gemini との比較、どのモデルを使うか。", _BY["ja"], *_CTA_TK["ja"]),
 ]
+GPT6[0]["updated"] = "2026-10-15"  # en rewritten: every price dimension, worked costs
 
 API_CMP = [
  _cc("en", "/blog/llm-api-pricing-comparison", "api-en", "LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek",
@@ -784,7 +785,11 @@ CTC = [
      "Claude token prices in 2026: Sonnet 5.5 $2/$10, Opus 5.5 $4/$20, Haiku 5.5 $0.10/$0.50 per million. Per-token and per-message costs, plus measured runs.",
      "Jonhisking · October 11, 2026", "Paste any prompt to see its exact token count and cost on Claude, GPT and Gemini.", "Open the token counter"),
 ]
+CTC.append(_cc("ko", "/ko/blog/claude-api-gagyeok", "ctc-ko", "클로드 API 가격 2026: 토큰당 비용·원화·결제 방법",
+     "클로드 API 가격 2026: 100만 토큰당 소넷 5.5 $2/$10, 오퍼스 5.5 $4/$20, 하이쿠 5.5 $0.10/$0.50. 원화 환산, 메시지당 비용, 크레딧 충전·영수증·환불 불가 규정까지 정리.",
+     "Jonhisking · 2026년 10월 15일", *_CTA_TK["ko"]))
 for _d in CTC: _d["date"] = "2026-10-11"
+CTC[-1]["date"] = "2026-10-15"  # ko published later
 
 PLUSPRO = [
  _cc("en", "/blog/chatgpt-plus-vs-pro", "plusvspro-en", "ChatGPT Plus vs Pro (2026): $20 vs $100, $200 and $500",

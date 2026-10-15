@@ -255,6 +255,9 @@ def build_all(llm):
                         f'against {per_m(o["inp"])} and {per_m(o["out"])} for {esc(o["name"])}. See '
                         f'<a href="{path(models[swap[0]], models[swap[1]])}">{esc(models[swap[0]]["name"])} vs {esc(models[swap[1]]["name"])}</a>.</p>')
                 pg["body"] = pg["body"].replace("<h2>API prices</h2>", note + "\n      <h2>API prices</h2>", 1)
+        if any(m.startswith("gpt-6") for m in (x, y)):  # GPT-6 pairs link the full GPT-6 price list
+            pg["body"] = pg["body"].replace("<h2>Monthly cost</h2>", '<p>Every GPT-6 model and rate, including cached input, the long-prompt tier and Batch: '
+                                            '<a href="/blog/gpt-6-api-pricing">GPT-6 API pricing</a>.</p>\n      <h2>Monthly cost</h2>', 1)
         if (x, y) in IN_DEPTH:  # an article tests this pair in depth: point to it so the two pages don't compete
             href, label = IN_DEPTH[(x, y)]
             pg["body"] = pg["body"].replace("<h2>API prices</h2>", f'<p>Hands-on test: <a href="{href}">{esc(label)}</a>.</p>\n      <h2>API prices</h2>', 1)
