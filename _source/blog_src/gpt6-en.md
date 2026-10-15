@@ -227,7 +227,7 @@ Yes. Per LiteLLM's price list, once a prompt passes 272,000 input tokens the who
 **Is GPT-6 cheaper than Claude?**
 At list price they tie: Luna matches Haiku 5.5, 6.1 Sol matches Sonnet 5.5 and Astra matches Fable 5.1. Per request GPT-6 usually costs less, because Claude turns the same English text into about 30% more tokens.
 
-*Prices checked October 15, 2026 (core prices match OpenAI's pricing page as of our October 11 check; tier details from LiteLLM).*
+*Core prices from our checks of OpenAI's pricing page, October 2–11, 2026; long-prompt, Batch, Flex, Priority and web search figures from LiteLLM's price list, October 15, 2026.*
 
 ## Sources
 

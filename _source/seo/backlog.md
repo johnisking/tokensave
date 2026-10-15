@@ -49,6 +49,8 @@
 - [ ] `/compare/` 29쌍: 수요 있는 쌍만 실측·출처 보강, 4주 노출 0인 쌍은 합치거나 noindex (판단 시점: 11월 둘째 주)
 
 ## P2 — 후속
+- [ ] 토크나이저 보정 불일치: 10/15 재작성한 `gpt6-en`은 모델별 토크나이저 차이를 반영(Claude 약 30% 많음, Gemini 약 5% 적음)해서 Gemini 3.1 Pro 1만 요청 약 $95, Astra는 Opus 5.5보다 약 92% 비쌈. `api-en`(LLM API 가격 비교) 등 보정하지 않은 글은 $100, 약 150%로 적혀 있음 — 한 방식으로 통일
+- [ ] `/agents` title·설명의 "Claude Code·Codex" 반영: 나머지 38개 언어. 일본어 공유 이미지(og-agents-ja.jpg)는 이 환경 폰트 차이로 다시 만들지 않아 예전 설명 그대로
 - [~] Claude Haiku 5.5 반영 — 토큰 카운터·/plans 완료(10/14). `/compare/`(P1 #4), `src/variants.py` Claude 토큰 카운터 설명, `/agents` 남음
 - [ ] 게임 계산기 외 도구(토큰 카운터·/plans·/agents·/video·/image)에도 GA4 이벤트 추가 — 지금은 `gamecost.js`만 이벤트를 보내 도구별 비교 불가 (코드 작업, 사용자 요청 시)
 - [ ] 굵은 글씨 FAQ(**질문?** 다음 줄 답)도 FAQPage 구조화 데이터로 뽑기 (`build.py` `_qa`)
