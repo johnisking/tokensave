@@ -42,7 +42,7 @@ T = {
 "en": dict(
   title="Claude Code Usage Analyzer – Also Codex & Cursor Cost",
   desc="Open your Claude Code or Codex log folder, or a Cursor usage CSV, and see the tokens and API-equivalent cost by day, project and model. Runs in your browser.",
-  badge="New · free · nothing uploaded", h1="Claude Code Usage Analyzer",
+  badge="New · free · nothing uploaded", h1="Usage Analyzer", h1sub="Claude Code · Codex · Cursor analyzer",
   sub="See how many tokens Claude Code, Codex and Cursor really used and what that would cost at API prices, by day, project and model, and whether your plan pays off.",
   privacy="Your files are read inside this browser tab. Nothing is sent to our server or anyone else. Close the tab and it's gone.",
   pickTitle="1. Open your usage logs",
@@ -97,7 +97,7 @@ T = {
 "ko": dict(
   title="Claude Code 사용량 분석기 – Codex·Cursor 비용도 확인",
   desc="Claude Code·Codex 기록 폴더나 Cursor 사용량 CSV를 넣으면 쓴 토큰과 API 환산 비용을 날짜·프로젝트·모델별로 보여 줍니다. 브라우저 안에서만 계산합니다.",
-  badge="새 기능 · 무료 · 업로드 없음", h1="Claude Code 사용량 분석기",
+  badge="새 기능 · 무료 · 업로드 없음", h1="사용량 분석기", h1sub="Claude Code · Codex · Cursor 분석기",
   sub="Claude Code·Codex·Cursor가 실제로 쓴 토큰과 API 요금으로 환산한 비용을 날짜·프로젝트·모델별로 보고, 내 요금제가 이득인지 확인하세요.",
   privacy="파일은 이 브라우저 탭 안에서만 읽습니다. 저희 서버나 다른 곳으로 아무것도 보내지 않고, 탭을 닫으면 사라집니다.",
   pickTitle="1. 사용 기록 열기",
@@ -152,7 +152,7 @@ T = {
 "ja": dict(
   title="Claude Code 使用量アナライザー – Codex・Cursor の費用も確認",
   desc="Claude Code・Codex の記録フォルダか Cursor の使用量 CSV を入れると、使ったトークンと API 換算の費用を日付・プロジェクト・モデル別に表示。ブラウザ内だけで計算します。",
-  badge="新機能 · 無料 · アップロードなし", h1="Claude Code 使用量アナライザー",
+  badge="新機能 · 無料 · アップロードなし", h1="使用量アナライザー", h1sub="Claude Code・Codex・Cursor アナライザー",
   sub="Claude Code・Codex・Cursor が実際に使ったトークンと、API 料金に換算した費用を日付・プロジェクト・モデル別に確認し、プランがお得か比べられます。",
   privacy="ファイルはこのブラウザのタブの中だけで読み込みます。当サイトのサーバーやほかの場所には何も送らず、タブを閉じれば消えます。",
   pickTitle="1. 使用記録を開く",
@@ -208,10 +208,14 @@ T = {
 
 from ccusage_i18n import extra as _extra
 T.update(_extra(CHECKED))
+from ccusage_deep import DEEP as _DEEP, RUNTIME as _DEEP_RT
 PATH.update({"tr": f"/tr/{SLUG}", "uk": f"/uk/{SLUG}", "zh-CN": f"/zh-cn/{SLUG}"})
 
 RUNTIME = ["copy", "copied", "reading", "readDone", "noData", "kTokSub", "kDaysSub", "thName", "thReq", "thTok", "thCost", "thShare",
-           "plApi", "planLine", "planWin", "planLose", "planApi", "unpriced", "m_other"]
+           "plApi", "planLine", "planWin", "planLose", "planApi", "unpriced", "m_other"] + _DEEP_RT
+for _l in T:
+    T[_l].update(_DEEP[_l])
+    T[_l]["planTitle"] = T[_l]["planTitle"].replace("3.", "4.", 1)
 
 
 def _seg(id_, opts, active):
@@ -255,6 +259,7 @@ def build_page(lang):
     body = f'''    <header class="text-center mb-8">
       <div class="flex justify-center"><div class="inline-flex items-center gap-2 text-xs font-medium text-violet-300 bg-violet-500/10 border border-violet-500/20 rounded-full px-3 py-1 mb-4"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>{e("badge")}</div></div>
       <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-white via-violet-200 to-indigo-300 bg-clip-text text-transparent leading-tight pb-1">{e("h1")}</h1>
+      <p class="mt-2 text-base sm:text-lg font-semibold text-violet-300">{e("h1sub")}</p>
       <p class="mt-3 text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">{e("sub")}</p>
       <p class="mt-4 text-sm text-emerald-200/90 max-w-2xl mx-auto border border-emerald-500/30 bg-emerald-500/5 rounded-xl px-4 py-3 text-start">🔒 {e("privacy")}</p>
     </header>
@@ -295,6 +300,18 @@ def build_page(lang):
       </div>
       <p id="ccUnpriced" class="text-[11px] text-amber-300/80 mt-3" hidden></p>
       <div class="mt-4 flex justify-end"><button id="ccCsv" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-violet-500/40 bg-violet-500/10 text-violet-200 hover:bg-violet-500/20">⬇ {e("csv")}</button></div>
+    </section>
+
+    <section id="ccDeep" class="{CARD} mt-5" hidden>
+      <h2 class="text-xs uppercase tracking-wider text-zinc-500 font-semibold">{e("dTitle")}</h2>
+      <p class="text-sm text-zinc-400 mt-2 mb-4">{e("dSub")}</p>
+      <h3 class="text-sm font-bold text-zinc-100 mb-3">💡 {e("cardsTitle")}</h3>
+      <div id="ccCards" class="grid grid-cols-1 lg:grid-cols-2 gap-3"></div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-6">
+        <div class="min-w-0"><h3 class="text-xs font-semibold text-zinc-400 mb-2">{e("dToolTitle")}</h3><div id="ccDeepTable" class="overflow-x-auto"></div></div>
+        <div class="min-w-0"><h3 class="text-xs font-semibold text-zinc-400 mb-2">{e("heavyTitle")}</h3><div id="ccHeavy" class="overflow-x-auto"></div></div>
+      </div>
+      <p class="text-[11px] text-zinc-500 mt-3">{e("dNote")}</p>
     </section>
 
     <section class="{CARD} mt-5">

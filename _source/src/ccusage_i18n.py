@@ -7,7 +7,7 @@ def extra(checked):
 "tr": dict(
   title="Claude Code Kullanım Analizi – Codex ve Cursor Maliyeti de",
   desc="Claude Code veya Codex kayıt klasörünü ya da Cursor kullanım CSV'sini açın; token ve API karşılığı maliyeti gün, proje ve modele göre görün. Tarayıcıda çalışır.",
-  badge="Yeni · ücretsiz · hiçbir şey yüklenmez", h1="Claude Code Kullanım Analizi",
+  badge="Yeni · ücretsiz · hiçbir şey yüklenmez", h1="Kullanım Analizi", h1sub="Claude Code · Codex · Cursor analizi",
   sub="Claude Code, Codex ve Cursor'un gerçekte kaç token kullandığını, bunun API fiyatlarıyla ne tutacağını gün, proje ve modele göre görün; aboneliğinizin kârlı olup olmadığını öğrenin.",
   privacy="Dosyalarınız yalnızca bu tarayıcı sekmesinde okunur. Sunucumuza ya da başka bir yere hiçbir şey gönderilmez. Sekmeyi kapattığınızda silinir.",
   pickTitle="1. Kullanım kayıtlarını açın",
@@ -63,7 +63,7 @@ def extra(checked):
 "uk": dict(
   title="Аналізатор використання Claude Code – також Codex і Cursor",
   desc="Відкрийте папку журналів Claude Code чи Codex або CSV використання Cursor і подивіться токени та вартість за цінами API за днями, проєктами й моделями. Працює в браузері.",
-  badge="Нове · безкоштовно · нічого не завантажується", h1="Аналізатор використання Claude Code",
+  badge="Нове · безкоштовно · нічого не завантажується", h1="Аналізатор використання", h1sub="Аналізатор Claude Code · Codex · Cursor",
   sub="Дізнайтеся, скільки токенів насправді використали Claude Code, Codex і Cursor, скільки це коштувало б за цінами API за днями, проєктами й моделями, і чи окупається ваша підписка.",
   privacy="Файли читаються лише в цій вкладці браузера. Нічого не надсилається на наш сервер чи кудись іще. Закрийте вкладку — і дані зникнуть.",
   pickTitle="1. Відкрийте журнали використання",
@@ -119,7 +119,7 @@ def extra(checked):
 "zh-CN": dict(
   title="Claude Code 用量分析器 – 也支持 Codex 和 Cursor 费用",
   desc="打开 Claude Code 或 Codex 的日志文件夹，或 Cursor 用量 CSV，按日期、项目和模型查看 token 用量与按 API 价格折算的费用。全部在浏览器中计算。",
-  badge="新功能 · 免费 · 不上传任何内容", h1="Claude Code 用量分析器",
+  badge="新功能 · 免费 · 不上传任何内容", h1="用量分析器", h1sub="Claude Code · Codex · Cursor 分析器",
   sub="查看 Claude Code、Codex 和 Cursor 实际用了多少 token，按 API 价格折算要花多少钱（按日期、项目和模型），以及订阅是否划算。",
   privacy="文件只在这个浏览器标签页里读取，不会发送到我们的服务器或任何地方。关闭标签页后就会消失。",
   pickTitle="1. 打开用量日志",

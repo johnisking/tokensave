@@ -340,7 +340,7 @@ from gamecost_i18n import NAV as _GCN, EXTRA as _GCX
 GC_NAV.update(_GCN)
 GC_HREF = {"ko": "/ko/ai-game-cost-calculator", "ja": "/ja/ai-game-cost-calculator", **{t_: f"/{s_}/ai-game-cost-calculator" for t_, (s_, _) in _GCX.items()}}
 
-CC_NAV = {"en": "Claude Code usage", "ko": "Claude Code 사용량", "ja": "Claude Code 使用量", "tr": "Claude Code kullanımı", "uk": "Використання Claude Code", "zh-CN": "Claude Code 用量"}
+CC_NAV = {"en": "Usage analyzer", "ko": "사용량 분석기", "ja": "使用量アナライザー", "tr": "Kullanım analizi", "uk": "Аналізатор використання", "zh-CN": "用量分析器"}
 CC_HREF = {"en": "/claude-code-usage", "ko": "/ko/claude-code-usage", "ja": "/ja/claude-code-usage", "tr": "/tr/claude-code-usage", "uk": "/uk/claude-code-usage", "zh-CN": "/zh-cn/claude-code-usage"}
 
 FEEDBACK = {"en": "Ideas or a bug? Email", "ko": "개선 제안·오류 제보", "ja": "改善のご提案・不具合のご報告", "zh-CN": "改进建议・问题反馈", "zh-TW": "改進建議・問題回報",
@@ -398,7 +398,7 @@ def render(base, body, values):
         cl = values["htmlLang"]
         here = values.get("url", "").endswith("claude-code-usage")
         values = dict(values, toolNav=values["toolNav"] + f'\n          <a href="{CC_HREF[cl]}" class="{NAV_ON if here else NAV_OFF}"'
-                      + (' aria-current="page"' if here else '') + f'>🔥 {esc(CC_NAV[cl])}</a>')
+                      + (' aria-current="page"' if here else '') + f'>{esc(CC_NAV[cl])}</a>')
     if "toolNav" in values:  # blog link in the top menu, in the page language
         bl = values.get("htmlLang", "en")
         bslug = "" if bl == "en" else bl.lower()
