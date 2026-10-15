@@ -894,3 +894,9 @@ NBKO.append(_cc("en", "/blog/nano-banana-pricing", "nbprice-en", "Nano Banana Pr
      "Nano Banana API cost per image for 2.1, 2, Lite and Pro, Batch discounts, free Gemini app limits, and a free vs 2.1 vs Pro image test.",
      "Jonhisking · October 15, 2026", "Pick a model, resolution and image count to compare Nano Banana with other image AIs.", "Open the image cost calculator"))
 NBKO[-1]["date"] = "2026-10-15"
+
+# 2026-10-15 Veo 3.1 price / free Flow credits (ko, ja)
+VEO = [_cc("ko", "/ko/blog/veo-3-1-gagyeok", "veo-ko", "Veo 3.1 가격과 무료 사용법: Flow 하루 50크레딧 실측",
+     "Veo 3.1 API 초당 가격(Standard·Fast·Lite), 제미나이 앱 요금제별 동영상 생성 여부, Google Flow 무료 하루 50크레딧으로 직접 만든 결과와 영상 1개 비용.",
+     "Jonhisking · 2026년 10월 15일", "길이와 해상도를 넣고 Veo와 다른 영상 AI의 비용을 한 번에 비교해 보세요.", "AI 영상 비용 계산기 열기")]
+VEO[0]["date"] = "2026-10-15"

@@ -248,5 +248,25 @@
    "zenmux.ai (Nano Banana API cost)": 620
   },
   "note": "approximate, words; median of top 3 = 2500"
+ },
+ "veo-ko": {
+  "keyword": "veo3 가격",
+  "checked": "2026-10-15",
+  "median": 2150,
+  "samples": {
+   "wikidocs.net/337378 (Veo 3 접속 방법)": 2200,
+   "lovart.ai/ko (Veo 3.1 무료 사용법)": 2100
+  },
+  "note": "approximate, chars without spaces; aireiter ko not fetchable"
+ },
+ "veo-ja": {
+  "keyword": "veo3 料金",
+  "checked": "2026-10-15",
+  "median": 5400,
+  "samples": {
+   "crystal-method.com/blog/veo-pricing": 8500,
+   "luft.co.jp/media (Veo3 使い方)": 2300
+  },
+  "note": "approximate, chars"
  }
 }
