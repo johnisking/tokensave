@@ -904,3 +904,27 @@ VEO.append(_cc("ja", "/ja/blog/veo-3-1-ryoukin", "veo-ja", "Veo 3.1 料金と無
      "Veo 3.1 の API 料金（Standard・Fast・Lite の秒単価）、Gemini アプリのプラン別の動画生成可否、Google Flow の無料クレジット毎日50で実際に作った結果と動画1本の費用。",
      "Jonhisking · 2026年10月15日", "長さと解像度を入れて、Veo とほかの動画 AI の費用をまとめて比べてみましょう。", "AI 動画コスト計算ツールを開く"))
 VEO[-1]["date"] = "2026-10-15"
+
+# Claude Code usage analyzer launch post (real logs: Claude Code, Codex, Cursor), 6 languages
+CCUSE = [
+ _cc("en", "/blog/check-claude-code-usage", "ccuse-en", "How to Check Claude Code, Codex and Cursor Usage and Cost (2026)",
+     "Where Claude Code records usage, 4 ways to check it, and 17 days of real logs: 95% cache reads, $145.90 at API prices vs Max 5x. Codex and Cursor too.",
+     "Jonhisking · October 15, 2026", "Open your ~/.claude/projects folder and see your own cost by day, project and model. Nothing is uploaded.", "Open the usage analyzer"),
+ _cc("ko", "/ko/blog/claude-code-sayongnyang-hwagin", "ccuse-ko", "Claude Code·Codex·Cursor 사용량 확인법과 실제 비용",
+     "Claude Code 사용량이 기록되는 위치, 확인 방법 4가지, 실제 17일 기록 분석: 토큰 95%가 캐시 읽기, API 환산 $145.90 vs Max 5×. Codex·Cursor 사용량까지.",
+     "Jonhisking · 2026년 10월 15일", "~/.claude/projects 폴더를 넣고 내 비용을 날짜·프로젝트·모델별로 확인해 보세요. 업로드는 없습니다.", "사용량 분석기 열기"),
+ _cc("ja", "/ja/blog/claude-code-shiyouryou-kakunin", "ccuse-ja", "Claude Code・Codex・Cursor の使用量と費用を確認する方法",
+     "Claude Code の使用量が記録される場所、確認する4つの方法、実際の17日分の記録の分析：トークンの95％がキャッシュ読み込み、API 換算145.90ドルと Max 5× の比較。Codex・Cursor も。",
+     "Jonhisking · 2026年10月15日", "~/.claude/projects フォルダを入れて、自分の費用を日付・プロジェクト・モデル別に確認しましょう。アップロードはしません。", "使用量アナライザーを開く"),
+ _cc("tr", "/tr/blog/claude-code-kullanim-takibi", "ccuse-tr", "Claude Code, Codex ve Cursor kullanımı ve maliyeti nasıl görülür?",
+     "Claude Code kullanımı nerede kaydedilir, 4 kontrol yolu ve 17 günlük gerçek kayıt: tokenlerin %95'i önbellek, API karşılığı 145,90 $ ve Max 5×.",
+     "Jonhisking · 15 Ekim 2026", "~/.claude/projects klasörünü yükleyin, maliyetinizi gün, proje ve modele göre görün. Hiçbir şey yüklenmez.", "Kullanım analizini aç"),
+ _cc("uk", "/uk/blog/vykorystannia-claude-code", "ccuse-uk", "Як перевірити використання й вартість Claude Code, Codex і Cursor",
+     "Де Claude Code записує використання, 4 способи перевірки і 17 днів реальних журналів: 95% токенів — кеш, 145,90 $ за цінами API проти Max 5×.",
+     "Jonhisking · 15 жовтня 2026", "Завантажте папку ~/.claude/projects і подивіться свою вартість за днями, проєктами й моделями. Нічого не надсилається.", "Відкрити аналізатор"),
+ _cc("zh-CN", "/zh-cn/blog/claude-code-yongliang", "ccuse-zhcn", "如何查看 Claude Code、Codex 和 Cursor 的用量与费用",
+     "Claude Code 用量记录在哪里、4 种查看方法，以及 17 天真实日志分析：95% 的 token 是缓存读取，按 API 折算 145.90 美元，对比 Max 5×。也支持 Codex 和 Cursor。",
+     "Jonhisking · 2026 年 10 月 15 日", "放入 ~/.claude/projects 文件夹，按日期、项目和模型查看你自己的费用。不会上传任何内容。", "打开用量分析器"),
+]
+for _b in CCUSE:
+    _b["date"] = "2026-10-15"

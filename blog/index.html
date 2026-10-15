@@ -117,6 +117,7 @@
       <p><a href="/compare/">Model vs model API cost comparisons →</a></p>
       <ul class="not-prose mt-6 grid gap-3" style="list-style:none;padding:0">
       <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="/blog/nano-banana-pricing" class="block no-underline" style="text-decoration:none"><span class="block font-semibold text-zinc-100">Nano Banana Pricing &amp; Free Limits (2026)</span><span class="block mt-1 text-sm text-zinc-400">Nano Banana API cost per image for 2.1, 2, Lite and Pro, Batch discounts, free Gemini app limits, and a free vs 2.1 vs Pro image test.</span></a></li>
+      <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="/blog/check-claude-code-usage" class="block no-underline" style="text-decoration:none"><span class="block font-semibold text-zinc-100">How to Check Claude Code, Codex and Cursor Usage and Cost (2026)</span><span class="block mt-1 text-sm text-zinc-400">Where Claude Code records usage, 4 ways to check it, and 17 days of real logs: 95% cache reads, $145.90 at API prices vs Max 5x. Codex and Cursor too.</span></a></li>
       <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="/blog/chatgpt-usage-limits" class="block no-underline" style="text-decoration:none"><span class="block font-semibold text-zinc-100">ChatGPT Usage Limits 2026: Every Plan and the 5-Hour Window</span><span class="block mt-1 text-sm text-zinc-400">ChatGPT usage limits for Free, Go, Plus, Pro and Business: what is unlimited, GPT-6 Pro caps, the Work and Codex 5-hour window, resets and fixes.</span></a></li>
       <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="/blog/indie-game-development-cost" class="block no-underline" style="text-decoration:none"><span class="block font-semibold text-zinc-100">Indie Game Development Cost: Solo Dev Budget, Fees, Real $20 Case</span><span class="block mt-1 text-sm text-zinc-400">Indie game development cost for solo devs: free engines, store fees ($25 Google Play, $100 Steam, $99/yr Apple), outsourcing vs AI, and a real $20 game.</span></a></li>
       <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="/blog/deepseek-api-pricing" class="block no-underline" style="text-decoration:none"><span class="block font-semibold text-zinc-100">DeepSeek API Pricing 2026: Official Rates, Peak Hours, API Key</span><span class="block mt-1 text-sm text-zinc-400">DeepSeek API pricing in 2026 from the official docs: V4.1 Flash and V4 Pro rates, peak and off-peak hours, how to get an API key, and real workload costs.</span></a></li>
@@ -265,6 +266,7 @@
         <li><a href="/tr/blog/gemini-ucretsiz-flash-lite" lang="tr">Türkçe: Gemini ücretsiz artık Flash-Lite: 9 Ekim değişikliği ve fiyatlar</a></li>
         <li><a href="/tr/blog/chatgpt-ucretsiz-mi-ucretli-mi" lang="tr">Türkçe: ChatGPT ücretsiz mi ücretli mi? Planlar ve TL fiyatları 2026</a></li>
         <li><a href="/tr/blog/claude-opus-5-5-effort" lang="tr">Türkçe: Claude Opus 5.5 effort seviyeleri test edildi: low&#x27;dan max&#x27;e</a></li>
+        <li><a href="/tr/blog/claude-code-kullanim-takibi" lang="tr">Türkçe: Claude Code, Codex ve Cursor kullanımı ve maliyeti nasıl görülür?</a></li>
         <li><a href="/cs/blog/cestina-tokeny-gpt" lang="cs">Čeština: Čeština v GPT stojí o 100 % víc tokenů než angličtina</a></li>
         <li><a href="/el/blog/tokens-ellinika-gpt" lang="el">Ελληνικά: Τα ελληνικά στο GPT θέλουν 106% περισσότερα tokens από τα αγγλικά — από τις ακριβότερες ανάμεσα σε 41 γλώσσες</a></li>
         <li><a href="/ru/blog/tokeny-russkiy-gpt" lang="ru">Русский: Русскому в GPT нужно на 32% больше токенов, чем английскому</a></li>
@@ -275,6 +277,7 @@
         <li><a href="/uk/blog/chatgpt-bezkoshtovno-chy-platno" lang="uk">Українська: ChatGPT безкоштовно чи платно 2026: різниця і ціни в Україні з ПДВ</a></li>
         <li><a href="/uk/blog/claude-opus-5-5-effort" lang="uk">Українська: Claude Opus 5.5: тест рівнів effort від low до max</a></li>
         <li><a href="/uk/blog/claude-sonnet-5-5-vs-opus-5-5" lang="uk">Українська: Claude Sonnet 5.5 проти Opus 5.5: тест на однаковому запиті</a></li>
+        <li><a href="/uk/blog/vykorystannia-claude-code" lang="uk">Українська: Як перевірити використання й вартість Claude Code, Codex і Cursor</a></li>
         <li><a href="/he/blog/tokens-ivrit-gpt" lang="he">עברית: עברית ב-GPT צורכת 56% יותר טוקנים מאנגלית</a></li>
         <li><a href="/ur/blog/token-urdu-gpt" lang="ur">اردو: GPT میں اردو، انگریزی سے 59% زیادہ ٹوکن لیتی ہے</a></li>
         <li><a href="/ar/blog/tokens-arabic-gpt" lang="ar">العربية: العربية في GPT تستهلك رموزًا أكثر من الإنجليزية بنسبة 26%</a></li>
@@ -326,9 +329,11 @@
         <li><a href="/ja/blog/claude-code-tsukaikata" lang="ja">日本語: Claude Code の使い方｜インストールから最初の指示まで実画面で解説</a></li>
         <li><a href="/ja/blog/nano-banana-ryoukin" lang="ja">日本語: Nano Banana 料金：API は1枚約5円、無料版の上限も（2026）</a></li>
         <li><a href="/ja/blog/veo-3-1-ryoukin" lang="ja">日本語: Veo 3.1 料金と無料の使い方：Flow 毎日50クレジットで実測</a></li>
+        <li><a href="/ja/blog/claude-code-shiyouryou-kakunin" lang="ja">日本語: Claude Code・Codex・Cursor の使用量と費用を確認する方法</a></li>
         <li><a href="/zh-cn/blog/zhongwen-token-gpt" lang="zh-CN">简体中文: 简体中文在 GPT 中的 Token 数几乎与英文相同（仅多 3%）</a></li>
         <li><a href="/zh-cn/blog/chatgpt-mianfei-vs-fufei" lang="zh-CN">简体中文: ChatGPT 免费版和付费版区别（2026）：Go、Plus、Pro 怎么选？</a></li>
         <li><a href="/zh-cn/blog/claude-opus-5-5-effort" lang="zh-CN">简体中文: Claude Opus 5.5 effort 实测：从 low 到 max</a></li>
+        <li><a href="/zh-cn/blog/claude-code-yongliang" lang="zh-CN">简体中文: 如何查看 Claude Code、Codex 和 Cursor 的用量与费用</a></li>
         <li><a href="/zh-tw/blog/zhongwen-fanti-token-gpt" lang="zh-TW">繁體中文: 繁體中文在 GPT 中比英文多用 35% Token</a></li>
         <li><a href="/zh-tw/blog/gemini-mianfei-flash-lite" lang="zh-TW">繁體中文: Gemini 免費版 10/9 起只剩 Flash-Lite：各方案變動與價格</a></li>
         <li><a href="/zh-tw/blog/ai-dingyue-jiage-bijiao" lang="zh-TW">繁體中文: AI 訂閱價格比較：ChatGPT・Claude・Gemini・Grok（台灣 2026）</a></li>
@@ -371,6 +376,7 @@
         <li><a href="/ko/blog/roblox-game-mandeulgi" lang="ko">한국어: 로블록스 게임 만들기: 스튜디오 설치부터 AI로 첫 게임까지 (2026)</a></li>
         <li><a href="/ko/blog/nano-banana-gagyeok" lang="ko">한국어: 나노바나나 가격: API 1장 45원, 무료 한도 총정리 (2026)</a></li>
         <li><a href="/ko/blog/veo-3-1-gagyeok" lang="ko">한국어: Veo 3.1 가격과 무료 사용법: Flow 하루 50크레딧 실측</a></li>
+        <li><a href="/ko/blog/claude-code-sayongnyang-hwagin" lang="ko">한국어: Claude Code·Codex·Cursor 사용량 확인법과 실제 비용</a></li>
       </ul>
     </section>
 

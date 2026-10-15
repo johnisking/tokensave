@@ -268,5 +268,60 @@
    "luft.co.jp/media (Veo3 使い方)": 2300
   },
   "note": "approximate, chars"
+ },
+ "ccuse-en": {
+  "keyword": "claude code usage",
+  "checked": "2026-10-15",
+  "median": 2200,
+  "samples": {
+   "seawork.ai/en/blogs/claude-code-usage": 1665,
+   "claudefa.st usage-optimization": 2733
+  },
+  "note": "approximate, words"
+ },
+ "ccuse-ko": {
+  "keyword": "claude code 사용량 확인",
+  "checked": "2026-10-15",
+  "median": 1736,
+  "samples": {
+   "tilnote.io": 1097,
+   "velog yardyard": 1736,
+   "apidog.com/kr": 5466
+  },
+  "note": "approximate, chars"
+ },
+ "ccuse-ja": {
+  "keyword": "claude code 使用量 確認",
+  "checked": "2026-10-15",
+  "median": 4443,
+  "samples": {
+   "zenn.dev/rescuenow": 4443
+  },
+  "note": "approximate, chars"
+ },
+ "ccuse-tr": {
+  "keyword": "claude code kullanım",
+  "checked": "2026-10-15",
+  "median": 1287,
+  "samples": {
+   "apidog.com/tr/blog/claude-code-usage-monitor": 1287
+  },
+  "note": "approximate, words"
+ },
+ "ccuse-uk": {
+  "keyword": "перевірити використання claude code",
+  "checked": "2026-10-15",
+  "median": 1082,
+  "samples": {
+   "agentsroom.dev/uk/blog/how-to-check-claude-code-token-usage": 1082
+  },
+  "note": "approximate, words"
+ },
+ "ccuse-zhcn": {
+  "keyword": "claude code 用量 查看",
+  "checked": "2026-10-15",
+  "median": 1736,
+  "samples": {},
+  "note": "no Chinese article in top results (only English/Japanese); Korean median used as proxy, chars"
  }
 }
