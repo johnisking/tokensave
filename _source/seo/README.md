@@ -8,13 +8,17 @@
 | `analyze.py` | 서치콘솔·GA4 CSV 분석 → 기회 키워드, CTR 낮은 쿼리, 언어별·섹션별 성과 |
 | `data/gsc/` | 서치콘솔 내보내기 파일 (아래 방법) |
 | `data/ga4/` | GA4 보고서 CSV |
-| `data/prev/` | 지난번 데이터 (기간 비교용, 같은 구조) |
-| `reports/` | 날짜별 보고서 `YYYY-MM-DD-*.md` |
+| `data/prev/<날짜>/` | 지난번 데이터 (기간 비교용, 같은 구조: `gsc/`, `ga4/`) |
+| `reports/` | 실제 트래픽 숫자가 없는 보고서(기술 점검·콘텐츠 분석) `YYYY-MM-DD-*.md` |
+| `private/` | 서치콘솔·GA4 숫자가 들어간 보고서 — **git에 올리지 않음** (저장소가 공개라서) |
 | `backlog.md` | SEO 팀 할 일 목록 (우선순위순) |
 
 팀 구성과 실행 방법: `.claude/agents/seo-*.md`, 실행 명령 `/seo-report`.
 
 ## 데이터 넣는 법 (매주 1회, 5분)
+
+> 저장소가 공개라서 `data/` 안의 CSV와 `private/`는 `.gitignore`로 git에서 빠집니다. 클라우드 세션에서는 대화에 파일을 첨부해 주면 됩니다.
+> 비교하려면 **기간을 "사용자 지정"으로** 맞춰 주세요(예: 지난번 끝난 다음 날부터). "지난 3개월"은 매번 창이 달라 비교가 어긋납니다.
 
 ### 1) Search Console
 1. search.google.com/search-console → 속성 `tokensave.app` → **실적(검색 결과)**

@@ -11,7 +11,7 @@ Reads:
   data/ga4/*.csv            any GA4 report download (Reports > Share > Download CSV)
 Prints a Markdown report. Stdlib only.
 """
-import argparse, csv, glob, io, os, re, sys
+import argparse, csv, glob, io, math, os, re, sys
 from collections import defaultdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -62,12 +62,33 @@ def find(d, *names):
 
 def gsc_load(d):
     return {
-        "queries": gsc_table(find(d, "Queries.csv", "쿼리.csv", "검색어.csv")),
+        "queries": gsc_table(find(d, "Queries.csv", "검색어 수.csv", "쿼리.csv", "검색어.csv")),
         "pages": gsc_table(find(d, "Pages.csv", "페이지.csv")),
         "countries": gsc_table(find(d, "Countries.csv", "국가.csv")),
         "devices": gsc_table(find(d, "Devices.csv", "기기.csv")),
-        "dates": gsc_table(find(d, "Dates.csv", "날짜.csv")),
+        "dates": gsc_table(find(d, "Dates.csv", "차트.csv", "날짜.csv")),
     }
+
+
+def min_impr(rows, floor, cap=None):
+    """Impression threshold scaled to the export: the 75th percentile, at least `floor` (young sites have tiny numbers)."""
+    v = sorted(r["impr"] for r in rows)
+    t = max(floor, v[int(len(v) * 0.75)] if v else floor)
+    return min(t, cap) if cap else t
+
+
+def p_at_most(clicks, impr, exp_ctr):
+    """Poisson probability of getting at most `clicks` clicks if the true CTR were the expected one for the position."""
+    lam = impr * exp_ctr
+    term = total = math.exp(-lam)
+    for k in range(1, int(clicks) + 1):
+        term *= lam / k
+        total += term
+    return total
+
+
+def expected_ctr(pos):
+    return CTR_CURVE.get(max(1, round(pos)), 0.01 if pos <= 20 else 0.003)
 
 
 def fmt(n):
@@ -111,7 +132,16 @@ def gsc_report(g, prev):
         pc, pi = sum(r["clicks"] for r in pb), sum(r["impr"] for r in pb)
         rows += [["Clicks vs previous", f"{clicks - pc:+,.0f} ({(clicks - pc) / pc:+.0%})" if pc else "-"],
                  ["Impressions vs previous", f"{impr - pi:+,.0f} ({(impr - pi) / pi:+.0%})" if pi else "-"]]
+    if q and p:
+        qi = sum(r["impr"] for r in q)
+        rows.append(["Impressions covered by the query table", f"{qi / impr:.0%} (the rest are anonymized queries)" if impr else "-"])
     table(["Metric", "Value"], rows)
+    if p and impr:
+        for r in p:
+            if r["impr"] / impr > 0.25:
+                oc, oi = clicks - r["clicks"], impr - r["impr"]
+                print(f"**One page dominates:** {short(r['key'])} has {r['impr'] / impr:.0%} of all impressions "
+                      f"at {r['ctr']:.2%} CTR. Without it: {fmt(oc)} clicks / {fmt(oi)} impressions, CTR {oc / oi:.2%}.\n" if oi else "")
 
     if g["dates"]:
         d = sorted(g["dates"], key=lambda r: r["key"])
@@ -144,25 +174,51 @@ def gsc_report(g, prev):
             sect[k][0] += r["clicks"]; sect[k][1] += r["impr"]
         table(["Section", "Clicks", "Impr."], [[k, fmt(v[0]), fmt(v[1])] for k, v in sect.items()])
 
-    if q:
+    if p or q:
         print("## 2. Opportunities\n")
-        striking = [r for r in q if 4 <= r["pos"] <= 20 and r["impr"] >= 20]
-        striking.sort(key=lambda r: -r["impr"])
-        print("### Striking distance (position 4–20, ≥20 impressions) — improve the ranking page\n")
+    if p:
+        t = min_impr(p, 20)
+        print(f"Page tables use pages with at least {fmt(t)} impressions (75th percentile, minimum 20).\n")
+        low = []
+        for r in p:
+            e = expected_ctr(r["pos"])
+            if r["impr"] >= t and r["pos"] <= 20:
+                pr = p_at_most(r["clicks"], r["impr"], e)
+                if pr < 0.10:
+                    low.append((r, e, pr))
+        low.sort(key=lambda x: x[2])
+        print("### Pages with too few clicks for their position (title/description candidates)\n")
+        print("Flagged when this few clicks would happen less than 10% of the time at a typical CTR for the position.\n")
+        table(["Page", "Impr.", "Clicks", "Pos.", "Expected CTR", "Chance"],
+              [[short(r["key"]), fmt(r["impr"]), fmt(r["clicks"]), f"{r['pos']:.1f}", f"{e:.0%}", f"{pr:.0%}"] for r, e, pr in low[:20]])
+        striking = sorted([r for r in p if 4 <= r["pos"] <= 20 and r["impr"] >= t], key=lambda r: -r["impr"])
+        print("### Pages in striking distance (position 4–20) — strengthen to reach the top 3\n")
+        table(["Page", "Impr.", "Clicks", "CTR", "Pos."],
+              [[short(r["key"]), fmt(r["impr"]), fmt(r["clicks"]), f"{r['ctr']:.1%}", f"{r['pos']:.1f}"] for r in striking[:20]])
+        deep = sorted([r for r in p if r["pos"] > 20 and r["impr"] >= t], key=lambda r: -r["impr"])
+        print("### Pages shown but ranked below 20 — content too thin for the query, or the wrong page ranks\n")
+        table(["Page", "Impr.", "Pos."], [[short(r["key"]), fmt(r["impr"]), f"{r['pos']:.1f}"] for r in deep[:20]])
+    if q:
+        tq = min_impr(q, 5, cap=20)
+        print(f"Query tables use queries with at least {fmt(tq)} impressions.\n")
+        striking = sorted([r for r in q if 4 <= r["pos"] <= 20 and r["impr"] >= tq], key=lambda r: -r["impr"])
+        print("### Queries in striking distance (position 4–20) — improve the ranking page\n")
         table(["Query", "Impr.", "Clicks", "CTR", "Pos."],
               [[r["key"], fmt(r["impr"]), fmt(r["clicks"]), f"{r['ctr']:.1%}", f"{r['pos']:.1f}"] for r in striking[:25]])
         low = []
         for r in q:
-            exp = CTR_CURVE.get(max(1, round(r["pos"])))
-            if exp and r["impr"] >= 50 and r["ctr"] < exp * 0.5:
-                low.append((r, exp))
-        low.sort(key=lambda x: -x[0]["impr"])
-        print("### Low CTR for their position (title/description rewrite candidates)\n")
-        table(["Query", "Impr.", "CTR", "Expected ~", "Pos."],
-              [[r["key"], fmt(r["impr"]), f"{r['ctr']:.1%}", f"{e:.0%}", f"{r['pos']:.1f}"] for r, e in low[:20]])
-        deep = sorted([r for r in q if r["pos"] > 20 and r["impr"] >= 30], key=lambda r: -r["impr"])
+            e = expected_ctr(r["pos"])
+            if r["impr"] >= tq and r["pos"] <= 20:
+                pr = p_at_most(r["clicks"], r["impr"], e)
+                if pr < 0.10:
+                    low.append((r, e, pr))
+        low.sort(key=lambda x: x[2])
+        print("### Queries with too few clicks for their position\n")
+        table(["Query", "Impr.", "Clicks", "Pos.", "Expected CTR", "Chance"],
+              [[r["key"], fmt(r["impr"]), fmt(r["clicks"]), f"{r['pos']:.1f}", f"{e:.0%}", f"{pr:.0%}"] for r, e, pr in low[:20]])
+        deep = sorted([r for r in q if r["pos"] > 20 and r["impr"] >= tq], key=lambda r: -r["impr"])
         print("### Demand we barely rank for (position >20) — new or deeper content\n")
-        table(["Query", "Impr.", "Pos."], [[r["key"], fmt(r["impr"]), f"{r['pos']:.1f}"] for r in deep[:20]])
+        table(["Query", "Impr.", "Pos."], [[r["key"], fmt(r["impr"]), f"{r['pos']:.1f}"] for r in deep[:25]])
         if prev and prev.get("queries"):
             old = {r["key"]: r for r in prev["queries"]}
             moves = []
