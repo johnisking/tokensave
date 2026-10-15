@@ -16786,6 +16786,7 @@
     <loc>https://tokensave.app/ko/blog/veo-3-1-gagyeok</loc>
     <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/veo-3-1-gagyeok"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/veo-3-1-ryoukin"/>
     <image:image>
       <image:loc>https://tokensave.app/veo-3-1-gagyeok-ko.jpg</image:loc>
     </image:image>
@@ -16815,6 +16816,33 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/veo-3-1-gagyeok-ko-5.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/blog/veo-3-1-ryoukin</loc>
+    <lastmod>2026-10-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/veo-3-1-gagyeok"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/veo-3-1-ryoukin"/>
+    <image:image>
+      <image:loc>https://tokensave.app/veo-3-1-ryoukin-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/veo-3-1-ryoukin-veo-3-1-api-1-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/veo-3-1-ryoukin-gemini-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/veo-3-1-ryoukin-bigyo-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/veo-3-1-ryoukin-gemini-app-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/veo-3-1-ryoukin-ja-4.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/veo-3-1-ryoukin-ja-5.jpg</image:loc>
     </image:image>
   </url>
   <url>

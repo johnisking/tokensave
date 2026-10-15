@@ -900,3 +900,7 @@ VEO = [_cc("ko", "/ko/blog/veo-3-1-gagyeok", "veo-ko", "Veo 3.1 가격과 무료
      "Veo 3.1 API 초당 가격(Standard·Fast·Lite), 제미나이 앱 요금제별 동영상 생성 여부, Google Flow 무료 하루 50크레딧으로 직접 만든 결과와 영상 1개 비용.",
      "Jonhisking · 2026년 10월 15일", "길이와 해상도를 넣고 Veo와 다른 영상 AI의 비용을 한 번에 비교해 보세요.", "AI 영상 비용 계산기 열기")]
 VEO[0]["date"] = "2026-10-15"
+VEO.append(_cc("ja", "/ja/blog/veo-3-1-ryoukin", "veo-ja", "Veo 3.1 料金と無料の使い方：Flow 毎日50クレジットで実測",
+     "Veo 3.1 の API 料金（Standard・Fast・Lite の秒単価）、Gemini アプリのプラン別の動画生成可否、Google Flow の無料クレジット毎日50で実際に作った結果と動画1本の費用。",
+     "Jonhisking · 2026年10月15日", "長さと解像度を入れて、Veo とほかの動画 AI の費用をまとめて比べてみましょう。", "AI 動画コスト計算ツールを開く"))
+VEO[-1]["date"] = "2026-10-15"
