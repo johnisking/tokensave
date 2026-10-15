@@ -88,7 +88,7 @@ VERIFY = {
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC, DIST, TW = os.path.join(ROOT, "src"), os.path.join(ROOT, "dist"), os.path.join(ROOT, "tw")
-JS_FILES = ["common.js", "token.js", "video.js", "image.js", "plans.js", "agents.js", "gamecost.js"]
+JS_FILES = ["common.js", "token.js", "video.js", "image.js", "plans.js", "agents.js", "gamecost.js", "ccusage.js"]
 DEV_POST = "https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m"
 BLOG_BY_TAG = {b["tag"]: b for b in BLOG}
 MORE_CLS = "inline-block whitespace-nowrap font-semibold text-amber-300 underline underline-offset-2 decoration-amber-400/40 hover:text-white"
@@ -340,6 +340,9 @@ from gamecost_i18n import NAV as _GCN, EXTRA as _GCX
 GC_NAV.update(_GCN)
 GC_HREF = {"ko": "/ko/ai-game-cost-calculator", "ja": "/ja/ai-game-cost-calculator", **{t_: f"/{s_}/ai-game-cost-calculator" for t_, (s_, _) in _GCX.items()}}
 
+CC_NAV = {"en": "Claude Code usage", "ko": "Claude Code 사용량", "ja": "Claude Code 使用量", "tr": "Claude Code kullanımı", "uk": "Використання Claude Code", "zh-CN": "Claude Code 用量"}
+CC_HREF = {"en": "/claude-code-usage", "ko": "/ko/claude-code-usage", "ja": "/ja/claude-code-usage", "tr": "/tr/claude-code-usage", "uk": "/uk/claude-code-usage", "zh-CN": "/zh-cn/claude-code-usage"}
+
 FEEDBACK = {"en": "Ideas or a bug? Email", "ko": "개선 제안·오류 제보", "ja": "改善のご提案・不具合のご報告", "zh-CN": "改进建议・问题反馈", "zh-TW": "改進建議・問題回報",
     "es": "¿Ideas o errores? Escríbenos", "pt": "Sugestões ou erros? Escreva para", "fr": "Une idée ou un bug ? Écrivez à", "de": "Ideen oder Fehler? Schreib an",
     "it": "Idee o errori? Scrivi a", "ru": "Идеи или ошибки? Пишите на", "uk": "Ідеї чи помилки? Пишіть на", "tr": "Öneri veya hata? Yazın",
@@ -391,6 +394,11 @@ def render(base, body, values):
         href = GC_HREF.get(gl, "/ai-game-cost-calculator")
         values = dict(values, toolNav=values["toolNav"] + f'\n          <a href="{href}" class="{NAV_ON if here else NAV_OFF}"'
                       + (' aria-current="page"' if here else '') + f'>🎮 {esc(GC_NAV[gl])}</a>')
+    if "toolNav" in values and values.get("htmlLang") in CC_NAV:
+        cl = values["htmlLang"]
+        here = values.get("url", "").endswith("claude-code-usage")
+        values = dict(values, toolNav=values["toolNav"] + f'\n          <a href="{CC_HREF[cl]}" class="{NAV_ON if here else NAV_OFF}"'
+                      + (' aria-current="page"' if here else '') + f'>🔥 {esc(CC_NAV[cl])}</a>')
     if "toolNav" in values:  # blog link in the top menu, in the page language
         bl = values.get("htmlLang", "en")
         bslug = "" if bl == "en" else bl.lower()
@@ -720,6 +728,39 @@ def build():
         os.makedirs(os.path.dirname(fp), exist_ok=True)
         open(fp, "w", encoding="utf-8").write(render(base, gp["body"], values))
 
+    # Claude Code usage analyzer (/claude-code-usage + ko/ja)
+    import ccusage as CCU
+    CC_ALTS = "\n".join(f'  <link rel="alternate" hreflang="{l}" href="{BASE}{p}" />' for l, p in CCU.PATH.items()) + \
+        f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}{CCU.PATH["en"]}" />'
+    for cl in CCU.PATH:
+        cp = CCU.build_page(cl)
+        slug = tag_slug_[cl]
+        url = BASE + cp["path"]
+        nav = "\n".join(f'          <a href="{path_for(slug, t)}" class="{NAV_OFF}">{esc(NAV[cl][t["nav"]])}</a>' for t in TOOLS)
+        _ccp = {tag_slug_[l]: p for l, p in CCU.PATH.items()}
+        opts, opts_all = lang_menu(slug, cl, lambda sl: _ccp.get(sl) or path_for(sl, TOOLS[0]))
+        ld = {"@context": "https://schema.org", "@graph": [
+            {"@type": "WebApplication", "name": cp["h1"], "url": url, "inLanguage": cl, "applicationCategory": "DeveloperApplication",
+             "operatingSystem": "Any", "isAccessibleForFree": True, "description": cp["desc"], "dateModified": CCU.CHECKED,
+             "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+             "publisher": {"@type": "Organization", "@id": BASE + "/#org", "name": "TokenSave", "url": BASE + "/"}},
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + path_for(slug, TOOLS[0])},
+                {"@type": "ListItem", "position": 2, "name": cp["h1"], "item": url}]}, cp["faq_ld"]]}
+        og_name = f"og-ccusage-{cl}.jpg"
+        og_tool.render(cl, "agents", cp["h1"], cp["desc"], os.path.join(DIST, og_name), os.path.join(SRC, "static", "apple-touch-icon.png"))
+        values = dict(
+            htmlLang=cl, dir="ltr", url=url, ogLocale=tag_og_[cl], ogImage=f"{BASE}/{og_name}",
+            title=esc(cp["title"]), desc=esc(cp["desc"]), lang=esc(S[cl]["lang"]),
+            homeUrl=path_for(slug, TOOLS[0]), hreflang=CC_ALTS, langOptions=opts, langAll=opts_all, toolNav=nav, ver=ver, adsHead=extras,
+            faq="", guide="", f1="", f2="", fAbout=esc(SITE[cl]["fAbout"]), fPrivacy=esc(SITE[cl]["fPrivacy"]),
+            ldjson=js(ld), tjson=js({"static": True, "cc": cp["cc"]}),
+            scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>\n  <script type="module" src="/ccusage.js?v={ver}"></script>',
+        )
+        fp = os.path.join(DIST, cp["path"].lstrip("/") + ".html")
+        os.makedirs(os.path.dirname(fp), exist_ok=True)
+        open(fp, "w", encoding="utf-8").write(render(base, cp["body"], values))
+
     # Price chart for the API-pricing articles (one chart per highlight set, localized alt/caption)
     _cm = CMPG.load_models(LLM)
     _ids = ["claude-fable-5-1", "gpt-6-astra", "claude-opus-5-5", "gemini-4-argon", "gemini-3-1-pro", "gpt-6-sol",
@@ -922,6 +963,10 @@ def build():
         f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}{GC.PATH["en"]}"/>'
     for p_ in GC.PATH.values():
         entries.append(f"\n  <url>\n    <loc>{BASE}{p_}</loc>\n    <lastmod>{GC.CHECKED}</lastmod>{gc_x}\n  </url>")
+    cc_x = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{BASE}{p}"/>' for l, p in CCU.PATH.items()) + \
+        f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE}{CCU.PATH["en"]}"/>'
+    for p_ in CCU.PATH.values():
+        entries.append(f"\n  <url>\n    <loc>{BASE}{p_}</loc>\n    <lastmod>{CCU.CHECKED}</lastmod>{cc_x}\n  </url>")
     for bt in BLOG_IDX:
         entries.append(f"\n  <url>\n    <loc>{BASE}/{tag_slug_[bt]}/blog/</loc>\n    <lastmod>{max(modified(b) for b in blog_lang_posts(bt))}</lastmod>\n  </url>")
     open(os.path.join(DIST, "sitemap.xml"), "w", encoding="utf-8").write(
