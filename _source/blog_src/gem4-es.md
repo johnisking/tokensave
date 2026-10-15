@@ -13,13 +13,15 @@ Precios por millón de tokens. Empieza con un precio de lanzamiento y después p
 | Lanzamiento | $2 | ~$0,10 | $10 |
 | Estándar | $4 | ~$0,20 | $20 |
 
-La entrada en caché tiene un 95% de descuento, algo que se nota mucho si envías una y otra vez las mismas instrucciones o documentos. Google no ha dicho cuánto durará el precio de lanzamiento.
+La entrada en caché tiene un 95% de descuento, algo que se nota mucho si envías una y otra vez las mismas instrucciones o documentos. Según el [anuncio de Google](https://x.com/Google/status/2110041305925484716) y la [cobertura del lanzamiento](https://venturebeat.com/technology/google-makes-gemini-4-argon-broadly-available-with-limited-time-low-api-pricing-of-2-10-per-1m-token), el precio de lanzamiento dura hasta el 30 de noviembre de 2026; desde el 1 de diciembre se aplica el precio estándar. Consulta la [página de precios de Google](https://ai.google.dev/gemini-api/docs/pricing) para ver la tarifa vigente.
 
 Argon también puede **generar hasta 1 millón de tokens** en una sola respuesta. Eso sí, una salida larga cuesta en proporción: 1 millón de tokens de salida son $20 por respuesta con el precio estándar.
 
 ## ¿Ya se puede usar?
 
-Todavía no. Por ahora solo está disponible para los socios del programa de ciberdefensa Fairwind de Google, y después llegará a los suscriptores de Google AI Ultra y a los clientes de pago de la API. El identificador del modelo en la API sería `gemini-4-argon`, pero aún no aparece en la documentación oficial.
+Sí. Desde el 13 de octubre de 2026, Gemini 4 Argon está disponible para desarrolladores en la API de Gemini (Google AI Studio) y para los suscriptores de Google AI Pro y Ultra en la app de Gemini, según el [anuncio de Google](https://x.com/Google/status/2110041305925484716) y [9to5Google](https://9to5google.com/2026/10/13/gemini-app-4-argon/). En la API solo es de pago: según la prensa, Argon no tiene nivel gratuito. El identificador del modelo es `gemini-4-argon`.
+
+*Actualizado el 15 de octubre de 2026: cuando se publicó este artículo el 3 de octubre, Argon solo estaba disponible para los socios del programa Fairwind de Google.*
 
 ## Cómo se compara
 
@@ -77,4 +79,7 @@ Ya puedes elegir Gemini 4 Argon en el [contador de tokens](/es/), con el precio 
 - [Precios de la API de Gemini](https://ai.google.dev/gemini-api/docs/pricing)
 - [Precios de la API de OpenAI](https://developers.openai.com/api/docs/pricing)
 - [Precios de la API de Claude](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Google en X: disponibilidad y precio de lanzamiento de Gemini 4 Argon](https://x.com/Google/status/2110041305925484716)
+- [9to5Google: llegada de Gemini 4 Argon (13 de octubre de 2026)](https://9to5google.com/2026/10/13/gemini-app-4-argon/)
+- [VentureBeat: Gemini 4 Argon disponible para todos](https://venturebeat.com/technology/google-makes-gemini-4-argon-broadly-available-with-limited-time-low-api-pricing-of-2-10-per-1m-token)
 <!-- autoimg -->

@@ -351,8 +351,8 @@ _CTA_G4 = {"en": ("Paste a prompt to compare its cost on Gemini 4 Argon, GPT-6 a
 def _g4(tag, path, title, desc, by):
     d = _cc(tag, path, "gem4-" + tag, title, desc, by, *_CTA_G4[tag]); d["date"] = "2026-10-03"; return d
 GEM4 = [
- _g4("en", "/blog/gemini-4-argon-api-pricing", "Gemini 4 Argon API Pricing: Cost vs GPT-6 and Claude",
-     "Gemini 4 Argon API prices ($2/$10 intro, $4/$20 standard), cost per request, availability, and how it compares with GPT-6 and Claude.",
+ _g4("en", "/blog/gemini-4-argon-api-pricing", "Gemini 4 Argon API Pricing 2026: $2/$10 Intro, $4/$20 Standard",
+     "Gemini 4 Argon API pricing: $2/$10 per million tokens until November 30, then $4/$20. Now on the paid Gemini API. Cost per request vs GPT-6 and Claude.",
      "Jonhisking · October 3, 2026"),
  _g4("ko", "/ko/blog/gemini-4-argon-api-gagyeok", "제미나이 4 아르곤 API 가격: GPT-6·Claude와 비용 비교",
      "Gemini 4 Argon의 API 가격(출시가 $2/$10, 정가 $4/$20), 요청당 실제 비용, 출시 일정, GPT-6·Claude와의 비교를 정리했습니다.",
@@ -364,6 +364,8 @@ GEM4 = [
      "Precios de la API de Gemini 4 Argon ($2/$10 de lanzamiento, $4/$20 estándar), costo por petición, disponibilidad y comparación con GPT-6 y Claude.",
      "Jonhisking · 3 de octubre de 2026"),
 ]
+for _b in GEM4:  # availability (GA 10/13) and intro-price end date (11/30) added
+    _b["updated"] = "2026-10-15"
 
 # Spanish versions (added 2026-10-03)
 _BY["es"] = "Jonhisking · 3 de octubre de 2026"

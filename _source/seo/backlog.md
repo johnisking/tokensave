@@ -17,13 +17,15 @@
 - [ ] GA4 → BigQuery 내보내기 켜기 (이후 자동 분석)
 
 ## P1 — 이번 주 (2026-10-15 보고서 Top 5, 효과 × 쉬움 순)
-- [ ] **1. 순위 대비 클릭이 적은 페이지 제목 테스트**: `gemini-4-argon-api-pricing` title·description에 가격 숫자 넣기 — `src/blog_meta.py` (GEM4 en). `gpt-6-1-sol-ultrafast-pricing`은 표본 검정 미통과라 관찰만. Gemini 4 Argon 본문의 "아직 사용 불가"(10/03 기준) 상태부터 재확인. 10/11~12 발행 API 가격 글(deepseek·grok·claude-pro-price·claude-token-cost)은 손대지 않고 관찰
+- [x] **1. 순위 대비 클릭이 적은 페이지 제목 테스트** (2026-10-15): `gemini-4-argon-api-pricing` title·description에 가격 숫자. 같이 고침: 10/13 정식 출시(보도·구글 X 게시물 기준), 출시가 11/30까지·12/1 정가 — en·ko·ja·es 4개 언어, `updated` 10/15. `gpt-6-1-sol-ultrafast-pricing`은 표본 검정 미통과라 관찰만. Gemini 4 Argon 본문의 "아직 사용 불가"(10/03 기준) 상태부터 재확인. 10/11~12 발행 API 가격 글(deepseek·grok·claude-pro-price·claude-token-cost)은 손대지 않고 관찰
 - [ ] **2. 한국어 Claude API 가격·결제 글 신규**: 토큰 단가 + 원화 + 결제(크레딧·카드·부가세) — 신규 `blog_src/ctc-ko.md`, `src/blog_meta.py` `CTC.append(_cc("ko", …))`로 ctc-en과 hreflang 연결. `cplan-ko`(구독)·`api-ko`(22개 모델)와 역할 분리 + 상호 링크
 - [ ] **3. GPT-6 API 허브 보강**: `blog_src/gpt6-en.md`를 2세대 형식으로(첫 문장 답·표 3+·가장 싼 GPT-6 API 섹션·FAQ·출처), `updated` 갱신. Ultrafast 글·GPT-6 비교 페이지에서 허브로 링크 — `blog_src/ultrafast-en.md`, `src/compare.py`(`IN_DEPTH`처럼 허브 링크). 제목 재변경은 선택
-- [ ] **4. Claude Haiku 5.5 비교 페이지**: `src/compare.py` `PAIRS`에 GPT-6 Luna vs Haiku 5.5, Haiku 4.5 vs 5.5 추가, 4.5 페이지 상단에 5.5 링크. 필요 시 `src/perf.py` `ECI_MAP`, `build.py` 차트 목록
-- [ ] **5. 코딩 에이전트 도구 페이지(`/xx/agents`) title에 "Claude Code·Codex" 넣기** — en·ko·ja 먼저, 수식어는 "계산기/calculator"(Claude Code 요금 글과 겹치지 않게) — `src/i18n_agents_*.py`
+- [x] **4. Claude Haiku 5.5 비교 페이지** (2026-10-15, `compare.py` `PAIRS`·`NEWER`): `src/compare.py` `PAIRS`에 GPT-6 Luna vs Haiku 5.5, Haiku 4.5 vs 5.5 추가, 4.5 페이지 상단에 5.5 링크. 필요 시 `src/perf.py` `ECI_MAP`, `build.py` 차트 목록
+- [x] **5. 코딩 에이전트 도구 페이지(`/xx/agents`) title에 "Claude Code·Codex" 넣기** (2026-10-15 en·ko·ja 완료, 나머지 언어 남음; 도구 페이지는 build.py가 title 40자·설명 80자 제한) — en·ko·ja 먼저, 수식어는 "계산기/calculator"(Claude Code 요금 글과 겹치지 않게) — `src/i18n_agents_*.py`
 
 ## P1 — 관찰만 (손대지 않음)
+- [ ] **12/1 Gemini 4 Argon 정가 전환**: `gem4-*` 4개 언어 본문 가격 문구·제목("$2/$10 Intro")과 `llm_prices.json`(LiteLLM 갱신 여부) 확인
+- [ ] GPT-6 API 허브 ko·ja판(`gpt6-ko`, `gpt6-ja`)도 en 재작성(10/15) 형식으로 보강 — en 순위 변화를 본 뒤
 - [ ] `blog/chatgpt-usage-limits`: 이미 재작성·제목 변경됨. 다음 보고서에서 이 페이지 포함/제외 지표를 함께 표시
 - [ ] 10/12 재작성한 Claude Code 요금 en·ko·ja, Claude Code 사용량 한도 en: 10/13~ 데이터로 기준선 대비 순위 확인
 - [ ] 10/11~12 발행 API 가격 글 4개: 노출이 충분히 쌓인 뒤 CTR 판단

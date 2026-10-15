@@ -13,13 +13,15 @@ Prices per million tokens. It starts at an introductory rate and moves to the st
 | Introductory | $2 | ~$0.10 | $10 |
 | Standard | $4 | ~$0.20 | $20 |
 
-Cached input is 95% off the normal input price, which matters a lot when you resend the same instructions or documents. Google has not said how long the introductory rate lasts.
+Cached input is 95% off the normal input price, which matters a lot when you resend the same instructions or documents. The introductory rate runs until November 30, 2026; from December 1 the standard rate applies, according to [Google's launch announcement](https://x.com/Google/status/2110041305925484716) and [launch coverage](https://venturebeat.com/technology/google-makes-gemini-4-argon-broadly-available-with-limited-time-low-api-pricing-of-2-10-per-1m-token). Check [Google's pricing page](https://ai.google.dev/gemini-api/docs/pricing) for the rate in force.
 
 Argon can also **output up to 1 million tokens** in a single response. Long outputs cost accordingly: 1 million output tokens is $20 per response at the standard rate.
 
-## Can you use it yet?
+## Can you use it now?
 
-Not yet. For now it is limited to partners in Google's Fairwind cyber-defense program, with a rollout to Google AI Ultra subscribers and paid API customers coming next. The API model ID is reported as `gemini-4-argon`, but it is not in the public docs yet.
+Yes. Since October 13, 2026, Gemini 4 Argon has been generally available to developers through the Gemini API in Google AI Studio, and to Google AI Pro and Ultra subscribers in the Gemini app, per [Google's announcement](https://x.com/Google/status/2110041305925484716) and [9to5Google](https://9to5google.com/2026/10/13/gemini-app-4-argon/). On the API it is paid only: reports say there is no free tier for Argon. The model ID is `gemini-4-argon`.
+
+*Updated October 15, 2026: when this post was first published on October 3, Argon was limited to partners in Google's Fairwind cyber-defense program.*
 
 ## How it compares
 
@@ -77,4 +79,7 @@ Gemini 4 Argon is now in the [token counter](/) at the standard price. Paste a p
 - [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing)
 - [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)
 - [Claude API pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Google on X: Gemini 4 Argon availability and introductory price](https://x.com/Google/status/2110041305925484716)
+- [9to5Google: Gemini 4 Argon rolling out (October 13, 2026)](https://9to5google.com/2026/10/13/gemini-app-4-argon/)
+- [VentureBeat: Gemini 4 Argon broadly available](https://venturebeat.com/technology/google-makes-gemini-4-argon-broadly-available-with-limited-time-low-api-pricing-of-2-10-per-1m-token)
 <!-- autoimg -->

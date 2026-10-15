@@ -13,13 +13,15 @@
 | 출시 기념가 | $2 | 약 $0.10 | $10 |
 | 정가 | $4 | 약 $0.20 | $20 |
 
-캐시된 입력은 일반 입력의 95% 할인이라, 같은 지시문이나 문서를 반복해서 보내는 작업에서 차이가 큽니다. 출시 기념가가 언제까지인지는 아직 공개되지 않았습니다.
+캐시된 입력은 일반 입력의 95% 할인이라, 같은 지시문이나 문서를 반복해서 보내는 작업에서 차이가 큽니다. [구글 발표](https://x.com/Google/status/2110041305925484716)와 [출시 보도](https://venturebeat.com/technology/google-makes-gemini-4-argon-broadly-available-with-limited-time-low-api-pricing-of-2-10-per-1m-token)에 따르면 출시 기념가는 2026년 11월 30일까지이고, 12월 1일부터 정가가 적용됩니다. 지금 적용되는 가격은 [구글 가격 페이지](https://ai.google.dev/gemini-api/docs/pricing)에서 확인하세요.
 
 한 번에 최대 **100만 토큰을 출력**할 수 있다는 점도 특징입니다. 다만 출력이 길어질수록 비용도 그만큼 커집니다. 출력 100만 토큰이면 정가 기준 응답 한 번에 $20입니다.
 
 ## 지금 바로 쓸 수 있나
 
-아직은 아닙니다. 현재는 구글의 보안 파트너 프로그램(Fairwind) 참여 기관에만 열려 있고, Google AI Ultra 구독자와 유료 API 고객에게는 순차적으로 배포될 예정입니다. 공개 API 모델 ID는 `gemini-4-argon`으로 알려져 있지만 공식 문서에는 아직 올라오지 않았습니다.
+네. [구글 발표](https://x.com/Google/status/2110041305925484716)와 [9to5Google](https://9to5google.com/2026/10/13/gemini-app-4-argon/)에 따르면 2026년 10월 13일부터 Gemini 4 Argon은 Google AI Studio의 Gemini API로 개발자에게, Gemini 앱으로 Google AI Pro·Ultra 구독자에게 정식 제공됩니다. API는 유료로만 쓸 수 있고, 보도에 따르면 Argon에는 무료 등급이 없습니다. 모델 ID는 `gemini-4-argon`입니다.
+
+*2026년 10월 15일 업데이트: 10월 3일 처음 글을 쓸 때는 구글 보안 파트너 프로그램(Fairwind) 참여 기관에만 열려 있었습니다.*
 
 ## 다른 모델과 비교하면
 
@@ -77,4 +79,7 @@
 - [Gemini API 가격](https://ai.google.dev/gemini-api/docs/pricing)
 - [OpenAI API 가격](https://developers.openai.com/api/docs/pricing)
 - [Claude API 가격](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Google X 게시물: Gemini 4 Argon 출시와 출시 기념가](https://x.com/Google/status/2110041305925484716)
+- [9to5Google: Gemini 4 Argon 배포 (2026년 10월 13일)](https://9to5google.com/2026/10/13/gemini-app-4-argon/)
+- [VentureBeat: Gemini 4 Argon 정식 제공](https://venturebeat.com/technology/google-makes-gemini-4-argon-broadly-available-with-limited-time-low-api-pricing-of-2-10-per-1m-token)
 <!-- autoimg -->

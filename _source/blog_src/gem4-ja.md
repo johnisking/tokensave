@@ -13,13 +13,15 @@ Google は2026年9月30日、新しい最上位モデル **Gemini 4 Argon** を�
 | 導入価格 | $2 | 約 $0.10 | $10 |
 | 通常価格 | $4 | 約 $0.20 | $20 |
 
-キャッシュ入力は通常の入力から95%割引なので、同じ指示や文書を繰り返し送る作業では大きな差になります。導入価格がいつまで続くかはまだ公表されていません。
+キャッシュ入力は通常の入力から95%割引なので、同じ指示や文書を繰り返し送る作業では大きな差になります。[Google の発表](https://x.com/Google/status/2110041305925484716)と[ローンチ時の報道](https://venturebeat.com/technology/google-makes-gemini-4-argon-broadly-available-with-limited-time-low-api-pricing-of-2-10-per-1m-token)によると、導入価格は2026年11月30日までで、12月1日から通常価格になります。現在の料金は [Google の料金ページ](https://ai.google.dev/gemini-api/docs/pricing)で確認してください。
 
 1回の応答で最大 **100万トークンを出力** できるのも特徴です。ただし出力が長いほど費用も増え、100万トークン出力すると通常価格で1回 $20 になります。
 
 ## もう使える？
 
-まだです。現在は Google のサイバー防御パートナー向けプログラム（Fairwind）参加組織だけに提供されており、Google AI Ultra 加入者と有料 API ユーザーには順次展開される予定です。API のモデル ID は `gemini-4-argon` と報じられていますが、公式ドキュメントにはまだ載っていません。
+はい。[Google の発表](https://x.com/Google/status/2110041305925484716)と [9to5Google](https://9to5google.com/2026/10/13/gemini-app-4-argon/) によると、2026年10月13日から Gemini 4 Argon は Google AI Studio の Gemini API で開発者向けに、Gemini アプリで Google AI Pro・Ultra 加入者向けに一般提供されています。API は有料のみで、報道によると Argon に無料枠はありません。モデル ID は `gemini-4-argon` です。
+
+*2026年10月15日更新：10月3日の公開時点では、Google のサイバー防御パートナー向けプログラム（Fairwind）参加組織だけに提供されていました。*
 
 ## 他のモデルと比べると
 
@@ -77,4 +79,7 @@ Google は2026年9月30日、新しい最上位モデル **Gemini 4 Argon** を�
 - [Gemini API 料金](https://ai.google.dev/gemini-api/docs/pricing)
 - [OpenAI API 料金](https://developers.openai.com/api/docs/pricing)
 - [Claude API 料金](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Google の X 投稿：Gemini 4 Argon の提供開始と導入価格](https://x.com/Google/status/2110041305925484716)
+- [9to5Google：Gemini 4 Argon の展開（2026年10月13日）](https://9to5google.com/2026/10/13/gemini-app-4-argon/)
+- [VentureBeat：Gemini 4 Argon の一般提供](https://venturebeat.com/technology/google-makes-gemini-4-argon-broadly-available-with-limited-time-low-api-pricing-of-2-10-per-1m-token)
 <!-- autoimg -->
