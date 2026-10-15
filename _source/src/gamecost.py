@@ -274,6 +274,7 @@ def build_page(lang, llm):
       <p class="mt-4 text-sm text-zinc-300 max-w-2xl mx-auto border border-violet-500/30 bg-violet-500/5 rounded-xl px-4 py-3 text-start">{e("qa")}</p>
     </header>
 
+    <section id="gcSaved" hidden class="{CARD} mb-5"></section>
     {trends}
     <section id="gcForm" class="{CARD} scroll-mt-20">
       <h2 class="{H2}">{e("qProject")}</h2>
@@ -367,7 +368,7 @@ def build_page(lang, llm):
     faq_ld = {"@type": "FAQPage", "inLanguage": lang, "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq_all]}
     runtime_keys = [k for k in t if k.startswith(("g_", "f_", "st", "dev", "r", "l_", "c", "p_", "p", "tier_")) or k in
-                    ("defName", "defIdea", "days", "monthsN", "capWarn", "hireRef", "noTrailer", "copied", "packTitle", "hoursN", "workNote", "shared", "fbThanks", "tDev", "tArt", "tMusic", "tSfx", "tTrailer")]
+                    ("defName", "defIdea", "days", "monthsN", "capWarn", "hireRef", "noTrailer", "copied", "packTitle", "hoursN", "workNote", "shared", "fbThanks", "svTitle", "svNote", "svOpen", "svClear", "tDev", "tArt", "tMusic", "tSfx", "tTrailer")]
     gc = {k: t[k] for k in runtime_keys if isinstance(t[k], str)}
     return dict(path=PATH[lang], title=t["title"], desc=t["desc"], h1=t["h1"], body=body, faq_ld=faq_ld, gc=gc,
                 models={k: n for k, n in models})

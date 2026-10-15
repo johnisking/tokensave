@@ -216,5 +216,33 @@ V2 = {
   fbPh="Gün sayısı", fbSend="Gönder", fbThanks="Teşekkürler! Cevabınız kaydedildi.",
   howPace="Süreler, kodlama geçmişi olmayan birinin tam zamanlı (günde yaklaşık 8 saat) çalıştığını varsayar; referans oyunlar böyle yapıldı. Günde daha az saat çalışmak takvim süresini uzatır; biraz deneyim süreyi yaklaşık %15, geliştirici olmak yaklaşık %30 kısaltır (bizim tahminimiz)."),
 }
+# Recent estimates saved in the visitor's browser (2026-10-15)
+SV = {
+"en": ("📂 Your recent estimates", "Saved only in this browser on this device. Nothing is sent to us.", "Open", "Clear"),
+"ko": ("📂 최근에 본 견적", "이 기기의 이 브라우저에만 저장됩니다. 우리 서버로는 아무것도 보내지 않습니다.", "다시 보기", "기록 지우기"),
+"ja": ("📂 最近の見積もり", "この端末のこのブラウザにだけ保存されます。サーバーには何も送信しません。", "もう一度見る", "履歴を消す"),
+"zh-CN": ("📂 最近的估算", "只保存在这台设备的这个浏览器里，不会发送给我们。", "再次查看", "清除记录"),
+"es": ("📂 Tus cálculos recientes", "Se guardan solo en este navegador de este dispositivo. No se nos envía nada.", "Abrir", "Borrar"),
+"fr": ("📂 Vos estimations récentes", "Enregistrées uniquement dans ce navigateur sur cet appareil. Rien ne nous est envoyé.", "Ouvrir", "Effacer"),
+"pt": ("📂 Suas estimativas recentes", "Salvas só neste navegador, neste aparelho. Nada é enviado para nós.", "Abrir", "Apagar"),
+"ru": ("📂 Ваши недавние расчёты", "Хранятся только в этом браузере на этом устройстве. Нам ничего не отправляется.", "Открыть", "Очистить"),
+"uk": ("📂 Ваші нещодавні розрахунки", "Зберігаються лише в цьому браузері на цьому пристрої. Нам нічого не надсилається.", "Відкрити", "Очистити"),
+"pl": ("📂 Twoje ostatnie wyceny", "Zapisane tylko w tej przeglądarce na tym urządzeniu. Nic nie jest do nas wysyłane.", "Otwórz", "Wyczyść"),
+"sv": ("📂 Dina senaste uppskattningar", "Sparas bara i den här webbläsaren på den här enheten. Inget skickas till oss.", "Öppna", "Rensa"),
+"de": ("📂 Deine letzten Schätzungen", "Nur in diesem Browser auf diesem Gerät gespeichert. Es wird nichts an uns gesendet.", "Öffnen", "Löschen"),
+"nl": ("📂 Je recente schattingen", "Alleen opgeslagen in deze browser op dit apparaat. Er wordt niets naar ons verstuurd.", "Openen", "Wissen"),
+"it": ("📂 Le tue stime recenti", "Salvate solo in questo browser su questo dispositivo. Non ci viene inviato nulla.", "Apri", "Cancella"),
+"el": ("📂 Οι πρόσφατες εκτιμήσεις σας", "Αποθηκεύονται μόνο σε αυτό το πρόγραμμα περιήγησης σε αυτή τη συσκευή. Δεν μας αποστέλλεται τίποτα.", "Άνοιγμα", "Διαγραφή"),
+"fi": ("📂 Viimeisimmät arviosi", "Tallennetaan vain tähän selaimeen tällä laitteella. Mitään ei lähetetä meille.", "Avaa", "Tyhjennä"),
+"sk": ("📂 Vaše nedávne odhady", "Uložené len v tomto prehliadači na tomto zariadení. Nič sa nám neposiela.", "Otvoriť", "Vymazať"),
+"cs": ("📂 Vaše nedávné odhady", "Uložené jen v tomto prohlížeči na tomto zařízení. Nic se nám neposílá.", "Otevřít", "Smazat"),
+"hu": ("📂 Legutóbbi becsléseid", "Csak ebben a böngészőben, ezen az eszközön tároljuk. Semmit nem küldünk el nekünk.", "Megnyitás", "Törlés"),
+"ro": ("📂 Estimările tale recente", "Salvate doar în acest browser, pe acest dispozitiv. Nu ne este trimis nimic.", "Deschide", "Șterge"),
+"da": ("📂 Dine seneste estimater", "Gemmes kun i denne browser på denne enhed. Intet sendes til os.", "Åbn", "Ryd"),
+"no": ("📂 Dine siste estimater", "Lagres bare i denne nettleseren på denne enheten. Ingenting sendes til oss.", "Åpne", "Tøm"),
+"tr": ("📂 Son tahminleriniz", "Yalnızca bu cihazdaki bu tarayıcıda saklanır. Bize hiçbir şey gönderilmez.", "Aç", "Temizle"),
+}
+for _k, (_a, _b, _c, _d) in SV.items():
+    V2[_k].update(svTitle=_a, svNote=_b, svOpen=_c, svClear=_d)
 assert all(set(v) == set(V2["en"]) for v in V2.values())
 assert set(V2) == set(RATE_CUR)

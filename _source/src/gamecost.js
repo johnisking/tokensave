@@ -412,6 +412,56 @@ function render() {
     if (el) el.textContent = P[k] || t('noTrailer');
   }
   document.getElementById('gcTab_trailer').classList.toggle('opacity-40', !state.trailer);
+  svSave();
+}
+
+// ---------------- Recent estimates (kept only in this browser's localStorage; nothing is sent) ----------------
+const SV_KEY = 'tsGcSaved', SV_SID = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+let svReady = false, svTimer = 0;
+const svEsc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+function svRead() {
+  try { const a = JSON.parse(localStorage.getItem(SV_KEY) || '[]'); return Array.isArray(a) ? a.filter(x => x && typeof x.q === 'string' && Number.isFinite(x.lo) && Number.isFinite(x.hi)) : []; } catch (_) { return []; }
+}
+function svWrite(a) { try { localStorage.setItem(SV_KEY, JSON.stringify(a.slice(0, 3))); } catch (_) {} }
+function svSave() {
+  if (!svReady) return;
+  clearTimeout(svTimer);
+  svTimer = setTimeout(() => {
+    const e = estimate(), q = shareUrl().split('?')[1] || '';
+    const item = { id: SV_SID, q, name: String(state.name || '').trim().slice(0, 60), genre: state.genre, lo: e.mine.lo, hi: e.mine.hi, d: Math.round(e.cal), ts: Date.now() };
+    svWrite([item, ...svRead().filter(x => x.id !== SV_SID && x.q !== q)]);
+  }, 800);
+}
+function syncLoaded() {
+  const e0 = estimate();
+  $('#gcChars').value = state.chars === null ? e0.chars : state.chars;
+  $('#gcMusic').value = state.music === null ? e0.music : state.music;
+}
+function svShow() {
+  const box = document.getElementById('gcSaved'); if (!box) return;
+  const list = svRead().filter(x => x.id !== SV_SID);
+  if (!list.length) { box.hidden = true; return; }
+  const lang = document.documentElement.lang || 'en';
+  const when = ts => { try { return new Date(ts).toLocaleDateString(lang, { month: 'short', day: 'numeric' }); } catch (_) { return ''; } };
+  box.innerHTML = `<div class="flex items-center justify-between gap-2 mb-1"><h2 class="text-sm font-bold text-zinc-100">${t('svTitle')}</h2>
+      <button id="gcSvClear" type="button" class="text-[11px] text-zinc-500 hover:text-zinc-300 underline underline-offset-2">${t('svClear')}</button></div>
+    <p class="text-[11px] text-zinc-500 mb-3">${t('svNote')}</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">${list.map((x, i) => `<button type="button" data-sv="${i}" class="text-start rounded-xl border border-zinc-800 bg-zinc-950/40 hover:border-violet-500/50 p-3 min-w-0">
+      <div class="text-sm font-bold truncate">${svEsc(x.name || t('g_' + x.genre))}</div>
+      <div class="text-base font-extrabold tabular-nums text-violet-200">${range(x.lo, x.hi)}</div>
+      <div class="text-[11px] text-zinc-500">${t('days', { n: x.d })} · ${when(x.ts)}</div>
+      <div class="text-xs font-semibold text-violet-300 mt-1">${t('svOpen')} →</div></button>`).join('')}</div>`;
+  box.hidden = false;
+  box.querySelectorAll('[data-sv]').forEach(b => b.addEventListener('click', () => {
+    const x = list[+b.dataset.sv]; if (!x) return;
+    try { history.replaceState(null, '', location.pathname + '?' + x.q); } catch (_) {}
+    if (loadShared()) { syncLoaded(); render(); track('gc_saved_open', { gc_saved_age_days: Math.round((Date.now() - x.ts) / 864e5) }); }
+    document.getElementById('gcForm')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
+  document.getElementById('gcSvClear')?.addEventListener('click', () => {
+    try { localStorage.removeItem(SV_KEY); } catch (_) {}
+    box.hidden = true; track('gc_saved_clear');
+  });
 }
 
 // ---------------- Analytics (GTM dataLayer) ----------------
@@ -582,7 +632,9 @@ document.getElementById('gcFbSend')?.addEventListener('click', () => {
 });
 
 const shared = loadShared();
-if (!shared) syncNums(); else { const e0 = estimate(); if (state.chars === null) $('#gcChars').value = e0.chars; else $('#gcChars').value = state.chars; if (state.music === null) $('#gcMusic').value = e0.music; else $('#gcMusic').value = state.music; }
+if (!shared) syncNums(); else syncLoaded();
 curControls();
 render();
+svReady = true;
+svShow();
 if (shared) track('gc_shared_open');
