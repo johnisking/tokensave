@@ -160,8 +160,8 @@ PAGES = [
          title="Page not found | TokenSave", desc="This page does not exist."),
 ]
 
-NAV_ON = "px-2.5 py-1 rounded-md font-semibold tab-active"
-NAV_OFF = "px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800"
+NAV_ON = "px-2.5 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg font-semibold tab-active"
+NAV_OFF = "px-2.5 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800"
 ARIA = ' aria-current="page"'
 VIEW_IN = {(slug or "en"): SITE[tag]["viewIn"] for slug, tag, *_ in LANGS}
 
