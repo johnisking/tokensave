@@ -437,6 +437,118 @@ function deep(rs) {
   }).join('') : `<p class="text-sm text-emerald-300">${esc(t('cNone'))}</p>`;
 }
 
+// ---- Project check: how heavy is a code folder for an AI agent (no logs needed) ----
+// Reads only sizes and character counts in the browser. Prices: [input, cache read] per 1M tokens.
+const PJ_PRICE = { opus: [4, 0.20], sonnet: [2, 0.10], terra: [2, 0.20] };
+const PJ_SKIP = /(^|\/)(node_modules|\.git|\.venv|venv|__pycache__|\.gradle|\.idea|\.vs|\.svn)(\/|$)/;
+const PJ_GEN = /(^|\/)(dist|build|out|\.next|\.nuxt|target|Library|Temp|Logs|obj|Builds|coverage|\.cache|\.dart_tool|Pods|DerivedData)(\/|$)/;
+const PJ_IMG = /\.(png|jpe?g|gif|webp|bmp|ico|psd|tga|tiff?)$/i;
+const PJ_BIN = /\.(mp3|wav|ogg|m4a|mp4|mov|webm|avi|ttf|otf|woff2?|eot|zip|gz|tgz|7z|rar|jar|aar|apk|aab|ipa|exe|dll|so|dylib|a|o|lib|class|pdb|bin|dat|fbx|blend|glb|gltf|pdf|keystore|jks|db|sqlite|unitypackage|bank|ktx|astc|dds|wasm|pyc)$/i;
+const PJ_LOCK = /(^|\/)(package-lock\.json|yarn\.lock|pnpm-lock\.yaml|Cargo\.lock|poetry\.lock|composer\.lock|Gemfile\.lock|packages-lock\.json|bun\.lockb?|uv\.lock)$/;
+const PJ_LOG = /\.log$/i, PJ_MIN = /\.(min\.js|min\.css|map)$/i, PJ_DATA = /\.(json|csv|tsv|sql|xml|ya?ml|txt|ndjson|jsonl)$/i;
+const PJ_CTX = /(^|\/)(CLAUDE\.md|CLAUDE\.local\.md|AGENTS\.md|GEMINI\.md|\.cursorrules|copilot-instructions\.md)$|(^|\/)\.cursor\/rules\/[^/]+\.mdc?$/;
+let PJ = null;
+
+async function readProject(files) {
+  if (!files.length) return;
+  const st = $('#pjStatus');
+  const root = (files[0].webkitRelativePath || '').split('/')[0];
+  const rel = f => { const r = f.webkitRelativePath || f.name; return root && r.startsWith(root + '/') ? r.slice(root.length + 1) : r; };
+  const out = { files: [], skipped: 0, skippedBytes: 0, root };
+  let i = 0;
+  for (const f of files) {
+    i++;
+    if (i % 300 === 0) { st.textContent = t('pjReading', { n: i.toLocaleString(LOC), total: files.length.toLocaleString(LOC) }); await new Promise(r => setTimeout(r)); }
+    const path = rel(f);
+    if (PJ_SKIP.test(path)) { out.skipped++; out.skippedBytes += f.size; continue; }
+    let kind = PJ_CTX.test(path) ? 'ctx' : PJ_GEN.test(path) ? 'gen' : PJ_LOCK.test(path) ? 'lock' : PJ_LOG.test(path) ? 'log' : PJ_MIN.test(path) ? 'min' : PJ_IMG.test(path) ? 'img' : PJ_BIN.test(path) ? 'bin' : 'src';
+    let tok = 0;
+    if (kind === 'img') tok = 1600;
+    else if (kind === 'bin') tok = 0;
+    else if (kind === 'gen' || f.size > 1.5e6) tok = PJ_BIN.test(path) || PJ_IMG.test(path) ? 0 : Math.round(f.size / 4);
+    else {
+      let text = '';
+      try { text = await f.text(); } catch (_) { continue; }
+      if (text.indexOf('\u0000') >= 0) { kind = 'bin'; tok = 0; } else tok = txtTok(text);
+    }
+    if (kind === 'src' && PJ_DATA.test(path) && tok >= 20000) kind = 'data';
+    out.files.push({ path, kind, tok, size: f.size });
+  }
+  PJ = out;
+  st.textContent = t('pjDone', { files: out.files.length.toLocaleString(LOC), skipped: out.skipped.toLocaleString(LOC) });
+  $('#pjResult').hidden = false;
+  renderProject();
+}
+
+function renderProject() {
+  if (!PJ) return;
+  const [pi, pr] = PJ_PRICE[$('#pjModel').value] || PJ_PRICE.opus;
+  const keep = (tok, n) => tok * (pi * 1.25 + n * pr) / 1e6; // written to the cache once, then re-read on n later replies
+  const F = PJ.files;
+  const readable = F.filter(x => x.kind === 'src' || x.kind === 'ctx' || x.kind === 'data');
+  const tot = sum(readable, 'tok');
+  const ctx = F.filter(x => x.kind === 'ctx');
+  const ctxRoot = ctx.filter(x => !x.path.includes('/') || /^\.(cursor|github)\//.test(x.path));
+  const ctxTok = sum(ctxRoot, 'tok');
+  const gen = F.filter(x => x.kind === 'gen'), heavy = F.filter(x => ['lock', 'log', 'min'].includes(x.kind));
+  const imgs = F.filter(x => x.kind === 'img');
+  const mb = b => (b / 1048576).toLocaleString(LOC, { maximumFractionDigits: 1 }) + ' MB';
+  $('#pjK1').textContent = fmtTok(tot); $('#pjK1Sub').textContent = t('pjK1Sub', { n: readable.length.toLocaleString(LOC) });
+  $('#pjK2').textContent = fmtTok(ctxTok); $('#pjK2Sub').textContent = ctxRoot.length ? t('pjK2Sub', { cost: money(keep(ctxTok, 100)) }) : t('pjK2None');
+  $('#pjK3').textContent = mb(sum(gen, 'size') + sum(heavy, 'size') + PJ.skippedBytes); $('#pjK3Sub').textContent = t('pjK3Sub', { n: (gen.length + heavy.length + PJ.skipped).toLocaleString(LOC) });
+  $('#pjK4').textContent = imgs.length.toLocaleString(LOC); $('#pjK4Sub').textContent = t('pjK4Sub', { tok: fmtTok(sum(imgs, 'tok')) });
+
+  // folders and biggest files
+  const g = new Map();
+  for (const x of readable) { const k = x.path.includes('/') ? x.path.split('/')[0] + '/' : t('pjRootFiles'); const o = g.get(k) || { name: k, n: 0, tok: 0, cost: 0 }; o.n++; o.tok += x.tok; o.cost += keep(x.tok, 50); g.set(k, o); }
+  $('#pjFolders').innerHTML = table([...g.values()].sort((a, b) => b.cost - a.cost), keep(tot, 50), t('pjFiles'));
+  const TAG = { gen: t('pjTagGen'), lock: t('pjTagLock'), log: t('pjTagLog'), min: t('pjTagMin'), data: t('pjTagData'), ctx: t('pjTagCtx') };
+  const big = F.filter(x => x.tok > 0 && x.kind !== 'img').sort((a, b) => b.tok - a.tok).slice(0, 12);
+  $('#pjBig').innerHTML = `<table class="w-full text-xs"><thead><tr class="text-zinc-500"><th class="text-start font-semibold py-1">${esc(t('pjFile'))}</th><th class="text-end font-semibold whitespace-nowrap ps-2">${esc(t('thTok'))}</th><th class="text-end font-semibold whitespace-nowrap ps-2">${esc(t('pjReadCost'))}</th></tr></thead><tbody>` +
+    big.map(x => `<tr class="border-t border-zinc-800"><td class="py-1.5 pe-2 max-w-[18rem] truncate text-zinc-200 ltr" title="${esc(x.path)}">${esc(x.path)}${TAG[x.kind] ? ` <span class="text-[10px] text-amber-300/90 border border-amber-500/30 rounded px-1">${esc(TAG[x.kind])}</span>` : ''}</td><td class="text-end tabular-nums text-zinc-400 ps-2">${fmtTok(x.tok)}</td><td class="text-end tabular-nums font-semibold text-zinc-100 ps-2">${money(keep(x.tok, 50))}</td></tr>`).join('') + '</tbody></table>';
+
+  // solutions
+  const cards = [];
+  if (ctxTok >= 1500) cards.push({ id: 'ctx', cost: keep(ctxTok, 100), v: { tok: fmtTok(ctxTok), files: ctxRoot.map(x => x.path).join(', '), cost: money(keep(ctxTok, 100)) } });
+  const deny = [];
+  const dirs = new Set();
+  for (const x of gen) { const m = PJ_GEN.exec(x.path); if (m) dirs.add(x.path.slice(0, m.index + m[0].length).replace(/\/$/, '')); }
+  const topDirs = [...dirs].filter(d => ![...dirs].some(o => o !== d && d.startsWith(o + '/'))).sort();
+  for (const d of topDirs.slice(0, 12)) deny.push(d + '/**');
+  for (const x of F.filter(x => x.kind === 'lock')) deny.push(x.path);
+  if (F.some(x => x.kind === 'log')) deny.push('**/*.log');
+  if (F.some(x => /\.map$/i.test(x.path))) deny.push('**/*.map');
+  if (F.some(x => /\.min\.(js|css)$/i.test(x.path))) deny.push('**/*.min.*');
+  const denyTok = sum(gen, 'tok') + sum(heavy, 'tok');
+  if (deny.length) {
+    const settings = JSON.stringify({ permissions: { deny: deny.slice(0, 20).map(p => `Read(./${p})`) } }, null, 2);
+    const ignore = deny.slice(0, 20).join('\n');
+    cards.push({ id: 'deny', cost: keep(denyTok, 50), v: { tok: fmtTok(denyTok), n: deny.length.toLocaleString(LOC) }, code: [['.claude/settings.json', settings], ['.cursorignore', ignore]] });
+  }
+  const bigSrc = F.filter(x => (x.kind === 'src' || x.kind === 'data') && x.tok >= 20000);
+  if (bigSrc.length) cards.push({ id: 'big', cost: keep(sum(bigSrc, 'tok'), 50), v: { n: bigSrc.length.toLocaleString(LOC), list: bigSrc.sort((a, b) => b.tok - a.tok).slice(0, 3).map(x => x.path.split('/').pop() + ' (' + fmtTok(x.tok) + ')').join(', ') } });
+  if (imgs.length >= 20) {
+    const byDir = new Map();
+    for (const x of imgs) { const d = x.path.includes('/') ? x.path.slice(0, x.path.lastIndexOf('/')) : ''; const e = x.path.split('.').pop().toLowerCase(); const k = d + '|' + e; byDir.set(k, (byDir.get(k) || 0) + 1); }
+    const pats = [...byDir.entries()].filter(([, n]) => n >= 20).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([k]) => { const [d, e] = k.split('|'); return (d ? d + '/' : '') + '*.' + e; });
+    const code = pats.length ? [['.claude/settings.json', JSON.stringify({ permissions: { deny: pats.map(p => `Read(./${p})`) } }, null, 2)], ['.cursorignore', pats.join('\n')]] : null;
+    cards.push({ id: 'img', cost: keep(sum(imgs, 'tok'), 50), v: { n: imgs.length.toLocaleString(LOC), tok: fmtTok(sum(imgs, 'tok')) }, code });
+  }
+  cards.sort((a, b) => b.cost - a.cost);
+  $('#pjCards').innerHTML = cards.length ? cards.map((c, i) => {
+    const steps = C['pj_' + c.id + '_s'] || [];
+    const code = (c.code || []).map(([name, body]) => `<div class="mt-3"><div class="flex items-center justify-between text-[11px] text-zinc-500 mb-1"><span class="ltr">${esc(name)}</span><button data-pjcopy class="font-semibold px-2 py-0.5 rounded border border-zinc-700 text-zinc-300 hover:bg-zinc-800">${esc(t('copy'))}</button></div><pre class="ltr text-[11px] leading-snug text-violet-200 bg-zinc-900 border border-zinc-800 rounded-lg p-2 overflow-x-auto">${esc(body)}</pre></div>`).join('');
+    return `<div class="rounded-xl bg-zinc-950/60 border border-zinc-800 p-4 min-w-0"><div class="flex items-start gap-3"><span class="shrink-0 w-6 h-6 rounded-full bg-violet-600 text-white text-xs font-bold grid place-items-center">${i + 1}</span><div class="min-w-0 flex-1">` +
+      `<h4 class="font-bold text-zinc-100">${esc(t('pj_' + c.id + '_t', c.v))}</h4><p class="text-sm text-zinc-400 mt-1">${esc(t('pj_' + c.id + '_f', c.v))}</p>` +
+      `<ul class="mt-2 space-y-1 text-sm text-zinc-200">${steps.map(x => `<li class="flex gap-2"><span class="text-violet-400">→</span><span>${esc(x)}</span></li>`).join('')}</ul>${code}</div></div></div>`;
+  }).join('') : `<p class="text-sm text-emerald-300">${esc(t('pjNone'))}</p>`;
+  $('#pjCards').querySelectorAll('[data-pjcopy]').forEach(b => b.addEventListener('click', () => {
+    const txt = b.closest('div.mt-3').querySelector('pre').textContent;
+    const done = () => { b.textContent = t('copied'); setTimeout(() => { b.textContent = t('copy'); }, 1200); };
+    try { navigator.clipboard.writeText(txt).then(done, done); } catch (_) { done(); }
+  }));
+}
+
 // Drag & drop of a whole folder
 async function walk(entry, out, path = '') {
   if (entry.isFile) {
@@ -584,6 +696,8 @@ function init() {
   seg('#ccPeriod', 'period');
   $('#ccPlanSel').addEventListener('change', e => { state.plan = e.target.value; if (RECS.length) render(); });
   $('#ccCsv').addEventListener('click', csv);
+  $('#pjDir').addEventListener('change', e => readProject([...e.target.files]));
+  $('#pjModel').addEventListener('change', renderProject);
 }
 init();
 

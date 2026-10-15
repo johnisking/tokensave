@@ -279,6 +279,33 @@ def build_page(lang):
       <p class="text-[11px] text-zinc-500 mt-3">{e("uploadNote")}</p>
     </section>
 
+    <section class="{CARD} mt-5">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <h2 class="text-xs uppercase tracking-wider text-zinc-500 font-semibold">{e("pjTitle")}</h2>
+        <div class="flex items-center gap-2"><span class="text-xs text-zinc-500">{e("pjModelLbl")}</span><select id="pjModel" class="bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py-1.5 text-sm"><option value="opus">Claude Opus 5.5</option><option value="sonnet">Claude Sonnet 5.5</option><option value="terra">GPT-5.6 Terra (Codex)</option></select></div>
+      </div>
+      <p class="text-sm text-zinc-400 mt-2">{e("pjSub")}</p>
+      <div class="flex flex-wrap items-center gap-3 mt-4">
+        <label class="cursor-pointer text-sm font-semibold px-4 py-2 rounded-lg border border-violet-500/50 bg-violet-500/10 text-violet-100 hover:bg-violet-500/20">🗂 {e("pjPick")}<input id="pjDir" type="file" webkitdirectory directory multiple class="hidden"></label>
+        <p id="pjStatus" class="text-sm text-zinc-300" aria-live="polite"></p>
+      </div>
+      <div id="pjResult" hidden class="mt-5">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          {kpi("pjK1", t["pjK1"], "")}
+          {kpi("pjK2", t["pjK2"], "")}
+          {kpi("pjK3", t["pjK3"], "")}
+          {kpi("pjK4", t["pjK4"], "")}
+        </div>
+        <h3 class="text-sm font-bold text-zinc-100 mt-6 mb-3">💡 {e("pjCardsTitle")}</h3>
+        <div id="pjCards" class="grid grid-cols-1 lg:grid-cols-2 gap-3"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-6">
+          <div class="min-w-0"><h3 class="text-xs font-semibold text-zinc-400 mb-2">{e("pjFoldTitle")}</h3><div id="pjFolders" class="overflow-x-auto"></div></div>
+          <div class="min-w-0"><h3 class="text-xs font-semibold text-zinc-400 mb-2">{e("pjBigTitle")}</h3><div id="pjBig" class="overflow-x-auto"></div></div>
+        </div>
+        <p class="text-[11px] text-zinc-500 mt-3">{e("pjNote")}</p>
+      </div>
+    </section>
+
     <div id="ccResult" hidden>
     <section class="{CARD} mt-5">
       <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
