@@ -89,7 +89,7 @@ Astra is the smarter flagship model; Ultrafast is a faster mode of 6.1 Sol. On c
 
 ## Calculate it with your own prompt
 
-Paste a prompt into the [token counter](/) to see its cost on GPT-6.1 Sol and 30+ other models. To decide between a plan and the API for Codex, see [ChatGPT Pro 100 vs 200 vs 500](/blog/chatgpt-pro-100-vs-200-vs-500) and the [coding agent cost calculator](/agents).
+Paste a prompt into the [token counter](/) to see its cost on GPT-6.1 Sol and 30+ other models. Every GPT-6 model and rate, including Luna, Astra and the long-prompt tier, is in [GPT-6 API pricing](/blog/gpt-6-api-pricing). To decide between a plan and the API for Codex, see [ChatGPT Pro 100 vs 200 vs 500](/blog/chatgpt-pro-100-vs-200-vs-500) and the [coding agent cost calculator](/agents).
 
 *Prices checked October 9, 2026. Pricing and availability change often; check OpenAI's pricing page before you rely on them.*
 

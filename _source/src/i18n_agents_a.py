@@ -21,8 +21,8 @@ A["en"] = dict(
     a2="Every step sends the whole context again: system prompt, tool definitions, files the agent has read and all earlier steps. A 25-step task can send over a million input tokens, even if the code it writes is short.",
     q3="Subscription or API for coding agents?",
     a3="For a few small tasks a day the API is usually cheaper. For heavy daily use a $100–200 plan often costs less than the API would, as long as you stay within its limits.",
-    nav="Agent cost", title="Coding agent cost calculator",
-    desc="Claude Code, Codex and Gemini CLI monthly cost: API vs subscription.",
+    nav="Agent cost", title="Claude Code & Codex Cost Calculator",
+    desc="Claude Code and Codex monthly cost: API per task vs Claude and ChatGPT plans.",
 )
 
 A["ko"] = dict(
@@ -44,8 +44,8 @@ A["ko"] = dict(
     a2="단계마다 시스템 프롬프트, 도구 정의, 읽은 파일, 이전 단계까지 맥락 전체를 다시 보냅니다. 25단계 작업이면 작성하는 코드가 짧아도 입력 토큰이 100만 개를 넘을 수 있습니다.",
     q3="코딩 에이전트는 구독과 API 중 뭐가 낫나요?",
     a3="하루에 작은 작업 몇 개라면 보통 API가 쌉니다. 매일 많이 쓴다면 사용 한도 안에서 100~200달러 요금제가 API보다 싼 경우가 많습니다.",
-    nav="에이전트 비용", title="코딩 에이전트 비용 계산기",
-    desc="Claude Code·Codex·Gemini CLI 월 비용: API와 구독 비교.",
+    nav="에이전트 비용", title="클로드 코드·코덱스 비용 계산기",
+    desc="클로드 코드·코덱스 한 달 비용: 작업당 API 비용과 Claude Pro·Max, ChatGPT 요금제 비교.",
 )
 
 A["ja"] = dict(
@@ -67,8 +67,8 @@ A["ja"] = dict(
     a2="各ステップでシステムプロンプト、ツール定義、読んだファイル、それまでの全ステップを送り直すためです。25ステップのタスクなら、書くコードが短くても入力は100万トークンを超えることがあります。",
     q3="コーディングエージェントはサブスクと API どちらが得？",
     a3="1日に小さなタスク数件なら API の方が安いことが多いです。毎日ヘビーに使うなら、上限内に収まる限り100〜200ドルのプランの方が安くなりがちです。",
-    nav="エージェント料金", title="コーディングエージェント料金計算",
-    desc="Claude Code・Codex・Gemini CLI の月額：API とサブスクを比較。",
+    nav="エージェント料金", title="Claude Code・Codex 料金計算機",
+    desc="Claude Code・Codex の月額を計算：タスクあたりの API 費用と Claude Pro・Max、ChatGPT のプランを比較。",
 )
 
 A["zh-CN"] = dict(

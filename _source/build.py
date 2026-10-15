@@ -43,7 +43,8 @@ def alternates(b, group):
 # and used for dateModified, the sitemap lastmod and llms.txt, so a re-checked price page says so.
 _UPD = {"en": lambda y, m, d: f" · Updated {('January February March April May June July August September October November December').split()[m - 1]} {d}, {y}",
         "ko": lambda y, m, d: f" ({y}년 {m}월 {d}일 업데이트)",
-        "ja": lambda y, m, d: f"（{y}年{m}月{d}日更新）"}
+        "ja": lambda y, m, d: f"（{y}年{m}月{d}日更新）",
+        "es": lambda y, m, d: f" · Actualizado el {d} de {('enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre').split()[m - 1]} de {y}"}
 
 def modified(b):
     return b.get("updated") or b.get("date", BLOG_DATE)

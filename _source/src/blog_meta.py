@@ -274,12 +274,13 @@ CMP = [
 ]
 GPT6 = [
  _cc("en", "/blog/gpt-6-api-pricing", "gpt6-en", "OpenAI API Pricing 2026: GPT-6 Astra, Sol and Luna Costs",
-     "GPT-6 Astra, Sol and Luna API prices per million tokens, real cost per request, comparison with Claude and Gemini, and which to use.", _BY["en"], *_CTA_TK["en"]),
+     "GPT-6 API pricing: Luna $0.10/$0.50, Sol and 6.1 Sol $2/$10, Astra $10/$50 per 1M tokens. Cached, long-prompt and Batch rates, cost per request, vs Claude.", _BY["en"], *_CTA_TK["en"]),
  _cc("ko", "/ko/blog/gpt-6-api-gagyeok", "gpt6-ko", "GPT-6 API 가격 정리: Astra·Sol·Luna 비교와 실제 비용",
      "GPT-6 Astra·Sol·Luna의 100만 토큰당 API 가격, 요청당 실제 비용, Claude·Gemini 비교, 어떤 모델을 쓸지 정리했습니다.", _BY["ko"], *_CTA_TK["ko"]),
  _cc("ja", "/ja/blog/gpt-6-api-ryoukin", "gpt6-ja", "GPT-6 の API 料金まとめ：Astra・Sol・Luna の比較と実際の費用",
      "GPT-6 Astra・Sol・Luna の100万トークンあたり API 料金、リクエストあたりの実費、Claude・Gemini との比較、どのモデルを使うか。", _BY["ja"], *_CTA_TK["ja"]),
 ]
+GPT6[0]["updated"] = "2026-10-15"  # en rewritten: every price dimension, worked costs
 
 API_CMP = [
  _cc("en", "/blog/llm-api-pricing-comparison", "api-en", "LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek",
@@ -351,8 +352,8 @@ _CTA_G4 = {"en": ("Paste a prompt to compare its cost on Gemini 4 Argon, GPT-6 a
 def _g4(tag, path, title, desc, by):
     d = _cc(tag, path, "gem4-" + tag, title, desc, by, *_CTA_G4[tag]); d["date"] = "2026-10-03"; return d
 GEM4 = [
- _g4("en", "/blog/gemini-4-argon-api-pricing", "Gemini 4 Argon API Pricing: Cost vs GPT-6 and Claude",
-     "Gemini 4 Argon API prices ($2/$10 intro, $4/$20 standard), cost per request, availability, and how it compares with GPT-6 and Claude.",
+ _g4("en", "/blog/gemini-4-argon-api-pricing", "Gemini 4 Argon API Pricing 2026: $2/$10 Intro, $4/$20 Standard",
+     "Gemini 4 Argon API pricing: $2/$10 per million tokens until November 30, then $4/$20. Now on the paid Gemini API. Cost per request vs GPT-6 and Claude.",
      "Jonhisking · October 3, 2026"),
  _g4("ko", "/ko/blog/gemini-4-argon-api-gagyeok", "제미나이 4 아르곤 API 가격: GPT-6·Claude와 비용 비교",
      "Gemini 4 Argon의 API 가격(출시가 $2/$10, 정가 $4/$20), 요청당 실제 비용, 출시 일정, GPT-6·Claude와의 비교를 정리했습니다.",
@@ -364,6 +365,8 @@ GEM4 = [
      "Precios de la API de Gemini 4 Argon ($2/$10 de lanzamiento, $4/$20 estándar), costo por petición, disponibilidad y comparación con GPT-6 y Claude.",
      "Jonhisking · 3 de octubre de 2026"),
 ]
+for _b in GEM4:  # availability (GA 10/13) and intro-price end date (11/30) added
+    _b["updated"] = "2026-10-15"
 
 # Spanish versions (added 2026-10-03)
 _BY["es"] = "Jonhisking · 3 de octubre de 2026"
@@ -782,7 +785,11 @@ CTC = [
      "Claude token prices in 2026: Sonnet 5.5 $2/$10, Opus 5.5 $4/$20, Haiku 5.5 $0.10/$0.50 per million. Per-token and per-message costs, plus measured runs.",
      "Jonhisking · October 11, 2026", "Paste any prompt to see its exact token count and cost on Claude, GPT and Gemini.", "Open the token counter"),
 ]
+CTC.append(_cc("ko", "/ko/blog/claude-api-gagyeok", "ctc-ko", "클로드 API 가격 2026: 토큰당 비용·원화·결제 방법",
+     "클로드 API 가격 2026: 100만 토큰당 소넷 5.5 $2/$10, 오퍼스 5.5 $4/$20, 하이쿠 5.5 $0.10/$0.50. 원화 환산, 메시지당 비용, 크레딧 충전·영수증·환불 불가 규정까지 정리.",
+     "Jonhisking · 2026년 10월 15일", *_CTA_TK["ko"]))
 for _d in CTC: _d["date"] = "2026-10-11"
+CTC[-1]["date"] = "2026-10-15"  # ko published later
 
 PLUSPRO = [
  _cc("en", "/blog/chatgpt-plus-vs-pro", "plusvspro-en", "ChatGPT Plus vs Pro (2026): $20 vs $100, $200 and $500",

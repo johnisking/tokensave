@@ -1,3 +1,7 @@
 _source/dist/
 __pycache__/
 build.log
+# SEO data and data-based reports stay local: the repository is public
+_source/seo/data/**/*
+!_source/seo/data/**/.gitkeep
+_source/seo/private/

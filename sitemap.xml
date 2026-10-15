@@ -12502,7 +12502,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/blog/gpt-6-api-pricing</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/gpt-6-api-pricing"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gpt-6-api-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gpt-6-api-ryoukin"/>
@@ -12511,13 +12511,13 @@
       <image:loc>https://tokensave.app/gpt-6-api-pricing-en.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/gpt-6-api-pricing-gpt-6-api-prices-en.jpg</image:loc>
+      <image:loc>https://tokensave.app/gpt-6-api-pricing-gpt-6-api-pricing-per-1m-tokens-en.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/gpt-6-api-pricing-what-it-costs-in-practice-en.jpg</image:loc>
+      <image:loc>https://tokensave.app/gpt-6-api-pricing-gpt-6-sol-vs-gpt-6-1-sol-which-to-call-en.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/gpt-6-api-pricing-ways-to-pay-less-en.jpg</image:loc>
+      <image:loc>https://tokensave.app/gpt-6-api-pricing-how-to-cut-your-gpt-6-api-bill-en.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/img/gpt-6-api-price-chart.svg</image:loc>
@@ -13114,7 +13114,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/blog/gemini-4-argon-api-pricing</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/gemini-4-argon-api-pricing"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-4-argon-api-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-4-argon-api-ryoukin"/>
@@ -13138,7 +13138,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/gemini-4-argon-api-gagyeok</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/gemini-4-argon-api-pricing"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-4-argon-api-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-4-argon-api-ryoukin"/>
@@ -13162,7 +13162,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/gemini-4-argon-api-ryoukin</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/gemini-4-argon-api-pricing"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-4-argon-api-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-4-argon-api-ryoukin"/>
@@ -13186,7 +13186,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/gemini-4-argon-precio-api</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/gemini-4-argon-api-pricing"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/gemini-4-argon-api-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/gemini-4-argon-api-ryoukin"/>
@@ -16290,6 +16290,7 @@
     <loc>https://tokensave.app/blog/claude-token-cost</loc>
     <lastmod>2026-10-11</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-token-cost"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-api-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-token-cost"/>
     <image:image>
       <image:loc>https://tokensave.app/claude-token-cost-en.jpg</image:loc>
@@ -16305,6 +16306,25 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/claude-token-cost-where-the-money-goes-en.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/blog/claude-api-gagyeok</loc>
+    <lastmod>2026-10-15</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-token-cost"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-api-gagyeok"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-token-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-api-gagyeok-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-api-gagyeok-api-100-2026-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-api-gagyeok-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-api-gagyeok-ko-4.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -17312,6 +17332,20 @@
     </image:image>
   </url>
   <url>
+    <loc>https://tokensave.app/compare/gpt-6-luna-vs-claude-haiku-5-5</loc>
+    <lastmod>2026-10-14</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gpt-6-luna-vs-claude-haiku-5-5-api-cost.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/compare/claude-haiku-4-5-vs-claude-haiku-5-5</loc>
+    <lastmod>2026-10-14</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/claude-haiku-4-5-vs-claude-haiku-5-5-api-cost.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://tokensave.app/compare/performance</loc>
     <lastmod>2026-10-14</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/compare/performance"/>
@@ -18034,11 +18068,11 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-15</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-15</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/</loc>
@@ -18046,7 +18080,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-15</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/nl/blog/</loc>

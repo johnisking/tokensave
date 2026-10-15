@@ -48,7 +48,12 @@ PAIRS = [
     ("kimi-k3", "claude-sonnet-5-5"), ("qwen3-8-max", "gpt-6-sol"), ("gpt-5-6", "gpt-6-sol"),
     ("gpt-6-1-sol", "claude-sonnet-5-5"), ("gpt-6-1-sol", "claude-opus-5-5"),
     ("muse-spark-1-3", "claude-sonnet-5-5"), ("muse-spark-1-3", "gpt-6-sol"), ("muse-spark-1-3", "gemini-3-1-pro"),
+    ("gpt-6-luna", "claude-haiku-5-5"), ("claude-haiku-4-5", "claude-haiku-5-5"),
 ]
+
+# An older model that a newer one from the same family replaced: pages with the old model point to the newer page,
+# so the two don't compete for the same search.
+NEWER = {"claude-haiku-4-5": "claude-haiku-5-5"}
 
 # Typical workloads: (label, what it is, input tokens, output tokens) — English-text token counts
 WORKLOADS = [
@@ -241,6 +246,18 @@ def build_all(llm):
         related = [(path(models[p], models[q]), f"{models[p]['name']} vs {models[q]['name']}")
                    for p, q in PAIRS if (p, q) != (x, y) and ({p, q} & {x, y})][:8]
         pg = build_page(a, b, models, checked, related)
+        for old_id, new_id in NEWER.items():
+            if old_id in (x, y) and new_id not in (x, y):
+                other = y if x == old_id else x
+                swap = next(((p, q) for p, q in PAIRS if {p, q} == {other, new_id}), None) or next((p, q) for p, q in PAIRS if {p, q} == {old_id, new_id})
+                o, n = models[old_id], models[new_id]
+                note = (f'<p>Newer model: {esc(n["name"])} costs {per_m(n["inp"])} input and {per_m(n["out"])} output per 1M tokens, '
+                        f'against {per_m(o["inp"])} and {per_m(o["out"])} for {esc(o["name"])}. See '
+                        f'<a href="{path(models[swap[0]], models[swap[1]])}">{esc(models[swap[0]]["name"])} vs {esc(models[swap[1]]["name"])}</a>.</p>')
+                pg["body"] = pg["body"].replace("<h2>API prices</h2>", note + "\n      <h2>API prices</h2>", 1)
+        if any(m.startswith("gpt-6") for m in (x, y)):  # GPT-6 pairs link the full GPT-6 price list
+            pg["body"] = pg["body"].replace("<h2>Monthly cost</h2>", '<p>Every GPT-6 model and rate, including cached input, the long-prompt tier and Batch: '
+                                            '<a href="/blog/gpt-6-api-pricing">GPT-6 API pricing</a>.</p>\n      <h2>Monthly cost</h2>', 1)
         if (x, y) in IN_DEPTH:  # an article tests this pair in depth: point to it so the two pages don't compete
             href, label = IN_DEPTH[(x, y)]
             pg["body"] = pg["body"].replace("<h2>API prices</h2>", f'<p>Hands-on test: <a href="{href}">{esc(label)}</a>.</p>\n      <h2>API prices</h2>', 1)
