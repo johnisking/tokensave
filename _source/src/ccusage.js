@@ -140,6 +140,15 @@ function detailOf(name, inp) {
   if (inp.action) return String(inp.action);
   return '';
 }
+const nl = x => (x ? String(x).split('\n').length : 0);
+function linesOf(name, i) {
+  i = i || {};
+  if (name === 'Edit') return nl(i.new_string);
+  if (name === 'Write') return nl(i.content);
+  if (name === 'MultiEdit') return (i.edits || []).reduce((a, e) => a + nl(e && e.new_string), 0);
+  if (name === 'NotebookEdit') return nl(i.new_source);
+  return 0;
+}
 const toolLabel = n => { const m = /^mcp__(.+?)__(.+)$/.exec(n || ''); return m ? 'MCP · ' + m[1] : (n || '?'); };
 let SESSIONS = [], DEEP = [];
 
@@ -153,7 +162,7 @@ function parseClaude(text, rel, seen, resSeen) {
     if (!m) continue;
     if (d.type === 'assistant' && m.model && m.model !== '<synthetic>') {
       if (Array.isArray(m.content)) for (const c of m.content) if (c && c.type === 'tool_use' && c.id && !S.uses.has(c.id))
-        S.uses.set(c.id, { name: c.name, ts: Date.parse(d.timestamp), inTok: txtTok(JSON.stringify(c.input || {})), model: m.model, detail: detailOf(c.name, c.input), path: (c.input && (c.input.file_path || c.input.notebook_path)) || '' });
+        S.uses.set(c.id, { name: c.name, ts: Date.parse(d.timestamp), inTok: txtTok(JSON.stringify(c.input || {})), model: m.model, detail: detailOf(c.name, c.input), path: (c.input && (c.input.file_path || c.input.notebook_path)) || '', lines: linesOf(c.name, c.input) });
       if (m.usage) {
         const key = m.id || d.requestId ? (m.id || '') + ':' + (d.requestId || '') : d.uuid;
         const prev = seen.get(key);
@@ -167,7 +176,7 @@ function parseClaude(text, rel, seen, resSeen) {
       for (const c of m.content) if (c && c.type === 'tool_result' && c.tool_use_id && !resSeen.has(c.tool_use_id)) {
         resSeen.add(c.tool_use_id);
         const [tok, img, itok] = resultSize(c.content);
-        S.results.push({ id: c.tool_use_id, ts: Date.parse(d.timestamp), tok, img, itok });
+        S.results.push({ id: c.tool_use_id, ts: Date.parse(d.timestamp), tok, img, itok, err: !!c.is_error });
       }
     }
   }
@@ -198,7 +207,7 @@ function parseCodex(text, rel, out) {
       let name = p.name || 'shell';
       const inner = /tools\.(\w+)\(/.exec(raw); if (inner) name = inner[1];
       const cmd = /"(?:cmd|command)"\s*:\s*"((?:[^"\\]|\\.){1,80})/.exec(raw);
-      S.uses.set(p.call_id, { name: 'Codex · ' + name, ts: Date.parse(d.timestamp), inTok: txtTok(raw), model: model || 'gpt-5', detail: cmd ? cmd[1].replace(/\\(.)/g, '$1').slice(0, 60) : '', path: '' });
+      S.uses.set(p.call_id, { name: 'Codex · ' + name, ts: Date.parse(d.timestamp), inTok: txtTok(raw), model: model || 'gpt-5', detail: cmd ? cmd[1].replace(/\\(.)/g, '$1').slice(0, 60) : '', path: '', lines: name === 'apply_patch' ? raw.split(/\\n|\n/).filter(l => /^\+(?!\+\+)/.test(l)).length : 0 });
       continue;
     }
     if (d.type === 'response_item' && /^(custom_tool_call_output|function_call_output)$/.test(p.type) && p.call_id) {
@@ -284,7 +293,7 @@ async function readAll(files) {
     const day = (r.ts || '').slice(0, 10);
     if (!day) continue;
     if (r.sid) SESS.add(r.sid);
-    RECS.push({ tool: 'claude', day, ts: Date.parse(r.ts), proj: projOf(r.cwd, r.rel), fam: NAME(fam), fk: fam, sub: /\/subagents\/|(^|\/)agent-[^/]*\.jsonl$/.test(r.rel), ...p });
+    RECS.push({ tool: 'claude', day, ts: Date.parse(r.ts), proj: projOf(r.cwd, r.rel), fam: NAME(fam), fk: fam, sess: r.rel, sub: /\/subagents\/|(^|\/)agent-[^/]*\.jsonl$/.test(r.rel), ...p });
   }
   for (const r of codex) {
     const k = openaiKey(r.model);
@@ -292,7 +301,7 @@ async function readAll(files) {
     const day = (r.ts || '').slice(0, 10);
     if (!day) continue;
     SESS.add('cx:' + r.sid);
-    RECS.push({ tool: 'codex', day, ts: Date.parse(r.ts), proj: projOf(r.cwd, r.rel), fam: k.replace(/^gpt/, 'GPT').replace(/-(\w)/g, (_, c) => ' ' + c.toUpperCase()), ...priceCodex(r.u, k) });
+    RECS.push({ tool: 'codex', day, ts: Date.parse(r.ts), proj: projOf(r.cwd, r.rel), fam: k.replace(/^gpt/, 'GPT').replace(/-(\w)/g, (_, c) => ' ' + c.toUpperCase()), sess: r.rel, ...priceCodex(r.u, k) });
   }
   RECS.push(...cursor);
   analyze();
@@ -339,11 +348,11 @@ function analyze() {
     for (const r of S.results) {
       const u = S.uses.get(r.id) || { name: '?', detail: '', path: '' };
       DEEP.push({ k: 'res', tool: S.kind, name: S.kind === 'claude' ? toolLabel(u.name) : u.name, raw: u.name, ts: r.ts, tok: r.tok, img: r.img, itok: r.itok,
-        cost: carry(r.tok, r.ts), detail: u.detail, path: u.path, sess: S.rel, sub: S.sub });
+        cost: carry(r.tok, r.ts), detail: u.detail, path: u.path, sess: S.rel, sub: S.sub, err: r.err });
     }
     for (const u of S.uses.values()) {
       const po = S.kind === 'claude' ? (P[family(u.model)] || [0, 0])[1] : (OP[u.model] || [0, 0, 0, 0])[3];
-      DEEP.push({ k: 'use', tool: S.kind, name: S.kind === 'claude' ? toolLabel(u.name) : u.name, ts: u.ts, tok: u.inTok, cost: u.inTok * po / 1e6 });
+      DEEP.push({ k: 'use', tool: S.kind, name: S.kind === 'claude' ? toolLabel(u.name) : u.name, raw: u.name, ts: u.ts, tok: u.inTok, cost: u.inTok * po / 1e6, lines: u.lines || 0, path: u.path, sess: S.rel });
     }
   }
 }
@@ -387,9 +396,45 @@ function deep(rs) {
   $('#ccHeavy').innerHTML = `<table class="w-full text-xs"><thead><tr class="text-zinc-500"><th class="text-start font-semibold py-1">${esc(t('thName'))}</th><th class="text-start font-semibold ps-2">${esc(t('thDetail'))}</th><th class="text-end font-semibold whitespace-nowrap ps-2">${esc(t('thTok'))}</th><th class="text-end font-semibold whitespace-nowrap ps-2">${esc(t('thCost'))}</th><th class="text-end font-semibold whitespace-nowrap ps-2">${esc(t('thDay'))}</th></tr></thead><tbody>` +
     heavy.map(x => `<tr class="border-t border-zinc-800"><td class="py-1.5 pe-2 whitespace-nowrap text-zinc-200">${esc(x.name)}</td><td class="ps-2 max-w-[16rem] truncate text-zinc-400 ltr" title="${esc(x.detail)}">${esc(x.detail || '–')}${x.img ? ` <span class="text-amber-300/80">🖼${x.img}</span>` : ''}</td><td class="text-end tabular-nums text-zinc-400 ps-2">${fmtTok(x.tok)}</td><td class="text-end tabular-nums font-semibold text-zinc-100 ps-2">${money(x.cost * f)}</td><td class="text-end tabular-nums text-zinc-500 ps-2 whitespace-nowrap">${new Date(x.ts).toISOString().slice(5, 10)}</td></tr>`).join('') + '</tbody></table>';
 
+  // ---- Coding efficiency: code written, failed calls, rework ----
+  const EDIT = n => /^(Edit|Write|MultiEdit|NotebookEdit|Codex · apply_patch)$/.test(n);
+  const EXPL = n => /^(Read|Grep|Glob|LS|Bash|PowerShell|WebFetch|WebSearch|Codex · (exec_command|shell|exec))$/.test(n) || n.startsWith('MCP · ');
+  const lines = use.reduce((a, x) => a + (x.lines || 0), 0);
+  const edits = res.filter(x => EDIT(x.name)), editErr = edits.filter(x => x.err).length;
+  const errs = res.filter(x => x.err);
+  const nExpl = res.filter(x => EXPL(x.name)).length, nEdit = edits.length;
+  const fe = new Map();
+  for (const x of use) if (EDIT(x.name) && x.path) { const k = x.sess + '|' + x.path; fe.set(k, (fe.get(k) || 0) + 1); }
+  const rework = [...fe.values()].filter(n => n >= 5).length;
+  const effWrap = $('#ccEff');
+  effWrap.hidden = !(lines || res.length);
+  if (!effWrap.hidden) {
+    const tile = (lab, val, sub) => `<div class="rounded-xl bg-zinc-950/60 border border-zinc-800 p-3 min-w-0"><div class="text-[11px] text-zinc-500 font-semibold">${esc(lab)}</div><div class="text-xl font-extrabold text-white tabular-nums mt-1 truncate">${esc(val)}</div><div class="text-[11px] text-zinc-500 mt-0.5 leading-snug">${esc(sub)}</div></div>`;
+    $('#ccEffTiles').innerHTML =
+      tile(t('eLines'), lines.toLocaleString(LOC), t('eLinesSub', { per: lines ? money(total / lines * 1000) : '–' })) +
+      tile(t('eEditFail'), nEdit ? pct(editErr, nEdit) : '–', t('eEditFailSub', { n: editErr.toLocaleString(LOC), all: nEdit.toLocaleString(LOC) })) +
+      tile(t('eFail'), res.length ? pct(errs.length, res.length) : '–', t('eFailSub', { n: errs.length.toLocaleString(LOC), all: res.length.toLocaleString(LOC) })) +
+      tile(t('eRatio'), nEdit ? (nExpl / nEdit).toLocaleString(LOC, { maximumFractionDigits: 1 }) + ' : 1' : '–', t('eRatioSub', { rework: rework.toLocaleString(LOC) }));
+    // failures by tool
+    const fb = new Map();
+    for (const x of res) { const o = fb.get(x.name) || { name: x.name, n: 0, f: 0 }; o.n++; if (x.err) o.f++; fb.set(x.name, o); }
+    const fr = [...fb.values()].filter(o => o.f).sort((a, b) => b.f - a.f).slice(0, 6);
+    // sessions ranked by cost per 1,000 lines
+    const ss = new Map();
+    for (const r of recs) { if (!r.sess) continue; const o = ss.get(r.sess) || { proj: r.proj, day: r.day, cost: 0, lines: 0, ef: 0, en: 0 }; o.cost += r.cost; if (r.day < o.day) o.day = r.day; ss.set(r.sess, o); }
+    for (const x of use) { const o = ss.get(x.sess); if (o) o.lines += x.lines || 0; }
+    for (const x of edits) { const o = ss.get(x.sess); if (o) { o.en++; if (x.err) o.ef++; } }
+    const sl = [...ss.values()].filter(o => o.lines >= 20).sort((a, b) => b.cost / b.lines - a.cost / a.lines).slice(0, 8);
+    const th = (x, end) => `<th class="${end ? 'text-end' : 'text-start'} font-semibold py-1 ${end ? 'ps-2' : ''} whitespace-nowrap">${esc(x)}</th>`;
+    $('#ccEffSess').innerHTML = sl.length ? `<table class="w-full text-xs"><thead><tr class="text-zinc-500">${th(t('eSess'))}${th(t('thCost'), 1)}${th(t('eLinesH'), 1)}${th(t('ePer1k'), 1)}${th(t('eEditFailH'), 1)}</tr></thead><tbody>` +
+      sl.map(o => `<tr class="border-t border-zinc-800"><td class="py-1.5 pe-2 max-w-[12rem] truncate text-zinc-200">${esc(o.proj)} <span class="text-zinc-500 tabular-nums">${o.day.slice(5)}</span></td><td class="text-end tabular-nums text-zinc-400 ps-2">${money(o.cost)}</td><td class="text-end tabular-nums text-zinc-400 ps-2">${o.lines.toLocaleString(LOC)}</td><td class="text-end tabular-nums font-semibold text-zinc-100 ps-2">${money(o.cost / o.lines * 1000)}</td><td class="text-end tabular-nums text-zinc-400 ps-2">${o.en ? o.ef + '/' + o.en : '–'}</td></tr>`).join('') + '</tbody></table>' : `<p class="text-xs text-zinc-500">${esc(t('eNoSess'))}</p>`;
+    $('#ccEffFail').innerHTML = fr.length ? `<table class="w-full text-xs"><thead><tr class="text-zinc-500">${th(t('thName'))}${th(t('thCalls'), 1)}${th(t('eFailH'), 1)}${th(t('eRate'), 1)}</tr></thead><tbody>` +
+      fr.map(o => `<tr class="border-t border-zinc-800"><td class="py-1.5 pe-2 text-zinc-200">${esc(o.name)}</td><td class="text-end tabular-nums text-zinc-400 ps-2">${o.n.toLocaleString(LOC)}</td><td class="text-end tabular-nums text-zinc-400 ps-2">${o.f.toLocaleString(LOC)}</td><td class="text-end tabular-nums font-semibold ${o.f / o.n >= 0.1 ? 'text-amber-300' : 'text-zinc-100'} ps-2">${pct(o.f, o.n)}</td></tr>`).join('') + '</tbody></table>' : `<p class="text-xs text-zinc-500">${esc(t('eNoFail'))}</p>`;
+  }
+
   // ---- Solutions: rule-based, each with the cost it touches ----
   const cards = [];
-  const add = (id, cost, v, extra = [], save = null) => cards.push({ id, cost, v, extra, save });
+  const add = (id, cost, v, extra = [], save = null, metric = null) => cards.push({ id, cost, v, extra, save, metric });
   const pick = names => { const o = { n: 0, tok: 0, cost: 0, img: 0, itok: 0, big: 0 }; for (const r of tools.values()) if (names(r.name)) for (const k in o) o[k] += r[k]; return o; };
   const main = base.filter(b => !b.sub);
   if (main.length) {
@@ -427,14 +472,25 @@ function deep(rs) {
   if (subCost / total >= 0.15) add('sub', subCost, { cost: money(subCost) });
   const txt = Math.max(0, outCost - useCost * g);
   if (txt / total >= 0.2) add('text', txt, { cost: money(txt) });
+  // efficiency cards carry a metric chip instead of a cost (sorted after cost cards)
+  if (nEdit >= 10 && editErr / nEdit >= 0.1) add('editfail', -1, { pct: pct(editErr, nEdit), n: editErr.toLocaleString(LOC) }, [], null, pct(editErr, nEdit));
+  if (rework >= 3) add('rework', -2, { n: rework.toLocaleString(LOC) }, [], null, '');
+  const wfAll = res.filter(x => WEB.has(x.name));
+  const wfName = [...new Set(wfAll.map(x => x.name))].map(n => { const a = wfAll.filter(x => x.name === n); return [a.length, a.filter(x => x.err).length]; }).sort((a, b) => b[1] / b[0] - a[1] / a[0])[0] || [0, 0];
+  const [wfn, wfe] = wfName, wf = { length: wfn };
+  if (wf.length >= 20 && wfe / wf.length >= 0.1) add('webfail', -3, { pct: pct(wfe, wf.length), n: wfe.toLocaleString(LOC) }, [], null, pct(wfe, wf.length));
+  if (nEdit >= 10 && nExpl / nEdit >= 8) add('explore', -4, { r: (nExpl / nEdit).toLocaleString(LOC, { maximumFractionDigits: 0 }) }, [], null, (nExpl / nEdit).toFixed(0) + ' : 1');
   cards.sort((a, b) => b.cost - a.cost);
-  $('#ccCards').innerHTML = cards.length ? cards.slice(0, 6).map((c, i) => {
+  const card = (c, i) => {
     const steps = (C['c_' + c.id + '_s'] || []).concat(c.extra);
-    const chip = c.save != null ? t('cSave', { save: money(c.save) }) : t('cCost', { cost: money(c.cost), pct: pct(c.cost, total) });
+    const chip = c.metric != null ? c.metric : c.save != null ? t('cSave', { save: money(c.save) }) : t('cCost', { cost: money(c.cost), pct: pct(c.cost, total) });
     return `<div class="rounded-xl bg-zinc-950/60 border border-zinc-800 p-4 min-w-0"><div class="flex items-start gap-3"><span class="shrink-0 w-6 h-6 rounded-full bg-violet-600 text-white text-xs font-bold grid place-items-center">${i + 1}</span><div class="min-w-0 flex-1">` +
-      `<div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1"><h4 class="font-bold text-zinc-100">${esc(t('c_' + c.id + '_t', c.v))}</h4><span class="text-[11px] font-semibold ${c.save != null ? 'text-emerald-300 bg-emerald-500/10 border-emerald-500/30' : 'text-amber-200 bg-amber-500/10 border-amber-500/30'} border rounded-full px-2 py-0.5 tabular-nums">${esc(chip)}</span></div>` +
+      `<div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1"><h4 class="font-bold text-zinc-100">${esc(t('c_' + c.id + '_t', c.v))}</h4>${chip === '' ? '' : `<span class="text-[11px] font-semibold ${c.save != null ? 'text-emerald-300 bg-emerald-500/10 border-emerald-500/30' : 'text-amber-200 bg-amber-500/10 border-amber-500/30'} border rounded-full px-2 py-0.5 tabular-nums">${esc(chip)}</span>`}</div>` +
       `<p class="text-sm text-zinc-400 mt-1">${esc(t('c_' + c.id + '_f', c.v))}</p><ul class="mt-2 space-y-1 text-sm text-zinc-200">${steps.map(x => `<li class="flex gap-2"><span class="text-violet-400">→</span><span>${esc(x)}</span></li>`).join('')}</ul></div></div></div>`;
-  }).join('') : `<p class="text-sm text-emerald-300">${esc(t('cNone'))}</p>`;
+  };
+  const cc = cards.filter(c => c.metric == null), ec = cards.filter(c => c.metric != null);
+  $('#ccCards').innerHTML = cc.length ? cc.slice(0, 6).map(card).join('') : `<p class="text-sm text-emerald-300">${esc(t('cNone'))}</p>`;
+  $('#ccEffCards').innerHTML = ec.map(card).join('');
 }
 
 // ---- Project check: how heavy is a code folder for an AI agent (no logs needed) ----
@@ -510,40 +566,51 @@ function renderProject() {
   // solutions
   const cards = [];
   if (ctxTok >= 1500) cards.push({ id: 'ctx', cost: keep(ctxTok, 100), v: { tok: fmtTok(ctxTok), files: ctxRoot.map(x => x.path).join(', '), cost: money(keep(ctxTok, 100)) } });
-  const deny = [];
+  // deny-list candidates: "safe" ones start checked, "careful" ones start unchecked with the reason shown
+  const cand = [];
   const dirs = new Set();
   for (const x of gen) { const m = PJ_GEN.exec(x.path); if (m) dirs.add(x.path.slice(0, m.index + m[0].length).replace(/\/$/, '')); }
   const topDirs = [...dirs].filter(d => ![...dirs].some(o => o !== d && d.startsWith(o + '/'))).sort();
-  for (const d of topDirs.slice(0, 12)) deny.push(d + '/**');
-  for (const x of F.filter(x => x.kind === 'lock')) deny.push(x.path);
-  if (F.some(x => x.kind === 'log')) deny.push('**/*.log');
-  if (F.some(x => /\.map$/i.test(x.path))) deny.push('**/*.map');
-  if (F.some(x => /\.min\.(js|css)$/i.test(x.path))) deny.push('**/*.min.*');
-  const denyTok = sum(gen, 'tok') + sum(heavy, 'tok');
-  if (deny.length) {
-    const settings = JSON.stringify({ permissions: { deny: deny.slice(0, 20).map(p => `Read(./${p})`) } }, null, 2);
-    const ignore = deny.slice(0, 20).join('\n');
-    cards.push({ id: 'deny', cost: keep(denyTok, 50), v: { tok: fmtTok(denyTok), n: deny.length.toLocaleString(LOC) }, code: [['.claude/settings.json', settings], ['.cursorignore', ignore]] });
-  }
-  const bigSrc = F.filter(x => (x.kind === 'src' || x.kind === 'data') && x.tok >= 20000);
-  if (bigSrc.length) cards.push({ id: 'big', cost: keep(sum(bigSrc, 'tok'), 50), v: { n: bigSrc.length.toLocaleString(LOC), list: bigSrc.sort((a, b) => b.tok - a.tok).slice(0, 3).map(x => x.path.split('/').pop() + ' (' + fmtTok(x.tok) + ')').join(', ') } });
+  for (const d of topDirs.slice(0, 12)) cand.push({ p: d + '/**', safe: true, tok: sum(gen.filter(x => x.path.startsWith(d + '/')), 'tok'), why: 'pjWhyGen' });
+  const logs = F.filter(x => x.kind === 'log'); if (logs.length) cand.push({ p: '**/*.log', safe: true, tok: sum(logs, 'tok'), why: 'pjWhyLog' });
+  const maps = F.filter(x => /\.map$/i.test(x.path)); if (maps.length) cand.push({ p: '**/*.map', safe: true, tok: sum(maps, 'tok'), why: 'pjWhyMin' });
+  const mins = F.filter(x => /\.min\.(js|css)$/i.test(x.path)); if (mins.length) cand.push({ p: '**/*.min.*', safe: true, tok: sum(mins, 'tok'), why: 'pjWhyMin' });
+  for (const x of F.filter(x => x.kind === 'lock')) cand.push({ p: x.path, safe: false, tok: x.tok, why: 'pjWhyLock' });
+  for (const x of F.filter(x => x.kind === 'data').sort((a, b) => b.tok - a.tok).slice(0, 5)) cand.push({ p: x.path, safe: false, tok: x.tok, why: 'pjWhyData' });
   if (imgs.length >= 20) {
     const byDir = new Map();
-    for (const x of imgs) { const d = x.path.includes('/') ? x.path.slice(0, x.path.lastIndexOf('/')) : ''; const e = x.path.split('.').pop().toLowerCase(); const k = d + '|' + e; byDir.set(k, (byDir.get(k) || 0) + 1); }
-    const pats = [...byDir.entries()].filter(([, n]) => n >= 20).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([k]) => { const [d, e] = k.split('|'); return (d ? d + '/' : '') + '*.' + e; });
-    const code = pats.length ? [['.claude/settings.json', JSON.stringify({ permissions: { deny: pats.map(p => `Read(./${p})`) } }, null, 2)], ['.cursorignore', pats.join('\n')]] : null;
-    cards.push({ id: 'img', cost: keep(sum(imgs, 'tok'), 50), v: { n: imgs.length.toLocaleString(LOC), tok: fmtTok(sum(imgs, 'tok')) }, code });
+    for (const x of imgs) { const d = x.path.includes('/') ? x.path.slice(0, x.path.lastIndexOf('/')) : ''; const e = x.path.split('.').pop().toLowerCase(); const k = d + '|' + e; const o = byDir.get(k) || { n: 0, tok: 0 }; o.n++; o.tok += x.tok; byDir.set(k, o); }
+    for (const [k, o] of [...byDir.entries()].filter(([, o]) => o.n >= 20).sort((a, b) => b[1].n - a[1].n).slice(0, 6)) { const [d, e] = k.split('|'); cand.push({ p: (d ? d + '/' : '') + '*.' + e, safe: false, tok: o.tok, why: 'pjWhyImg', n: o.n }); }
   }
+  if (cand.length) cards.push({ id: 'deny', cost: keep(sum(cand.filter(c => c.safe), 'tok') + 1, 50) + 1e9, v: { tok: fmtTok(sum(cand, 'tok')), n: cand.length.toLocaleString(LOC) }, cand, wide: true });
+  const bigSrc = F.filter(x => x.kind === 'src' && x.tok >= 20000);
+  if (bigSrc.length) cards.push({ id: 'big', cost: keep(sum(bigSrc, 'tok'), 50), v: { n: bigSrc.length.toLocaleString(LOC), list: bigSrc.sort((a, b) => b.tok - a.tok).slice(0, 3).map(x => x.path.split('/').pop() + ' (' + fmtTok(x.tok) + ')').join(', ') } });
+  if (imgs.length >= 20) cards.push({ id: 'img', cost: keep(sum(imgs, 'tok'), 50), v: { n: imgs.length.toLocaleString(LOC), tok: fmtTok(sum(imgs, 'tok')) } });
   cards.sort((a, b) => b.cost - a.cost);
+  const codeBox = (name, id) => `<div class="mt-3 min-w-0"><div class="flex items-center justify-between text-[11px] text-zinc-500 mb-1"><span class="ltr">${esc(name)}</span><button data-pjcopy class="font-semibold px-2 py-0.5 rounded border border-zinc-700 text-zinc-300 hover:bg-zinc-800">${esc(t('copy'))}</button></div><pre id="${id}" class="ltr text-[11px] leading-snug text-violet-200 bg-zinc-900 border border-zinc-800 rounded-lg p-2 overflow-x-auto"></pre></div>`;
   $('#pjCards').innerHTML = cards.length ? cards.map((c, i) => {
     const steps = C['pj_' + c.id + '_s'] || [];
-    const code = (c.code || []).map(([name, body]) => `<div class="mt-3"><div class="flex items-center justify-between text-[11px] text-zinc-500 mb-1"><span class="ltr">${esc(name)}</span><button data-pjcopy class="font-semibold px-2 py-0.5 rounded border border-zinc-700 text-zinc-300 hover:bg-zinc-800">${esc(t('copy'))}</button></div><pre class="ltr text-[11px] leading-snug text-violet-200 bg-zinc-900 border border-zinc-800 rounded-lg p-2 overflow-x-auto">${esc(body)}</pre></div>`).join('');
-    return `<div class="rounded-xl bg-zinc-950/60 border border-zinc-800 p-4 min-w-0"><div class="flex items-start gap-3"><span class="shrink-0 w-6 h-6 rounded-full bg-violet-600 text-white text-xs font-bold grid place-items-center">${i + 1}</span><div class="min-w-0 flex-1">` +
+    let extra = '';
+    if (c.cand) {
+      extra = `<div class="mt-3 space-y-1.5">${c.cand.map((x, j) => `<label class="flex items-start gap-2 text-sm cursor-pointer"><input type="checkbox" data-pjc="${j}" class="mt-1 accent-violet-500"${x.safe ? ' checked' : ''}><span class="min-w-0"><code class="ltr text-violet-200 break-all">${esc(x.p)}</code> <span class="text-[11px] tabular-nums text-zinc-500">${fmtTok(x.tok)}</span> <span class="text-[10px] font-semibold rounded px-1 border ${x.safe ? 'text-emerald-300 border-emerald-500/40' : 'text-amber-300 border-amber-500/40'}">${esc(t(x.safe ? 'pjSafe' : 'pjCare'))}</span><span class="block text-[11px] text-zinc-500">${esc(t(x.why))}</span></span></label>`).join('')}</div>` +
+        `<div class="grid grid-cols-1 md:grid-cols-2 gap-x-3">${codeBox('.claude/settings.json', 'pjCodeCC')}${codeBox('.cursorignore', 'pjCodeCur')}</div><p class="text-[11px] text-zinc-500 mt-2">${esc(t('pjUndo'))}</p>`;
+    }
+    return `<div class="rounded-xl bg-zinc-950/60 border border-zinc-800 p-4 min-w-0${c.wide ? ' lg:col-span-2' : ''}"><div class="flex items-start gap-3"><span class="shrink-0 w-6 h-6 rounded-full bg-violet-600 text-white text-xs font-bold grid place-items-center">${i + 1}</span><div class="min-w-0 flex-1">` +
       `<h4 class="font-bold text-zinc-100">${esc(t('pj_' + c.id + '_t', c.v))}</h4><p class="text-sm text-zinc-400 mt-1">${esc(t('pj_' + c.id + '_f', c.v))}</p>` +
-      `<ul class="mt-2 space-y-1 text-sm text-zinc-200">${steps.map(x => `<li class="flex gap-2"><span class="text-violet-400">→</span><span>${esc(x)}</span></li>`).join('')}</ul>${code}</div></div></div>`;
+      `<ul class="mt-2 space-y-1 text-sm text-zinc-200">${steps.map(x => `<li class="flex gap-2"><span class="text-violet-400">→</span><span>${esc(x)}</span></li>`).join('')}</ul>${extra}</div></div></div>`;
   }).join('') : `<p class="text-sm text-emerald-300">${esc(t('pjNone'))}</p>`;
+  const updCode = () => {
+    const sel = cand.filter((x, j) => { const el = document.querySelector(`[data-pjc="${j}"]`); return el && el.checked; }).map(x => x.p);
+    const cc = $('#pjCodeCC'), cu = $('#pjCodeCur');
+    if (!cc) return;
+    cc.textContent = sel.length ? JSON.stringify({ permissions: { deny: sel.map(p => `Read(./${p})`) } }, null, 2) : t('pjNoneSel');
+    cu.textContent = sel.length ? sel.join('\n') : t('pjNoneSel');
+  };
+  document.querySelectorAll('[data-pjc]').forEach(el => el.addEventListener('change', updCode));
+  updCode();
   $('#pjCards').querySelectorAll('[data-pjcopy]').forEach(b => b.addEventListener('click', () => {
     const txt = b.closest('div.mt-3').querySelector('pre').textContent;
+    if (txt === t('pjNoneSel')) return;
     const done = () => { b.textContent = t('copied'); setTimeout(() => { b.textContent = t('copy'); }, 1200); };
     try { navigator.clipboard.writeText(txt).then(done, done); } catch (_) { done(); }
   }));

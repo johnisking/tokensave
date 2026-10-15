@@ -339,6 +339,17 @@ def build_page(lang):
         <div class="min-w-0"><h3 class="text-xs font-semibold text-zinc-400 mb-2">{e("heavyTitle")}</h3><div id="ccHeavy" class="overflow-x-auto"></div></div>
       </div>
       <p class="text-[11px] text-zinc-500 mt-3">{e("dNote")}</p>
+      <div id="ccEff" hidden class="mt-8 pt-6 border-t border-zinc-800">
+        <h3 class="text-sm font-bold text-zinc-100">⚙️ {e("eTitle")}</h3>
+        <p class="text-sm text-zinc-400 mt-1 mb-4">{e("eSub")}</p>
+        <div id="ccEffTiles" class="grid grid-cols-2 lg:grid-cols-4 gap-3"></div>
+        <div id="ccEffCards" class="grid grid-cols-1 lg:grid-cols-2 gap-3 mt-4"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-6">
+          <div class="min-w-0"><h3 class="text-xs font-semibold text-zinc-400 mb-2">{e("eSessTitle")}</h3><div id="ccEffSess" class="overflow-x-auto"></div></div>
+          <div class="min-w-0"><h3 class="text-xs font-semibold text-zinc-400 mb-2">{e("eFailTitle")}</h3><div id="ccEffFail" class="overflow-x-auto"></div></div>
+        </div>
+        <p class="text-[11px] text-zinc-500 mt-3">{e("eNote")}</p>
+      </div>
     </section>
 
     <section class="{CARD} mt-5">
