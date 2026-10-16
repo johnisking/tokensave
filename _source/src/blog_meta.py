@@ -928,3 +928,15 @@ CCUSE = [
 ]
 for _b in CCUSE:
     _b["date"] = "2026-10-15"
+
+# Claude Korean/Japanese token measurement (2026-10-16): same text and questions in ko/en/ja on Opus 5.5
+LANGCL = [
+ _cc("ko", "/ko/blog/claude-hangugeo-token", "langcl-ko", "클로드 한국어 토큰, 영어보다 102% 더? 실측 비교",
+     "Claude Opus 5.5에 같은 글과 질문을 한국어·영어·일본어로 보내 실측. 같은 뜻을 쓰면 한국어 출력 토큰이 영어보다 102% 더, 일본어는 65% 더. 비용 차이와 줄이는 법까지.",
+     "Jonhisking · 2026년 10월 16일", "내 프롬프트를 붙여 넣고 💸 토큰 절약을 눌러 보세요. 영어로 바꾸면 토큰이 얼마나 줄어드는지 바로 보여드립니다.", "토큰 계산기 열기"),
+ _cc("ja", "/ja/blog/claude-nihongo-token", "langcl-ja", "Claude 日本語トークンは英語より65％多い？Opus 5.5実測",
+     "Claude Opus 5.5 に同じ文章と質問を日本語・英語・韓国語で送って実測。同じ意味を書かせると日本語の出力トークンは英語より65％多く、韓国語は102％多い。費用の差と減らし方まで。",
+     "Jonhisking · 2026年10月16日", "プロンプトを貼り付けて💸 トークン節約を押してみてください。英語にするとどれだけ減るかすぐ分かります。", "トークンカウンターを開く"),
+]
+for _b in LANGCL:
+    _b["date"] = "2026-10-16"

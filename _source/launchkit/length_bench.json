@@ -323,5 +323,31 @@
   "median": 1736,
   "samples": {},
   "note": "no Chinese article in top results (only English/Japanese); Korean median used as proxy, chars"
+ },
+ "langcl-ko": {
+  "keyword": "클로드 한국어 토큰",
+  "checked": "2026-10-16",
+  "median": 6000,
+  "note": "estimated from WebFetch summaries (exact text blocked), ±30%",
+  "samples": {
+   "gpters.org (27개 언어)": 1500,
+   "gpters.org (토큰 뜻)": 3800,
+   "tilnote.io": 6000,
+   "kbthink.com": 7500,
+   "wikidocs.net": 9000
+  }
+ },
+ "langcl-ja": {
+  "keyword": "日本語 トークン 英語 比較 Claude",
+  "checked": "2026-10-16",
+  "median": 9000,
+  "note": "estimated from WebFetch summaries, ±30%",
+  "samples": {
+   "atmarkit.itmedia.co.jp": 9500,
+   "onamae.com": 9000,
+   "agentsroom.dev": 9000,
+   "clauder-navi.com": 5500,
+   "aipicks.jp": 600
+  }
  }
 }
