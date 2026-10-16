@@ -12,6 +12,10 @@ LANG_PATH = "/data/token-cost-by-language"
 LANG_MEASURED = "2026-09-30"
 LANG_VERIFIED = "2026-10-16"
 LANG_CHART = "/blog-language-tax-chart-v5.png"
+LANG_DOI = "10.5281/zenodo.23427148"  # concept DOI (always resolves to the latest Zenodo version)
+LANG_MIRRORS = [("Zenodo", "https://zenodo.org/records/23427149"),
+                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/token-cost-by-language"),
+                ("Kaggle", "https://www.kaggle.com/datasets/johnisking/token-cost-by-language-41-languages-gpt")]
 LANG_TITLE = "Token cost by language: 41 languages measured on GPT tokenizers"
 LANG_DESC = ("Dataset: the same prompt in 41 languages counted with OpenAI's o200k_base and cl100k_base tokenizers. "
              "From +3% (Simplified Chinese) to +144% (Punjabi) more tokens than English. Free CSV, CC BY 4.0.")
@@ -57,13 +61,14 @@ def write_files(dist):
 
 
 def citation_text():
-    return f"TokenSave (2026). {LANG_TITLE} [Data set]. {BASE}{LANG_PATH}"
+    return f"TokenSave (2026). {LANG_TITLE} [Data set]. Zenodo. https://doi.org/{LANG_DOI}"
 
 
 def lang_ld():
     rows = _lang_rows()
     return {"@context": "https://schema.org", "@graph": [
         {"@type": "Dataset", "name": LANG_TITLE, "description": LANG_DESC, "url": BASE + LANG_PATH,
+         "identifier": f"https://doi.org/{LANG_DOI}", "sameAs": [u for _, u in LANG_MIRRORS],
          "license": LICENSE, "isAccessibleForFree": True,
          "creator": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"},
          "datePublished": LANG_MEASURED, "dateModified": LANG_VERIFIED,
@@ -109,6 +114,7 @@ def lang_html():
       <h1 class="text-3xl font-extrabold text-white">How many more tokens each language needs than English</h1>
       <p class="mt-3 text-lg text-zinc-200"><strong>The same prompt needs {en["o"]} GPT tokens in English and {lo["o"]}–{hi["o"]} tokens in {len(rows) - 1} other languages: from {_pct(lo["po"])} ({esc(_nm(lo["name"]))}) to {_pct(hi["po"])} ({esc(_nm(hi["name"]))}).</strong> Korean needs {_pct(by["ko"]["po"])}, Japanese {_pct(by["ja"]["po"])}, Spanish {_pct(by["es"]["po"])} and German {_pct(by["de"]["po"])}.</p>
       <p class="text-sm text-zinc-400">Tokenizer: o200k_base (GPT-4o and later), with cl100k_base (GPT-4, GPT-3.5) for comparison · Measured {LANG_MEASURED} · Counts re-verified {LANG_VERIFIED} · License <a href="{LICENSE}">CC BY 4.0</a></p>
+      <p class="text-sm text-zinc-400">DOI <a href="https://doi.org/{LANG_DOI}">{LANG_DOI}</a> · Also on {" · ".join(f'<a href="{u}">{n}</a>' for n, u in LANG_MIRRORS[1:])}</p>
       <div class="not-prose flex flex-wrap gap-2 my-4">
         <a href="/data/token-cost-by-language.csv" {BTN} style="text-decoration:none">⬇ CSV</a>
         <a href="/data/token-cost-by-language.json" {BTN} style="text-decoration:none">⬇ JSON</a>
@@ -140,7 +146,7 @@ def lang_html():
         <li>Input text only. It does not measure how long the model's answer would be in each language.</li>
       </ul>
       <h2 id="cite">How to cite</h2>
-      <p>Free to use, quote and republish with attribution under <a href="{LICENSE}">CC BY 4.0</a>. Please link to this page.</p>
+      <p>Free to use, quote and republish with attribution under <a href="{LICENSE}">CC BY 4.0</a>. Please link to this page or the DOI.</p>
       <div class="not-prose bg-zinc-950/70 border border-zinc-800 rounded-xl p-4">
         <p id="cite-text" class="text-sm text-zinc-200 break-words">{esc(citation_text())}</p>
         <div class="mt-3"><button type="button" data-copy="cite-text" {BTN}>Copy citation</button></div>
