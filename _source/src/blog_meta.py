@@ -947,5 +947,13 @@ CLIM = [
      "클로드 사용량 한도는 5시간 세션 한도와 주간 한도가 함께 걸립니다. 초기화 시간 확인법, 새로 생긴 무료 초기화, 사용량 크레딧, 한국어가 한도를 더 쓰는 이유까지 실제 화면으로 정리.",
      "Jonhisking · 2026년 10월 16일", "내 메시지 수와 길이, 언어를 넣고 구독 한도 안에서 쓰는 것과 API 중 어느 쪽이 더 싼지 계산해 보세요.", "구독 vs API 계산기 열기"),
 ]
+CLIM.insert(0, _cc("en", "/blog/claude-usage-limits", "clim-en", "Claude Usage Limits 2026: 5-Hour and Weekly Resets Explained",
+     "Claude has a 5-hour session limit and a weekly limit at the same time. When each resets, how to check usage, the new Reset for free button and usage credits.",
+     "Jonhisking · October 16, 2026", "Enter your message count, length and language to see whether a subscription or the API is cheaper for you.", "Open the Subscription vs API calculator"))
+CLIM.append(_cc("ja", "/ja/blog/claude-shiyouryou-jougen", "clim-ja", "Claude の使用量上限まとめ：5時間・週のリセット時刻",
+     "Claude の使用量上限は5時間のセッション上限と週の上限が同時にかかります。リセット時刻の確認方法、新しい無料リセット、使用量クレジット、日本語での減り方まで実際の画面で整理。",
+     "Jonhisking · 2026年10月16日", "メッセージ数・長さ・言語を入力して、サブスクの上限内で使うのと API のどちらが安いか計算してみましょう。", "料金を計算する"))
 for _b in CLIM:
     _b["date"] = "2026-10-16"
+for _d in CPRO:
+    if _d["src"] in ("cpro-en", "cplan-ja"): _d["updated"] = "2026-10-16"

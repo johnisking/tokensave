@@ -361,5 +361,30 @@
    "ssdnodes.com/learn/lang/ko": 5000,
    "blog.laozhang.ai/ko": 6000
   }
+ },
+ "clim-en": {
+  "keyword": "claude usage limits",
+  "checked": "2026-10-16",
+  "median": 1900,
+  "unit": "words",
+  "note": "estimated from WebFetch summaries, ±30%",
+  "samples": {
+   "ai-toolbox.co": 2600,
+   "krater.ai": 1200,
+   "freeacademy.ai": 1600,
+   "promptslove.com": 3500
+  }
+ },
+ "clim-ja": {
+  "keyword": "Claude 使用制限 リセット",
+  "checked": "2026-10-16",
+  "median": 5000,
+  "note": "estimated, ±30%",
+  "samples": {
+   "ssdnodes.com/learn/lang/ja": 5500,
+   "gori.me": 3500,
+   "zenn.dev/fleagne": 5000,
+   "aiagent-navi.com": 6000
+  }
  }
 }

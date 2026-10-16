@@ -50,7 +50,7 @@ Pro has two limits running at the same time:
 | Weekly limit | Applies across all models; resets weekly (Settings > Usage) |
 
 - **There is no fixed message count.** How far a limit goes depends on the model, the length of your conversations, attached files and whether you use Claude Code.
-- **Anthropic's one estimate:** about 45 messages per 5 hours for short conversations on a lighter model. Longer chats, big files and Opus use the limit much faster.
+- **No fixed message count:** Anthropic's help center does not give a number of messages per 5 hours. Longer chats, big files and Opus use the limit much faster.
 - **The Claude app and Claude Code share the same limits.** A long coding session leaves less for chat, and the other way around.
 - **You can keep going past a limit** by turning on paid usage credits.
 - **Anthropic may add monthly caps** on top, according to its help center.
@@ -95,7 +95,6 @@ The closest thing to a trial is the **Free plan**: it has Sonnet, Haiku, project
 |---|---|---|---|
 | Price | $20 a month | $100 a month | $200 a month |
 | Usage | Base | 500% of Pro | 2,000% of Pro |
-| Anthropic's message estimate (per 5 hours) | About 45 | At least 225 | At least 900 |
 | Fable | With paid credits | Up to 50% of weekly limits | Up to 50% of weekly limits |
 | Output limits | Standard | Higher | Higher |
 
@@ -149,7 +148,7 @@ Not currently. The last official free-month offers ran in October and November 2
 Yes. Claude Code is included with Pro and shares the same usage limits as the Claude app.
 
 **How many messages do you get with Claude Pro?**
-There is no fixed number. Anthropic's estimate is about 45 messages per 5 hours for short conversations on a lighter model; longer conversations and Opus use the limit faster.
+There is no fixed number. Anthropic says it depends on message length, files, conversation length and the model; longer conversations and Opus use the limit faster. How resets work is in [Claude usage limits](/blog/claude-usage-limits).
 
 **Is Claude Pro cheaper on the app?**
 Not necessarily. Anthropic says mobile pricing may vary by app platform, so the price in the iPhone or Android app can differ from the web price. Check both before subscribing.
