@@ -9876,7 +9876,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/blog/claude-pro-price</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-pro-price"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-ryoukin-plan"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-yogeumje"/>
@@ -9896,7 +9896,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/claude-ryoukin-plan</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-pro-price"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-ryoukin-plan"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-yogeumje"/>
@@ -10454,9 +10454,32 @@
     </image:image>
   </url>
   <url>
+    <loc>https://tokensave.app/blog/claude-usage-limits</loc>
+    <lastmod>2026-10-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-usage-limits"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-sayongnyang-hando"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-shiyouryou-jougen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-usage-limits-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-usage-limits-claude-usage-limits-by-plan-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-usage-limits-when-does-the-claude-usage-limit-reset-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-usage-limits-how-to-check-your-claude-usage-en.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://tokensave.app/ko/blog/claude-sayongnyang-hando</loc>
     <lastmod>2026-10-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-usage-limits"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-sayongnyang-hando"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-shiyouryou-jougen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-usage-limits"/>
     <image:image>
       <image:loc>https://tokensave.app/claude-sayongnyang-hando-ko.jpg</image:loc>
     </image:image>
@@ -10468,6 +10491,26 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/claude-usage-by-product-ko.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/blog/claude-shiyouryou-jougen</loc>
+    <lastmod>2026-10-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-usage-limits"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-sayongnyang-hando"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-shiyouryou-jougen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-shiyouryou-jougen-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-shiyouryou-jougen-claude-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-shiyouryou-jougen-claude-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-shiyouryou-jougen-ja-4.jpg</image:loc>
     </image:image>
   </url>
   <url>
