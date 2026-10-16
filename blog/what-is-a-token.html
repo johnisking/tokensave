@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=c584d50a" />
+  <link rel="stylesheet" href="/styles.css?v=88ef6adb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -104,6 +104,7 @@
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="What Is a Token? A Plain-English Guide for AI Users" src="/what-is-a-token-en.jpg" /></p>
 <p>If you use ChatGPT, Claude or Gemini through an app, you rarely see the word "token". The moment you look at an API price list, it is everywhere: <em>$2 per million input tokens</em>, <em>a 1 million token context window</em>, <em>max output 32K tokens</em>. This guide explains what a token is, how to estimate how many your text uses, and why it matters for both cost and quality.</p>
+<p class="not-prose my-5"><a href="/" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 Open the token counter →</a></p>
 <h2>A token is a piece of text, not a word</h2>
 <p>AI language models do not read letters or words. Before your text reaches the model, a <strong>tokenizer</strong> cuts it into pieces from a fixed vocabulary of roughly 100,000 to 200,000 entries. Common words are usually one piece. Rare words, names and code get split into several.</p>
 <p>For example, the sentence below has 10 words and 11 tokens on GPT's current tokenizer (o200k): one per word, plus one for the full stop.</p>
@@ -119,7 +120,7 @@
 <li>1,000 tokens ≈ 750 words ≈ 1.5 pages of single-spaced text</li>
 <li>A 300-page novel ≈ 120,000–150,000 tokens</li>
 </ul>
-<p>These are averages. Technical text, code, URLs and numbers use more tokens per character than plain prose. On current GPT models, everyday English is actually a little cheaper than this rule: we measured about 1.1–1.15 tokens per word. See <a href="/blog/tokens-per-word">Tokens per word, measured</a>.</p>
+<p>These are averages. Technical text, code, URLs and numbers use more tokens per character than plain prose. On current GPT models, everyday English is actually a little cheaper than this rule: we measured about 1.1–1.15 tokens per word. See <a href="/blog/tokens-per-word">Tokens per word, measured</a>, or convert any word count with the <a href="/tokens-to-words">tokens to words converter</a>.</p>
 <h2>Other languages use more tokens</h2>
 <p><img loading="lazy" width="1200" height="1044" alt="Other languages use more tokens: Language, Tokens vs English" src="/what-is-a-token-other-languages-use-more-tokens-en.jpg" /></p>
 <p>Tokenizers are trained mostly on English, so the same meaning written in another language usually takes more tokens. We measured the same prompt in 41 languages on GPT's o200k tokenizer:</p>
@@ -222,6 +223,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=c584d50a"></script>
+  <script type="module" src="/common.js?v=88ef6adb"></script>
 </body>
 </html>

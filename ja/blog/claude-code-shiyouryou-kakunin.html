@@ -45,7 +45,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=c584d50a" />
+  <link rel="stylesheet" href="/styles.css?v=88ef6adb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -111,6 +111,7 @@
 <p>Claude Code は、プランの上限にどれくらい近いかは教えてくれますが、トークンがどこに使われたかはあまり教えてくれません。セッションの中で <code>/usage</code> を入力すると、5時間枠と週の上限がパーセントのバーで表示され、API で使っている場合は今のセッションの概算金額が出ます。けれども「先週の火曜日にいくら使ったか」「今月どのプロジェクトがいちばん使ったか」「Max プランはトークン単位の支払いより本当にお得だったか」といった履歴は見られません。</p>
 <p>実はこの情報は、もうパソコンの中にあります。Claude Code は会話をすべて記録ファイルに残し、応答ごとにモデル名とトークン数を正確に書いています。ccusage や CodeBurn といったコマンドラインのツールは、このファイルを読んで合計しています。私はインストールなしで同じ答えを見たかったので、ブラウザの中で記録を読む <a href="/ja/claude-code-usage">Claude Code 使用量アナライザー</a>を作りました。Codex の記録と Cursor の使用量 CSV も一緒に読めます。</p>
 <p>この記事では、使用量の記録がどこにあるのか、確認する方法にはどんなものがあるのか、そして自分の実際の記録をアナライザーに入れたら何が分かったのかをまとめました。以下の数字はすべてその記録と、2026年10月15日に確認した公式の料金表によるものです。金額は1ドル＝158円で換算したおおよその値です。</p>
+<p class="not-prose my-5"><a href="/ja/claude-code-usage" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 使用量アナライザーを開く →</a></p>
 <h2>Claude Code の使用量はどこに記録される？</h2>
 <p>Claude Code はセッションごとの会話記録を <code>~/.claude/projects/</code> の下に保存します。プロジェクトごとにフォルダが1つでき、1つのセッションが1つの <code>.jsonl</code> ファイル（1行に JSON が1つ）です。サブエージェントの会話は、そのセッションの隣にある <code>subagents/</code> フォルダに入ります。</p>
 <div class="overflow-x-auto"><table>
@@ -350,6 +351,6 @@ Claude Code が初期設定で30日を過ぎた記録を削除するためです
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=c584d50a"></script>
+  <script type="module" src="/common.js?v=88ef6adb"></script>
 </body>
 </html>

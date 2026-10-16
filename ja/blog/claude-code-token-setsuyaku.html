@@ -42,7 +42,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=c584d50a" />
+  <link rel="stylesheet" href="/styles.css?v=88ef6adb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -106,6 +106,7 @@
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026年10月2日</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="Claude Code のトークン節約術9選" src="/claude-code-token-setsuyaku-ja.jpg" /></p>
 <p>Claude Code は強力ですが、トークンをたくさん使います。1つのタスクで100万トークン以上をモデルに送ることも珍しくなく、Pro・Max の上限がすぐに尽きたり、API の請求額にそのまま表れたりします。幸い、その多くは Claude Code にやってもらうことは変えずに減らせるムダです。効果の大きい順にまとめました。</p>
+<p class="not-prose my-5"><a href="/ja/agents" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 エージェント費用計算機を開く →</a></p>
 <h2>トークンが積み上がる理由</h2>
 <p>Claude Code はステップごとに作業し、<strong>ステップのたびに作業コンテキスト全体</strong>を送り直します。指示、ツール定義、読んだファイル、それまでのステップのすべてです。開始時のコンテキストが22,000トークンで、1ステップごとに3,500トークン増える25ステップの機能タスクなら、入力トークンは合計で<strong>約160万</strong>になります。だから、コンテキストを小さくすること、タスクを短くすることは、どんなことでも毎ステップ効いてきます。</p>
 <h2>1. タスクは小さく具体的に</h2>
@@ -137,6 +138,7 @@
 <p>TokenSave の<a href="/ja/agents">コーディングエージェント費用モデル</a>では、Sonnet 5.5 での一般的な機能タスクはキャッシュありで約$0.57です。正確な指示とファイルの場所を伝えて25ステップを15ステップに減らすと、約$0.33まで下がります。タスクごとに新しいセッションで始めれば、開始時のコンテキストも小さく保てます。月に100タスクなら、週の上限に当たるかどうかが分かれるほどの差です。</p>
 <h2>使用量を確認する</h2>
 <p>Claude Code で <strong>/status</strong> を実行すると、残りの使用量が表示されます。上限そのものの仕組みは <a href="/ja/blog/claude-code-shiyouryou-jougen">Claude Code の使用量上限まとめ</a>、プランと API の比較は <a href="/ja/blog/claude-code-ryoukin">Claude Code の月額料金</a>をご覧ください。</p>
+<p>これまでに実際に使ったトークンと費用を知りたいときは、<a href="/ja/claude-code-usage">Claude Code 使用量アナライザー</a>に記録フォルダを入れてみてください。日付・プロジェクト・モデル別のトークンと API 換算の費用を、ブラウザ内だけで計算して表示します。</p>
 <h2>出典</h2>
 <ul>
 <li><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">コストを効果的に管理する（Claude Code ドキュメント）</a></li>
@@ -171,6 +173,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=c584d50a"></script>
+  <script type="module" src="/common.js?v=88ef6adb"></script>
 </body>
 </html>

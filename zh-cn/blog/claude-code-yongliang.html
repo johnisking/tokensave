@@ -45,7 +45,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=c584d50a" />
+  <link rel="stylesheet" href="/styles.css?v=88ef6adb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -111,6 +111,7 @@
 <p>如何查看 Claude Code、Codex 和 Cursor 的用量与费用？Claude Code 本身会告诉你离套餐上限还有多远，却不太告诉你 token 都花在了哪里。在会话里输入 <code>/usage</code>，可以看到 5 小时额度和每周额度的百分比进度条；用 API 的话，还能看到当前会话的估算金额。但"上周二花了多少""这个月哪个项目用得最多""Max 套餐真的比按 token 付费划算吗"这类历史记录，它并不提供。</p>
 <p>其实这些信息已经在你的电脑里了。Claude Code 会把每次对话都写进日志文件，每条回复都准确记录了模型名称和 token 数。ccusage、CodeBurn 这类命令行工具就是读取这些文件再求和。我想不装任何东西就看到同样的结果，于是做了一个在浏览器里读取日志的 <a href="/zh-cn/claude-code-usage">Claude Code 用量分析器</a>，它也能读取 Codex 日志和 Cursor 的用量 CSV。</p>
 <p>这篇文章整理了用量记录存在哪里、有哪些查看方法，以及我把自己的真实日志放进分析器后看到了什么。下面的数字都来自这些日志和 2026 年 10 月 15 日核对的官方价格表；人民币金额按 1 美元约 6.72 元换算，仅供参考。</p>
+<p class="not-prose my-5"><a href="/zh-cn/claude-code-usage" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 打开用量分析器 →</a></p>
 <h2>Claude Code 的用量记录在哪里？</h2>
 <p>Claude Code 会把每个会话的对话记录保存在 <code>~/.claude/projects/</code> 下。每个项目一个文件夹，每个会话是一个 <code>.jsonl</code> 文件（每行一个 JSON）。子代理的对话放在该会话旁边的 <code>subagents/</code> 文件夹里。</p>
 <div class="overflow-x-auto"><table>
@@ -349,6 +350,6 @@ Claude Code 默认会删除 30 天以前的记录。在 <code>settings.json</cod
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=c584d50a"></script>
+  <script type="module" src="/common.js?v=88ef6adb"></script>
 </body>
 </html>

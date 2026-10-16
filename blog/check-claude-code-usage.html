@@ -45,7 +45,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=c584d50a" />
+  <link rel="stylesheet" href="/styles.css?v=88ef6adb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -111,6 +111,7 @@
 <p>Claude Code shows you how close you are to your plan limit, but not where the tokens went. Inside a session, <code>/usage</code> gives you a percentage bar for the 5-hour window and the week, and on the API it gives you an estimated dollar figure for the current session. What it does not give you is a simple history: how much did last Tuesday cost, which project ate most of the month, and was the Max plan actually worth it compared with paying per token?</p>
 <p>That information is already on your computer. Claude Code writes every conversation to a log file, and each reply in that file records the model and the exact token counts. Command-line tools such as ccusage and CodeBurn read those files and add them up. I wanted the same answer without installing anything, so I built a <a href="/claude-code-usage">Claude Code usage analyzer</a> that reads the logs inside the browser. It also reads Codex logs and Cursor's usage export.</p>
 <p>This post explains where the usage data lives, the ways to check it, and what I found when I ran my own logs through the analyzer. Every number below comes from those logs and from the official price lists, checked on October 15, 2026.</p>
+<p class="not-prose my-5"><a href="/claude-code-usage" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 Open the usage analyzer →</a></p>
 <h2>Where Claude Code stores your usage</h2>
 <p>Claude Code keeps a transcript of every session under <code>~/.claude/projects/</code>. Each project gets its own folder, and each session is a <code>.jsonl</code> file: one JSON object per line. Subagent conversations sit in a <code>subagents/</code> folder next to the session they belong to.</p>
 <div class="overflow-x-auto"><table>
@@ -351,6 +352,6 @@ Not yet. It reads Claude Code, Codex and the Cursor CSV today.</p>
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=c584d50a"></script>
+  <script type="module" src="/common.js?v=88ef6adb"></script>
 </body>
 </html>

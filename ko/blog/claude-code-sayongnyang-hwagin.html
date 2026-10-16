@@ -45,7 +45,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=c584d50a" />
+  <link rel="stylesheet" href="/styles.css?v=88ef6adb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -111,6 +111,7 @@
 <p>Claude Code는 내가 요금제 한도에 얼마나 가까운지는 알려 주지만, 토큰이 어디에 쓰였는지는 잘 알려 주지 않습니다. 세션 안에서 <code>/usage</code>를 입력하면 5시간 한도와 주간 한도가 퍼센트 막대로 나오고, API로 쓰는 경우엔 지금 세션의 예상 금액이 나옵니다. 하지만 "지난 화요일엔 얼마를 썼는지", "이번 달 어떤 프로젝트가 가장 많이 썼는지", "Max 요금제가 토큰당 결제보다 정말 이득이었는지" 같은 기록은 보여 주지 않습니다.</p>
 <p>그런데 이 정보는 이미 내 컴퓨터에 있습니다. Claude Code는 대화를 모두 기록 파일로 남기고, 응답마다 모델 이름과 토큰 수를 정확히 적어 둡니다. ccusage나 CodeBurn 같은 명령줄 도구가 이 파일을 읽어 합산하는 방식입니다. 저는 설치 없이 같은 답을 보고 싶어서, 브라우저 안에서 기록을 읽는 <a href="/ko/claude-code-usage">Claude Code 사용량 분석기</a>를 만들었습니다. Codex 기록과 Cursor 사용량 CSV도 함께 읽습니다.</p>
 <p>이 글에서는 사용량 기록이 어디에 있는지, 확인하는 방법은 무엇이 있는지, 그리고 제 실제 기록을 분석기에 넣었더니 무엇이 나왔는지 정리했습니다. 아래 숫자는 모두 그 기록과 2026년 10월 15일에 확인한 공식 요금표에서 나온 것입니다.</p>
+<p class="not-prose my-5"><a href="/ko/claude-code-usage" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 사용량 분석기 열기 →</a></p>
 <h2>Claude Code 사용량은 어디에 기록될까?</h2>
 <p>Claude Code는 세션마다 대화 기록을 <code>~/.claude/projects/</code> 아래에 저장합니다. 프로젝트마다 폴더가 하나씩 생기고, 세션 하나가 <code>.jsonl</code> 파일 하나입니다(한 줄에 JSON 하나). 서브에이전트 대화는 그 세션 옆의 <code>subagents/</code> 폴더에 들어갑니다.</p>
 <div class="overflow-x-auto"><table>
@@ -351,6 +352,6 @@ Claude Code가 기본적으로 30일 지난 기록을 지우기 때문입니다.
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=c584d50a"></script>
+  <script type="module" src="/common.js?v=88ef6adb"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=c584d50a" />
+  <link rel="stylesheet" href="/styles.css?v=88ef6adb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -104,6 +104,7 @@
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026年10月12日</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="Claude Code の使い方｜インストールから最初の指示まで実画面で解説" src="/claude-code-tsukaikata-ja.jpg" /></p>
 <p>Claude Code の使い方を調べると、最初の一歩でつまずいたという声をよく見かけます。インストールのコマンドは1行なのに、Windows では PowerShell と CMD で書き方が違い、インストール方法によっては実行した瞬間に赤いエラーが出ることもあります。この記事では、Windows の PowerShell で実際にインストールの確認からテーマ選択、最初の指示、使用量の確認までを進めた画面を使いながら、公式ドキュメントに沿って Claude Code の始め方と基本の使い方を順番に説明します。途中で出たエラーとその直し方もそのまま載せています。</p>
+<p class="not-prose my-5"><a href="/ja/agents" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 コーディングエージェント費用計算機を開く →</a></p>
 <h2>Claude Code とは</h2>
 <p>Claude Code は、Anthropic が提供する AI コーディングエージェントです。ターミナル（PowerShell や macOS のターミナル）で <code>claude</code> と入力すると対話画面が開き、日本語で「このファイルを直して」「テストを書いて」と頼むと、Claude がプロジェクトのファイルを読み、コードを書き換え、コマンドを実行するところまで進めます。チャットの画面にコードを貼り付けてやり取りするのではなく、<strong>自分のパソコンのフォルダの中で直接作業してくれる</strong>のが大きな違いです。</p>
 <p>公式ドキュメントによると、Claude Code はターミナルのほかに、Web（claude.ai/code）、デスクトップアプリ、VS Code と JetBrains の拡張機能、Slack、GitHub Actions などからも使えます。この記事では、いちばん基本になるターミナル版（CLI）の使い方を扱います。ターミナルに慣れていない場合は、デスクトップアプリから使う方法もあります。</p>
@@ -507,6 +508,7 @@ npm で入れた場合に出る PowerShell の実行ポリシーのエラーで�
 使えます。公式に VS Code と JetBrains の拡張機能があり、エディタの中から Claude Code を使えます。</p>
 <h2>費用を計算してみる</h2>
 <p>Claude Code をサブスクリプションで使うか API の従量課金で使うかで迷ったら、<a href="/ja/agents">コーディングエージェント費用計算機</a> で1か月の API 費用を試算し、Pro や Max と比べてみてください。サブスクと API のどちらが安いかは <a href="/ja/plans">サブスク vs API 計算機</a> でも確認できます。</p>
+<p>これまでに実際に使ったトークンと費用を知りたいときは、<a href="/ja/claude-code-usage">Claude Code 使用量アナライザー</a>に記録フォルダを入れてみてください。日付・プロジェクト・モデル別のトークンと API 換算の費用を、ブラウザ内だけで計算して表示します。</p>
 <p><em>インストール方法と動作条件は2026年10月12日に Claude Code の公式ドキュメントで確認しました。画面は Windows の PowerShell、Claude Code v2.1.295 のものです。</em></p>
 <h2>出典</h2>
 <ul>
@@ -544,6 +546,6 @@ npm で入れた場合に出る PowerShell の実行ポリシーのエラーで�
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=c584d50a"></script>
+  <script type="module" src="/common.js?v=88ef6adb"></script>
 </body>
 </html>

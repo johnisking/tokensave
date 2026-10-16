@@ -51,7 +51,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=c584d50a" />
+  <link rel="stylesheet" href="/styles.css?v=88ef6adb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -115,6 +115,7 @@
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026 年 10 月 9 日</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="Claude Opus 5.5 effort 实测：从 low 到 max" src="/claude-opus-5-5-effort-zh-cn.jpg" /></p>
 <p><strong>Claude Opus 5.5</strong> 有一个控制思考深度的 <strong>effort</strong> 设置，共五个等级：low、medium、high、xhigh 和 max。等级越高，结果理应越好，但官方文档并没有给出每提高一级要多花多少时间和费用。于是我们在 2026 年 10 月 9 日用同一个做游戏的请求，在每个等级各跑了一次，对比耗时、token、费用和成品。最快的等级只用了 32 秒，最慢的用了 22 分钟。下面逐级看看发生了什么变化、什么任务该用哪个等级，并附上实际使用体验。</p>
+<p class="not-prose my-5"><a href="/zh-cn/agents" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 打开编程智能体费用计算器 →</a></p>
 <h2>effort 是什么</h2>
 <ul>
 <li><strong>它决定模型思考多少。</strong> Opus 5.5 的思考无法关闭，effort 控制的是思考的深度。思考 token 按输出 token 计费。</li>
@@ -384,6 +385,6 @@ medium。Opus 5 的默认值是 high。没有设置 effort 的 API 请求，在 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=c584d50a"></script>
+  <script type="module" src="/common.js?v=88ef6adb"></script>
 </body>
 </html>

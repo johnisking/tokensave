@@ -45,7 +45,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=c584d50a" />
+  <link rel="stylesheet" href="/styles.css?v=88ef6adb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -112,6 +112,7 @@
 <p>Як перевірити використання й вартість Claude Code, Codex і Cursor? Сам Claude Code показує, наскільки ви близькі до ліміту підписки, але майже не каже, куди пішли токени. Якщо в сесії ввести <code>/usage</code>, ви побачите відсоткові смужки для 5-годинного та тижневого ліміту, а в API — орієнтовну вартість поточної сесії. Проте історії на кшталт «скільки я витратив минулого вівторка», «який проєкт цього місяця використав найбільше» чи «чи справді Max вигідніший за оплату за токени» там немає.</p>
 <p>Насправді ця інформація вже є на вашому комп'ютері. Claude Code записує кожну розмову в журнал, і для кожної відповіді точно фіксує модель і кількість токенів. Інструменти командного рядка, як-от ccusage і CodeBurn, читають ці файли й підсумовують їх. Я хотів отримати ту саму відповідь без встановлення, тож зробив <a href="/uk/claude-code-usage">аналізатор використання Claude Code</a>, який читає журнали прямо в браузері. Він також читає журнали Codex і CSV використання Cursor.</p>
 <p>У цій статті пояснюю, де лежать дані про використання, як їх можна перевірити і що я побачив, коли завантажив в аналізатор власні журнали. Усі числа нижче взяті з цих журналів і з офіційних прайсів, перевірених 15 жовтня 2026 року. Суми в гривнях наведено приблизно за курсом 1 долар = 44,6 грн.</p>
+<p class="not-prose my-5"><a href="/uk/claude-code-usage" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 Відкрити аналізатор →</a></p>
 <h2>Де Claude Code зберігає дані про використання</h2>
 <p>Claude Code зберігає журнал кожної сесії в <code>~/.claude/projects/</code>. Для кожного проєкту створюється окрема папка, а кожна сесія — це один файл <code>.jsonl</code> (по одному JSON на рядок). Розмови субагентів лежать у папці <code>subagents/</code> поруч із сесією, до якої вони належать.</p>
 <div class="overflow-x-auto"><table>
@@ -352,6 +353,6 @@ Claude Code за замовчуванням видаляє журнали, ст�
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=c584d50a"></script>
+  <script type="module" src="/common.js?v=88ef6adb"></script>
 </body>
 </html>

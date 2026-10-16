@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=c584d50a" />
+  <link rel="stylesheet" href="/styles.css?v=88ef6adb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -104,6 +104,7 @@
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026년 10월 12일</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="클로드 코드 사용법: 설치부터 첫 작업까지 실제 화면으로" src="/claude-code-sayongbeop-ko.jpg" /></p>
 <p>클로드 코드 사용법을 찾아보면 첫 단계에서 막혔다는 이야기가 의외로 많습니다. 설치 명령어는 한 줄인데 윈도우에서는 PowerShell과 CMD에서 쓰는 명령어가 다르고, 설치 방법에 따라서는 실행하자마자 빨간 오류가 뜨기도 합니다. 이 글에서는 윈도우 PowerShell에서 설치 확인, 테마 선택, 첫 작업 지시, 사용량 확인까지 직접 진행한 화면을 보면서 공식 문서를 기준으로 클로드 코드 설치 방법과 기본 사용법을 순서대로 정리합니다. 중간에 실제로 만난 오류와 해결 방법도 그대로 담았습니다.</p>
+<p class="not-prose my-5"><a href="/ko/agents" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 코딩 에이전트 비용 계산기 열기 →</a></p>
 <h2>클로드 코드란?</h2>
 <p>클로드 코드(Claude Code)는 Anthropic이 만든 AI 코딩 에이전트입니다. 터미널(PowerShell이나 macOS 터미널)에서 <code>claude</code>를 입력하면 대화 화면이 열리고, 한국어로 "이 파일 고쳐 줘", "테스트 코드 짜 줘"라고 부탁하면 클로드가 프로젝트 파일을 읽고, 코드를 고치고, 명령어를 실행하는 데까지 알아서 진행합니다. 채팅창에 코드를 붙여 넣고 주고받는 방식이 아니라 <strong>내 컴퓨터 폴더 안에서 직접 작업한다</strong>는 점이 가장 큰 차이입니다.</p>
 <p>공식 문서에 따르면 클로드 코드는 터미널 말고도 웹(claude.ai/code), 데스크톱 앱, VS Code·JetBrains 확장 프로그램, Slack, GitHub Actions 등에서도 쓸 수 있습니다. 이 글은 가장 기본이 되는 터미널판(CLI) 사용법을 다룹니다. 터미널이 낯설다면 데스크톱 앱에서 쓰는 방법도 있습니다.</p>
@@ -507,6 +508,7 @@ npm으로 설치했을 때 나는 PowerShell 실행 정책 오류입니다. <cod
 쓸 수 있습니다. 공식 VS Code·JetBrains 확장 프로그램이 있어서 에디터 안에서 클로드 코드를 쓸 수 있습니다.</p>
 <h2>비용 계산해 보기</h2>
 <p>클로드 코드를 구독으로 쓸지 API 종량제로 쓸지 고민된다면 <a href="/ko/agents">코딩 에이전트 비용 계산기</a>로 한 달 API 비용을 계산해서 Pro·Max와 비교해 보세요. 구독과 API 중 어느 쪽이 싼지는 <a href="/ko/plans">구독 vs API 계산기</a>로도 확인할 수 있습니다.</p>
+<p>지금까지 실제로 쓴 토큰과 비용이 궁금하다면 <a href="/ko/claude-code-usage">클로드 코드 사용량 분석기</a>에 기록 폴더를 넣어 보세요. 날짜·프로젝트·모델별 토큰과 API 환산 비용을 브라우저 안에서만 계산해 보여 줍니다.</p>
 <p><em>설치 방법과 실행 조건은 2026년 10월 12일 클로드 코드 공식 문서에서 확인했습니다. 화면은 윈도우 PowerShell, Claude Code v2.1.295 기준입니다.</em></p>
 <h2>출처</h2>
 <ul>
@@ -544,6 +546,6 @@ npm으로 설치했을 때 나는 PowerShell 실행 정책 오류입니다. <cod
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=c584d50a"></script>
+  <script type="module" src="/common.js?v=88ef6adb"></script>
 </body>
 </html>

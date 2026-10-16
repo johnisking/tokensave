@@ -42,7 +42,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=c584d50a" />
+  <link rel="stylesheet" href="/styles.css?v=88ef6adb" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -106,6 +106,7 @@
         <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026년 10월 2일</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="클로드 코드 토큰 절약 방법 9가지" src="/claude-code-token-jeolyak-ko.jpg" /></p>
 <p>클로드 코드는 강력하지만 토큰을 많이 먹습니다. 작업 하나에 100만 토큰 넘게 모델로 보내는 경우도 흔해서, Pro·Max 한도가 금방 바닥나거나 API 청구서에 그대로 찍힙니다. 다행히 그중 상당 부분은 클로드 코드가 해 주는 일은 그대로 두고도 줄일 수 있는 낭비입니다. 효과가 큰 순서대로 정리했습니다.</p>
+<p class="not-prose my-5"><a href="/ko/agents" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 코딩 에이전트 비용 계산기 열기 →</a></p>
 <h2>토큰이 쌓이는 이유</h2>
 <p>클로드 코드는 단계별로 일하고, <strong>단계마다 작업 맥락 전체</strong>를 다시 보냅니다. 지시문, 도구 정의, 읽은 파일, 이전 단계까지 전부입니다. 시작 맥락 22,000토큰에 단계마다 3,500토큰씩 늘어나는 25단계 기능 작업이면 입력 토큰이 모두 <strong>약 160만 개</strong>입니다. 그래서 맥락을 줄이거나 작업을 짧게 만드는 건 무엇이든 매 단계마다 효과가 납니다.</p>
 <h2>1. 작업을 작고 구체적으로</h2>
@@ -137,6 +138,7 @@
 <p>토큰세이브 <a href="/ko/agents">코딩 에이전트 비용 계산 모델</a> 기준으로, Sonnet 5.5에서 일반적인 기능 작업 하나는 캐싱을 켜고 약 $0.57입니다. 정확한 지시와 파일 위치를 줘서 25단계를 15단계로 줄이면 약 $0.33으로 내려갑니다. 작업마다 새 세션으로 시작하면 시작 맥락도 작게 유지됩니다. 한 달에 작업 100개라면 주간 한도에 걸리느냐 안 걸리느냐가 갈리는 차이입니다.</p>
 <h2>사용량 확인</h2>
 <p>클로드 코드에서 <strong>/status</strong>를 치면 남은 사용량이 나옵니다. 한도 자체가 어떻게 돌아가는지는 <a href="/ko/blog/claude-code-sayongnyang-hando">클로드 코드 사용량 한도 정리</a>를, 요금제와 API 비교는 <a href="/ko/blog/claude-code-yogeum">클로드 코드 한 달 요금 계산</a>을 보세요.</p>
+<p>지금까지 실제로 쓴 토큰과 비용이 궁금하다면 <a href="/ko/claude-code-usage">클로드 코드 사용량 분석기</a>에 기록 폴더를 넣어 보세요. 날짜·프로젝트·모델별 토큰과 API 환산 비용을 브라우저 안에서만 계산해 보여 줍니다.</p>
 <h2>출처</h2>
 <ul>
 <li><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">비용을 효과적으로 관리하기 (Claude Code 문서)</a></li>
@@ -171,6 +173,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=c584d50a"></script>
+  <script type="module" src="/common.js?v=88ef6adb"></script>
 </body>
 </html>
