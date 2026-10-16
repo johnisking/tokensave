@@ -17026,6 +17026,42 @@
     </image:image>
   </url>
   <url>
+    <loc>https://tokensave.app/ko/blog/claude-hangugeo-token</loc>
+    <lastmod>2026-10-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-hangugeo-token"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-nihongo-token"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-hangugeo-token-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-korean-token-translation-output-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-korean-tokens-per-character-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-vs-gpt-korean-token-ko.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/blog/claude-nihongo-token</loc>
+    <lastmod>2026-10-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-hangugeo-token"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-nihongo-token"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-nihongo-token-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-japanese-token-translation-output-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-japanese-tokens-per-character-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-vs-gpt-japanese-token-ja.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://tokensave.app/blog/what-is-a-token</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/what-is-a-token"/>
@@ -18377,11 +18413,11 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/pl/blog/</loc>
