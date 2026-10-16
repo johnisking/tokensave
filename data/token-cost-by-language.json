@@ -8,7 +8,7 @@
   "o200k_base (GPT-4o and later)",
   "cl100k_base (GPT-4, GPT-3.5)"
  ],
- "citation": "TokenSave (2026). Token cost by language: 41 languages measured on GPT tokenizers [Data set]. https://tokensave.app/data/token-cost-by-language",
+ "citation": "TokenSave (2026). Token cost by language: 41 languages measured on GPT tokenizers [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23427148",
  "rows": [
   {
    "code": "en",
