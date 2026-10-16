@@ -940,3 +940,12 @@ LANGCL = [
 ]
 for _b in LANGCL:
     _b["date"] = "2026-10-16"
+
+# Claude app usage limits (2026-10-16): session/weekly limits, resets, limit-reset offers, usage credits
+CLIM = [
+ _cc("ko", "/ko/blog/claude-sayongnyang-hando", "clim-ko", "클로드 사용량 한도 2026: 5시간·주간 초기화 정리",
+     "클로드 사용량 한도는 5시간 세션 한도와 주간 한도가 함께 걸립니다. 초기화 시간 확인법, 새로 생긴 무료 초기화, 사용량 크레딧, 한국어가 한도를 더 쓰는 이유까지 실제 화면으로 정리.",
+     "Jonhisking · 2026년 10월 16일", "내 메시지 수와 길이, 언어를 넣고 구독 한도 안에서 쓰는 것과 API 중 어느 쪽이 더 싼지 계산해 보세요.", "구독 vs API 계산기 열기"),
+]
+for _b in CLIM:
+    _b["date"] = "2026-10-16"

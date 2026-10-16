@@ -349,5 +349,17 @@
    "clauder-navi.com": 5500,
    "aipicks.jp": 600
   }
+ },
+ "clim-ko": {
+  "keyword": "클로드 사용량 한도",
+  "checked": "2026-10-16",
+  "median": 5000,
+  "note": "estimated from WebFetch summaries, ±30%",
+  "samples": {
+   "wikidocs.net/blog/@openwiki/32390": 5500,
+   "funissu.com": 2750,
+   "ssdnodes.com/learn/lang/ko": 5000,
+   "blog.laozhang.ai/ko": 6000
+  }
  }
 }
