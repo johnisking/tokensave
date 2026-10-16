@@ -129,6 +129,8 @@ With a model at $2 per million input tokens, sending this prompt one million tim
 
 {' · '.join(reads)}
 
+The full table, every translated prompt and a CSV download are on the [dataset page](/data/token-cost-by-language) (free to reuse under CC BY 4.0).
+
 The original write-up and discussion are on [DEV](https://dev.to/jaehyun_cho_0dff271e0d2e5/i-sent-the-same-prompt-in-27-languages-czech-costs-2x-english-chinese-costs-the-same-420m).
 """
     return md

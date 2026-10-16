@@ -156,6 +156,12 @@ PAGES = [
     dict(file="tokens-to-words.html", path="/tokens-to-words", body=None,
          title="Tokens to Words Converter (GPT, Claude, Gemini)",
          desc="Convert tokens to words and words to tokens for GPT, Claude and Gemini, in 41 languages. Based on measured text, free, in your browser."),
+    dict(file="data/index.html", path="/data/", body=None, fn="hub_html", ld="hub_ld",
+         title="TokenSave Data: open AI token and cost measurements",
+         desc="Datasets from TokenSave's own measurements of AI tokens and costs, with CSV downloads and citations (CC BY 4.0)."),
+    dict(file="data/token-cost-by-language.html", path="/data/token-cost-by-language", body=None, fn="lang_html", ld="lang_ld",
+         title="Token Cost by Language: 41 Languages Measured (GPT Dataset)",
+         desc="Dataset: the same prompt in 41 languages counted with OpenAI's o200k_base and cl100k_base tokenizers. From +3% (Simplified Chinese) to +144% (Punjabi) more tokens than English. Free CSV, CC BY 4.0."),
     dict(file="404.html", path=None, body="404_body.html",
          title="Page not found | TokenSave", desc="This page does not exist."),
 ]
@@ -585,14 +591,15 @@ def build():
     en_nav = "\n".join(f'          <a href="{path_for("", t)}" class="{NAV_OFF}">{esc(NAV["en"][t["nav"]])}</a>' for t in TOOLS)
     en_opts, en_all = lang_menu("", "en", lambda sl: path_for(sl, TOOLS[0]))
     for pg in PAGES:
-        body = languages_html() if pg["path"] == "/languages" else blog_index_html() if pg["path"] == "/blog/" else __import__("tokens_words").body(LANG_RATIOS) if pg["path"] == "/tokens-to-words" else open(os.path.join(SRC, pg["body"]), encoding="utf-8").read()
+        DP = __import__("data_pages")
+        body = getattr(DP, pg["fn"])() if pg.get("fn") else languages_html() if pg["path"] == "/languages" else blog_index_html() if pg["path"] == "/blog/" else __import__("tokens_words").body(LANG_RATIOS) if pg["path"] == "/tokens-to-words" else open(os.path.join(SRC, pg["body"]), encoding="utf-8").read()
         url = BASE + (pg["path"] or "/404")
         values = dict(
             htmlLang="en", dir="ltr", url=url, ogLocale="en_US", ogImage=f"{BASE}/og-token.jpg",
             title=esc(pg["title"]), desc=esc(pg["desc"]), lang=esc(S["en"]["lang"]),
             homeUrl="/", hreflang=(BLOG_ALTS_EN if pg["path"] == "/blog/" else ""), langOptions=en_opts, langAll=en_all, toolNav=en_nav, ver=ver, adsHead=extras, faq="", guide="",
             f1="", f2="", fAbout=esc(SITE["en"]["fAbout"]), fPrivacy=esc(SITE["en"]["fPrivacy"]),
-            ldjson=js({"@context": "https://schema.org", "@type": "WebPage", "name": pg["title"], "url": url}),
+            ldjson=js(getattr(DP, pg["ld"])() if pg.get("ld") else {"@context": "https://schema.org", "@type": "WebPage", "name": pg["title"], "url": url}),
             tjson=js({"static": True}),
             scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>',
         )
@@ -601,6 +608,7 @@ def build():
             out = out.replace(f'  <link rel="canonical" href="{url}" />\n', '  <meta name="robots" content="noindex" />\n')
         os.makedirs(os.path.dirname(os.path.join(DIST, pg["file"])), exist_ok=True)
         open(os.path.join(DIST, pg["file"]), "w", encoding="utf-8").write(out)
+    __import__("data_pages").write_files(DIST)
 
 
     # Model-vs-model comparison pages (/compare/...), English only, prices from llm_prices.json
