@@ -45,7 +45,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=01a23dc9" />
+  <link rel="stylesheet" href="/styles.css?v=c584d50a" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -64,10 +64,10 @@
 
   <main class="max-w-5xl mx-auto px-4 py-6 sm:py-10">
 
-    <!-- ===== Top bar: brand + tools + language ===== -->
-    <div class="mb-6">
+    <!-- ===== Top bar: brand + tools + language (wider than the content on large screens) ===== -->
+    <div class="mb-6 xl:-mx-24">
       <div class="flex items-center justify-between gap-3 mb-3">
-        <a href="/ja/" class="inline-flex items-center gap-2 text-sm font-bold tracking-tight text-zinc-300 whitespace-nowrap">
+        <a href="/ja/" class="inline-flex items-center gap-2 text-sm md:text-base font-bold tracking-tight text-zinc-300 whitespace-nowrap">
           <img src="/favicon.svg" alt="TokenSave logo" width="22" height="22" /> TokenSave
         </a>
         <label class="inline-flex items-center gap-1.5 text-xs text-zinc-400">
@@ -91,16 +91,16 @@
           </select>
         </label>
       </div>
-      <nav class="flex flex-wrap gap-1 text-xs" aria-label="Tools">
-          <a href="/ja/" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">トークン計算</a>
-          <a href="/ja/video" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">動画コスト</a>
-          <a href="/ja/image" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">画像コスト</a>
-          <a href="/ja/plans" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">プラン vs API</a>
-          <a href="/ja/agents" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">エージェント料金</a>
-          <a href="/ja/compare/performance" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">📊 AIランキング</a>
-          <a href="/ja/ai-game-cost-calculator" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">🎮 ゲーム制作費</a>
-          <a href="/ja/claude-code-usage" class="px-2.5 py-1 rounded-md font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">使用量アナライザー</a>
-          <a href="/ja/blog/" class="px-2.5 py-1 rounded-md font-semibold tab-active" aria-current="page">ブログ</a>
+      <nav class="flex flex-wrap gap-1 text-xs md:text-sm" aria-label="Tools">
+          <a href="/ja/" class="px-2.5 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">トークン計算</a>
+          <a href="/ja/video" class="px-2.5 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">動画コスト</a>
+          <a href="/ja/image" class="px-2.5 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">画像コスト</a>
+          <a href="/ja/plans" class="px-2.5 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">プラン vs API</a>
+          <a href="/ja/agents" class="px-2.5 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">エージェント料金</a>
+          <a href="/ja/compare/performance" class="px-2.5 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">📊 AIランキング</a>
+          <a href="/ja/ai-game-cost-calculator" class="px-2.5 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">🎮 ゲーム制作費</a>
+          <a href="/ja/claude-code-usage" class="px-2.5 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg font-semibold text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">使用量アナライザー</a>
+          <a href="/ja/blog/" class="px-2.5 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg font-semibold tab-active" aria-current="page">ブログ</a>
       </nav>
     </div>
 
@@ -350,6 +350,6 @@ Claude Code が初期設定で30日を過ぎた記録を削除するためです
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=01a23dc9"></script>
+  <script type="module" src="/common.js?v=c584d50a"></script>
 </body>
 </html>
