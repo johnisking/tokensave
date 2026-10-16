@@ -210,8 +210,8 @@ GUIDES += [
  _G("reasoning-models-cost", "g-reasoning", "token", "Reasoning Models: When Thinking Is Worth Paying For",
     "Hidden reasoning tokens are billed as output and can make a request 900% pricier. When reasoning pays off and when it does not.",
     "Set a longer expected output to see what reasoning adds to each request.", "Open the token counter"),
- _G("batch-api-half-price", "g-batch", "token", "Batch APIs: Half-Price AI for Work That Can Wait",
-    "How batch processing works, what it saves on a 100,000-item job, which tasks fit, and tips to avoid wasted runs.",
+ _G("batch-api-half-price", "g-batch", "token", "Batch API Pricing: 50% Off GPT, Claude and Gemini (2026)",
+    "A 100,000-item job drops from $330 to $165 with a batch API. How batch processing works, which tasks fit, and tips to avoid wasted runs.",
     "Measure one request, multiply by your item count, and halve it for a batch estimate.", "Open the token counter"),
  _G("rag-vs-long-context-cost", "g-rag", "token", "RAG vs Long Context: What It Costs to Ask Questions About Big Documents",
     "Sending a 500-page manual with every question vs retrieving 8 passages: $0.67 vs $0.009 per question. When to use each.",
@@ -250,7 +250,7 @@ CC_LIMITS = [
      "Claude Code の Pro・Max の5時間上限と週の上限の仕組み、2026年の変更点、使用量の確認方法と上限に当たったときの対処法。", _BY["ja"], *_CTA["ja"]),
 ]
 CC_SAVE = [
- _cc("en", "/blog/claude-code-save-tokens", "cc-save-en", "How to Save Tokens in Claude Code: 9 Habits That Matter",
+ _cc("en", "/blog/claude-code-save-tokens", "cc-save-en", "How to Save Tokens in Claude Code (2026): 9 Habits That Work",
      "Why Claude Code uses so many tokens and 9 practical ways to cut them, from /clear and /compact to a shorter CLAUDE.md.", _BY["en"], *_CTA["en"]),
  _cc("ko", "/ko/blog/claude-code-token-jeolyak", "cc-save-ko", "클로드 코드 토큰 절약 방법 9가지",
      "클로드 코드가 토큰을 많이 쓰는 이유와 /clear, /compact, 짧은 CLAUDE.md, 영어 지시문까지 토큰을 줄이는 실전 방법 9가지.", _BY["ko"], *_CTA["ko"]),
@@ -299,8 +299,8 @@ TPW = [
      "最新の GPT モデルで、英語は1単語あたり約1.1〜1.3トークン、日本語は約1.2文字で1トークン。12言語の実測値をまとめました。", _BY["ja"], *_CTA_TK["ja"]),
 ]
 COUNT = [
- _cc("en", "/blog/how-to-count-tokens-gpt-claude-gemini", "count-en", "How to Count Tokens for GPT, Claude and Gemini",
-     "Why GPT, Claude and Gemini count tokens differently, how to get an exact count for each, and a quick way to estimate without code.", _BY["en"], *_CTA_TK["en"]),
+ _cc("en", "/blog/how-to-count-tokens-gpt-claude-gemini", "count-en", "How to Count Tokens for GPT, Claude and Gemini (2026)",
+     "Claude counts about 30% more tokens than GPT for the same text. How to get an exact count for GPT, Claude and Gemini, and a free estimate without code.", _BY["en"], *_CTA_TK["en"]),
  _cc("ko", "/ko/blog/token-segi-bangbeop", "count-ko", "GPT·Claude·Gemini 토큰 세는 방법",
      "GPT, Claude, Gemini가 토큰을 다르게 세는 이유, 각각 정확하게 세는 방법, 코드 없이 바로 어림잡는 방법을 정리했습니다.", _BY["ko"], *_CTA_TK["ko"]),
  _cc("ja", "/ja/blog/token-kazoekata", "count-ja", "GPT・Claude・Gemini のトークンの数え方",
@@ -317,8 +317,8 @@ CHLIM = [
      "ChatGPT の回数制限と使用量上限を Free・Go・Plus・Pro・Business 別に整理。無制限の範囲、GPT-6 Pro の上限、Work・Codex の5時間枠、リセットと対処法まで。", "Jonhisking · 2026年10月13日更新", *_CTA_PL["ja"]),
 ]
 CXLIM = [
- _cc("en", "/blog/codex-usage-limits", "cxlim-en", "Codex Usage Limits Explained: 5-Hour Window, Weekly Cap and Resets",
-     "How Codex limits work on ChatGPT Plus and Pro, messages per 5 hours by model, how to check usage, and how to make it last longer.", _BY["en"], *_CTA_AG["en"]),
+ _cc("en", "/blog/codex-usage-limits", "cxlim-en", "Codex Usage Limits 2026: Plus vs Pro, 5-Hour Window, Resets",
+     "Plus gets about 15–160 GPT-6.1 Sol messages per 5 hours; Pro has no 5-hour cap. Codex limits by model, weekly caps, resets and how to make them last.", _BY["en"], *_CTA_AG["en"]),
  _cc("ko", "/ko/blog/codex-sayongnyang-hando", "cxlim-ko", "Codex 사용량 한도 정리: 5시간·주간 한도와 초기화",
      "챗GPT Plus·Pro에서 Codex 한도가 어떻게 작동하는지, 모델별 5시간당 메시지 수, 사용량 확인법과 오래 쓰는 방법을 정리했습니다.", _BY["ko"], *_CTA_AG["ko"]),
  _cc("ja", "/ja/blog/codex-shiyouryou-jougen", "cxlim-ja", "Codex の使用量上限まとめ：5時間・週の上限とリセット",

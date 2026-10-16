@@ -21,7 +21,7 @@ Every word here is common enough to be a single token, including the space in fr
 - 1,000 tokens ≈ 750 words ≈ 1.5 pages of single-spaced text
 - A 300-page novel ≈ 120,000–150,000 tokens
 
-These are averages. Technical text, code, URLs and numbers use more tokens per character than plain prose. On current GPT models, everyday English is actually a little cheaper than this rule: we measured about 1.1–1.15 tokens per word. See [Tokens per word, measured](/blog/tokens-per-word).
+These are averages. Technical text, code, URLs and numbers use more tokens per character than plain prose. On current GPT models, everyday English is actually a little cheaper than this rule: we measured about 1.1–1.15 tokens per word. See [Tokens per word, measured](/blog/tokens-per-word), or convert any word count with the [tokens to words converter](/tokens-to-words).
 
 ## Other languages use more tokens
 

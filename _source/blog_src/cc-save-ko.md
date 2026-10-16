@@ -59,6 +59,8 @@ API에서 Claude Opus 5.5는 Sonnet 5.5보다 토큰당 100% 비싸고, 요금�
 
 클로드 코드에서 **/status**를 치면 남은 사용량이 나옵니다. 한도 자체가 어떻게 돌아가는지는 [클로드 코드 사용량 한도 정리](/ko/blog/claude-code-sayongnyang-hando)를, 요금제와 API 비교는 [클로드 코드 한 달 요금 계산](/ko/blog/claude-code-yogeum)을 보세요.
 
+지금까지 실제로 쓴 토큰과 비용이 궁금하다면 [클로드 코드 사용량 분석기](/ko/claude-code-usage)에 기록 폴더를 넣어 보세요. 날짜·프로젝트·모델별 토큰과 API 환산 비용을 브라우저 안에서만 계산해 보여 줍니다.
+
 ## 출처
 
 - [비용을 효과적으로 관리하기 (Claude Code 문서)](https://code.claude.com/docs/en/costs)

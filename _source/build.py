@@ -369,7 +369,7 @@ SHORT_TITLES = {
     "/compare/performance": "AI Model Comparison Chart 2026: Capability vs Price",
     "/fr/blog/mistral-chatgpt-cout-prompt-francais": "Mistral ou ChatGPT : le coût d'un prompt en français",
     "/fil/blog/token-filipino-gpt": "Filipino sa GPT: ilang token kumpara sa English",
-    "/blog/codex-usage-limits": "Codex Usage Limits: 5-Hour Window, Weekly Cap, Resets",
+    "/blog/codex-usage-limits": "Codex Usage Limits 2026: Plus vs Pro, 5-Hour Window, Resets",
     "/blog/claude-code-usage-limits": "Claude Code Usage Limits: 5-Hour and Weekly Caps, Resets",
 }
 
@@ -850,6 +850,13 @@ def build():
               cut = article.find("<h2")
               article = article[:cut] + fig + "\n" + article[cut:] if cut >= 0 else article + fig
               IMAGES.setdefault(b["path"], []).append(img)
+          # Small tool link before the first section, so readers see the calculator without reaching the end
+          cut = article.find("<h2")
+          if cut >= 0:
+              top_cta = (f'<p class="not-prose my-5"><a href="{cta_url}" class="inline-block rounded-lg border border-violet-500/40 '
+                         f'bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">'
+                         f'🧮 {esc(b["ctaBtn"])} →</a></p>\n')
+              article = article[:cut] + top_cta + article[cut:]
           body = f"""    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">{esc(b["title"])}</h1>
         <p class="mt-2 text-xs text-zinc-500">{esc(byline(b))}</p>
@@ -974,7 +981,37 @@ def build():
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
         + "".join(entries) + "\n</urlset>\n"
     )
+    thin_noindex()
     print("built", count, "tool pages +", len(PAGES), "site pages +", len(BLOG) + len(PRO) + len(MISTRAL_FR) + len(PROMPT_PL) + len(GUIDES) + sum(map(len, MULTI)), "articles +", len(cmp_pages) + 1, "compare pages ->", DIST)
+
+# Languages with only one article (the per-language token measurement post). Their home page (token
+# counter), game calculator and that article stay indexed; the secondary tool pages are thin UI
+# translations with no clicks, so they are kept out of the index to focus crawling on pages that earn.
+# Remove a language from THIN_LANGS once it has its own articles. (2026-10-16 site analysis)
+THIN_LANGS = "ar bn cs da el fa fi fil gu he hi hu id it kn ml mr no pa ro ru sk sv ta te th ur vi".split()
+THIN_TOOLS = ["plans", "image", "video", "agents"]
+
+def thin_noindex():
+    import re, glob
+    paths = {f"/{l}/{t}" for l in THIN_LANGS for t in THIN_TOOLS}
+    alt_re = re.compile(r'[ \t]*<link rel="alternate" hreflang="[^"]+" href="' + re.escape(BASE) + r'(/[^"]+)" />\n')
+    for fp in glob.glob(os.path.join(DIST, "**", "*.html"), recursive=True):
+        rel = "/" + os.path.relpath(fp, DIST)[:-5].replace(os.sep, "/")
+        html = open(fp, encoding="utf-8").read()
+        if rel in paths:
+            new = alt_re.sub("", html)
+            new = re.sub(r'([ \t]*)<link rel="canonical" href="[^"]+" />\n', r'\1<meta name="robots" content="noindex, follow" />\n', new, count=1)
+        else:
+            new = alt_re.sub(lambda m: "" if m.group(1) in paths else m.group(0), html)
+        if new != html:
+            open(fp, "w", encoding="utf-8").write(new)
+    sm_path = os.path.join(DIST, "sitemap.xml")
+    sm = open(sm_path, encoding="utf-8").read()
+    sm = re.sub(r'\n  <url>\n    <loc>' + re.escape(BASE) + r'(/[^<]+)</loc>.*?\n  </url>',
+                lambda m: "" if m.group(1) in paths else m.group(0), sm, flags=re.S)
+    sm = re.sub(r'\n    <xhtml:link rel="alternate" hreflang="[^"]+" href="' + re.escape(BASE) + r'(/[^"]+)"/>',
+                lambda m: "" if m.group(1) in paths else m.group(0), sm)
+    open(sm_path, "w", encoding="utf-8").write(sm)
 
 if __name__ == "__main__":
     build()

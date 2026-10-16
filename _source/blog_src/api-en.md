@@ -68,7 +68,7 @@ On list price, GPT-5 nano and GPT-6 Luna are the cheapest of the models above, a
 
 ## Estimate your own bill
 
-Paste a real prompt into the [token counter](/) to see its cost on every model at once, or read [How to estimate your AI API bill](/blog/how-to-estimate-ai-api-cost) for the full method. For subscriptions versus the API, use the [Subscription vs API calculator](/plans).
+Paste a real prompt into the [token counter](/) to see its cost on every model at once, or read [How to estimate your AI API bill](/blog/how-to-estimate-ai-api-cost) for the full method. For subscriptions versus the API, use the [Subscription vs API calculator](/plans). To put two models side by side, see the [model comparison pages](/compare/).
 
 ## Sources
 

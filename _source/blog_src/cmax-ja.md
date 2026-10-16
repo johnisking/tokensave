@@ -78,6 +78,8 @@ Claude Code の使い方に合わせて Pro・Max・API を比べるなら[コ�
 
 Free・Pro・Max の全プランと日本での価格は[Claude の料金プラン比較](/ja/blog/claude-ryoukin-plan)にまとめています。
 
+これまでに実際に使ったトークンと費用を知りたいときは、[Claude Code 使用量アナライザー](/ja/claude-code-usage)に記録フォルダを入れてみてください。日付・プロジェクト・モデル別のトークンと API 換算の費用を、ブラウザ内だけで計算して表示します。
+
 *料金と上限は変わります。アップグレードする前に [claude.com/pricing](https://claude.com/pricing)（英語）で確認してください。*
 
 ## 出典

@@ -59,6 +59,8 @@ TokenSave の[コーディングエージェント費用モデル](/ja/agents)�
 
 Claude Code で **/status** を実行すると、残りの使用量が表示されます。上限そのものの仕組みは [Claude Code の使用量上限まとめ](/ja/blog/claude-code-shiyouryou-jougen)、プランと API の比較は [Claude Code の月額料金](/ja/blog/claude-code-ryoukin)をご覧ください。
 
+これまでに実際に使ったトークンと費用を知りたいときは、[Claude Code 使用量アナライザー](/ja/claude-code-usage)に記録フォルダを入れてみてください。日付・プロジェクト・モデル別のトークンと API 換算の費用を、ブラウザ内だけで計算して表示します。
+
 ## 出典
 
 - [コストを効果的に管理する（Claude Code ドキュメント）](https://code.claude.com/docs/en/costs)

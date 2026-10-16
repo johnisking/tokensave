@@ -186,6 +186,8 @@ Claude Pro なら月$20（年払いなら月$17）、Max 5x なら月$100、Max 
 
 [コーディングエージェント費用計算機](/ja/agents)では、タスクの大きさ、1日のタスク数、稼働日数を入れると、Claude Code の API 費用を Claude と ChatGPT のすべてのプランと並べて比べられます。ほかのエージェントについては [Codex の料金](/ja/blog/codex-ryoukin) と [Cursor の料金プラン](/ja/blog/cursor-ryoukin) を、Pro そのものについては [Claude の料金プラン比較](/ja/blog/claude-ryoukin-plan) をご覧ください。
 
+これまでに実際に使ったトークンと費用を知りたいときは、[Claude Code 使用量アナライザー](/ja/claude-code-usage)に記録フォルダを入れてみてください。日付・プロジェクト・モデル別のトークンと API 換算の費用を、ブラウザ内だけで計算して表示します。
+
 *料金と上限は2026年10月12日に確認しました。Anthropic は上限をよく変更するので、決める前に [claude.com/pricing](https://claude.com/pricing) を確認してください。*
 
 ## 出典

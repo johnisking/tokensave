@@ -66,6 +66,7 @@ For English, a rough mental rule also works: about 1.1–1.3 tokens per word on 
 ## Related
 
 - [What is a token?](/blog/what-is-a-token)
+- [Tokens to words converter](/tokens-to-words)
 - [LLM API pricing compared](/blog/llm-api-pricing-comparison)
 - [How to estimate your AI API bill](/blog/how-to-estimate-ai-api-cost)
 
