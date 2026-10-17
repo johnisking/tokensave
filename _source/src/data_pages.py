@@ -354,6 +354,11 @@ def multi_html():
 FMT_PATH = "/data/token-cost-by-format"
 FMT_MEASURED = "2026-10-17"
 FMT_CHART = "/token-cost-by-format-chart.png"
+FMT_DOI = "10.5281/zenodo.23435788"  # concept DOI
+FMT_MIRRORS = [("Zenodo", "https://zenodo.org/records/23435789"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/token-cost-by-format"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/token-cost-by-data-format-json-csv-toon"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/format")]
 FMT_TITLE = "Token cost by data format: JSON vs YAML vs CSV vs TOON on Claude, Gemini and GPT"
 FMT_DESC = ("Dataset: the same 20-row product table in 8 formats (JSON, minified JSON, YAML, XML, CSV, TSV, Markdown table, TOON) "
             "counted on Claude 5.5, Claude Haiku 4.5, Gemini and GPT. CSV uses about two thirds fewer tokens than indented JSON. Free CSV, CC BY 4.0.")
@@ -372,7 +377,7 @@ def _fmt_samples():
 
 
 def fmt_citation():
-    return f"TokenSave (2026). {FMT_TITLE} [Data set]. {BASE}{FMT_PATH}"
+    return f"TokenSave (2026). {FMT_TITLE} [Data set]. Zenodo. https://doi.org/{FMT_DOI}"
 
 
 def write_fmt_files(dist):
@@ -395,6 +400,7 @@ def write_fmt_files(dist):
 def fmt_ld():
     return {"@context": "https://schema.org", "@graph": [
         {"@type": "Dataset", "name": FMT_TITLE, "description": FMT_DESC, "url": BASE + FMT_PATH,
+         "identifier": f"https://doi.org/{FMT_DOI}", "sameAs": [u for _, u in FMT_MIRRORS],
          "license": LICENSE, "isAccessibleForFree": True,
          "creator": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"},
          "datePublished": FMT_MEASURED,
@@ -432,6 +438,7 @@ def fmt_html():
       <h1 class="text-3xl font-extrabold text-white">JSON vs YAML vs CSV vs TOON: how many tokens each format costs</h1>
       <p class="mt-3 text-lg text-zinc-200"><strong>The same 20-product table costs {jp["gpt"]:,} GPT tokens as indented JSON and {cs["gpt"]:,} as CSV ({abs(cs["gpt_vs_json"])}% fewer).</strong> CSV was the cheapest format on every tokenizer we tested (Claude, Gemini, GPT), and the newer TOON format came close but did not beat it. XML was the most expensive.</p>
       <p class="text-sm text-zinc-400">Measured {FMT_MEASURED} · 8 formats · 4 tokenizers · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{MULTI_PATH}">token cost by language</a></p>
+      <p class="text-sm text-zinc-400">DOI <a href="https://doi.org/{FMT_DOI}">{FMT_DOI}</a> · Also on {" · ".join(f'<a href="{u}">{n}</a>' for n, u in FMT_MIRRORS[1:])}</p>
       <div class="not-prose flex flex-wrap gap-2 my-4">
         <a href="/data/token-cost-by-format.csv" {BTN} style="text-decoration:none">⬇ CSV</a>
         <a href="/data/token-cost-by-format.json" {BTN} style="text-decoration:none">⬇ JSON (with all 8 inputs)</a>
