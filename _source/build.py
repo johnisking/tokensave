@@ -165,6 +165,9 @@ PAGES = [
     dict(file="data/token-cost-by-language-claude-gemini.html", path="/data/token-cost-by-language-claude-gemini", body=None, fn="multi_html", ld="multi_ld",
          title="Token Cost by Language on Claude, Gemini and GPT (41 Languages)",
          desc="Dataset: the same prompt in 41 languages on Claude 5.5, Claude Haiku 4.5, Gemini and GPT tokenizers. Korean needs 89 Claude tokens vs 49 on GPT and 48 on Gemini. Free CSV, CC BY 4.0."),
+    dict(file="data/token-cost-by-format.html", path="/data/token-cost-by-format", body=None, fn="fmt_html", ld="fmt_ld",
+         title="JSON vs YAML vs CSV vs TOON: Token Cost by Data Format",
+         desc="Dataset: the same table in 8 formats on Claude, Gemini and GPT tokenizers. CSV uses about two thirds fewer tokens than indented JSON; TOON comes close but does not beat CSV. Free CSV, CC BY 4.0."),
     dict(file="404.html", path=None, body="404_body.html",
          title="Page not found | TokenSave", desc="This page does not exist."),
 ]

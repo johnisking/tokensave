@@ -48,6 +48,7 @@ def write_files(dist):
     """CSV and JSON downloads next to the page."""
     _write_lang_files(dist)
     write_multi_files(dist)
+    write_fmt_files(dist)
 
 
 def _write_lang_files(dist):
@@ -183,6 +184,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{MULTI_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(MULTI_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">The same prompt on Claude 5.5, Claude Haiku 4.5, Gemini and GPT: Korean needs 89 Claude tokens vs 49 on GPT. CSV · measured {MULTI_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{FMT_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(FMT_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">The same table in 8 formats on 4 tokenizers: CSV needs about two thirds fewer tokens than indented JSON. CSV · measured {FMT_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -340,6 +344,153 @@ def multi_html():
         <li><a href="{LANG_PATH}">GPT-only dataset with the older cl100k tokenizer</a></li>
         <li><a href="/ko/blog/claude-hangugeo-token">Our Claude Korean test (input and output, in Korean)</a></li>
         <li><a href="/">Count tokens for your own text</a></li>
+      </ul>
+      <p class="text-sm text-zinc-400">Questions or corrections: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
+    </article>
+{COPY_JS}'''
+
+
+# ---- Dataset 3: same data in 8 formats (JSON, YAML, XML, CSV, TSV, Markdown, TOON) on 4 tokenizers (measured 2026-10-17) ----
+FMT_PATH = "/data/token-cost-by-format"
+FMT_MEASURED = "2026-10-17"
+FMT_CHART = "/token-cost-by-format-chart.png"
+FMT_TITLE = "Token cost by data format: JSON vs YAML vs CSV vs TOON on Claude, Gemini and GPT"
+FMT_DESC = ("Dataset: the same 20-row product table in 8 formats (JSON, minified JSON, YAML, XML, CSV, TSV, Markdown table, TOON) "
+            "counted on Claude 5.5, Claude Haiku 4.5, Gemini and GPT. CSV uses about two thirds fewer tokens than indented JSON. Free CSV, CC BY 4.0.")
+FMT_NAMES = {"json_pretty": "JSON (indented)", "json_minified": "JSON (minified)", "yaml": "YAML", "xml": "XML", "csv": "CSV",
+             "tsv": "TSV", "markdown_table": "Markdown table", "toon": "TOON"}
+
+
+def _fmt_rows():
+    rows = json.load(open(os.path.join(ROOT, "blog_data", "fmtdata", "combined.json"), encoding="utf-8"))
+    rows.sort(key=lambda r: (r["gpt"], r["claude55"]))
+    return rows
+
+
+def _fmt_samples():
+    return json.load(open(os.path.join(ROOT, "blog_data", "fmtdata", "formats.json"), encoding="utf-8"))
+
+
+def fmt_citation():
+    return f"TokenSave (2026). {FMT_TITLE} [Data set]. {BASE}{FMT_PATH}"
+
+
+def write_fmt_files(dist):
+    rows = _fmt_rows()
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    cols = [k for k, _ in MULTI_COLS]
+    w.writerow(["format", "characters"] + sum([[f"{k}_tokens", f"{k}_vs_indented_json_pct"] for k in cols], []))
+    for r in rows:
+        w.writerow([r["format"], r["chars"]] + sum([[r[k], r[k + "_vs_json"]] for k in cols], []))
+    open(os.path.join(dist, "data", "token-cost-by-format.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=FMT_TITLE, url=BASE + FMT_PATH, license="CC BY 4.0", measured=FMT_MEASURED,
+                data="20 products x 7 fields (id, name, category, price, in_stock, rating, tags)",
+                tokenizers={"claude55": "Claude Opus 5.5 / Sonnet 5.5 (identical counts)", "claude45": "Claude Haiku 4.5",
+                            "gemini": "Gemini 3.8 Flash", "gpt": "OpenAI o200k_base (GPT-4o and later)"},
+                citation=fmt_citation(), rows=rows, inputs=_fmt_samples())
+    open(os.path.join(dist, "data", "token-cost-by-format.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def fmt_ld():
+    return {"@context": "https://schema.org", "@graph": [
+        {"@type": "Dataset", "name": FMT_TITLE, "description": FMT_DESC, "url": BASE + FMT_PATH,
+         "license": LICENSE, "isAccessibleForFree": True,
+         "creator": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"},
+         "datePublished": FMT_MEASURED,
+         "keywords": ["JSON vs CSV tokens", "TOON", "YAML tokens", "prompt format", "LLM cost", "tokenizer", "Claude", "Gemini"],
+         "variableMeasured": ["tokens (Claude 5.5)", "tokens (Claude Haiku 4.5)", "tokens (Gemini 3.x)", "tokens (o200k_base)", "difference vs indented JSON (%)"],
+         "measurementTechnique": "Same 20-row table serialised in 8 formats; Claude counts from Claude Code usage minus a one-character baseline, Gemini from the Google AI Studio token counter, GPT with tiktoken",
+         "image": BASE + FMT_CHART,
+         "distribution": [
+             {"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": BASE + "/data/token-cost-by-format.csv"},
+             {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": BASE + "/data/token-cost-by-format.json"}]},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Data", "item": BASE + "/data/"},
+            {"@type": "ListItem", "position": 3, "name": FMT_TITLE, "item": BASE + FMT_PATH}]}]}
+
+
+def fmt_html():
+    rows = _fmt_rows()
+    by = {r["format"]: r for r in rows}
+    s = _fmt_samples()
+    jp, jm, cs, to, xm = by["json_pretty"], by["json_minified"], by["csv"], by["toon"], by["xml"]
+    head = "".join(f'<th class="text-right">{esc(n)}</th>' for _, n in MULTI_COLS)
+    trs = "\n".join(
+        f'          <tr><td>{esc(FMT_NAMES[r["format"]])}</td>' + "".join(
+            f'<td class="text-right tabular-nums">{r[k]:,} <span class="text-zinc-500">({_pct(r[k + "_vs_json"])})</span></td>' for k, _ in MULTI_COLS) + "</tr>"
+        for r in rows)
+    def first_lines(txt, n):
+        return esc("\n".join(txt.splitlines()[:n]) + "\n…")
+    vs_gpt = {k: round((by[k]["claude55"] / by[k]["gpt"] - 1) * 100) for k in by}
+    embed = (f'<a href="{BASE}{FMT_PATH}"><img src="{BASE}{FMT_CHART}" '
+             f'alt="Tokens for the same data in 8 formats on Claude, Gemini and GPT (TokenSave)" width="1200" loading="lazy"></a>\n'
+             f'<p>Source: <a href="{BASE}{FMT_PATH}">TokenSave, token cost by data format</a> (CC BY 4.0)</p>')
+    return f'''    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <p class="not-prose text-xs font-semibold uppercase tracking-wider text-violet-300"><a href="/data/" class="no-underline" style="text-decoration:none">TokenSave Data</a> · Dataset</p>
+      <h1 class="text-3xl font-extrabold text-white">JSON vs YAML vs CSV vs TOON: how many tokens each format costs</h1>
+      <p class="mt-3 text-lg text-zinc-200"><strong>The same 20-product table costs {jp["gpt"]:,} GPT tokens as indented JSON and {cs["gpt"]:,} as CSV ({abs(cs["gpt_vs_json"])}% fewer).</strong> CSV was the cheapest format on every tokenizer we tested (Claude, Gemini, GPT), and the newer TOON format came close but did not beat it. XML was the most expensive.</p>
+      <p class="text-sm text-zinc-400">Measured {FMT_MEASURED} · 8 formats · 4 tokenizers · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{MULTI_PATH}">token cost by language</a></p>
+      <div class="not-prose flex flex-wrap gap-2 my-4">
+        <a href="/data/token-cost-by-format.csv" {BTN} style="text-decoration:none">⬇ CSV</a>
+        <a href="/data/token-cost-by-format.json" {BTN} style="text-decoration:none">⬇ JSON (with all 8 inputs)</a>
+        <a href="#cite" {BTN} style="text-decoration:none">How to cite</a>
+      </div>
+      <img src="{FMT_CHART}" alt="Tokens for the same 20-row table in 8 formats on Claude, Gemini and GPT" width="1200" loading="lazy">
+      <h2>Key findings</h2>
+      <ul>
+        <li><strong>CSV and TSV are the cheapest.</strong> Switching from indented JSON to CSV cuts tokens by {abs(cs["gpt_vs_json"])}% on GPT, {abs(cs["claude55_vs_json"])}% on Claude 5.5 and {abs(cs["gemini_vs_json"])}% on Gemini.</li>
+        <li><strong>TOON is close to CSV, not below it.</strong> The token-oriented format needs {round((to["gpt"] / cs["gpt"] - 1) * 100)}% more tokens than CSV on GPT and {round((to["claude55"] / cs["claude55"] - 1) * 100)}% more on Claude 5.5, while still using about two thirds fewer than indented JSON.</li>
+        <li><strong>Minifying JSON helps less on Claude.</strong> Removing whitespace saves {abs(jm["gemini_vs_json"])}% on Gemini and {abs(jm["gpt_vs_json"])}% on GPT but only {abs(jm["claude55_vs_json"])}% on Claude 5.5. Minified JSON is the format where Claude 5.5 needs the most extra tokens over GPT ({_pct(vs_gpt["json_minified"])}).</li>
+        <li><strong>Claude 5.5 uses more tokens for every format.</strong> Compared with GPT it needs {min(vs_gpt.values())}% to {max(vs_gpt.values())}% more for the same data, and more than Claude Haiku 4.5 as well. The jump over Haiku 4.5 is largest for minified JSON ({_pct(round((jm["claude55"] / jm["claude45"] - 1) * 100))}), where punctuation is packed with no spaces, matching our finding that Claude's newer tokenizer changed how Latin-script text is split.</li>
+        <li><strong>XML is the most expensive.</strong> It needs {_pct(xm["gpt_vs_json"])} versus indented JSON on GPT.</li>
+      </ul>
+      <h2>All 8 formats</h2>
+      <p class="text-sm text-zinc-400">Tokens for the same table, with the difference versus indented JSON on the same tokenizer in brackets.</p>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>Format</th>{head}</tr></thead>
+          <tbody>
+{trs}
+          </tbody>
+        </table>
+      </div>
+      <h2>What the inputs look like</h2>
+      <p>All eight files hold the same 20 products with 7 fields each (id, name, category, price, in stock, rating, tags). The full inputs are in the JSON download.</p>
+      <div class="not-prose grid gap-3 sm:grid-cols-3 text-xs">
+        <div><p class="text-zinc-400 mb-1">CSV</p><pre class="bg-zinc-950/70 border border-zinc-800 rounded-xl p-3 overflow-x-auto text-zinc-300">{first_lines(s["csv"], 3)}</pre></div>
+        <div><p class="text-zinc-400 mb-1">TOON</p><pre class="bg-zinc-950/70 border border-zinc-800 rounded-xl p-3 overflow-x-auto text-zinc-300">{first_lines(s["toon"], 3)}</pre></div>
+        <div><p class="text-zinc-400 mb-1">JSON (indented)</p><pre class="bg-zinc-950/70 border border-zinc-800 rounded-xl p-3 overflow-x-auto text-zinc-300">{first_lines(s["json_pretty"], 6)}</pre></div>
+      </div>
+      <h2>Method</h2>
+      <ul>
+        <li>One table of 20 products × 7 fields, written out in 8 formats: indented JSON (2 spaces), minified JSON, YAML, XML, CSV, TSV, a Markdown table and TOON (tabular form, tags joined with |).</li>
+        <li><strong>Claude:</strong> each file sent through Claude Code (<code>claude -p</code>) with a fixed one-line system prompt; reported input tokens minus the same run with a one-character message. Opus 5.5 and Sonnet 5.5 gave identical counts.</li>
+        <li><strong>Gemini:</strong> Google AI Studio prompt token counter on Gemini 3.8 Flash, minus its one start token. Three formats were re-measured and matched.</li>
+        <li><strong>GPT:</strong> <a href="https://github.com/openai/tiktoken">tiktoken</a> with <code>o200k_base</code>.</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>One flat table. Deeply nested data does not fit CSV well, and there JSON or YAML may be the practical choice.</li>
+        <li>Token count is not the only factor: models may read some formats more reliably than others. This dataset measures cost only.</li>
+        <li>Claude values can be off by about ±2 tokens; with tables of 400+ tokens that is under 1%.</li>
+      </ul>
+      <h2 id="cite">How to cite</h2>
+      <p>Free to use, quote and republish with attribution under <a href="{LICENSE}">CC BY 4.0</a>. Please link to this page.</p>
+      <div class="not-prose bg-zinc-950/70 border border-zinc-800 rounded-xl p-4">
+        <p id="cite-text" class="text-sm text-zinc-200 break-words">{esc(fmt_citation())}</p>
+        <div class="mt-3"><button type="button" data-copy="cite-text" {BTN}>Copy citation</button></div>
+      </div>
+      <h3>Embed the chart</h3>
+      <div class="not-prose">
+        <textarea id="embed-code" readonly rows="4" class="w-full text-xs font-mono bg-zinc-950/70 border border-zinc-800 rounded-xl p-3 text-zinc-300">{esc(embed)}</textarea>
+        <div class="mt-2"><button type="button" data-copy="embed-code" {BTN}>Copy embed code</button></div>
+      </div>
+      <h2>Related</h2>
+      <ul>
+        <li><a href="{MULTI_PATH}">Token cost by language on Claude, Gemini and GPT</a></li>
+        <li><a href="/">Count tokens for your own data</a></li>
       </ul>
       <p class="text-sm text-zinc-400">Questions or corrections: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>

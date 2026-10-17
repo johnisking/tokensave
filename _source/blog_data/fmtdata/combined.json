@@ -1,0 +1,98 @@
+[
+ {
+  "format": "json_pretty",
+  "chars": 4230,
+  "gpt": 1336,
+  "claude55": 1841,
+  "claude45": 1618,
+  "gemini": 1623,
+  "gpt_vs_json": 0,
+  "claude55_vs_json": 0,
+  "claude45_vs_json": 0,
+  "gemini_vs_json": 0
+ },
+ {
+  "format": "json_minified",
+  "chars": 2447,
+  "gpt": 763,
+  "claude55": 1210,
+  "claude45": 847,
+  "gemini": 791,
+  "gpt_vs_json": -43,
+  "claude55_vs_json": -34,
+  "claude45_vs_json": -48,
+  "gemini_vs_json": -51
+ },
+ {
+  "format": "yaml",
+  "chars": 2493,
+  "gpt": 997,
+  "claude55": 1275,
+  "claude45": 1074,
+  "gemini": 1076,
+  "gpt_vs_json": -25,
+  "claude55_vs_json": -31,
+  "claude45_vs_json": -34,
+  "gemini_vs_json": -34
+ },
+ {
+  "format": "xml",
+  "chars": 4675,
+  "gpt": 1603,
+  "claude55": 2200,
+  "claude45": 1868,
+  "gemini": 1873,
+  "gpt_vs_json": 20,
+  "claude55_vs_json": 20,
+  "claude45_vs_json": 15,
+  "gemini_vs_json": 15
+ },
+ {
+  "format": "csv",
+  "chars": 1087,
+  "gpt": 429,
+  "claude55": 620,
+  "claude45": 476,
+  "gemini": 482,
+  "gpt_vs_json": -68,
+  "claude55_vs_json": -66,
+  "claude45_vs_json": -71,
+  "gemini_vs_json": -70
+ },
+ {
+  "format": "tsv",
+  "chars": 1087,
+  "gpt": 427,
+  "claude55": 621,
+  "claude45": 477,
+  "gemini": 483,
+  "gpt_vs_json": -68,
+  "claude55_vs_json": -66,
+  "claude45_vs_json": -71,
+  "gemini_vs_json": -70
+ },
+ {
+  "format": "markdown_table",
+  "chars": 1453,
+  "gpt": 539,
+  "claude55": 800,
+  "claude45": 649,
+  "gemini": 590,
+  "gpt_vs_json": -60,
+  "claude55_vs_json": -57,
+  "claude45_vs_json": -60,
+  "gemini_vs_json": -64
+ },
+ {
+  "format": "toon",
+  "chars": 1142,
+  "gpt": 474,
+  "claude55": 647,
+  "claude45": 502,
+  "gemini": 508,
+  "gpt_vs_json": -65,
+  "claude55_vs_json": -65,
+  "claude45_vs_json": -69,
+  "gemini_vs_json": -69
+ }
+]
