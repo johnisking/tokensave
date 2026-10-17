@@ -46,6 +46,11 @@ def _pct(p):
 
 def write_files(dist):
     """CSV and JSON downloads next to the page."""
+    _write_lang_files(dist)
+    write_multi_files(dist)
+
+
+def _write_lang_files(dist):
     rows = _lang_rows()
     os.makedirs(os.path.join(dist, "data"), exist_ok=True)
     buf = io.StringIO()
@@ -175,6 +180,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{LANG_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(LANG_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">The same prompt in 41 languages: +3% to +144% more GPT tokens than English. CSV · updated {LANG_VERIFIED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{MULTI_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(MULTI_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">The same prompt on Claude 5.5, Claude Haiku 4.5, Gemini and GPT: Korean needs 89 Claude tokens vs 49 on GPT. CSV · measured {MULTI_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -186,3 +194,146 @@ HUB_DESC = "Datasets from TokenSave's own measurements of AI tokens and costs, w
 
 def hub_ld():
     return {"@context": "https://schema.org", "@type": "CollectionPage", "name": HUB_TITLE, "url": BASE + "/data/", "description": HUB_DESC}
+
+
+# ---- Dataset 2: same prompt, 41 languages, Claude / Gemini / GPT tokenizers (measured 2026-10-17) ----
+MULTI_PATH = "/data/token-cost-by-language-claude-gemini"
+MULTI_MEASURED = "2026-10-17"
+MULTI_CHART = "/token-cost-claude-gemini-gpt-chart.png"
+MULTI_TITLE = "Token cost by language on Claude, Gemini and GPT: 41 languages measured"
+MULTI_DESC = ("Dataset: the same prompt in 41 languages counted on Claude Opus/Sonnet 5.5, Claude Haiku 4.5, Gemini 3.x and GPT (o200k). "
+              "Korean needs 89 Claude tokens vs 49 on GPT and 48 on Gemini. Free CSV, CC BY 4.0.")
+MULTI_COLS = [("claude55", "Claude Opus/Sonnet 5.5"), ("claude45", "Claude Haiku 4.5"), ("gemini", "Gemini 3.x"), ("gpt", "GPT o200k")]
+
+
+def _multi_rows():
+    rows = json.load(open(os.path.join(ROOT, "blog_data", "langmulti", "combined.json"), encoding="utf-8"))
+    prompts = {r["code"]: r["prompt"] for r in _lang_rows()}
+    for r in rows:
+        r["prompt"] = prompts[r["code"]]
+    rows.sort(key=lambda r: (r["claude55"], r["gemini"], r["name"]))
+    return rows
+
+
+def multi_citation():
+    return f"TokenSave (2026). {MULTI_TITLE} [Data set]. {BASE}{MULTI_PATH}"
+
+
+def write_multi_files(dist):
+    rows = _multi_rows()
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    hdr = ["language_code", "language"]
+    for k, _ in MULTI_COLS:
+        hdr += [f"{k}_tokens", f"{k}_vs_english_pct"]
+    w.writerow(hdr + ["prompt"])
+    for r in rows:
+        line = [r["code"], r["name"]]
+        for k, _ in MULTI_COLS:
+            line += [r[k], r[k + "_pct"]]
+        w.writerow(line + [r["prompt"]])
+    open(os.path.join(dist, "data", "token-cost-by-language-claude-gemini.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=MULTI_TITLE, url=BASE + MULTI_PATH, license="CC BY 4.0", measured=MULTI_MEASURED,
+                tokenizers={"claude55": "Claude Opus 5.5 / Sonnet 5.5 (identical counts)", "claude45": "Claude Haiku 4.5",
+                            "gemini": "Gemini 3.8 Flash / 3.1 Pro (identical counts)", "gpt": "OpenAI o200k_base (GPT-4o and later)"},
+                citation=multi_citation(), rows=[{k: r[k] for k in r} for r in rows])
+    open(os.path.join(dist, "data", "token-cost-by-language-claude-gemini.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def multi_ld():
+    return {"@context": "https://schema.org", "@graph": [
+        {"@type": "Dataset", "name": MULTI_TITLE, "description": MULTI_DESC, "url": BASE + MULTI_PATH,
+         "license": LICENSE, "isAccessibleForFree": True,
+         "creator": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"},
+         "datePublished": MULTI_MEASURED,
+         "keywords": ["tokenizer", "Claude tokenizer", "Gemini tokenizer", "tokens per language", "LLM cost", "multilingual"],
+         "variableMeasured": ["tokens (Claude 5.5)", "tokens (Claude Haiku 4.5)", "tokens (Gemini 3.x)", "tokens (o200k_base)", "difference vs English (%)"],
+         "measurementTechnique": "Same prompt in 41 languages; Claude counts from Claude Code usage minus a one-character baseline, Gemini from the Google AI Studio token counter, GPT with tiktoken",
+         "isBasedOn": BASE + LANG_PATH, "image": BASE + MULTI_CHART,
+         "distribution": [
+             {"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": BASE + "/data/token-cost-by-language-claude-gemini.csv"},
+             {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": BASE + "/data/token-cost-by-language-claude-gemini.json"}]},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Data", "item": BASE + "/data/"},
+            {"@type": "ListItem", "position": 3, "name": MULTI_TITLE, "item": BASE + MULTI_PATH}]}]}
+
+
+def multi_html():
+    rows = _multi_rows()
+    by = {r["code"]: r for r in rows}
+    en = by["en"]
+    import statistics as st
+    med = {k: round(st.median([r[k + "_pct"] for r in rows if r["code"] != "en"])) for k, _ in MULTI_COLS}
+    kn, ko, hi = by["kn"], by["ko"], by["hi"]
+    head = "".join(f'<th class="text-right">{esc(n)}</th>' for _, n in MULTI_COLS)
+    trs = "\n".join(
+        f'          <tr><td>{esc(r["name"])}</td>' + "".join(
+            f'<td class="text-right tabular-nums">{r[k]} <span class="text-zinc-500">({_pct(r[k + "_pct"])})</span></td>' for k, _ in MULTI_COLS) + "</tr>"
+        for r in rows)
+    embed = (f'<a href="{BASE}{MULTI_PATH}"><img src="{BASE}{MULTI_CHART}" '
+             f'alt="Extra tokens vs English on Claude, Gemini and GPT, 41 languages (TokenSave)" width="1200" loading="lazy"></a>\n'
+             f'<p>Source: <a href="{BASE}{MULTI_PATH}">TokenSave, token cost by language on Claude, Gemini and GPT</a> (CC BY 4.0)</p>')
+    return f'''    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <p class="not-prose text-xs font-semibold uppercase tracking-wider text-violet-300"><a href="/data/" class="no-underline" style="text-decoration:none">TokenSave Data</a> · Dataset</p>
+      <h1 class="text-3xl font-extrabold text-white">How many tokens each language needs on Claude, Gemini and GPT</h1>
+      <p class="mt-3 text-lg text-zinc-200"><strong>The same Korean prompt needs {ko["claude55"]} tokens on Claude Opus/Sonnet 5.5, {ko["gpt"]} on GPT and {ko["gemini"]} on Gemini.</strong> Across 40 non-English languages, the median extra cost versus English is {_pct(med["gemini"])} on Gemini, {_pct(med["gpt"])} on GPT and {_pct(med["claude55"])} on Claude 5.5. The widest gap is Kannada: {_pct(kn["claude55_pct"])} on Claude 5.5 against {_pct(kn["gemini_pct"])} on Gemini.</p>
+      <p class="text-sm text-zinc-400">Measured {MULTI_MEASURED} · 41 languages · 4 tokenizers · License <a href="{LICENSE}">CC BY 4.0</a> · Companion to <a href="{LANG_PATH}">the GPT-only dataset</a></p>
+      <div class="not-prose flex flex-wrap gap-2 my-4">
+        <a href="/data/token-cost-by-language-claude-gemini.csv" {BTN} style="text-decoration:none">⬇ CSV</a>
+        <a href="/data/token-cost-by-language-claude-gemini.json" {BTN} style="text-decoration:none">⬇ JSON</a>
+        <a href="#cite" {BTN} style="text-decoration:none">How to cite</a>
+      </div>
+      <img src="{MULTI_CHART}" alt="Extra tokens versus English for the same prompt on Claude 5.5, GPT and Gemini, 41 languages" width="1200" loading="lazy">
+      <h2>Key findings</h2>
+      <ul>
+        <li><strong>English itself costs more on Claude 5.5.</strong> The English prompt is {en["claude55"]} tokens on Claude Opus/Sonnet 5.5, {en["claude45"]} on Claude Haiku 4.5, and {en["gpt"]} on both GPT and Gemini.</li>
+        <li><strong>Claude's newer tokenizer changed Latin-script text only.</strong> Compared with Haiku 4.5, Claude 5.5 needs {round((en["claude55"] / en["claude45"] - 1) * 100)}% more tokens for English and more for every other Latin-script language, while Korean, Japanese, Chinese, Cyrillic, Arabic, Hebrew, Greek, Thai and the Indic languages have exactly the same counts. That is why the gap versus English looks smaller on Claude 5.5 (Korean {_pct(ko["claude55_pct"])}) than on Haiku 4.5 (Korean {_pct(ko["claude45_pct"])}).</li>
+        <li><strong>Indic languages are the costliest on Claude.</strong> Hindi is {_pct(hi["claude55_pct"])} on Claude 5.5 against {_pct(hi["gpt_pct"])} on GPT and {_pct(hi["gemini_pct"])} on Gemini.</li>
+        <li><strong>Gemini has the smallest gap overall.</strong> Simplified Chinese costs the same as English on Gemini ({_pct(by["zh-CN"]["gemini_pct"])}).</li>
+        <li><strong>Models from the same family share counts.</strong> Claude Opus 5.5 and Sonnet 5.5 gave identical counts for all 41 languages; Gemini 3.8 Flash and 3.1 Pro matched on every language we re-checked.</li>
+      </ul>
+      <h2>All 41 languages</h2>
+      <p class="text-sm text-zinc-400">Tokens for the same prompt, with the difference versus English in brackets. Sorted by Claude 5.5.</p>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>Language</th>{head}</tr></thead>
+          <tbody>
+{trs}
+          </tbody>
+        </table>
+      </div>
+      <h2>Method</h2>
+      <ul>
+        <li>Same prompt and translations as <a href="{LANG_PATH}">our GPT dataset</a>: <em>“{esc(en["prompt"])}”</em> in 41 languages. Every translated prompt is in the CSV.</li>
+        <li><strong>Claude:</strong> each prompt was sent through Claude Code (<code>claude -p</code>) with a fixed one-line system prompt, and the input tokens it reported (uncached + cache read + cache write) were reduced by the same run with a one-character message. Re-running with a different system prompt, a different baseline character and a different order gave identical counts.</li>
+        <li><strong>Gemini:</strong> the prompt token counter in Google AI Studio, which adds one start token (“a” shows 2, “a a a” shows 4); we subtracted it. Measured on Gemini 3.8 Flash and re-checked on Gemini 3.1 Pro.</li>
+        <li><strong>GPT:</strong> OpenAI's <a href="https://github.com/openai/tiktoken">tiktoken</a> with <code>o200k_base</code>.</li>
+        <li>“vs English” = tokens in the language ÷ English tokens on the same tokenizer − 1, rounded to a whole percent.</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>One prompt. With other text the ratios move by roughly ±10–20 percentage points; the ranking is more stable than the exact numbers.</li>
+        <li>Claude counts come from usage reports rather than a dedicated count endpoint, so each value can be off by about ±2 tokens (under 5 percentage points against English).</li>
+        <li>Input text only; output length is not measured. Prices differ by model, so more tokens does not always mean a higher bill. Use the <a href="/">token calculator</a> to compare costs.</li>
+      </ul>
+      <h2 id="cite">How to cite</h2>
+      <p>Free to use, quote and republish with attribution under <a href="{LICENSE}">CC BY 4.0</a>. Please link to this page.</p>
+      <div class="not-prose bg-zinc-950/70 border border-zinc-800 rounded-xl p-4">
+        <p id="cite-text" class="text-sm text-zinc-200 break-words">{esc(multi_citation())}</p>
+        <div class="mt-3"><button type="button" data-copy="cite-text" {BTN}>Copy citation</button></div>
+      </div>
+      <h3>Embed the chart</h3>
+      <div class="not-prose">
+        <textarea id="embed-code" readonly rows="4" class="w-full text-xs font-mono bg-zinc-950/70 border border-zinc-800 rounded-xl p-3 text-zinc-300">{esc(embed)}</textarea>
+        <div class="mt-2"><button type="button" data-copy="embed-code" {BTN}>Copy embed code</button></div>
+      </div>
+      <h2>Related</h2>
+      <ul>
+        <li><a href="{LANG_PATH}">GPT-only dataset with the older cl100k tokenizer</a></li>
+        <li><a href="/ko/blog/claude-hangugeo-token">Our Claude Korean test (input and output, in Korean)</a></li>
+        <li><a href="/">Count tokens for your own text</a></li>
+      </ul>
+      <p class="text-sm text-zinc-400">Questions or corrections: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
+    </article>
+{COPY_JS}'''

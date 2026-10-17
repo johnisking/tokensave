@@ -162,6 +162,9 @@ PAGES = [
     dict(file="data/token-cost-by-language.html", path="/data/token-cost-by-language", body=None, fn="lang_html", ld="lang_ld",
          title="Token Cost by Language: 41 Languages Measured (GPT Dataset)",
          desc="Dataset: the same prompt in 41 languages counted with OpenAI's o200k_base and cl100k_base tokenizers. From +3% (Simplified Chinese) to +144% (Punjabi) more tokens than English. Free CSV, CC BY 4.0."),
+    dict(file="data/token-cost-by-language-claude-gemini.html", path="/data/token-cost-by-language-claude-gemini", body=None, fn="multi_html", ld="multi_ld",
+         title="Token Cost by Language on Claude, Gemini and GPT (41 Languages)",
+         desc="Dataset: the same prompt in 41 languages on Claude 5.5, Claude Haiku 4.5, Gemini and GPT tokenizers. Korean needs 89 Claude tokens vs 49 on GPT and 48 on Gemini. Free CSV, CC BY 4.0."),
     dict(file="404.html", path=None, body="404_body.html",
          title="Page not found | TokenSave", desc="This page does not exist."),
 ]
