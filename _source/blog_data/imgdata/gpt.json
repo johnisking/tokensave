@@ -1,0 +1,52 @@
+{
+ "256x256": {
+  "gpt6_auto": 77,
+  "gpt6_high": 77,
+  "gpt55_auto": 77
+ },
+ "512x512": {
+  "gpt6_auto": 308,
+  "gpt6_high": 308,
+  "gpt55_auto": 308
+ },
+ "768x768": {
+  "gpt6_auto": 692,
+  "gpt6_high": 692,
+  "gpt55_auto": 692
+ },
+ "1024x1024": {
+  "gpt6_auto": 1229,
+  "gpt6_high": 1229,
+  "gpt55_auto": 1229
+ },
+ "1280x720": {
+  "gpt6_auto": 1104,
+  "gpt6_high": 1104,
+  "gpt55_auto": 1104
+ },
+ "1920x1080": {
+  "gpt6_auto": 2448,
+  "gpt6_high": 2448,
+  "gpt55_auto": 2448
+ },
+ "1080x1920": {
+  "gpt6_auto": 2448,
+  "gpt6_high": 2448,
+  "gpt55_auto": 2448
+ },
+ "2560x1440": {
+  "gpt6_auto": 4320,
+  "gpt6_high": 2931,
+  "gpt55_auto": 4320
+ },
+ "3840x2160": {
+  "gpt6_auto": 9792,
+  "gpt6_high": 2931,
+  "gpt55_auto": 9792
+ },
+ "4032x3024": {
+  "gpt6_auto": 14364,
+  "gpt6_high": 2942,
+  "gpt55_auto": 11868
+ }
+}
