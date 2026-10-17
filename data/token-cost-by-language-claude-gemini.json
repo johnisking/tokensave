@@ -9,7 +9,7 @@
   "gemini": "Gemini 3.8 Flash / 3.1 Pro (identical counts)",
   "gpt": "OpenAI o200k_base (GPT-4o and later)"
  },
- "citation": "TokenSave (2026). Token cost by language on Claude, Gemini and GPT: 41 languages measured [Data set]. https://tokensave.app/data/token-cost-by-language-claude-gemini",
+ "citation": "TokenSave (2026). Token cost by language on Claude, Gemini and GPT: 41 languages measured [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23428350",
  "rows": [
   {
    "code": "en",

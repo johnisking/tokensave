@@ -200,6 +200,11 @@ def hub_ld():
 MULTI_PATH = "/data/token-cost-by-language-claude-gemini"
 MULTI_MEASURED = "2026-10-17"
 MULTI_CHART = "/token-cost-claude-gemini-gpt-chart.png"
+MULTI_DOI = "10.5281/zenodo.23428350"  # concept DOI
+MULTI_MIRRORS = [("Zenodo", "https://zenodo.org/records/23428351"),
+                 ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/token-cost-by-language-claude-gemini"),
+                 ("Kaggle", "https://www.kaggle.com/datasets/johnisking/token-cost-by-language-claude-gemini-gpt"),
+                 ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-gemini")]
 MULTI_TITLE = "Token cost by language on Claude, Gemini and GPT: 41 languages measured"
 MULTI_DESC = ("Dataset: the same prompt in 41 languages counted on Claude Opus/Sonnet 5.5, Claude Haiku 4.5, Gemini 3.x and GPT (o200k). "
               "Korean needs 89 Claude tokens vs 49 on GPT and 48 on Gemini. Free CSV, CC BY 4.0.")
@@ -216,7 +221,7 @@ def _multi_rows():
 
 
 def multi_citation():
-    return f"TokenSave (2026). {MULTI_TITLE} [Data set]. {BASE}{MULTI_PATH}"
+    return f"TokenSave (2026). {MULTI_TITLE} [Data set]. Zenodo. https://doi.org/{MULTI_DOI}"
 
 
 def write_multi_files(dist):
@@ -243,6 +248,7 @@ def write_multi_files(dist):
 def multi_ld():
     return {"@context": "https://schema.org", "@graph": [
         {"@type": "Dataset", "name": MULTI_TITLE, "description": MULTI_DESC, "url": BASE + MULTI_PATH,
+         "identifier": f"https://doi.org/{MULTI_DOI}", "sameAs": [u for _, u in MULTI_MIRRORS],
          "license": LICENSE, "isAccessibleForFree": True,
          "creator": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"},
          "datePublished": MULTI_MEASURED,
@@ -279,6 +285,7 @@ def multi_html():
       <h1 class="text-3xl font-extrabold text-white">How many tokens each language needs on Claude, Gemini and GPT</h1>
       <p class="mt-3 text-lg text-zinc-200"><strong>The same Korean prompt needs {ko["claude55"]} tokens on Claude Opus/Sonnet 5.5, {ko["gpt"]} on GPT and {ko["gemini"]} on Gemini.</strong> Across 40 non-English languages, the median extra cost versus English is {_pct(med["gemini"])} on Gemini, {_pct(med["gpt"])} on GPT and {_pct(med["claude55"])} on Claude 5.5. The widest gap is Kannada: {_pct(kn["claude55_pct"])} on Claude 5.5 against {_pct(kn["gemini_pct"])} on Gemini.</p>
       <p class="text-sm text-zinc-400">Measured {MULTI_MEASURED} · 41 languages · 4 tokenizers · License <a href="{LICENSE}">CC BY 4.0</a> · Companion to <a href="{LANG_PATH}">the GPT-only dataset</a></p>
+      <p class="text-sm text-zinc-400">DOI <a href="https://doi.org/{MULTI_DOI}">{MULTI_DOI}</a> · Also on {" · ".join(f'<a href="{u}">{n}</a>' for n, u in MULTI_MIRRORS[1:])}</p>
       <div class="not-prose flex flex-wrap gap-2 my-4">
         <a href="/data/token-cost-by-language-claude-gemini.csv" {BTN} style="text-decoration:none">⬇ CSV</a>
         <a href="/data/token-cost-by-language-claude-gemini.json" {BTN} style="text-decoration:none">⬇ JSON</a>
@@ -318,7 +325,7 @@ def multi_html():
         <li>Input text only; output length is not measured. Prices differ by model, so more tokens does not always mean a higher bill. Use the <a href="/">token calculator</a> to compare costs.</li>
       </ul>
       <h2 id="cite">How to cite</h2>
-      <p>Free to use, quote and republish with attribution under <a href="{LICENSE}">CC BY 4.0</a>. Please link to this page.</p>
+      <p>Free to use, quote and republish with attribution under <a href="{LICENSE}">CC BY 4.0</a>. Please link to this page or the DOI.</p>
       <div class="not-prose bg-zinc-950/70 border border-zinc-800 rounded-xl p-4">
         <p id="cite-text" class="text-sm text-zinc-200 break-words">{esc(multi_citation())}</p>
         <div class="mt-3"><button type="button" data-copy="cite-text" {BTN}>Copy citation</button></div>
