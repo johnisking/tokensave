@@ -49,6 +49,7 @@ def write_files(dist):
     _write_lang_files(dist)
     write_multi_files(dist)
     write_fmt_files(dist)
+    write_img_files(dist)
 
 
 def _write_lang_files(dist):
@@ -187,6 +188,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{FMT_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(FMT_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">The same table in 8 formats on 4 tokenizers: CSV needs about two thirds fewer tokens than indented JSON. CSV · measured {FMT_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{IMG_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(IMG_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">One image at 10 resolutions on Claude, Gemini and GPT: Gemini charges a flat ~1,100 tokens, GPT-6 Astra up to 14,364. CSV · measured {IMG_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -498,6 +502,144 @@ def fmt_html():
       <ul>
         <li><a href="{MULTI_PATH}">Token cost by language on Claude, Gemini and GPT</a></li>
         <li><a href="/">Count tokens for your own data</a></li>
+      </ul>
+      <p class="text-sm text-zinc-400">Questions or corrections: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
+    </article>
+{COPY_JS}'''
+
+
+# ---- Dataset 4: input tokens for one image by resolution on Claude, Gemini and GPT (measured 2026-10-18) ----
+IMG_PATH = "/data/image-token-cost"
+IMG_MEASURED = "2026-10-18"
+IMG_CHART = "/image-token-cost-chart.png"
+IMG_TITLE = "Image input token cost by resolution: Claude vs Gemini vs GPT"
+IMG_DESC = ("Dataset: input tokens for one image at 10 resolutions (256×256 to a 12 MP photo) on Claude Opus/Sonnet 5.5, Claude Haiku 4.5, "
+            "Gemini 3.x and GPT. Gemini charges a flat ~1,100 tokens; a 12 MP photo costs 14,364 tokens on GPT-6 Astra by default. Free CSV, CC BY 4.0.")
+IMG_COLS = [("claude55", "Claude Opus/Sonnet 5.5"), ("claude45", "Claude Haiku 4.5"), ("gemini", "Gemini 3.x"),
+            ("gpt6_auto", "GPT-6 Astra (default)"), ("gpt6_high", "GPT-6 Astra (detail: high)"), ("gpt55_auto", "GPT-5.5 (default)")]
+IMG_LABEL = {"256x256": "256×256", "512x512": "512×512", "768x768": "768×768", "1024x1024": "1024×1024",
+             "1280x720": "1280×720 (720p)", "1920x1080": "1920×1080 (1080p)", "1080x1920": "1080×1920 (phone screen)",
+             "2560x1440": "2560×1440 (1440p)", "3840x2160": "3840×2160 (4K)", "4032x3024": "4032×3024 (12 MP photo)"}
+
+
+def _img_rows():
+    return json.load(open(os.path.join(ROOT, "blog_data", "imgdata", "combined.json"), encoding="utf-8"))
+
+
+def img_citation():
+    return f"TokenSave (2026). {IMG_TITLE} [Data set]. {BASE}{IMG_PATH}"
+
+
+def write_img_files(dist):
+    rows = _img_rows()
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    cols = [k for k, _ in IMG_COLS]
+    w.writerow(["size", "width", "height", "megapixels"] + [f"{k}_tokens" for k in cols])
+    for r in rows:
+        w.writerow([r["size"], r["width"], r["height"], r["megapixels"]] + [r[k] for k in cols])
+    open(os.path.join(dist, "data", "image-token-cost.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=IMG_TITLE, url=BASE + IMG_PATH, license="CC BY 4.0", measured=IMG_MEASURED,
+                columns={"claude55": "Claude Opus 5.5 / Sonnet 5.5, measured (identical counts)",
+                         "claude45": "Claude Haiku 4.5, measured",
+                         "gemini": "Gemini 3.8 Flash, measured in Google AI Studio (default media resolution)",
+                         "gpt6_auto": "gpt-6-astra, detail auto/original, computed with OpenAI's published patch formula",
+                         "gpt6_high": "gpt-6-astra, detail high (2,500-patch budget), computed",
+                         "gpt55_auto": "gpt-5.5, detail auto/original (10,000-patch budget), computed"},
+                citation=img_citation(), rows=rows)
+    open(os.path.join(dist, "data", "image-token-cost.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def img_ld():
+    return {"@context": "https://schema.org", "@graph": [
+        {"@type": "Dataset", "name": IMG_TITLE, "description": IMG_DESC, "url": BASE + IMG_PATH,
+         "license": LICENSE, "isAccessibleForFree": True,
+         "creator": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"},
+         "datePublished": IMG_MEASURED,
+         "keywords": ["image tokens", "vision tokens", "image input cost", "Claude vision", "Gemini image tokens", "GPT image tokens", "LLM cost"],
+         "variableMeasured": ["image input tokens (Claude 5.5)", "image input tokens (Claude Haiku 4.5)", "image input tokens (Gemini 3.x)", "image input tokens (GPT-6 Astra, GPT-5.5)"],
+         "measurementTechnique": "Same synthetic PNG at 10 resolutions; Claude from Claude Code usage minus a text-only baseline, Gemini from the Google AI Studio per-image token count, GPT from OpenAI's published patch formula",
+         "image": BASE + IMG_CHART,
+         "distribution": [
+             {"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": BASE + "/data/image-token-cost.csv"},
+             {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": BASE + "/data/image-token-cost.json"}]},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Data", "item": BASE + "/data/"},
+            {"@type": "ListItem", "position": 3, "name": IMG_TITLE, "item": BASE + IMG_PATH}]}]}
+
+
+def img_html():
+    rows = _img_rows()
+    by = {r["size"]: r for r in rows}
+    sq, small, fhd, photo = by["1024x1024"], by["256x256"], by["1920x1080"], by["4032x3024"]
+    gem_lo, gem_hi = min(r["gemini"] for r in rows), max(r["gemini"] for r in rows)
+    pct = lambda a, b: round((a / b - 1) * 100)
+    head = "".join(f'<th class="text-right">{esc(n)}</th>' for _, n in IMG_COLS)
+    trs = "\n".join(
+        f'          <tr><td>{esc(IMG_LABEL[r["size"]])}</td>' + "".join(
+            f'<td class="text-right tabular-nums">{r[k]:,}</td>' for k, _ in IMG_COLS) + "</tr>"
+        for r in rows)
+    embed = (f'<a href="{BASE}{IMG_PATH}"><img src="{BASE}{IMG_CHART}" '
+             f'alt="Input tokens for one image at different resolutions on Claude, Gemini and GPT (TokenSave)" width="1200" loading="lazy"></a>\n'
+             f'<p>Source: <a href="{BASE}{IMG_PATH}">TokenSave, image input token cost</a> (CC BY 4.0)</p>')
+    return f'''    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <p class="not-prose text-xs font-semibold uppercase tracking-wider text-violet-300"><a href="/data/" class="no-underline" style="text-decoration:none">TokenSave Data</a> · Dataset</p>
+      <h1 class="text-3xl font-extrabold text-white">How many tokens does an image cost? Claude vs Gemini vs GPT</h1>
+      <p class="mt-3 text-lg text-zinc-200"><strong>A 12-megapixel phone photo costs {photo["gemini"]:,} input tokens on Gemini, {photo["claude55"]:,} on Claude 5.5 and {photo["gpt6_auto"]:,} on GPT-6 Astra with default settings.</strong> Gemini charges about the same for every image, so it is the cheapest for large pictures and the most expensive for small ones.</p>
+      <p class="text-sm text-zinc-400">Measured {IMG_MEASURED} · 10 resolutions · 6 model settings · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{MULTI_PATH}">token cost by language</a>, <a href="{FMT_PATH}">by data format</a></p>
+      <div class="not-prose flex flex-wrap gap-2 my-4">
+        <a href="/data/image-token-cost.csv" {BTN} style="text-decoration:none">⬇ CSV</a>
+        <a href="/data/image-token-cost.json" {BTN} style="text-decoration:none">⬇ JSON</a>
+        <a href="#cite" {BTN} style="text-decoration:none">How to cite</a>
+      </div>
+      <img src="{IMG_CHART}" alt="Input tokens for one image at 8 resolutions on Claude 5.5, Claude Haiku 4.5, GPT-6 Astra and Gemini" width="1200" loading="lazy">
+      <h2>Key findings</h2>
+      <ul>
+        <li><strong>Gemini charges a flat rate.</strong> Every image we sent cost {gem_lo:,} to {gem_hi:,} tokens on Gemini 3.x, from a 256×256 icon to a 12 MP photo. The small icon costs {small["gemini"]:,} tokens there against {small["gpt6_auto"]:,} on GPT-6 Astra, but the photo costs {abs(pct(photo["gemini"], photo["gpt6_auto"]))}% less than on GPT-6 Astra.</li>
+        <li><strong>GPT-6 Astra does not shrink images by default.</strong> Its default detail level keeps the original size, so cost grows with every pixel: {photo["gpt6_auto"]:,} tokens for a 12 MP photo. Setting <code>detail: "high"</code> caps it at {photo["gpt6_high"]:,} tokens ({pct(photo["gpt6_high"], photo["gpt6_auto"])}%).</li>
+        <li><strong>Claude 5.5 keeps more detail than Haiku 4.5, and charges for it.</strong> Up to about 1 megapixel the two cost almost the same ({sq["claude55"]:,} vs {sq["claude45"]:,} tokens at 1024×1024). Above that Haiku 4.5 levels off near {photo["claude45"]:,} tokens, while Claude 5.5 needs {pct(fhd["claude55"], fhd["claude45"])}% more for a 1080p screenshot and {pct(photo["claude55"], photo["claude45"])}% more for a 12 MP photo.</li>
+        <li><strong>Resizing before you send saves money on Claude and GPT.</strong> A 1024×1024 image costs {sq["claude55"]:,} tokens on Claude 5.5 and {sq["gpt6_auto"]:,} on GPT-6 Astra; shrinking a 12 MP photo to that size cuts its cost by {abs(pct(sq["claude55"], photo["claude55"]))}% on Claude 5.5 and {abs(pct(sq["gpt6_auto"], photo["gpt6_auto"]))}% on GPT-6 Astra. On Gemini resizing changes almost nothing.</li>
+      </ul>
+      <h2>All resolutions</h2>
+      <p class="text-sm text-zinc-400">Input tokens for one image. Claude and Gemini are measured; GPT columns are computed with OpenAI's published formula.</p>
+      <div class="overflow-x-auto">
+        <table>
+          <thead><tr><th>Image size</th>{head}</tr></thead>
+          <tbody>
+{trs}
+          </tbody>
+        </table>
+      </div>
+      <h2>Method</h2>
+      <ul>
+        <li>One synthetic PNG (colour gradient with shapes) rendered at 10 sizes, from 256×256 to 4032×3024. A second image with different content was measured at three sizes on Claude 5.5 and Gemini and gave identical counts, so the counts depend on size, not content.</li>
+        <li><strong>Claude:</strong> each image sent through Claude Code (<code>claude -p</code>, stream-json input) with a fixed one-line system prompt and a one-character text message; reported input tokens minus the same run without the image. Opus 5.5 and Sonnet 5.5 gave identical counts. The figures include the small per-image overhead of a message.</li>
+        <li><strong>Gemini:</strong> per-image token count shown by Google AI Studio for Gemini 3.8 Flash at the default media resolution.</li>
+        <li><strong>GPT:</strong> computed with the 32×32-pixel patch formula and model limits in OpenAI's <a href="https://developers.openai.com/api/docs/guides/images-vision">vision guide</a> (patch count × 1.2). Our implementation reproduces the guide's three worked examples exactly. Not measured through the API.</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>Input tokens only. The price per token differs by model, so equal token counts do not mean equal cost.</li>
+        <li>Default settings. Gemini's media resolution and GPT's <code>detail</code> option change the counts; we show GPT-6 Astra both ways.</li>
+        <li>Claude counts are from Claude Code; the API may differ by a few tokens of message overhead.</li>
+      </ul>
+      <h2 id="cite">How to cite</h2>
+      <p>Free to use, quote and republish with attribution under <a href="{LICENSE}">CC BY 4.0</a>. Please link to this page.</p>
+      <div class="not-prose bg-zinc-950/70 border border-zinc-800 rounded-xl p-4">
+        <p id="cite-text" class="text-sm text-zinc-200 break-words">{esc(img_citation())}</p>
+        <div class="mt-3"><button type="button" data-copy="cite-text" {BTN}>Copy citation</button></div>
+      </div>
+      <h3>Embed the chart</h3>
+      <div class="not-prose">
+        <textarea id="embed-code" readonly rows="4" class="w-full text-xs font-mono bg-zinc-950/70 border border-zinc-800 rounded-xl p-3 text-zinc-300">{esc(embed)}</textarea>
+        <div class="mt-2"><button type="button" data-copy="embed-code" {BTN}>Copy embed code</button></div>
+      </div>
+      <h2>Related</h2>
+      <ul>
+        <li><a href="{MULTI_PATH}">Token cost by language on Claude, Gemini and GPT</a></li>
+        <li><a href="{FMT_PATH}">Token cost by data format (JSON vs CSV vs TOON)</a></li>
+        <li><a href="/">Count tokens for your own text</a></li>
       </ul>
       <p class="text-sm text-zinc-400">Questions or corrections: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>

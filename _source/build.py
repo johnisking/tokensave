@@ -168,6 +168,9 @@ PAGES = [
     dict(file="data/token-cost-by-format.html", path="/data/token-cost-by-format", body=None, fn="fmt_html", ld="fmt_ld",
          title="JSON vs YAML vs CSV vs TOON: Token Cost by Data Format",
          desc="Dataset: the same table in 8 formats on Claude, Gemini and GPT tokenizers. CSV uses about two thirds fewer tokens than indented JSON; TOON comes close but does not beat CSV. Free CSV, CC BY 4.0."),
+    dict(file="data/image-token-cost.html", path="/data/image-token-cost", body=None, fn="img_html", ld="img_ld",
+         title="Image Token Cost by Resolution: Claude vs Gemini vs GPT",
+         desc="Dataset: input tokens for one image at 10 resolutions on Claude 5.5, Claude Haiku 4.5, Gemini and GPT. Gemini charges a flat ~1,100 tokens; a 12 MP photo costs 14,364 tokens on GPT-6 Astra by default. Free CSV, CC BY 4.0."),
     dict(file="404.html", path=None, body="404_body.html",
          title="Page not found | TokenSave", desc="This page does not exist."),
 ]
