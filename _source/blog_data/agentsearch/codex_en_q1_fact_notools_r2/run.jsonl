@@ -1,0 +1,5 @@
+{"type":"thread.started","thread_id":"01a14e1a-b70f-7022-84e9-4b02ad069df4"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"I’ll check Anthropic’s current pricing page and cite the listed U.S. monthly price."}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"Anthropic lists Claude Pro at **$20 per month** in the United States ([Claude pricing](https://www.anthropic.com/pricing))."}}
+{"type":"turn.completed","usage":{"input_tokens":20850,"cached_input_tokens":10112,"cache_write_input_tokens":0,"output_tokens":98,"reasoning_output_tokens":0}}

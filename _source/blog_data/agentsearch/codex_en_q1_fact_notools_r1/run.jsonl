@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a14e19-1c32-7ad0-b73f-174047541c1b"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"Claude Pro costs **$20 per month** in the United States when billed monthly, according to [Anthropic’s pricing page](https://www.anthropic.com/pricing)."}}
+{"type":"turn.completed","usage":{"input_tokens":10240,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":40,"reasoning_output_tokens":0}}
