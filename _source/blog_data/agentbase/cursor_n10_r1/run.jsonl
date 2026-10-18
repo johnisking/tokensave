@@ -1,0 +1,8 @@
+{"type":"system","subtype":"init","apiKeySource":"login","cwd":"C:\\Users\\CHOJAEHYUN\\Downloads\\agent-test\\cursor_n10_r1","session_id":"f7cf0661-9857-43ad-ae58-e2eaffe47fe6","model":"Auto","permissionMode":"default"}
+{"type":"user","message":{"role":"user","content":[{"type":"text","text":"Reply with the single word OK."}]},"session_id":"f7cf0661-9857-43ad-ae58-e2eaffe47fe6"}
+{"type":"thinking","subtype":"delta","text":"The","session_id":"f7cf0661-9857-43ad-ae58-e2eaffe47fe6","timestamp_ms":1792306808264}
+{"type":"thinking","subtype":"delta","text":" user requested a single","session_id":"f7cf0661-9857-43ad-ae58-e2eaffe47fe6","timestamp_ms":1792306808281}
+{"type":"thinking","subtype":"delta","text":"-word response: OK.","session_id":"f7cf0661-9857-43ad-ae58-e2eaffe47fe6","timestamp_ms":1792306808322}
+{"type":"thinking","subtype":"completed","session_id":"f7cf0661-9857-43ad-ae58-e2eaffe47fe6","timestamp_ms":1792306808322}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"OK"}]},"session_id":"f7cf0661-9857-43ad-ae58-e2eaffe47fe6"}
+{"type":"result","subtype":"success","duration_ms":2392,"duration_api_ms":2392,"is_error":false,"result":"OK","session_id":"f7cf0661-9857-43ad-ae58-e2eaffe47fe6","request_id":"116ae013-70ee-40e2-97ad-ddd3024b5f40","usage":{"inputTokens":13081,"outputTokens":20,"cacheReadTokens":0,"cacheWriteTokens":0}}

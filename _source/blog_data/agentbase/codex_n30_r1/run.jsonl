@@ -1,0 +1,5 @@
+Reading additional input from stdin...
+{"type":"thread.started","thread_id":"01a14dcf-a18d-7940-8584-9ddabba8ba89"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"OK"}}
+{"type":"turn.completed","usage":{"input_tokens":14678,"cached_input_tokens":14336,"cache_write_input_tokens":0,"output_tokens":5,"reasoning_output_tokens":0}}
