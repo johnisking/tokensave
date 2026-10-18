@@ -1,0 +1,82 @@
+{
+ "claude_es_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_es_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_ja_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_ja_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_ko_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_ko_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_uk_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_uk_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_es_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_es_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_ja_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_ja_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_ko_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_ko_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_uk_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_uk_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "en/claude_en_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "en/claude_en_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "en/codex_en_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "en/codex_en_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ }
+}
