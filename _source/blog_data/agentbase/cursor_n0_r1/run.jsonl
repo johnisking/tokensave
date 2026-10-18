@@ -1,4 +1,4 @@
-{"type":"system","subtype":"init","apiKeySource":"login","cwd":"C:\\Users\\CHOJAEHYUN\\Downloads\\agent-test\\cursor_n0_r1","session_id":"d10bcefd-13ed-4580-aa91-3400ee85c381","model":"Auto","permissionMode":"default"}
+{"type":"system","subtype":"init","apiKeySource":"login","cwd":"C:\\Users\\USER\\Downloads\\agent-test\\cursor_n0_r1","session_id":"d10bcefd-13ed-4580-aa91-3400ee85c381","model":"Auto","permissionMode":"default"}
 {"type":"user","message":{"role":"user","content":[{"type":"text","text":"Reply with the single word OK."}]},"session_id":"d10bcefd-13ed-4580-aa91-3400ee85c381"}
 {"type":"thinking","subtype":"delta","text":"Preparing","session_id":"d10bcefd-13ed-4580-aa91-3400ee85c381","timestamp_ms":1792306769912}
 {"type":"thinking","subtype":"delta","text":" to reply with the single","session_id":"d10bcefd-13ed-4580-aa91-3400ee85c381","timestamp_ms":1792306769933}

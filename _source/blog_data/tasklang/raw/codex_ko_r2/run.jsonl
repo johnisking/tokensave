@@ -3,7 +3,7 @@
 {"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"현재 폴더에 단일 파일로 게임을 만들겠습니다. HTML 안에 스타일과 게임 로직을 함께 넣어 바로 브라우저에서 실행되도록 하겠습니다."}}
 {"type":"item.started","item":{"id":"item_1","type":"command_execution","command":"\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-ChildItem -Force'","aggregated_output":"","exit_code":null,"status":"in_progress"}}
 {"type":"item.completed","item":{"id":"item_1","type":"command_execution","command":"\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'Get-ChildItem -Force'","aggregated_output":"","exit_code":0,"status":"completed"}}
-{"type":"item.started","item":{"id":"item_2","type":"file_change","changes":[{"path":"C:\\Users\\CHOJAEHYUN\\Downloads\\agent-test\\tasklang\\codex_ko_r2\\work\\index.html","kind":"add"}],"status":"in_progress"}}
-{"type":"item.completed","item":{"id":"item_2","type":"file_change","changes":[{"path":"C:\\Users\\CHOJAEHYUN\\Downloads\\agent-test\\tasklang\\codex_ko_r2\\work\\index.html","kind":"add"}],"status":"completed"}}
-{"type":"item.completed","item":{"id":"item_3","type":"agent_message","text":"[index.html](C:/Users/CHOJAEHYUN/Downloads/agent-test/tasklang/codex_ko_r2/work/index.html) 파일 하나로 벽돌깨기 게임을 만들었습니다. 2개 레벨, 점수와 목숨 3개 표시, 키보드와 마우스 조작이 포함되어 있습니다."}}
+{"type":"item.started","item":{"id":"item_2","type":"file_change","changes":[{"path":"C:\\Users\\USER\\Downloads\\agent-test\\tasklang\\codex_ko_r2\\work\\index.html","kind":"add"}],"status":"in_progress"}}
+{"type":"item.completed","item":{"id":"item_2","type":"file_change","changes":[{"path":"C:\\Users\\USER\\Downloads\\agent-test\\tasklang\\codex_ko_r2\\work\\index.html","kind":"add"}],"status":"completed"}}
+{"type":"item.completed","item":{"id":"item_3","type":"agent_message","text":"[index.html](C:/Users/USER/Downloads/agent-test/tasklang/codex_ko_r2/work/index.html) 파일 하나로 벽돌깨기 게임을 만들었습니다. 2개 레벨, 점수와 목숨 3개 표시, 키보드와 마우스 조작이 포함되어 있습니다."}}
 {"type":"turn.completed","usage":{"input_tokens":48793,"cached_input_tokens":34560,"cache_write_input_tokens":0,"output_tokens":3649,"reasoning_output_tokens":0}}
