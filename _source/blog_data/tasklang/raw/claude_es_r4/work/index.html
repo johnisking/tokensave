@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rompe Ladrillos</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #0d1021;
+    color: #e8ecff;
+    font-family: "Segoe UI", Arial, sans-serif;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+  }
+  h1 { margin: 0; font-size: 26px; letter-spacing: 2px; color: #ffd166; }
+  canvas {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    max-height: calc(100vh - 110px);
+    background: linear-gradient(#141a3a, #0a0d1f);
+    border: 2px solid #2d3770;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(80, 110, 255, 0.25);
+    cursor: none;
+    touch-action: none;
+  }
+  .ayuda { font-size: 14px; color: #9aa3d6; text-align: center; }
+  kbd {
+    background: #232a55; border: 1px solid #3b4690; border-radius: 4px;
+    padding: 1px 6px; font-family: inherit; font-size: 13px;
+  }
+</style>
+</head>
+<body>
+<h1>ROMPE LADRILLOS</h1>
+<canvas id="juego" width="800" height="600"></canvas>
+<div class="ayuda">
+  Mover: <kbd>←</kbd> <kbd>→</kbd> / <kbd>A</kbd> <kbd>D</kbd> o el ratón &nbsp;·&nbsp;
+  Lanzar / continuar: <kbd>Espacio</kbd> o clic &nbsp;·&nbsp;
+  Pausa: <kbd>P</kbd> &nbsp;·&nbsp; Reiniciar: <kbd>R</kbd>
+</div>
+
+<script>
+(() => {
+  const canvas = document.getElementById("juego");
+  const ctx = canvas.getContext("2d");
+  const W = canvas.width, H = canvas.height;
+
+  // ---------- Niveles ----------
+  // '1' = ladrillo normal (1 golpe), '2' = ladrillo resistente (2 golpes), '0' = vacío
+  const NIVELES = [
+    {
+      nombre: "Nivel 1",
+      velocidad: 340,
+      mapa: [
+        "1111111111",
+        "1111111111",
+        "1111111111",
+        "1111111111",
+        "1111111111"
+      ]
+    },
+    {
+      nombre: "Nivel 2",
+      velocidad: 400,
+      mapa: [
+        "2222222222",
+        "2111111112",
+        "2120000212",
+        "2110110112",
+        "2120000212",
+        "2111111112",
+        "0222002220"
+      ]
+    }
+  ];
+
+  const COLORES_FILA = ["#ef476f", "#f78c6b", "#ffd166", "#06d6a0", "#4cc9f0", "#7b8cff", "#c77dff"];
+  const COLS = 10, MARGEN = 35, HUECO = 6, ALTO_LADRILLO = 22, ARRIBA = 70;
+  const ANCHO_LADRILLO = (W - MARGEN * 2 - HUECO * (COLS - 1)) / COLS;
+  const VIDAS_INICIALES = 3;
+
+  // ---------- Estado ----------
+  const paleta = { w: 110, h: 14, x: W / 2 - 55, y: H - 40, vel: 560 };
+  const bola = { r: 8, x: 0, y: 0, vx: 0, vy: 0, vel: 340 };
+  let ladrillos = [];
+  let particulas = [];
+  let puntos = 0;
+  let vidas = VIDAS_INICIALES;
+  let nivel = 0;
+  // estados: "listo" (bola en la paleta), "jugando", "pausa", "nivelSuperado", "finJuego", "victoria"
+  let estado = "listo";
+  const teclas = {};
+
+  function crearNivel(n) {
+    ladrillos = [];
+    NIVELES[n].mapa.forEach((fila, f) => {
+      [...fila].forEach((c, col) => {
+        if (c === "0") return;
+        const golpes = parseInt(c, 10);
+        ladrillos.push({
+          x: MARGEN + col * (ANCHO_LADRILLO + HUECO),
+          y: ARRIBA + f * (ALTO_LADRILLO + HUECO),
+          w: ANCHO_LADRILLO,
+          h: ALTO_LADRILLO,
+          golpes,
+          max: golpes,
+          color: COLORES_FILA[f % COLORES_FILA.length],
+          vivo: true
+        });
+      });
+    });
+    particulas = [];
+    prepararBola();
+  }
+
+  function prepararBola() {
+    estado = "listo";
+    bola.vel = NIVELES[nivel].velocidad;
+    bola.vx = 0;
+    bola.vy = 0;
+    pegarBolaAPaleta();
+  }
+
+  function pegarBolaAPaleta() {
+    bola.x = paleta.x + paleta.w / 2;
+    bola.y = paleta.y - bola.r - 1;
+  }
+
+  function lanzar() {
+    const angulo = (Math.random() * 0.6 - 0.3); // ligera desviación aleatoria
+    bola.vx = bola.vel * Math.sin(angulo);
+    bola.vy = -bola.vel * Math.cos(angulo);
+    estado = "jugando";
+  }
+
+  function reiniciarJuego() {
+    puntos = 0;
+    vidas = VIDAS_INICIALES;
+    nivel = 0;
+    paleta.x = W / 2 - paleta.w / 2;
+    crearNivel(nivel);
+  }
+
+  // Acción principal (Espacio / Enter / clic)
+  function accion() {
+    switch (estado) {
+      case "listo": lanzar(); break;
+      case "pausa": estado = "jugando"; break;
+      case "nivelSuperado":
+        nivel++;
+        crearNivel(nivel);
+        break;
+      case "finJuego":
+      case "victoria":
+        reiniciarJuego();
+        break;
+    }
+  }
+
+  function alternarPausa() {
+    if (estado === "jugando") estado = "pausa";
+    else if (estado === "pausa") estado = "jugando";
+  }
+
+  // ---------- Entrada: teclado ----------
+  window.addEventListener("keydown", (e) => {
+    const k = e.key.toLowerCase();
+    if (["arrowleft", "arrowright", "arrowup", "arrowdown", " ", "spacebar"].includes(k)) e.preventDefault();
+    teclas[k] = true;
+    if (e.repeat) return;
+    if (k === " " || k === "spacebar" || k === "enter") accion();
+    else if (k === "p" || k === "escape") alternarPausa();
+    else if (k === "r") reiniciarJuego();
+  });
+  window.addEventListener("keyup", (e) => { teclas[e.key.toLowerCase()] = false; });
+  window.addEventListener("blur", () => {
+    for (const k in teclas) teclas[k] = false;
+    if (estado === "jugando") estado = "pausa";
+  });
+
+  // ---------- Entrada: ratón ----------
+  function posicionRaton(e) {
+    const rect = canvas.getBoundingClientRect();
+    return (e.clientX - rect.left) * (W / rect.width);
+  }
+  function moverPaletaA(x) {
+    if (estado === "pausa") return;
+    paleta.x = Math.max(0, Math.min(W - paleta.w, x - paleta.w / 2));
+  }
+  canvas.addEventListener("mousemove", (e) => moverPaletaA(posicionRaton(e)));
+  canvas.addEventListener("mousedown", (e) => { e.preventDefault(); accion(); });
+  canvas.addEventListener("contextmenu", (e) => e.preventDefault());
+  // Soporte táctil básico
+  canvas.addEventListener("touchstart", (e) => { e.preventDefault(); moverPaletaA(posicionRaton(e.touches[0])); accion(); }, { passive: false });
+  canvas.addEventListener("touchmove", (e) => { e.preventDefault(); moverPaletaA(posicionRaton(e.touches[0])); }, { passive: false });
+
+  // ---------- Lógica ----------
+  function crearParticulas(x, y, color) {
+    for (let i = 0; i < 12; i++) {
+      const a = Math.random() * Math.PI * 2;
+      const v = 60 + Math.random() * 160;
+      particulas.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, vida: 0.6, color });
+    }
+  }
+
+  function rebotarEnPaleta() {
+    const centro = paleta.x + paleta.w / 2;
+    let rel = (bola.x - centro) / (paleta.w / 2);
+    rel = Math.max(-1, Math.min(1, rel));
+    const angulo = rel * (Math.PI / 3); // hasta 60°
+    bola.vx = bola.vel * Math.sin(angulo);
+    bola.vy = -bola.vel * Math.cos(angulo);
+    bola.y = paleta.y - bola.r - 0.5;
+  }
+
+  function colisionLadrillos() {
+    for (const l of ladrillos) {
+      if (!l.vivo) continue;
+      const cx = Math.max(l.x, Math.min(bola.x, l.x + l.w));
+      const cy = Math.max(l.y, Math.min(bola.y, l.y + l.h));
+      const dx = bola.x - cx, dy = bola.y - cy;
+      if (dx * dx + dy * dy > bola.r * bola.r) continue;
+
+      // Determinar el lado del impacto por la menor penetración
+      const izq = bola.x + bola.r - l.x;
+      const der = l.x + l.w - (bola.x - bola.r);
+      const sup = bola.y + bola.r - l.y;
+      const inf = l.y + l.h - (bola.y - bola.r);
+      const minX = Math.min(izq, der), minY = Math.min(sup, inf);
+      if (minX < minY) {
+        bola.vx = izq < der ? -Math.abs(bola.vx) : Math.abs(bola.vx);
+        bola.x += izq < der ? -izq : der;
+      } else {
+        bola.vy = sup < inf ? -Math.abs(bola.vy) : Math.abs(bola.vy);
+        bola.y += sup < inf ? -sup : inf;
+      }
+
+      l.golpes--;
+      if (l.golpes <= 0) {
+        l.vivo = false;
+        puntos += l.max === 2 ? 30 : 10;
+        crearParticulas(l.x + l.w / 2, l.y + l.h / 2, l.color);
+      } else {
+        puntos += 5;
+      }
+
+      // Acelerar ligeramente la bola con cada golpe (con límite)
+      const nuevaVel = Math.min(bola.vel * 1.012, NIVELES[nivel].velocidad * 1.6);
+      const factor = nuevaVel / bola.vel;
+      bola.vel = nuevaVel;
+      bola.vx *= factor;
+      bola.vy *= factor;
+
+      if (ladrillos.every((b) => !b.vivo)) {
+        estado = nivel < NIVELES.length - 1 ? "nivelSuperado" : "victoria";
+        if (estado === "victoria") puntos += vidas * 100;
+      }
+      return; // un ladrillo por subpaso
+    }
+  }
+
+  function perderVida() {
+    vidas--;
+    if (vidas <= 0) {
+      estado = "finJuego";
+    } else {
+      prepararBola();
+    }
+  }
+
+  function actualizar(dt) {
+    // Partículas (se animan siempre salvo en pausa)
+    if (estado !== "pausa") {
+      for (const p of particulas) {
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+        p.vy += 300 * dt;
+        p.vida -= dt;
+      }
+      particulas = particulas.filter((p) => p.vida > 0);
+    }
+
+    if (estado !== "jugando" && estado !== "listo") return;
+
+    // Movimiento de la paleta con teclado
+    let dir = 0;
+    if (teclas["arrowleft"] || teclas["a"]) dir -= 1;
+    if (teclas["arrowright"] || teclas["d"]) dir += 1;
+    paleta.x = Math.max(0, Math.min(W - paleta.w, paleta.x + dir * paleta.vel * dt));
+
+    if (estado === "listo") {
+      pegarBolaAPaleta();
+      return;
+    }
+
+    // Subpasos para evitar que la bola atraviese ladrillos
+    const pasos = Math.ceil((bola.vel * dt) / (bola.r / 2));
+    const sdt = dt / pasos;
+    for (let i = 0; i < pasos && estado === "jugando"; i++) {
+      bola.x += bola.vx * sdt;
+      bola.y += bola.vy * sdt;
+
+      // Paredes
+      if (bola.x - bola.r < 0) { bola.x = bola.r; bola.vx = Math.abs(bola.vx); }
+      if (bola.x + bola.r > W) { bola.x = W - bola.r; bola.vx = -Math.abs(bola.vx); }
+      if (bola.y - bola.r < 0) { bola.y = bola.r; bola.vy = Math.abs(bola.vy); }
+
+      // Paleta
+      if (bola.vy > 0 &&
+          bola.y + bola.r >= paleta.y &&
+          bola.y - bola.r <= paleta.y + paleta.h &&
+          bola.x + bola.r >= paleta.x &&
+          bola.x - bola.r <= paleta.x + paleta.w) {
+        rebotarEnPaleta();
+      }
+
+      colisionLadrillos();
+
+      // Caída
+      if (bola.y - bola.r > H) {
+        perderVida();
+        break;
+      }
+    }
+  }
+
+  // ---------- Dibujo ----------
+  function rectRedondeado(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  function dibujarHUD() {
+    ctx.fillStyle = "rgba(255,255,255,0.05)";
+    ctx.fillRect(0, 0, W, 44);
+    ctx.font = "bold 20px 'Segoe UI', Arial, sans-serif";
+    ctx.textBaseline = "middle";
+
+    ctx.fillStyle = "#ffd166";
+    ctx.textAlign = "left";
+    ctx.fillText("Puntos: " + puntos, 16, 22);
+
+    ctx.fillStyle = "#9aa3d6";
+    ctx.textAlign = "center";
+    ctx.fillText(NIVELES[nivel].nombre + " / " + NIVELES.length, W / 2, 22);
+
+    ctx.textAlign = "right";
+    ctx.fillStyle = "#ef476f";
+    ctx.fillText("Vidas:", W - 16 - VIDAS_INICIALES * 24, 22);
+    for (let i = 0; i < VIDAS_INICIALES; i++) {
+      ctx.beginPath();
+      ctx.arc(W - 24 - i * 24, 22, 8, 0, Math.PI * 2);
+      ctx.fillStyle = i < vidas ? "#ef476f" : "rgba(239,71,111,0.2)";
+      ctx.fill();
+    }
+  }
+
+  function dibujarLadrillos() {
+    for (const l of ladrillos) {
+      if (!l.vivo) continue;
+      rectRedondeado(l.x, l.y, l.w, l.h, 4);
+      ctx.fillStyle = l.color;
+      ctx.globalAlpha = l.golpes < l.max ? 0.55 : 1;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      if (l.max === 2) {
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = l.golpes === 2 ? "#ffffff" : "rgba(255,255,255,0.4)";
+        ctx.stroke();
+        if (l.golpes === 1) {
+          // grieta
+          ctx.beginPath();
+          ctx.moveTo(l.x + l.w * 0.3, l.y + 3);
+          ctx.lineTo(l.x + l.w * 0.5, l.y + l.h * 0.6);
+          ctx.lineTo(l.x + l.w * 0.65, l.y + l.h - 3);
+          ctx.lineWidth = 1.5;
+          ctx.strokeStyle = "rgba(0,0,0,0.5)";
+          ctx.stroke();
+        }
+      }
+      ctx.fillStyle = "rgba(255,255,255,0.25)";
+      ctx.fillRect(l.x + 4, l.y + 3, l.w - 8, 4);
+    }
+  }
+
+  function dibujarPaleta() {
+    const g = ctx.createLinearGradient(0, paleta.y, 0, paleta.y + paleta.h);
+    g.addColorStop(0, "#a0b4ff");
+    g.addColorStop(1, "#4361ee");
+    rectRedondeado(paleta.x, paleta.y, paleta.w, paleta.h, 7);
+    ctx.fillStyle = g;
+    ctx.fill();
+  }
+
+  function dibujarBola() {
+    ctx.beginPath();
+    ctx.arc(bola.x, bola.y, bola.r, 0, Math.PI * 2);
+    ctx.fillStyle = "#ffffff";
+    ctx.shadowColor = "#9ad1ff";
+    ctx.shadowBlur = 14;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  }
+
+  function dibujarParticulas() {
+    for (const p of particulas) {
+      ctx.globalAlpha = Math.max(0, p.vida / 0.6);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(p.x - 2, p.y - 2, 4, 4);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function mensaje(titulo, subtitulo, color) {
+    ctx.fillStyle = "rgba(5,8,20,0.65)";
+    ctx.fillRect(0, H / 2 - 80, W, 160);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = color || "#ffffff";
+    ctx.font = "bold 44px 'Segoe UI', Arial, sans-serif";
+    ctx.fillText(titulo, W / 2, H / 2 - 22);
+    ctx.fillStyle = "#c9d0ff";
+    ctx.font = "20px 'Segoe UI', Arial, sans-serif";
+    subtitulo.split("\n").forEach((linea, i) => ctx.fillText(linea, W / 2, H / 2 + 26 + i * 26));
+  }
+
+  function dibujar() {
+    ctx.clearRect(0, 0, W, H);
+    dibujarHUD();
+    dibujarLadrillos();
+    dibujarParticulas();
+    dibujarPaleta();
+    if (estado !== "finJuego") dibujarBola();
+
+    switch (estado) {
+      case "listo":
+        mensaje(NIVELES[nivel].nombre, "Pulsa Espacio o haz clic para lanzar", "#ffd166");
+        break;
+      case "pausa":
+        mensaje("PAUSA", "Pulsa P, Espacio o haz clic para continuar");
+        break;
+      case "nivelSuperado":
+        mensaje("¡Nivel superado!", "Puntos: " + puntos + "\nPulsa Espacio o haz clic para el siguiente nivel", "#06d6a0");
+        break;
+      case "finJuego":
+        mensaje("FIN DEL JUEGO", "Puntuación final: " + puntos + "\nPulsa Espacio o haz clic para volver a jugar", "#ef476f");
+        break;
+      case "victoria":
+        mensaje("¡HAS GANADO!", "Puntuación final: " + puntos + " (bonus de vidas incluido)\nPulsa Espacio o haz clic para volver a jugar", "#ffd166");
+        break;
+    }
+  }
+
+  // ---------- Bucle principal ----------
+  let ultimo = performance.now();
+  function bucle(ahora) {
+    const dt = Math.min(0.033, (ahora - ultimo) / 1000);
+    ultimo = ahora;
+    actualizar(dt);
+    dibujar();
+    requestAnimationFrame(bucle);
+  }
+
+  reiniciarJuego();
+  requestAnimationFrame(bucle);
+})();
+</script>
+</body>
+</html>

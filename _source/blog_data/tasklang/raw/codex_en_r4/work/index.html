@@ -1,0 +1,117 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Neon Breaker</title>
+<style>
+:root{color-scheme:dark;--ink:#f5f7ff;--muted:#93a0c7;--cyan:#58f4ec;--pink:#ff5ca8}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 0%,#192853 0,#090e20 48%,#050812 100%);color:var(--ink);font:500 15px/1.4 system-ui,-apple-system,Segoe UI,sans-serif}
+.shell{width:min(94vw,800px);padding:22px 0}
+header{display:flex;align-items:center;justify-content:space-between;margin:0 4px 14px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:38px;height:38px;border:1px solid #ffffff30;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#1b315c,#10172e);box-shadow:0 0 24px #58f4ec22;color:var(--cyan);font-size:21px}
+h1{font-size:19px;letter-spacing:.13em;text-transform:uppercase;margin:0}
+.tag{color:var(--muted);font-size:12px;margin-top:2px}
+.hud{display:flex;gap:10px}
+.stat{min-width:82px;padding:8px 13px;border:1px solid #ffffff16;border-radius:11px;background:#ffffff08;text-align:center}
+.label{color:var(--muted);font-size:9px;letter-spacing:.17em;text-transform:uppercase}
+.value{font-size:16px;font-weight:750;letter-spacing:.04em;margin-top:2px}
+#lives{color:#ff7bb5;letter-spacing:.1em}
+.frame{position:relative;padding:8px;border-radius:18px;border:1px solid #ffffff20;background:linear-gradient(135deg,#ffffff16,#ffffff03);box-shadow:0 22px 80px #0009,0 0 50px #3659ba18}
+canvas{display:block;width:100%;height:auto;aspect-ratio:3/2;border-radius:11px;background:#080d1d;touch-action:none}
+.overlay{position:absolute;inset:8px;border-radius:11px;display:grid;place-items:center;background:#060a16ae;backdrop-filter:blur(4px);transition:opacity .2s}
+.overlay.hidden{opacity:0;pointer-events:none}
+.card{text-align:center;padding:26px;max-width:410px}
+.kicker{color:var(--cyan);font-size:10px;letter-spacing:.25em;text-transform:uppercase;font-weight:800}
+.card h2{font-size:clamp(27px,6vw,42px);letter-spacing:.04em;margin:8px 0}
+.card p{color:#b3bedc;margin:0 auto 20px;max-width:330px}
+button{border:0;border-radius:9px;background:linear-gradient(100deg,#55eee5,#74aaff);color:#091426;font:800 12px system-ui;letter-spacing:.12em;text-transform:uppercase;padding:12px 22px;cursor:pointer;box-shadow:0 6px 25px #58f4ec36}
+button:hover{filter:brightness(1.1);transform:translateY(-1px)}
+footer{display:flex;justify-content:space-between;gap:14px;margin:13px 4px 0;color:var(--muted);font-size:11px}
+kbd{font:700 10px system-ui;color:#dce5ff;border:1px solid #ffffff33;border-radius:4px;padding:2px 5px;background:#ffffff0c}
+@media(max-width:540px){.shell{padding:14px 0}.tag{display:none}.hud{gap:5px}.stat{min-width:65px;padding:7px 8px}.value{font-size:14px}footer{font-size:10px}.frame{padding:5px}.overlay{inset:5px}}
+</style>
+</head>
+<body>
+<main class="shell">
+<header>
+ <div class="brand"><div class="logo">✦</div><div><h1>Neon Breaker</h1><div class="tag">A tiny arcade classic</div></div></div>
+ <div class="hud" aria-live="polite">
+  <div class="stat"><div class="label">Score</div><div class="value" id="score">00000</div></div>
+  <div class="stat"><div class="label">Level</div><div class="value" id="level">1 / 2</div></div>
+  <div class="stat"><div class="label">Lives</div><div class="value" id="lives">♥ ♥ ♥</div></div>
+ </div>
+</header>
+<div class="frame">
+ <canvas id="game" width="900" height="600" aria-label="Brick breaker game area"></canvas>
+ <div class="overlay" id="overlay"><div class="card"><div class="kicker" id="kicker">Ready when you are</div><h2 id="headline">BREAK THE BRICKS</h2><p id="message">Move your paddle to keep the ball in play. Clear both levels to win.</p><button id="action">Start game</button></div></div>
+</div>
+<footer><span><kbd>←</kbd> <kbd>→</kbd> or <kbd>A</kbd> <kbd>D</kbd> to move · Mouse to steer</span><span><kbd>Space</kbd> launch / pause · <kbd>R</kbd> restart</span></footer>
+</main>
+<script>
+(()=>{
+const canvas=document.querySelector('#game'),ctx=canvas.getContext('2d'),W=900,H=600;
+const $=s=>document.querySelector(s);
+let score=0,lives=3,level=1,bricks=[],running=false,started=false,ended=false,paused=false;
+let paddle={x:W/2-64,y:H-48,w:128,h:13,speed:8};
+let ball={x:W/2,y:H-70,r:9,vx:4.1,vy:-5.8,stuck:true};
+const keys={};
+const palettes=[['#58eee5','#71a7ff','#bc75ff','#ff70ad','#ffbd69'],['#ff718b','#ff9f68','#ffd166','#72e6a3','#61caff']];
+function makeBricks(){
+ bricks=[];const rows=level===1?5:6,cols=10,gap=9,left=45,top=77,bw=(W-2*left-(cols-1)*gap)/cols,bh=24;
+ for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+  const pattern=level===1?true:((r+c)%7!==0);
+  if(pattern)bricks.push({x:left+c*(bw+gap),y:top+r*(bh+10),w:bw,h:bh,color:palettes[level-1][r%5],alive:true});
+ }
+}
+function resetBall(){ball={x:paddle.x+paddle.w/2,y:paddle.y-12,r:9,vx:(Math.random()<.5?-1:1)*4.1,vy:-5.8,stuck:true}}
+function hud(){$('#score').textContent=String(score).padStart(5,'0');$('#lives').textContent=Array.from({length:3},(_,i)=>i<lives?'♥':'♡').join(' ');$('#level').textContent=level+' / 2'}
+function show(k,h,m,b){$('#kicker').textContent=k;$('#headline').textContent=h;$('#message').textContent=m;$('#action').textContent=b;$('#overlay').classList.remove('hidden')}
+function hide(){ $('#overlay').classList.add('hidden') }
+function start(){if(ended){newGame();return}started=true;running=true;paused=false;hide();if(ball.stuck)ball.stuck=false}
+function newGame(){score=0;lives=3;level=1;ended=false;running=false;started=false;paddle.x=W/2-paddle.w/2;makeBricks();resetBall();hud();show('Ready when you are','BREAK THE BRICKS','Move your paddle to keep the ball in play. Clear both levels to win.','Start game')}
+function levelUp(){if(level===1){level=2;makeBricks();resetBall();running=false;show('Nice shot','LEVEL 2','The pace picks up. Clear the remaining bricks!','Continue');hud()}else{ended=true;running=false;show('Arcade champion','YOU WIN!','You cleared both levels with '+String(score).padStart(5,'0')+' points.','Play again')}}
+function loseLife(){lives--;hud();if(lives<=0){ended=true;running=false;show('Game over','OUT OF LIVES','Final score: '+String(score).padStart(5,'0')+'. Give it another go?','Play again')}else{running=false;resetBall();show('One more chance','BALL LOST',lives+' '+(lives===1?'life':'lives')+' left. Get ready to serve.','Continue')}}
+function roundRect(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill()}
+function draw(){
+ ctx.clearRect(0,0,W,H);
+ // faint star field and court guides
+ for(let i=0;i<46;i++){const x=(i*173+43)%W,y=(i*97+21)%H;ctx.fillStyle='rgba(175,202,255,'+(.12+(i%4)*.06)+')';ctx.fillRect(x,y,2,2)}
+ ctx.strokeStyle='rgba(142,174,255,.08)';ctx.setLineDash([3,9]);ctx.beginPath();ctx.moveTo(25,48);ctx.lineTo(W-25,48);ctx.stroke();ctx.setLineDash([]);
+ bricks.forEach(b=>{if(!b.alive)return;ctx.shadowColor=b.color;ctx.shadowBlur=12;ctx.fillStyle=b.color;roundRect(b.x,b.y,b.w,b.h,6);ctx.shadowBlur=0;ctx.fillStyle='rgba(255,255,255,.24)';roundRect(b.x+4,b.y+3,b.w-8,3,2)});
+ ctx.shadowColor='#58f4ec';ctx.shadowBlur=20;const grad=ctx.createLinearGradient(paddle.x,paddle.y,paddle.x,paddle.y+paddle.h);grad.addColorStop(0,'#b2fff8');grad.addColorStop(1,'#42cddd');ctx.fillStyle=grad;roundRect(paddle.x,paddle.y,paddle.w,paddle.h,7);ctx.shadowBlur=0;
+ ctx.beginPath();ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);ctx.shadowColor='#fff';ctx.shadowBlur=18;ctx.fillStyle='#fff';ctx.fill();ctx.shadowBlur=0;
+ if(!started&&!ended){ctx.fillStyle='rgba(194,209,255,.48)';ctx.font='12px system-ui';ctx.textAlign='center';ctx.fillText('CLICK OR PRESS SPACE TO SERVE',W/2,H-90)}
+}
+function update(){
+ if(running&&!paused){
+  if(keys.ArrowLeft||keys.a||keys.A)paddle.x-=paddle.speed;
+  if(keys.ArrowRight||keys.d||keys.D)paddle.x+=paddle.speed;
+  paddle.x=Math.max(18,Math.min(W-paddle.w-18,paddle.x));
+  if(ball.stuck){ball.x=paddle.x+paddle.w/2;ball.y=paddle.y-ball.r-2}
+  else{
+   ball.x+=ball.vx;ball.y+=ball.vy;
+   if(ball.x<ball.r||ball.x>W-ball.r){ball.vx*=-1;ball.x=Math.max(ball.r,Math.min(W-ball.r,ball.x))}
+   if(ball.y<ball.r+18){ball.vy=Math.abs(ball.vy)}
+   if(ball.vy>0&&ball.y+ball.r>=paddle.y&&ball.y-ball.r<=paddle.y+paddle.h&&ball.x>=paddle.x-2&&ball.x<=paddle.x+paddle.w+2){
+    const hit=(ball.x-(paddle.x+paddle.w/2))/(paddle.w/2);ball.vx=hit*6.2;ball.vy=-Math.sqrt(Math.max(20,ball.vx*ball.vx+36));ball.y=paddle.y-ball.r-1
+   }
+   for(const b of bricks){if(!b.alive)continue;if(ball.x+ball.r>b.x&&ball.x-ball.r<b.x+b.w&&ball.y+ball.r>b.y&&ball.y-ball.r<b.y+b.h){b.alive=false;score+=10;hud();ball.vy*=-1;break}}
+   if(ball.y-ball.r>H)loseLife();
+   if(bricks.every(b=>!b.alive)&&running)levelUp();
+  }
+ }
+ draw();requestAnimationFrame(update)
+}
+canvas.addEventListener('pointermove',e=>{const rect=canvas.getBoundingClientRect();const x=(e.clientX-rect.left)*W/rect.width;paddle.x=Math.max(18,Math.min(W-paddle.w-18,x-paddle.w/2))});
+canvas.addEventListener('pointerdown',()=>{if(!running&&!ended)start();else if(ball.stuck)ball.stuck=false});
+document.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault();keys[e.key]=true;if(e.key===' '){if(!running&&!ended)start();else if(running)ball.stuck=false}else if(e.key.toLowerCase()==='r')newGame();else if(e.key.toLowerCase()==='p'&&running){paused=!paused;if(paused)show('Take a breath','PAUSED','Press Space or click continue when you are ready.','Continue');else hide()}});
+document.addEventListener('keyup',e=>keys[e.key]=false);
+$('#action').addEventListener('click',()=>{if(ended)newGame();start()});
+makeBricks();resetBall();hud();draw();requestAnimationFrame(update);
+})();
+</script>
+</body>
+</html>

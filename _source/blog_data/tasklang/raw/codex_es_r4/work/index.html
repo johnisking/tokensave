@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rompe Ladrillos</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,Segoe UI,sans-serif}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 0,#18294b,#080d1b 70%);color:#eef5ff}.game{width:min(94vw,760px);padding:22px;border:1px solid #26385a;border-radius:20px;background:#0d1526eF;box-shadow:0 24px 80px #0008}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}h1{font-size:clamp(1.25rem,4vw,2rem);margin:0;letter-spacing:.04em}.stats{display:flex;gap:10px;flex-wrap:wrap}.pill{padding:7px 12px;background:#16233b;border:1px solid #2a3d60;border-radius:999px;font-size:.9rem}.pill b{color:#80eaff}canvas{display:block;width:100%;height:auto;aspect-ratio:3/2;border-radius:12px;border:1px solid #253a5e;background:#08101f;touch-action:none}.help{text-align:center;color:#aab9d3;font-size:.88rem;margin:13px 0 0}.help kbd{padding:2px 7px;border-radius:5px;background:#1b2941;border:1px solid #344a6c;color:#edf7ff}button{border:0;border-radius:9px;background:#36c8e8;color:#071522;font-weight:800;padding:9px 14px;cursor:pointer}button:hover{background:#72e5f8}.actions{display:flex;align-items:center;gap:10px}.status{color:#80eaff;font-weight:650;min-width:90px;text-align:right}@media(max-width:520px){.game{padding:14px}.top{align-items:flex-start;flex-direction:column}.actions{width:100%;justify-content:space-between}.status{text-align:left}}
+</style>
+</head>
+<body>
+<main class="game">
+  <header class="top"><h1>🧱 Rompe Ladrillos</h1><div class="stats"><span class="pill">Puntos <b id="score">0</b></span><span class="pill">Nivel <b id="level">1 / 2</b></span><span class="pill">Vidas <b id="lives">3</b></span></div></header>
+  <canvas id="board" width="720" height="480" aria-label="Juego de romper ladrillos"></canvas>
+  <div class="top" style="margin:12px 0 0"><div class="actions"><button id="start">Empezar</button><span class="status" id="status">Listo</span></div><span class="help" style="margin:0">Mueve la pala con <kbd>←</kbd> <kbd>→</kbd> o el ratón · <kbd>Espacio</kbd> para pausar</span></div>
+  <p class="help">Rompe todos los ladrillos para avanzar. ¡No dejes caer la pelota!</p>
+</main>
+<script>
+(()=>{
+const canvas=document.getElementById('board'),ctx=canvas.getContext('2d');
+const scoreEl=document.getElementById('score'),levelEl=document.getElementById('level'),livesEl=document.getElementById('lives'),statusEl=document.getElementById('status'),startBtn=document.getElementById('start');
+const W=canvas.width,H=canvas.height,paddle={w:108,h:14,x:306,y:442,speed:8},ball={x:360,y:420,r:8,vx:4,vy:-5};
+let score=0,lives=3,level=1,bricks=[],running=false,paused=false,over=false,keys={};
+const palettes=[['#ff6384','#ff9f43','#ffd166','#67e8a5','#5bd6ff'],['#b388ff','#8f9cff','#6bc7ff','#63e6be','#ff79c6']];
+function makeBricks(){bricks=[];const rows=level===1?5:6,cols=10,bw=58,bh=19,gap=9,left=(W-(cols*(bw+gap)-gap))/2,top=62;for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){if(level===2&&r<2&&((c+r)%4===0))continue;bricks.push({x:left+c*(bw+gap),y:top+r*(bh+gap),w:bw,h:bh,color:palettes[level-1][r%5],alive:true});}}
+function resetBall(){ball.x=paddle.x+paddle.w/2;ball.y=paddle.y-ball.r-2;const sign=Math.random()<.5?-1:1;ball.vx=sign*(3.4+level*.45);ball.vy=-(4.5+level*.4);}
+function updateHUD(){scoreEl.textContent=score;livesEl.textContent=lives;levelEl.textContent=level+' / 2';}
+function begin(){if(over){score=0;lives=3;level=1;over=false;makeBricks();updateHUD()}paused=false;running=true;resetBall();statusEl.textContent='¡A jugar!';startBtn.textContent='Reiniciar';}
+function draw(){ctx.clearRect(0,0,W,H);const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#0c1830');g.addColorStop(1,'#070d19');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+// ambient stars
+ctx.fillStyle='#b8dcff';for(let i=0;i<22;i++){const x=(i*137+33)%W,y=(i*83+17)%H;ctx.globalAlpha=.18+(i%3)*.1;ctx.fillRect(x,y,2,2)}ctx.globalAlpha=1;
+for(const b of bricks)if(b.alive){ctx.shadowColor=b.color;ctx.shadowBlur=10;ctx.fillStyle=b.color;roundRect(b.x,b.y,b.w,b.h,5);ctx.shadowBlur=0;ctx.fillStyle='#ffffff38';roundRect(b.x+3,b.y+3,b.w-6,4,2)}
+ctx.shadowColor='#47ddff';ctx.shadowBlur=18;ctx.fillStyle='#7beaff';roundRect(paddle.x,paddle.y,paddle.w,paddle.h,7);ctx.shadowBlur=0;
+ctx.shadowColor='#fff';ctx.shadowBlur=16;ctx.beginPath();ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();ctx.shadowBlur=0;
+if(!running||paused){ctx.fillStyle='#03091699';ctx.fillRect(0,0,W,H);ctx.textAlign='center';ctx.fillStyle='#eff8ff';ctx.font='700 29px system-ui';ctx.fillText(over?'¡Partida terminada!':paused?'Pausa':'Pulsa Empezar',W/2,H/2-5);ctx.fillStyle='#a9bedc';ctx.font='16px system-ui';ctx.fillText(over?'Pulsa Empezar para volver a jugar':paused?'Espacio para continuar':'Rompe los ladrillos y avanza de nivel',W/2,H/2+27)} }
+function roundRect(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill()}
+function tick(){if(running&&!paused){if(keys.ArrowLeft||keys.a)paddle.x-=paddle.speed;if(keys.ArrowRight||keys.d)paddle.x+=paddle.speed;paddle.x=Math.max(0,Math.min(W-paddle.w,paddle.x));ball.x+=ball.vx;ball.y+=ball.vy;
+if(ball.x-ball.r<0){ball.x=ball.r;ball.vx=Math.abs(ball.vx)}if(ball.x+ball.r>W){ball.x=W-ball.r;ball.vx=-Math.abs(ball.vx)}if(ball.y-ball.r<0){ball.y=ball.r;ball.vy=Math.abs(ball.vy)}
+if(ball.vy>0&&ball.y+ball.r>=paddle.y&&ball.y-ball.r<=paddle.y+paddle.h&&ball.x>=paddle.x&&ball.x<=paddle.x+paddle.w){ball.y=paddle.y-ball.r;const hit=(ball.x-(paddle.x+paddle.w/2))/(paddle.w/2);ball.vx=hit*6.2;ball.vy=-Math.sqrt(Math.max(12,ball.vx*ball.vx+ball.vy*ball.vy));}
+for(const b of bricks)if(b.alive&&ball.x+ball.r>b.x&&ball.x-ball.r<b.x+b.w&&ball.y+ball.r>b.y&&ball.y-ball.r<b.y+b.h){b.alive=false;score+=10*level;ball.vy*=-1;break}
+if(ball.y-ball.r>H){lives--;updateHUD();if(lives<=0){running=false;over=true;statusEl.textContent='Fin';startBtn.textContent='Jugar de nuevo'}else resetBall()}
+if(bricks.every(b=>!b.alive)){if(level===1){level=2;makeBricks();resetBall();statusEl.textContent='¡Nivel 2!'}else{running=false;over=true;statusEl.textContent='¡Victoria!';startBtn.textContent='Jugar de nuevo'}}updateHUD();}
+draw();requestAnimationFrame(tick)}
+canvas.addEventListener('mousemove',e=>{const r=canvas.getBoundingClientRect(),x=(e.clientX-r.left)*W/r.width;paddle.x=Math.max(0,Math.min(W-paddle.w,x-paddle.w/2))});canvas.addEventListener('touchmove',e=>{e.preventDefault();const r=canvas.getBoundingClientRect(),x=(e.touches[0].clientX-r.left)*W/r.width;paddle.x=Math.max(0,Math.min(W-paddle.w,x-paddle.w/2))},{passive:false});
+window.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault();keys[e.key]=true;if(e.code==='Space'&&running)paused=!paused});window.addEventListener('keyup',e=>keys[e.key]=false);startBtn.addEventListener('click',begin);
+makeBricks();resetBall();updateHUD();tick();
+})();
+</script>
+</body>
+</html>

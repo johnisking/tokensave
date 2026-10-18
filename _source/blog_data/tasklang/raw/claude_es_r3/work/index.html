@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rompe Ladrillos</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #111827; color: #e5e7eb; font-family: system-ui, sans-serif; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  canvas { background: #0b1020; border: 2px solid #374151; border-radius: 6px; max-width: 100vw; cursor: none; }
+  p { margin: 8px; font-size: 14px; color: #9ca3af; text-align: center; }
+</style>
+</head>
+<body>
+<canvas id="game" width="800" height="600"></canvas>
+<p>Ratón o ← → / A D para mover · Clic, Espacio o Enter para lanzar · P para pausar</p>
+<script>
+(() => {
+  const canvas = document.getElementById('game');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+
+  const LEVELS = [
+    // Nivel 1: bloque sencillo
+    [
+      '1111111111',
+      '2222222222',
+      '3333333333',
+      '4444444444',
+      '5555555555'
+    ],
+    // Nivel 2: patrón con ladrillos resistentes (# = 2 golpes)
+    [
+      '##1####1##',
+      '#22.22.22#',
+      '#3333333 3',
+      '4.444444.4',
+      '#55#55#55#',
+      '6.6.66.6.6'
+    ]
+  ];
+  const COLORS = { '1': '#ef4444', '2': '#f97316', '3': '#eab308', '4': '#22c55e', '5': '#3b82f6', '6': '#a855f7' };
+
+  const COLS = 10, BRICK_H = 22, BRICK_GAP = 6, TOP = 70, SIDE = 30;
+  const BRICK_W = (W - SIDE * 2 - BRICK_GAP * (COLS - 1)) / COLS;
+
+  const paddle = { w: 110, h: 14, x: W / 2 - 55, y: H - 40, speed: 9 };
+  const ball = { x: 0, y: 0, r: 8, vx: 0, vy: 0, speed: 5 };
+
+  let bricks = [];
+  let level = 0, score = 0, lives = 3;
+  let state = 'menu'; // menu | ready | playing | paused | levelclear | gameover | win
+  const keys = {};
+
+  function buildLevel(n) {
+    bricks = [];
+    LEVELS[n].forEach((row, r) => {
+      [...row].forEach((ch, c) => {
+        if (ch === '.' || ch === ' ') return;
+        const hard = ch === '#';
+        bricks.push({
+          x: SIDE + c * (BRICK_W + BRICK_GAP),
+          y: TOP + r * (BRICK_H + BRICK_GAP),
+          hits: hard ? 2 : 1,
+          color: hard ? '#9ca3af' : COLORS[ch],
+          points: hard ? 50 : (6 - r) * 10
+        });
+      });
+    });
+    ball.speed = 5 + n * 1.2;
+  }
+
+  function resetBall() {
+    ball.vx = 0; ball.vy = 0;
+    ball.x = paddle.x + paddle.w / 2;
+    ball.y = paddle.y - ball.r - 1;
+  }
+
+  function launch() {
+    const angle = (Math.random() * 0.5 - 0.25) * Math.PI; // ±45°
+    ball.vx = ball.speed * Math.sin(angle);
+    ball.vy = -ball.speed * Math.cos(angle);
+    state = 'playing';
+  }
+
+  function newGame() {
+    level = 0; score = 0; lives = 3;
+    buildLevel(level);
+    paddle.x = W / 2 - paddle.w / 2;
+    resetBall();
+    state = 'ready';
+  }
+
+  function action() {
+    if (state === 'menu' || state === 'gameover' || state === 'win') newGame();
+    else if (state === 'ready') launch();
+    else if (state === 'levelclear') {
+      level++;
+      buildLevel(level);
+      paddle.x = W / 2 - paddle.w / 2;
+      resetBall();
+      state = 'ready';
+    }
+  }
+
+  // --- Entrada ---
+  document.addEventListener('keydown', e => {
+    keys[e.key] = true;
+    if ([' ', 'ArrowLeft', 'ArrowRight', 'Enter'].includes(e.key)) e.preventDefault();
+    if (e.key === ' ' || e.key === 'Enter') action();
+    if (e.key === 'p' || e.key === 'P') {
+      if (state === 'playing') state = 'paused';
+      else if (state === 'paused') state = 'playing';
+    }
+  });
+  document.addEventListener('keyup', e => { keys[e.key] = false; });
+
+  canvas.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    const mx = (e.clientX - rect.left) * (W / rect.width);
+    paddle.x = mx - paddle.w / 2;
+    clampPaddle();
+  });
+  canvas.addEventListener('click', () => {
+    if (state === 'paused') state = 'playing';
+    else action();
+  });
+
+  function clampPaddle() {
+    paddle.x = Math.max(0, Math.min(W - paddle.w, paddle.x));
+  }
+
+  // --- Lógica ---
+  function update() {
+    if (state === 'paused' || state === 'menu' || state === 'gameover' || state === 'win' || state === 'levelclear') return;
+
+    if (keys['ArrowLeft'] || keys['a'] || keys['A']) paddle.x -= paddle.speed;
+    if (keys['ArrowRight'] || keys['d'] || keys['D']) paddle.x += paddle.speed;
+    clampPaddle();
+
+    if (state === 'ready') { resetBall(); return; }
+
+    // Sub-pasos para evitar atravesar ladrillos
+    const steps = Math.ceil(Math.max(Math.abs(ball.vx), Math.abs(ball.vy)) / 4);
+    for (let i = 0; i < steps; i++) {
+      ball.x += ball.vx / steps;
+      ball.y += ball.vy / steps;
+      if (collide()) break;
+    }
+  }
+
+  function collide() {
+    // Paredes
+    if (ball.x - ball.r < 0) { ball.x = ball.r; ball.vx = Math.abs(ball.vx); }
+    if (ball.x + ball.r > W) { ball.x = W - ball.r; ball.vx = -Math.abs(ball.vx); }
+    if (ball.y - ball.r < 0) { ball.y = ball.r; ball.vy = Math.abs(ball.vy); }
+
+    // Fondo: perder vida
+    if (ball.y - ball.r > H) {
+      lives--;
+      if (lives <= 0) state = 'gameover';
+      else { resetBall(); state = 'ready'; }
+      return true;
+    }
+
+    // Pala
+    if (ball.vy > 0 &&
+        ball.y + ball.r >= paddle.y && ball.y + ball.r <= paddle.y + paddle.h + ball.vy &&
+        ball.x >= paddle.x - ball.r && ball.x <= paddle.x + paddle.w + ball.r) {
+      const hit = (ball.x - (paddle.x + paddle.w / 2)) / (paddle.w / 2); // -1..1
+      const angle = Math.max(-1, Math.min(1, hit)) * (Math.PI / 3); // hasta 60°
+      ball.vx = ball.speed * Math.sin(angle);
+      ball.vy = -ball.speed * Math.cos(angle);
+      ball.y = paddle.y - ball.r;
+      return true;
+    }
+
+    // Ladrillos
+    for (let i = 0; i < bricks.length; i++) {
+      const b = bricks[i];
+      const cx = Math.max(b.x, Math.min(ball.x, b.x + BRICK_W));
+      const cy = Math.max(b.y, Math.min(ball.y, b.y + BRICK_H));
+      const dx = ball.x - cx, dy = ball.y - cy;
+      if (dx * dx + dy * dy <= ball.r * ball.r) {
+        // Determinar lado del rebote
+        const overlapX = Math.min(ball.x + ball.r - b.x, b.x + BRICK_W - (ball.x - ball.r));
+        const overlapY = Math.min(ball.y + ball.r - b.y, b.y + BRICK_H - (ball.y - ball.r));
+        if (overlapX < overlapY) ball.vx = -ball.vx; else ball.vy = -ball.vy;
+
+        b.hits--;
+        if (b.hits <= 0) {
+          score += b.points;
+          bricks.splice(i, 1);
+        } else {
+          b.color = '#6b7280';
+          score += 10;
+        }
+        if (bricks.length === 0) {
+          state = level < LEVELS.length - 1 ? 'levelclear' : 'win';
+        }
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // --- Dibujo ---
+  function roundRect(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  function drawHUD() {
+    ctx.fillStyle = '#e5e7eb';
+    ctx.font = 'bold 20px system-ui, sans-serif';
+    ctx.textBaseline = 'middle';
+    ctx.textAlign = 'left';
+    ctx.fillText('Puntos: ' + score, 20, 30);
+    ctx.textAlign = 'center';
+    ctx.fillText('Nivel ' + (level + 1) + ' / ' + LEVELS.length, W / 2, 30);
+    ctx.textAlign = 'right';
+    ctx.fillText('Vidas: ' + '❤'.repeat(Math.max(0, lives)), W - 20, 30);
+  }
+
+  function overlay(title, sub) {
+    ctx.fillStyle = 'rgba(0,0,0,0.6)';
+    ctx.fillRect(0, 0, W, H);
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 48px system-ui, sans-serif';
+    ctx.fillText(title, W / 2, H / 2 - 30);
+    ctx.font = '20px system-ui, sans-serif';
+    ctx.fillStyle = '#d1d5db';
+    ctx.fillText(sub, W / 2, H / 2 + 25);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    bricks.forEach(b => {
+      ctx.fillStyle = b.color;
+      roundRect(b.x, b.y, BRICK_W, BRICK_H, 4);
+      ctx.fill();
+      if (b.hits > 1) {
+        ctx.strokeStyle = '#f3f4f6';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+    });
+
+    ctx.fillStyle = '#38bdf8';
+    roundRect(paddle.x, paddle.y, paddle.w, paddle.h, 7);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+
+    drawHUD();
+
+    if (state === 'menu') overlay('ROMPE LADRILLOS', 'Haz clic o pulsa Espacio para empezar');
+    else if (state === 'ready') {
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#d1d5db';
+      ctx.font = '18px system-ui, sans-serif';
+      ctx.fillText('Clic o Espacio para lanzar la bola', W / 2, H / 2 + 60);
+    }
+    else if (state === 'paused') overlay('PAUSA', 'Pulsa P o haz clic para continuar');
+    else if (state === 'levelclear') overlay('¡Nivel ' + (level + 1) + ' completado!', 'Clic o Espacio para el nivel ' + (level + 2));
+    else if (state === 'gameover') overlay('FIN DEL JUEGO', 'Puntos: ' + score + ' · Clic o Espacio para reintentar');
+    else if (state === 'win') overlay('¡HAS GANADO!', 'Puntos: ' + score + ' · Clic o Espacio para jugar otra vez');
+  }
+
+  function loop() {
+    update();
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  buildLevel(0);
+  resetBall();
+  loop();
+})();
+</script>
+</body>
+</html>

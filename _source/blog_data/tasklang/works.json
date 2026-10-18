@@ -1,9 +1,33 @@
 {
+ "claude_en_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_en_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_en_r5/work/index.html": {
+  "works": true,
+  "errors": []
+ },
  "claude_es_r1/work/index.html": {
   "works": true,
   "errors": []
  },
  "claude_es_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_es_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_es_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_es_r5/work/index.html": {
   "works": true,
   "errors": []
  },
@@ -15,11 +39,35 @@
   "works": true,
   "errors": []
  },
+ "claude_ja_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_ja_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_ja_r5/work/index.html": {
+  "works": true,
+  "errors": []
+ },
  "claude_ko_r1/work/index.html": {
   "works": true,
   "errors": []
  },
  "claude_ko_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_ko_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_ko_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_ko_r5/work/index.html": {
   "works": true,
   "errors": []
  },
@@ -31,11 +79,47 @@
   "works": true,
   "errors": []
  },
+ "claude_uk_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_uk_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "claude_uk_r5/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_en_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_en_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_en_r5/work/index.html": {
+  "works": true,
+  "errors": []
+ },
  "codex_es_r1/work/index.html": {
   "works": true,
   "errors": []
  },
  "codex_es_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_es_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_es_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_es_r5/work/index.html": {
   "works": true,
   "errors": []
  },
@@ -47,11 +131,35 @@
   "works": true,
   "errors": []
  },
+ "codex_ja_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_ja_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_ja_r5/work/index.html": {
+  "works": true,
+  "errors": []
+ },
  "codex_ko_r1/work/index.html": {
   "works": true,
   "errors": []
  },
  "codex_ko_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_ko_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_ko_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_ko_r5/work/index.html": {
   "works": true,
   "errors": []
  },
@@ -62,6 +170,20 @@
  "codex_uk_r2/work/index.html": {
   "works": true,
   "errors": []
+ },
+ "codex_uk_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_uk_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "codex_uk_r5/work/index.html": {
+  "works": false,
+  "errors": [
+   "Failed to execute 'arc' on 'CanvasRenderingContext2D': The radius provided (-0.0618626) is negative."
+  ]
  },
  "en/claude_en_r1/work/index.html": {
   "works": true,

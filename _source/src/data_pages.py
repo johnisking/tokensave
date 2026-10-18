@@ -1,7 +1,7 @@
 """/data/ pages: TokenSave's own measurements as citable datasets (table, CSV/JSON download,
 method, limitations, suggested citation, embed code, schema.org Dataset).
 Goal: other writers can quote a number and link the source in one step (2026-10-16 citation strategy)."""
-import csv, io, json, os
+import csv, io, json, os, statistics
 from html import escape as esc
 
 BASE = "https://tokensave.app"
@@ -1577,9 +1577,9 @@ def amd_html():
                                 [(AGT_PATH, "Claude Code vs Codex: startup tokens and the same coding task"), (EFF_PATH, "Claude effort levels: tokens, time and cost"), ("/claude-code-usage", "Check your own Claude Code usage")]))
 
 
-# ---- Dataset 12: the same coding task prompted in 5 languages (measured 2026-10-18) ----
+# ---- Dataset 12: the same coding task prompted in 5 languages (measured 2026-10-18, runs 3-5 added 2026-10-19) ----
 TL_PATH = "/data/ai-coding-prompt-language"
-TL_MEASURED = "2026-10-18"
+TL_MEASURED = "2026-10-19"
 TL_CHART = "/ai-coding-prompt-language-chart.png"
 TL_DOI = "10.5281/zenodo.23454308"  # concept DOI
 TL_MIRRORS = [("Zenodo", "https://zenodo.org/records/23454309"),
@@ -1587,7 +1587,7 @@ TL_MIRRORS = [("Zenodo", "https://zenodo.org/records/23454309"),
               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/coding-prompt-language-claude-code-vs-codex"),
               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/coding-prompt-language")]
 TL_TITLE = "Coding in your own language: does the prompt language change what Claude Code and Codex cost?"
-TL_DESC = ("Dataset: the same brick-breaker task given to Claude Code and Codex in English, Korean, Japanese, Spanish and Ukrainian, two runs each: "
+TL_DESC = ("Dataset: the same brick-breaker task given to Claude Code and Codex in English, Korean, Japanese, Spanish and Ukrainian, five runs each: "
            "input and output tokens, time, cost, whether the game ran, and the language of the game text and code comments. Free CSV, CC BY 4.0.")
 TL_LANGS = [("en", "English"), ("ko", "Korean"), ("ja", "Japanese"), ("es", "Spanish"), ("uk", "Ukrainian")]
 
@@ -1622,7 +1622,7 @@ def tl_ld():
     return _dataset_ld(TL_TITLE, TL_DESC, TL_PATH, TL_MEASURED,
                        ["Claude Code", "Codex", "prompt language", "language tax", "Korean", "Japanese", "Spanish", "Ukrainian", "AI coding cost"],
                        ["input tokens", "output tokens", "time (seconds)", "API cost (USD)", "game works (yes/no)", "UI language", "code comment language"],
-                       "Claude Code (Opus 5.5) and Codex CLI (gpt-6-luna) at medium effort on one Windows laptop; one coding task in five prompt languages, two runs each",
+                       "Claude Code (Opus 5.5) and Codex CLI (gpt-6-luna) at medium effort on one Windows laptop; one coding task in five prompt languages, five runs each",
                        TL_CHART, [("ai-coding-prompt-language.csv", "text/csv"), ("ai-coding-prompt-language.json", "application/json")], doi=TL_DOI, mirrors=TL_MIRRORS)
 
 
@@ -1630,46 +1630,67 @@ def tl_html():
     d = _tl()
     R = d["rows"]
     sel = lambda t, l=None: [r for r in R if r["tool"] == t and (l is None or r["prompt_language"] == l)]
-    avg = lambda rs, f: round(sum(r[f] for r in rs) / len(rs))
-    rng = lambda rs, f: (min(r[f] for r in rs), max(r[f] for r in rs))
-    non_en = lambda t: [r for r in sel(t) if r["prompt_language"] != "en"]
-    cc_in, cx_in = rng(non_en("claude_code"), "input_tokens"), rng(non_en("codex"), "input_tokens")
-    cc_out, cx_out = rng(non_en("claude_code"), "output_tokens"), rng(non_en("codex"), "output_tokens")
+    med = lambda rs, f: statistics.median(r[f] for r in rs)
+    nruns = len(sel("claude_code", "en"))
+    langs_non_en = [l for l, _ in TL_LANGS if l != "en"]
+    def med_rng(t, f):
+        ms = [med(sel(t, l), f) for l in langs_non_en]
+        return min(ms), max(ms), med(sel(t, "en"), f)
+    cc_in, cx_in = med_rng("claude_code", "input_tokens"), med_rng("codex", "input_tokens")
+    cc_out, cx_out = med_rng("claude_code", "output_tokens"), med_rng("codex", "output_tokens")
+    pct = lambda a, b: (a / b - 1) * 100
+    spread = max(abs(pct(v, m[2])) for m in (cc_in, cx_in) for v in m[:2])
     en_cc = sel("claude_code", "en")
-    en_two = [r for r in en_cc if r["agent_turns"] == 2][0]
-    en_three = [r for r in en_cc if r["agent_turns"] == 3][0]
+    extra = [r for r in en_cc if r["agent_turns"] and r["agent_turns"] > 2]
+    non_en_cc = [r for r in sel("claude_code") if r["prompt_language"] != "en"]
+    non_en_extra = sum(1 for r in non_en_cc if r["agent_turns"] and r["agent_turns"] > 2)
+    cx_en = sel("codex", "en")
+    cx_out_run = max(cx_en, key=lambda r: r["input_tokens"])
     works = sum(1 for r in R if r["works"])
+    broken = [r for r in R if not r["works"]]
     ui_ok = sum(1 for r in R if r["prompt_language"] != "en" and r["ui_language"] == r["prompt_language"])
     n_non_en = sum(1 for r in R if r["prompt_language"] != "en")
-    cc_cost = rng(non_en("claude_code"), "api_cost_usd")
+    costs = [r["api_cost_usd"] for r in sel("claude_code")]
     lang = dict(TL_LANGS)
+    tname = lambda t: "Claude Code" if t == "claude_code" else "Codex"
+
     def row(l, t):
         rs = sel(t, l)
-        ins = " / ".join("{:,}".format(r["input_tokens"]) for r in rs)
-        outs = " / ".join("{:,}".format(r["output_tokens"]) for r in rs)
-        costs = " / ".join(("$%.2f" % r["api_cost_usd"]) if r["api_cost_usd"] is not None else "–" for r in rs)
-        tname = "Claude Code" if t == "claude_code" else "Codex"
-        return (f'          <tr><td>{lang[l]}</td><td>{tname}</td><td class="text-right tabular-nums">{ins}</td><td class="text-right tabular-nums">{outs}</td>'
-                f'<td class="text-right tabular-nums">{avg(rs, "seconds")} s</td><td class="text-right tabular-nums">{costs}</td>'
-                f'<td class="text-right tabular-nums">{sum(1 for r in rs if r["works"])} / {len(rs)}</td><td>{lang[rs[0]["ui_language"]]}</td></tr>')
+        cs = [r["api_cost_usd"] for r in rs if r["api_cost_usd"] is not None]
+        cost = ("$%.2f to $%.2f" % (min(cs), max(cs))) if cs else "&ndash;"
+        uis = sorted(set(lang[r["ui_language"]] for r in rs))
+        return ('          <tr><td>%s</td><td>%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s to %s</td>'
+                '<td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%d s</td><td class="text-right tabular-nums">%s</td>'
+                '<td class="text-right tabular-nums">%d / %d</td><td>%s</td></tr>') % (
+            lang[l], tname(t), "{:,}".format(round(med(rs, "input_tokens"))),
+            "{:,}".format(min(r["input_tokens"] for r in rs)), "{:,}".format(max(r["input_tokens"] for r in rs)),
+            "{:,}".format(round(med(rs, "output_tokens"))), round(med(rs, "seconds")), cost,
+            sum(1 for r in rs if r["works"]), len(rs), ", ".join(uis))
     trs = "\n".join(row(l, t) for l, _ in TL_LANGS for t in ["claude_code", "codex"])
-    head = ['<th>Prompt language</th>', '<th>Tool</th>', '<th class="text-right">Input tokens (run 1 / 2)</th>', '<th class="text-right">Output tokens (run 1 / 2)</th>',
-            '<th class="text-right">Time (avg)</th>', '<th class="text-right">API cost (run 1 / 2)</th>', '<th class="text-right">Game works</th>', '<th>Game text language</th>']
+    head = ['<th>Prompt language</th>', '<th>Tool</th>', '<th class="text-right">Input tokens (median)</th>', '<th class="text-right">Input tokens (range)</th>',
+            '<th class="text-right">Output tokens (median)</th>', '<th class="text-right">Time (median)</th>', '<th class="text-right">API cost (range)</th>',
+            '<th class="text-right">Game works</th>', '<th>Game text language</th>']
     plist = "\n".join('        <li><strong>%s:</strong> &ldquo;%s&rdquo;</li>' % (n, esc(d["prompts"][l])) for l, n in TL_LANGS)
-    lead = (f'<strong>Asking Claude Code or Codex to build the same game in Korean, Japanese, Spanish or Ukrainian cost about the same as asking in English: '
-            f'{cc_in[0]:,} to {cc_in[1]:,} input tokens in Claude Code and {cx_in[0]:,} to {cx_in[1]:,} in Codex.</strong> '
-            'What changed was the game itself: its on-screen text, and Claude Code&rsquo;s code comments, followed the language of the prompt.')
+    f = lambda v: "{:,}".format(round(v))
+    broken_txt = ""
+    if broken:
+        b = broken[0]
+        broken_txt = (" The exception was a %s run with the %s prompt, which crashed on a canvas error (a particle effect drew a circle with a negative radius)."
+                      % (tname(b["tool"]), lang[b["prompt_language"]]))
+    lead = ('<strong>Asking Claude Code or Codex to build the same game in Korean, Japanese, Spanish or Ukrainian cost about the same as asking in English: '
+            'over %d runs per language, the median input tokens per task stayed within %.1f%% of the English median in both tools.</strong> '
+            'What changed was the game itself: its on-screen text, and Claude Code&rsquo;s code comments, followed the language of the prompt.') % (nruns, spread)
     body = f'''      <h2>Key findings</h2>
       <ul>
-        <li><strong>The prompt language barely moves the bill for agentic coding.</strong> With Korean, Japanese, Spanish and Ukrainian prompts, Claude Code used {cc_in[0]:,} to {cc_in[1]:,} input tokens per task against {en_two["input_tokens"]:,} for a comparable English run, and Codex {cx_in[0]:,} to {cx_in[1]:,} against {min(r["input_tokens"] for r in sel("codex", "en")):,} to {max(r["input_tokens"] for r in sel("codex", "en")):,}. The prompt is about a hundred tokens; the agent&rsquo;s own instructions, tools and the code it writes make up the rest.</li>
-        <li><strong>Output did not grow either.</strong> Claude Code wrote {cc_out[0]:,} to {cc_out[1]:,} output tokens with non-English prompts and Codex {cx_out[0]:,} to {cx_out[1]:,}, close to the English runs ({min(r["output_tokens"] for r in en_cc):,} to {max(r["output_tokens"] for r in en_cc):,} and {min(r["output_tokens"] for r in sel("codex", "en")):,} to {max(r["output_tokens"] for r in sel("codex", "en")):,}), with no language consistently higher. At the API list prices Claude Code reports, a task cost ${cc_cost[0]:.2f} to ${cc_cost[1]:.2f} in any language.</li>
-        <li><strong>The run matters more than the language.</strong> One English Claude Code run took an extra agent step and used {en_three["input_tokens"]:,} input tokens, more than any non-English run.</li>
-        <li><strong>The game speaks your language.</strong> In all {n_non_en} non-English runs the game&rsquo;s on-screen text (score, lives, level, messages) was written in the prompt&rsquo;s language ({ui_ok} of {n_non_en}). Claude Code also wrote its code comments in that language in every run, and in one Spanish run named variables in Spanish (<code>paleta</code>, <code>ladrillos</code>); Codex wrote almost no comments (3 in 8 runs).</li>
-        <li><strong>Every game worked.</strong> All {works} of {len(R)} games loaded and responded to keyboard and mouse in a headless browser without script errors.</li>
+        <li><strong>The prompt language barely moves the bill for agentic coding.</strong> The median Claude Code task used {f(cc_in[2])} input tokens with the English prompt and {f(cc_in[0])} to {f(cc_in[1])} with the Korean, Japanese, Spanish and Ukrainian prompts. In Codex the medians were {f(cx_in[2])} and {f(cx_in[0])} to {f(cx_in[1])}. The prompt itself is about a hundred tokens; the agent&rsquo;s own instructions, tools and the code it writes make up the rest.</li>
+        <li><strong>Output did not grow either.</strong> Median output was {f(cc_out[2])} tokens in English and {f(cc_out[0])} to {f(cc_out[1])} in the other languages for Claude Code, and {f(cx_out[2])} against {f(cx_out[0])} to {f(cx_out[1])} for Codex, inside the run-to-run spread. At the API list prices Claude Code reports, a task cost ${min(costs):.2f} to ${max(costs):.2f} in any language.</li>
+        <li><strong>The run matters more than the language.</strong> The most expensive runs were English ones: {len(extra)} of {len(en_cc)} English Claude Code runs took an extra agent step and used {f(min(r["input_tokens"] for r in extra))} to {f(max(r["input_tokens"] for r in extra))} input tokens, and one English Codex run made an extra model call and used {f(cx_out_run["input_tokens"])}. None of the {len(non_en_cc)} non-English Claude Code runs took the extra step{"" if non_en_extra == 0 else " (" + str(non_en_extra) + " did)"}; with five runs per language this looks like chance rather than an effect of English.</li>
+        <li><strong>The game speaks your language.</strong> In all {n_non_en} non-English runs the game&rsquo;s on-screen text (score, lives, level, messages) was written in the prompt&rsquo;s language ({ui_ok} of {n_non_en}). Claude Code also wrote its code comments in that language in all 20 of its non-English runs, and in 3 of the 5 Spanish runs named its variables and functions in Spanish (<code>paleta</code>, <code>ladrillos</code>, <code>dibujarBola</code>). Codex wrote 4 comments in its 20 non-English runs, all in English.</li>
+        <li><strong>Almost every game worked.</strong> {works} of {len(R)} games loaded and responded to keyboard and mouse in a headless browser without script errors.{broken_txt}</li>
         <li><strong>The language tax is a chat problem.</strong> In plain chat, the same answer in Korean or Japanese needs far more tokens than in English (see <a href="{LANG_PATH}">token cost by language</a>). In an agentic coding task that difference is lost in the agent&rsquo;s fixed overhead and the English-like code it writes.</li>
       </ul>
       <h2>Tokens, time and cost by prompt language</h2>
-      <p class="text-sm text-zinc-400">Both runs are shown for tokens and cost. Codex does not report cost. &ldquo;Game text language&rdquo; is the language of the on-screen text in the generated game.</p>
+      <p class="text-sm text-zinc-400">{nruns} runs per language and tool. Codex does not report cost. &ldquo;Game text language&rdquo; is the language of the on-screen text in the generated game. Every run is in the CSV.</p>
 {_table(head, trs)}      <h2>Prompts</h2>
       <ul>
 {plist}
@@ -1679,19 +1700,19 @@ def tl_html():
         <li>Both tools on one Windows laptop, effort medium, each run in its own empty folder, prompt sent through standard input.</li>
         <li><strong>Claude Code 2.1.295</strong> (Opus 5.5): <code>claude -p --permission-mode acceptEdits --output-format json</code>, no MCP servers. Input tokens are summed over every model in the run, including cache reads.</li>
         <li><strong>Codex CLI 0.162</strong> (gpt-6-luna): <code>codex exec --json -s workspace-write</code>; tokens from the <code>turn.completed</code> events.</li>
-        <li>The English runs are the same-task runs of the <a href="{AGT_PATH}">Claude Code vs Codex dataset</a>, measured the same day with the same settings.</li>
-        <li>&ldquo;Game works&rdquo;: the file loaded in headless Chromium with a canvas, took mouse clicks and arrow keys for two seconds and threw no script errors. The game text language was read from the generated HTML.</li>
+        <li>Runs 1 and 2 were measured on 2026-10-18 (the English ones are the same-task runs of the <a href="{AGT_PATH}">Claude Code vs Codex dataset</a>); runs 3 to 5 for all five languages were added on 2026-10-19 with the same versions and settings, cycling through the five languages in turn.</li>
+        <li>&ldquo;Game works&rdquo;: the file loaded in headless Chromium with a canvas, took mouse clicks and arrow keys for about two seconds and threw no script errors. The game text language was read from the generated HTML. The scripts that rebuild the table from the raw logs and run this check are in the GitHub mirror.</li>
       </ul>
       <h2>Limitations</h2>
       <ul>
-        <li>One small task and two runs per language and tool; bigger projects with more conversation may show a larger language effect.</li>
+        <li>One small task and five runs per language and tool; bigger projects with more conversation may show a larger language effect.</li>
         <li>Only the first prompt was in another language; a long back-and-forth in Korean or Japanese would add more non-English text to the context.</li>
         <li>The cost figures are list-price estimates; subscription plans are not billed per token.</li>
       </ul>
 '''
     return (_head("Does the prompt language change what AI coding costs? Claude Code and Codex in 5 languages", lead,
-                  f'Measured {TL_MEASURED} · 5 languages · 2 tools · 2 runs · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{AGT_PATH}">Claude Code vs Codex: the same coding task</a>',
+                  f'Measured 2026-10-18 and {TL_MEASURED} · 5 languages · 2 tools · {nruns} runs each · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{AGT_PATH}">Claude Code vs Codex: the same coding task</a>',
                   [("ai-coding-prompt-language.csv", "CSV"), ("ai-coding-prompt-language.json", "JSON")],
-                  TL_CHART, "Input tokens for the same coding task prompted in English, Korean, Japanese, Spanish and Ukrainian", doi=TL_DOI, mirrors=TL_MIRRORS)
+                  TL_CHART, "Median input tokens for the same coding task prompted in English, Korean, Japanese, Spanish and Ukrainian, 5 runs each", doi=TL_DOI, mirrors=TL_MIRRORS)
             + body + _page_tail(tl_citation(), _embed(TL_PATH, TL_CHART, "Input tokens for the same coding task in 5 prompt languages", "AI coding prompt language"),
                                 [(AGT_PATH, "Claude Code vs Codex: startup tokens and the same coding task"), (LANG_PATH, "Token cost by language"), (AGL_PATH, "Does AI search in your language?")]))

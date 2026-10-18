@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>ブロック崩し</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 10%,#182b50,#080d1b 65%);color:#edf5ff;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}.game{width:min(94vw,760px);padding:20px;border:1px solid #ffffff20;border-radius:20px;background:#101a2cdd;box-shadow:0 24px 80px #0008}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.brand{font-weight:800;font-size:clamp(18px,4vw,25px);letter-spacing:.04em}.stats{display:flex;gap:8px}.stat{min-width:82px;padding:7px 12px;text-align:center;border-radius:10px;background:#ffffff0c;color:#a9bad4;font-size:12px}.stat b{display:block;color:#fff;font-size:17px}.stage{position:relative;overflow:hidden;border:1px solid #54709755;border-radius:12px;background:#0a1221}canvas{display:block;width:100%;height:auto;touch-action:none}.overlay{position:absolute;inset:0;display:grid;place-items:center;background:#07101bd9;text-align:center;padding:24px}.overlay.hidden{display:none}.card{max-width:440px}.card h1{margin:0 0 8px;font-size:clamp(25px,6vw,38px)}.card p{color:#b8c8df;line-height:1.7;margin:8px 0 20px}.button{border:0;border-radius:999px;padding:12px 26px;background:linear-gradient(135deg,#38d9c5,#52a7ff);color:#061322;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 6px 24px #2bb8ca44}.button:hover{filter:brightness(1.1);transform:translateY(-1px)}.help{display:flex;justify-content:space-between;gap:12px;margin-top:12px;color:#9bacbf;font-size:12px}.help strong{color:#e5efff}@media(max-width:520px){.game{padding:12px}.top{align-items:flex-start;flex-direction:column}.stats{width:100%}.stat{flex:1;min-width:0}.help{flex-direction:column;gap:5px}}
+</style>
+</head>
+<body>
+<main class="game">
+  <header class="top"><div class="brand">✦ ブロック崩し</div><div class="stats"><div class="stat">スコア<b id="score">0</b></div><div class="stat">ライフ<b id="lives">3</b></div><div class="stat">レベル<b id="level">1 / 2</b></div></div></header>
+  <div class="stage"><canvas id="game" width="720" height="520" aria-label="ブロック崩しゲーム"></canvas><div class="overlay" id="overlay"><div class="card"><h1 id="title">準備はいい？</h1><p id="message">ボールを打ち返してブロックを全部こわそう！<br>全2レベル、ライフは3つ。</p><button class="button" id="start">ゲームスタート</button></div></div></div>
+  <div class="help"><span><strong>操作:</strong> ← → / A D キー、またはマウス・タッチでパドル移動</span><span><strong>Space:</strong> 発射・一時停止</span></div>
+</main>
+<script>
+(()=>{
+const canvas=document.getElementById('game'),ctx=canvas.getContext('2d'),$=id=>document.getElementById(id);
+const W=canvas.width,H=canvas.height, paddle={w:112,h:13,x:304,y:483,speed:7},ball={x:360,y:465,r:8,vx:4,vy:-5};
+let score=0,lives=3,level=1,bricks=[],running=false,launched=false,keys=new Set(),last=0,raf=0;
+const palettes=[['#ff668a','#ff9b64','#ffd166','#57d9c4','#62a9ff'],['#cb7cff','#ff6db1','#ff8a6b','#ffd166','#64e6d0']];
+function buildLevel(n){bricks=[];let rows=n===1?5:6,cols=10,bw=58,bh=21,gap=9,left=(W-(cols*bw+(cols-1)*gap))/2,top=72;for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){if(n===2&&((r+c)%7===0))continue;bricks.push({x:left+c*(bw+gap),y:top+r*(bh+9),w:bw,h:bh,hp:n===2&&r<2?2:1,color:palettes[n-1][r%5]})}}
+function resetBall(){ball.x=paddle.x+paddle.w/2;ball.y=paddle.y-ball.r-2;ball.vx=(Math.random()<.5?-1:1)*4;ball.vy=-5;launched=false}
+function sync(){ $('score').textContent=score;$('lives').textContent=lives;$('level').textContent=level+' / 2'}
+function show(title,msg,button='もう一度プレイ'){ $('title').textContent=title;$('message').innerHTML=msg;$('start').textContent=button;$('overlay').classList.remove('hidden') }
+function begin(){if(lives<=0){score=0;lives=3;level=1;buildLevel(1);sync()}$('overlay').classList.add('hidden');running=true;last=performance.now();if(!raf)raf=requestAnimationFrame(loop)}
+function launch(){if(!running){begin();return}if(!launched)launched=true;else{running=false;show('一時停止中','Spaceキーまたはボタンでゲームに戻れます','ゲームに戻る')}}
+function roundRect(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill()}
+function draw(){ctx.clearRect(0,0,W,H);let bg=ctx.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#0d1a30');bg.addColorStop(1,'#09111f');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);ctx.strokeStyle='#ffffff08';ctx.lineWidth=1;for(let y=40;y<H;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
+for(const b of bricks){ctx.shadowColor=b.color;ctx.shadowBlur=12;ctx.fillStyle=b.color;roundRect(b.x,b.y,b.w,b.h,5);ctx.shadowBlur=0;ctx.fillStyle='#ffffff35';roundRect(b.x+4,b.y+3,b.w-8,3,2);if(b.hp>1){ctx.fillStyle='#17243a';ctx.font='bold 11px system-ui';ctx.textAlign='center';ctx.fillText('◆',b.x+b.w/2,b.y+15)}}
+ctx.shadowColor='#4ce7dc';ctx.shadowBlur=18;ctx.fillStyle='#55dfd3';roundRect(paddle.x,paddle.y,paddle.w,paddle.h,7);ctx.shadowBlur=0;const g=ctx.createRadialGradient(ball.x-3,ball.y-3,1,ball.x,ball.y,ball.r);g.addColorStop(0,'#fff');g.addColorStop(1,'#77dfff');ctx.fillStyle=g;ctx.shadowColor='#72ddff';ctx.shadowBlur=18;ctx.beginPath();ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+}
+function movePaddle(dt){if(keys.has('ArrowLeft')||keys.has('a'))paddle.x-=paddle.speed*dt;if(keys.has('ArrowRight')||keys.has('d'))paddle.x+=paddle.speed*dt;paddle.x=Math.max(0,Math.min(W-paddle.w,paddle.x));if(!launched){ball.x=paddle.x+paddle.w/2;ball.y=paddle.y-ball.r-2}}
+function update(dt){movePaddle(dt);if(!launched)return;ball.x+=ball.vx*dt;ball.y+=ball.vy*dt;if(ball.x<ball.r){ball.x=ball.r;ball.vx=Math.abs(ball.vx)}if(ball.x>W-ball.r){ball.x=W-ball.r;ball.vx=-Math.abs(ball.vx)}if(ball.y<ball.r){ball.y=ball.r;ball.vy=Math.abs(ball.vy)}if(ball.vy>0&&ball.y+ball.r>=paddle.y&&ball.y-ball.r<=paddle.y+paddle.h&&ball.x>=paddle.x&&ball.x<=paddle.x+paddle.w){let hit=(ball.x-(paddle.x+paddle.w/2))/(paddle.w/2);ball.vx=hit*6;ball.vy=-Math.sqrt(Math.max(12,ball.vx*ball.vx+25))}
+for(let i=bricks.length-1;i>=0;i--){let b=bricks[i];if(ball.x+ball.r>b.x&&ball.x-ball.r<b.x+b.w&&ball.y+ball.r>b.y&&ball.y-ball.r<b.y+b.h){ball.vy*=-1;b.hp--;if(b.hp<=0){bricks.splice(i,1);score+=10}else score+=3;sync();break}}
+if(ball.y-ball.r>H){lives--;sync();if(lives<=0){running=false;show('ゲームオーバー',`最終スコア: <strong>${score}</strong><br>もう一度チャレンジしよう！`,'リトライ')}else resetBall()}
+if(bricks.length===0){if(level===1){level=2;buildLevel(2);paddle.w=96;resetBall();sync()}else{running=false;show('クリア！',`全レベルクリア！<br>スコア: <strong>${score}</strong>`,'もう一度プレイ')}}}
+function loop(t){raf=0;if(!running){draw();return}let dt=Math.min((t-last)/16.67,2);last=t;update(dt);draw();if(running)raf=requestAnimationFrame(loop)}
+function pointer(e){let r=canvas.getBoundingClientRect();paddle.x=(e.clientX-r.left)*(W/r.width)-paddle.w/2;paddle.x=Math.max(0,Math.min(W-paddle.w,paddle.x));if(!launched){ball.x=paddle.x+paddle.w/2;ball.y=paddle.y-ball.r-2}}
+canvas.addEventListener('pointermove',pointer);canvas.addEventListener('pointerdown',e=>{pointer(e);if(running&&!launched)launched=true});window.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault();if(e.key===' '){if(!running&&$('overlay').classList.contains('hidden'))return;launch()}keys.add(e.key.toLowerCase())});window.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));$('start').addEventListener('click',begin);
+buildLevel(1);sync();resetBall();draw();
+})();
+</script>
+</body>
+</html>
