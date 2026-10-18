@@ -1305,8 +1305,11 @@ def ags_html():
 AGL_PATH = "/data/claude-web-search-by-language"
 AGL_MEASURED = "2026-10-18"
 AGL_CHART = "/claude-web-search-by-language-chart.png"
-AGL_DOI = None
-AGL_MIRRORS = None
+AGL_DOI = "10.5281/zenodo.23451506"  # concept DOI
+AGL_MIRRORS = [("Zenodo", "https://zenodo.org/records/23451507"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-web-search-by-language"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-web-search-by-language"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/search-language")]
 AGL_TITLE = "Claude web search by language: search queries, cited sources and tokens in 5 languages"
 AGL_DESC = ("Dataset: the same four questions asked in English, Korean, Japanese, Spanish and Ukrainian in Claude Code with web search on, two runs each: "
             "the language of every search query, the links cited and their language, the answer language, input and output tokens, searches, page opens and time. Free CSV, CC BY 4.0.")
