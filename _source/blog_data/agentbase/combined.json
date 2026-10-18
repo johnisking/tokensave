@@ -1,0 +1,142 @@
+{
+ "measured": "2026-10-18",
+ "prompt": "Reply with the single word OK.",
+ "machine": "Windows 11 laptop, each run in its own empty folder",
+ "mcp_server": "Self-written stdio MCP server (mcp_dummy.js) exposing N tracker tools, each with a one-sentence description and a 5-property input schema. Full definitions: 151 o200k tokens per tool, 4,541 for 30 tools.",
+ "notes": [
+  "Claude Code: claude -p --output-format json --mcp-config mcp.json --strict-mcp-config; input = input_tokens + cache_creation_input_tokens + cache_read_input_tokens",
+  "Codex: codex exec --json -s read-only -c model_reasoning_effort=\"low\", MCP server added with -c mcp_servers.tracker.*; input = input_tokens from turn.completed (includes cached)",
+  "Cursor: cursor-agent -p --output-format stream-json --trust --approve-mcps, MCP server in .cursor/mcp.json; input = inputTokens + cacheReadTokens. Run 2 for 1, 10 and 30 tools failed: free plan usage limit reached",
+  "Codex with 10 tools, asked to list the tracker tools and call one: 47,876 input tokens (tools are loaded only when needed)"
+ ],
+ "codex_tool_use_check": {
+  "mcp_tools": 10,
+  "input_tokens": 47876
+ },
+ "rows": [
+  {
+   "tool": "claude_code",
+   "tool_name": "Claude Code 2.1.295",
+   "model": "claude-opus-5-5 (default, Max plan)",
+   "mcp_tools": 0,
+   "run1": 35765,
+   "run2": 35777,
+   "avg": 35771,
+   "added_vs_no_mcp": 0
+  },
+  {
+   "tool": "claude_code",
+   "tool_name": "Claude Code 2.1.295",
+   "model": "claude-opus-5-5 (default, Max plan)",
+   "mcp_tools": 1,
+   "run1": 35790,
+   "run2": 35790,
+   "avg": 35790,
+   "added_vs_no_mcp": 19
+  },
+  {
+   "tool": "claude_code",
+   "tool_name": "Claude Code 2.1.295",
+   "model": "claude-opus-5-5 (default, Max plan)",
+   "mcp_tools": 10,
+   "run1": 35913,
+   "run2": 35913,
+   "avg": 35913,
+   "added_vs_no_mcp": 142
+  },
+  {
+   "tool": "claude_code",
+   "tool_name": "Claude Code 2.1.295",
+   "model": "claude-opus-5-5 (default, Max plan)",
+   "mcp_tools": 30,
+   "run1": 36165,
+   "run2": 36165,
+   "avg": 36165,
+   "added_vs_no_mcp": 394
+  },
+  {
+   "tool": "codex",
+   "tool_name": "Codex CLI 0.162",
+   "model": "gpt-6-luna, reasoning effort low (ChatGPT plan)",
+   "mcp_tools": 0,
+   "run1": 14678,
+   "run2": 14678,
+   "avg": 14678,
+   "added_vs_no_mcp": 0
+  },
+  {
+   "tool": "codex",
+   "tool_name": "Codex CLI 0.162",
+   "model": "gpt-6-luna, reasoning effort low (ChatGPT plan)",
+   "mcp_tools": 1,
+   "run1": 14678,
+   "run2": 14678,
+   "avg": 14678,
+   "added_vs_no_mcp": 0
+  },
+  {
+   "tool": "codex",
+   "tool_name": "Codex CLI 0.162",
+   "model": "gpt-6-luna, reasoning effort low (ChatGPT plan)",
+   "mcp_tools": 10,
+   "run1": 14678,
+   "run2": 14678,
+   "avg": 14678,
+   "added_vs_no_mcp": 0
+  },
+  {
+   "tool": "codex",
+   "tool_name": "Codex CLI 0.162",
+   "model": "gpt-6-luna, reasoning effort low (ChatGPT plan)",
+   "mcp_tools": 30,
+   "run1": 14678,
+   "run2": 14678,
+   "avg": 14678,
+   "added_vs_no_mcp": 0
+  },
+  {
+   "tool": "cursor",
+   "tool_name": "Cursor Agent CLI 2026.10.16",
+   "model": "Auto (free Hobby plan)",
+   "mcp_tools": 0,
+   "run1": 12988,
+   "run2": 12988,
+   "avg": 12988,
+   "added_vs_no_mcp": 0
+  },
+  {
+   "tool": "cursor",
+   "tool_name": "Cursor Agent CLI 2026.10.16",
+   "model": "Auto (free Hobby plan)",
+   "mcp_tools": 1,
+   "run1": 13006,
+   "run2": null,
+   "avg": 13006,
+   "added_vs_no_mcp": 18
+  },
+  {
+   "tool": "cursor",
+   "tool_name": "Cursor Agent CLI 2026.10.16",
+   "model": "Auto (free Hobby plan)",
+   "mcp_tools": 10,
+   "run1": 13081,
+   "run2": null,
+   "avg": 13081,
+   "added_vs_no_mcp": 93
+  },
+  {
+   "tool": "cursor",
+   "tool_name": "Cursor Agent CLI 2026.10.16",
+   "model": "Auto (free Hobby plan)",
+   "mcp_tools": 30,
+   "run1": 13165,
+   "run2": null,
+   "avg": 13165,
+   "added_vs_no_mcp": 177
+  }
+ ],
+ "full_definition_tokens_o200k": {
+  "1": 151,
+  "30": 4541
+ }
+}
