@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>벽돌깨기</title>
+<style>
+  :root { color-scheme: dark; font-family: system-ui, "Malgun Gothic", sans-serif; }
+  * { box-sizing: border-box; }
+  body { margin:0; min-height:100vh; display:grid; place-items:center; padding:20px; background:radial-gradient(ellipse at 50% 15%,#253c68 0,#10192d 45%,#080d19 100%); color:#eef5ff; }
+  .game { width:min(900px,100%); }
+  header { display:flex; align-items:center; justify-content:space-between; gap:14px; margin:0 2px 12px; flex-wrap:wrap; }
+  h1 { font-size:clamp(1.25rem,3vw,1.8rem); margin:0; letter-spacing:.04em; }
+  .stats { display:flex; gap:10px; flex-wrap:wrap; }
+  .stat { min-width:94px; padding:8px 13px; border:1px solid #ffffff1c; border-radius:12px; background:#ffffff0c; color:#b9c9e6; font-size:.8rem; }
+  .stat b { color:white; display:block; font-size:1.15rem; }
+  .stage { position:relative; border:1px solid #8ea8d340; border-radius:18px; padding:8px; background:#08101fbd; box-shadow:0 24px 70px #0008, inset 0 1px #ffffff12; overflow:hidden; }
+  canvas { display:block; width:100%; height:auto; aspect-ratio: 900 / 560; border-radius:12px; background:linear-gradient(180deg,#0d1930,#0a1224); touch-action:none; }
+  .overlay { position:absolute; inset:8px; display:grid; place-items:center; border-radius:12px; background:#071020a8; backdrop-filter:blur(5px); text-align:center; padding:20px; }
+  .overlay[hidden] { display:none; }
+  .card { max-width:440px; }
+  .card h2 { margin:0 0 8px; font-size:clamp(1.7rem,5vw,2.6rem); }
+  .card p { margin:0 0 18px; color:#c0cce1; line-height:1.6; }
+  button { cursor:pointer; border:0; border-radius:999px; padding:11px 24px; color:#08101f; background:linear-gradient(120deg,#7df2d3,#73bcff); font-weight:800; font-size:1rem; box-shadow:0 8px 24px #42cae344; }
+  button:hover { filter:brightness(1.08); transform:translateY(-1px); }
+  .help { margin:12px 4px 0; color:#95a6c4; text-align:center; font-size:.85rem; }
+  kbd { border:1px solid #ffffff36; border-radius:5px; padding:1px 6px; color:#eaf2ff; background:#ffffff10; }
+</style>
+</head>
+<body>
+<main class="game">
+  <header>
+    <h1>✦ 벽돌깨기</h1>
+    <div class="stats" aria-label="게임 정보">
+      <div class="stat">점수<b id="score">0</b></div>
+      <div class="stat">레벨<b id="level">1 / 2</b></div>
+      <div class="stat">목숨<b id="lives">♥ ♥ ♥</b></div>
+    </div>
+  </header>
+  <section class="stage" aria-label="벽돌깨기 게임">
+    <canvas id="board" width="900" height="560" aria-label="게임 화면"></canvas>
+    <div class="overlay" id="overlay">
+      <div class="card"><h2 id="headline">준비됐나요?</h2><p id="message">공을 튕겨 모든 벽돌을 깨세요.<br>키보드나 마우스로 패들을 움직일 수 있어요.</p><button id="action">게임 시작</button></div>
+    </div>
+  </section>
+  <p class="help"><kbd>←</kbd> <kbd>→</kbd> 또는 <kbd>A</kbd> <kbd>D</kbd> 이동 · 마우스 이동 · <kbd>Space</kbd> 시작 / 일시정지</p>
+</main>
+<script>
+(() => {
+  const canvas = document.getElementById('board'), ctx = canvas.getContext('2d');
+  const scoreEl = document.getElementById('score'), levelEl = document.getElementById('level'), livesEl = document.getElementById('lives');
+  const overlay = document.getElementById('overlay'), headline = document.getElementById('headline'), message = document.getElementById('message'), action = document.getElementById('action');
+  const W = canvas.width, H = canvas.height;
+  const keys = new Set();
+  let score = 0, lives = 3, level = 1, running = false, ended = false, last = 0;
+  const paddle = { x: W/2-58, y: H-38, w:116, h:13, speed:570 };
+  const ball = { x:W/2, y:H-60, r:8, vx:240, vy:-300, stuck:true };
+  let bricks = [];
+  const palettes = [['#ff6584','#ffb454','#ffe66d','#64e6c2','#68a9ff'], ['#d982ff','#ff75ba','#ff985e','#75bfff','#72eddb']];
+  function makeLevel(n) {
+    bricks = [];
+    const rows = n === 1 ? 5 : 6, cols = n === 1 ? 10 : 9;
+    const gap=8, bw=(W-100-gap*(cols-1))/cols, bh=23, startX=50, startY=68;
+    for(let r=0;r<rows;r++) for(let c=0;c<cols;c++) {
+      // Level two uses a staggered formation with a few open spaces.
+      if(n===2 && ((r===0 && (c<2||c>6)) || (r===5 && c%2===1))) continue;
+      bricks.push({x:startX+c*(bw+gap)+(n===2&&r%2?bw/2:0), y:startY+r*(bh+9), w:bw-(n===2&&r%2?bw/2:0), h:bh, color:palettes[n-1][r%5], alive:true});
+    }
+  }
+  function resetBall() { ball.x=paddle.x+paddle.w/2; ball.y=paddle.y-ball.r-2; ball.vx=(Math.random()<.5?-1:1)*240; ball.vy=-300; ball.stuck=true; }
+  function updateHud(){ scoreEl.textContent=score; levelEl.textContent=level+' / 2'; livesEl.textContent='♥ '.repeat(lives).trim() || '—'; }
+  function show(title, text, button='계속') { headline.textContent=title; message.innerHTML=text; action.textContent=button; overlay.hidden=false; }
+  function hide(){ overlay.hidden=true; }
+  function start(){ if(ended){score=0;lives=3;level=1;ended=false;makeLevel(level);resetBall();updateHud();} running=true;hide();last=performance.now(); }
+  function toggle(){ if(ended || !overlay.hidden){start();return;} running=false;show('잠시 멈춤','준비되면 계속 플레이하세요.','계속'); }
+  function advanceLevel(){ if(level===1){level=2;makeLevel(level);resetBall();running=false;updateHud();show('레벨 1 완료!','두 번째 레벨에 도전하세요.','레벨 2 시작');} else {running=false;ended=true;show('완벽해요!','두 레벨을 모두 클리어했습니다.<br>최종 점수: <b>'+score+'</b>','다시 하기');} }
+  function loseLife(){ lives--; updateHud(); if(lives<=0){running=false;ended=true;show('게임 종료','최종 점수: <b>'+score+'</b><br>다시 도전해 보세요.','다시 하기');} else {resetBall();running=false;show('공을 놓쳤어요','남은 목숨: <b>'+lives+'</b>','계속');} }
+  function update(dt){
+    if(keys.has('ArrowLeft')||keys.has('a')||keys.has('A')) paddle.x-=paddle.speed*dt;
+    if(keys.has('ArrowRight')||keys.has('d')||keys.has('D')) paddle.x+=paddle.speed*dt;
+    paddle.x=Math.max(12,Math.min(W-paddle.w-12,paddle.x));
+    if(ball.stuck){ball.x=paddle.x+paddle.w/2;ball.y=paddle.y-ball.r-2;return;}
+    ball.x+=ball.vx*dt;ball.y+=ball.vy*dt;
+    if(ball.x<ball.r+5){ball.x=ball.r+5;ball.vx=Math.abs(ball.vx);} if(ball.x>W-ball.r-5){ball.x=W-ball.r-5;ball.vx=-Math.abs(ball.vx);} if(ball.y<ball.r+5){ball.y=ball.r+5;ball.vy=Math.abs(ball.vy);}
+    if(ball.vy>0 && ball.y+ball.r>=paddle.y && ball.y-ball.r<=paddle.y+paddle.h && ball.x>=paddle.x && ball.x<=paddle.x+paddle.w){
+      const offset=(ball.x-(paddle.x+paddle.w/2))/(paddle.w/2); const speed=Math.min(510,Math.hypot(ball.vx,ball.vy)*1.025);
+      const angle=offset*1.05; ball.vx=speed*Math.sin(angle);ball.vy=-Math.abs(speed*Math.cos(angle));ball.y=paddle.y-ball.r-1;
+    }
+    if(ball.y>H+ball.r){loseLife();return;}
+    for(const b of bricks){if(!b.alive)continue;if(ball.x+ball.r>b.x&&ball.x-ball.r<b.x+b.w&&ball.y+ball.r>b.y&&ball.y-ball.r<b.y+b.h){
+      b.alive=false;score+=10;updateHud();
+      const overlapX=Math.min(ball.x+ball.r-b.x,b.x+b.w-(ball.x-ball.r));const overlapY=Math.min(ball.y+ball.r-b.y,b.y+b.h-(ball.y-ball.r));
+      if(overlapX<overlapY)ball.vx*=-1;else ball.vy*=-1; break;
+    }}
+    if(bricks.every(b=>!b.alive))advanceLevel();
+  }
+  function roundedRect(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill();}
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    // Subtle star field
+    ctx.fillStyle='#c8d9ff'; for(let i=0;i<42;i++){const x=(i*197+31)%W,y=(i*113+17)%(H-80);ctx.globalAlpha=.13+(i%4)*.06;ctx.fillRect(x,y,2,2);} ctx.globalAlpha=1;
+    for(const b of bricks){if(!b.alive)continue;ctx.shadowColor=b.color;ctx.shadowBlur=11;ctx.fillStyle=b.color;roundedRect(b.x,b.y,b.w,b.h,6);ctx.shadowBlur=0;ctx.fillStyle='#ffffff33';roundedRect(b.x+4,b.y+3,b.w-8,3,2);}
+    const grad=ctx.createLinearGradient(paddle.x,paddle.y,paddle.x+paddle.w,paddle.y+paddle.h);grad.addColorStop(0,'#72f2d3');grad.addColorStop(1,'#72b9ff');ctx.shadowColor='#72dfff';ctx.shadowBlur=18;ctx.fillStyle=grad;roundedRect(paddle.x,paddle.y,paddle.w,paddle.h,8);ctx.shadowBlur=0;
+    ctx.beginPath();ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);ctx.fillStyle='#fff';ctx.shadowColor='#91edff';ctx.shadowBlur=18;ctx.fill();ctx.shadowBlur=0;
+    if(!running && overlay.hidden){ctx.fillStyle='#d6e4ff99';ctx.font='14px system-ui';ctx.textAlign='center';ctx.fillText('클릭 또는 Space를 눌러 공을 발사',W/2,H-78);}
+  }
+  function frame(now){const dt=Math.min((now-last)/1000,.03);last=now;if(running)update(dt);draw();requestAnimationFrame(frame);}
+  action.addEventListener('click',()=>{if(!ended && running){toggle();}else start();});
+  canvas.addEventListener('pointermove',e=>{const r=canvas.getBoundingClientRect(),x=(e.clientX-r.left)*W/r.width;paddle.x=Math.max(12,Math.min(W-paddle.w-12,x-paddle.w/2));});
+  canvas.addEventListener('pointerdown',()=>{if(!running&&overlay.hidden){ball.stuck=false;}else if(overlay.hidden&&ball.stuck){ball.stuck=false;}});
+  window.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault();keys.add(e.key);if(e.key===' '){if(overlay.hidden)toggle();else start();}if((e.key==='Enter')&&!overlay.hidden)start();if(ball.stuck&&overlay.hidden&&['ArrowLeft','ArrowRight','a','d','A','D'].includes(e.key))ball.stuck=false;});
+  window.addEventListener('keyup',e=>keys.delete(e.key));
+  makeLevel(level);resetBall();updateHud();requestAnimationFrame(t=>{last=t;frame(t);});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ブロック崩し</title>
+  <style>
+    :root { color-scheme: dark; --ink:#edf5ff; --muted:#94a9c9; --cyan:#5ee7f2; --pink:#ff75bd; }
+    * { box-sizing:border-box }
+    body { margin:0; min-height:100vh; display:grid; place-items:center; padding:22px; color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; background:radial-gradient(ellipse at 50% 0%,#1d3158 0,#0b1224 56%,#070b16 100%); }
+    .game { width:min(900px,100%); }
+    header { display:flex; justify-content:space-between; align-items:end; gap:20px; margin:0 2px 14px; }
+    h1 { margin:0; font-size:clamp(1.45rem,4vw,2rem); letter-spacing:.04em; }
+    .sub { color:var(--muted); font-size:.86rem; margin-top:4px }
+    .stats { display:flex; gap:clamp(12px,4vw,30px); }
+    .stat { text-align:right; min-width:58px; }
+    .stat span { display:block; color:var(--muted); font-size:.72rem; letter-spacing:.12em; }
+    .stat strong { font-size:1.25rem; font-variant-numeric:tabular-nums; }
+    .hearts { color:var(--pink); letter-spacing:.14em; white-space:nowrap }
+    .arena { position:relative; overflow:hidden; border:1px solid #34466c; border-radius:14px; background:#0a1121; box-shadow:0 22px 70px #0008,0 0 40px #56d9ef12; }
+    canvas { display:block; width:100%; height:auto; touch-action:none; }
+    .overlay { position:absolute; inset:0; display:grid; place-items:center; padding:24px; background:#08101dcc; text-align:center; backdrop-filter:blur(4px); }
+    .overlay.hidden { display:none }
+    .card { max-width:440px; }
+    .card h2 { margin:0 0 8px; font-size:clamp(1.6rem,5vw,2.4rem); }
+    .card p { color:#b7c7e0; line-height:1.7; margin:0 0 20px; }
+    button { border:0; border-radius:999px; padding:11px 26px; color:#06101b; background:linear-gradient(100deg,var(--cyan),#91f5cc); font:700 1rem inherit; cursor:pointer; box-shadow:0 5px 24px #5ee7f244; }
+    button:hover { filter:brightness(1.08); transform:translateY(-1px); }
+    .controls { display:flex; justify-content:space-between; gap:12px; align-items:center; margin:13px 3px 0; color:var(--muted); font-size:.8rem; }
+    kbd { border:1px solid #405273; border-radius:5px; padding:2px 6px; color:#d9e7fa; background:#17233b; font:inherit; }
+    .actions { display:flex; gap:8px; }
+    .actions button { padding:7px 14px; color:#dce9fb; background:#17233b; border:1px solid #34466c; box-shadow:none; font-size:.8rem; }
+    @media(max-width:560px) { header { align-items:start; flex-direction:column; gap:12px } .stats { width:100%; justify-content:space-between } .stat { text-align:left } .controls { align-items:start; flex-direction:column } }
+  </style>
+</head>
+<body>
+  <main class="game">
+    <header>
+      <div><h1>ブロック崩し</h1><div class="sub">ボールを落とさず、すべてのブロックを壊そう。</div></div>
+      <div class="stats" aria-live="polite">
+        <div class="stat"><span>SCORE</span><strong id="score">0</strong></div>
+        <div class="stat"><span>LEVEL</span><strong id="level">1 / 2</strong></div>
+        <div class="stat"><span>LIVES</span><strong class="hearts" id="lives">♥ ♥ ♥</strong></div>
+      </div>
+    </header>
+    <div class="arena">
+      <canvas id="board" width="900" height="560" aria-label="ブロック崩しゲーム画面"></canvas>
+      <div class="overlay" id="overlay"><div class="card"><h2 id="messageTitle">準備はいい？</h2><p id="messageBody">パドルでボールを打ち返して、すべてのブロックを消そう。<br>レベルは全部で2つ。</p><button id="mainButton">ゲームスタート</button></div></div>
+    </div>
+    <div class="controls"><div><kbd>←</kbd> <kbd>→</kbd> または <kbd>A</kbd> <kbd>D</kbd> で移動 ・ マウスでパドルを操作 ・ <kbd>Space</kbd> で開始 / 一時停止</div><div class="actions"><button id="pauseButton">一時停止</button><button id="restartButton">最初から</button></div></div>
+  </main>
+  <script>
+  (() => {
+    const canvas = document.querySelector('#board'), ctx = canvas.getContext('2d');
+    const scoreEl = document.querySelector('#score'), levelEl = document.querySelector('#level'), livesEl = document.querySelector('#lives');
+    const overlay = document.querySelector('#overlay'), titleEl = document.querySelector('#messageTitle'), bodyEl = document.querySelector('#messageBody');
+    const mainButton = document.querySelector('#mainButton'), pauseButton = document.querySelector('#pauseButton');
+    const W = canvas.width, H = canvas.height;
+    const paddle = { w:118, h:13, x:W/2-59, y:H-42, speed:8 };
+    const ball = { x:W/2, y:H-64, r:8, dx:4.1, dy:-4.5 };
+    const keys = new Set();
+    let score=0, lives=3, level=1, bricks=[], state='ready', pointerX=null, last=0;
+    const rows = 5, cols = 10, gap = 9, brickH = 22, side = 42, top = 76;
+    const palettes = [['#56d9ef','#49b9ed','#7184ff','#a577ff','#e27be8'], ['#70edbd','#63d8a6','#a5dc67','#f2cb65','#ff9270']];
+
+    function makeBricks(n) {
+      bricks=[];
+      const bw=(W-side*2-gap*(cols-1))/cols;
+      for(let r=0;r<rows;r++) for(let c=0;c<cols;c++) {
+        const tough = n===2 && ((r+c)%4===0);
+        bricks.push({x:side+c*(bw+gap),y:top+r*(brickH+gap),w:bw,h:brickH,hp:tough?2:1,maxHp:tough?2:1,color:palettes[n-1][r]});
+      }
+    }
+    function resetBall() { ball.x=paddle.x+paddle.w/2; ball.y=paddle.y-ball.r-2; ball.dx=(Math.random()<.5?-1:1)*4.1; ball.dy=-4.5; }
+    function fresh() { score=0; lives=3; level=1; makeBricks(level); paddle.x=W/2-paddle.w/2; resetBall(); state='ready'; updateHud(); show('準備はいい？','パドルでボールを打ち返して、すべてのブロックを消そう。<br>レベルは全部で2つ。','ゲームスタート'); draw(); }
+    function updateHud(){ scoreEl.textContent=score; levelEl.textContent=level+' / 2'; livesEl.textContent=Array.from({length:3},(_,i)=>i<lives?'♥':'♡').join(' '); }
+    function show(title,body,button){ titleEl.textContent=title; bodyEl.innerHTML=body; mainButton.textContent=button; overlay.classList.remove('hidden'); }
+    function hide(){ overlay.classList.add('hidden'); }
+    function start(){ if(state==='ready'||state==='serve'){state='playing';hide();} else if(state==='paused'){state='playing';hide();} }
+    function togglePause(){ if(state==='playing'){state='paused';show('一時停止中','準備ができたら再開しよう。','再開');} else if(state==='paused'||state==='ready') start(); }
+    function endGame(won){ state=won?'won':'over'; show(won?'クリア！':'ゲームオーバー',won?'全2レベルクリア！　スコア：'+score:'スコア：'+score+'　もう一度挑戦してみよう。','もう一度遊ぶ'); }
+    mainButton.addEventListener('click',()=>{if(state==='over'||state==='won') fresh(); start();});
+    pauseButton.addEventListener('click',togglePause);
+    document.querySelector('#restartButton').addEventListener('click',fresh);
+    window.addEventListener('keydown',e=>{ if(['ArrowLeft','ArrowRight',' ','a','A','d','D'].includes(e.key)) e.preventDefault(); keys.add(e.key.toLowerCase()); if(e.key===' '){if(state==='over'||state==='won')fresh();else togglePause();} });
+    window.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));
+    canvas.addEventListener('pointermove',e=>{const rect=canvas.getBoundingClientRect();pointerX=(e.clientX-rect.left)*W/rect.width;});
+    canvas.addEventListener('pointerdown',()=>{if(state==='ready'||state==='serve') start();});
+    function movePaddle(){ if(pointerX!==null) paddle.x=pointerX-paddle.w/2; else {if(keys.has('arrowleft')||keys.has('a'))paddle.x-=paddle.speed;if(keys.has('arrowright')||keys.has('d'))paddle.x+=paddle.speed;} paddle.x=Math.max(0,Math.min(W-paddle.w,paddle.x)); }
+    function update(dt){
+      movePaddle(); if(state!=='playing') { if(state==='ready'||state==='serve'){ball.x=paddle.x+paddle.w/2;ball.y=paddle.y-ball.r-2;} return; }
+      const step=Math.min(dt/16.67,2); ball.x+=ball.dx*step;ball.y+=ball.dy*step;
+      if(ball.x<ball.r){ball.x=ball.r;ball.dx=Math.abs(ball.dx)} if(ball.x>W-ball.r){ball.x=W-ball.r;ball.dx=-Math.abs(ball.dx)} if(ball.y<ball.r){ball.y=ball.r;ball.dy=Math.abs(ball.dy)}
+      if(ball.dy>0&&ball.y+ball.r>=paddle.y&&ball.y-ball.r<=paddle.y+paddle.h&&ball.x>=paddle.x&&ball.x<=paddle.x+paddle.w){const offset=(ball.x-(paddle.x+paddle.w/2))/(paddle.w/2);ball.dy=-Math.abs(ball.dy);ball.dx=offset*5.2;ball.y=paddle.y-ball.r;}
+      for(const b of bricks){if(!b.hp)continue;if(ball.x+ball.r>b.x&&ball.x-ball.r<b.x+b.w&&ball.y+ball.r>b.y&&ball.y-ball.r<b.y+b.h){b.hp--;ball.dy*=-1;score+=b.hp?5:10;break;}}
+      if(ball.y-ball.r>H){lives--;updateHud();if(lives<=0){endGame(false)}else{state='serve';resetBall();show('あと'+lives+'回！','クリック、<kbd>Space</kbd>、またはボタンで再開。','続ける');}}
+      if(bricks.every(b=>!b.hp)){if(level===1){level=2;makeBricks(level);ball.dx*=1.12;ball.dy*=1.12;state='serve';resetBall();updateHud();show('レベル2','ブロックが少し手強くなったよ。','続ける');}else endGame(true);}
+      updateHud();
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      const grad=ctx.createLinearGradient(0,0,0,H);grad.addColorStop(0,'#101c34');grad.addColorStop(1,'#0a1121');ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
+      ctx.strokeStyle='#ffffff08';ctx.lineWidth=1;for(let x=25;x<W;x+=50){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+      for(const b of bricks){if(!b.hp)continue;ctx.globalAlpha=b.hp===1&&b.maxHp===2?.58:1;ctx.fillStyle=b.color;ctx.beginPath();ctx.roundRect(b.x,b.y,b.w,b.h,6);ctx.fill();ctx.fillStyle='#ffffff35';ctx.fillRect(b.x+5,b.y+4,b.w-10,2);if(b.maxHp===2&&b.hp===2){ctx.fillStyle='#fff';ctx.font='bold 11px system-ui';ctx.textAlign='center';ctx.fillText('2',b.x+b.w/2,b.y+16);}}ctx.globalAlpha=1;
+      ctx.shadowColor='#5ee7f2';ctx.shadowBlur=20;ctx.fillStyle='#83f3ed';ctx.beginPath();ctx.roundRect(paddle.x,paddle.y,paddle.w,paddle.h,7);ctx.fill();ctx.shadowBlur=0;
+      ctx.shadowColor='#fff';ctx.shadowBlur=18;ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+      ctx.fillStyle='#7990b3';ctx.font='12px system-ui';ctx.textAlign='left';ctx.fillText('LEVEL '+level,20,H-17);
+      requestAnimationFrame(loop);
+    }
+    function loop(t){const dt=last?Math.min(t-last,34):16.67;last=t;update(dt);draw();}
+    makeBricks(level);updateHud();requestAnimationFrame(loop);
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+done ko r1
+done ja r1
+done es r1
+done uk r1
+done ko r2
+done ja r2
+done es r2
+done uk r2
+ALL DONE

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>벽돌깨기</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#101827;color:#eef4ff;font-family:system-ui,sans-serif}.wrap{width:min(94vw,800px);text-align:center}h1{margin:0 0 12px;font-size:clamp(1.5rem,4vw,2.3rem);letter-spacing:.08em}.hud{display:flex;justify-content:space-between;gap:12px;margin:0 auto 10px;max-width:760px;font-weight:700;color:#bcd0f1}.hud span{padding:8px 14px;background:#1b2940;border:1px solid #314563;border-radius:999px}canvas{display:block;width:100%;height:auto;aspect-ratio:8/5;border:2px solid #344a6b;border-radius:14px;background:radial-gradient(ellipse at 50% 30%,#1d2b43,#111a2a 70%);box-shadow:0 20px 60px #0008;touch-action:none}.hint{color:#91a4c2;font-size:.9rem;margin:10px}.overlay{position:fixed;inset:0;display:grid;place-items:center;background:#080d17b8}.card{max-width:90vw;padding:28px 34px;border:1px solid #405777;border-radius:18px;background:#1a2940;box-shadow:0 20px 60px #0008}.card h2{margin:0 0 8px;font-size:2rem}.card p{color:#bdcbe0;line-height:1.6}.button{border:0;border-radius:999px;padding:12px 24px;background:#49dcb1;color:#09221e;font-size:1rem;font-weight:800;cursor:pointer}.button:hover{filter:brightness(1.08)}
+</style>
+</head>
+<body>
+<main class="wrap"><h1>벽돌깨기</h1><div class="hud"><span>점수 <b id="score">0</b></span><span>레벨 <b id="level">1</b> / 2</span><span>목숨 <b id="lives">3</b></span></div><canvas id="game" width="800" height="500" aria-label="벽돌깨기 게임"></canvas><p class="hint">← → 또는 A / D 키로 이동 · 마우스를 움직여 패들 조작 · 클릭 또는 스페이스로 시작</p></main>
+<div class="overlay" id="overlay"><section class="card"><h2 id="title">벽돌깨기</h2><p id="message">공을 놓치지 말고 모든 벽돌을 깨세요!<br>두 레벨을 모두 클리어하면 승리합니다.</p><button class="button" id="start">게임 시작</button></section></div>
+<script>
+(() => {
+const canvas=document.querySelector('#game'),ctx=canvas.getContext('2d'),scoreEl=document.querySelector('#score'),levelEl=document.querySelector('#level'),livesEl=document.querySelector('#lives'),overlay=document.querySelector('#overlay'),title=document.querySelector('#title'),message=document.querySelector('#message'),startBtn=document.querySelector('#start');
+const W=canvas.width,H=canvas.height,paddle={w:112,h:13,x:344,y:462,speed:8},ball={x:400,y:446,r:8,dx:4,dy:-5};
+let score=0,lives=3,level=1,bricks=[],running=false,ready=false,keys={};
+const palettes=[['#54e0bd','#39b8d2','#5796f2','#a778f5','#f274b7'],['#ffcf5a','#ff9f43','#f46d6d','#d66be5','#65a8ff']];
+function buildLevel(){bricks=[];const rows=level===1?5:6,cols=10,gap=8,bw=66,bh=20,left=27,top=65;for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)bricks.push({x:left+c*(bw+gap),y:top+r*(bh+gap),w:bw,h:bh,alive:true,color:palettes[level-1][r%5],hp:level===2&&r<2?2:1});}
+function resetBall(){ball.x=paddle.x+paddle.w/2;ball.y=paddle.y-ball.r-2;ball.dx=(Math.random()>.5?1:-1)*4;ball.dy=-5;ready=true;}
+function begin(){if(lives<=0||level>2){score=0;lives=3;level=1;buildLevel();updateHud()}overlay.hidden=true;overlay.style.display='none';running=true;if(ready){ready=false;}else resetBall();requestAnimationFrame(loop);}
+function updateHud(){scoreEl.textContent=score;levelEl.textContent=level;livesEl.textContent=lives;}
+function show(titleText,text,button){running=false;title.textContent=titleText;message.innerHTML=text;startBtn.textContent=button;overlay.hidden=false;overlay.style.display='grid';}
+function draw(){ctx.clearRect(0,0,W,H);ctx.save();ctx.globalAlpha=.18;for(let i=0;i<20;i++){ctx.fillStyle='#a9c9ff';ctx.beginPath();ctx.arc((i*137)%W,(i*83)%H,1.4,0,Math.PI*2);ctx.fill()}ctx.restore();
+for(const b of bricks)if(b.alive){ctx.fillStyle=b.color;ctx.shadowColor=b.color;ctx.shadowBlur=12;roundRect(b.x,b.y,b.w,b.h,5);if(b.hp>1){ctx.shadowBlur=0;ctx.fillStyle='#ffffffaa';ctx.fillRect(b.x+8,b.y+4,b.w-16,2)}}ctx.shadowBlur=0;
+ctx.fillStyle='#50e0bd';ctx.shadowColor='#50e0bd';ctx.shadowBlur=16;roundRect(paddle.x,paddle.y,paddle.w,paddle.h,8);ctx.shadowBlur=0;
+ctx.beginPath();ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);ctx.fillStyle='#fff';ctx.shadowColor='#fff';ctx.shadowBlur=14;ctx.fill();ctx.shadowBlur=0;
+if(ready){ctx.fillStyle='#d8e5fa';ctx.font='15px system-ui';ctx.textAlign='center';ctx.fillText('클릭 또는 스페이스를 눌러 시작',W/2,430)}}
+function roundRect(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill()}
+function loop(){if(!running)return;update();draw();if(running)requestAnimationFrame(loop)}
+function update(){if(keys.ArrowLeft||keys.a||keys.A)paddle.x-=paddle.speed;if(keys.ArrowRight||keys.d||keys.D)paddle.x+=paddle.speed;paddle.x=Math.max(0,Math.min(W-paddle.w,paddle.x));if(ready){ball.x=paddle.x+paddle.w/2;return}
+ball.x+=ball.dx;ball.y+=ball.dy;if(ball.x<ball.r||ball.x>W-ball.r)ball.dx*=-1;if(ball.y<ball.r)ball.dy=Math.abs(ball.dy);
+if(ball.dy>0&&ball.y+ball.r>=paddle.y&&ball.y-ball.r<=paddle.y+paddle.h&&ball.x>=paddle.x&&ball.x<=paddle.x+paddle.w){let hit=(ball.x-(paddle.x+paddle.w/2))/(paddle.w/2);ball.dx=hit*6;ball.dy=-Math.sqrt(Math.max(16,ball.dx*ball.dx+ball.dy*ball.dy));ball.y=paddle.y-ball.r}
+if(ball.y>H+ball.r){lives--;updateHud();if(lives<=0){show('게임 오버',`최종 점수: <b>${score}</b><br>다시 도전해 보세요!`,'다시 하기');return}resetBall();draw();return}
+for(const b of bricks)if(b.alive&&ball.x+ball.r>b.x&&ball.x-ball.r<b.x+b.w&&ball.y+ball.r>b.y&&ball.y-ball.r<b.y+b.h){b.hp--;if(b.hp<=0){b.alive=false;score+=10;updateHud()}ball.dy*=-1;break}
+if(bricks.every(b=>!b.alive)){if(level===1){level=2;buildLevel();updateHud();resetBall()}else{level=2;updateHud();show('모든 레벨 클리어!',`축하합니다! 최종 점수: <b>${score}</b>`,'다시 하기')}}}
+function pointerMove(e){const rect=canvas.getBoundingClientRect(),x=(e.clientX-rect.left)*W/rect.width;paddle.x=Math.max(0,Math.min(W-paddle.w,x-paddle.w/2));if(ready)ball.x=paddle.x+paddle.w/2}
+canvas.addEventListener('pointermove',pointerMove);canvas.addEventListener('pointerdown',()=>{if(ready){ready=false;ball.dy=-5;ball.dx=(Math.random()>.5?1:-1)*4}});window.addEventListener('keydown',e=>{keys[e.key]=true;if(['ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault();if((e.key===' '||e.key==='Enter')&&running&&ready){ready=false;ball.dy=-5;ball.dx=(Math.random()>.5?1:-1)*4}});window.addEventListener('keyup',e=>keys[e.key]=false);
+startBtn.addEventListener('click',begin);buildLevel();updateHud();resetBall();draw();
+})();
+</script>
+</body>
+</html>

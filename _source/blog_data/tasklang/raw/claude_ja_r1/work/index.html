@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ブロック崩し</title>
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #0f1226;
+    color: #e8ecff;
+    font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  canvas {
+    background: linear-gradient(#161a3a, #0b0d1f);
+    border: 2px solid #3a4180;
+    border-radius: 8px;
+    max-width: 96vw;
+    max-height: 86vh;
+    cursor: none;
+    box-shadow: 0 0 30px rgba(80, 100, 255, 0.25);
+  }
+  .help {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #9aa3d6;
+    text-align: center;
+  }
+  kbd {
+    background: #262c5a;
+    border: 1px solid #4a52a0;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+<canvas id="game" width="800" height="600"></canvas>
+<div class="help">
+  操作: マウス移動 または <kbd>←</kbd><kbd>→</kbd> / <kbd>A</kbd><kbd>D</kbd> でパドル移動 ／
+  <kbd>Space</kbd> またはクリックで発射・決定 ／ <kbd>P</kbd> / <kbd>Esc</kbd> で一時停止
+</div>
+
+<script>
+(() => {
+  const canvas = document.getElementById("game");
+  const ctx = canvas.getContext("2d");
+  const W = canvas.width;
+  const H = canvas.height;
+
+  // ---- 設定 ----
+  const MAX_LIVES = 3;
+  const PADDLE_SPEED = 620;
+  const HUD_HEIGHT = 44;
+
+  // 数字 = 耐久度、"." = 空き
+  const LEVELS = [
+    {
+      name: "レベル 1",
+      ballSpeed: 340,
+      maxSpeed: 520,
+      layout: [
+        "1111111111",
+        "1111111111",
+        "1111111111",
+        "1111111111",
+        "1111111111",
+      ],
+    },
+    {
+      name: "レベル 2",
+      ballSpeed: 400,
+      maxSpeed: 620,
+      layout: [
+        "2.22222222.2",
+        "22.222222.22",
+        "111.1111.111",
+        "1.11.11.11.1",
+        "222222222222",
+        "1111.11.1111",
+        "111111111111",
+      ],
+    },
+  ];
+
+  const ROW_COLORS = ["#ff5f6d", "#ffa94d", "#ffd43b", "#69db7c", "#4dabf7", "#9775fa", "#f783ac"];
+
+  // ---- 状態 ----
+  let state = "title"; // title | ready | playing | paused | levelclear | gameover | win
+  let score = 0;
+  let lives = MAX_LIVES;
+  let levelIndex = 0;
+  let bricks = [];
+  let particles = [];
+
+  const paddle = { w: 110, h: 14, x: W / 2 - 55, y: H - 40 };
+  const ball = { x: 0, y: 0, r: 8, vx: 0, vy: 0, speed: 0 };
+
+  const keys = { left: false, right: false };
+  let mouseX = null;
+
+  // ---- レベル構築 ----
+  function buildLevel(index) {
+    const lvl = LEVELS[index];
+    const rows = lvl.layout.length;
+    const cols = lvl.layout[0].length;
+    const margin = 30;
+    const gap = 6;
+    const top = HUD_HEIGHT + 30;
+    const bw = (W - margin * 2 - gap * (cols - 1)) / cols;
+    const bh = 22;
+    bricks = [];
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const ch = lvl.layout[r][c];
+        if (ch === ".") continue;
+        const hp = parseInt(ch, 10);
+        bricks.push({
+          x: margin + c * (bw + gap),
+          y: top + r * (bh + gap),
+          w: bw,
+          h: bh,
+          hp,
+          maxHp: hp,
+          color: ROW_COLORS[r % ROW_COLORS.length],
+        });
+      }
+    }
+  }
+
+  function resetBallOnPaddle() {
+    ball.speed = LEVELS[levelIndex].ballSpeed;
+    ball.vx = 0;
+    ball.vy = 0;
+    ball.x = paddle.x + paddle.w / 2;
+    ball.y = paddle.y - ball.r - 1;
+  }
+
+  function startGame() {
+    score = 0;
+    lives = MAX_LIVES;
+    levelIndex = 0;
+    particles = [];
+    buildLevel(levelIndex);
+    paddle.x = W / 2 - paddle.w / 2;
+    resetBallOnPaddle();
+    state = "ready";
+  }
+
+  function nextLevel() {
+    levelIndex++;
+    particles = [];
+    buildLevel(levelIndex);
+    paddle.x = W / 2 - paddle.w / 2;
+    resetBallOnPaddle();
+    state = "ready";
+  }
+
+  function launchBall() {
+    const angle = (Math.random() * 40 - 20) * Math.PI / 180;
+    ball.vx = ball.speed * Math.sin(angle);
+    ball.vy = -ball.speed * Math.cos(angle);
+    state = "playing";
+  }
+
+  // スペース / クリックによる共通アクション
+  function primaryAction() {
+    switch (state) {
+      case "title":
+      case "gameover":
+      case "win":
+        startGame();
+        break;
+      case "ready":
+        launchBall();
+        break;
+      case "paused":
+        state = "playing";
+        break;
+      case "levelclear":
+        nextLevel();
+        break;
+    }
+  }
+
+  function togglePause() {
+    if (state === "playing") state = "paused";
+    else if (state === "paused") state = "playing";
+  }
+
+  // ---- 入力 ----
+  document.addEventListener("keydown", (e) => {
+    const k = e.key;
+    if (k === "ArrowLeft" || k === "a" || k === "A") { keys.left = true; mouseX = null; }
+    else if (k === "ArrowRight" || k === "d" || k === "D") { keys.right = true; mouseX = null; }
+    else if (k === " " || k === "Enter") { if (!e.repeat) primaryAction(); }
+    else if (k === "p" || k === "P" || k === "Escape") { togglePause(); }
+    else return;
+    e.preventDefault();
+  });
+
+  document.addEventListener("keyup", (e) => {
+    const k = e.key;
+    if (k === "ArrowLeft" || k === "a" || k === "A") keys.left = false;
+    if (k === "ArrowRight" || k === "d" || k === "D") keys.right = false;
+  });
+
+  canvas.addEventListener("mousemove", (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouseX = (e.clientX - rect.left) * (W / rect.width);
+  });
+
+  canvas.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    primaryAction();
+  });
+
+  window.addEventListener("blur", () => {
+    keys.left = keys.right = false;
+    if (state === "playing") state = "paused";
+  });
+
+  // ---- 更新 ----
+  function clamp(v, min, max) {
+    return Math.max(min, Math.min(max, v));
+  }
+
+  function updatePaddle(dt) {
+    if (keys.left) paddle.x -= PADDLE_SPEED * dt;
+    if (keys.right) paddle.x += PADDLE_SPEED * dt;
+    if (mouseX !== null && !keys.left && !keys.right) {
+      paddle.x = mouseX - paddle.w / 2;
+    }
+    paddle.x = clamp(paddle.x, 0, W - paddle.w);
+  }
+
+  function spawnParticles(x, y, color) {
+    for (let i = 0; i < 12; i++) {
+      const a = Math.random() * Math.PI * 2;
+      const s = 60 + Math.random() * 180;
+      particles.push({ x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, life: 0.6, color });
+    }
+  }
+
+  function hitPaddle() {
+    const rel = clamp((ball.x - (paddle.x + paddle.w / 2)) / (paddle.w / 2), -1, 1);
+    const angle = rel * 60 * Math.PI / 180;
+    ball.speed = Math.min(ball.speed * 1.02, LEVELS[levelIndex].maxSpeed);
+    ball.vx = ball.speed * Math.sin(angle);
+    ball.vy = -ball.speed * Math.cos(angle);
+    ball.y = paddle.y - ball.r;
+  }
+
+  function collideBricks() {
+    for (const b of bricks) {
+      if (b.hp <= 0) continue;
+      const cx = clamp(ball.x, b.x, b.x + b.w);
+      const cy = clamp(ball.y, b.y, b.y + b.h);
+      const dx = ball.x - cx;
+      const dy = ball.y - cy;
+      if (dx * dx + dy * dy > ball.r * ball.r) continue;
+
+      const overlapX = Math.min(ball.x + ball.r - b.x, b.x + b.w - (ball.x - ball.r));
+      const overlapY = Math.min(ball.y + ball.r - b.y, b.y + b.h - (ball.y - ball.r));
+      if (overlapX < overlapY) {
+        ball.vx = ball.x < b.x + b.w / 2 ? -Math.abs(ball.vx) : Math.abs(ball.vx);
+      } else {
+        ball.vy = ball.y < b.y + b.h / 2 ? -Math.abs(ball.vy) : Math.abs(ball.vy);
+      }
+
+      b.hp--;
+      if (b.hp <= 0) {
+        score += 10 * b.maxHp * (levelIndex + 1);
+        spawnParticles(b.x + b.w / 2, b.y + b.h / 2, b.color);
+      } else {
+        score += 5;
+      }
+      return true; // 1ステップにつき1ブロックのみ
+    }
+    return false;
+  }
+
+  function updateBall(dt) {
+    // トンネリング防止のため細かく分割して移動
+    const dist = Math.hypot(ball.vx, ball.vy) * dt;
+    const steps = Math.max(1, Math.ceil(dist / 4));
+    const sdt = dt / steps;
+
+    for (let i = 0; i < steps; i++) {
+      ball.x += ball.vx * sdt;
+      ball.y += ball.vy * sdt;
+
+      // 壁
+      if (ball.x - ball.r < 0) { ball.x = ball.r; ball.vx = Math.abs(ball.vx); }
+      if (ball.x + ball.r > W) { ball.x = W - ball.r; ball.vx = -Math.abs(ball.vx); }
+      if (ball.y - ball.r < HUD_HEIGHT) { ball.y = HUD_HEIGHT + ball.r; ball.vy = Math.abs(ball.vy); }
+
+      // パドル
+      if (
+        ball.vy > 0 &&
+        ball.y + ball.r >= paddle.y &&
+        ball.y - ball.r <= paddle.y + paddle.h &&
+        ball.x >= paddle.x - ball.r &&
+        ball.x <= paddle.x + paddle.w + ball.r
+      ) {
+        hitPaddle();
+      }
+
+      collideBricks();
+
+      if (bricks.every((b) => b.hp <= 0)) {
+        state = levelIndex < LEVELS.length - 1 ? "levelclear" : "win";
+        return;
+      }
+
+      // 落下
+      if (ball.y - ball.r > H) {
+        lives--;
+        if (lives <= 0) {
+          state = "gameover";
+        } else {
+          resetBallOnPaddle();
+          state = "ready";
+        }
+        return;
+      }
+    }
+  }
+
+  function updateParticles(dt) {
+    for (const p of particles) {
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+      p.vy += 400 * dt;
+      p.life -= dt;
+    }
+    particles = particles.filter((p) => p.life > 0);
+  }
+
+  function update(dt) {
+    if (state === "paused" || state === "title") return;
+
+    if (state === "ready" || state === "playing") updatePaddle(dt);
+
+    if (state === "ready") {
+      ball.x = paddle.x + paddle.w / 2;
+      ball.y = paddle.y - ball.r - 1;
+    } else if (state === "playing") {
+      updateBall(dt);
+    }
+    updateParticles(dt);
+  }
+
+  // ---- 描画 ----
+  function roundRect(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  function drawHeart(x, y, size, filled) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(size / 16, size / 16);
+    ctx.beginPath();
+    ctx.moveTo(0, 5);
+    ctx.bezierCurveTo(0, 2, -4, -2, -8, 2);
+    ctx.bezierCurveTo(-11, 6, -6, 11, 0, 15);
+    ctx.bezierCurveTo(6, 11, 11, 6, 8, 2);
+    ctx.bezierCurveTo(4, -2, 0, 2, 0, 5);
+    ctx.fillStyle = filled ? "#ff4d6d" : "rgba(255,255,255,0.15)";
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawHUD() {
+    ctx.fillStyle = "rgba(0,0,0,0.35)";
+    ctx.fillRect(0, 0, W, HUD_HEIGHT);
+    ctx.strokeStyle = "#3a4180";
+    ctx.beginPath();
+    ctx.moveTo(0, HUD_HEIGHT);
+    ctx.lineTo(W, HUD_HEIGHT);
+    ctx.stroke();
+
+    ctx.font = "bold 20px 'Segoe UI', Meiryo, sans-serif";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = "#e8ecff";
+    ctx.textAlign = "left";
+    ctx.fillText(`スコア: ${score}`, 16, HUD_HEIGHT / 2);
+
+    ctx.textAlign = "center";
+    ctx.fillText(LEVELS[levelIndex].name + ` / ${LEVELS.length}`, W / 2, HUD_HEIGHT / 2);
+
+    ctx.textAlign = "right";
+    ctx.fillText("ライフ", W - 16 - MAX_LIVES * 26, HUD_HEIGHT / 2);
+    for (let i = 0; i < MAX_LIVES; i++) {
+      drawHeart(W - 16 - (MAX_LIVES - 1 - i) * 26 - 10, HUD_HEIGHT / 2 - 8, 20, i < lives);
+    }
+  }
+
+  function drawBricks() {
+    for (const b of bricks) {
+      if (b.hp <= 0) continue;
+      roundRect(b.x, b.y, b.w, b.h, 4);
+      ctx.fillStyle = b.color;
+      ctx.globalAlpha = b.hp < b.maxHp ? 0.55 : 1;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      if (b.maxHp >= 2) {
+        ctx.strokeStyle = "#ffffff";
+        ctx.lineWidth = b.hp >= 2 ? 2.5 : 1;
+        ctx.stroke();
+        ctx.lineWidth = 1;
+      }
+      // ハイライト
+      ctx.fillStyle = "rgba(255,255,255,0.25)";
+      ctx.fillRect(b.x + 3, b.y + 3, b.w - 6, 4);
+    }
+  }
+
+  function drawPaddle() {
+    roundRect(paddle.x, paddle.y, paddle.w, paddle.h, 7);
+    const g = ctx.createLinearGradient(0, paddle.y, 0, paddle.y + paddle.h);
+    g.addColorStop(0, "#a5d8ff");
+    g.addColorStop(1, "#4263eb");
+    ctx.fillStyle = g;
+    ctx.fill();
+  }
+
+  function drawBall() {
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+    ctx.fillStyle = "#ffffff";
+    ctx.shadowColor = "#a5d8ff";
+    ctx.shadowBlur = 12;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  }
+
+  function drawParticles() {
+    for (const p of particles) {
+      ctx.globalAlpha = Math.max(0, p.life / 0.6);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(p.x - 2, p.y - 2, 4, 4);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function drawOverlay(title, lines) {
+    ctx.fillStyle = "rgba(5, 7, 20, 0.7)";
+    ctx.fillRect(0, HUD_HEIGHT, W, H - HUD_HEIGHT);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 48px 'Segoe UI', Meiryo, sans-serif";
+    ctx.fillText(title, W / 2, H / 2 - 50);
+    ctx.font = "20px 'Segoe UI', Meiryo, sans-serif";
+    ctx.fillStyle = "#c5cbf5";
+    lines.forEach((line, i) => ctx.fillText(line, W / 2, H / 2 + 10 + i * 32));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    drawBricks();
+    drawParticles();
+    drawPaddle();
+    drawBall();
+    drawHUD();
+
+    switch (state) {
+      case "title":
+        drawOverlay("ブロック崩し", [
+          "マウス または ←/→ キーでパドルを動かそう",
+          "Space キー または クリックでスタート",
+        ]);
+        break;
+      case "ready":
+        ctx.textAlign = "center";
+        ctx.fillStyle = "#c5cbf5";
+        ctx.font = "18px 'Segoe UI', Meiryo, sans-serif";
+        ctx.fillText("Space キー または クリックで発射", W / 2, H / 2 + 80);
+        break;
+      case "paused":
+        drawOverlay("一時停止", ["P / Esc / Space / クリックで再開"]);
+        break;
+      case "levelclear":
+        drawOverlay("レベルクリア！", [
+          `スコア: ${score}`,
+          "Space キー または クリックで次のレベルへ",
+        ]);
+        break;
+      case "gameover":
+        drawOverlay("ゲームオーバー", [
+          `最終スコア: ${score}`,
+          "Space キー または クリックでもう一度",
+        ]);
+        break;
+      case "win":
+        drawOverlay("全レベルクリア！", [
+          `最終スコア: ${score}  (残りライフ: ${lives})`,
+          "Space キー または クリックでもう一度",
+        ]);
+        break;
+    }
+  }
+
+  // ---- メインループ ----
+  let last = performance.now();
+  function loop(now) {
+    const dt = Math.min((now - last) / 1000, 1 / 30);
+    last = now;
+    update(dt);
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  buildLevel(0);
+  resetBallOnPaddle();
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

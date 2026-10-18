@@ -1,0 +1,6 @@
+{
+"ko": "브라우저에서 실행되는 벽돌깨기 게임을 현재 폴더에 index.html 파일 하나로 만들어 주세요. 레벨 2개, 점수 표시, 목숨 3개가 있어야 하고 키보드와 마우스로 플레이할 수 있어야 합니다. 파일을 작성하고 끝내 주세요.",
+"ja": "ブラウザで動くブロック崩しゲームを、現在のフォルダに index.html という1つのファイルで作ってください。レベル2つ、スコア表示、ライフ3つが必要で、キーボードとマウスで遊べるようにしてください。ファイルを書いたら終了してください。",
+"es": "Crea un juego de romper ladrillos que funcione en el navegador como un único archivo llamado index.html en la carpeta actual. Necesita 2 niveles, un marcador de puntos y 3 vidas, y debe poder jugarse con el teclado y el ratón. Escribe el archivo y termina.",
+"uk": "Створи гру «арканоїд» (розбивання цеглинок), що працює в браузері, як один файл index.html у поточній папці. Потрібні 2 рівні, відображення рахунку та 3 життя, і грати має бути можна клавіатурою та мишею. Запиши файл і заверши."
+}

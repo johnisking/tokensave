@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Breaker</title>
+<style>
+:root{color-scheme:dark;--bg:#070b18;--panel:#111a32;--cyan:#52f5e3;--pink:#ff5c9a;--gold:#ffcf66;--text:#eff6ff}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#17264a 0%,var(--bg) 62%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif;display:flex;justify-content:center;padding:24px 14px}.wrap{width:min(900px,100%)}header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 2px 14px}h1{font-size:clamp(1.2rem,4vw,1.7rem);letter-spacing:.14em;text-transform:uppercase;margin:0;color:var(--cyan)}.stats{display:flex;gap:10px}.stat{background:#111a32;border:1px solid #26365a;border-radius:12px;padding:8px 14px;font-size:.86rem;color:#b7c7e8}.stat strong{color:white;margin-left:5px;font-size:1rem}#game{display:block;width:100%;aspect-ratio:800/560;border:1px solid #29385e;border-radius:18px;background:#090f20;box-shadow:0 18px 70px #0008;touch-action:none}.controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:13px 2px 0;color:#aab8d5;font-size:.9rem}.controls span{line-height:1.5}.btn{border:1px solid #355078;border-radius:10px;background:#152342;color:white;padding:9px 15px;font:inherit;cursor:pointer}.btn:hover{border-color:var(--cyan);color:var(--cyan)}@media(max-width:560px){body{padding:14px 9px}header{align-items:flex-start;flex-direction:column}.stats{width:100%;justify-content:space-between}.stat{padding:7px 9px}.controls{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header><h1>Neon Breaker</h1><div class="stats"><div class="stat">SCORE<strong id="score">0</strong></div><div class="stat">LEVEL<strong id="level">1 / 2</strong></div><div class="stat">LIVES<strong id="lives">3</strong></div></div></header>
+<canvas id="game" width="800" height="560" aria-label="Brick breaker game area"></canvas>
+<div class="controls"><span>Move with <b>← →</b> or <b>A / D</b>, or move your mouse over the game.<br>Press <b>Space</b> to launch or start a new game.</span><button class="btn" id="start">Start game</button></div>
+</main>
+<script>
+(()=>{
+const canvas=document.querySelector('#game'),ctx=canvas.getContext('2d'),scoreEl=document.querySelector('#score'),levelEl=document.querySelector('#level'),livesEl=document.querySelector('#lives'),startBtn=document.querySelector('#start');
+const W=800,H=560, paddle={w:112,h:14,x:344,y:518,speed:8}, ball={x:400,y:500,r:8,vx:4.2,vy:-5.2};
+let score=0,lives=3,level=1,bricks=[],running=false,attached=true,ended=false,keys={};
+const palettes=[['#55f4df','#42bde8','#6678ff','#b36dff'],['#ffcf66','#ff9b57','#ff668c','#c66bff']];
+function makeBricks(){bricks=[];const rows=level===1?5:6,cols=10,bw=66,bh=20,gap=9,left=17,top=76;for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){let skip=level===2&&((r+c)%7===0);if(!skip)bricks.push({x:left+c*(bw+gap),y:top+r*(bh+gap),w:bw,h:bh,hp:level===2&&r<2?2:1,max:level===2&&r<2?2:1,color:palettes[level-1][r%4]})}}
+function resetBall(){attached=true;ball.x=paddle.x+paddle.w/2;ball.y=paddle.y-ball.r-2;ball.vx=4.2*(Math.random()<.5?-1:1);ball.vy=-5.2}
+function updateHud(){scoreEl.textContent=score;levelEl.textContent=level+' / 2';livesEl.textContent=lives}
+function startGame(){if(ended||!running){if(ended){score=0;lives=3;level=1;makeBricks();updateHud()}ended=false;running=true;startBtn.textContent='Restart';resetBall()}else{running=false;ended=false;score=0;lives=3;level=1;makeBricks();updateHud();resetBall();running=true} }
+function launch(){if(!running){startGame();return}if(attached){attached=false;ball.vy=-5.4;ball.vx=ball.vx<0?-4.4:4.4}}
+function draw(){ctx.clearRect(0,0,W,H);let bg=ctx.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#0b1530');bg.addColorStop(1,'#090e1d');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+// faint star field
+ctx.fillStyle='#ffffff22';for(let i=0;i<42;i++){let x=(i*137+31)%W,y=(i*71+19)%H;ctx.fillRect(x,y,2,2)}
+ctx.textAlign='center';ctx.font='600 15px system-ui';ctx.fillStyle='#8294b8';ctx.fillText(level===1?'LEVEL 1  •  CLEAR THE GRID':'LEVEL 2  •  ARMORED BRICKS',W/2,39);
+for(const b of bricks){if(!b)continue;ctx.globalAlpha=b.hp===1?.95:.55;ctx.fillStyle=b.color;ctx.shadowColor=b.color;ctx.shadowBlur=12;roundRect(b.x,b.y,b.w,b.h,6);ctx.fill();ctx.shadowBlur=0;if(b.max>1){ctx.fillStyle='#fff';ctx.font='bold 11px system-ui';ctx.fillText(String(b.hp),b.x+b.w/2,b.y+14)}}ctx.globalAlpha=1;
+ctx.shadowColor='#52f5e3';ctx.shadowBlur=18;ctx.fillStyle='#52f5e3';roundRect(paddle.x,paddle.y,paddle.w,paddle.h,8);ctx.fill();ctx.shadowBlur=0;
+ctx.beginPath();ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);ctx.fillStyle='#fff';ctx.shadowColor='#fff';ctx.shadowBlur=16;ctx.fill();ctx.shadowBlur=0;
+if(!running||ended){ctx.fillStyle='#050a16bb';ctx.fillRect(0,0,W,H);ctx.fillStyle='#fff';ctx.font='700 32px system-ui';ctx.fillText(ended?(lives===0?'GAME OVER':'YOU WIN!'):'NEON BREAKER',W/2,H/2-14);ctx.font='16px system-ui';ctx.fillStyle='#bdc9e4';ctx.fillText(ended?'Press Space or click Start to play again':'Press Space or click Start, then launch the ball',W/2,H/2+22)}else if(attached){ctx.fillStyle='#bdc9e4';ctx.font='14px system-ui';ctx.fillText('Press Space or click to launch',W/2,478)}
+}
+function roundRect(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r)}
+function tick(){if(running&&!ended){if(keys.ArrowLeft||keys.a||keys.A)paddle.x-=paddle.speed;if(keys.ArrowRight||keys.d||keys.D)paddle.x+=paddle.speed;paddle.x=Math.max(0,Math.min(W-paddle.w,paddle.x));if(attached){ball.x=paddle.x+paddle.w/2;ball.y=paddle.y-ball.r-2}else{ball.x+=ball.vx;ball.y+=ball.vy;if(ball.x<ball.r||ball.x>W-ball.r)ball.vx*=-1;if(ball.y<ball.r+48)ball.vy=Math.abs(ball.vy);if(ball.vy>0&&ball.y+ball.r>=paddle.y&&ball.y-ball.r<=paddle.y+paddle.h&&ball.x>=paddle.x&&ball.x<=paddle.x+paddle.w){let hit=(ball.x-(paddle.x+paddle.w/2))/(paddle.w/2);ball.vx=hit*6;ball.vy=-Math.max(4.6,Math.sqrt(ball.vx*ball.vx+ball.vy*ball.vy-ball.vx*ball.vx));ball.y=paddle.y-ball.r}
+if(ball.y>H+10){lives--;updateHud();if(lives<=0){running=false;ended=true;startBtn.textContent='Play again'}else resetBall()}
+for(let i=bricks.length-1;i>=0;i--){let b=bricks[i];if(ball.x+ball.r>b.x&&ball.x-ball.r<b.x+b.w&&ball.y+ball.r>b.y&&ball.y-ball.r<b.y+b.h){ball.vy*=-1;b.hp--;if(b.hp<=0){bricks.splice(i,1);score+=10;scoreEl.textContent=score}else score+=3;scoreEl.textContent=score;break}}
+if(bricks.length===0){if(level===1){level=2;makeBricks();updateHud();resetBall()}else{running=false;ended=true;startBtn.textContent='Play again'}}}}
+draw();requestAnimationFrame(tick)}
+canvas.addEventListener('mousemove',e=>{let r=canvas.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W;paddle.x=Math.max(0,Math.min(W-paddle.w,x-paddle.w/2));if(attached){ball.x=paddle.x+paddle.w/2;ball.y=paddle.y-ball.r-2}});canvas.addEventListener('click',launch);canvas.addEventListener('touchmove',e=>{e.preventDefault();let r=canvas.getBoundingClientRect(),x=(e.touches[0].clientX-r.left)/r.width*W;paddle.x=Math.max(0,Math.min(W-paddle.w,x-paddle.w/2))},{passive:false});document.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault();keys[e.key]=true;if(e.code==='Space')launch()});document.addEventListener('keyup',e=>keys[e.key]=false);startBtn.addEventListener('click',startGame);makeBricks();updateHud();draw();requestAnimationFrame(tick)
+})();
+</script>
+</body>
+</html>

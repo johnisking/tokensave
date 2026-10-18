@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1023">
+  <title>Арканоїд — зоряний розбивач</title>
+  <style>
+    :root { color-scheme: dark; --ink:#f4f5ff; --muted:#aab0cc; --cyan:#62e8ff; --pink:#ff5e9c; }
+    * { box-sizing:border-box }
+    body { margin:0; min-height:100vh; display:grid; place-items:center; padding:22px; color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; background:radial-gradient(ellipse at 50% 0%,#26305e 0,#111832 42%,#080b18 100%); }
+    .shell { width:min(100%,900px) }
+    header { display:flex; justify-content:space-between; align-items:end; gap:16px; margin:0 2px 14px }
+    h1 { margin:0; font-size:clamp(1.45rem,4vw,2.15rem); letter-spacing:.04em; font-weight:850 }
+    h1 span { color:var(--cyan) }
+    .tagline { color:var(--muted); font-size:.88rem; margin-top:4px }
+    .stats { display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end }
+    .stat { min-width:92px; padding:8px 13px; border:1px solid #ffffff20; border-radius:12px; background:#ffffff0a; text-align:center }
+    .stat small { display:block; text-transform:uppercase; letter-spacing:.12em; font-size:.62rem; color:var(--muted); font-weight:750 }
+    .stat strong { display:block; margin-top:2px; font-size:1.12rem; font-variant-numeric:tabular-nums }
+    .board { position:relative; overflow:hidden; border:1px solid #a1baff38; border-radius:18px; background:#090e20; box-shadow:0 24px 80px #0008,0 0 45px #6c74ff16; }
+    canvas { width:100%; height:auto; display:block; aspect-ratio: 16 / 10; touch-action:none; cursor:none }
+    .overlay { position:absolute; inset:0; display:grid; place-items:center; padding:20px; background:#070b19b8; backdrop-filter:blur(5px); text-align:center }
+    .overlay[hidden] { display:none }
+    .card { max-width:420px; padding:26px; border:1px solid #ffffff27; border-radius:20px; background:linear-gradient(145deg,#20294feF,#111831f2); box-shadow:0 18px 60px #0008 }
+    .card h2 { margin:0 0 8px; font-size:clamp(1.5rem,5vw,2.2rem) }
+    .card p { color:#c2c8e1; line-height:1.55; margin:8px 0 18px }
+    button { border:0; border-radius:999px; padding:12px 25px; color:#07101c; background:linear-gradient(100deg,var(--cyan),#9bffcf); font:800 1rem inherit; font-size:1rem; font-weight:850; cursor:pointer; box-shadow:0 6px 26px #62e8ff30 }
+    button:hover { filter:brightness(1.09); transform:translateY(-1px) }
+    .help { display:flex; justify-content:space-between; gap:12px; color:var(--muted); font-size:.82rem; padding:12px 4px 0 }
+    kbd { display:inline-block; padding:2px 6px; border:1px solid #ffffff30; border-radius:5px; background:#ffffff0b; color:#eef0ff; font:inherit }
+    @media(max-width:600px) { body{padding:12px}.tagline{display:none}header{align-items:center}.stat{min-width:70px;padding:7px 9px}.help{font-size:.72rem}.card{padding:20px} }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after{scroll-behavior:auto!important;transition:none!important} }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div><h1>ЗОРЯНИЙ <span>АРКАНОЇД</span></h1><div class="tagline">Відбивай кульку. Розбий усі блоки. Дійди до фіналу.</div></div>
+      <div class="stats" aria-label="Статистика гри">
+        <div class="stat"><small>Рахунок</small><strong id="score">0</strong></div>
+        <div class="stat"><small>Рівень</small><strong id="level">1 / 2</strong></div>
+        <div class="stat"><small>Життя</small><strong id="lives">♥ ♥ ♥</strong></div>
+      </div>
+    </header>
+    <section class="board" aria-label="Ігрове поле Арканоїда">
+      <canvas id="game" width="960" height="600" aria-label="Гра: відбивайте кульку платформою"></canvas>
+      <div class="overlay" id="overlay">
+        <div class="card"><h2 id="messageTitle">Готові до гри?</h2><p id="messageText">Керуй платформою, відбивай кульку та очисти обидва рівні. Не дай їй впасти!</p><button id="startButton" type="button">Почати гру</button></div>
+      </div>
+    </section>
+    <div class="help"><span>Рух: <kbd>←</kbd> <kbd>→</kbd> або <kbd>A</kbd> <kbd>D</kbd>, чи миша</span><span><kbd>Пробіл</kbd> — запуск · <kbd>P</kbd> — пауза</span></div>
+  </main>
+  <script>
+  (() => {
+    const canvas = document.getElementById('game'), ctx = canvas.getContext('2d');
+    const scoreEl = document.getElementById('score'), levelEl = document.getElementById('level'), livesEl = document.getElementById('lives');
+    const overlay = document.getElementById('overlay'), titleEl = document.getElementById('messageTitle'), textEl = document.getElementById('messageText'), startBtn = document.getElementById('startButton');
+    const W=960,H=600, paddle={x:W/2-62,y:H-48,w:124,h:15,speed:8.5}, ball={x:W/2,y:paddle.y-13,r:9,vx:0,vy:0};
+    const keys=new Set(); let score=0,lives=3,level=1,bricks=[],state='ready',last=0,mouseX=null;
+    const palettes=[['#67e8f9','#56a8ff','#9a7bff','#ff73ad','#ffc568'],['#ffe16b','#ffab55','#ff7185','#cb75ff','#65d7ff']];
+    function makeBricks() {
+      bricks=[]; const cols=10, rows=level===1?5:6, gap=9, margin=48, top=79, bw=(W-margin*2-gap*(cols-1))/cols, bh=22;
+      for(let r=0;r<rows;r++) for(let c=0;c<cols;c++) {
+        const tough=level===2 && ((r+c)%4===0 || r===0);
+        bricks.push({x:margin+c*(bw+gap),y:top+r*(bh+gap),w:bw,h:bh,hp:tough?2:1,max:tough?2:1,color:palettes[level-1][(r+c)%5]});
+      }
+    }
+    function updateHud(){scoreEl.textContent=score;levelEl.textContent=level+' / 2';livesEl.textContent='♥ '.repeat(lives).trim()||'—'}
+    function serve(){ball.x=paddle.x+paddle.w/2;ball.y=paddle.y-ball.r-2;ball.vx=0;ball.vy=0;state='ready'}
+    function show(title,copy,button='Знову зіграти'){titleEl.textContent=title;textEl.textContent=copy;startBtn.textContent=button;overlay.hidden=false}
+    function hide(){overlay.hidden=true}
+    function begin(){if(state==='paused')return; hide(); state='playing'; if(ball.vx===0&&ball.vy===0){const speed=level===1?5.2:6;ball.vx=(Math.random()-.5)*3.6;ball.vy=-Math.sqrt(speed*speed-ball.vx*ball.vx)}}
+    function reset(){score=0;lives=3;level=1;paddle.x=W/2-paddle.w/2;makeBricks();serve();updateHud();begin()}
+    function pause(){if(state==='playing'){state='paused';show('Пауза','Натисни P або кнопку, щоб повернутися до гри.','Продовжити')}else if(state==='paused'){hide();state='playing'}}
+    function drawBackground(){ctx.fillStyle='#090e20';ctx.fillRect(0,0,W,H);for(let i=0;i<75;i++){const x=(i*193+31)%W,y=(i*127+47)%H;ctx.fillStyle=`rgba(173,205,255,${.12+(i%4)*.08})`;ctx.fillRect(x,y,2,2)}const g=ctx.createRadialGradient(W/2,H*.55,40,W/2,H*.55,500);g.addColorStop(0,'rgba(70,86,170,.12)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H)}
+    function rounded(x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r)}
+    function draw(){drawBackground();
+      for(const b of bricks){if(!b.hp)continue;ctx.save();ctx.shadowColor=b.color;ctx.shadowBlur=12;rounded(b.x,b.y,b.w,b.h,6);ctx.fillStyle=b.color;ctx.fill();ctx.shadowBlur=0;rounded(b.x+2,b.y+2,b.w-4,5,3);ctx.fillStyle='#ffffff55';ctx.fill();if(b.max>1&&b.hp===2){ctx.fillStyle='#fff';ctx.font='bold 12px system-ui';ctx.textAlign='center';ctx.fillText('◆',b.x+b.w/2,b.y+16)}ctx.restore()}
+      ctx.save();ctx.shadowColor='#62e8ff';ctx.shadowBlur=20;rounded(paddle.x,paddle.y,paddle.w,paddle.h,8);const pg=ctx.createLinearGradient(paddle.x,paddle.y,paddle.x,paddle.y+paddle.h);pg.addColorStop(0,'#d5fbff');pg.addColorStop(.45,'#62e8ff');pg.addColorStop(1,'#438dff');ctx.fillStyle=pg;ctx.fill();ctx.restore();
+      ctx.save();ctx.shadowColor='#a6f5ff';ctx.shadowBlur=21;ctx.beginPath();ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();ctx.restore();
+      if(state==='ready'){ctx.fillStyle='#bbc7ee';ctx.font='600 14px system-ui';ctx.textAlign='center';ctx.fillText('ПРОБІЛ АБО КЛІК — ЗАПУСТИТИ',W/2,H-78)}
+    }
+    function movePaddle(dt){if(mouseX!==null){const rect=canvas.getBoundingClientRect();paddle.x=(mouseX-rect.left)*W/rect.width-paddle.w/2}else{let d=0;if(keys.has('ArrowLeft')||keys.has('a'))d--;if(keys.has('ArrowRight')||keys.has('d'))d++;paddle.x+=d*paddle.speed*dt/16.67}paddle.x=Math.max(0,Math.min(W-paddle.w,paddle.x));if(state==='ready'){ball.x=paddle.x+paddle.w/2;ball.y=paddle.y-ball.r-2}}
+    function step(dt){movePaddle(dt);if(state!=='playing')return;const scale=dt/16.67;ball.x+=ball.vx*scale;ball.y+=ball.vy*scale;
+      if(ball.x-ball.r<0){ball.x=ball.r;ball.vx=Math.abs(ball.vx)}if(ball.x+ball.r>W){ball.x=W-ball.r;ball.vx=-Math.abs(ball.vx)}if(ball.y-ball.r<0){ball.y=ball.r;ball.vy=Math.abs(ball.vy)}
+      if(ball.vy>0&&ball.y+ball.r>=paddle.y&&ball.y-ball.r<=paddle.y+paddle.h&&ball.x>=paddle.x&&ball.x<=paddle.x+paddle.w){ball.y=paddle.y-ball.r;const rel=(ball.x-(paddle.x+paddle.w/2))/(paddle.w/2);const speed=Math.min(8.4,Math.hypot(ball.vx,ball.vy)+.08);ball.vx=rel*speed*.88;ball.vy=-Math.sqrt(speed*speed-ball.vx*ball.vx)}
+      for(const b of bricks){if(!b.hp||ball.x+ball.r<b.x||ball.x-ball.r>b.x+b.w||ball.y+ball.r<b.y||ball.y-ball.r>b.y+b.h)continue;const ox=Math.min(ball.x+ball.r-b.x,b.x+b.w-(ball.x-ball.r)),oy=Math.min(ball.y+ball.r-b.y,b.y+b.h-(ball.y-ball.r));if(ox<oy)ball.vx*=-1;else ball.vy*=-1;b.hp--;if(!b.hp){score+=10*level;updateHud()}else score+=5;break}
+      if(ball.y-ball.r>H){lives--;updateHud();if(lives<=0){state='over';show('Гру завершено',`Твій рахунок: ${score}. Спробуй ще раз!`)}else serve()}
+      if(bricks.every(b=>b.hp===0)){if(level===1){level=2;makeBricks();updateHud();serve()}else{state='won';show('Перемога! ✨',`Ти очистив обидва рівні й набрав ${score} очок!`,'Зіграти ще раз')}}
+    }
+    function frame(now){const dt=Math.min(32,now-(last||now));last=now;step(dt);draw();requestAnimationFrame(frame)}
+    canvas.addEventListener('pointermove',e=>{mouseX=e.clientX});canvas.addEventListener('pointerleave',()=>{mouseX=null});canvas.addEventListener('pointerdown',()=>{if(state==='ready')begin()});
+    window.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['arrowleft','arrowright',' '].includes(k))e.preventDefault();keys.add(k);if(k===' '&&state==='ready')begin();if(k==='p'&&(state==='playing'||state==='paused'))pause()});window.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));
+    startBtn.addEventListener('click',()=>{if(state==='paused')pause();else reset()});
+    makeBricks();serve();updateHud();requestAnimationFrame(frame);
+  })();
+  </script>
+</body>
+</html>

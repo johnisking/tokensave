@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>벽돌깨기</title>
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #111827;
+    color: #e5e7eb;
+    font-family: "Segoe UI", "Malgun Gothic", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+  canvas {
+    background: #0b1020;
+    border: 2px solid #374151;
+    border-radius: 8px;
+    max-width: 96vw;
+    max-height: 86vh;
+    cursor: none;
+  }
+  .help {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #9ca3af;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<canvas id="game" width="800" height="600"></canvas>
+<div class="help">
+  이동: ← → / A D 또는 마우스 &nbsp;|&nbsp; 발사: Space 또는 클릭 &nbsp;|&nbsp; 일시정지: P
+</div>
+
+<script>
+(() => {
+  const canvas = document.getElementById("game");
+  const ctx = canvas.getContext("2d");
+  const W = canvas.width;
+  const H = canvas.height;
+
+  // ---- 설정 ----
+  const HUD_H = 40;
+  const PADDLE_W = 110;
+  const PADDLE_H = 14;
+  const PADDLE_SPEED = 600;   // px/s (키보드)
+  const BALL_R = 8;
+  const BRICK_COLS = 10;
+  const BRICK_H = 24;
+  const BRICK_GAP = 6;
+  const BRICK_TOP = HUD_H + 40;
+  const BRICK_SIDE = 25;
+  const BRICK_W = (W - BRICK_SIDE * 2 - BRICK_GAP * (BRICK_COLS - 1)) / BRICK_COLS;
+  const START_LIVES = 3;
+
+  // 레벨 정의: 숫자 = 벽돌 내구도(0 = 빈칸)
+  const LEVELS = [
+    {
+      name: "레벨 1",
+      ballSpeed: 380,
+      map: [
+        "1111111111",
+        "1111111111",
+        "1111111111",
+        "1111111111",
+        "1111111111",
+      ],
+    },
+    {
+      name: "레벨 2",
+      ballSpeed: 460,
+      map: [
+        "2222222222",
+        "2011001102",
+        "2111111112",
+        "0122112210",
+        "2111111112",
+        "2011001102",
+        "3333333333",
+      ],
+    },
+  ];
+
+  const COLORS = {
+    1: ["#34d399", "#60a5fa", "#fbbf24", "#f472b6", "#a78bfa"],
+    2: "#f97316",
+    3: "#ef4444",
+  };
+
+  // ---- 상태 ----
+  let state;      // "ready" | "playing" | "paused" | "levelClear" | "gameOver" | "win"
+  let levelIndex, score, lives;
+  let paddle, ball, bricks;
+  const keys = { left: false, right: false };
+  let mouseX = null;
+
+  function newGame() {
+    levelIndex = 0;
+    score = 0;
+    lives = START_LIVES;
+    loadLevel();
+  }
+
+  function loadLevel() {
+    const lvl = LEVELS[levelIndex];
+    bricks = [];
+    lvl.map.forEach((row, r) => {
+      [...row].forEach((ch, c) => {
+        const hp = parseInt(ch, 10);
+        if (hp > 0) {
+          bricks.push({
+            x: BRICK_SIDE + c * (BRICK_W + BRICK_GAP),
+            y: BRICK_TOP + r * (BRICK_H + BRICK_GAP),
+            w: BRICK_W,
+            h: BRICK_H,
+            hp,
+            maxHp: hp,
+            row: r,
+          });
+        }
+      });
+    });
+    paddle = { x: (W - PADDLE_W) / 2, y: H - 40, w: PADDLE_W, h: PADDLE_H };
+    resetBall();
+  }
+
+  function resetBall() {
+    ball = { x: 0, y: 0, vx: 0, vy: 0, r: BALL_R, stuck: true };
+    stickBall();
+    state = "ready";
+  }
+
+  function stickBall() {
+    ball.x = paddle.x + paddle.w / 2;
+    ball.y = paddle.y - ball.r - 1;
+  }
+
+  function launch() {
+    const speed = LEVELS[levelIndex].ballSpeed;
+    const angle = (-Math.PI / 2) + (Math.random() * 0.6 - 0.3);
+    ball.vx = Math.cos(angle) * speed;
+    ball.vy = Math.sin(angle) * speed;
+    ball.stuck = false;
+    state = "playing";
+  }
+
+  // 공통 "행동" 입력 (Space / 클릭)
+  function action() {
+    switch (state) {
+      case "ready": launch(); break;
+      case "paused": state = "playing"; break;
+      case "levelClear":
+        levelIndex++;
+        loadLevel();
+        break;
+      case "gameOver":
+      case "win":
+        newGame();
+        break;
+    }
+  }
+
+  function togglePause() {
+    if (state === "playing") state = "paused";
+    else if (state === "paused") state = "playing";
+  }
+
+  // ---- 입력 ----
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "ArrowLeft" || e.code === "KeyA") { keys.left = true; mouseX = null; }
+    if (e.code === "ArrowRight" || e.code === "KeyD") { keys.right = true; mouseX = null; }
+    if (e.code === "Space" || e.code === "Enter") { e.preventDefault(); if (!e.repeat) action(); }
+    if (e.code === "KeyP" || e.code === "Escape") togglePause();
+    if (e.code.startsWith("Arrow")) e.preventDefault();
+  });
+  document.addEventListener("keyup", (e) => {
+    if (e.code === "ArrowLeft" || e.code === "KeyA") keys.left = false;
+    if (e.code === "ArrowRight" || e.code === "KeyD") keys.right = false;
+  });
+
+  function canvasX(clientX) {
+    const rect = canvas.getBoundingClientRect();
+    return (clientX - rect.left) * (W / rect.width);
+  }
+  canvas.addEventListener("mousemove", (e) => { mouseX = canvasX(e.clientX); });
+  canvas.addEventListener("mousedown", (e) => { e.preventDefault(); action(); });
+  canvas.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+    mouseX = canvasX(e.touches[0].clientX);
+  }, { passive: false });
+  canvas.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    mouseX = canvasX(e.touches[0].clientX);
+    action();
+  }, { passive: false });
+  window.addEventListener("blur", () => {
+    keys.left = keys.right = false;
+    if (state === "playing") state = "paused";
+  });
+
+  // ---- 업데이트 ----
+  function update(dt) {
+    if (state !== "playing" && state !== "ready") return;
+
+    // 패들 이동
+    if (mouseX !== null) {
+      paddle.x = mouseX - paddle.w / 2;
+    } else {
+      const dir = (keys.right ? 1 : 0) - (keys.left ? 1 : 0);
+      paddle.x += dir * PADDLE_SPEED * dt;
+    }
+    paddle.x = Math.max(0, Math.min(W - paddle.w, paddle.x));
+
+    if (ball.stuck) { stickBall(); return; }
+
+    // 터널링 방지를 위한 서브스텝
+    const steps = Math.ceil(Math.hypot(ball.vx, ball.vy) * dt / (BALL_R * 0.5));
+    const sdt = dt / steps;
+    for (let i = 0; i < steps && state === "playing"; i++) stepBall(sdt);
+  }
+
+  function stepBall(dt) {
+    ball.x += ball.vx * dt;
+    ball.y += ball.vy * dt;
+
+    // 벽
+    if (ball.x - ball.r < 0) { ball.x = ball.r; ball.vx = Math.abs(ball.vx); }
+    if (ball.x + ball.r > W) { ball.x = W - ball.r; ball.vx = -Math.abs(ball.vx); }
+    if (ball.y - ball.r < HUD_H) { ball.y = HUD_H + ball.r; ball.vy = Math.abs(ball.vy); }
+
+    // 바닥 → 목숨 감소
+    if (ball.y - ball.r > H) {
+      lives--;
+      if (lives <= 0) { state = "gameOver"; }
+      else { resetBall(); }
+      return;
+    }
+
+    // 패들
+    if (ball.vy > 0 &&
+        ball.y + ball.r >= paddle.y && ball.y - ball.r <= paddle.y + paddle.h &&
+        ball.x + ball.r >= paddle.x && ball.x - ball.r <= paddle.x + paddle.w) {
+      const speed = Math.hypot(ball.vx, ball.vy);
+      const hit = (ball.x - (paddle.x + paddle.w / 2)) / (paddle.w / 2); // -1..1
+      const angle = Math.max(-1, Math.min(1, hit)) * (Math.PI / 3);      // 최대 60°
+      ball.vx = Math.sin(angle) * speed;
+      ball.vy = -Math.cos(angle) * speed;
+      ball.y = paddle.y - ball.r - 0.5;
+    }
+
+    // 벽돌 (한 스텝에 하나만 처리)
+    for (const b of bricks) {
+      if (b.hp <= 0) continue;
+      const cx = Math.max(b.x, Math.min(ball.x, b.x + b.w));
+      const cy = Math.max(b.y, Math.min(ball.y, b.y + b.h));
+      const dx = ball.x - cx, dy = ball.y - cy;
+      if (dx * dx + dy * dy > ball.r * ball.r) continue;
+
+      // 반사 방향 결정: 침투 깊이가 작은 축으로 반사
+      const overlapL = ball.x + ball.r - b.x;
+      const overlapR = b.x + b.w - (ball.x - ball.r);
+      const overlapT = ball.y + ball.r - b.y;
+      const overlapB = b.y + b.h - (ball.y - ball.r);
+      const minX = Math.min(overlapL, overlapR);
+      const minY = Math.min(overlapT, overlapB);
+      if (minX < minY) {
+        if (overlapL < overlapR) { ball.x -= overlapL; ball.vx = -Math.abs(ball.vx); }
+        else { ball.x += overlapR; ball.vx = Math.abs(ball.vx); }
+      } else {
+        if (overlapT < overlapB) { ball.y -= overlapT; ball.vy = -Math.abs(ball.vy); }
+        else { ball.y += overlapB; ball.vy = Math.abs(ball.vy); }
+      }
+
+      b.hp--;
+      score += b.hp <= 0 ? 10 * b.maxHp : 5;
+      if (bricks.every(br => br.hp <= 0)) {
+        state = levelIndex < LEVELS.length - 1 ? "levelClear" : "win";
+        if (state === "levelClear") score += lives * 50; // 남은 목숨 보너스
+      }
+      break;
+    }
+  }
+
+  // ---- 그리기 ----
+  function roundRect(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  function brickColor(b) {
+    if (b.maxHp === 1) return COLORS[1][b.row % COLORS[1].length];
+    return b.hp >= 3 ? COLORS[3] : b.hp === 2 ? COLORS[2] : "#fde68a";
+  }
+
+  function drawHUD() {
+    ctx.fillStyle = "#1f2937";
+    ctx.fillRect(0, 0, W, HUD_H);
+    ctx.font = "bold 18px 'Segoe UI', 'Malgun Gothic', sans-serif";
+    ctx.textBaseline = "middle";
+
+    ctx.fillStyle = "#e5e7eb";
+    ctx.textAlign = "left";
+    ctx.fillText(`점수: ${score}`, 16, HUD_H / 2);
+
+    ctx.textAlign = "center";
+    ctx.fillText(`${LEVELS[levelIndex].name} / ${LEVELS.length}`, W / 2, HUD_H / 2);
+
+    ctx.textAlign = "right";
+    ctx.fillText("목숨:", W - 16 - START_LIVES * 22, HUD_H / 2);
+    for (let i = 0; i < START_LIVES; i++) {
+      ctx.fillStyle = i < lives ? "#f43f5e" : "#4b5563";
+      ctx.beginPath();
+      ctx.arc(W - 16 - (START_LIVES - 1 - i) * 22 - 8, HUD_H / 2, 7, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function drawOverlay(title, sub) {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.55)";
+    ctx.fillRect(0, HUD_H, W, H - HUD_H);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 44px 'Segoe UI', 'Malgun Gothic', sans-serif";
+    ctx.fillText(title, W / 2, H / 2 - 20);
+    ctx.font = "20px 'Segoe UI', 'Malgun Gothic', sans-serif";
+    ctx.fillStyle = "#d1d5db";
+    ctx.fillText(sub, W / 2, H / 2 + 30);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // 벽돌
+    for (const b of bricks) {
+      if (b.hp <= 0) continue;
+      ctx.fillStyle = brickColor(b);
+      roundRect(b.x, b.y, b.w, b.h, 4);
+      ctx.fill();
+      ctx.fillStyle = "rgba(255,255,255,0.18)";
+      ctx.fillRect(b.x + 3, b.y + 3, b.w - 6, 4);
+    }
+
+    // 패들
+    const grad = ctx.createLinearGradient(0, paddle.y, 0, paddle.y + paddle.h);
+    grad.addColorStop(0, "#93c5fd");
+    grad.addColorStop(1, "#2563eb");
+    ctx.fillStyle = grad;
+    roundRect(paddle.x, paddle.y, paddle.w, paddle.h, 7);
+    ctx.fill();
+
+    // 공
+    ctx.fillStyle = "#f9fafb";
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+    ctx.fill();
+
+    drawHUD();
+
+    switch (state) {
+      case "ready":
+        drawOverlayLight(`${LEVELS[levelIndex].name}`, "Space 또는 클릭으로 발사");
+        break;
+      case "paused":
+        drawOverlay("일시정지", "P 또는 Space / 클릭으로 계속");
+        break;
+      case "levelClear":
+        drawOverlay("레벨 클리어!", "Space 또는 클릭으로 다음 레벨");
+        break;
+      case "gameOver":
+        drawOverlay("게임 오버", `최종 점수: ${score}  —  Space 또는 클릭으로 다시 시작`);
+        break;
+      case "win":
+        drawOverlay("모든 레벨 클리어! 🎉", `최종 점수: ${score}  —  Space 또는 클릭으로 다시 시작`);
+        break;
+    }
+  }
+
+  // 발사 대기 상태: 화면을 가리지 않는 안내 문구
+  function drawOverlayLight(title, sub) {
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 30px 'Segoe UI', 'Malgun Gothic', sans-serif";
+    ctx.fillText(title, W / 2, H / 2 + 60);
+    ctx.font = "18px 'Segoe UI', 'Malgun Gothic', sans-serif";
+    ctx.fillStyle = "#d1d5db";
+    ctx.fillText(sub, W / 2, H / 2 + 95);
+  }
+
+  // ---- 루프 ----
+  let last = performance.now();
+  function loop(now) {
+    const dt = Math.min((now - last) / 1000, 1 / 30);
+    last = now;
+    update(dt);
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  newGame();
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

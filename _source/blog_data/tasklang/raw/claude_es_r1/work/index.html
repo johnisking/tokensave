@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rompe Ladrillos</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #0f1020;
+    color: #e8e8f0;
+    font-family: "Segoe UI", Arial, sans-serif;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+  }
+  canvas {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    max-height: calc(100vh - 70px);
+    object-fit: contain;
+    background: linear-gradient(#16183a, #0b0c1c);
+    border: 2px solid #3a3f7a;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(80, 100, 255, 0.25);
+    cursor: none;
+    touch-action: none;
+  }
+  .ayuda {
+    font-size: 14px;
+    color: #9aa0c8;
+    text-align: center;
+  }
+  kbd {
+    background: #2a2d55;
+    border: 1px solid #4a4f8a;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-family: inherit;
+  }
+</style>
+</head>
+<body>
+<canvas id="juego" width="800" height="600"></canvas>
+<div class="ayuda">
+  Mover: <kbd>←</kbd> <kbd>→</kbd> / <kbd>A</kbd> <kbd>D</kbd> o el ratón ·
+  Lanzar: <kbd>Espacio</kbd> o clic ·
+  Pausa: <kbd>P</kbd>
+</div>
+
+<script>
+(() => {
+  const canvas = document.getElementById('juego');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width;
+  const H = canvas.height;
+
+  // ---- Niveles: dígito = golpes necesarios, '.' = vacío ----
+  const NIVELES = [
+    {
+      velocidad: 380,
+      mapa: [
+        '1111111111',
+        '1111111111',
+        '1111111111',
+        '1111111111',
+        '1111111111',
+      ],
+    },
+    {
+      velocidad: 460,
+      mapa: [
+        '3.3.33.3.3',
+        '2222222222',
+        '22.2222.22',
+        '1111111111',
+        '1.111111.1',
+        '1111111111',
+      ],
+    },
+  ];
+
+  const COLUMNAS = 10;
+  const MARGEN_X = 30;
+  const SEP = 6;
+  const LADRILLO_ALTO = 22;
+  const LADRILLO_TOP = 70;
+  const LADRILLO_ANCHO = (W - MARGEN_X * 2 - SEP * (COLUMNAS - 1)) / COLUMNAS;
+  const COLORES_FILA = ['#ff5f6d', '#ffa94d', '#ffd43b', '#69db7c', '#4dabf7', '#b197fc'];
+  const VIDAS_INICIALES = 3;
+
+  const paleta = { w: 110, h: 14, x: W / 2 - 55, y: H - 40, vel: 620 };
+  const bola = { x: 0, y: 0, r: 8, vx: 0, vy: 0, vel: 380 };
+  const teclas = { izq: false, der: false };
+
+  let ladrillos = [];
+  let nivel = 0;
+  let puntos = 0;
+  let vidas = VIDAS_INICIALES;
+  let estado = 'listo'; // listo | jugando | pausa | nivelCompletado | finJuego | victoria
+  let record = Number(localStorage.getItem('rompeLadrillosRecord') || 0);
+
+  function cargarNivel(n) {
+    nivel = n;
+    ladrillos = [];
+    NIVELES[n].mapa.forEach((fila, f) => {
+      [...fila].forEach((c, col) => {
+        const golpes = parseInt(c, 10);
+        if (!golpes) return;
+        ladrillos.push({
+          x: MARGEN_X + col * (LADRILLO_ANCHO + SEP),
+          y: LADRILLO_TOP + f * (LADRILLO_ALTO + SEP),
+          w: LADRILLO_ANCHO,
+          h: LADRILLO_ALTO,
+          golpes,
+          max: golpes,
+          color: COLORES_FILA[f % COLORES_FILA.length],
+        });
+      });
+    });
+    bola.vel = NIVELES[n].velocidad;
+    reiniciarBola();
+  }
+
+  function reiniciarBola() {
+    paleta.x = Math.min(Math.max(paleta.x, 0), W - paleta.w);
+    bola.vx = 0;
+    bola.vy = 0;
+    estado = 'listo';
+    pegarBolaAPaleta();
+  }
+
+  function pegarBolaAPaleta() {
+    bola.x = paleta.x + paleta.w / 2;
+    bola.y = paleta.y - bola.r - 1;
+  }
+
+  function lanzar() {
+    const ang = (Math.random() * 40 - 20) * Math.PI / 180;
+    bola.vx = bola.vel * Math.sin(ang);
+    bola.vy = -bola.vel * Math.cos(ang);
+    estado = 'jugando';
+  }
+
+  function nuevaPartida() {
+    puntos = 0;
+    vidas = VIDAS_INICIALES;
+    cargarNivel(0);
+  }
+
+  function guardarRecord() {
+    if (puntos > record) {
+      record = puntos;
+      localStorage.setItem('rompeLadrillosRecord', String(record));
+    }
+  }
+
+  // Acción principal: Espacio / Enter / clic
+  function accion() {
+    switch (estado) {
+      case 'listo': lanzar(); break;
+      case 'pausa': estado = 'jugando'; break;
+      case 'nivelCompletado': cargarNivel(nivel + 1); break;
+      case 'finJuego':
+      case 'victoria': nuevaPartida(); break;
+    }
+  }
+
+  function alternarPausa() {
+    if (estado === 'jugando') estado = 'pausa';
+    else if (estado === 'pausa') estado = 'jugando';
+  }
+
+  // ---- Entrada ----
+  document.addEventListener('keydown', (e) => {
+    const k = e.key;
+    if (k === 'ArrowLeft' || k === 'a' || k === 'A') { teclas.izq = true; e.preventDefault(); }
+    else if (k === 'ArrowRight' || k === 'd' || k === 'D') { teclas.der = true; e.preventDefault(); }
+    else if (k === ' ' || k === 'Enter') { if (!e.repeat) accion(); e.preventDefault(); }
+    else if (k === 'p' || k === 'P' || k === 'Escape') { alternarPausa(); }
+  });
+  document.addEventListener('keyup', (e) => {
+    const k = e.key;
+    if (k === 'ArrowLeft' || k === 'a' || k === 'A') teclas.izq = false;
+    else if (k === 'ArrowRight' || k === 'd' || k === 'D') teclas.der = false;
+  });
+
+  function moverConPuntero(clientX) {
+    if (estado === 'pausa') return;
+    const rect = canvas.getBoundingClientRect();
+    const x = (clientX - rect.left) * (W / rect.width);
+    paleta.x = Math.min(Math.max(x - paleta.w / 2, 0), W - paleta.w);
+  }
+  canvas.addEventListener('mousemove', (e) => moverConPuntero(e.clientX));
+  canvas.addEventListener('mousedown', (e) => { e.preventDefault(); accion(); });
+  canvas.addEventListener('touchmove', (e) => { moverConPuntero(e.touches[0].clientX); e.preventDefault(); }, { passive: false });
+  canvas.addEventListener('touchstart', (e) => { moverConPuntero(e.touches[0].clientX); accion(); e.preventDefault(); }, { passive: false });
+  window.addEventListener('blur', () => {
+    teclas.izq = teclas.der = false;
+    if (estado === 'jugando') estado = 'pausa';
+  });
+
+  // ---- Lógica ----
+  function actualizar(dt) {
+    if (estado === 'pausa') return;
+
+    if (teclas.izq) paleta.x -= paleta.vel * dt;
+    if (teclas.der) paleta.x += paleta.vel * dt;
+    paleta.x = Math.min(Math.max(paleta.x, 0), W - paleta.w);
+
+    if (estado === 'listo') { pegarBolaAPaleta(); return; }
+    if (estado !== 'jugando') return;
+
+    // Subpasos para evitar que la bola atraviese ladrillos
+    const pasos = Math.max(1, Math.ceil((bola.vel * dt) / 4));
+    for (let i = 0; i < pasos && estado === 'jugando'; i++) {
+      pasoBola(dt / pasos);
+    }
+  }
+
+  function pasoBola(dt) {
+    bola.x += bola.vx * dt;
+    bola.y += bola.vy * dt;
+
+    // Paredes
+    if (bola.x - bola.r < 0) { bola.x = bola.r; bola.vx = Math.abs(bola.vx); }
+    if (bola.x + bola.r > W) { bola.x = W - bola.r; bola.vx = -Math.abs(bola.vx); }
+    if (bola.y - bola.r < 0) { bola.y = bola.r; bola.vy = Math.abs(bola.vy); }
+
+    // Paleta
+    if (bola.vy > 0 &&
+        bola.y + bola.r >= paleta.y &&
+        bola.y - bola.r <= paleta.y + paleta.h &&
+        bola.x + bola.r >= paleta.x &&
+        bola.x - bola.r <= paleta.x + paleta.w) {
+      let impacto = (bola.x - (paleta.x + paleta.w / 2)) / (paleta.w / 2);
+      impacto = Math.max(-1, Math.min(1, impacto));
+      const ang = impacto * 60 * Math.PI / 180;
+      bola.vx = bola.vel * Math.sin(ang);
+      bola.vy = -bola.vel * Math.cos(ang);
+      bola.y = paleta.y - bola.r;
+    }
+
+    // Ladrillos
+    for (const l of ladrillos) {
+      if (l.golpes <= 0) continue;
+      const cx = Math.max(l.x, Math.min(bola.x, l.x + l.w));
+      const cy = Math.max(l.y, Math.min(bola.y, l.y + l.h));
+      const dx = bola.x - cx;
+      const dy = bola.y - cy;
+      if (dx * dx + dy * dy > bola.r * bola.r) continue;
+
+      if (Math.abs(dx) > Math.abs(dy)) {
+        bola.vx = dx > 0 ? Math.abs(bola.vx) : -Math.abs(bola.vx);
+      } else if (dy !== 0) {
+        bola.vy = dy > 0 ? Math.abs(bola.vy) : -Math.abs(bola.vy);
+      } else {
+        bola.vy = -bola.vy;
+      }
+
+      l.golpes--;
+      puntos += 10;
+      if (l.golpes === 0) puntos += 20 * l.max * (nivel + 1);
+      guardarRecord();
+      comprobarNivel();
+      break; // un ladrillo por subpaso
+    }
+
+    // Caída
+    if (bola.y - bola.r > H) {
+      vidas--;
+      if (vidas <= 0) {
+        vidas = 0;
+        guardarRecord();
+        estado = 'finJuego';
+      } else {
+        reiniciarBola();
+      }
+    }
+  }
+
+  function comprobarNivel() {
+    if (ladrillos.some(l => l.golpes > 0)) return;
+    puntos += vidas * 100; // bonificación por vidas restantes
+    guardarRecord();
+    estado = nivel < NIVELES.length - 1 ? 'nivelCompletado' : 'victoria';
+  }
+
+  // ---- Dibujo ----
+  function rectRedondeado(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  function dibujarCorazon(x, y, s, color) {
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.moveTo(x, y + s * 0.3);
+    ctx.bezierCurveTo(x, y, x - s * 0.5, y, x - s * 0.5, y + s * 0.3);
+    ctx.bezierCurveTo(x - s * 0.5, y + s * 0.6, x, y + s * 0.8, x, y + s);
+    ctx.bezierCurveTo(x, y + s * 0.8, x + s * 0.5, y + s * 0.6, x + s * 0.5, y + s * 0.3);
+    ctx.bezierCurveTo(x + s * 0.5, y, x, y, x, y + s * 0.3);
+    ctx.fill();
+  }
+
+  function dibujarHUD() {
+    ctx.fillStyle = 'rgba(255,255,255,0.05)';
+    ctx.fillRect(0, 0, W, 48);
+    ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+    ctx.beginPath(); ctx.moveTo(0, 48); ctx.lineTo(W, 48); ctx.stroke();
+
+    ctx.font = 'bold 20px "Segoe UI", Arial, sans-serif';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#ffffff';
+    ctx.textAlign = 'left';
+    ctx.fillText(`Puntos: ${puntos}`, 20, 24);
+
+    ctx.textAlign = 'center';
+    ctx.fillText(`Nivel ${nivel + 1} / ${NIVELES.length}`, W / 2 - 60, 24);
+    ctx.font = '16px "Segoe UI", Arial, sans-serif';
+    ctx.fillStyle = '#9aa0c8';
+    ctx.fillText(`Récord: ${record}`, W / 2 + 90, 24);
+
+    ctx.textAlign = 'right';
+    ctx.font = 'bold 20px "Segoe UI", Arial, sans-serif';
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText('Vidas:', W - 110, 24);
+    for (let i = 0; i < VIDAS_INICIALES; i++) {
+      dibujarCorazon(W - 90 + i * 28, 14, 20, i < vidas ? '#ff4d6d' : 'rgba(255,255,255,0.15)');
+    }
+  }
+
+  function dibujarLadrillos() {
+    for (const l of ladrillos) {
+      if (l.golpes <= 0) continue;
+      ctx.globalAlpha = 0.45 + 0.55 * (l.golpes / l.max);
+      ctx.fillStyle = l.color;
+      rectRedondeado(l.x, l.y, l.w, l.h, 4);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = 'rgba(255,255,255,0.25)';
+      ctx.fillRect(l.x + 3, l.y + 3, l.w - 6, 4);
+      if (l.max > 1) {
+        ctx.fillStyle = 'rgba(0,0,0,0.6)';
+        ctx.font = 'bold 14px "Segoe UI", Arial, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(String(l.golpes), l.x + l.w / 2, l.y + l.h / 2 + 1);
+      }
+    }
+  }
+
+  function dibujarPaleta() {
+    const g = ctx.createLinearGradient(0, paleta.y, 0, paleta.y + paleta.h);
+    g.addColorStop(0, '#a5d8ff');
+    g.addColorStop(1, '#1c7ed6');
+    ctx.fillStyle = g;
+    rectRedondeado(paleta.x, paleta.y, paleta.w, paleta.h, 7);
+    ctx.fill();
+  }
+
+  function dibujarBola() {
+    ctx.shadowColor = '#ffffff';
+    ctx.shadowBlur = 12;
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.arc(bola.x, bola.y, bola.r, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  }
+
+  function dibujarMensaje(titulo, subtitulo, color = '#ffffff') {
+    ctx.fillStyle = 'rgba(5, 6, 20, 0.65)';
+    ctx.fillRect(0, 0, W, H);
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = color;
+    ctx.font = 'bold 48px "Segoe UI", Arial, sans-serif';
+    ctx.fillText(titulo, W / 2, H / 2 - 30);
+    ctx.fillStyle = '#d0d4f0';
+    ctx.font = '20px "Segoe UI", Arial, sans-serif';
+    subtitulo.split('\n').forEach((linea, i) => {
+      ctx.fillText(linea, W / 2, H / 2 + 25 + i * 30);
+    });
+  }
+
+  function dibujar() {
+    ctx.clearRect(0, 0, W, H);
+    dibujarLadrillos();
+    dibujarPaleta();
+    dibujarBola();
+    dibujarHUD();
+
+    switch (estado) {
+      case 'listo':
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = '#d0d4f0';
+        ctx.font = '20px "Segoe UI", Arial, sans-serif';
+        ctx.fillText('Pulsa Espacio o haz clic para lanzar la bola', W / 2, H / 2 + 80);
+        break;
+      case 'pausa':
+        dibujarMensaje('Pausa', 'Pulsa P, Espacio o haz clic para continuar');
+        break;
+      case 'nivelCompletado':
+        dibujarMensaje('¡Nivel completado!', `Puntos: ${puntos}\nPulsa Espacio o haz clic para el nivel ${nivel + 2}`, '#69db7c');
+        break;
+      case 'finJuego':
+        dibujarMensaje('Fin del juego', `Puntuación final: ${puntos}\nPulsa Espacio o haz clic para jugar de nuevo`, '#ff6b6b');
+        break;
+      case 'victoria':
+        dibujarMensaje('¡Has ganado!', `Puntuación final: ${puntos}\nPulsa Espacio o haz clic para jugar de nuevo`, '#ffd43b');
+        break;
+    }
+  }
+
+  // ---- Bucle principal ----
+  let ultimo = performance.now();
+  function bucle(ahora) {
+    const dt = Math.min((ahora - ultimo) / 1000, 1 / 30);
+    ultimo = ahora;
+    actualizar(dt);
+    dibujar();
+    requestAnimationFrame(bucle);
+  }
+
+  nuevaPartida();
+  requestAnimationFrame(bucle);
+})();
+</script>
+</body>
+</html>
