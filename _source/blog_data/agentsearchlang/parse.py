@@ -69,3 +69,28 @@ def parse(path, lang):
 
 if __name__ == '__main__':
     print(json.dumps({k: v for k, v in parse(sys.argv[1], sys.argv[2]).items() if k != 'answer'}, ensure_ascii=False, indent=1))
+
+
+def parse_codex(path, lang):
+    inp = out = cached = 0; items = []; msgs = []; seen = []
+    for l in open(path, encoding='utf-8', errors='replace'):
+        try: j = json.loads(l)
+        except Exception: continue
+        if j.get('type') == 'turn.completed':
+            u = j.get('usage', {}); inp += u.get('input_tokens', 0); out += u.get('output_tokens', 0); cached += u.get('cached_input_tokens', 0)
+        elif j.get('type') == 'item.completed':
+            it = j.get('item', {})
+            if it.get('type') == 'web_search': items.append(it); seen += [r.get('domain', '') for r in it.get('results') or [] if isinstance(r, dict)]
+            elif it.get('type') == 'agent_message': msgs.append(it.get('text', ''))
+    result = msgs[-1] if msgs else ''
+    searches = [it for it in items if (it.get('action') or {}).get('type') == 'search']
+    queries = [q for it in searches for q in ((it.get('action') or {}).get('queries') or [it.get('query', '')])]
+    qlangs = [script_of(q) for q in queries]
+    cited_urls = list(dict.fromkeys(u.rstrip('.,;') for u in re.findall(r'https?://[^\s\)\]>"]+', result)))
+    seen_h = Counter(h[4:] if h.startswith('www.') else h for h in seen if h)
+    return dict(input_tokens=inp, output_tokens=out, cached_input_tokens=cached, searches=len(searches), search_queries=queries,
+                query_count=len(queries), query_lang_local=sum(1 for q in qlangs if q == lang), query_lang_en=sum(1 for q in qlangs if q == 'en'),
+                page_opens=len(items) - len(searches), domains_seen_top=[d for d, _ in seen_h.most_common(8)], domains_seen_count=len(seen_h),
+                cited_urls=cited_urls, domains_cited=list(dict.fromkeys(host(u) for u in cited_urls)),
+                answer_lang=script_of(re.sub(r'https?://\S+|\[[^\]]*\]\([^)]*\)', '', result)[:400]),
+                answer_mentions_20=bool(re.search(r'(\$\s?20|20\s?(달러|ドル|dólares|USD|доларів|дол))', result)), answer=result)
