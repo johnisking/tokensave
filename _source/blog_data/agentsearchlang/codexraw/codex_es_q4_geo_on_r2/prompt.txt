@@ -1,0 +1,1 @@
+¿Cuántos tokens más necesita un texto en coreano que el mismo texto en inglés con los tokenizadores de OpenAI y Claude? Da cifras y cita tus fuentes.
