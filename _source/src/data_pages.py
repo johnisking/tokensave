@@ -512,6 +512,11 @@ def fmt_html():
 IMG_PATH = "/data/image-token-cost"
 IMG_MEASURED = "2026-10-18"
 IMG_CHART = "/image-token-cost-chart.png"
+IMG_DOI = "10.5281/zenodo.23443906"  # concept DOI
+IMG_MIRRORS = [("Zenodo", "https://zenodo.org/records/23443907"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/image-token-cost"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/image-token-cost-by-resolution-claudegeminigpt"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/image")]
 IMG_TITLE = "Image input token cost by resolution: Claude vs Gemini vs GPT"
 IMG_DESC = ("Dataset: input tokens for one image at 10 resolutions (256×256 to a 12 MP photo) on Claude Opus/Sonnet 5.5, Claude Haiku 4.5, "
             "Gemini 3.x and GPT. Gemini charges a flat ~1,100 tokens; a 12 MP photo costs 14,364 tokens on GPT-6 Astra by default. Free CSV, CC BY 4.0.")
@@ -527,7 +532,7 @@ def _img_rows():
 
 
 def img_citation():
-    return f"TokenSave (2026). {IMG_TITLE} [Data set]. {BASE}{IMG_PATH}"
+    return f"TokenSave (2026). {IMG_TITLE} [Data set]. Zenodo. https://doi.org/{IMG_DOI}"
 
 
 def write_img_files(dist):
@@ -553,6 +558,7 @@ def write_img_files(dist):
 def img_ld():
     return {"@context": "https://schema.org", "@graph": [
         {"@type": "Dataset", "name": IMG_TITLE, "description": IMG_DESC, "url": BASE + IMG_PATH,
+         "identifier": f"https://doi.org/{IMG_DOI}", "sameAs": [u for _, u in IMG_MIRRORS],
          "license": LICENSE, "isAccessibleForFree": True,
          "creator": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"},
          "datePublished": IMG_MEASURED,
@@ -588,6 +594,7 @@ def img_html():
       <h1 class="text-3xl font-extrabold text-white">How many tokens does an image cost? Claude vs Gemini vs GPT</h1>
       <p class="mt-3 text-lg text-zinc-200"><strong>A 12-megapixel phone photo costs {photo["gemini"]:,} input tokens on Gemini, {photo["claude55"]:,} on Claude 5.5 and {photo["gpt6_auto"]:,} on GPT-6 Astra with default settings.</strong> Gemini charges about the same for every image, so it is the cheapest for large pictures and the most expensive for small ones.</p>
       <p class="text-sm text-zinc-400">Measured {IMG_MEASURED} · 10 resolutions · 6 model settings · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{MULTI_PATH}">token cost by language</a>, <a href="{FMT_PATH}">by data format</a></p>
+      <p class="text-sm text-zinc-400">DOI <a href="https://doi.org/{IMG_DOI}">{IMG_DOI}</a> · Also on {" · ".join(f'<a href="{u}">{n}</a>' for n, u in IMG_MIRRORS[1:])}</p>
       <div class="not-prose flex flex-wrap gap-2 my-4">
         <a href="/data/image-token-cost.csv" {BTN} style="text-decoration:none">⬇ CSV</a>
         <a href="/data/image-token-cost.json" {BTN} style="text-decoration:none">⬇ JSON</a>
