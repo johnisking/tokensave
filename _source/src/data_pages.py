@@ -665,14 +665,17 @@ def img_html():
 {COPY_JS}'''
 
 
-def _dataset_ld(title, desc, path, measured, keywords, measured_vars, technique, chart, files):
-    return {"@context": "https://schema.org", "@graph": [
-        {"@type": "Dataset", "name": title, "description": desc, "url": BASE + path,
+def _dataset_ld(title, desc, path, measured, keywords, measured_vars, technique, chart, files, doi=None, mirrors=None):
+    ds = {"@type": "Dataset", "name": title, "description": desc, "url": BASE + path,
          "license": LICENSE, "isAccessibleForFree": True,
          "creator": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"},
          "datePublished": measured, "keywords": keywords, "variableMeasured": measured_vars,
          "measurementTechnique": technique, "image": BASE + chart,
-         "distribution": [{"@type": "DataDownload", "encodingFormat": t, "contentUrl": BASE + "/data/" + f} for f, t in files]},
+         "distribution": [{"@type": "DataDownload", "encodingFormat": t, "contentUrl": BASE + "/data/" + f} for f, t in files]}
+    if doi:
+        ds["identifier"] = f"https://doi.org/{doi}"
+        ds["sameAs"] = [u for _, u in (mirrors or [])]
+    return {"@context": "https://schema.org", "@graph": [ds,
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + "/"},
             {"@type": "ListItem", "position": 2, "name": "Data", "item": BASE + "/data/"},
@@ -706,13 +709,19 @@ def _embed(path, chart, alt, label):
             f'<p>Source: <a href="{BASE}{path}">TokenSave, {label}</a> (CC BY 4.0)</p>')
 
 
-def _head(title_h1, lead, meta, downloads, chart, chart_alt):
+def _doi_line(doi, mirrors):
+    links = " · ".join('<a href="%s">%s</a>' % (u, n) for n, u in mirrors[1:])
+    return '<p class="text-sm text-zinc-400">DOI <a href="https://doi.org/%s">%s</a> · Also on %s</p>' % (doi, doi, links)
+
+
+def _head(title_h1, lead, meta, downloads, chart, chart_alt, doi=None, mirrors=None):
+    doi_html = ("\n      " + _doi_line(doi, mirrors)) if doi else ""
     btns = "\n".join(f'        <a href="/data/{f}" {BTN} style="text-decoration:none">⬇ {lab}</a>' for f, lab in downloads)
     return f'''    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
       <p class="not-prose text-xs font-semibold uppercase tracking-wider text-violet-300"><a href="/data/" class="no-underline" style="text-decoration:none">TokenSave Data</a> · Dataset</p>
       <h1 class="text-3xl font-extrabold text-white">{title_h1}</h1>
       <p class="mt-3 text-lg text-zinc-200">{lead}</p>
-      <p class="text-sm text-zinc-400">{meta}</p>
+      <p class="text-sm text-zinc-400">{meta}</p>{doi_html}
       <div class="not-prose flex flex-wrap gap-2 my-4">
 {btns}
         <a href="#cite" {BTN} style="text-decoration:none">How to cite</a>
@@ -738,6 +747,11 @@ def _table(head_cells, rows_html):
 CODE_PATH = "/data/token-cost-by-programming-language"
 CODE_MEASURED = "2026-10-18"
 CODE_CHART = "/token-cost-by-programming-language-chart.png"
+CODE_DOI = "10.5281/zenodo.23446563"  # concept DOI
+CODE_MIRRORS = [("Zenodo", "https://zenodo.org/records/23446564"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/token-cost-by-programming-language"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/token-cost-by-programming-language"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/code")]
 CODE_TITLE = "Token cost by programming language: the same programs in 10 languages on Claude, Gemini and GPT"
 CODE_DESC = ("Dataset: two programs (an inventory class and Dijkstra's shortest path) written in Python, JavaScript, TypeScript, Java, Go, Rust, C++, C, PHP and Ruby "
              "with identical output, counted on Claude 5.5, Claude Haiku 4.5, Gemini and GPT. C needs 90% more GPT tokens than Python. Free CSV, CC BY 4.0.")
@@ -753,7 +767,7 @@ def _code_files():
 
 
 def code_citation():
-    return f"TokenSave (2026). {CODE_TITLE} [Data set]. {BASE}{CODE_PATH}"
+    return f"TokenSave (2026). {CODE_TITLE} [Data set]. Zenodo. https://doi.org/{CODE_DOI}"
 
 
 def write_code_files(dist):
@@ -781,7 +795,7 @@ def code_ld():
                        ["programming language tokens", "code tokens", "Python vs Java tokens", "LLM coding cost", "tokenizer", "Claude", "Gemini", "GPT"],
                        ["tokens (Claude 5.5)", "tokens (Claude Haiku 4.5)", "tokens (Gemini 3.x)", "tokens (o200k_base)", "difference vs Python (%)"],
                        "Same two programs in 10 languages with identical output; Claude from Claude Code usage minus a one-character baseline, Gemini from the Google AI Studio token counter, GPT with tiktoken",
-                       CODE_CHART, [("token-cost-by-programming-language.csv", "text/csv"), ("token-cost-by-programming-language.json", "application/json")])
+                       CODE_CHART, [("token-cost-by-programming-language.csv", "text/csv"), ("token-cost-by-programming-language.json", "application/json")], doi=CODE_DOI, mirrors=CODE_MIRRORS)
 
 
 def code_html():
@@ -800,7 +814,7 @@ def code_html():
                  f'<strong>The same two programs cost {py["gpt"]:,} GPT tokens in Python and {c["gpt"]:,} in C ({_pct(c["gpt_vs_python"])}).</strong> Python and Ruby were the cheapest languages on every tokenizer we tested; Go and C were the most expensive. Claude 5.5 needed {min(vs)}% to {max(vs)}% more tokens than GPT for the same code.',
                  f'Measured {CODE_MEASURED} · 10 languages · 2 programs · 4 tokenizers · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{FMT_PATH}">token cost by data format</a>',
                  [("token-cost-by-programming-language.csv", "CSV"), ("token-cost-by-programming-language.json", "JSON (with all 20 source files)")],
-                 CODE_CHART, "Tokens for the same two programs in 10 programming languages on Claude, Gemini and GPT") + f'''      <h2>Key findings</h2>
+                 CODE_CHART, "Tokens for the same two programs in 10 programming languages on Claude, Gemini and GPT", doi=CODE_DOI, mirrors=CODE_MIRRORS) + f'''      <h2>Key findings</h2>
       <ul>
         <li><strong>Python and Ruby are the cheapest.</strong> Both programs together cost {py["gpt"]:,} GPT tokens in Python and {by["ruby"]["gpt"]:,} in Ruby. JavaScript needs {_pct(js["gpt_vs_python"])}, Java {_pct(java["gpt_vs_python"])}, Go {_pct(go["gpt_vs_python"])} and C {_pct(c["gpt_vs_python"])}.</li>
         <li><strong>The ranking holds on every tokenizer.</strong> Python and Ruby stay at the top and Go and C at the bottom on Claude 5.5, Claude Haiku 4.5, Gemini and GPT alike.</li>
@@ -832,6 +846,11 @@ def code_html():
 PDF_PATH = "/data/pdf-token-cost"
 PDF_MEASURED = "2026-10-18"
 PDF_CHART = "/pdf-token-cost-chart.png"
+PDF_DOI = "10.5281/zenodo.23446565"  # concept DOI
+PDF_MIRRORS = [("Zenodo", "https://zenodo.org/records/23446566"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/pdf-token-cost"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/pdf-token-cost-per-page-claude-vs-gemini"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/pdf")]
 PDF_TITLE = "PDF token cost per page: Claude vs Gemini, and PDF vs pasted text"
 PDF_DESC = ("Dataset: input tokens for PDF pages (text, table and scanned) on Claude Opus/Sonnet 5.5, Claude Haiku 4.5 and Gemini, compared with pasting the same content as text. "
             "Gemini charges a flat 560 tokens per page; a text page costs 2,347 tokens as a PDF on Claude 5.5 but 728 pasted. Free CSV, CC BY 4.0.")
@@ -842,7 +861,7 @@ def _pdf_rows():
 
 
 def pdf_citation():
-    return f"TokenSave (2026). {PDF_TITLE} [Data set]. {BASE}{PDF_PATH}"
+    return f"TokenSave (2026). {PDF_TITLE} [Data set]. Zenodo. https://doi.org/{PDF_DOI}"
 
 
 def write_pdf_files(dist):
@@ -867,7 +886,7 @@ def pdf_ld():
                        ["PDF tokens", "tokens per page", "Claude PDF", "Gemini PDF", "document input cost", "LLM cost"],
                        ["tokens per PDF page (Claude 5.5)", "tokens per PDF page (Claude Haiku 4.5)", "tokens per PDF page (Gemini 3.x)", "tokens for the same content as text"],
                        "A4 PDFs (text, table, scanned image; 1, 5 and 10 pages) sent to Claude Code as document blocks and uploaded to Google AI Studio; the same content pasted as text for comparison",
-                       PDF_CHART, [("pdf-token-cost.csv", "text/csv"), ("pdf-token-cost.json", "application/json")])
+                       PDF_CHART, [("pdf-token-cost.csv", "text/csv"), ("pdf-token-cost.json", "application/json")], doi=PDF_DOI, mirrors=PDF_MIRRORS)
 
 
 def pdf_html():
@@ -884,7 +903,7 @@ def pdf_html():
                  f'<strong>One page of text costs {t1["claude55"]:,} tokens as a PDF on Claude 5.5 but {ptxt["claude55"]:,} when the same text is pasted ({_pct(pct(t1["claude55"], ptxt["claude55"]))}).</strong> Gemini charges a flat {t10["gemini_per_page"]} tokens per PDF page whatever is on it, so the same page costs {abs(pct(t1["gemini"], t1["claude55"]))}% less there.',
                  f'Measured {PDF_MEASURED} · text, table and scanned pages · 1 to 10 pages · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{IMG_PATH}">image token cost</a>',
                  [("pdf-token-cost.csv", "CSV"), ("pdf-token-cost.json", "JSON")],
-                 PDF_CHART, "Input tokens for one page as a PDF or as pasted text on Claude, Gemini and GPT") + f'''      <h2>Key findings</h2>
+                 PDF_CHART, "Input tokens for one page as a PDF or as pasted text on Claude, Gemini and GPT", doi=PDF_DOI, mirrors=PDF_MIRRORS) + f'''      <h2>Key findings</h2>
       <ul>
         <li><strong>Claude reads every PDF page twice: as text and as an image.</strong> A text page costs {t1["claude55"]:,} tokens on Claude 5.5. A scanned page with no text layer costs {scan["claude55"]:,}, which is the image part alone; the rest is the extracted text.</li>
         <li><strong>Pasting text is much cheaper on Claude.</strong> The same page pasted as text costs {ptxt["claude55"]:,} tokens on Claude 5.5, {abs(pct(ptxt["claude55"], t1["claude55"]))}% less than the PDF. If you only need the words, copy them out.</li>
@@ -915,6 +934,11 @@ def pdf_html():
 EFF_PATH = "/data/claude-effort-cost"
 EFF_MEASURED = "2026-10-09"
 EFF_CHART = "/claude-effort-cost-chart.png"
+EFF_DOI = "10.5281/zenodo.23446567"  # concept DOI
+EFF_MIRRORS = [("Zenodo", "https://zenodo.org/records/23446568"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-effort-cost"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-effort-levels-tokens-time-and-cost"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/effort")]
 EFF_TITLE = "Claude effort levels: tokens, time and cost for the same coding task"
 EFF_DESC = ("Dataset: the same coding prompt run in Claude Code at every effort level of Claude Opus 5.5 (low to max) and at medium and high on Sonnet 5.5, "
             "with time, output tokens, total tokens, API-equivalent cost and lines of code. Max used 160,033 output tokens and $5.25 against 6,299 and $0.56 at medium. Free CSV, CC BY 4.0.")
@@ -925,7 +949,7 @@ def _eff():
 
 
 def eff_citation():
-    return f"TokenSave (2026). {EFF_TITLE} [Data set]. {BASE}{EFF_PATH}"
+    return f"TokenSave (2026). {EFF_TITLE} [Data set]. Zenodo. https://doi.org/{EFF_DOI}"
 
 
 def write_eff_files(dist):
@@ -946,7 +970,7 @@ def eff_ld():
                        ["Claude effort", "reasoning effort", "thinking tokens", "Claude Opus 5.5 cost", "Claude Code cost", "LLM cost"],
                        ["time (seconds)", "output tokens", "total tokens", "cost (USD, API prices)", "lines of code"],
                        "Same prompt run once per effort level in Claude Code; tokens and cost from ccusage at API prices, time from start and end timestamps",
-                       EFF_CHART, [("claude-effort-cost.csv", "text/csv"), ("claude-effort-cost.json", "application/json")])
+                       EFF_CHART, [("claude-effort-cost.csv", "text/csv"), ("claude-effort-cost.json", "application/json")], doi=EFF_DOI, mirrors=EFF_MIRRORS)
 
 
 def _dur(s):
@@ -969,7 +993,7 @@ def eff_html():
                  f'<strong>The same coding task used {me["output_tokens"]:,} output tokens and ${me["cost_usd"]:.2f} at medium effort on Claude Opus 5.5, and {mx["output_tokens"]:,} tokens and ${mx["cost_usd"]:.2f} at max.</strong> High cost only {pct(hi["cost_usd"], me["cost_usd"])}% more than medium; the jump starts at xhigh.',
                  f'Measured {EFF_MEASURED} · Opus 5.5 at 5 levels, Sonnet 5.5 at 2 · License <a href="{LICENSE}">CC BY 4.0</a> · Write-up: <a href="/blog/claude-opus-5-5-effort">Claude Opus 5.5 effort levels tested</a>',
                  [("claude-effort-cost.csv", "CSV"), ("claude-effort-cost.json", "JSON")],
-                 EFF_CHART, "Output tokens and cost for the same task at each Claude effort level") + f'''      <h2>Key findings</h2>
+                 EFF_CHART, "Output tokens and cost for the same task at each Claude effort level", doi=EFF_DOI, mirrors=EFF_MIRRORS) + f'''      <h2>Key findings</h2>
       <ul>
         <li><strong>Low and medium are close.</strong> Low cost {abs(pct(lo["cost_usd"], me["cost_usd"]))}% less than medium (${lo["cost_usd"]:.2f} vs ${me["cost_usd"]:.2f}) and took {_dur(lo["seconds"])} instead of {_dur(me["seconds"])}, but built the plainest result.</li>
         <li><strong>High is the best value step.</strong> Output tokens rose {pct(hi["output_tokens"], me["output_tokens"])}% ({me["output_tokens"]:,} to {hi["output_tokens"]:,}) but cost only {pct(hi["cost_usd"], me["cost_usd"])}% more, because most of each request is input that does not change.</li>
