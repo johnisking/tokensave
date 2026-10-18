@@ -56,6 +56,7 @@ def write_files(dist):
     write_agt_files(dist)
     write_ags_files(dist)
     write_agl_files(dist)
+    write_amd_files(dist)
 
 
 def _write_lang_files(dist):
@@ -215,6 +216,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{AGL_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(AGL_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">Claude Code and Codex in 5 languages: English searches for AI topics, local-language searches for Seoul, Tokyo, Madrid and Kyiv. CSV · measured {AGL_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{AMD_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(AMD_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">A 50 KB CLAUDE.md adds about 16,000 tokens to every request; Codex reads only the first 32 KiB of AGENTS.md. CSV · measured {AMD_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -1455,3 +1459,112 @@ def agl_html():
                   AGL_CHART, "Share of search queries and cited links in English versus the local language, by topic and tool", doi=AGL_DOI, mirrors=AGL_MIRRORS)
             + body + _page_tail(agl_citation(), _embed(AGL_PATH, AGL_CHART, "Share of AI agent search queries and cited links in English versus the local language", "AI web search by language"),
                                 [(AGS_PATH, "AI web search tokens: Claude Code vs Codex"), (LANG_PATH, "Token cost by language"), ("/claude-code-usage", "Check your own Claude Code usage")]))
+
+
+# ---- Dataset 11: CLAUDE.md and AGENTS.md size vs tokens (measured 2026-10-18) ----
+AMD_PATH = "/data/claude-md-agents-md-size"
+AMD_MEASURED = "2026-10-18"
+AMD_CHART = "/claude-md-agents-md-size-chart.png"
+AMD_DOI = None
+AMD_MIRRORS = None
+AMD_TITLE = "CLAUDE.md and AGENTS.md size: what instruction files cost in Claude Code and Codex"
+AMD_DESC = ("Dataset: Claude Code and Codex run with CLAUDE.md / AGENTS.md files of 0, 1, 5, 10, 25 and 50 KB: input tokens, cache reads and cost per request over two turns, "
+            "plus a test of whether an instruction at the end of a 50 KB file is followed. Free CSV, CC BY 4.0.")
+AMD_SIZES = [0, 1, 5, 10, 25, 50]
+
+
+def _amd():
+    return json.load(open(os.path.join(ROOT, "blog_data", "agentmd", "combined.json"), encoding="utf-8"))
+
+
+def amd_citation():
+    if AMD_DOI:
+        return f"TokenSave (2026). {AMD_TITLE} [Data set]. Zenodo. https://doi.org/{AMD_DOI}"
+    return f"TokenSave (2026). {AMD_TITLE} [Data set]. {BASE}{AMD_PATH}"
+
+
+AMD_COLS = ["tool", "file", "file_kb", "file_bytes", "run", "turn", "input_tokens", "cache_write_tokens", "cache_read_tokens", "output_tokens", "cost_usd", "answer"]
+
+
+def write_amd_files(dist):
+    d = _amd()
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(AMD_COLS)
+    for r in d["rows"]:
+        w.writerow([("" if r[c] is None else r[c]) for c in AMD_COLS])
+    open(os.path.join(dist, "data", "claude-md-agents-md-size.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=AMD_TITLE, url=BASE + AMD_PATH, license="CC BY 4.0", measured=AMD_MEASURED, citation=amd_citation(), tools=d["tools"], prompts=d["prompts"],
+                sentinel_question=d["sentinel_question"], sentinel_line=d["sentinel_line"], rows=d["rows"], sentinel=d["sentinel"],
+                generator_script=open(os.path.join(ROOT, "blog_data", "agentmd", "gen.js"), encoding="utf-8").read())
+    open(os.path.join(dist, "data", "claude-md-agents-md-size.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def amd_ld():
+    return _dataset_ld(AMD_TITLE, AMD_DESC, AMD_PATH, AMD_MEASURED,
+                       ["CLAUDE.md", "AGENTS.md", "Claude Code", "Codex", "context tokens", "prompt caching", "instruction file size", "project_doc_max_bytes"],
+                       ["input tokens per request", "cache read tokens", "cost per request (USD)", "instruction followed (yes/no)"],
+                       "Claude Code (Opus 5.5) and Codex CLI (gpt-6-luna) at medium effort on one Windows laptop; generated project guides of 0 to 50 KB; two turns per session, two runs each",
+                       AMD_CHART, [("claude-md-agents-md-size.csv", "text/csv"), ("claude-md-agents-md-size.json", "application/json")], doi=AMD_DOI, mirrors=AMD_MIRRORS)
+
+
+def amd_html():
+    d = _amd()
+    R = d["rows"]
+    g = lambda tool, kb, turn, f: [r[f] for r in R if r["tool"] == tool and r["file_kb"] == kb and r["turn"] == turn and r["run"] == 1][0]
+    base_c, base_x = g("claude_code", 0, 1, "input_tokens"), g("codex", 0, 1, "input_tokens")
+    add_c = {kb: g("claude_code", kb, 1, "input_tokens") - base_c for kb in AMD_SIZES}
+    add_x = {kb: g("codex", kb, 1, "input_tokens") - base_x for kb in AMD_SIZES}
+    nbytes = {kb: g("claude_code", kb, 1, "file_bytes") for kb in AMD_SIZES}
+    cost1 = {kb: g("claude_code", kb, 1, "cost_usd") for kb in AMD_SIZES}
+    cost2 = {kb: g("claude_code", kb, 2, "cost_usd") for kb in AMD_SIZES}
+    pct = lambda a, b: round((a / b - 1) * 100)
+    per_kb = round(add_c[50] / (nbytes[50] / 1024))
+    S = d["sentinel"]
+    found = lambda tool, pos: sum(1 for s in S if s["tool"] == tool and s["position"] == pos and s["found"])
+    tot = lambda tool, pos: sum(1 for s in S if s["tool"] == tool and s["position"] == pos)
+    trs = "\n".join(
+        f'          <tr><td class="tabular-nums">{"none" if kb == 0 else f"{nbytes[kb]:,} bytes ({kb} KB)"}</td>'
+        f'<td class="text-right tabular-nums">{g("claude_code", kb, 1, "input_tokens"):,}</td><td class="text-right tabular-nums">+{add_c[kb]:,}</td>'
+        f'<td class="text-right tabular-nums">${cost1[kb]:.3f}</td><td class="text-right tabular-nums">${cost2[kb]:.3f}</td>'
+        f'<td class="text-right tabular-nums">{g("codex", kb, 1, "input_tokens"):,}</td><td class="text-right tabular-nums">+{add_x[kb]:,}</td></tr>' for kb in AMD_SIZES)
+    head = ['<th>Instruction file</th>', '<th class="text-right">Claude Code input, turn 1</th>', '<th class="text-right">Added by file</th>',
+            '<th class="text-right">Claude cost, turn 1</th>', '<th class="text-right">Claude cost, turn 2</th>', '<th class="text-right">Codex input, turn 1</th>', '<th class="text-right">Added by file</th>']
+    trs2 = "\n".join(f'          <tr><td>{t}</td><td>{p}</td><td class="text-right tabular-nums">{found(k, pp)} / {tot(k, pp)}</td></tr>'
+                     for k, t in [("claude_code", "Claude Code (CLAUDE.md)"), ("codex", "Codex (AGENTS.md)")] for pp, p in [("start", "Start of the file"), ("end", "End of the file")])
+    head2 = ['<th>Tool</th>', '<th>Where the line was placed in a 50 KB file</th>', '<th class="text-right">Runs that knew the codename</th>']
+    lead = (f'<strong>A 50 KB CLAUDE.md added {add_c[50]:,} input tokens to every Claude Code request. Codex read only the first 32 KiB of a 50 KB AGENTS.md and silently ignored an instruction placed at the end.</strong> '
+            f'Claude Code&rsquo;s prompt cache absorbs most of the cost after the first turn.')
+    body = f'''      <h2>Key findings</h2>
+      <ul>
+        <li><strong>Every kilobyte of CLAUDE.md costs about {per_kb} input tokens on every request.</strong> With no instruction file, a one-word reply cost Claude Code {base_c:,} input tokens; a 10 KB CLAUDE.md added {add_c[10]:,}, a 25 KB file {add_c[25]:,} and a 50 KB file {add_c[50]:,} (+{pct(base_c + add_c[50], base_c)}%).</li>
+        <li><strong>Codex stops reading AGENTS.md at 32 KiB.</strong> A 25 KB AGENTS.md added {add_x[25]:,} tokens, but doubling it to 50 KB added only {add_x[50] - add_x[25]:,} more. We put the line &ldquo;the release codename is BLUE-HERON-47&rdquo; at the end of a 50 KB AGENTS.md: Codex answered &ldquo;NONE&rdquo; in {tot("codex", "end") - found("codex", "end")} of {tot("codex", "end")} runs, while the same line at the start of the file was found {found("codex", "start")} of {tot("codex", "start")} times. Codex documents this limit (<code>project_doc_max_bytes</code>, 32 KiB by default) but its output in our runs gave no warning that the file was cut.</li>
+        <li><strong>Claude Code read the whole file.</strong> It found the codename at the start and at the end of the 50 KB CLAUDE.md in all {found("claude_code", "start") + found("claude_code", "end")} runs. Claude Code shows a performance warning for CLAUDE.md files over 40,000 characters but still loads them.</li>
+        <li><strong>The cache makes the first turn the expensive one.</strong> At API list prices reported by Claude Code, the first request cost ${cost1[0]:.3f} with no file and ${cost1[50]:.3f} with the 50 KB file (+{pct(cost1[50], cost1[0])}%). On the second turn the file was read from the cache and the cost was ${cost2[0]:.3f} against ${cost2[50]:.3f} (+{pct(cost2[50], cost2[0])}%).</li>
+        <li><strong>The same text costs Claude more tokens.</strong> The 25 KB file added {add_c[25]:,} tokens in Claude Code and {add_x[25]:,} in Codex, {pct(add_c[25], add_x[25])}% more, in line with Claude&rsquo;s tokenizer needing more tokens for the same English text.</li>
+      </ul>
+      <h2>Input tokens and cost by instruction file size</h2>
+      <p class="text-sm text-zinc-400">Prompt: &ldquo;Reply with the single word OK.&rdquo;, then &ldquo;Reply with the single word OK again.&rdquo; in the same session. Both runs gave identical token counts. Cost is the API list-price figure Claude Code reports (the runs used a Max plan); Codex does not report cost.</p>
+{_table(head, trs)}      <h2>Is an instruction at the end of a big file followed?</h2>
+      <p class="text-sm text-zinc-400">A line &ldquo;The release codename for this project is BLUE-HERON-47.&rdquo; was added at the start or at the end of the 50 KB file, and each tool was asked for the codename without being allowed to open any files.</p>
+{_table(head2, trs2)}      <h2>Method</h2>
+      <ul>
+        <li>The instruction files are a realistic project guide for a TypeScript monorepo (commands, then conventions for 60 modules), generated by a script so that the 1, 5, 10, 25 and 50 KB files are prefixes of the same text. The generator script is included in the JSON download.</li>
+        <li>The same file was saved as <code>CLAUDE.md</code> for Claude Code and <code>AGENTS.md</code> for Codex in an otherwise empty folder.</li>
+        <li><strong>Claude Code 2.1.295</strong> (Opus 5.5, effort medium): <code>claude -p</code> and then <code>claude -c -p</code> with <code>--output-format json</code> and no MCP servers. Input tokens are uncached input plus cache writes plus cache reads.</li>
+        <li><strong>Codex CLI 0.162</strong> (gpt-6-luna, effort medium): <code>codex exec --json</code> and then <code>codex exec resume --last</code>. Codex reports session totals, so turn 2 is the difference from turn 1.</li>
+        <li>Each configuration was run twice on 2026-10-18 on the same Windows laptop. The baseline includes each tool&rsquo;s global settings on that machine, so only the added tokens should be compared.</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>One kind of instruction text, English only; other languages need more tokens per kilobyte.</li>
+        <li>Sizes between 25 and 50 KB were not measured, so the exact point where Codex stops reading is taken from its documentation.</li>
+        <li>The cost figures are list-price estimates from Claude Code; subscription plans are not billed per token.</li>
+      </ul>
+'''
+    return (_head("How much does a big CLAUDE.md or AGENTS.md cost? Claude Code vs Codex", lead,
+                  f'Measured {AMD_MEASURED} · 6 file sizes · 2 tools · 2 runs · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{AGT_PATH}">Claude Code vs Codex startup tokens</a>',
+                  [("claude-md-agents-md-size.csv", "CSV"), ("claude-md-agents-md-size.json", "JSON")],
+                  AMD_CHART, "Extra input tokens per request for CLAUDE.md and AGENTS.md files from 0 to 50 KB", doi=AMD_DOI, mirrors=AMD_MIRRORS)
+            + body + _page_tail(amd_citation(), _embed(AMD_PATH, AMD_CHART, "Extra input tokens per request for CLAUDE.md and AGENTS.md files", "CLAUDE.md and AGENTS.md size"),
+                                [(AGT_PATH, "Claude Code vs Codex: startup tokens and the same coding task"), (EFF_PATH, "Claude effort levels: tokens, time and cost"), ("/claude-code-usage", "Check your own Claude Code usage")]))
