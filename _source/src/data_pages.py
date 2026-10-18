@@ -1582,7 +1582,7 @@ TL_PATH = "/data/ai-coding-prompt-language"
 TL_MEASURED = "2026-10-19"
 TL_CHART = "/ai-coding-prompt-language-chart.png"
 TL_DOI = "10.5281/zenodo.23454308"  # concept DOI
-TL_MIRRORS = [("Zenodo", "https://zenodo.org/records/23454309"),
+TL_MIRRORS = [("Zenodo", "https://zenodo.org/records/23460530"),
               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/ai-coding-prompt-language"),
               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/coding-prompt-language-claude-code-vs-codex"),
               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/coding-prompt-language")]
