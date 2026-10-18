@@ -1465,8 +1465,11 @@ def agl_html():
 AMD_PATH = "/data/claude-md-agents-md-size"
 AMD_MEASURED = "2026-10-18"
 AMD_CHART = "/claude-md-agents-md-size-chart.png"
-AMD_DOI = None
-AMD_MIRRORS = None
+AMD_DOI = "10.5281/zenodo.23453217"  # concept DOI
+AMD_MIRRORS = [("Zenodo", "https://zenodo.org/records/23453218"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-md-agents-md-size"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-md-and-agents-md-size-token-cost"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/agent-instructions")]
 AMD_TITLE = "CLAUDE.md and AGENTS.md size: what instruction files cost in Claude Code and Codex"
 AMD_DESC = ("Dataset: Claude Code and Codex run with CLAUDE.md / AGENTS.md files of 0, 1, 5, 10, 25 and 50 KB: input tokens, cache reads and cost per request over two turns, "
             "plus a test of whether an instruction at the end of a 50 KB file is followed. Free CSV, CC BY 4.0.")
