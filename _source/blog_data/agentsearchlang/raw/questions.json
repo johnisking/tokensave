@@ -1,0 +1,18 @@
+{
+"ko_q1_fact": "미국에서 Claude Pro 요금제의 현재 월 가격은 얼마인가요? 한 문장으로 답하고 출처를 밝혀 주세요.",
+"ko_q2_news": "지난 7일 동안 발표된 가장 중요한 AI 모델 출시 3가지를 각각 한 문장으로 요약하고, 각각 출처 링크를 붙여 주세요.",
+"ko_q3_compare": "Anthropic, OpenAI, Google의 대표 모델 API 가격(입력·출력 100만 토큰당)을 현재 기준으로 비교해 주세요. 공식 가격 페이지를 근거로 출처를 밝혀 주세요.",
+"ko_q4_geo": "같은 내용의 한국어 글은 영어보다 OpenAI와 Claude 토크나이저에서 토큰이 얼마나 더 필요한가요? 수치와 출처를 알려 주세요.",
+"ja_q1_fact": "米国における Claude Pro プランの現在の月額料金はいくらですか？一文で答え、出典を示してください。",
+"ja_q2_news": "過去7日間に発表された最も重要なAIモデルのリリースを3つ、それぞれ一文で要約し、それぞれに出典リンクを付けてください。",
+"ja_q3_compare": "Anthropic、OpenAI、Googleのフラッグシップモデルの現在のAPI料金（入力・出力100万トークンあたり）を比較してください。公式の料金ページを使い、出典を示してください。",
+"ja_q4_geo": "同じ内容の韓国語の文章は、英語と比べてOpenAIとClaudeのトークナイザーでどれくらい多くのトークンが必要ですか？数値と出典を示してください。",
+"es_q1_fact": "¿Cuál es el precio mensual actual del plan Claude Pro en Estados Unidos? Responde en una frase y cita tu fuente.",
+"es_q2_news": "Resume los tres lanzamientos de modelos de IA más importantes anunciados en los últimos 7 días, en una frase cada uno, con un enlace a la fuente para cada uno.",
+"es_q3_compare": "Compara los precios actuales de la API por millón de tokens de entrada y de salida de los modelos insignia de Anthropic, OpenAI y Google. Usa las páginas oficiales de precios y cítalas.",
+"es_q4_geo": "¿Cuántos tokens más necesita un texto en coreano que el mismo texto en inglés con los tokenizadores de OpenAI y Claude? Da cifras y cita tus fuentes.",
+"uk_q1_fact": "Яка поточна місячна ціна тарифу Claude Pro у США? Дай відповідь одним реченням і вкажи джерело.",
+"uk_q2_news": "Коротко опиши три найважливіші релізи моделей ШІ, оголошені за останні 7 днів, по одному реченню на кожен, з посиланням на джерело для кожного.",
+"uk_q3_compare": "Порівняй поточні ціни API за мільйон вхідних і вихідних токенів флагманських моделей Anthropic, OpenAI та Google. Використай офіційні сторінки цін і посилайся на них.",
+"uk_q4_geo": "На скільки більше токенів потребує корейський текст порівняно з тим самим англійським текстом у токенізаторах OpenAI та Claude? Наведи цифри та вкажи джерела."
+}

@@ -1,0 +1,1 @@
+Compara los precios actuales de la API por millón de tokens de entrada y de salida de los modelos insignia de Anthropic, OpenAI y Google. Usa las páginas oficiales de precios y cítalas.
