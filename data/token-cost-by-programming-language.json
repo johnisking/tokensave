@@ -13,7 +13,7 @@
   "gemini": "Gemini 3.8 Flash",
   "gpt": "OpenAI o200k_base (GPT-4o and later)"
  },
- "citation": "TokenSave (2026). Token cost by programming language: the same programs in 10 languages on Claude, Gemini and GPT [Data set]. https://tokensave.app/data/token-cost-by-programming-language",
+ "citation": "TokenSave (2026). Token cost by programming language: the same programs in 10 languages on Claude, Gemini and GPT [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23446563",
  "rows": [
   {
    "language": "python",

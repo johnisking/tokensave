@@ -9,7 +9,7 @@
   "gemini": "Gemini 3.8 Flash (AI Studio)",
   "gpt": "OpenAI o200k_base, pasted text only"
  },
- "citation": "TokenSave (2026). PDF token cost per page: Claude vs Gemini, and PDF vs pasted text [Data set]. https://tokensave.app/data/pdf-token-cost",
+ "citation": "TokenSave (2026). PDF token cost per page: Claude vs Gemini, and PDF vs pasted text [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23446565",
  "rows": [
   {
    "input": "text_1p",
