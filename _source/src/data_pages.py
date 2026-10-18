@@ -853,7 +853,7 @@ PDF_MIRRORS = [("Zenodo", "https://zenodo.org/records/23446566"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/pdf")]
 PDF_TITLE = "PDF token cost per page: Claude vs Gemini, and PDF vs pasted text"
 PDF_DESC = ("Dataset: input tokens for PDF pages (text, table and scanned) on Claude Opus/Sonnet 5.5, Claude Haiku 4.5 and Gemini, compared with pasting the same content as text. "
-            "Gemini charges a flat 560 tokens per page; a text page costs 2,347 tokens as a PDF on Claude 5.5 but 728 pasted. Free CSV, CC BY 4.0.")
+            "Gemini charges a flat 560 tokens per page; a text page costs 2,347 tokens as a PDF on Claude 5.5 but 728 pasted. Also: the same files read from disk by Codex and Cursor. Free CSV, CC BY 4.0.")
 
 
 def _pdf_rows():
@@ -864,8 +864,20 @@ def pdf_citation():
     return f"TokenSave (2026). {PDF_TITLE} [Data set]. Zenodo. https://doi.org/{PDF_DOI}"
 
 
+def _pdf_agents():
+    return json.load(open(os.path.join(ROOT, "blog_data", "pdfdata", "agents", "combined.json"), encoding="utf-8"))
+
+
 def write_pdf_files(dist):
     rows = _pdf_rows()
+    ag = _pdf_agents()
+    abuf = io.StringIO()
+    aw = csv.writer(abuf)
+    aw.writerow(["input", "label", "codex_avg_input_tokens", "codex_run1", "codex_run2", "codex_result", "cursor_avg_input_tokens", "cursor_run1", "cursor_run2", "cursor_result"])
+    for r in ag["rows"]:
+        aw.writerow([r["input"], r["label"], r["codex_avg"], r["codex_runs"][0], r["codex_runs"][1], r["codex_result"],
+                     r["cursor_avg"], r["cursor_runs"][0], r["cursor_runs"][1], r["cursor_result"]])
+    open(os.path.join(dist, "data", "pdf-token-cost-agents.csv"), "w", encoding="utf-8", newline="").write(abuf.getvalue())
     buf = io.StringIO()
     w = csv.writer(buf)
     w.writerow(["input", "label", "kind", "pages", "claude55_tokens", "claude45_tokens", "gemini_tokens", "gpt_tokens", "claude55_per_page", "claude45_per_page", "gemini_per_page"])
@@ -877,7 +889,7 @@ def write_pdf_files(dist):
     meta = dict(title=PDF_TITLE, url=BASE + PDF_PATH, license="CC BY 4.0", measured=PDF_MEASURED,
                 tokenizers={"claude55": "Claude Opus 5.5 / Sonnet 5.5 (identical counts)", "claude45": "Claude Haiku 4.5",
                             "gemini": "Gemini 3.8 Flash (AI Studio)", "gpt": "OpenAI o200k_base, pasted text only"},
-                citation=pdf_citation(), rows=rows, pasted_text=plain)
+                citation=pdf_citation(), rows=rows, pasted_text=plain, coding_agents=ag)
     open(os.path.join(dist, "data", "pdf-token-cost.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
 
 
@@ -886,7 +898,7 @@ def pdf_ld():
                        ["PDF tokens", "tokens per page", "Claude PDF", "Gemini PDF", "document input cost", "LLM cost"],
                        ["tokens per PDF page (Claude 5.5)", "tokens per PDF page (Claude Haiku 4.5)", "tokens per PDF page (Gemini 3.x)", "tokens for the same content as text"],
                        "A4 PDFs (text, table, scanned image; 1, 5 and 10 pages) sent to Claude Code as document blocks and uploaded to Google AI Studio; the same content pasted as text for comparison",
-                       PDF_CHART, [("pdf-token-cost.csv", "text/csv"), ("pdf-token-cost.json", "application/json")], doi=PDF_DOI, mirrors=PDF_MIRRORS)
+                       PDF_CHART, [("pdf-token-cost.csv", "text/csv"), ("pdf-token-cost-agents.csv", "text/csv"), ("pdf-token-cost.json", "application/json")], doi=PDF_DOI, mirrors=PDF_MIRRORS)
 
 
 def pdf_html():
@@ -899,10 +911,18 @@ def pdf_html():
             f'<td class="text-right tabular-nums">{"–" if r[k] is None else format(r[k], ",")}</td>' for k, _ in cols) + "</tr>"
         for r in _pdf_rows())
     head = ['<th>Input</th>'] + [f'<th class="text-right">{esc(n)}</th>' for _, n in cols]
-    return _head("How many tokens is a PDF page? Claude vs Gemini",
+    agd = _pdf_agents()
+    agb = agd["baseline"]
+    ag = {r["input"]: r for r in agd["rows"]}
+    note = lambda res: "" if res == "read correctly" else (' <span class="text-zinc-500">(' + ("failed" if res.startswith("failed") else "wrong answer" if res.startswith("wrong") else "1 of 2 runs failed") + ")</span>")
+    atrs = "\n".join(
+        f'          <tr><td>{esc(r["label"])}</td><td class="text-right tabular-nums">{r["codex_avg"]:,}{note(r["codex_result"])}</td><td class="text-right tabular-nums">{r["cursor_avg"]:,}{note(r["cursor_result"])}</td></tr>'
+        for r in agd["rows"])
+    ahead = ['<th>File</th>', '<th class="text-right">Codex (gpt-6-luna)</th>', '<th class="text-right">Cursor (free, Auto)</th>']
+    return _head("How many tokens is a PDF page? Claude vs Gemini vs Codex vs Cursor",
                  f'<strong>One page of text costs {t1["claude55"]:,} tokens as a PDF on Claude 5.5 but {ptxt["claude55"]:,} when the same text is pasted ({_pct(pct(t1["claude55"], ptxt["claude55"]))}).</strong> Gemini charges a flat {t10["gemini_per_page"]} tokens per PDF page whatever is on it, so the same page costs {abs(pct(t1["gemini"], t1["claude55"]))}% less there.',
                  f'Measured {PDF_MEASURED} · text, table and scanned pages · 1 to 10 pages · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{IMG_PATH}">image token cost</a>',
-                 [("pdf-token-cost.csv", "CSV"), ("pdf-token-cost.json", "JSON")],
+                 [("pdf-token-cost.csv", "CSV"), ("pdf-token-cost-agents.csv", "CSV (Codex, Cursor)"), ("pdf-token-cost.json", "JSON")],
                  PDF_CHART, "Input tokens for one page as a PDF or as pasted text on Claude, Gemini and GPT", doi=PDF_DOI, mirrors=PDF_MIRRORS) + f'''      <h2>Key findings</h2>
       <ul>
         <li><strong>Claude reads every PDF page twice: as text and as an image.</strong> A text page costs {t1["claude55"]:,} tokens on Claude 5.5. A scanned page with no text layer costs {scan["claude55"]:,}, which is the image part alone; the rest is the extracted text.</li>
@@ -910,21 +930,33 @@ def pdf_html():
         <li><strong>Gemini charges a flat rate per page.</strong> Text, table and scanned pages all cost {t1["gemini"]:,} tokens, and 10 pages cost {t10["gemini"]:,}, so about {t10["gemini_per_page"]} per page.</li>
         <li><strong>On Gemini a PDF can beat pasting.</strong> Our table page costs {tab["gemini"]:,} tokens as a PDF but {ptab["gemini"]:,} pasted as CSV ({abs(pct(tab["gemini"], ptab["gemini"]))}% less as a PDF). For dense pages Gemini's flat rate is cheaper than the text itself.</li>
         <li><strong>Cost grows in a straight line with pages.</strong> 10 text pages cost {t10["claude55"]:,} tokens on Claude 5.5 (about {t10["claude55_per_page"]:,} per page) and {t10["claude45"]:,} on Claude Haiku 4.5.</li>
+        <li><strong>Coding agents spend more on working out how to open a PDF than on the PDF itself.</strong> Asked to summarize a one-page PDF from disk, Codex used {ag["text_1p"]["codex_avg"]:,} input tokens and Cursor {ag["text_1p"]["cursor_avg"]:,}, against {ag["text_page_plain"]["codex_avg"]:,} and {ag["text_page_plain"]["cursor_avg"]:,} for the same text as a .txt file ({_pct(pct(ag["text_1p"]["codex_avg"], ag["text_page_plain"]["codex_avg"]))} and {_pct(pct(ag["text_1p"]["cursor_avg"], ag["text_page_plain"]["cursor_avg"]))}). Ten pages cost about the same as one.</li>
+        <li><strong>Scanned PDFs broke both agents.</strong> Codex used {ag["scan_1p"]["codex_avg"]:,} tokens on average and then said it could not read the page. Cursor answered both times with a summary of content that is not in the file.</li>
       </ul>
       <h2>All inputs</h2>
       <p class="text-sm text-zinc-400">Input tokens. GPT is shown for pasted text only (see method).</p>
-{_table(head, trs)}      <h2>Method</h2>
+{_table(head, trs)}      <h2>Coding agents: Codex and Cursor</h2>
+      <p>Same files, read from disk by a coding agent with the prompt &ldquo;Read the file … and summarize its full contents in one sentence.&rdquo; Each file sat alone in an empty folder; two runs per file. Numbers are total input tokens for the whole agent session, including cached tokens and the agent&rsquo;s own instructions, so they are not comparable with the Claude and Gemini counts above. With no file at all the same setup used {agb["codex"]:,} (Codex) and {agb["cursor"]:,} (Cursor) tokens.</p>
+{_table(ahead, atrs)}      <ul>
+        <li><strong>How they read PDFs:</strong> neither agent looked at the pages as images. Codex loaded a PDF skill, tried Python libraries that were not installed, then extracted the text with <code>pdftotext</code>. Cursor read a PDF skill file and then used its built-in file reader, which returns the text layer.</li>
+        <li><strong>Codex varies a lot between runs.</strong> The same 10-page PDF took {ag["text_10p"]["codex_runs"][0]:,} tokens once and {ag["text_10p"]["codex_runs"][1]:,} the next time, depending on how many tools it tried first. Cursor&rsquo;s two runs were within 2% of each other on every text and table PDF.</li>
+        <li><strong>The scanned page has no text layer.</strong> Codex could not find an OCR tool and said so. Cursor&rsquo;s file reader returned an empty page, its shell commands were not approved in print mode, and it still answered with invented text (once a &ldquo;handwritten note&rdquo;, once a sentence about a crow); the page is the same garden text as the other files.</li>
+      </ul>
+      <h2>Method</h2>
       <ul>
         <li>A4 PDFs made with ReportLab: one page of English prose (about 420 words), the same page repeated to 5 and 10 pages, a page with a 35-row table, and a scanned version of the text page (rendered at 150 dpi and placed as an image with no text layer).</li>
         <li><strong>Claude:</strong> each PDF sent through Claude Code (<code>claude -p</code>, stream-json input) as a document block with a one-character message; input tokens minus the same run without the PDF. Opus 5.5 and Sonnet 5.5 gave identical counts.</li>
         <li><strong>Gemini:</strong> per-file token count shown by Google AI Studio for Gemini 3.8 Flash after uploading each PDF. Pasted text was measured with the prompt counter minus its one start token.</li>
         <li><strong>GPT:</strong> OpenAI bills PDF input as extracted text plus an image of each page, which we could not reproduce without the API, so GPT appears only for pasted text (tiktoken, <code>o200k_base</code>).</li>
+        <li><strong>Codex:</strong> Codex CLI 0.162 on Windows, ChatGPT plan login, model gpt-6-luna at low reasoning effort, <code>codex exec --json -s read-only</code>; input tokens from the final usage report.</li>
+        <li><strong>Cursor:</strong> Cursor Agent CLI on Windows, free Hobby plan, model Auto, <code>cursor-agent -p --output-format stream-json</code> with default permissions; input plus cache-read tokens from the result event.</li>
       </ul>
       <h2>Limitations</h2>
       <ul>
         <li>One page design. Pages with more text, small fonts or many images will cost more on Claude; Gemini's per-page rate should stay flat.</li>
         <li>Default settings; Gemini's media resolution option changes its per-page count.</li>
         <li>Input tokens only; the price per token differs by model.</li>
+        <li>Codex and Cursor: two runs per file on one machine with the tools that happened to be installed; an agent with an OCR tool or shell access would behave differently.</li>
       </ul>
 ''' + _page_tail(pdf_citation(), _embed(PDF_PATH, PDF_CHART, "Input tokens for one PDF page on Claude and Gemini, and the same page pasted as text", "PDF token cost per page"),
                  [(IMG_PATH, "Image input token cost by resolution"), (FMT_PATH, "Token cost by data format"), ("/", "Count tokens for your own text")])

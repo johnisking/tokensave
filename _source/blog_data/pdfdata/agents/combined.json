@@ -1,0 +1,150 @@
+{
+ "measured": "2026-10-18",
+ "prompt": "Read the file {name} in the current folder and summarize its full contents in one sentence.",
+ "codex": {
+  "tool": "Codex CLI 0.162 (Codex desktop app, Windows), ChatGPT plan login",
+  "model": "gpt-6-luna",
+  "reasoning_effort": "low",
+  "command": "codex exec --json -s read-only",
+  "metric": "input_tokens from turn.completed (includes cached_input_tokens)"
+ },
+ "cursor": {
+  "tool": "Cursor Agent CLI 2026.10.16 (Windows), free Hobby plan",
+  "model": "Auto",
+  "command": "cursor-agent -p --output-format stream-json",
+  "metric": "inputTokens + cacheReadTokens from the result event"
+ },
+ "setup": "Each file alone in its own empty folder; 2 runs per file per tool; numbers are total input tokens for the whole agent session (all turns).",
+ "baseline": {
+  "codex": 15070,
+  "cursor": 13022
+ },
+ "rows": [
+  {
+   "input": "text_page_plain",
+   "label": "Same page as a .txt file",
+   "codex_runs": [
+    29921,
+    29921
+   ],
+   "codex_avg": 29921,
+   "codex_uncached_avg": 8289,
+   "codex_result": "read correctly",
+   "cursor_runs": [
+    26597,
+    26603
+   ],
+   "cursor_avg": 26600,
+   "cursor_uncached_avg": 9832,
+   "cursor_result": "read correctly"
+  },
+  {
+   "input": "text_1p",
+   "label": "PDF, text, 1 page",
+   "codex_runs": [
+    124742,
+    60595
+   ],
+   "codex_avg": 92668,
+   "codex_uncached_avg": 24252,
+   "codex_result": "read correctly",
+   "cursor_runs": [
+    76212,
+    76227
+   ],
+   "cursor_avg": 76220,
+   "cursor_uncached_avg": 18684,
+   "cursor_result": "read correctly"
+  },
+  {
+   "input": "text_5p",
+   "label": "PDF, text, 5 pages",
+   "codex_runs": [
+    64932,
+    84487
+   ],
+   "codex_avg": 74710,
+   "codex_uncached_avg": 27990,
+   "codex_result": "read correctly",
+   "cursor_runs": [
+    78899,
+    78349
+   ],
+   "cursor_avg": 78624,
+   "cursor_uncached_avg": 22656,
+   "cursor_result": "read correctly"
+  },
+  {
+   "input": "text_10p",
+   "label": "PDF, text, 10 pages",
+   "codex_runs": [
+    49273,
+    180278
+   ],
+   "codex_avg": 114776,
+   "codex_uncached_avg": 10904,
+   "codex_result": "read correctly",
+   "cursor_runs": [
+    82503,
+    80998
+   ],
+   "cursor_avg": 81750,
+   "cursor_uncached_avg": 19926,
+   "cursor_result": "read correctly"
+  },
+  {
+   "input": "table_plain",
+   "label": "Same table as a .csv file",
+   "codex_runs": [
+    14693,
+    30105
+   ],
+   "codex_avg": 30105,
+   "codex_uncached_avg": 15641,
+   "codex_result": "run 1 failed (said it could not read files), run 2 read correctly; average uses run 2",
+   "cursor_runs": [
+    28060,
+    29060
+   ],
+   "cursor_avg": 28560,
+   "cursor_uncached_avg": 13680,
+   "cursor_result": "read correctly"
+  },
+  {
+   "input": "table_1p",
+   "label": "PDF, table, 1 page",
+   "codex_runs": [
+    82826,
+    88595
+   ],
+   "codex_avg": 85710,
+   "codex_uncached_avg": 9038,
+   "codex_result": "read correctly",
+   "cursor_runs": [
+    76935,
+    76473
+   ],
+   "cursor_avg": 76704,
+   "cursor_uncached_avg": 18784,
+   "cursor_result": "read correctly"
+  },
+  {
+   "input": "scan_1p",
+   "label": "PDF, scanned image, 1 page",
+   "codex_runs": [
+    238147,
+    193527
+   ],
+   "codex_avg": 215837,
+   "codex_uncached_avg": 16605,
+   "codex_result": "failed: said it could not read the page (no OCR tool)",
+   "cursor_runs": [
+    93324,
+    76556
+   ],
+   "cursor_avg": 84940,
+   "cursor_uncached_avg": 18188,
+   "cursor_result": "wrong: described content that is not in the file (both runs)"
+  }
+ ]
+}
