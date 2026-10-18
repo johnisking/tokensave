@@ -1,0 +1,5 @@
+Reading additional input from stdin...
+{"type":"thread.started","thread_id":"01a14da8-1586-7fa0-89fa-62cc4e5e2b2d"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"I can’t read files in this session because the filesystem is read-only and the available tools don’t provide file access. If you paste the contents of `table.csv`, I can summarize it in one sentence."}}
+{"type":"turn.completed","usage":{"input_tokens":14693,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":46,"reasoning_output_tokens":0}}

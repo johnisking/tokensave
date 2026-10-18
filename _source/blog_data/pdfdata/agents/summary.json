@@ -1,0 +1,202 @@
+{
+ "cursor": {
+  "scan_1p_pdf": [
+   {
+    "rep": 1,
+    "total_input": 93324,
+    "uncached_input": 23692,
+    "final": "`scan_1p.pdf`.Extracting text from the PDF \u2014 if it's a scan, I'll fall back to OCR.Retrying text extraction with a simpler command:Confirming the handwritten text with OCR for accuracy:The PDF is a one-page handwritten note stating it is for CURSOR OCR testing and that the secret word is **banana**."
+   },
+   {
+    "rep": 2,
+    "total_input": 76556,
+    "uncached_input": 12684,
+    "final": ".Extracting text from the PDF next; if it's a scan with little selectable text, I'll fall back to OCR.The one-page scanned test document shows the handwritten sentence \u201cThe crow softly murmured a lullaby to the restless wind,\u201d with a small mark near the top right and the footer \u201cPAGE 1 TEST DOC v1.\u201d"
+   }
+  ],
+  "table_1p_pdf": [
+   {
+    "rep": 1,
+    "total_input": 76935,
+    "uncached_input": 13063,
+    "final": "arize it in one sentence.Extracting the PDF text and tables next.**table_1p.pdf** is a one-page garden supply price list of 35 products (Product 01\u201335) with columns for item, category (Tools, Soil, Pots, Fertiliser, Seeds), unit, price, stock, and supplier (RootWorks, SoilCo, Bloom & Co, GreenLeaf)."
+   },
+   {
+    "rep": 2,
+    "total_input": 76473,
+    "uncached_input": 24505,
+    "final": "f`.Extracting text and tables from the PDF next.Retrying extraction with a simpler command:**table_1p.pdf** is a one-page garden supply price list of 35 products (Tools, Soil, Pots, Fertiliser, Seeds), each with unit, price, stock quantity, and supplier (RootWorks, SoilCo, Bloom & Co, or GreenLeaf)."
+   }
+  ],
+  "table_csv": [
+   {
+    "rep": 1,
+    "total_input": 28060,
+    "uncached_input": 15068,
+    "final": "I'll read `table.csv` and summarize it in one sentence.`table.csv` lists 35 gardening products (Product 01\u201335) with category (Tools, Soil, Pots, Fertiliser, Seeds), unit (piece/bag/set/pack), price ($5.50\u2013$90.50), stock (4\u2013117), and supplier (RootWorks, SoilCo, Bloom & Co, or GreenLeaf)."
+   },
+   {
+    "rep": 2,
+    "total_input": 29060,
+    "uncached_input": 12292,
+    "final": "ive you a one-sentence summary.`table.csv` is a 35-row garden/nursery inventory listing Products 01\u201335 across Tools, Soil, Pots, Fertiliser, and Seeds, each with a unit type (piece/bag/set/pack), price ($5.50\u2013$90.50), stock count, and one of four suppliers (RootWorks, SoilCo, Bloom & Co, GreenLeaf)."
+   }
+  ],
+  "text_10p_pdf": [
+   {
+    "rep": 1,
+    "total_input": 82503,
+    "uncached_input": 22471,
+    "final": " same \u201cGarden notes\u201d essay: a productive small vegetable garden depends on steady habits\u2014improving soil with compost, choosing climate-suited crops and succession sowing, deep infrequent morning watering with mulch, checking for pests by hand, and keeping seasonal notes so the next year goes better."
+   },
+   {
+    "rep": 2,
+    "total_input": 80998,
+    "uncached_input": 17382,
+    "final": "es essay on each page, advising that a productive vegetable garden depends on steady habits\u2014improving soil with compost, choosing climate-suitable crops and succession sowing, watering deeply in the morning with mulch, hand-checking for pests, and keeping seasonal notes so the next year goes better."
+   }
+  ],
+  "text_1p_pdf": [
+   {
+    "rep": 1,
+    "total_input": 76212,
+    "uncached_input": 24372,
+    "final": "cting text from the PDF now.This one-page garden guide argues that a productive vegetable bed depends on steady habits\u2014improving soil with compost, matching crops to climate, deep infrequent morning watering with mulch, quick pest checks, and keeping notes\u2014so the second season improves on the first."
+   },
+   {
+    "rep": 2,
+    "total_input": 76227,
+    "uncached_input": 12995,
+    "final": "uide arguing that a productive vegetable bed comes from steady habits\u2014improving soil with compost, choosing climate-suited crops and succession sowing, watering deeply but less often with mulch, catching pests early by hand, and keeping simple seasonal notes so the second year improves on the first."
+   }
+  ],
+  "text_5p_pdf": [
+   {
+    "rep": 1,
+    "total_input": 78899,
+    "uncached_input": 18547,
+    "final": " pages of \u201cGarden notes,\u201d the PDF advises that a productive small vegetable garden depends on steady habits\u2014improving soil with compost, choosing climate-suited crops, deep infrequent watering with mulch, quick pest checks, and keeping personal planting notes\u2014rather than occasional bursts of effort."
+   },
+   {
+    "rep": 2,
+    "total_input": 78349,
+    "uncached_input": 26765,
+    "final": " the PDF text next.**text_5p.pdf** is a five-page set of garden notes that repeats the same advice: keep a small vegetable garden productive with steady habits\u2014improve soil with compost, pick climate-right crops, water deeply and infrequently, check for pests by hand, and keep simple seasonal notes."
+   }
+  ],
+  "text_page_txt": [
+   {
+    "rep": 1,
+    "total_input": 26597,
+    "uncached_input": 9829,
+    "final": "I'll read `text_page.txt` and summarize it in one sentence.**Summary:** This garden guide argues that a productive vegetable plot comes from steady habits\u2014building soil, matching crops to climate, watering deeply, checking for pests, and keeping notes\u2014rather than sporadic effort or special tricks."
+   },
+   {
+    "rep": 2,
+    "total_input": 26603,
+    "uncached_input": 9835,
+    "final": "s beginners that a productive vegetable garden depends on steady habits\u2014preparing soil with compost, choosing climate-suited crops and succession sowing, watering deeply and less often with mulch, checking for pests while watering, and keeping simple notes so the second season improves on the first."
+   }
+  ]
+ },
+ "codex": {
+  "scan_1p_pdf": [
+   {
+    "rep": 1,
+    "total_input": 238147,
+    "uncached_input": 18883,
+    "final": "I couldn\u2019t read the page\u2019s contents: the PDF has no extractable text, and the OCR/rendering tools I checked aren\u2019t available here. Please provide an OCR version or page image, and I can summarize it in one sentence."
+   },
+   {
+    "rep": 2,
+    "total_input": 193527,
+    "uncached_input": 14327,
+    "final": "I can\u2019t determine the PDF\u2019s contents: it contains no extractable text, and no PDF image viewer or OCR tool is available here. Please provide a page image or an OCR-enabled copy so I can summarize it."
+   }
+  ],
+  "table_1p_pdf": [
+   {
+    "rep": 1,
+    "total_input": 82826,
+    "uncached_input": 6538,
+    "final": "\\CHOJAEHYUN\\Downloads\\codex-pdf-test\\iso_table_1p_pdf_r1\\table_1p.pdf\" purpose=\"source\"} is a garden supply price list of 35 products across tools, soil, pots, fertiliser, and seeds, with each product\u2019s unit, price, stock count, and supplier listed among RootWorks, SoilCo, Bloom & Co, and GreenLeaf."
+   },
+   {
+    "rep": 2,
+    "total_input": 88595,
+    "uncached_input": 11539,
+    "final": "The PDF is a garden supply price list of 35 products, showing each item\u2019s category, unit, price, stock quantity, and supplier (RootWorks, SoilCo, Bloom & Co, or GreenLeaf)."
+   }
+  ],
+  "table_csv": [
+   {
+    "rep": 1,
+    "total_input": 14693,
+    "uncached_input": 14693,
+    "final": "I can\u2019t read files in this session because the filesystem is read-only and the available tools don\u2019t provide file access. If you paste the contents of `table.csv`, I can summarize it in one sentence."
+   },
+   {
+    "rep": 2,
+    "total_input": 30105,
+    "uncached_input": 15641,
+    "final": "`table.csv` contains 35 products across five categories\u2014Tools, Soil, Pots, Fertiliser, and Seeds\u2014with varying units, prices from $5.50 to $90.50, stock counts from 4 to 117, and four suppliers: RootWorks, SoilCo, Bloom & Co, and GreenLeaf."
+   }
+  ],
+  "text_10p_pdf": [
+   {
+    "rep": 1,
+    "total_input": 49273,
+    "uncached_input": 12409,
+    "final": "The ten-page PDF repeats the same guide to productive vegetable gardening: tend the garden regularly, prepare soil with compost, choose crops suited to the season, water deeply and mulch, check for pests and manage them by hand, and keep notes to improve each year."
+   },
+   {
+    "rep": 2,
+    "total_input": 180278,
+    "uncached_input": 9398,
+    "final": "The ten-page PDF repeats the same guide to keeping a small vegetable garden productive: tend it regularly, prepare well-drained compost-rich soil, choose crops suited to the season, water deeply in the morning and mulch, check for pests as you go, and record what works so each year improves."
+   }
+  ],
+  "text_1p_pdf": [
+   {
+    "rep": 1,
+    "total_input": 124742,
+    "uncached_input": 24902,
+    "final": "eeping a vegetable garden productive through steady, frequent care: prepare well-drained compost-rich soil, choose crops suited to the space and season, sow fast crops in succession, water deeply in the morning and mulch, check for pests while watering, and record what works so each season improves."
+   },
+   {
+    "rep": 2,
+    "total_input": 60595,
+    "uncached_input": 23603,
+    "final": "The page advises that a productive vegetable garden depends on steady, frequent care: prepare well-drained compost-rich soil, choose crops suited to the climate and stagger sowings, water deeply in the morning while mulching, check regularly for pests, and keep notes to improve each season."
+   }
+  ],
+  "text_5p_pdf": [
+   {
+    "rep": 1,
+    "total_input": 64932,
+    "uncached_input": 19108,
+    "final": "repeated identically on each page, advises keeping a small vegetable garden productive through regular care: prepare and improve the soil, choose crops suited to the climate and sow them in succession, water deeply and mulch, check for pests as you tend plants, and keep notes to improve each season."
+   },
+   {
+    "rep": 2,
+    "total_input": 84487,
+    "uncached_input": 36871,
+    "final": "o_text_5p_pdf_r2\\text_5p.pdf\" purpose=\"source\"} recommends keeping a productive vegetable garden through regular care: prepare compost-rich soil, choose crops suited to climate and stagger sowings, water deeply and mulch, check for pests as you tend plants, and record results to improve each season."
+   }
+  ],
+  "text_page_txt": [
+   {
+    "rep": 1,
+    "total_input": 29921,
+    "uncached_input": 15457,
+    "final": "The text explains that a productive vegetable garden depends on steady care: prepare healthy soil, choose crops suited to the space and climate, sow successively, water deeply, mulch, check for pests, and keep notes to improve each season."
+   },
+   {
+    "rep": 2,
+    "total_input": 29921,
+    "uncached_input": 1121,
+    "final": "The text advises that a productive vegetable garden depends on regular attention: prepare and improve the soil, choose crops suited to the climate and space, sow in succession, water deeply in the morning, mulch and check for pests, and keep notes to learn from each season."
+   }
+  ]
+ }
+}
