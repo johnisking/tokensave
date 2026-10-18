@@ -1,0 +1,32 @@
+{
+ "model": "gemini-3.8-flash",
+ "source": "Google AI Studio prompt token counter minus 1 start token",
+ "raw": {
+  "python|inventory": 524,
+  "python|dijkstra": 441,
+  "javascript|inventory": 610,
+  "javascript|dijkstra": 576,
+  "typescript|inventory": 624,
+  "typescript|dijkstra": 666,
+  "java|inventory": 772,
+  "java|dijkstra": 741,
+  "go|inventory": 819,
+  "go|dijkstra": 884,
+  "rust|inventory": 783,
+  "rust|dijkstra": 630,
+  "cpp|inventory": 927,
+  "cpp|dijkstra": 692,
+  "c|inventory": 1127,
+  "c|dijkstra": 695,
+  "php|inventory": 695,
+  "php|dijkstra": 569,
+  "ruby|inventory": 500,
+  "ruby|dijkstra": 446
+ },
+ "rerun_identical": [
+  "python|inventory",
+  "c|inventory",
+  "rust|dijkstra",
+  "go|dijkstra"
+ ]
+}

@@ -1,0 +1,102 @@
+{
+ "python|inventory": {
+  "o200k": 431,
+  "cl100k": 430,
+  "chars": 1620
+ },
+ "python|dijkstra": {
+  "o200k": 378,
+  "cl100k": 377,
+  "chars": 1267
+ },
+ "javascript|inventory": {
+  "o200k": 491,
+  "cl100k": 489,
+  "chars": 1691
+ },
+ "javascript|dijkstra": {
+  "o200k": 476,
+  "cl100k": 478,
+  "chars": 1504
+ },
+ "typescript|inventory": {
+  "o200k": 511,
+  "cl100k": 509,
+  "chars": 1806
+ },
+ "typescript|dijkstra": {
+  "o200k": 559,
+  "cl100k": 560,
+  "chars": 1804
+ },
+ "java|inventory": {
+  "o200k": 620,
+  "cl100k": 613,
+  "chars": 2659
+ },
+ "java|dijkstra": {
+  "o200k": 597,
+  "cl100k": 582,
+  "chars": 2442
+ },
+ "go|inventory": {
+  "o200k": 651,
+  "cl100k": 648,
+  "chars": 2193
+ },
+ "go|dijkstra": {
+  "o200k": 708,
+  "cl100k": 704,
+  "chars": 2099
+ },
+ "rust|inventory": {
+  "o200k": 638,
+  "cl100k": 633,
+  "chars": 2347
+ },
+ "rust|dijkstra": {
+  "o200k": 551,
+  "cl100k": 546,
+  "chars": 1734
+ },
+ "cpp|inventory": {
+  "o200k": 766,
+  "cl100k": 766,
+  "chars": 2862
+ },
+ "cpp|dijkstra": {
+  "o200k": 577,
+  "cl100k": 577,
+  "chars": 1931
+ },
+ "c|inventory": {
+  "o200k": 940,
+  "cl100k": 939,
+  "chars": 3135
+ },
+ "c|dijkstra": {
+  "o200k": 596,
+  "cl100k": 593,
+  "chars": 1708
+ },
+ "php|inventory": {
+  "o200k": 620,
+  "cl100k": 619,
+  "chars": 2104
+ },
+ "php|dijkstra": {
+  "o200k": 508,
+  "cl100k": 506,
+  "chars": 1593
+ },
+ "ruby|inventory": {
+  "o200k": 433,
+  "cl100k": 432,
+  "chars": 1368
+ },
+ "ruby|dijkstra": {
+  "o200k": 386,
+  "cl100k": 387,
+  "chars": 1110
+ }
+}

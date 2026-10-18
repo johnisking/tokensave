@@ -1,0 +1,312 @@
+[
+ {
+  "language": "python",
+  "name": "Python",
+  "inventory": {
+   "chars": 1620,
+   "lines": 56,
+   "claude55": 627,
+   "claude45": 522,
+   "gemini": 523,
+   "gpt": 431
+  },
+  "dijkstra": {
+   "chars": 1267,
+   "lines": 51,
+   "claude55": 549,
+   "claude45": 448,
+   "gemini": 440,
+   "gpt": 378
+  },
+  "claude55": 1176,
+  "claude45": 970,
+  "gemini": 963,
+  "gpt": 809,
+  "chars": 2887,
+  "lines": 107,
+  "claude55_vs_python": 0,
+  "claude45_vs_python": 0,
+  "gemini_vs_python": 0,
+  "gpt_vs_python": 0,
+  "claude55_vs_gpt": 45
+ },
+ {
+  "language": "ruby",
+  "name": "Ruby",
+  "inventory": {
+   "chars": 1368,
+   "lines": 63,
+   "claude55": 613,
+   "claude45": 503,
+   "gemini": 499,
+   "gpt": 433
+  },
+  "dijkstra": {
+   "chars": 1110,
+   "lines": 46,
+   "claude55": 568,
+   "claude45": 458,
+   "gemini": 445,
+   "gpt": 386
+  },
+  "claude55": 1181,
+  "claude45": 961,
+  "gemini": 944,
+  "gpt": 819,
+  "chars": 2478,
+  "lines": 109,
+  "claude55_vs_python": 0,
+  "claude45_vs_python": -1,
+  "gemini_vs_python": -2,
+  "gpt_vs_python": 1,
+  "claude55_vs_gpt": 44
+ },
+ {
+  "language": "javascript",
+  "name": "JavaScript",
+  "inventory": {
+   "chars": 1691,
+   "lines": 70,
+   "claude55": 734,
+   "claude45": 616,
+   "gemini": 609,
+   "gpt": 491
+  },
+  "dijkstra": {
+   "chars": 1504,
+   "lines": 56,
+   "claude55": 708,
+   "claude45": 583,
+   "gemini": 575,
+   "gpt": 476
+  },
+  "claude55": 1442,
+  "claude45": 1199,
+  "gemini": 1184,
+  "gpt": 967,
+  "chars": 3195,
+  "lines": 126,
+  "claude55_vs_python": 23,
+  "claude45_vs_python": 24,
+  "gemini_vs_python": 23,
+  "gpt_vs_python": 20,
+  "claude55_vs_gpt": 49
+ },
+ {
+  "language": "typescript",
+  "name": "TypeScript",
+  "inventory": {
+   "chars": 1806,
+   "lines": 68,
+   "claude55": 758,
+   "claude45": 632,
+   "gemini": 623,
+   "gpt": 511
+  },
+  "dijkstra": {
+   "chars": 1804,
+   "lines": 59,
+   "claude55": 832,
+   "claude45": 679,
+   "gemini": 665,
+   "gpt": 559
+  },
+  "claude55": 1590,
+  "claude45": 1311,
+  "gemini": 1288,
+  "gpt": 1070,
+  "chars": 3610,
+  "lines": 127,
+  "claude55_vs_python": 35,
+  "claude45_vs_python": 35,
+  "gemini_vs_python": 34,
+  "gpt_vs_python": 32,
+  "claude55_vs_gpt": 49
+ },
+ {
+  "language": "php",
+  "name": "PHP",
+  "inventory": {
+   "chars": 2104,
+   "lines": 80,
+   "claude55": 846,
+   "claude45": 705,
+   "gemini": 694,
+   "gpt": 620
+  },
+  "dijkstra": {
+   "chars": 1593,
+   "lines": 59,
+   "claude55": 763,
+   "claude45": 606,
+   "gemini": 568,
+   "gpt": 508
+  },
+  "claude55": 1609,
+  "claude45": 1311,
+  "gemini": 1262,
+  "gpt": 1128,
+  "chars": 3697,
+  "lines": 139,
+  "claude55_vs_python": 37,
+  "claude45_vs_python": 35,
+  "gemini_vs_python": 31,
+  "gpt_vs_python": 39,
+  "claude55_vs_gpt": 43
+ },
+ {
+  "language": "rust",
+  "name": "Rust",
+  "inventory": {
+   "chars": 2347,
+   "lines": 87,
+   "claude55": 988,
+   "claude45": 800,
+   "gemini": 782,
+   "gpt": 638
+  },
+  "dijkstra": {
+   "chars": 1734,
+   "lines": 55,
+   "claude55": 827,
+   "claude45": 652,
+   "gemini": 629,
+   "gpt": 551
+  },
+  "claude55": 1815,
+  "claude45": 1452,
+  "gemini": 1411,
+  "gpt": 1189,
+  "chars": 4081,
+  "lines": 142,
+  "claude55_vs_python": 54,
+  "claude45_vs_python": 50,
+  "gemini_vs_python": 47,
+  "gpt_vs_python": 47,
+  "claude55_vs_gpt": 53
+ },
+ {
+  "language": "java",
+  "name": "Java",
+  "inventory": {
+   "chars": 2659,
+   "lines": 88,
+   "claude55": 941,
+   "claude45": 780,
+   "gemini": 771,
+   "gpt": 620
+  },
+  "dijkstra": {
+   "chars": 2442,
+   "lines": 66,
+   "claude55": 993,
+   "claude45": 771,
+   "gemini": 740,
+   "gpt": 597
+  },
+  "claude55": 1934,
+  "claude45": 1551,
+  "gemini": 1511,
+  "gpt": 1217,
+  "chars": 5101,
+  "lines": 154,
+  "claude55_vs_python": 64,
+  "claude45_vs_python": 60,
+  "gemini_vs_python": 57,
+  "gpt_vs_python": 50,
+  "claude55_vs_gpt": 59
+ },
+ {
+  "language": "cpp",
+  "name": "C++",
+  "inventory": {
+   "chars": 2862,
+   "lines": 104,
+   "claude55": 1087,
+   "claude45": 934,
+   "gemini": 926,
+   "gpt": 766
+  },
+  "dijkstra": {
+   "chars": 1931,
+   "lines": 68,
+   "claude55": 846,
+   "claude45": 692,
+   "gemini": 691,
+   "gpt": 577
+  },
+  "claude55": 1933,
+  "claude45": 1626,
+  "gemini": 1617,
+  "gpt": 1343,
+  "chars": 4793,
+  "lines": 172,
+  "claude55_vs_python": 64,
+  "claude45_vs_python": 68,
+  "gemini_vs_python": 68,
+  "gpt_vs_python": 66,
+  "claude55_vs_gpt": 44
+ },
+ {
+  "language": "go",
+  "name": "Go",
+  "inventory": {
+   "chars": 2193,
+   "lines": 103,
+   "claude55": 1057,
+   "claude45": 849,
+   "gemini": 818,
+   "gpt": 651
+  },
+  "dijkstra": {
+   "chars": 2099,
+   "lines": 96,
+   "claude55": 1086,
+   "claude45": 900,
+   "gemini": 883,
+   "gpt": 708
+  },
+  "claude55": 2143,
+  "claude45": 1749,
+  "gemini": 1701,
+  "gpt": 1359,
+  "chars": 4292,
+  "lines": 199,
+  "claude55_vs_python": 82,
+  "claude45_vs_python": 80,
+  "gemini_vs_python": 77,
+  "gpt_vs_python": 68,
+  "claude55_vs_gpt": 58
+ },
+ {
+  "language": "c",
+  "name": "C",
+  "inventory": {
+   "chars": 3135,
+   "lines": 115,
+   "claude55": 1388,
+   "claude45": 1152,
+   "gemini": 1126,
+   "gpt": 940
+  },
+  "dijkstra": {
+   "chars": 1708,
+   "lines": 62,
+   "claude55": 831,
+   "claude45": 707,
+   "gemini": 694,
+   "gpt": 596
+  },
+  "claude55": 2219,
+  "claude45": 1859,
+  "gemini": 1820,
+  "gpt": 1536,
+  "chars": 4843,
+  "lines": 177,
+  "claude55_vs_python": 89,
+  "claude45_vs_python": 92,
+  "gemini_vs_python": 89,
+  "gpt_vs_python": 90,
+  "claude55_vs_gpt": 44
+ }
+]

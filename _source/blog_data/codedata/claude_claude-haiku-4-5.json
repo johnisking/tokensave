@@ -1,0 +1,23 @@
+{
+ "base": 11405,
+ "python|inventory": 522,
+ "python|dijkstra": 448,
+ "javascript|inventory": 616,
+ "javascript|dijkstra": 583,
+ "typescript|inventory": 632,
+ "typescript|dijkstra": 679,
+ "java|inventory": 780,
+ "java|dijkstra": 771,
+ "go|inventory": 849,
+ "go|dijkstra": 900,
+ "rust|inventory": 800,
+ "rust|dijkstra": 652,
+ "cpp|inventory": 934,
+ "cpp|dijkstra": 692,
+ "c|inventory": 1152,
+ "c|dijkstra": 707,
+ "php|inventory": 705,
+ "php|dijkstra": 606,
+ "ruby|inventory": 503,
+ "ruby|dijkstra": 458
+}
