@@ -54,6 +54,7 @@ def write_files(dist):
     write_pdf_files(dist)
     write_eff_files(dist)
     write_agt_files(dist)
+    write_ags_files(dist)
 
 
 def _write_lang_files(dist):
@@ -207,6 +208,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{AGT_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(AGT_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">Startup tokens, MCP tool overhead and the same coding task: Codex used about half the tokens of Claude Code. CSV · measured {AGT_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{AGS_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(AGS_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">Four kinds of question with web search on: tokens, searches, time and the sites seen and cited. CSV · measured {AGS_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -1168,3 +1172,121 @@ def agt_html():
       </ul>
 ''' + _page_tail(agt_citation(), _embed(AGT_PATH, AGT_CHART, "Startup input tokens and the same coding task on Claude Code and Codex", "Claude Code vs Codex tokens"),
                  [(EFF_PATH, "Claude effort levels: tokens, time and cost"), (PDF_PATH, "PDF token cost, including Codex and Cursor"), ("/claude-code-usage", "Check your own Claude Code and Codex usage")])
+
+
+# ---- Dataset 9: web search in Claude Code and Codex (measured 2026-10-18) ----
+AGS_PATH = "/data/ai-agent-web-search-tokens"
+AGS_MEASURED = "2026-10-18"
+AGS_CHART = "/ai-agent-web-search-tokens-chart.png"
+AGS_TITLE = "Web search in Claude Code and Codex: tokens, searches and sources per question"
+AGS_DESC = ("Dataset: four kinds of question asked with web search on in Claude Code and Codex, two runs each: input and output tokens, number of searches and page opens, "
+            "time, the sites seen in results and the sites cited in the answer, plus the same questions with no tools. Free CSV, CC BY 4.0.")
+AGS_TOOLS = [("claude_code", "Claude Code (Opus 5.5)"), ("codex", "Codex (gpt-6-luna)")]
+AGS_QS = ["q1_fact", "q2_news", "q3_compare", "q4_geo"]
+
+
+def _ags():
+    return json.load(open(os.path.join(ROOT, "blog_data", "agentsearch", "combined.json"), encoding="utf-8"))
+
+
+def _ags_avg(d, tool, q, search):
+    rs = [r for r in d["rows"] if r["tool"] == tool and r["question"] == q and r["search"].startswith(search)]
+    a = lambda f: round(sum(r[f] for r in rs) / len(rs))
+    seen = {}
+    for r in rs:
+        for i, dm in enumerate(r["domains_seen_top"]):
+            seen[dm] = seen.get(dm, 0) + (8 - i)
+    cited = sorted({c for r in rs for c in r["domains_cited"]})
+    return dict(input=a("input_tokens"), output=a("output_tokens"), helper=a("helper_model_input_tokens"), searches=sum(r["searches"] for r in rs) / len(rs),
+                opens=sum(r["page_opens"] for r in rs) / len(rs), seconds=a("seconds"), seen_n=a("domains_seen_count"),
+                seen_top=[k for k, _ in sorted(seen.items(), key=lambda kv: -kv[1])[:3]], cited=cited, runs=rs)
+
+
+def ags_citation():
+    return f"TokenSave (2026). {AGS_TITLE} [Data set]. {BASE}{AGS_PATH}"
+
+
+def write_ags_files(dist):
+    d = _ags()
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(["tool", "question", "question_type", "search", "run", "input_tokens", "output_tokens", "helper_model_input_tokens", "searches", "page_opens", "seconds",
+                "domains_seen_count", "domains_seen_top", "domains_cited"])
+    for r in d["rows"]:
+        w.writerow([r["tool"], r["question"], r["question_type"], r["search"], r["run"], r["input_tokens"], r["output_tokens"], r["helper_model_input_tokens"],
+                    r["searches"], r["page_opens"], r["seconds"], r["domains_seen_count"], " ".join(r["domains_seen_top"]), " ".join(r["domains_cited"])])
+    open(os.path.join(dist, "data", "ai-agent-web-search-tokens.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=AGS_TITLE, url=BASE + AGS_PATH, license="CC BY 4.0", measured=AGS_MEASURED, citation=ags_citation(), questions=d["questions"], rows=d["rows"])
+    open(os.path.join(dist, "data", "ai-agent-web-search-tokens.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def ags_ld():
+    return _dataset_ld(AGS_TITLE, AGS_DESC, AGS_PATH, AGS_MEASURED,
+                       ["AI web search tokens", "Claude Code web search", "Codex web search", "search cost", "AI citations", "GEO"],
+                       ["input tokens per question", "output tokens", "web searches", "page opens", "time (seconds)", "domains seen", "domains cited"],
+                       "Claude Code and Codex CLI on the same Windows machine at medium effort; four English questions, web search on and all tools off, two runs each",
+                       AGS_CHART, [("ai-agent-web-search-tokens.csv", "text/csv"), ("ai-agent-web-search-tokens.json", "application/json")])
+
+
+def ags_html():
+    d = _ags()
+    qs = d["questions"]
+    A = {(t, q, s): _ags_avg(d, t, q, s) for t, _ in AGS_TOOLS for q in AGS_QS for s in ["on", "off"]}
+    pct = lambda a, b: round((a / b - 1) * 100)
+    fmt1 = lambda x: f"{x:g}"
+    cc1, cx1 = A[("claude_code", "q1_fact", "on")], A[("codex", "q1_fact", "on")]
+    cx_up = [pct(A[("codex", q, "on")]["input"], A[("codex", q, "off")]["input"]) for q in AGS_QS]
+    cc_all = [A[("claude_code", q, "on")]["input"] for q in AGS_QS]
+    cx_all = [A[("codex", q, "on")]["input"] for q in AGS_QS]
+    helper_share = [round(A[("claude_code", q, "on")]["helper"] / A[("claude_code", q, "on")]["input"] * 100) for q in AGS_QS]
+    trs = "\n".join(
+        f'          <tr><td>{esc(qs[q]["type"])}</td><td>{esc(dict(AGS_TOOLS)[t])}</td>'
+        f'<td class="text-right tabular-nums">{A[(t, q, "on")]["input"]:,}</td><td class="text-right tabular-nums">{A[(t, q, "on")]["output"]:,}</td>'
+        f'<td class="text-right tabular-nums">{fmt1(A[(t, q, "on")]["searches"])} / {fmt1(A[(t, q, "on")]["opens"])}</td>'
+        f'<td class="text-right tabular-nums">{A[(t, q, "on")]["seconds"]} s</td><td class="text-right tabular-nums">{A[(t, q, "off")]["input"]:,}</td></tr>'
+        for q in AGS_QS for t, _ in AGS_TOOLS)
+    head = ['<th>Question</th>', '<th>Tool</th>', '<th class="text-right">Input tokens</th>', '<th class="text-right">Output tokens</th>',
+            '<th class="text-right">Searches / page opens</th>', '<th class="text-right">Time</th>', '<th class="text-right">Input, no tools</th>']
+    srs = "\n".join(
+        f'          <tr><td>{esc(qs[q]["type"])}<br><span class="text-zinc-500">{esc(dict(AGS_TOOLS)[t].split(" (")[0])}</span></td><td class="text-right tabular-nums">{A[(t, q, "on")]["seen_n"]}</td>'
+        f'<td style="white-space:normal;min-width:10rem">{esc(", ".join(A[(t, q, "on")]["seen_top"]))}</td><td style="white-space:normal;min-width:10rem">{esc(", ".join(A[(t, q, "on")]["cited"]))}</td></tr>'
+        for q in AGS_QS for t, _ in AGS_TOOLS)
+    shead = ['<th>Question · tool</th>', '<th class="text-right">Sites seen</th>', '<th>Most seen in results</th>', '<th>Cited in the answer</th>']
+    qlist = "\n".join(f'        <li><strong>{esc(qs[q]["type"])}:</strong> &ldquo;{esc(qs[q]["prompt"])}&rdquo;</li>' for q in AGS_QS)
+    return _head("How many tokens does an AI web search cost? Claude Code vs Codex",
+                 f'<strong>With web search on, a one-line fact question cost {cc1["input"]:,} input tokens in Claude Code and {cx1["input"]:,} in Codex.</strong> Across four kinds of question Claude Code used {min(cc_all):,} to {max(cc_all):,} input tokens and Codex {min(cx_all):,} to {max(cx_all):,}.',
+                 f'Measured {AGS_MEASURED} · 4 questions · search on, 2 runs each · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{AGT_PATH}">Claude Code vs Codex startup tokens</a>',
+                 [("ai-agent-web-search-tokens.csv", "CSV"), ("ai-agent-web-search-tokens.json", "JSON")],
+                 AGS_CHART, "Input tokens per question with web search on, Claude Code vs Codex") + f'''      <h2>Key findings</h2>
+      <ul>
+        <li><strong>Search is the expensive part of an answer.</strong> With every tool off, the same questions cost Codex {min(A[("codex", q, "off")]["input"] for q in AGS_QS):,} to {max(A[("codex", q, "off")]["input"] for q in AGS_QS):,} input tokens; turning search on added {min(cx_up)}% to {max(cx_up)}%.</li>
+        <li><strong>Claude Code runs a second model for the web.</strong> During searches and page reads a smaller Claude model (Haiku) processed the results; that helper accounted for {min(helper_share)}% to {max(helper_share)}% of Claude Code&rsquo;s input tokens.</li>
+        <li><strong>Research-style questions cost the most.</strong> The tokenizer question took Claude Code {A[("claude_code", "q4_geo", "on")]["input"]:,} input tokens on average with {fmt1(A[("claude_code", "q4_geo", "on")]["searches"])} searches and {fmt1(A[("claude_code", "q4_geo", "on")]["opens"])} page opens.</li>
+        <li><strong>Different tools look at different web.</strong> For the news question Codex&rsquo;s results were led by {esc(A[("codex", "q2_news", "on")]["seen_top"][0])} and Claude Code&rsquo;s by {esc(A[("claude_code", "q2_news", "on")]["seen_top"][0])}, and the two cited almost no sources in common. For prices both cited only the official pages.</li>
+        <li><strong>Without search both tools declined the news question</strong> instead of guessing. On the price question Claude Code said it was answering from memory; Codex named the pricing page as its source although it had not opened it.</li>
+        <li><strong>Turning search off is not simple.</strong> With only the search tool blocked, Claude Code fetched pages with shell commands and Codex used other built-in tools to reach the web; we had to switch off every tool for the no-search runs.</li>
+      </ul>
+      <h2>Tokens and searches per question</h2>
+      <p class="text-sm text-zinc-400">Averages of two runs with web search on. The last column is the same question with all tools switched off, for reference.</p>
+{_table(head, trs)}      <h2>Sites seen and cited</h2>
+      <p class="text-sm text-zinc-400">Unique sites in the search results and fetched pages (average per run), the sites that came up most, and every site cited in the final answers.</p>
+{_table(shead, srs)}      <h2>Questions</h2>
+      <ul>
+{qlist}
+      </ul>
+      <h2>Method</h2>
+      <ul>
+        <li>Both tools on the same Windows laptop, effort medium, each run in its own empty folder, prompts sent through standard input.</li>
+        <li><strong>Claude Code 2.1.295</strong> (Opus 5.5, Max plan): <code>claude -p --output-format stream-json --verbose --allowedTools WebSearch WebFetch</code> with no MCP servers. Input tokens are summed over every model in the run, including the helper model that reads fetched pages.</li>
+        <li><strong>Codex CLI 0.162</strong> (gpt-6-luna, ChatGPT plan): <code>codex --search exec --json</code>. Searches and page opens are the web-search items in the log.</li>
+        <li><strong>No tools:</strong> Claude Code with <code>--tools ""</code>; Codex with <code>-c web_search="disabled"</code> and apps, plugins, in-app browser and skill search disabled.</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>Four English questions, two runs each, on one day; search results change over time, and runs varied (Claude Code&rsquo;s two research runs differed by {abs(pct(A[("claude_code", "q4_geo", "on")]["runs"][0]["input_tokens"], A[("claude_code", "q4_geo", "on")]["runs"][1]["input_tokens"]))}%).</li>
+        <li>Default models and per-token prices differ, and most Claude Code input is cached, so token counts are not costs.</li>
+        <li>&ldquo;No tools&rdquo; removes Claude Code&rsquo;s built-in tool definitions as well as search, so it is a lower bound, not the cost of search alone.</li>
+        <li>Other languages will be covered in a separate dataset; Cursor will be added later.</li>
+      </ul>
+''' + _page_tail(ags_citation(), _embed(AGS_PATH, AGS_CHART, "Input tokens per question with web search on, Claude Code vs Codex", "AI web search tokens"),
+                 [(AGT_PATH, "Claude Code vs Codex: startup tokens and the same coding task"), (PDF_PATH, "PDF token cost per page"), ("/claude-code-usage", "Check your own Claude Code and Codex usage")])
