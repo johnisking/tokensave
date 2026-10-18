@@ -11,7 +11,7 @@
   "gpt6_high": "gpt-6-astra, detail high (2,500-patch budget), computed",
   "gpt55_auto": "gpt-5.5, detail auto/original (10,000-patch budget), computed"
  },
- "citation": "TokenSave (2026). Image input token cost by resolution: Claude vs Gemini vs GPT [Data set]. https://tokensave.app/data/image-token-cost",
+ "citation": "TokenSave (2026). Image input token cost by resolution: Claude vs Gemini vs GPT [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23443906",
  "rows": [
   {
    "size": "256x256",
