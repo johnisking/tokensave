@@ -50,6 +50,9 @@ def write_files(dist):
     write_multi_files(dist)
     write_fmt_files(dist)
     write_img_files(dist)
+    write_code_files(dist)
+    write_pdf_files(dist)
+    write_eff_files(dist)
 
 
 def _write_lang_files(dist):
@@ -191,6 +194,15 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{IMG_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(IMG_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">One image at 10 resolutions on Claude, Gemini and GPT: Gemini charges a flat ~1,100 tokens, GPT-6 Astra up to 14,364. CSV · measured {IMG_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{CODE_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(CODE_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">The same two programs in 10 programming languages: C needs 90% more GPT tokens than Python. CSV · measured {CODE_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{PDF_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(PDF_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">PDF pages on Claude and Gemini vs pasting the text: Gemini charges a flat 560 tokens per page. CSV · measured {PDF_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{EFF_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(EFF_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">One coding task at every Claude effort level: $0.56 at medium, $5.25 at max. CSV · measured {EFF_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -651,3 +663,332 @@ def img_html():
       <p class="text-sm text-zinc-400">Questions or corrections: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>
 {COPY_JS}'''
+
+
+def _dataset_ld(title, desc, path, measured, keywords, measured_vars, technique, chart, files):
+    return {"@context": "https://schema.org", "@graph": [
+        {"@type": "Dataset", "name": title, "description": desc, "url": BASE + path,
+         "license": LICENSE, "isAccessibleForFree": True,
+         "creator": {"@type": "Organization", "name": "TokenSave", "url": BASE + "/"},
+         "datePublished": measured, "keywords": keywords, "variableMeasured": measured_vars,
+         "measurementTechnique": technique, "image": BASE + chart,
+         "distribution": [{"@type": "DataDownload", "encodingFormat": t, "contentUrl": BASE + "/data/" + f} for f, t in files]},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Data", "item": BASE + "/data/"},
+            {"@type": "ListItem", "position": 3, "name": title, "item": BASE + path}]}]}
+
+
+def _page_tail(citation, embed, related):
+    rel = "\n".join(f'        <li><a href="{u}">{esc(t)}</a></li>' for u, t in related)
+    return f'''      <h2 id="cite">How to cite</h2>
+      <p>Free to use, quote and republish with attribution under <a href="{LICENSE}">CC BY 4.0</a>. Please link to this page.</p>
+      <div class="not-prose bg-zinc-950/70 border border-zinc-800 rounded-xl p-4">
+        <p id="cite-text" class="text-sm text-zinc-200 break-words">{esc(citation)}</p>
+        <div class="mt-3"><button type="button" data-copy="cite-text" {BTN}>Copy citation</button></div>
+      </div>
+      <h3>Embed the chart</h3>
+      <div class="not-prose">
+        <textarea id="embed-code" readonly rows="4" class="w-full text-xs font-mono bg-zinc-950/70 border border-zinc-800 rounded-xl p-3 text-zinc-300">{esc(embed)}</textarea>
+        <div class="mt-2"><button type="button" data-copy="embed-code" {BTN}>Copy embed code</button></div>
+      </div>
+      <h2>Related</h2>
+      <ul>
+{rel}
+      </ul>
+      <p class="text-sm text-zinc-400">Questions or corrections: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
+    </article>
+{COPY_JS}'''
+
+
+def _embed(path, chart, alt, label):
+    return (f'<a href="{BASE}{path}"><img src="{BASE}{chart}" alt="{alt} (TokenSave)" width="1200" loading="lazy"></a>\n'
+            f'<p>Source: <a href="{BASE}{path}">TokenSave, {label}</a> (CC BY 4.0)</p>')
+
+
+def _head(title_h1, lead, meta, downloads, chart, chart_alt):
+    btns = "\n".join(f'        <a href="/data/{f}" {BTN} style="text-decoration:none">⬇ {lab}</a>' for f, lab in downloads)
+    return f'''    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <p class="not-prose text-xs font-semibold uppercase tracking-wider text-violet-300"><a href="/data/" class="no-underline" style="text-decoration:none">TokenSave Data</a> · Dataset</p>
+      <h1 class="text-3xl font-extrabold text-white">{title_h1}</h1>
+      <p class="mt-3 text-lg text-zinc-200">{lead}</p>
+      <p class="text-sm text-zinc-400">{meta}</p>
+      <div class="not-prose flex flex-wrap gap-2 my-4">
+{btns}
+        <a href="#cite" {BTN} style="text-decoration:none">How to cite</a>
+      </div>
+      <img src="{chart}" alt="{chart_alt}" width="1200" loading="lazy">
+'''
+
+
+def _table(head_cells, rows_html):
+    head = "".join(head_cells)
+    return f'''      <div class="overflow-x-auto">
+        <table>
+          <thead><tr>{head}</tr></thead>
+          <tbody>
+{rows_html}
+          </tbody>
+        </table>
+      </div>
+'''
+
+
+# ---- Dataset 5: same programs in 10 programming languages (measured 2026-10-18) ----
+CODE_PATH = "/data/token-cost-by-programming-language"
+CODE_MEASURED = "2026-10-18"
+CODE_CHART = "/token-cost-by-programming-language-chart.png"
+CODE_TITLE = "Token cost by programming language: the same programs in 10 languages on Claude, Gemini and GPT"
+CODE_DESC = ("Dataset: two programs (an inventory class and Dijkstra's shortest path) written in Python, JavaScript, TypeScript, Java, Go, Rust, C++, C, PHP and Ruby "
+             "with identical output, counted on Claude 5.5, Claude Haiku 4.5, Gemini and GPT. C needs 90% more GPT tokens than Python. Free CSV, CC BY 4.0.")
+CODE_COLS = [("claude55", "Claude Opus/Sonnet 5.5"), ("claude45", "Claude Haiku 4.5"), ("gemini", "Gemini 3.x"), ("gpt", "GPT o200k")]
+
+
+def _code_rows():
+    return json.load(open(os.path.join(ROOT, "blog_data", "codedata", "combined.json"), encoding="utf-8"))
+
+
+def _code_files():
+    return json.load(open(os.path.join(ROOT, "blog_data", "codedata", "files.json"), encoding="utf-8"))
+
+
+def code_citation():
+    return f"TokenSave (2026). {CODE_TITLE} [Data set]. {BASE}{CODE_PATH}"
+
+
+def write_code_files(dist):
+    rows = _code_rows()
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    cols = [k for k, _ in CODE_COLS]
+    w.writerow(["language", "program", "characters", "lines"] + [f"{k}_tokens" for k in cols])
+    for r in rows:
+        for p in ["inventory", "dijkstra", "total"]:
+            src = r[p] if p != "total" else r
+            w.writerow([r["name"], p, src["chars"], src["lines"]] + [src[k] for k in cols])
+    open(os.path.join(dist, "data", "token-cost-by-programming-language.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=CODE_TITLE, url=BASE + CODE_PATH, license="CC BY 4.0", measured=CODE_MEASURED,
+                programs={"inventory": "Inventory class: add, restock, sell, low-stock list, total value, formatted report",
+                          "dijkstra": "Dijkstra's shortest path on a 6-node graph with path reconstruction"},
+                tokenizers={"claude55": "Claude Opus 5.5 / Sonnet 5.5 (identical counts)", "claude45": "Claude Haiku 4.5",
+                            "gemini": "Gemini 3.8 Flash", "gpt": "OpenAI o200k_base (GPT-4o and later)"},
+                citation=code_citation(), rows=rows, sources=_code_files())
+    open(os.path.join(dist, "data", "token-cost-by-programming-language.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def code_ld():
+    return _dataset_ld(CODE_TITLE, CODE_DESC, CODE_PATH, CODE_MEASURED,
+                       ["programming language tokens", "code tokens", "Python vs Java tokens", "LLM coding cost", "tokenizer", "Claude", "Gemini", "GPT"],
+                       ["tokens (Claude 5.5)", "tokens (Claude Haiku 4.5)", "tokens (Gemini 3.x)", "tokens (o200k_base)", "difference vs Python (%)"],
+                       "Same two programs in 10 languages with identical output; Claude from Claude Code usage minus a one-character baseline, Gemini from the Google AI Studio token counter, GPT with tiktoken",
+                       CODE_CHART, [("token-cost-by-programming-language.csv", "text/csv"), ("token-cost-by-programming-language.json", "application/json")])
+
+
+def code_html():
+    rows = _code_rows()
+    by = {r["language"]: r for r in rows}
+    py, c, go, js, ts, java = by["python"], by["c"], by["go"], by["javascript"], by["typescript"], by["java"]
+    vs = [r["claude55_vs_gpt"] for r in rows]
+    gem_vs_gpt = [round((r["gemini"] / r["gpt"] - 1) * 100) for r in rows]
+    most_chars = max(rows, key=lambda r: r["chars"])
+    trs = "\n".join(
+        f'          <tr><td>{esc(r["name"])}</td><td class="text-right tabular-nums">{r["lines"]}</td>' + "".join(
+            f'<td class="text-right tabular-nums">{r[k]:,} <span class="text-zinc-500">({_pct(r[k + "_vs_python"])})</span></td>' for k, _ in CODE_COLS) + "</tr>"
+        for r in rows)
+    head = ['<th>Language</th>', '<th class="text-right">Lines</th>'] + [f'<th class="text-right">{esc(n)}</th>' for _, n in CODE_COLS]
+    return _head("Python vs Java vs Go vs C: how many tokens the same code costs",
+                 f'<strong>The same two programs cost {py["gpt"]:,} GPT tokens in Python and {c["gpt"]:,} in C ({_pct(c["gpt_vs_python"])}).</strong> Python and Ruby were the cheapest languages on every tokenizer we tested; Go and C were the most expensive. Claude 5.5 needed {min(vs)}% to {max(vs)}% more tokens than GPT for the same code.',
+                 f'Measured {CODE_MEASURED} · 10 languages · 2 programs · 4 tokenizers · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{FMT_PATH}">token cost by data format</a>',
+                 [("token-cost-by-programming-language.csv", "CSV"), ("token-cost-by-programming-language.json", "JSON (with all 20 source files)")],
+                 CODE_CHART, "Tokens for the same two programs in 10 programming languages on Claude, Gemini and GPT") + f'''      <h2>Key findings</h2>
+      <ul>
+        <li><strong>Python and Ruby are the cheapest.</strong> Both programs together cost {py["gpt"]:,} GPT tokens in Python and {by["ruby"]["gpt"]:,} in Ruby. JavaScript needs {_pct(js["gpt_vs_python"])}, Java {_pct(java["gpt_vs_python"])}, Go {_pct(go["gpt_vs_python"])} and C {_pct(c["gpt_vs_python"])}.</li>
+        <li><strong>The ranking holds on every tokenizer.</strong> Python and Ruby stay at the top and Go and C at the bottom on Claude 5.5, Claude Haiku 4.5, Gemini and GPT alike.</li>
+        <li><strong>Claude 5.5 costs {min(vs)}% to {max(vs)}% more than GPT for the same code.</strong> The gap is largest for {esc(max(rows, key=lambda r: r["claude55_vs_gpt"])["name"])} ({_pct(max(vs))}). Gemini sits between them at {min(gem_vs_gpt)}% to {max(gem_vs_gpt)}% more than GPT.</li>
+        <li><strong>Types add tokens.</strong> TypeScript needs {round((ts["gpt"] / js["gpt"] - 1) * 100)}% more GPT tokens than the same JavaScript.</li>
+        <li><strong>File size is a rough guide only.</strong> {esc(most_chars["name"])} has the most characters ({most_chars["chars"]:,}), but Go and C need more tokens. Characters and lines do not map neatly onto tokens.</li>
+      </ul>
+      <h2>All 10 languages</h2>
+      <p class="text-sm text-zinc-400">Tokens for both programs together, with the difference versus Python on the same tokenizer in brackets. Per-program counts are in the CSV.</p>
+{_table(head, trs)}      <h2>Method</h2>
+      <ul>
+        <li>Two programs written in each language: an inventory class (add, restock, sell, a low-stock list, total value and a formatted report) and Dijkstra's shortest path on a 6-node graph with path reconstruction. Every version was compiled or run and printed exactly the same output as the Python version.</li>
+        <li>Code is idiomatic for each language with no comments: for example Java uses <code>PriorityQueue</code>, Go uses <code>container/heap</code>, and C uses a simple array scan instead of a heap. All 20 source files are in the JSON download.</li>
+        <li><strong>Claude:</strong> each file sent through Claude Code (<code>claude -p</code>) with a fixed one-line system prompt; reported input tokens minus the same run with a one-character message. Opus 5.5 and Sonnet 5.5 gave identical counts, and a re-run gave identical counts.</li>
+        <li><strong>Gemini:</strong> Google AI Studio prompt token counter on Gemini 3.8 Flash, minus its one start token. Four files were measured twice with identical results.</li>
+        <li><strong>GPT:</strong> <a href="https://github.com/openai/tiktoken">tiktoken</a> with <code>o200k_base</code>.</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>Two small programs. Real projects with comments, long names or heavy boilerplate can shift the numbers; the ranking is more stable than the exact percentages.</li>
+        <li>Style matters: the same language written more tersely or more verbosely will cost a different number of tokens.</li>
+        <li>Input tokens only; it does not measure how well each model writes or understands each language.</li>
+      </ul>
+''' + _page_tail(code_citation(), _embed(CODE_PATH, CODE_CHART, "Tokens for the same code in 10 programming languages on Claude, Gemini and GPT", "token cost by programming language"),
+                 [(FMT_PATH, "Token cost by data format (JSON vs CSV vs TOON)"), (MULTI_PATH, "Token cost by language on Claude, Gemini and GPT"), ("/", "Count tokens for your own code")])
+
+
+# ---- Dataset 6: PDF pages vs pasted text (measured 2026-10-18) ----
+PDF_PATH = "/data/pdf-token-cost"
+PDF_MEASURED = "2026-10-18"
+PDF_CHART = "/pdf-token-cost-chart.png"
+PDF_TITLE = "PDF token cost per page: Claude vs Gemini, and PDF vs pasted text"
+PDF_DESC = ("Dataset: input tokens for PDF pages (text, table and scanned) on Claude Opus/Sonnet 5.5, Claude Haiku 4.5 and Gemini, compared with pasting the same content as text. "
+            "Gemini charges a flat 560 tokens per page; a text page costs 2,347 tokens as a PDF on Claude 5.5 but 728 pasted. Free CSV, CC BY 4.0.")
+
+
+def _pdf_rows():
+    return json.load(open(os.path.join(ROOT, "blog_data", "pdfdata", "combined.json"), encoding="utf-8"))
+
+
+def pdf_citation():
+    return f"TokenSave (2026). {PDF_TITLE} [Data set]. {BASE}{PDF_PATH}"
+
+
+def write_pdf_files(dist):
+    rows = _pdf_rows()
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(["input", "label", "kind", "pages", "claude55_tokens", "claude45_tokens", "gemini_tokens", "gpt_tokens", "claude55_per_page", "claude45_per_page", "gemini_per_page"])
+    for r in rows:
+        w.writerow([r["input"], r["label"], r["kind"], r["pages"], r["claude55"], r["claude45"], r["gemini"], "" if r["gpt"] is None else r["gpt"],
+                    r["claude55_per_page"], r["claude45_per_page"], r["gemini_per_page"]])
+    open(os.path.join(dist, "data", "pdf-token-cost.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    plain = json.load(open(os.path.join(ROOT, "blog_data", "pdfdata", "plain.json"), encoding="utf-8"))
+    meta = dict(title=PDF_TITLE, url=BASE + PDF_PATH, license="CC BY 4.0", measured=PDF_MEASURED,
+                tokenizers={"claude55": "Claude Opus 5.5 / Sonnet 5.5 (identical counts)", "claude45": "Claude Haiku 4.5",
+                            "gemini": "Gemini 3.8 Flash (AI Studio)", "gpt": "OpenAI o200k_base, pasted text only"},
+                citation=pdf_citation(), rows=rows, pasted_text=plain)
+    open(os.path.join(dist, "data", "pdf-token-cost.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def pdf_ld():
+    return _dataset_ld(PDF_TITLE, PDF_DESC, PDF_PATH, PDF_MEASURED,
+                       ["PDF tokens", "tokens per page", "Claude PDF", "Gemini PDF", "document input cost", "LLM cost"],
+                       ["tokens per PDF page (Claude 5.5)", "tokens per PDF page (Claude Haiku 4.5)", "tokens per PDF page (Gemini 3.x)", "tokens for the same content as text"],
+                       "A4 PDFs (text, table, scanned image; 1, 5 and 10 pages) sent to Claude Code as document blocks and uploaded to Google AI Studio; the same content pasted as text for comparison",
+                       PDF_CHART, [("pdf-token-cost.csv", "text/csv"), ("pdf-token-cost.json", "application/json")])
+
+
+def pdf_html():
+    by = {r["input"]: r for r in _pdf_rows()}
+    t1, t10, tab, scan, ptxt, ptab = by["text_1p"], by["text_10p"], by["table_1p"], by["scan_1p"], by["text_page_plain"], by["table_plain"]
+    pct = lambda a, b: round((a / b - 1) * 100)
+    cols = [("claude55", "Claude Opus/Sonnet 5.5"), ("claude45", "Claude Haiku 4.5"), ("gemini", "Gemini 3.x"), ("gpt", "GPT o200k")]
+    trs = "\n".join(
+        f'          <tr><td>{esc(r["label"])}</td>' + "".join(
+            f'<td class="text-right tabular-nums">{"–" if r[k] is None else format(r[k], ",")}</td>' for k, _ in cols) + "</tr>"
+        for r in _pdf_rows())
+    head = ['<th>Input</th>'] + [f'<th class="text-right">{esc(n)}</th>' for _, n in cols]
+    return _head("How many tokens is a PDF page? Claude vs Gemini",
+                 f'<strong>One page of text costs {t1["claude55"]:,} tokens as a PDF on Claude 5.5 but {ptxt["claude55"]:,} when the same text is pasted ({_pct(pct(t1["claude55"], ptxt["claude55"]))}).</strong> Gemini charges a flat {t10["gemini_per_page"]} tokens per PDF page whatever is on it, so the same page costs {abs(pct(t1["gemini"], t1["claude55"]))}% less there.',
+                 f'Measured {PDF_MEASURED} · text, table and scanned pages · 1 to 10 pages · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{IMG_PATH}">image token cost</a>',
+                 [("pdf-token-cost.csv", "CSV"), ("pdf-token-cost.json", "JSON")],
+                 PDF_CHART, "Input tokens for one page as a PDF or as pasted text on Claude, Gemini and GPT") + f'''      <h2>Key findings</h2>
+      <ul>
+        <li><strong>Claude reads every PDF page twice: as text and as an image.</strong> A text page costs {t1["claude55"]:,} tokens on Claude 5.5. A scanned page with no text layer costs {scan["claude55"]:,}, which is the image part alone; the rest is the extracted text.</li>
+        <li><strong>Pasting text is much cheaper on Claude.</strong> The same page pasted as text costs {ptxt["claude55"]:,} tokens on Claude 5.5, {abs(pct(ptxt["claude55"], t1["claude55"]))}% less than the PDF. If you only need the words, copy them out.</li>
+        <li><strong>Gemini charges a flat rate per page.</strong> Text, table and scanned pages all cost {t1["gemini"]:,} tokens, and 10 pages cost {t10["gemini"]:,}, so about {t10["gemini_per_page"]} per page.</li>
+        <li><strong>On Gemini a PDF can beat pasting.</strong> Our table page costs {tab["gemini"]:,} tokens as a PDF but {ptab["gemini"]:,} pasted as CSV ({abs(pct(tab["gemini"], ptab["gemini"]))}% less as a PDF). For dense pages Gemini's flat rate is cheaper than the text itself.</li>
+        <li><strong>Cost grows in a straight line with pages.</strong> 10 text pages cost {t10["claude55"]:,} tokens on Claude 5.5 (about {t10["claude55_per_page"]:,} per page) and {t10["claude45"]:,} on Claude Haiku 4.5.</li>
+      </ul>
+      <h2>All inputs</h2>
+      <p class="text-sm text-zinc-400">Input tokens. GPT is shown for pasted text only (see method).</p>
+{_table(head, trs)}      <h2>Method</h2>
+      <ul>
+        <li>A4 PDFs made with ReportLab: one page of English prose (about 420 words), the same page repeated to 5 and 10 pages, a page with a 35-row table, and a scanned version of the text page (rendered at 150 dpi and placed as an image with no text layer).</li>
+        <li><strong>Claude:</strong> each PDF sent through Claude Code (<code>claude -p</code>, stream-json input) as a document block with a one-character message; input tokens minus the same run without the PDF. Opus 5.5 and Sonnet 5.5 gave identical counts.</li>
+        <li><strong>Gemini:</strong> per-file token count shown by Google AI Studio for Gemini 3.8 Flash after uploading each PDF. Pasted text was measured with the prompt counter minus its one start token.</li>
+        <li><strong>GPT:</strong> OpenAI bills PDF input as extracted text plus an image of each page, which we could not reproduce without the API, so GPT appears only for pasted text (tiktoken, <code>o200k_base</code>).</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>One page design. Pages with more text, small fonts or many images will cost more on Claude; Gemini's per-page rate should stay flat.</li>
+        <li>Default settings; Gemini's media resolution option changes its per-page count.</li>
+        <li>Input tokens only; the price per token differs by model.</li>
+      </ul>
+''' + _page_tail(pdf_citation(), _embed(PDF_PATH, PDF_CHART, "Input tokens for one PDF page on Claude and Gemini, and the same page pasted as text", "PDF token cost per page"),
+                 [(IMG_PATH, "Image input token cost by resolution"), (FMT_PATH, "Token cost by data format"), ("/", "Count tokens for your own text")])
+
+
+# ---- Dataset 7: Claude effort levels (measured 2026-10-09) ----
+EFF_PATH = "/data/claude-effort-cost"
+EFF_MEASURED = "2026-10-09"
+EFF_CHART = "/claude-effort-cost-chart.png"
+EFF_TITLE = "Claude effort levels: tokens, time and cost for the same coding task"
+EFF_DESC = ("Dataset: the same coding prompt run in Claude Code at every effort level of Claude Opus 5.5 (low to max) and at medium and high on Sonnet 5.5, "
+            "with time, output tokens, total tokens, API-equivalent cost and lines of code. Max used 160,033 output tokens and $5.25 against 6,299 and $0.56 at medium. Free CSV, CC BY 4.0.")
+
+
+def _eff():
+    return json.load(open(os.path.join(ROOT, "blog_data", "effortdata", "combined.json"), encoding="utf-8"))
+
+
+def eff_citation():
+    return f"TokenSave (2026). {EFF_TITLE} [Data set]. {BASE}{EFF_PATH}"
+
+
+def write_eff_files(dist):
+    d = _eff()
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(["model", "effort", "seconds", "output_tokens", "total_tokens", "cost_usd", "code_lines"])
+    for r in d["rows"]:
+        w.writerow([r["model"], r["effort"], r["seconds"], r["output_tokens"], r["total_tokens"], f'{r["cost_usd"]:.2f}', r["code_lines"]])
+    open(os.path.join(dist, "data", "claude-effort-cost.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=EFF_TITLE, url=BASE + EFF_PATH, license="CC BY 4.0", measured=EFF_MEASURED, tool=d["tool"], prompt=d["prompt"],
+                citation=eff_citation(), rows=d["rows"])
+    open(os.path.join(dist, "data", "claude-effort-cost.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def eff_ld():
+    return _dataset_ld(EFF_TITLE, EFF_DESC, EFF_PATH, EFF_MEASURED,
+                       ["Claude effort", "reasoning effort", "thinking tokens", "Claude Opus 5.5 cost", "Claude Code cost", "LLM cost"],
+                       ["time (seconds)", "output tokens", "total tokens", "cost (USD, API prices)", "lines of code"],
+                       "Same prompt run once per effort level in Claude Code; tokens and cost from ccusage at API prices, time from start and end timestamps",
+                       EFF_CHART, [("claude-effort-cost.csv", "text/csv"), ("claude-effort-cost.json", "application/json")])
+
+
+def _dur(s):
+    return f"{s} s" if s < 60 else f"{s // 60} min {s % 60} s"
+
+
+def eff_html():
+    d = _eff()
+    by = {(r["model_name"], r["effort"]): r for r in d["rows"]}
+    lo, me, hi, xh, mx = (by[("Opus 5.5", k)] for k in ["low", "medium", "high", "xhigh", "max"])
+    sme, shi = by[("Sonnet 5.5", "medium")], by[("Sonnet 5.5", "high")]
+    pct = lambda a, b: round((a / b - 1) * 100)
+    trs = "\n".join(
+        f'          <tr><td>{esc(r["model_name"])} · {esc(r["effort"])}</td><td class="text-right tabular-nums">{_dur(r["seconds"])}</td>'
+        f'<td class="text-right tabular-nums">{r["output_tokens"]:,}</td><td class="text-right tabular-nums">{r["total_tokens"]:,}</td>'
+        f'<td class="text-right tabular-nums">${r["cost_usd"]:.2f}</td><td class="text-right tabular-nums">{r["code_lines"]:,}</td></tr>'
+        for r in d["rows"])
+    head = ['<th>Model · effort</th>', '<th class="text-right">Time</th>', '<th class="text-right">Output tokens</th>', '<th class="text-right">Total tokens</th>', '<th class="text-right">Cost</th>', '<th class="text-right">Lines of code</th>']
+    return _head("Claude effort levels: what low, medium, high, xhigh and max cost",
+                 f'<strong>The same coding task used {me["output_tokens"]:,} output tokens and ${me["cost_usd"]:.2f} at medium effort on Claude Opus 5.5, and {mx["output_tokens"]:,} tokens and ${mx["cost_usd"]:.2f} at max.</strong> High cost only {pct(hi["cost_usd"], me["cost_usd"])}% more than medium; the jump starts at xhigh.',
+                 f'Measured {EFF_MEASURED} · Opus 5.5 at 5 levels, Sonnet 5.5 at 2 · License <a href="{LICENSE}">CC BY 4.0</a> · Write-up: <a href="/blog/claude-opus-5-5-effort">Claude Opus 5.5 effort levels tested</a>',
+                 [("claude-effort-cost.csv", "CSV"), ("claude-effort-cost.json", "JSON")],
+                 EFF_CHART, "Output tokens and cost for the same task at each Claude effort level") + f'''      <h2>Key findings</h2>
+      <ul>
+        <li><strong>Low and medium are close.</strong> Low cost {abs(pct(lo["cost_usd"], me["cost_usd"]))}% less than medium (${lo["cost_usd"]:.2f} vs ${me["cost_usd"]:.2f}) and took {_dur(lo["seconds"])} instead of {_dur(me["seconds"])}, but built the plainest result.</li>
+        <li><strong>High is the best value step.</strong> Output tokens rose {pct(hi["output_tokens"], me["output_tokens"])}% ({me["output_tokens"]:,} to {hi["output_tokens"]:,}) but cost only {pct(hi["cost_usd"], me["cost_usd"])}% more, because most of each request is input that does not change.</li>
+        <li><strong>Costs jump from xhigh.</strong> xhigh cost {pct(xh["cost_usd"], me["cost_usd"])}% more than medium and max {pct(mx["cost_usd"], me["cost_usd"])}% more. Max used {mx["output_tokens"]:,} output tokens against {me["output_tokens"]:,} at medium and took {_dur(mx["seconds"])}.</li>
+        <li><strong>Sonnet 5.5 is cheaper per run, not just per token.</strong> At the same effort it used {abs(pct(sme["output_tokens"], me["output_tokens"]))}% fewer output tokens than Opus 5.5 and cost {abs(pct(sme["cost_usd"], me["cost_usd"]))}% less at medium and {abs(pct(shi["cost_usd"], hi["cost_usd"]))}% less at high.</li>
+      </ul>
+      <h2>All runs</h2>
+{_table(head, trs)}      <h2>Method</h2>
+      <ul>
+        <li>Prompt, word for word: “{esc(d["prompt"])}”</li>
+        <li>Run once per effort level in Claude Code (<code>claude -p --effort …</code>), each in its own empty folder.</li>
+        <li>Tokens and cost from <a href="https://github.com/ryoppippi/ccusage">ccusage</a> at API prices; time from start and end timestamps; lines counted in the finished <code>index.html</code>.</li>
+        <li>All seven games ran without errors and had every requested feature; screenshots and a review of each are in the <a href="/blog/claude-opus-5-5-effort">write-up</a>.</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>One run per level and one task. Runs vary, especially at high effort levels; treat the numbers as an order of magnitude, not a fixed price.</li>
+        <li>Costs are API-equivalent. On a Pro or Max plan the same runs use up your usage limit instead of money.</li>
+        <li>Max effort tried to run an automated test that needed permission, which added time.</li>
+      </ul>
+''' + _page_tail(eff_citation(), _embed(EFF_PATH, EFF_CHART, "Output tokens and cost for the same task at each Claude effort level", "Claude effort levels"),
+                 [("/blog/claude-opus-5-5-effort", "Claude Opus 5.5 effort levels tested (full write-up)"), ("/blog/claude-sonnet-5-5-vs-opus-5-5", "Sonnet 5.5 vs Opus 5.5"), ("/agents", "Coding agent cost calculator")])

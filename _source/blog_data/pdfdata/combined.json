@@ -1,0 +1,93 @@
+[
+ {
+  "input": "text_1p",
+  "label": "PDF, text, 1 page",
+  "kind": "pdf",
+  "pages": 1,
+  "claude55": 2347,
+  "claude45": 2115,
+  "gemini": 561,
+  "gpt": null,
+  "claude55_per_page": 2347,
+  "claude45_per_page": 2115,
+  "gemini_per_page": 561
+ },
+ {
+  "input": "text_5p",
+  "label": "PDF, text, 5 pages",
+  "kind": "pdf",
+  "pages": 5,
+  "claude55": 11631,
+  "claude45": 10499,
+  "gemini": 2801,
+  "gpt": null,
+  "claude55_per_page": 2326,
+  "claude45_per_page": 2100,
+  "gemini_per_page": 560
+ },
+ {
+  "input": "text_10p",
+  "label": "PDF, text, 10 pages",
+  "kind": "pdf",
+  "pages": 10,
+  "claude55": 23236,
+  "claude45": 20979,
+  "gemini": 5601,
+  "gpt": null,
+  "claude55_per_page": 2324,
+  "claude45_per_page": 2098,
+  "gemini_per_page": 560
+ },
+ {
+  "input": "table_1p",
+  "label": "PDF, table, 1 page",
+  "kind": "pdf",
+  "pages": 1,
+  "claude55": 2481,
+  "claude45": 2278,
+  "gemini": 561,
+  "gpt": null,
+  "claude55_per_page": 2481,
+  "claude45_per_page": 2278,
+  "gemini_per_page": 561
+ },
+ {
+  "input": "scan_1p",
+  "label": "PDF, scanned image, 1 page",
+  "kind": "pdf",
+  "pages": 1,
+  "claude55": 1600,
+  "claude45": 1592,
+  "gemini": 561,
+  "gpt": null,
+  "claude55_per_page": 1600,
+  "claude45_per_page": 1592,
+  "gemini_per_page": 561
+ },
+ {
+  "input": "text_page_plain",
+  "label": "Same page pasted as text",
+  "kind": "text",
+  "pages": 1,
+  "claude55": 728,
+  "claude45": 503,
+  "gemini": 455,
+  "gpt": 461,
+  "claude55_per_page": 728,
+  "claude45_per_page": 503,
+  "gemini_per_page": 455
+ },
+ {
+  "input": "table_plain",
+  "label": "Same table pasted as CSV text",
+  "kind": "text",
+  "pages": 1,
+  "claude55": 913,
+  "claude45": 720,
+  "gemini": 777,
+  "gpt": 629,
+  "claude55_per_page": 913,
+  "claude45_per_page": 720,
+  "gemini_per_page": 777
+ }
+]

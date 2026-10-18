@@ -1,0 +1,12 @@
+{
+ "pdf_chip_values": {
+  "text_1p": 561,
+  "text_5p": 2801,
+  "text_10p": 5601,
+  "table_1p": 561,
+  "scan_1p": 561,
+  "text_page_plain": 456,
+  "table_plain": 778
+ },
+ "note": "PDF values are the per-file token count AI Studio shows on the uploaded file; plain text values are the prompt counter minus its 1 start token"
+}
