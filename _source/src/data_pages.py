@@ -1178,6 +1178,11 @@ def agt_html():
 AGS_PATH = "/data/ai-agent-web-search-tokens"
 AGS_MEASURED = "2026-10-18"
 AGS_CHART = "/ai-agent-web-search-tokens-chart.png"
+AGS_DOI = "10.5281/zenodo.23449842"  # concept DOI
+AGS_MIRRORS = [("Zenodo", "https://zenodo.org/records/23449843"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/ai-agent-web-search-tokens"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/ai-web-search-tokens-claude-code-vs-codex"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/search")]
 AGS_TITLE = "Web search in Claude Code and Codex: tokens, searches and sources per question"
 AGS_DESC = ("Dataset: four kinds of question asked with web search on in Claude Code and Codex, two runs each: input and output tokens, number of searches and page opens, "
             "time, the sites seen in results and the sites cited in the answer, plus the same questions with no tools. Free CSV, CC BY 4.0.")
@@ -1203,7 +1208,7 @@ def _ags_avg(d, tool, q, search):
 
 
 def ags_citation():
-    return f"TokenSave (2026). {AGS_TITLE} [Data set]. {BASE}{AGS_PATH}"
+    return f"TokenSave (2026). {AGS_TITLE} [Data set]. Zenodo. https://doi.org/{AGS_DOI}"
 
 
 def write_ags_files(dist):
@@ -1225,7 +1230,7 @@ def ags_ld():
                        ["AI web search tokens", "Claude Code web search", "Codex web search", "search cost", "AI citations", "GEO"],
                        ["input tokens per question", "output tokens", "web searches", "page opens", "time (seconds)", "domains seen", "domains cited"],
                        "Claude Code and Codex CLI on the same Windows machine at medium effort; four English questions, web search on and all tools off, two runs each",
-                       AGS_CHART, [("ai-agent-web-search-tokens.csv", "text/csv"), ("ai-agent-web-search-tokens.json", "application/json")])
+                       AGS_CHART, [("ai-agent-web-search-tokens.csv", "text/csv"), ("ai-agent-web-search-tokens.json", "application/json")], doi=AGS_DOI, mirrors=AGS_MIRRORS)
 
 
 def ags_html():
@@ -1257,7 +1262,7 @@ def ags_html():
                  f'<strong>With web search on, a one-line fact question cost {cc1["input"]:,} input tokens in Claude Code and {cx1["input"]:,} in Codex.</strong> Across four kinds of question Claude Code used {min(cc_all):,} to {max(cc_all):,} input tokens and Codex {min(cx_all):,} to {max(cx_all):,}.',
                  f'Measured {AGS_MEASURED} · 4 questions · search on, 2 runs each · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{AGT_PATH}">Claude Code vs Codex startup tokens</a>',
                  [("ai-agent-web-search-tokens.csv", "CSV"), ("ai-agent-web-search-tokens.json", "JSON")],
-                 AGS_CHART, "Input tokens per question with web search on, Claude Code vs Codex") + f'''      <h2>Key findings</h2>
+                 AGS_CHART, "Input tokens per question with web search on, Claude Code vs Codex", doi=AGS_DOI, mirrors=AGS_MIRRORS) + f'''      <h2>Key findings</h2>
       <ul>
         <li><strong>Search is the expensive part of an answer.</strong> With every tool off, the same questions cost Codex {min(A[("codex", q, "off")]["input"] for q in AGS_QS):,} to {max(A[("codex", q, "off")]["input"] for q in AGS_QS):,} input tokens; turning search on added {min(cx_up)}% to {max(cx_up)}%.</li>
         <li><strong>Claude Code runs a second model for the web.</strong> During searches and page reads a smaller Claude model (Haiku) processed the results; that helper accounted for {min(helper_share)}% to {max(helper_share)}% of Claude Code&rsquo;s input tokens.</li>
