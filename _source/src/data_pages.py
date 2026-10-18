@@ -847,7 +847,7 @@ PDF_PATH = "/data/pdf-token-cost"
 PDF_MEASURED = "2026-10-18"
 PDF_CHART = "/pdf-token-cost-chart.png"
 PDF_DOI = "10.5281/zenodo.23446565"  # concept DOI
-PDF_MIRRORS = [("Zenodo", "https://zenodo.org/records/23446566"),
+PDF_MIRRORS = [("Zenodo", "https://zenodo.org/records/23447869"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/pdf-token-cost"),
                ("Kaggle", "https://www.kaggle.com/datasets/johnisking/pdf-token-cost-per-page-claude-vs-gemini"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/pdf")]
