@@ -20,13 +20,31 @@ def is_local(u, lang):
     h = host(u); low = u.lower()
     return h.endswith(LOCAL_TLD[lang]) or any(p in low for p in PATH_LANG[lang]) or any(h == x or h.endswith('.' + x) for x in LOCAL_HOSTS[lang])
 
+ES_W = set("precio precios billete sencillo noticias mejores mejor restaurantes restaurante ganador españa última ultima semana octubre principales alerta roja aviso rojo visita migrantes candidata elecciones ruta del de la el los las para con por cuántos coreano inglés últimos días tokenizadores modelos lanzamientos valorado premio".split())
+EN_W = set("news best price the this week of in and for to restaurants restaurant visit migration where eat guide how many tokens model models release launch announced".split())
+
 def script_of(s):
-    if re.search(r'[가-힣]', s): return 'ko'
-    if re.search(r'[぀-ヿ]', s): return 'ja'
-    if re.search(r'[一-鿿]', s): return 'ja'
-    if re.search(r'[Ѐ-ӿ]', s): return 'uk'
-    if re.search(r'[áéíóúñ¿¡]', s.lower()) or re.search(r'\b(precio|modelos?|lanzamientos?|cuántos|coreano|inglés|últimos|días|tokenizadores)\b', s.lower()): return 'es'
-    return 'en'
+    if re.search(r'[\uac00-\ud7a3]', s): return 'ko'
+    if re.search(r'[\u3040-\u30ff]', s): return 'ja'
+    if re.search(r'[\u4e00-\u9fff]', s): return 'ja'
+    if re.search(r'[\u0400-\u04ff]', s): return 'uk'
+    w = re.findall(r"[a-záéíóúñü]+", s.lower())
+    es = sum(1 for x in w if x in ES_W) + (2 if re.search(r'[áéíóúñ¿¡]', s.lower()) else 0)
+    en = sum(1 for x in w if x in EN_W)
+    return 'es' if es > en else 'en'
+
+
+def text_lang(t):
+    t = re.sub(r'https?://\S+|\]\([^)]*\)', ' ', t)
+    n = dict(ko=len(re.findall(r'[\uac00-\ud7a3]', t)), ja=len(re.findall(r'[\u3040-\u30ff]', t)), uk=len(re.findall(r'[\u0400-\u04ff]', t)))
+    lat = len(re.findall(r'[A-Za-z]', t))
+    best = max(n, key=n.get)
+    if n[best] >= 8 and n[best] >= 0.3 * lat: return best
+    w = re.findall(r"[a-záéíóúñü]+", t.lower())
+    es = sum(1 for x in w if x in {"de", "la", "el", "que", "los", "las", "en", "y", "con", "por", "para", "una", "es"})
+    en = sum(1 for x in w if x in {"the", "and", "of", "in", "is", "for", "to", "with", "a", "on"})
+    return 'es' if es > en else 'en'
+
 
 def parse(path, lang):
     tus, links, result = [], [], ''
@@ -63,7 +81,7 @@ def parse(path, lang):
                 links_seen=len(set(links)), links_seen_local=sum(1 for u in set(links) if is_local(u, lang)),
                 domains_cited=cited, cited_urls=cited_urls,
                 cited_local=sum(1 for u in cited_urls if is_local(u, lang)),
-                answer_lang=script_of(re.sub(r'https?://\S+|\[[^\]]*\]\([^)]*\)', '', result)[:400]),
+                answer_lang=text_lang(result),
                 answer_mentions_20=bool(re.search(r'(\$\s?20|20\s?(달러|ドル|dólares|USD|доларів|дол))', result)),
                 answer=result)
 
@@ -92,5 +110,5 @@ def parse_codex(path, lang):
                 query_count=len(queries), query_lang_local=sum(1 for q in qlangs if q == lang), query_lang_en=sum(1 for q in qlangs if q == 'en'),
                 page_opens=len(items) - len(searches), domains_seen_top=[d for d, _ in seen_h.most_common(8)], domains_seen_count=len(seen_h),
                 cited_urls=cited_urls, domains_cited=list(dict.fromkeys(host(u) for u in cited_urls)),
-                answer_lang=script_of(re.sub(r'https?://\S+|\[[^\]]*\]\([^)]*\)', '', result)[:400]),
+                answer_lang=text_lang(result),
                 answer_mentions_20=bool(re.search(r'(\$\s?20|20\s?(달러|ドル|dólares|USD|доларів|дол))', result)), answer=result)

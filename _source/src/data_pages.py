@@ -214,7 +214,7 @@ def hub_html():
           <span class="block mt-1 text-sm text-zinc-400">Four kinds of question with web search on: tokens, searches, time and the sites seen and cited. CSV · measured {AGS_MEASURED}</span></a></li>
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{AGL_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(AGL_TITLE)}</span>
-          <span class="block mt-1 text-sm text-zinc-400">The same questions in 5 languages: Claude ran 64 of 65 non-English searches in English and cited no pages in the question's language. CSV · measured {AGL_MEASURED}</span></a></li>
+          <span class="block mt-1 text-sm text-zinc-400">Claude Code and Codex in 5 languages: English searches for AI topics, local-language searches for Seoul, Tokyo, Madrid and Kyiv. CSV · measured {AGL_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -1301,7 +1301,7 @@ def ags_html():
                  [(AGT_PATH, "Claude Code vs Codex: startup tokens and the same coding task"), (PDF_PATH, "PDF token cost per page"), ("/claude-code-usage", "Check your own Claude Code and Codex usage")])
 
 
-# ---- Dataset 10: Claude web search by question language (measured 2026-10-18) ----
+# ---- Dataset 10: AI web search by question language (measured 2026-10-18; v2 adds Codex and local topics) ----
 AGL_PATH = "/data/claude-web-search-by-language"
 AGL_MEASURED = "2026-10-18"
 AGL_CHART = "/claude-web-search-by-language-chart.png"
@@ -1310,11 +1310,14 @@ AGL_MIRRORS = [("Zenodo", "https://zenodo.org/records/23451507"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-web-search-by-language"),
                ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-web-search-by-language"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/search-language")]
-AGL_TITLE = "Claude web search by language: search queries, cited sources and tokens in 5 languages"
-AGL_DESC = ("Dataset: the same four questions asked in English, Korean, Japanese, Spanish and Ukrainian in Claude Code with web search on, two runs each: "
-            "the language of every search query, the links cited and their language, the answer language, input and output tokens, searches, page opens and time. Free CSV, CC BY 4.0.")
+AGL_TITLE = "AI web search by language: what Claude Code and Codex search for, and cite, in 5 languages"
+AGL_DESC = ("Dataset: Claude Code and Codex answering the same questions in English, Korean, Japanese, Spanish and Ukrainian with web search on, "
+            "plus local-topic questions about Seoul, Tokyo, Madrid and Kyiv asked in the local language and in English: the language of every search query, "
+            "every cited link and its language, the answer language, tokens, searches and time. Free CSV, CC BY 4.0.")
 AGL_LANGS = [("en", "English"), ("ko", "Korean"), ("ja", "Japanese"), ("es", "Spanish"), ("uk", "Ukrainian")]
 AGL_QS = ["q1_fact", "q2_news", "q3_compare", "q4_geo"]
+AGL_LQS = ["l1_fare", "l2_news", "l3_food"]
+AGL_COUNTRIES = [("ko", "South Korea", "Seoul"), ("ja", "Japan", "Tokyo"), ("es", "Spain", "Madrid"), ("uk", "Ukraine", "Kyiv")]
 
 
 def _agl():
@@ -1322,13 +1325,12 @@ def _agl():
 
 
 def agl_citation():
-    doi = f"https://doi.org/{AGL_DOI}" if AGL_DOI else BASE + AGL_PATH
-    return f"TokenSave (2026). {AGL_TITLE} [Data set]. {'Zenodo. ' if AGL_DOI else ''}{doi}"
+    return f"TokenSave (2026). {AGL_TITLE} [Data set]. Zenodo. https://doi.org/{AGL_DOI}"
 
 
-AGL_COLS = ["language", "question", "question_type", "run", "input_tokens", "output_tokens", "helper_model_input_tokens", "searches", "searches_in_english",
-            "searches_in_question_language", "page_opens", "seconds", "cited_links", "cited_in_question_language", "cited_other_language", "answer_language",
-            "fact_answer_20_usd", "cited_official_page"]
+AGL_COLS = ["tool", "topic", "ask_language", "topic_country", "question", "question_type", "run", "input_tokens", "output_tokens", "search_queries_count",
+            "queries_in_english", "queries_in_ask_language", "queries_in_topic_language", "page_opens", "seconds", "cited_links", "cited_in_ask_language",
+            "cited_in_topic_language", "cited_english", "cited_other_language", "answer_language"]
 
 
 def write_agl_files(dist):
@@ -1339,90 +1341,117 @@ def write_agl_files(dist):
     for r in d["rows"]:
         w.writerow([("" if r[c] is None else r[c]) for c in AGL_COLS] + [" | ".join(r["search_queries"]), " ".join(r["domains_cited"])])
     open(os.path.join(dist, "data", "claude-web-search-by-language.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
-    meta = dict(title=AGL_TITLE, url=BASE + AGL_PATH, license="CC BY 4.0", measured=AGL_MEASURED, citation=agl_citation(), tool=d["tool"],
+    meta = dict(title=AGL_TITLE, url=BASE + AGL_PATH, license="CC BY 4.0", measured=AGL_MEASURED, version=2, citation=agl_citation(), tools=d["tools"],
                 question_types=d["question_types"], prompts=d["prompts"], rows=d["rows"])
     open(os.path.join(dist, "data", "claude-web-search-by-language.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
 
 
 def agl_ld():
     return _dataset_ld(AGL_TITLE, AGL_DESC, AGL_PATH, AGL_MEASURED,
-                       ["Claude web search", "multilingual search", "search query language", "AI citations", "Korean", "Japanese", "Spanish", "Ukrainian", "GEO"],
-                       ["search query language", "links cited", "language of cited pages", "answer language", "input tokens", "output tokens", "web searches", "page opens", "time (seconds)"],
-                       "Claude Code (Opus 5.5) at medium effort with only WebSearch and WebFetch allowed; four questions translated into five languages, two runs each",
+                       ["AI web search", "Claude Code", "Codex", "multilingual search", "search query language", "AI citations", "Korean", "Japanese", "Spanish", "Ukrainian", "GEO"],
+                       ["search query language", "links cited", "language of cited pages", "answer language", "input tokens", "output tokens", "page opens", "time (seconds)"],
+                       "Claude Code (Opus 5.5) and Codex CLI (gpt-6-luna) at medium effort with web search on; AI-topic questions in five languages and local-topic questions about four capitals, two runs each",
                        AGL_CHART, [("claude-web-search-by-language.csv", "text/csv"), ("claude-web-search-by-language.json", "application/json")], doi=AGL_DOI, mirrors=AGL_MIRRORS)
 
 
 def agl_html():
     d = _agl()
     R = d["rows"]
-    qt = d["question_types"]
-    sel = lambda l=None, q=None: [r for r in R if (l is None or r["language"] == l) and (q is None or r["question"] == q)]
+    T = lambda rs, f: sum((r[f] or 0) for r in rs)
     avg = lambda rs, f: round(sum(r[f] for r in rs) / len(rs))
-    tot = lambda rs, f: sum(r[f] for r in rs)
-    nonen = [r for r in R if r["language"] != "en"]
-    s_all, s_en = tot(nonen, "searches"), tot(nonen, "searches_in_english")
-    c_all, c_loc = tot(nonen, "cited_links"), tot(nonen, "cited_in_question_language")
-    one = [r for r in sel(q="q1_fact") if r["searches"] == 1]
-    one_en = [r["input_tokens"] for r in one if r["language"] == "en"][0]
-    one_other = [r["input_tokens"] for r in one if r["language"] != "en"]
-    geo = [r["input_tokens"] for r in sel(q="q4_geo")]
-    off = {l: [r["cited_official_page"] for r in sel(l, "q1_fact")] for l, _ in AGL_LANGS}
-    ko_q = [q for r in sel("ko") for q in r["search_queries"] if any("가" <= ch <= "힣" for ch in q)]
-    pct = lambda a, b: round((a / b - 1) * 100)
+    pc = lambda a, b: round(a / b * 100)
+    sel = lambda **k: [r for r in R if all(r[a] == b for a, b in k.items())]
+    ai_cc = [r for r in sel(topic="ai", tool="claude_code") if r["ask_language"] != "en"]
+    ai_cx = [r for r in sel(topic="ai", tool="codex") if r["ask_language"] != "en"]
+    loc_l = [r for r in sel(topic="local") if r["ask_language"] != "en"]
+    loc_e = sel(topic="local", ask_language="en")
     lang = dict(AGL_LANGS)
-    # table 1: per language
-    trs1 = "\n".join(
-        f'          <tr><td>{n}</td><td class="text-right tabular-nums">{tot(sel(l), "searches_in_english")} / {tot(sel(l), "searches")}</td>'
-        f'<td class="text-right tabular-nums">{tot(sel(l), "cited_in_question_language")} / {tot(sel(l), "cited_links")}</td>'
-        f'<td class="text-right tabular-nums">{sum(1 for r in sel(l) if r["answer_language"] == l)} / {len(sel(l))}</td>'
-        f'<td class="text-right tabular-nums">{avg(sel(l), "input_tokens"):,}</td><td class="text-right tabular-nums">{avg(sel(l), "output_tokens"):,}</td>'
-        f'<td class="text-right tabular-nums">{avg(sel(l), "seconds")} s</td></tr>' for l, n in AGL_LANGS)
-    head1 = ['<th>Question language</th>', '<th class="text-right">Searches in English</th>', '<th class="text-right">Cited links in the question&rsquo;s language</th>',
-             '<th class="text-right">Answers in the question&rsquo;s language</th>', '<th class="text-right">Input tokens (avg)</th>', '<th class="text-right">Output tokens (avg)</th>', '<th class="text-right">Time (avg)</th>']
-    # table 2: input tokens per question x language
-    trs2 = "\n".join(f'          <tr><td>{esc(qt[q])}</td>' + "".join(f'<td class="text-right tabular-nums">{avg(sel(l, q), "input_tokens"):,}</td>' for l, _ in AGL_LANGS) + '</tr>' for q in AGL_QS)
-    head2 = ['<th>Question</th>'] + [f'<th class="text-right">{n}</th>' for _, n in AGL_LANGS]
-    # table 3: what Claude typed, research question run 1
-    trs3 = "\n".join(f'          <tr><td>{n}</td><td style="white-space:normal;min-width:14rem">' + "<br>".join(esc(q) for r in sel(l, "q4_geo") for q in r["search_queries"]) + '</td></tr>' for l, n in AGL_LANGS)
-    head3 = ['<th>Question language</th>', '<th>Search queries Claude ran (research question, both runs)</th>']
-    plist = "\n".join(f'        <li><strong>{n}:</strong> ' + " · ".join(f"&ldquo;{esc(d['prompts'][l][q])}&rdquo;" for q in AGL_QS) + '</li>' for l, n in AGL_LANGS)
-    off_txt = lambda l: f'{sum(off[l])} of {len(off[l])}'
-    return _head("Does Claude search in your language? Web search in 5 languages",
-                 f'<strong>Asked in Korean, Japanese, Spanish or Ukrainian, Claude Code ran {s_en} of its {s_all} web searches in English, and none of the {c_all} links it cited was a page in the question&rsquo;s language.</strong> Every answer came back in the language of the question.',
-                 f'Measured {AGL_MEASURED} · 4 questions × 5 languages · 2 runs each · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{AGS_PATH}">AI web search tokens, Claude Code vs Codex</a>',
-                 [("claude-web-search-by-language.csv", "CSV"), ("claude-web-search-by-language.json", "JSON")],
-                 AGL_CHART, "Language of Claude's web searches and cited links for questions asked in Korean, Japanese, Spanish and Ukrainian", doi=AGL_DOI, mirrors=AGL_MIRRORS) + f'''      <h2>Key findings</h2>
+    one = [r for r in sel(topic="ai", tool="claude_code", question="q1_fact") if r["search_queries_count"] == 1]
+    one_en = [r["input_tokens"] for r in one if r["ask_language"] == "en"][0]
+    one_other = [r["input_tokens"] for r in one if r["ask_language"] != "en"]
+    ukn = sel(topic="local", ask_language="uk", question="l2_news")
+    es_fare_en = sel(topic="local", ask_language="en", topic_country="Spain", question="l1_fare")
+    tool_avg = lambda t: [avg(sel(topic="ai", tool=t, ask_language=l), "input_tokens") for l, _ in AGL_LANGS]
+
+    def r1(l, n, t):
+        rs = sel(topic="ai", tool=t, ask_language=l)
+        return (f'          <tr><td>{n}</td><td>{"Claude Code" if t == "claude_code" else "Codex"}</td>'
+                f'<td class="text-right tabular-nums">{T(rs, "queries_in_english")} / {T(rs, "search_queries_count")}</td>'
+                f'<td class="text-right tabular-nums">{T(rs, "cited_in_ask_language")} / {T(rs, "cited_links")}</td>'
+                f'<td class="text-right tabular-nums">{sum(1 for r in rs if r["answer_language"] == l)} / {len(rs)}</td>'
+                f'<td class="text-right tabular-nums">{avg(rs, "input_tokens"):,}</td><td class="text-right tabular-nums">{avg(rs, "seconds")} s</td></tr>')
+    trs1 = "\n".join(r1(l, n, t) for l, n in AGL_LANGS for t in ["claude_code", "codex"])
+    head1 = ['<th>Question language</th>', '<th>Tool</th>', '<th class="text-right">Queries in English</th>', '<th class="text-right">Cited links in the question&rsquo;s language</th>',
+             '<th class="text-right">Answers in the question&rsquo;s language</th>', '<th class="text-right">Input tokens (avg)</th>', '<th class="text-right">Time (avg)</th>']
+
+    def r2(code, country, asked):
+        rs = [r for r in sel(topic="local", topic_country=country) if (r["ask_language"] == "en") == (asked == "en")]
+        return (f'          <tr><td>{country}</td><td>{"English" if asked == "en" else lang[code]}</td>'
+                f'<td class="text-right tabular-nums">{T(rs, "queries_in_topic_language")} / {T(rs, "search_queries_count")}</td>'
+                f'<td class="text-right tabular-nums">{T(rs, "cited_in_topic_language")} / {T(rs, "cited_links")}</td>'
+                f'<td class="text-right tabular-nums">{T(rs, "cited_english")}</td>'
+                f'<td class="text-right tabular-nums">{avg(rs, "input_tokens"):,}</td></tr>')
+    trs2 = "\n".join(r2(c, n, a) for c, n, _ in AGL_COUNTRIES for a in ["local", "en"])
+    head2 = ['<th>Topic country</th>', '<th>Asked in</th>', '<th class="text-right">Queries in the country&rsquo;s language</th>', '<th class="text-right">Cited links in the country&rsquo;s language</th>',
+             '<th class="text-right">Cited English pages</th>', '<th class="text-right">Input tokens (avg)</th>']
+
+    ex = [("Claude Code · AI research question asked in Korean", sel(topic="ai", tool="claude_code", ask_language="ko", question="q4_geo")),
+          ("Codex · AI price question asked in Japanese", sel(topic="ai", tool="codex", ask_language="ja", question="q1_fact")),
+          ("Claude Code · Madrid metro fare asked in English", es_fare_en),
+          ("Claude Code · Korean news asked in English", sel(topic="local", ask_language="en", topic_country="South Korea", question="l2_news")),
+          ("Claude Code · Kyiv borscht asked in English", sel(topic="local", ask_language="en", topic_country="Ukraine", question="l3_food"))]
+    trs3 = "\n".join(f'          <tr><td>{esc(a)}</td><td style="white-space:normal;min-width:14rem">' + "<br>".join(esc(q) for q in rs[0]["search_queries"]) + '</td></tr>' for a, rs in ex)
+    head3 = ['<th>Run (first of two)</th>', '<th>Search queries</th>']
+    plist = "\n".join(f'        <li><strong>{n}:</strong> ' + " · ".join(f"&ldquo;{esc(d['prompts']['ai'][l][q])}&rdquo;" for q in AGL_QS) + '</li>' for l, n in AGL_LANGS)
+    llist = "\n".join(f'        <li><strong>{country}, in {lang[c]}:</strong> ' + " · ".join(f"&ldquo;{esc(d['prompts']['local'][c][q])}&rdquo;" for q in AGL_LQS)
+                      + '<br><strong>In English:</strong> ' + " · ".join(f"&ldquo;{esc(d['prompts']['local']['en-' + c][q])}&rdquo;" for q in AGL_LQS) + '</li>' for c, country, _ in AGL_COUNTRIES)
+    ai_en_pct = pc(T(ai_cc, "queries_in_english") + T(ai_cx, "queries_in_english"), T(ai_cc, "search_queries_count") + T(ai_cx, "search_queries_count"))
+    lead = (f'<strong>Asked about AI in Korean, Japanese, Spanish or Ukrainian, Claude Code and Codex ran {T(ai_cc, "queries_in_english") + T(ai_cx, "queries_in_english")} of their {T(ai_cc, "search_queries_count") + T(ai_cx, "search_queries_count")} searches in English and cited no pages in the question&rsquo;s language. '
+            f'Asked about Seoul, Tokyo, Madrid or Kyiv in the local language, Claude Code searched in that language {pc(T(loc_l, "queries_in_topic_language"), T(loc_l, "search_queries_count"))}% of the time.</strong> '
+            'Every answer came back in the language of the question.')
+    body = f'''      <h2>Key findings</h2>
       <ul>
-        <li><strong>Claude searches in English, whatever language you ask in.</strong> {s_en} of {s_all} searches for non-English questions were written in English. The only exception was one Korean query ({esc(ko_q[0]) if ko_q else ""}), run alongside an English one for the Korean research question. For the price question every language produced the identical query &ldquo;{esc(sel("ko", "q1_fact")[0]["search_queries"][0])}&rdquo;.</li>
-        <li><strong>The sources stay English.</strong> None of the {c_all} links cited in the {len(nonen)} non-English answers was a page in the question&rsquo;s language. The one non-English page cited anywhere was a Spanish Euronews article, which appeared in a Ukrainian answer and an English one.</li>
-        <li><strong>The answer still comes back in your language.</strong> All {len(R)} answers were written in the language of the question, and every answer to the price question gave the correct $20 a month.</li>
-        <li><strong>The same query did not lead to the same sources.</strong> For the price question the answers cited Anthropic&rsquo;s own pricing pages in {off_txt("en")} English runs, {off_txt("ko")} Korean and {off_txt("ja")} Japanese runs, but in {off_txt("es")} Spanish and {off_txt("uk")} Ukrainian runs; the rest relied on third-party pricing guides.</li>
-        <li><strong>Language barely changes the token count; the run does.</strong> With one identical search, the price question cost {one_en:,} input tokens in English and {min(one_other):,} to {max(one_other):,} in the other languages (up to {pct(max(one_other), one_en)}% more). The research question ranged from {min(geo):,} to {max(geo):,} input tokens across runs, a bigger spread than any difference between languages.</li>
-        <li><strong>For prices Claude skipped search entirely.</strong> In every language and run it opened the official pricing pages of Anthropic, OpenAI and Google directly instead of searching.</li>
+        <li><strong>For a global topic, both agents search in English.</strong> Asked about AI products in Korean, Japanese, Spanish or Ukrainian, Claude Code wrote {T(ai_cc, "queries_in_english")} of its {T(ai_cc, "search_queries_count")} search queries in English and Codex all {T(ai_cx, "search_queries_count")} of its. For the price question every language produced the same English query.</li>
+        <li><strong>So the sources stay English.</strong> None of the {T(ai_cc, "cited_links")} links Claude Code cited and none of the {T(ai_cx, "cited_links")} Codex cited in those answers was a page in the question&rsquo;s language.</li>
+        <li><strong>For a local topic, the search follows the country.</strong> Asked in the local language about metro fares, the week&rsquo;s news and restaurants in Seoul, Tokyo, Madrid and Kyiv, Claude Code searched in that language {T(loc_l, "queries_in_topic_language")} of {T(loc_l, "search_queries_count")} times, and {T(loc_l, "cited_in_topic_language")} of the {T(loc_l, "cited_links")} links it cited were local-language pages.</li>
+        <li><strong>Even an English question about a local topic pulls in local sources.</strong> Asked the same local questions in English, Claude Code still ran {T(loc_e, "queries_in_topic_language")} of {T(loc_e, "search_queries_count")} searches in the country&rsquo;s language; for the Madrid metro fare every query was in Spanish. {T(loc_e, "cited_in_topic_language")} of {T(loc_e, "cited_links")} cited links were local-language pages.</li>
+        <li><strong>Ukrainian news was the exception.</strong> Asked in Ukrainian for the week&rsquo;s news in Ukraine, Claude Code cited English-language outlets (NPR, Al Jazeera, CNN) for {T(ukn, "cited_english")} of {T(ukn, "cited_links")} links.</li>
+        <li><strong>The answer always comes back in your language.</strong> All {len(R)} answers were written in the language of the question.</li>
+        <li><strong>Language barely changes the token count.</strong> With one identical search, the price question cost Claude Code {one_en:,} input tokens in English and {min(one_other):,} to {max(one_other):,} in the other languages. Per answer, Codex averaged {min(tool_avg("codex")):,} to {max(tool_avg("codex")):,} input tokens by language and Claude Code {min(tool_avg("claude_code")):,} to {max(tool_avg("claude_code")):,}.</li>
       </ul>
-      <h2>Search language, sources and tokens per question language</h2>
-      <p class="text-sm text-zinc-400">Totals over 4 questions × 2 runs per language; tokens and time are averages per answer. Input tokens include the smaller helper model that reads search results.</p>
-{_table(head1, trs1)}      <h2>Input tokens per question and language</h2>
-      <p class="text-sm text-zinc-400">Average of two runs. Runs of the same question varied a lot, so treat single cells with care; the CSV has every run.</p>
-{_table(head2, trs2)}      <h2>What Claude actually searched for</h2>
-      <p class="text-sm text-zinc-400">The research question asked how many more tokens Korean text needs than English; each language asked it in its own words.</p>
+      <h2>AI topic: search language and sources by question language</h2>
+      <p class="text-sm text-zinc-400">Four questions about AI products, two runs each. Totals over the eight runs; tokens and time are averages per answer.</p>
+{_table(head1, trs1)}      <h2>Local topics: Seoul, Tokyo, Madrid and Kyiv</h2>
+      <p class="text-sm text-zinc-400">Claude Code only. Three questions per country (metro fare, the week&rsquo;s news, restaurants), asked in the local language and in English, two runs each.</p>
+{_table(head2, trs2)}      <h2>What the agents actually searched for</h2>
 {_table(head3, trs3)}      <h2>Questions</h2>
-      <p class="text-sm text-zinc-400">Price, recent news, API price comparison and a research question, the same four as the <a href="{AGS_PATH}">Claude Code vs Codex web search dataset</a>, translated by meaning.</p>
+      <p class="text-sm text-zinc-400">AI topic: the same four questions as the <a href="{AGS_PATH}">Claude Code vs Codex web search dataset</a>, translated by meaning.</p>
       <ul>
 {plist}
       </ul>
+      <p class="text-sm text-zinc-400">Local topics:</p>
+      <ul>
+{llist}
+      </ul>
       <h2>Method</h2>
       <ul>
-        <li><strong>Claude Code 2.1.295</strong> (Opus 5.5, Max plan) on one Windows laptop, effort medium: <code>claude -p --output-format stream-json --verbose --allowedTools WebSearch WebFetch</code> with no MCP servers, each run in its own empty folder, prompt sent through standard input.</li>
-        <li>The English runs are the Claude Code runs of the <a href="{AGS_PATH}">web search dataset</a>, measured the same day with the same settings.</li>
-        <li>Search language: the script of each WebSearch query (Hangul, Japanese, Cyrillic, Spanish words) or English. Cited links: every URL in the final answer; we checked the language of each cited page by hand.</li>
-        <li>Input tokens are summed over every model in the run, including cache reads and the helper model.</li>
+        <li>Both tools on one Windows laptop, effort medium, each run in its own empty folder, prompt sent through standard input.</li>
+        <li><strong>Claude Code 2.1.295</strong> (Opus 5.5, Max plan): <code>claude -p --output-format stream-json --verbose --allowedTools WebSearch WebFetch</code> with no MCP servers.</li>
+        <li><strong>Codex CLI 0.162</strong> (gpt-6-luna, ChatGPT plan): <code>codex --search exec --json</code>. Codex can send several queries in one search step; every query is counted.</li>
+        <li>The English AI-topic runs of both tools are the runs of the <a href="{AGS_PATH}">web search dataset</a>, measured the same day with the same settings.</li>
+        <li>Query language: the script of each query (Hangul, Japanese, Cyrillic) or, for Latin script, Spanish versus English words. Cited links: every URL in the final answer; the language of each cited page was checked by hand from its address and title.</li>
+        <li>Input tokens are summed over every model in the run, including cache reads and Claude Code&rsquo;s helper model.</li>
       </ul>
       <h2>Limitations</h2>
       <ul>
-        <li>One tool, four questions, two runs per language, on one day. Search results and the model&rsquo;s choices change over time.</li>
-        <li>The questions are about AI products, a topic where English sources dominate; questions about local news or local businesses may behave differently.</li>
-        <li>The research question asks about Korean in every language, which may favour Korean sources for the Korean run.</li>
+        <li>Two tools, two runs per question, on one day; search results and the models&rsquo; choices change over time.</li>
+        <li>Local topics were measured on Claude Code only, for four countries and three kinds of question.</li>
+        <li>The AI research question asks about Korean in every language, which may favour Korean sources for the Korean run.</li>
       </ul>
-''' + _page_tail(agl_citation(), _embed(AGL_PATH, AGL_CHART, "Language of Claude's web searches and cited links by question language", "Claude web search by language"),
-                 [(AGS_PATH, "AI web search tokens: Claude Code vs Codex"), (LANG_PATH, "Token cost by language"), ("/claude-code-usage", "Check your own Claude Code usage")])
+'''
+    return (_head("Does AI search in your language? Claude Code and Codex in 5 languages", lead,
+                  f'Measured {AGL_MEASURED} · version 2 · {len(R)} runs · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{AGS_PATH}">AI web search tokens, Claude Code vs Codex</a>',
+                  [("claude-web-search-by-language.csv", "CSV"), ("claude-web-search-by-language.json", "JSON")],
+                  AGL_CHART, "Share of search queries and cited links in English versus the local language, by topic and tool", doi=AGL_DOI, mirrors=AGL_MIRRORS)
+            + body + _page_tail(agl_citation(), _embed(AGL_PATH, AGL_CHART, "Share of AI agent search queries and cited links in English versus the local language", "AI web search by language"),
+                                [(AGS_PATH, "AI web search tokens: Claude Code vs Codex"), (LANG_PATH, "Token cost by language"), ("/claude-code-usage", "Check your own Claude Code usage")]))
