@@ -1058,6 +1058,11 @@ def eff_html():
 AGT_PATH = "/data/claude-code-vs-codex-tokens"
 AGT_MEASURED = "2026-10-18"
 AGT_CHART = "/claude-code-vs-codex-tokens-chart.png"
+AGT_DOI = "10.5281/zenodo.23448342"  # concept DOI
+AGT_MIRRORS = [("Zenodo", "https://zenodo.org/records/23448343"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-code-vs-codex-tokens"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-code-vs-codex-startup-and-task-tokens"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/agents")]
 AGT_TITLE = "Claude Code vs Codex: startup tokens, MCP tools and the same coding task"
 AGT_DESC = ("Dataset: input tokens Claude Code and Codex use before any work (a one-word reply), what adding 1 to 30 MCP tools adds, and tokens, time and output "
             "for the same browser-game task at medium effort. Free CSV, CC BY 4.0.")
@@ -1082,7 +1087,7 @@ def _agt_task_avg(d):
 
 
 def agt_citation():
-    return f"TokenSave (2026). {AGT_TITLE} [Data set]. {BASE}{AGT_PATH}"
+    return f"TokenSave (2026). {AGT_TITLE} [Data set]. Zenodo. https://doi.org/{AGT_DOI}"
 
 
 def write_agt_files(dist):
@@ -1109,7 +1114,7 @@ def agt_ld():
                        ["Claude Code vs Codex", "coding agent tokens", "MCP token overhead", "system prompt tokens", "Claude Code cost", "Codex cost"],
                        ["input tokens for a one-word reply", "input tokens added per MCP tool", "input tokens for the same task", "output tokens", "time (seconds)"],
                        "Claude Code and Codex CLI run on the same Windows machine; startup with 0, 1, 10 and 30 tools from a self-written MCP server; the same browser-game prompt at medium effort, two runs each",
-                       AGT_CHART, [("claude-code-vs-codex-tokens.csv", "text/csv"), ("claude-code-vs-codex-tokens.json", "application/json")])
+                       AGT_CHART, [("claude-code-vs-codex-tokens.csv", "text/csv"), ("claude-code-vs-codex-tokens.json", "application/json")], doi=AGT_DOI, mirrors=AGT_MIRRORS)
 
 
 def agt_html():
@@ -1134,7 +1139,7 @@ def agt_html():
                  f'<strong>Before doing anything, Claude Code sends {b_cc:,} input tokens and Codex {b_cx:,}.</strong> On the same browser-game task Codex used {abs(pct(cx["input"], cc["input"]))}% fewer input tokens and {abs(pct(cx["output"], cc["output"]))}% fewer output tokens than Claude Code. Adding 30 MCP tools barely changed either.',
                  f'Measured {AGT_MEASURED} · Claude Code 2.1 and Codex CLI 0.162 · 2 runs each · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{EFF_PATH}">Claude effort levels</a>',
                  [("claude-code-vs-codex-tokens.csv", "CSV"), ("claude-code-vs-codex-tokens.json", "JSON")],
-                 AGT_CHART, "Startup input tokens and the same coding task on Claude Code and Codex") + f'''      <h2>Key findings</h2>
+                 AGT_CHART, "Startup input tokens and the same coding task on Claude Code and Codex", doi=AGT_DOI, mirrors=AGT_MIRRORS) + f'''      <h2>Key findings</h2>
       <ul>
         <li><strong>Claude Code starts {pct(b_cc, b_cx)}% heavier.</strong> A one-word reply costs {b_cc:,} input tokens in Claude Code and {b_cx:,} in Codex. That fixed amount is sent again with every request, so it adds up over a session even though most of it is cached.</li>
         <li><strong>Adding MCP tools barely changed startup tokens.</strong> The full definitions of our 30 test tools are {full30:,} tokens, but adding them raised Claude Code by only {base[("claude_code", 30)]["added_vs_no_mcp"]:,} tokens (about {round(base[("claude_code", 30)]["added_vs_no_mcp"] / 30)} per tool) and Codex by 0. Both now load a tool&rsquo;s details only when it is needed.</li>

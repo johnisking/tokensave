@@ -3,7 +3,7 @@
  "url": "https://tokensave.app/data/claude-code-vs-codex-tokens",
  "license": "CC BY 4.0",
  "measured": "2026-10-18",
- "citation": "TokenSave (2026). Claude Code vs Codex: startup tokens, MCP tools and the same coding task [Data set]. https://tokensave.app/data/claude-code-vs-codex-tokens",
+ "citation": "TokenSave (2026). Claude Code vs Codex: startup tokens, MCP tools and the same coding task [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23448342",
  "startup": {
   "prompt": "Reply with the single word OK.",
   "mcp_server": "Self-written stdio MCP server (mcp_dummy.js) exposing N tracker tools, each with a one-sentence description and a 5-property input schema. Full definitions: 151 o200k tokens per tool, 4,541 for 30 tools.",
