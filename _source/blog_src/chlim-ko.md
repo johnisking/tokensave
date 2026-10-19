@@ -1,6 +1,6 @@
 ![챗GPT 사용량 한도 2026: 요금제별 정리와 5시간 제한](/chatgpt-sayongnyang-hando-ko.jpg)
 
-"한도에 도달했습니다"는 한때 챗GPT에서 가장 흔한 불만이었고, 2026년에도 여전히 보입니다. 다만 나오는 곳이 달라졌습니다. OpenAI는 일상적인 텍스트 대화의 횟수 제한을 없앤 뒤, GPT-6와 GPT-6 Astra, ChatGPT Work와 Codex가 함께 쓰는 사용량, 세 단계의 Pro 요금제, 그리고 따로 돌아가는 5시간 단위 한도를 차례로 추가했습니다. 그래서 "챗GPT를 얼마나 쓸 수 있나"라는 질문에는 이제 무엇을 하느냐에 따라 답이 여러 개입니다. 이 글은 챗GPT 사용량 한도를 요금제별, 한도 종류별로 나누고, 각각 언제 초기화되는지, 무엇이 사용량을 빨리 줄이는지, 한도에 걸렸을 때 무엇을 할 수 있는지 정리했습니다. 모든 수치는 OpenAI 도움말 센터, 요금 페이지, Codex 문서를 2026년 10월 13일에 확인한 내용입니다.
+"한도에 도달했습니다"는 한때 챗GPT에서 가장 흔한 불만이었고, 2026년에도 여전히 보입니다. 다만 나오는 곳이 달라졌습니다. OpenAI는 일상적인 텍스트 대화의 횟수 제한을 없앤 뒤, GPT-6와 GPT-6 Astra, ChatGPT Work와 Codex가 함께 쓰는 사용량, 세 단계의 Pro 요금제, 그리고 따로 돌아가는 5시간 단위 한도를 차례로 추가했습니다. 그래서 "챗GPT를 얼마나 쓸 수 있나"라는 질문에는 이제 무엇을 하느냐에 따라 답이 여러 개입니다. 이 글은 챗GPT 사용량 한도를 요금제별, 한도 종류별로 나누고, 각각 언제 초기화되는지, 무엇이 사용량을 빨리 줄이는지, 한도에 걸렸을 때 무엇을 할 수 있는지 정리했습니다. 모든 수치는 OpenAI 도움말 센터, 요금 페이지, Codex 문서를 2026년 10월 19일에 확인한 내용입니다.
 
 ## 챗GPT에 사용량 한도가 있나요?
 
@@ -12,14 +12,23 @@
 
 한 한도에 걸려도 다른 것까지 막히지는 않습니다. Work 사용량을 다 써도 보통 일반 채팅은 계속할 수 있고, GPT-6 Pro가 주간 한도에 닿으면 챗GPT가 다른 모델로 넘어가기도 합니다.
 
+## 2026년 10월에 바뀐 것
+
+OpenAI 릴리스 노트(10월 1~16일)에 새 한도는 없지만, 체감에 영향을 주는 변화가 네 가지 있습니다.
+
+- **모든 요금제 채팅에 GPT-6 적용(10월 7~8일).** Plus·Pro·Business·Enterprise는 GPT-6 Sol, Free와 Go는 10월 8일부터 GPT-6 Luna를 씁니다. 답변 안에 차트나 간단한 도구를 넣어 주는 새 Intelligent UI에는 별도 한도가 없고, 요금제의 기존 한도가 그대로 적용됩니다. 다만 OpenAI 모델 도움말 페이지에는 아직 Free·Go(Think 포함)가 GPT-5.6 Luna로 적혀 있어, 업데이트가 덜 된 계정에서는 그대로 보일 수 있습니다.
+- **Codex 메시지 추천(10월 9일, 베타, 개인 Pro).** 다음 메시지를 추천해 주는 기능 자체는 Codex 한도나 크레딧에서 빠지지 않습니다. 직접 보낸 메시지는 평소처럼 차감됩니다.
+- **Sites(10월 15일, Plus·Pro).** 만들 수 있는 Sites 개수에는 정해진 한도가 없지만, 사용량·저장 공간 한도는 그대로입니다.
+- **GPT-6 Pro 업데이트(10월 16일, Pro).** 채팅 탭에서 답이 빨라지고 여러 에이전트가 나눠 작업합니다. 주간 GPT-6 Pro 한도가 바뀌었다는 내용은 없습니다.
+
 ## 요금제별 챗GPT 사용량 한도
 
 ![요금제별 챗GPT 사용량 한도: 요금제, 월 요금(미국), 한국 요금, 일상 대화, 채팅 생각 수준, 채팅의 GPT-6 Pro, Work·Codex, 5시간 한도](/chatgpt-sayongnyang-hando-ko-2.jpg)
 
 | 요금제 | 월 요금(미국) | 한국 요금 | 일상 대화 | 채팅 생각 수준 | 채팅의 GPT-6 Pro | Work·Codex | 5시간 한도 |
 |---|---:|---:|---|---|---|---|---|
-| Free | $0 | ₩0 | 무제한* | Think (GPT-5.6 Luna) | – | 제한적, 데스크톱 앱 | – |
-| Go | $8 | ₩13,000 | 무제한* | Think (GPT-5.6 Luna) | – | 제한적, 데스크톱 앱 | – |
+| Free | $0 | ₩0 | 무제한* | Think (GPT-6 Luna) | – | 제한적, 데스크톱 앱 | – |
+| Go | $8 | ₩13,000 | 무제한* | Think (GPT-6 Luna) | – | 제한적, 데스크톱 앱 | – |
 | Plus | $20 | ₩29,000 | 무제한* | 중간, 높음 | – | 포함 | 있음 |
 | Pro 100 | $100 | ₩159,000부터 | 무제한* | 중간~최고, Pro | 있음, 주간 한도 | 더 많음 | 없음 |
 | Pro 200 | $200 | – | 무제한* | 중간~최고, Pro | 있음, 주간 한도 | 더 많음 | 없음 |
@@ -39,7 +48,7 @@
 
 "무제한"에 대해 알아 둘 점은 세 가지입니다.
 
-- **평범한 텍스트 답변이 대상입니다.** Free와 Go에서는 GPT-5.6 Luna가 답하고, Think 버튼도 GPT-5.6 Luna를 씁니다. Plus 이상은 계정에 GPT-6가 적용되면 Instant를 GPT-6 Sol이 맡습니다.
+- **평범한 텍스트 답변이 대상입니다.** Free와 Go에서는 10월 8일 적용 이후 GPT-6 Luna가 답하고(아직 적용되지 않은 계정은 GPT-5.6 Luna), Think 버튼도 Luna를 씁니다. Plus 이상은 Instant를 GPT-6 Sol이 맡습니다.
 - **도구는 여전히 한도가 있습니다.** OpenAI는 "파일 업로드, 이미지 생성, 음성, 데이터 분석, 기타 도구에는 별도의 한도가 계속 적용된다"고 안내합니다. 요금 페이지도 Free·Go의 업로드 포함 메시지, 이미지 생성, 심층 리서치, 메모리, Codex를 "제한적"으로 표시합니다.
 - **남용 방지 장치가 있습니다.** 자동화된 사용, 계정 공유, 재판매는 일시적인 사용 제한으로 이어질 수 있고, 그 경우 OpenAI가 알려 준다고 합니다.
 
@@ -51,7 +60,7 @@
 
 | 생각 수준 | 모델 (GPT-6 선택 시) | Plus | Pro | Business | Free·Go |
 |---|---|:---:|:---:|:---:|:---:|
-| Instant | GPT-6 Sol | ✓ | ✓ | ✓ | GPT-5.6 Luna |
+| Instant | GPT-6 Sol | ✓ | ✓ | ✓ | GPT-6 Luna |
 | 중간·높음 | GPT-6 Sol | ✓ | ✓ | ✓ | – |
 | 최고(Extra High) | GPT-6 Sol | – | ✓ | ✓ | – |
 | Pro | GPT-6 Pro (GPT-6 Astra 기반) | – | ✓ | ✓ | – |
@@ -107,6 +116,7 @@ Pro 요금제와 Business Premium은 5시간 단위가 없지만 전체 사용�
 - **속도 모드.** Fast 모드는 포함 사용량을 Standard의 250% 속도로 씁니다. Pro 요금제 중 Pro 500에만 있는 Ultrafast는 GPT-6 Astra와 GPT-6.1 Sol에서 800% 속도로 씁니다.
 - **이미지.** Work와 Codex에서 이미지 생성은 이미지 없는 비슷한 작업보다 평균 300–500% 빠르게 사용량을 씁니다(품질과 크기에 따라 다름).
 - **컨텍스트.** 큰 지시문 파일, 많이 연결된 MCP 서버, 긴 자료는 모두 메시지마다 토큰을 더합니다. OpenAI는 AGENTS.md를 줄이고 쓰지 않는 MCP 서버는 끄라고 권합니다.
+- **작업 하나가 실제로 쓰는 양.** 저희가 Codex CLI 0.162와 GPT-6 Luna로 직접 재 보니, Codex는 아무 작업 없이 한 단어로 답할 때도 입력 토큰 14,678개를 보냈습니다. HTML 파일 하나짜리 벽돌깨기 게임을 만드는 작은 과제는 25회 실행 중앙값이 입력 토큰 48,600개였고, 대부분 캐시에서 읽은 분량이었습니다. 쓰지 않는 MCP 도구를 10개, 30개 붙여도 14,678개는 그대로였습니다. Codex는 작업에 필요할 때만 도구를 불러왔습니다. 원자료는 [Claude Code vs Codex 토큰](/data/claude-code-vs-codex-tokens)과 [프롬프트 언어와 코딩 비용](/data/ai-coding-prompt-language)에 있습니다.
 
 ## 음성, 이미지, 파일
 
@@ -210,6 +220,9 @@ Work·Codex에서는 아닙니다. 모든 모델이 같은 공용 사용량을 �
 **챗GPT Plus를 한도 때문에 결제할 가치가 있나요?**
 텍스트 대화만 한다면 Free나 Go도 무제한입니다. 높은 생각 수준, 이미지 생성, 잦은 파일 업로드, GPT-6 Astra를 쓰는 Work·Codex가 필요하다면 Plus가 의미 있습니다.
 
+**챗GPT 무료는 지금 어떤 모델을 쓰나요?**
+2026년 10월 8일부터 Free와 Go에 GPT-6 Luna가 적용되고 있습니다. Plus 이상은 채팅에서 GPT-6 Sol을 씁니다. 모델 메뉴에 아직 GPT-6가 안 보이면 그 계정은 GPT-5.6 Luna 상태입니다.
+
 **고객지원이 한도를 초기화해 주나요?**
 아닙니다. 사용량이 잘못 계산된 경우 조사는 하지만 한도를 초기화하지는 않습니다. 초기화를 기다리거나, 저장된 리셋을 쓰거나, 자격이 되면 리셋을 사거나, 크레딧을 쓰세요.
 
@@ -222,6 +235,7 @@ Work·Codex에서는 아닙니다. 모든 모델이 같은 공용 사용량을 �
 - [OpenAI 도움말 센터: ChatGPT Business models and limits](https://help.openai.com/en/articles/12003714-chatgpt-business-models-and-limits)
 - [OpenAI 도움말 센터: About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
 - [OpenAI 도움말 센터: ChatGPT 릴리스 노트](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
+- [Notebookcheck: ChatGPT Free and Go users start getting GPT-6 Luna in Chat](https://notebookcheck.net/ChatGPT-Free-and-Go-users-start-getting-GPT-6-Luna-in-Chat.1419032.0.html)
 - [ChatGPT Learn: Codex·ChatGPT Work 요금과 사용량 한도](https://learn.chatgpt.com/docs/pricing)
 - [ChatGPT 요금제 (한국어)](https://chatgpt.com/ko-KR/pricing/)
 - [OpenAI API: GPT-6 Astra 모델과 가격](https://developers.openai.com/api/docs/models/gpt-6-astra)

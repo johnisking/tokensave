@@ -1,6 +1,6 @@
 ![ChatGPT の回数制限・使用量上限まとめ2026：プラン別と5時間枠](/chatgpt-shiyouryou-jougen-ja.jpg)
 
-「上限に達しました」は、かつて ChatGPT でいちばん多い不満でした。2026年の今もこの表示は出ますが、出る場所が変わっています。OpenAI は普段のテキストチャットの回数制限をなくしたあと、GPT-6 と GPT-6 Astra、ChatGPT Work と Codex が共有する使用枠、3段階の Pro プラン、そして独自のタイミングでリセットされる5時間枠を次々に加えました。そのため「ChatGPT はどれくらい使えるのか」という質問には、何をするかによって答えがいくつもあります。この記事では、ChatGPT の回数制限・使用量上限をプラン別、制限の種類別に分けて、それぞれがいつリセットされるのか、何が使用枠を早く減らすのか、上限に当たったときに何ができるのかを整理します。数値はすべて OpenAI のヘルプセンター、料金ページ、Codex のドキュメントを2026年10月13日に確認したものです。
+「上限に達しました」は、かつて ChatGPT でいちばん多い不満でした。2026年の今もこの表示は出ますが、出る場所が変わっています。OpenAI は普段のテキストチャットの回数制限をなくしたあと、GPT-6 と GPT-6 Astra、ChatGPT Work と Codex が共有する使用枠、3段階の Pro プラン、そして独自のタイミングでリセットされる5時間枠を次々に加えました。そのため「ChatGPT はどれくらい使えるのか」という質問には、何をするかによって答えがいくつもあります。この記事では、ChatGPT の回数制限・使用量上限をプラン別、制限の種類別に分けて、それぞれがいつリセットされるのか、何が使用枠を早く減らすのか、上限に当たったときに何ができるのかを整理します。数値はすべて OpenAI のヘルプセンター、料金ページ、Codex のドキュメントを2026年10月19日に確認したものです。
 
 ## ChatGPT に使用制限はある？
 
@@ -12,14 +12,23 @@
 
 1つの上限に当たっても、ほかが使えなくなるわけではありません。Work の枠を使い切っても普通のチャットはたいてい続けられますし、GPT-6 Pro が週の上限に達すると、ChatGPT が別のモデルに切り替えることもあります。
 
+## 2026年10月に変わったこと
+
+OpenAI のリリースノート（10月1〜16日）に新しい上限はありませんが、使い勝手に関わる変更が4つあります。
+
+- **全プランのチャットに GPT-6（10月7〜8日）。** Plus・Pro・Business・Enterprise は GPT-6 Sol、Free と Go は10月8日から GPT-6 Luna になりました。回答の中にグラフや小さなツールを入れる新しい Intelligent UI に別枠の上限はなく、プランの通常の上限がそのまま適用されます。ただし OpenAI のモデルのヘルプページには、Free・Go（Think を含む）がまだ GPT-5.6 Luna と書かれていて、更新がまだのアカウントではそのまま表示されることがあります。
+- **Codex のメッセージ予測（10月9日、ベータ、個人の Pro）。** 次のメッセージの候補を作ること自体は Codex の上限やクレジットに数えられません。実際に送ったメッセージは通常どおり数えられます。
+- **Sites（10月15日、Plus・Pro）。** 作れる Sites の数に決まった上限はありませんが、使用量と保存容量の上限は残ります。
+- **GPT-6 Pro の更新（10月16日、Pro）。** チャットタブで回答が速くなり、複数のエージェントが分担して作業します。週の GPT-6 Pro の枠が変わったという記載はありません。
+
 ## プラン別の ChatGPT 使用量上限
 
 ![プラン別の ChatGPT 使用量上限: プラン, 月額（米国）, 普段のチャット, チャットの思考レベル, チャットの GPT-6 Pro, Work と Codex, 5時間枠](/chatgpt-shiyouryou-jougen-chatgpt-ja.jpg)
 
 | プラン | 月額（米国） | 普段のチャット | チャットの思考レベル | チャットの GPT-6 Pro | Work と Codex | 5時間枠 |
 |---|---:|---|---|---|---|---|
-| Free | $0 | 無制限* | Think（GPT-5.6 Luna） | – | 限定的、デスクトップアプリ | – |
-| Go | $8 | 無制限* | Think（GPT-5.6 Luna） | – | 限定的、デスクトップアプリ | – |
+| Free | $0 | 無制限* | Think（GPT-6 Luna） | – | 限定的、デスクトップアプリ | – |
+| Go | $8 | 無制限* | Think（GPT-6 Luna） | – | 限定的、デスクトップアプリ | – |
 | Plus | $20 | 無制限* | Medium、High | – | 含まれる | あり |
 | Pro 100 | $100 | 無制限* | Medium〜Extra High、Pro | あり、週の枠 | より大きい枠 | なし |
 | Pro 200 | $200 | 無制限* | Medium〜Extra High、Pro | あり、週の枠 | より大きい枠 | なし |
@@ -39,7 +48,7 @@
 
 「無制限」について知っておきたい点は3つです。
 
-- **対象は普通のテキストの回答です。** Free と Go では GPT-5.6 Luna が答え、Think ボタンも GPT-5.6 Luna を使います。Plus 以上では、アカウントに GPT-6 が届くと Instant を GPT-6 Sol が担当します。
+- **対象は普通のテキストの回答です。** Free と Go では10月8日の提供開始以降 GPT-6 Luna が答え（まだ届いていないアカウントは GPT-5.6 Luna）、Think ボタンも Luna を使います。Plus 以上では Instant を GPT-6 Sol が担当します。
 - **ツールには今も上限があります。** OpenAI は「ファイルのアップロード、画像生成、音声、データ分析、その他のツールには別の上限が引き続き適用される」と案内しています。料金ページも、Free と Go のアップロードを含むメッセージ、画像生成、ディープリサーチ、メモリー、Codex を「限定的」としています。
 - **不正利用対策があります。** 自動化された利用、アカウントの共有、転売は一時的な利用制限につながることがあり、その場合は OpenAI が通知するとしています。
 
@@ -64,7 +73,7 @@
 
 | 思考レベル | モデル（GPT-6 選択時） | Plus | Pro | Business | Free・Go |
 |---|---|:---:|:---:|:---:|:---:|
-| Instant | GPT-6 Sol | ✓ | ✓ | ✓ | GPT-5.6 Luna |
+| Instant | GPT-6 Sol | ✓ | ✓ | ✓ | GPT-6 Luna |
 | Medium・High | GPT-6 Sol | ✓ | ✓ | ✓ | – |
 | Extra High | GPT-6 Sol | – | ✓ | ✓ | – |
 | Pro | GPT-6 Pro（GPT-6 Astra ベース） | – | ✓ | ✓ | – |
@@ -120,6 +129,7 @@ Pro プランと Business Premium には5時間枠がありませんが、全体
 - **速度モード。** Fast モードは含まれる使用枠を Standard の250%の速さで使います。Pro プランでは Pro 500 だけにある Ultrafast は、GPT-6 Astra と GPT-6.1 Sol で800%の速さで使います。
 - **画像。** Work と Codex での画像生成は、画像なしの同じような作業より平均300〜500%の速さで枠を使います（品質とサイズによって変わります）。
 - **コンテキスト。** 大きな指示ファイル、たくさん接続した MCP サーバー、長い資料は、どれもメッセージごとにトークンを増やします。OpenAI は AGENTS.md を小さくし、使っていない MCP サーバーは切るよう勧めています。
+- **1つのタスクで実際に使う量。** 私たちが Codex CLI 0.162 と GPT-6 Luna で実測したところ、Codex は作業をせずに一言で答えるだけでも入力トークン14,678個を送っていました。HTML ファイル1つのブロック崩しゲームを作る小さなタスクは、25回の中央値で入力トークン48,600個、その大半はキャッシュからの読み込みでした。使わない MCP ツールを10個、30個つないでも14,678個は変わらず、Codex はタスクで必要になったときだけツールを読み込んでいました。元データは [Claude Code と Codex のトークン](/data/claude-code-vs-codex-tokens) と [プロンプトの言語とコーディング費用](/data/ai-coding-prompt-language) にあります。
 
 ## 音声・画像・ファイル
 
@@ -265,6 +275,9 @@ Work と Codex ではできません。すべてのモデルが同じ共有枠�
 **無料プランの Codex はどれくらい使える？**
 OpenAI は具体的な量を公開していません。私たちのテストでは、小さなブロック崩しゲームを2回作って月単位の枠の約1%を使いました。軽い作業なら無料でも試せますが、大きなコードベースでの作業はずっと多く使います。
 
+**ChatGPT の無料版は今どのモデル？**
+2026年10月8日から Free と Go に GPT-6 Luna が順次提供されています。Plus 以上はチャットで GPT-6 Sol を使います。モデルメニューにまだ GPT-6 が出ていなければ、そのアカウントは GPT-5.6 Luna のままです。
+
 **サポートに上限をリセットしてもらえる？**
 いいえ。使用量の計算が間違っている場合は調査しますが、上限のリセットはしません。リセットを待つ、保存されたリセットを使う、対象なら購入する、クレジットを使う、のいずれかになります。
 
@@ -277,6 +290,7 @@ OpenAI は具体的な量を公開していません。私たちのテストで�
 - [OpenAI ヘルプセンター：ChatGPT Business models and limits](https://help.openai.com/en/articles/12003714-chatgpt-business-models-and-limits)
 - [OpenAI ヘルプセンター：About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
 - [OpenAI ヘルプセンター：ChatGPT リリースノート](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
+- [Notebookcheck: ChatGPT Free and Go users start getting GPT-6 Luna in Chat](https://notebookcheck.net/ChatGPT-Free-and-Go-users-start-getting-GPT-6-Luna-in-Chat.1419032.0.html)
 - [ChatGPT Learn：Codex と ChatGPT Work の料金と使用量上限](https://learn.chatgpt.com/docs/pricing)
 - [ChatGPT の料金](https://chatgpt.com/pricing)
 - [OpenAI API：GPT-6 Astra のモデルと料金](https://developers.openai.com/api/docs/models/gpt-6-astra)

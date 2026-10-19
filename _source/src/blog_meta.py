@@ -309,12 +309,12 @@ COUNT = [
 
 _CTA_AG = _CTA
 CHLIM = [
- _cc("en", "/blog/chatgpt-usage-limits", "chlim-en", "ChatGPT Usage Limits 2026: Every Plan and the 5-Hour Window",
-     "ChatGPT usage limits for Free, Go, Plus, Pro and Business: what is unlimited, GPT-6 Pro caps, the Work and Codex 5-hour window, resets and fixes.", "Jonhisking · Updated October 13, 2026", *_CTA_PL["en"]),
- _cc("ko", "/ko/blog/chatgpt-sayongnyang-hando", "chlim-ko", "챗GPT 사용량 한도 2026: 요금제별 정리와 5시간 제한",
-     "챗GPT 사용량 한도를 Free·Go·Plus·Pro·Business별로 정리. 무제한 대화의 범위, GPT-6 Pro 한도, Work·Codex 5시간 제한, 초기화와 한도에 걸렸을 때 대처법까지.", "Jonhisking · 2026년 10월 13일 업데이트", *_CTA_PL["ko"]),
- _cc("ja", "/ja/blog/chatgpt-shiyouryou-jougen", "chlim-ja", "ChatGPT の回数制限・使用量上限まとめ2026：プラン別と5時間枠",
-     "ChatGPT の回数制限と使用量上限を Free・Go・Plus・Pro・Business 別に整理。無制限の範囲、GPT-6 Pro の上限、Work・Codex の5時間枠、リセットと対処法まで。", "Jonhisking · 2026年10月13日更新", *_CTA_PL["ja"]),
+ _cc("en", "/blog/chatgpt-usage-limits", "chlim-en", "ChatGPT Usage Limits (Oct 2026): What's Unlimited, 5-Hour Reset",
+     "Text chat is unlimited on every ChatGPT plan. The caps: thinking, GPT-6 Pro, tools and the Codex 5-hour window (Plus: Astra 5–45). Every plan and reset.", "Jonhisking · Updated October 19, 2026", *_CTA_PL["en"]),
+ _cc("ko", "/ko/blog/chatgpt-sayongnyang-hando", "chlim-ko", "챗GPT 사용량 한도 2026년 10월: 무제한 범위와 5시간 제한",
+     "챗GPT 일반 텍스트 대화는 모든 요금제에서 무제한입니다. 한도가 있는 건 생각 수준, GPT-6 Pro, 도구, Work·Codex 5시간 제한(Plus 기준 Astra 5–45회, GPT-6.1 Sol 15–160회). 요금제별 한도와 초기화, 대처법.", "Jonhisking · 2026년 10월 19일 업데이트", *_CTA_PL["ko"]),
+ _cc("ja", "/ja/blog/chatgpt-shiyouryou-jougen", "chlim-ja", "ChatGPT の回数制限・使用上限【2026年10月】無制限と5時間枠",
+     "ChatGPT の普段のテキストチャットは全プランで無制限。上限があるのは思考レベル、GPT-6 Pro、ツール、Work・Codex の5時間枠（Plus で Astra 5〜45回、GPT-6.1 Sol 15〜160回）。プラン別の上限とリセット、対処法。", "Jonhisking · 2026年10月19日更新", *_CTA_PL["ja"]),
 ]
 CXLIM = [
  _cc("en", "/blog/codex-usage-limits", "cxlim-en", "Codex Usage Limits 2026: Plus vs Pro, 5-Hour Window, Resets",
@@ -870,7 +870,7 @@ for _d in CCGUIDE: _d["date"] = "2026-10-12"
 
 # 2026-10-13 chlim-en rewrite
 for _d in CHLIM:
-    if _d["src"] in ("chlim-en", "chlim-ko", "chlim-ja"): _d["date"] = "2026-10-13"
+    if _d["src"] in ("chlim-en", "chlim-ko", "chlim-ja"): _d["date"] = "2026-10-13"; _d["updated"] = "2026-10-19"
 
 # 2026-10-13 Roblox how-to rewrite (en) + Korean version, real Studio session
 for _d in RBX:

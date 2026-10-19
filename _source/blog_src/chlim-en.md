@@ -1,6 +1,6 @@
 ![ChatGPT Usage Limits 2026: Every Plan and the 5-Hour Window](/chatgpt-usage-limits-en.jpg)
 
-"You've reached your limit" used to be the most common complaint about ChatGPT, and it still shows up in 2026, just in different places. OpenAI removed the cap on everyday text chat, then added GPT-6, GPT-6 Astra, a shared allowance for ChatGPT Work and Codex, three Pro tiers and a five-hour window that resets on its own schedule. The result is that "how much can I use ChatGPT?" now has several answers depending on what you are doing. This guide to ChatGPT usage limits in 2026 goes through every plan and every meter, how each one resets, what makes the allowance run out faster, and what you can do when you hit a wall. All numbers come from OpenAI's help center, pricing page and Codex documentation, checked on October 13, 2026.
+"You've reached your limit" used to be the most common complaint about ChatGPT, and it still shows up in 2026, just in different places. OpenAI removed the cap on everyday text chat, then added GPT-6, GPT-6 Astra, a shared allowance for ChatGPT Work and Codex, three Pro tiers and a five-hour window that resets on its own schedule. The result is that "how much can I use ChatGPT?" now has several answers depending on what you are doing. This guide to ChatGPT usage limits in 2026 goes through every plan and every meter, how each one resets, what makes the allowance run out faster, and what you can do when you hit a wall. All numbers come from OpenAI's help center, pricing page and Codex documentation, checked on October 19, 2026.
 
 ## Is there a limit to how much you can use ChatGPT?
 
@@ -12,14 +12,23 @@ Yes, but not where most people expect. There are now three separate kinds of lim
 
 Hitting one limit does not lock you out of the others. If your Work allowance is used up, you can usually still chat normally; if GPT-6 Pro hits its weekly limit, ChatGPT can fall back to another model.
 
+## What changed in October 2026
+
+OpenAI's release notes for October 1–16 add no new caps, but four changes affect what you see:
+
+- **GPT-6 in Chat on every plan (October 7–8).** Plus, Pro, Business and Enterprise get GPT-6 Sol; Free and Go get GPT-6 Luna from October 8. The new Intelligent UI, which can put charts and small tools inside an answer, has no separate quota: your plan's usual limits apply. OpenAI's models help page still lists GPT-5.6 Luna for Free and Go, including Think, so an account that has not been updated yet may still show it.
+- **Codex message predictions (October 9, beta, personal Pro).** Generating suggested next messages does not count toward Codex limits or credits. The messages you send still do.
+- **Sites (October 15, Plus and Pro).** There is no fixed limit on the number of Sites, but usage and storage limits still apply.
+- **GPT-6 Pro update (October 16, Pro).** Faster answers and parallel agents in the Chat tab. The release note does not mention any change to the weekly GPT-6 Pro allowance.
+
 ## ChatGPT usage limits by plan
 
 ![ChatGPT usage limits by plan: Plan, Price per month, Everyday chat, Thinking levels in Chat, GPT-6 Pro in Chat, Work and Codex, Five-hour wi](/chatgpt-usage-limits-chatgpt-usage-limits-by-plan-en.jpg)
 
 | Plan | Price per month | Everyday chat | Thinking levels in Chat | GPT-6 Pro in Chat | Work and Codex | Five-hour window |
 |---|---:|---|---|---|---|---|
-| Free | $0 | Unlimited* | Think (GPT-5.6 Luna) | – | Limited, desktop app | – |
-| Go | $8 | Unlimited* | Think (GPT-5.6 Luna) | – | Limited, desktop app | – |
+| Free | $0 | Unlimited* | Think (GPT-6 Luna) | – | Limited, desktop app | – |
+| Go | $8 | Unlimited* | Think (GPT-6 Luna) | – | Limited, desktop app | – |
 | Plus | $20 | Unlimited* | Medium, High | – | Included | Yes |
 | Pro 100 | $100 | Unlimited* | Medium to Extra High, Pro | Yes, weekly allowance | Larger allowance | No |
 | Pro 200 | $200 | Unlimited* | Medium to Extra High, Pro | Yes, weekly allowance | Larger allowance | No |
@@ -39,7 +48,7 @@ On August 6, 2026, OpenAI announced in its release notes that Free and Go users 
 
 Three things are worth knowing about "unlimited":
 
-- **It covers ordinary text answers.** On Free and Go, those come from GPT-5.6 Luna, and Think also uses Luna. On Plus and above, Instant is powered by GPT-6 Sol once GPT-6 reaches your account.
+- **It covers ordinary text answers.** On Free and Go, those come from GPT-6 Luna since the October 8 rollout (GPT-5.6 Luna on accounts that have not received it yet), and Think also uses Luna. On Plus and above, Instant uses GPT-6 Sol.
 - **Tools are still limited.** OpenAI says separate limits "continue to apply to file uploads, image generation, voice, data analysis, and other tools." On Free and Go, the pricing page lists messages with uploads, image generation, deep research, memory and Codex as limited.
 - **Guardrails apply.** Automated use, sharing an account or reselling access can lead to a temporary restriction. OpenAI says it will tell you when that happens.
 
@@ -51,7 +60,7 @@ The Thinking slider decides which model answers you, and that is where Chat limi
 
 | Thinking level | Model (GPT-6 selected) | Plus | Pro | Business | Free and Go |
 |---|---|:---:|:---:|:---:|:---:|
-| Instant | GPT-6 Sol | ✓ | ✓ | ✓ | GPT-5.6 Luna |
+| Instant | GPT-6 Sol | ✓ | ✓ | ✓ | GPT-6 Luna |
 | Medium, High | GPT-6 Sol | ✓ | ✓ | ✓ | – |
 | Extra High | GPT-6 Sol | – | ✓ | ✓ | – |
 | Pro | GPT-6 Pro (powered by GPT-6 Astra) | – | ✓ | ✓ | – |
@@ -107,6 +116,7 @@ Prompt length alone is a poor guide. OpenAI lists model choice, context, reasoni
 - **Speed modes.** Fast mode uses your included allowance at 250% of the Standard rate. Ultrafast, available only on Pro 500 among Pro plans, uses it at 800% for GPT-6 Astra and GPT-6.1 Sol.
 - **Images.** In Work and Codex, image generations use included limits about 300–500% as fast as similar turns without images, depending on quality and size.
 - **Context.** Large instruction files, many connected MCP servers and long source material all add tokens to every message. OpenAI recommends trimming AGENTS.md files and turning off MCP servers you are not using.
+- **What one task actually uses.** In our own measurements with Codex CLI 0.162 and GPT-6 Luna, Codex sent 14,678 input tokens before doing any work (a one-word reply). A small coding task, a brick-breaker game in one HTML file, used a median of 48,600 input tokens over 25 runs, most of it read from the cache. Adding 10 or 30 idle MCP tools did not change the 14,678: Codex loaded them only when a task needed them. The raw data is in [Claude Code vs Codex tokens](/data/claude-code-vs-codex-tokens) and [prompt language and coding cost](/data/ai-coding-prompt-language).
 
 ## Voice, images and files
 
@@ -210,6 +220,9 @@ In Work and Codex, no: all models draw from one shared pool, and switching does 
 **Is ChatGPT Plus worth $20 for the limits?**
 If you only send text messages, Free or Go already gives you unlimited chat. Plus is worth it if you use the higher thinking levels, generate images, upload files often or want Work and Codex with GPT-6 Astra.
 
+**Which model does ChatGPT Free use now?**
+GPT-6 Luna, rolling out to Free and Go from October 8, 2026. Plus and above get GPT-6 Sol in Chat. If your model menu does not show GPT-6 yet, your account is still on GPT-5.6 Luna.
+
 **Can OpenAI Support reset my limit?**
 No. Support can investigate if usage was counted incorrectly, but it does not reset limits. Wait for the reset, use a saved reset, buy one if eligible, or use credits.
 
@@ -222,6 +235,7 @@ No. Support can investigate if usage was counted incorrectly, but it does not re
 - [OpenAI Help Center: ChatGPT Business models and limits](https://help.openai.com/en/articles/12003714-chatgpt-business-models-and-limits)
 - [OpenAI Help Center: About ChatGPT Pro tiers](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers)
 - [OpenAI Help Center: ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)
+- [Notebookcheck: ChatGPT Free and Go users start getting GPT-6 Luna in Chat](https://notebookcheck.net/ChatGPT-Free-and-Go-users-start-getting-GPT-6-Luna-in-Chat.1419032.0.html)
 - [ChatGPT Learn: Codex and ChatGPT Work pricing and usage limits](https://learn.chatgpt.com/docs/pricing)
 - [ChatGPT pricing](https://chatgpt.com/pricing)
 - [OpenAI API: GPT-6 Astra model and pricing](https://developers.openai.com/api/docs/models/gpt-6-astra)
