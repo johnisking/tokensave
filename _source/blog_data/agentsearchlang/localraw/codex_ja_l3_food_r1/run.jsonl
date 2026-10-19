@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1518f-8a62-77a1-bd39-3b5d26f0575b"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"「今いちばん評判が良い」は評価基準によって変わります。ここでは、東京のラーメン店を継続的に集計している「食べログ ラーメン TOKYO 百名店 2025」から、掲載店を3軒選びました。ランキング順位ではなく、百名店への選出を評判の目安にしています。\n\n- **らぁ麺や 嶋（西新宿五丁目）** — [食べログの店舗ページ](https://tabelog.com/tokyo/A1318/A131807/13248261/)\n- **らぁ麺 飯田商店（湯河原）** — 東京ではないため除外します。東京の店としては**銀座 八五（東銀座）** — [食べログの店舗ページ](https://tabelog.com/tokyo/A1301/A130101/132282 ಪ್ರಮ/)\n- **中華そば しば田（仙川）** — [食べログの店舗ページ](https://tabelog.com/tokyo/A1320/A132001/13149711/)\n\n※「百名店」は食べログの選出企画で、リアルタイムの順位ではありません。最新の営業状況や評価は各店舗ページでご確認ください。"}}
+{"type":"turn.completed","usage":{"input_tokens":14718,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":298,"reasoning_output_tokens":0}}

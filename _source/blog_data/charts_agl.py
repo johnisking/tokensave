@@ -9,10 +9,12 @@ T = lambda rs, f: sum((r[f] or 0) for r in rs)
 groups = [
   ("AI topic · asked in KO/JA/ES/UK\nCodex", [r for r in R if r['topic'] == 'ai' and r['tool'] == 'codex' and r['ask_language'] != 'en'], 'ask'),
   ("AI topic · asked in KO/JA/ES/UK\nClaude Code", [r for r in R if r['topic'] == 'ai' and r['tool'] == 'claude_code' and r['ask_language'] != 'en'], 'ask'),
-  ("Local topic · asked in English\nClaude Code", [r for r in R if r['topic'] == 'local' and r['ask_language'] == 'en'], 'topic'),
-  ("Local topic · asked in local language\nClaude Code", [r for r in R if r['topic'] == 'local' and r['ask_language'] != 'en'], 'topic'),
+  ("Local topic · asked in English\nCodex", [r for r in R if r['topic'] == 'local' and r['tool'] == 'codex' and r['ask_language'] == 'en'], 'topic'),
+  ("Local topic · asked in English\nClaude Code", [r for r in R if r['topic'] == 'local' and r['tool'] == 'claude_code' and r['ask_language'] == 'en'], 'topic'),
+  ("Local topic · asked in local language\nCodex", [r for r in R if r['topic'] == 'local' and r['tool'] == 'codex' and r['ask_language'] != 'en'], 'topic'),
+  ("Local topic · asked in local language\nClaude Code", [r for r in R if r['topic'] == 'local' and r['tool'] == 'claude_code' and r['ask_language'] != 'en'], 'topic'),
 ]
-fig, axes = plt.subplots(1, 2, figsize=(12, 6.4), dpi=100); fig.patch.set_facecolor(BG)
+fig, axes = plt.subplots(1, 2, figsize=(12, 7.6), dpi=100); fig.patch.set_facecolor(BG)
 for ax, (title, tot, en_f, loc_f) in zip(axes, [("Search queries", "search_queries_count", "queries_in_english", None), ("Links cited in the answer", "cited_links", "cited_english", None)]):
     ax.set_facecolor(BG)
     for i, (lab, rs, kind) in enumerate(groups):
@@ -39,6 +41,6 @@ from matplotlib.patches import Patch
 fig.legend(handles=[Patch(color=EN, label='English'), Patch(color=LOC, label="The question's language (AI topic) / the country's language (local topic)"), Patch(color=OTH, label='Other')],
            loc='lower center', ncol=3, facecolor=BG, edgecolor=BG, labelcolor=FG, fontsize=10)
 fig.text(0.02, 0.955, "AI agents search in English, unless the topic is local", fontsize=17, fontweight='bold', color=FG)
-fig.text(0.02, 0.915, "Claude Code (Opus 5.5) and Codex with web search, questions in Korean, Japanese, Spanish, Ukrainian and English · measured 2026-10-18 · tokensave.app/data · CC BY 4.0", fontsize=9.5, color=MUTED)
-plt.subplots_adjust(left=0.25, right=0.98, top=0.83, bottom=0.17, wspace=0.12)
+fig.text(0.02, 0.915, "Claude Code (Opus 5.5) and Codex with web search · questions in 5 languages · measured 2026-10-18/19 · tokensave.app/data · CC BY 4.0", fontsize=9.5, color=MUTED)
+plt.subplots_adjust(left=0.25, right=0.98, top=0.86, bottom=0.14, wspace=0.12)
 plt.savefig('src/static/claude-web-search-by-language-chart.png', facecolor=BG); plt.close(fig)
