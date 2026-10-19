@@ -1,8 +1,10 @@
+![ChatGPT Pro 500·200·100 요금제 비교: Pro 500 월 $500 Plus 대비 25배 + Ultrafast, Pro 200 월 $200 Plus 대비 10배, Pro 100 월 $100 Plus 대비 5배](/chatgpt-pro-500-200-100-ko.jpg)
+
 2026년 9월 29일, OpenAI가 ChatGPT 프로 요금제를 **Pro 100**, **Pro 200**, 그리고 새로 나온 **Pro 500** 세 가지로 나눴습니다. 그러면서 Pro 200의 사용량은 슬쩍 줄였습니다. 셋 중 무엇을 골라야 할지, 아니면 애초에 프로가 필요한지 고민 중이라면 실제로 무엇이 바뀌었고 어떻게 고르면 되는지 정리해 드립니다.
 
-**결론부터:** 한도에 걸리지 않는 가장 작은 요금제를 고르세요. Pro 100·200·500은 모두 Plus 1배분 사용량당 $20로 값이 같고, 차이는 사용량(Plus의 5배·10배·25배)과 Pro 500 전용 Ultrafast뿐입니다.
+**기존 Pro 200 이용자라면:** 예전 사용량은 **2026년 10월 29일**까지입니다. 10월 30일부터는 같은 $200에 줄어든 새 사용량이 적용되니, 이번 주에 실제로 얼마나 쓰는지 확인해 두세요.
 
-![ChatGPT Pro 500·200·100 요금제 비교: Pro 500 월 $500 Plus 대비 25배 + Ultrafast, Pro 200 월 $200 Plus 대비 10배, Pro 100 월 $100 Plus 대비 5배](/chatgpt-pro-500-200-100-ko.jpg)
+**결론부터:** 한도에 걸리지 않는 가장 작은 요금제를 고르세요. Pro 100·200·500은 모두 Plus 1배분 사용량당 $20로 값이 같고, 차이는 사용량(Plus의 5배·10배·25배)과 Pro 500 전용 Ultrafast뿐입니다.
 
 ## 요금제 한눈에 비교
 
@@ -18,7 +20,7 @@
 
 미국 가격 기준입니다. OpenAI 도움말 페이지에는 Pro 200이 Pro 100보다 사용량이 많고 Pro 500이 가장 많다고만 나와 있습니다. 5×, 10×, 25×라는 배수는 OpenAI 공식 페이지가 아니라 OpenAI 티보 소티오(Thibault Sottiaux)의 X 글(5×·10×, WinBuzzer 보도)과 보도(25×, Windows Report) 기준입니다.
 
-세 가지 Pro 요금제의 기능은 모두 같습니다. Pro 모델, Codex, 딥 리서치, 이미지 생성, 메모리, 파일 업로드가 전부 포함됩니다. 유일한 기능 차이는 **Ultrafast**입니다. GPT-6 Astra와 GPT-6.1 Sol을 더 빠르게 돌리는 모드인데, Pro 500에서만 쓸 수 있습니다. Pro 100이나 Pro 200에서 추가 크레딧을 사도 열리지 않습니다.
+세 가지 Pro 요금제의 기능은 모두 같습니다. Pro 모델, Codex, 딥 리서치, 이미지 생성([이미지 비용 계산기](/ko/image)), 메모리, 파일 업로드가 전부 포함됩니다. 유일한 기능 차이는 **Ultrafast**입니다. GPT-6 Astra와 GPT-6.1 Sol을 더 빠르게 돌리는 모드인데, Pro 500에서만 쓸 수 있습니다. Pro 100이나 Pro 200에서 추가 크레딧을 사도 열리지 않습니다.
 
 ## 많이들 놓치는 부분: 이제 대량 구매 할인이 없습니다
 
@@ -80,10 +82,33 @@
 
 결론적으로, 일상용 모델을 가볍게 또는 적당히 쓰는 분이라면 보통 Plus나 API가 낫습니다. Pro는 최상위 모델을 많이 쓰거나, 긴 문서를 다루거나, Codex를 끼고 사는 경우에 본전을 뽑기 시작합니다.
 
+## 자주 묻는 질문
+
+**Pro 500은 돈값을 하나요?**
+Pro 200 한도에 자주 걸리거나 Ultrafast가 필요할 때만입니다. Plus 1배분당 $20로 Pro 100·200과 값이 같아서 할인은 없고, 더 많은 사용량과 속도를 사는 것입니다.
+
+**기존 Pro 200은 10월 30일에 어떻게 되나요?**
+유예 기간은 10월 29일까지입니다. 10월 30일부터는 같은 $200에 새 Pro 200 사용량이 적용되며, Plus의 20배에서 10배로 줄어든다고 보도됐습니다.
+
+**GPT-6 Pro를 무제한으로 쓸 수 있는 Pro 요금제가 있나요?**
+없습니다. OpenAI는 Pro 구독에 GPT-6 Pro 모델 무제한 사용이 포함되지 않는다고 밝히고 있고, 등급마다 주간 한도가 있습니다.
+
+**Pro 100은 Plus보다 무엇이 더 좋나요?**
+사용량이 약 5배이고, 채팅에서 GPT-6 Pro(Pro 생각 수준)를 쓸 수 있으며, Work와 Codex에 5시간 제한이 없습니다.
+
 ## 내 사용량으로 직접 계산해 보세요
 
 사용 패턴은 사람마다 다릅니다. [구독 vs API 계산기](/ko/plans)에 보내는 메시지 수, 길이, 사용하는 언어를 입력하면 같은 한 달을 API로 썼을 때의 비용을 ChatGPT, Claude, Gemini 요금제와 나란히 보여 줍니다.
 
-*2026년 10월 1일 기준 가격입니다. OpenAI가 사용량 한도를 다시 바꿀 수 있으니 결제 전에 chatgpt.com/pricing을 꼭 확인하세요.*
+## 출시 이후 바뀐 것 (2026년 10월)
+
+- **10월 8일:** Ultrafast가 GPT-6.1 Sol에도 적용됐습니다. Pro 요금제 중에서는 여전히 Pro 500 전용입니다.
+- **10월 9일:** 개인 Pro 이용자(모든 등급)에게 Codex 메시지 추천 기능(베타)이 생겼습니다. 추천을 만드는 것 자체는 Codex 한도나 크레딧에서 빠지지 않습니다.
+- **10월 16일:** 채팅 탭의 GPT-6 Pro가 더 빨라지고 여러 에이전트가 나눠 작업하도록 바뀌었습니다. 주간 GPT-6 Pro 한도가 바뀌었다는 발표는 없습니다.
+- **10월 29일:** 기존 Pro 200 이용자의 유예 기간이 끝납니다.
+
+어느 것도 Plus 1배분당 가격을 바꾸지 않았으니, 위의 고르는 기준은 그대로입니다. Codex 작업 하나가 실제로 사용량을 얼마나 쓰는지는 [챗GPT 사용량 한도](/ko/blog/chatgpt-sayongnyang-hando)의 실측 문단을 참고하세요.
+
+*가격과 사용량은 2026년 10월 19일에 확인했습니다. OpenAI가 사용량 한도를 다시 바꿀 수 있으니 결제 전에 chatgpt.com/pricing을 꼭 확인하세요.*
 출처: [OpenAI DevDay 2026 정리](https://openai.com/index/devday-2026-recap/) · [DevDay 발표별 가격·제공 범위 정리 (DEV Community)](https://dev.to/axrisi/openai-devday-2026-every-announcement-with-prices-and-availability-1mbh) · [ChatGPT Pro 요금제 안내 (OpenAI 도움말 센터)](https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers) · [WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers](https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/) · [Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access](https://windowsreport.com/?p=1510692) · [OpenAI Developer Community: Ultrafast is rolling out today for GPT-6.1 Sol](https://community.openai.com/t/ultrafast-is-rolling-out-today-for-gpt-6-1-sol-in-the-api-codex-and-chatgpt-work/1404475)
 <!-- autoimg -->

@@ -45,9 +45,9 @@ PRO = [
   "tag": "en",
   "path": "/blog/chatgpt-pro-100-vs-200-vs-500",
   "src": "pro-en",
-  "title": "ChatGPT Pro 500 vs 200 vs 100: Price, Limits and Which to Pick (2026)",
-  "desc": "ChatGPT Pro 100 ($100), Pro 200 ($200) and Pro 500 ($500) compared: usage limits, Ultrafast, the Pro 200 cut and which GPT Pro plan is worth it.",
-  "byline": "Jonhisking · October 1, 2026",
+  "title": "ChatGPT Pro 100 vs 200 vs 500 (Oct 2026): Which to Pick",
+  "desc": "All three cost $20 per Plus-worth of usage: 5×, 10× or 25× Plus. Pro 500 adds Ultrafast; old Pro 200 allowance ends Oct 29. Which one you need.",
+  "byline": "Jonhisking · Updated October 19, 2026",
   "cta": "Enter how many messages you send, how long they are and your language, and see whether a subscription or the API is cheaper for you.",
   "ctaBtn": "Open the Subscription vs API calculator",
   "date": "2026-10-01"
@@ -56,9 +56,9 @@ PRO = [
   "tag": "ko",
   "path": "/ko/blog/chatgpt-pro-yogeumje-bigyo",
   "src": "pro-ko",
-  "title": "GPT 프로 요금제 Pro 500·200·100 차이: 가격, 사용량, 고르는 법 (2026)",
-  "desc": "GPT 프로 요금제 Pro 100($100)·Pro 200($200)·Pro 500($500) 차이 정리. 사용량당 가격은 같고 차이는 한도와 Ultrafast입니다. Pro 200 한도 축소와 고르는 법까지.",
-  "byline": "Jonhisking · 2026년 10월 1일",
+  "title": "GPT 프로 요금제 100·200·500 차이 (2026년 10월)",
+  "desc": "Pro 100·200·500은 Plus 1배분당 $20로 값이 같고 차이는 사용량(5·10·25배)과 Pro 500 전용 Ultrafast뿐. 기존 Pro 200 한도는 10월 29일까지. 고르는 법.",
+  "byline": "Jonhisking · 2026년 10월 19일 업데이트",
   "cta": "내 메시지 수와 길이, 언어를 넣고 구독과 API 중 어느 쪽이 더 싼지 직접 계산해 보세요.",
   "ctaBtn": "구독 vs API 계산기 열기",
   "date": "2026-10-01"
@@ -317,8 +317,8 @@ CHLIM = [
      "ChatGPT の普段のテキストチャットは全プランで無制限。上限があるのは思考レベル、GPT-6 Pro、ツール、Work・Codex の5時間枠（Plus で Astra 5〜45回、GPT-6.1 Sol 15〜160回）。プラン別の上限とリセット、対処法。", "Jonhisking · 2026年10月19日更新", *_CTA_PL["ja"]),
 ]
 CXLIM = [
- _cc("en", "/blog/codex-usage-limits", "cxlim-en", "Codex Usage Limits 2026: Plus vs Pro, 5-Hour Window, Resets",
-     "Plus gets about 15–160 GPT-6.1 Sol messages per 5 hours; Pro has no 5-hour cap. Codex limits by model, weekly caps, resets and how to make them last.", _BY["en"], *_CTA_AG["en"]),
+ _cc("en", "/blog/codex-usage-limits", "cxlim-en", "Codex Usage Limits (Oct 2026): Messages per 5 Hours, Measured",
+     "Plus: about 15–160 GPT-6.1 Sol or 5–45 GPT-6 Astra messages per 5 hours, plus a weekly cap; Pro has none. Measured tokens per task and how to stretch it.", "Jonhisking · Updated October 19, 2026", *_CTA_AG["en"]),
  _cc("ko", "/ko/blog/codex-sayongnyang-hando", "cxlim-ko", "Codex 사용량 한도 정리: 5시간·주간 한도와 초기화",
      "챗GPT Plus·Pro에서 Codex 한도가 어떻게 작동하는지, 모델별 5시간당 메시지 수, 사용량 확인법과 오래 쓰는 방법을 정리했습니다.", _BY["ko"], *_CTA_AG["ko"]),
  _cc("ja", "/ja/blog/codex-shiyouryou-jougen", "cxlim-ja", "Codex の使用量上限まとめ：5時間・週の上限とリセット",
@@ -957,3 +957,7 @@ for _b in CLIM:
     _b["date"] = "2026-10-16"
 for _d in CPRO:
     if _d["src"] in ("cpro-en", "cplan-ja"): _d["updated"] = "2026-10-16"
+
+# 2026-10-19 search-recovery refresh: October changes, measured Codex task tokens, CTR titles
+for _d in PRO[:2] + [CXLIM[0]]:
+    _d["updated"] = "2026-10-19"
