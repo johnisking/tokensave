@@ -59,6 +59,7 @@ def write_files(dist):
     write_amd_files(dist)
     write_tl_files(dist)
     write_har_files(dist)
+    write_lti_files(dist)
 
 
 def _write_lang_files(dist):
@@ -187,7 +188,15 @@ def hub_html():
     return f'''    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
       <h1 class="text-3xl font-extrabold text-white">TokenSave Data</h1>
       <p class="mt-3">Measurements we ran ourselves on AI tokens and costs, published as open datasets. Each page has the headline numbers, the full table, a CSV download, the method and its limits, and a ready-made citation. Everything is free to reuse under <a href="{LICENSE}">CC BY 4.0</a> with a link back.</p>
-      <ul class="not-prose mt-6 space-y-3">
+      <a href="{LTI_PATH}" class="not-prose block mt-6 border border-violet-500/40 bg-violet-500/10 rounded-xl p-4" style="text-decoration:none">
+        <span class="block text-xs font-semibold uppercase tracking-wider text-violet-300">Index · v{LTI_VERSION}</span>
+        <span class="block mt-1 font-semibold text-zinc-100">TokenSave Language Tax Index</span>
+        <span class="block mt-1 text-sm text-zinc-300">How many more tokens your language needs than English, per model. Updated when new models ship.</span></a>
+      <h2>Latest measurements</h2>
+      <ul class="not-prose space-y-1.5 text-sm text-zinc-300">
+{"".join(f'        <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">{d}</span><a href="{p}" class="hover:text-violet-300">{esc(t)}</a></li>' + chr(10) for d, p, t in CHANGELOG[:6])}      </ul>
+      <h2>All datasets</h2>
+      <ul class="not-prose mt-4 space-y-3">
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{LANG_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(LANG_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">The same prompt in 41 languages: +3% to +144% more GPT tokens than English. CSV · updated {LANG_VERIFIED}</span></a></li>
@@ -1851,3 +1860,192 @@ def har_html():
                   HAR_CHART, "Median input tokens and API cost for the same coding task under seven Claude Code settings, 5 runs each", doi=HAR_DOI, mirrors=HAR_MIRRORS)
             + body + _page_tail(har_citation(), _embed(HAR_PATH, HAR_CHART, "Claude Code harness cost by setting", "Claude Code harness cost"),
                                 [(AGT_PATH, "Claude Code vs Codex: startup tokens and the same coding task"), (AMD_PATH, "CLAUDE.md and AGENTS.md size"), (EFF_PATH, "Claude effort levels: tokens, time and cost")]))
+
+
+# ---- TokenSave Language Tax Index (derived from datasets 1 and 2; versioned, re-measured when new models ship) ----
+LTI_PATH = "/data/language-tax-index"
+LTI_VERSION = "1.0"
+LTI_DATE = "2026-10-19"
+LTI_CHART = "/language-tax-index-chart.png"
+LTI_TITLE = "TokenSave Language Tax Index: extra tokens per language on Claude, Gemini and GPT"
+LTI_DESC = ("How many more tokens the same text needs in 40 languages than in English, per model. "
+            "Version 1.0 (October 2026): median +41% on Gemini, +52% on GPT, +88% on Claude 5.5. Updated when new models ship. CSV, CC BY 4.0.")
+# (key, label, family, current) - the legacy GPT-4 tokenizer stays as history
+LTI_MODELS = [("gemini", "Gemini 3.x", "Google", True), ("gpt", "GPT (o200k, GPT-4o and later)", "OpenAI", True),
+              ("claude55", "Claude Opus/Sonnet 5.5", "Anthropic", True), ("claude45", "Claude Haiku 4.5", "Anthropic", True),
+              ("cl100k", "GPT-4 / GPT-3.5 (cl100k, legacy)", "OpenAI", False)]
+# New models are added by dropping blog_data/lti_models/<key>.json (made by blog_data/lti_add_model.py); see seo/new-model-routine.md.
+def _lti_extra():
+    d = os.path.join(ROOT, "blog_data", "lti_models")
+    out = []
+    for f in sorted(os.listdir(d)) if os.path.isdir(d) else []:
+        if f.endswith(".json"):
+            out.append(json.load(open(os.path.join(d, f), encoding="utf-8")))
+    return out
+
+
+LTI_EXTRA = _lti_extra()
+LTI_MODELS = LTI_MODELS[:-1] + [(m["key"], m["label"], m["family"], True) for m in LTI_EXTRA] + LTI_MODELS[-1:]
+# Version history: (version, date, what changed). Add a row every time the index is re-measured.
+LTI_HISTORY = [("1.0", "2026-10-19", "First release: 41 languages × 4 current tokenizers plus the legacy GPT-4 tokenizer, from our 2026-09-30 and 2026-10-17 measurements.")]
+# Models released after the last measurement, queued for the next version.
+LTI_PENDING = ["Claude Haiku 5.5 (released 2026-10-07)"]
+
+
+def _lti_rows():
+    multi = {r["code"]: r for r in json.load(open(os.path.join(ROOT, "blog_data", "langmulti", "combined.json"), encoding="utf-8"))}
+    legacy = {r["code"]: r for r in _lang_rows()}
+    en_c = legacy["en"]["c"]
+    rows = []
+    for code, r in multi.items():
+        row = dict(code=code, name=r["name"])
+        for k in ("gemini", "gpt", "claude55", "claude45"):
+            row[k] = r[k]
+            row[k + "_tax"] = r[k + "_pct"]
+        for m in LTI_EXTRA:
+            row[m["key"]] = m["counts"][code]
+            row[m["key"] + "_tax"] = round((m["counts"][code] / m["counts"]["en"] - 1) * 100)
+        row["cl100k"] = legacy[code]["c"]
+        row["cl100k_tax"] = round((legacy[code]["c"] / en_c - 1) * 100)
+        rows.append(row)
+    rows.sort(key=lambda r: (r["gpt_tax"], r["name"]))
+    return rows
+
+
+def _lti_summary(rows):
+    out = {}
+    for k, label, fam, cur in LTI_MODELS:
+        vals = [(r[k + "_tax"], r["name"]) for r in rows if r["code"] != "en"]
+        out[k] = dict(label=label, family=fam, current=cur, median=round(statistics.median(v for v, _ in vals)),
+                      low=min(vals), high=max(vals), en=next(r[k] for r in rows if r["code"] == "en"))
+    return out
+
+
+def lti_citation():
+    return f"TokenSave (2026). TokenSave Language Tax Index, version {LTI_VERSION} ({LTI_DATE}). {BASE}{LTI_PATH}"
+
+
+def write_lti_files(dist):
+    rows = _lti_rows()
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(["language_code", "language"] + [f"{k}_tax_pct" for k, *_ in LTI_MODELS] + [f"{k}_tokens" for k, *_ in LTI_MODELS])
+    for r in rows:
+        w.writerow([r["code"], r["name"]] + [r[k + "_tax"] for k, *_ in LTI_MODELS] + [r[k] for k, *_ in LTI_MODELS])
+    open(os.path.join(dist, "data", "language-tax-index.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=LTI_TITLE, version=LTI_VERSION, date=LTI_DATE, url=BASE + LTI_PATH, license="CC BY 4.0",
+                definition="tax = tokens for the language / tokens for English on the same tokenizer - 1, in percent",
+                models={k: label for k, label, *_ in LTI_MODELS}, summary=_lti_summary(rows),
+                history=[dict(version=v, date=d, note=n) for v, d, n in LTI_HISTORY], pending=LTI_PENDING,
+                sources=[BASE + LANG_PATH, BASE + MULTI_PATH, f"https://doi.org/{LANG_DOI}", f"https://doi.org/{MULTI_DOI}"],
+                citation=lti_citation(), rows=rows)
+    open(os.path.join(dist, "data", "language-tax-index.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def lti_ld():
+    ld = _dataset_ld(LTI_TITLE, LTI_DESC, LTI_PATH, LTI_DATE,
+                     ["language tax", "tokens per language", "tokenizer", "multilingual LLM cost", "Claude", "Gemini", "GPT"],
+                     ["extra tokens versus English (%)"],
+                     "Derived index: tokens for the same prompt in each language divided by English tokens on the same tokenizer, minus one",
+                     LTI_CHART, [("language-tax-index.csv", "text/csv"), ("language-tax-index.json", "application/json")])
+    ds = ld["@graph"][0]
+    ds["version"] = LTI_VERSION
+    ds["isBasedOn"] = [f"https://doi.org/{LANG_DOI}", f"https://doi.org/{MULTI_DOI}"]
+    return ld
+
+
+def lti_html():
+    rows = _lti_rows()
+    sm = _lti_summary(rows)
+    by = {r["code"]: r for r in rows}
+    cur = [m for m in LTI_MODELS if m[3]]
+    cards = "\n".join(
+        f'''        <div class="border border-zinc-800 rounded-xl p-4 bg-zinc-950/40">
+          <span class="block text-xs text-zinc-400">{esc(sm[k]["label"])}</span>
+          <span class="block text-3xl font-extrabold tabular-nums" style="color:#fff">{_pct(sm[k]["median"])}</span>
+          <span class="block text-xs text-zinc-400">median of 40 languages · {esc(sm[k]["low"][1])} {_pct(sm[k]["low"][0])} to {esc(sm[k]["high"][1])} {_pct(sm[k]["high"][0])}</span>
+        </div>''' for k, *_ in cur)
+    head = "".join(f'<th class="text-right">{esc(label)}</th>' for _, label, *_ in LTI_MODELS)
+    trs = "\n".join(
+        f'          <tr><td>{esc(r["name"])}</td>' + "".join(
+            f'<td class="text-right tabular-nums">{"–" if r["code"] == "en" else _pct(r[k + "_tax"])}</td>' for k, *_ in LTI_MODELS) + "</tr>"
+        for r in rows)
+    hist = "\n".join(f"        <li><strong>v{v}</strong> · {d} · {esc(n)}</li>" for v, d, n in LTI_HISTORY)
+    pend = ", ".join(esc(p) for p in LTI_PENDING) or "none"
+    ko, uk, hi = by["ko"], by["uk"], by["hi"]
+    embed = _embed(LTI_PATH, LTI_CHART, "TokenSave Language Tax Index: median extra tokens versus English by model", f"Language Tax Index v{LTI_VERSION}")
+    return f'''    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <p class="not-prose text-xs font-semibold uppercase tracking-wider text-violet-300"><a href="/data/" class="no-underline" style="text-decoration:none">TokenSave Data</a> · Index · v{LTI_VERSION}</p>
+      <h1 class="text-3xl font-extrabold text-white">TokenSave Language Tax Index</h1>
+      <p class="mt-3 text-lg text-zinc-200"><strong>The “language tax” is how many more tokens the same text needs in your language than in English.</strong> On today's models the median across 40 languages is {_pct(sm["gemini"]["median"])} on Gemini, {_pct(sm["gpt"]["median"])} on GPT and {_pct(sm["claude55"]["median"])} on Claude Opus/Sonnet 5.5. API prices, context windows and token-based limits all scale with it.</p>
+      <p class="text-sm text-zinc-400">Version {LTI_VERSION} · {LTI_DATE} · 41 languages · {len(cur)} current tokenizers + 1 legacy · License <a href="{LICENSE}">CC BY 4.0</a> · Re-measured when new models ship</p>
+      <div class="not-prose flex flex-wrap gap-2 my-4">
+        <a href="/data/language-tax-index.csv" {BTN} style="text-decoration:none">⬇ CSV</a>
+        <a href="/data/language-tax-index.json" {BTN} style="text-decoration:none">⬇ JSON</a>
+        <a href="#cite" {BTN} style="text-decoration:none">How to cite</a>
+      </div>
+      <div class="not-prose grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+{cards}
+      </div>
+      <img src="{LTI_CHART}" alt="TokenSave Language Tax Index: median extra tokens versus English by model, with the range across 40 languages" width="1200" loading="lazy">
+      <h2>What the index shows</h2>
+      <ul>
+        <li><strong>Every model taxes non-English text, but by very different amounts.</strong> Gemini has the smallest median tax, Claude the largest. Korean is {_pct(ko["gemini_tax"])} on Gemini, {_pct(ko["gpt_tax"])} on GPT and {_pct(ko["claude55_tax"])} on Claude 5.5; Ukrainian {_pct(uk["gemini_tax"])}, {_pct(uk["gpt_tax"])} and {_pct(uk["claude55_tax"])}.</li>
+        <li><strong>The tax has fallen over time.</strong> On the legacy GPT-4 tokenizer (cl100k) the median was {_pct(sm["cl100k"]["median"])}; on the current o200k tokenizer it is {_pct(sm["gpt"]["median"])}. Hindi went from {_pct(hi["cl100k_tax"])} to {_pct(hi["gpt_tax"])}.</li>
+        <li><strong>A lower tax is not always a cheaper model.</strong> The index compares each language with English on the same model. Claude 5.5 also needs more tokens for English itself ({sm["claude55"]["en"]} for our prompt, against {sm["gpt"]["en"]} on GPT and {sm["gemini"]["en"]} on Gemini), and prices per token differ. Use the <a href="/">token calculator</a> to compare real costs.</li>
+        <li><strong>It matters most for chat, documents and API work, much less for coding agents.</strong> In our coding test the prompt language moved input tokens by about 1%, because the agent's own instructions dwarf the prompt (<a href="/data/ai-coding-prompt-language">data</a>).</li>
+      </ul>
+      <h2>The index, all 41 languages</h2>
+      <p class="text-sm text-zinc-400">Extra tokens versus English on the same tokenizer. Sorted by GPT.</p>
+{_table(['<th>Language</th>', head], trs)}
+      <h2>Method</h2>
+      <ul>
+        <li><strong>Definition:</strong> tax = tokens for the language ÷ tokens for English on the same tokenizer − 1, rounded to a whole percent. The headline number is the median over the 40 non-English languages.</li>
+        <li><strong>Text:</strong> one everyday instruction (summarize a customer email and suggest a reply) translated into 41 languages. The prompts and raw counts are in the two source datasets: <a href="{LANG_PATH}">GPT tokenizers</a> (DOI <a href="https://doi.org/{LANG_DOI}">{LANG_DOI}</a>) and <a href="{MULTI_PATH}">Claude, Gemini and GPT</a> (DOI <a href="https://doi.org/{MULTI_DOI}">{MULTI_DOI}</a>).</li>
+        <li><strong>Counting:</strong> GPT with tiktoken; Claude from Claude Code usage reports minus a one-character baseline; Gemini with the Google AI Studio token counter. Models that share a tokenizer share a column (Claude Opus and Sonnet 5.5 gave identical counts, as did Gemini 3.8 Flash and 3.1 Pro).</li>
+      </ul>
+      <h2>Update policy and version history</h2>
+      <p>We re-measure the same 41 prompts when a model with a new tokenizer ships, add or replace its column, and publish a new version here with the date. Earlier versions stay in the history, so changes over time can be cited.</p>
+      <ul>
+{hist}
+      </ul>
+      <p class="text-sm text-zinc-400">Queued for the next version: {pend}.</p>
+      <h2>Limitations</h2>
+      <ul>
+        <li>Version 1.0 rests on one prompt. On other text the per-language numbers move by roughly ±10–20 percentage points; the ranking of models and languages is more stable. Adding more texts is planned for a later version.</li>
+        <li>Input tokens only. Output in another language can cost more again, and prices per token differ by model.</li>
+        <li>Claude counts come from usage reports and can be off by about ±2 tokens.</li>
+      </ul>
+{_page_tail(lti_citation(), embed, [(LANG_PATH, "Source data: GPT tokenizers, 41 languages"), (MULTI_PATH, "Source data: Claude, Gemini and GPT, 41 languages"), ("/data/ai-coding-prompt-language", "Does prompt language change coding cost?"), ("/", "Count tokens for your own text")])}'''
+
+
+# ---- Measurement log: newest first, shown on the data hub and the English home page ----
+CHANGELOG = [
+    ("2026-10-19", LTI_PATH, "Language Tax Index v1.0: extra tokens per language for every current model"),
+    ("2026-10-19", "/data/claude-code-harness-cost", "Claude Code harness cost: plugins, subagents, plan mode, skills and hooks (35 runs)"),
+    ("2026-10-19", "/data/ai-coding-prompt-language", "Coding in 5 prompt languages: re-run to 5 runs per language"),
+    ("2026-10-19", "/data/claude-web-search-by-language", "AI web search by language: 320 runs, local topics added for Codex"),
+    ("2026-10-18", "/data/claude-md-agents-md-size", "CLAUDE.md and AGENTS.md size: what instruction files cost"),
+    ("2026-10-18", "/data/ai-agent-web-search-tokens", "Web search tokens in Claude Code and Codex"),
+    ("2026-10-18", "/data/claude-code-vs-codex-tokens", "Claude Code vs Codex: startup tokens, MCP tools, the same task"),
+    ("2026-10-18", "/data/pdf-token-cost", "PDF tokens per page, now with Codex and Cursor reading from disk"),
+    ("2026-10-18", "/data/image-token-cost", "Image tokens by resolution on Claude, Gemini and GPT"),
+    ("2026-10-17", "/data/token-cost-by-format", "JSON vs YAML vs CSV vs TOON on four tokenizers"),
+    ("2026-10-17", "/data/token-cost-by-language-claude-gemini", "41 languages on Claude, Gemini and GPT"),
+]
+
+
+def latest_html(limit=5):
+    items = "\n".join(
+        f'        <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">{d}</span><a href="{p}" class="hover:text-violet-300">{esc(t)}</a></li>'
+        for d, p, t in CHANGELOG[:limit])
+    return f'''    <section class="mt-10 pt-6 border-t border-zinc-800">
+      <div class="flex items-baseline justify-between gap-3 mb-3">
+        <h2 class="text-sm font-semibold text-zinc-200">Latest measurements</h2>
+        <a href="/data/" class="text-xs text-violet-300 hover:text-violet-200">All open data →</a>
+      </div>
+      <ul class="space-y-1.5 text-sm text-zinc-300">
+{items}
+      </ul>
+    </section>
+'''

@@ -159,6 +159,9 @@ PAGES = [
     dict(file="data/index.html", path="/data/", body=None, fn="hub_html", ld="hub_ld",
          title="TokenSave Data: open AI token and cost measurements",
          desc="Datasets from TokenSave's own measurements of AI tokens and costs, with CSV downloads and citations (CC BY 4.0)."),
+    dict(file="data/language-tax-index.html", path="/data/language-tax-index", body=None, fn="lti_html", ld="lti_ld",
+         title="Language Tax Index: Extra Tokens per Language by Model (2026)",
+         desc="How many more tokens the same text needs in 40 languages than in English on Claude, Gemini and GPT. Median +41% on Gemini, +52% on GPT, +88% on Claude 5.5. Versioned, updated when new models ship. CSV, CC BY 4.0."),
     dict(file="data/token-cost-by-language.html", path="/data/token-cost-by-language", body=None, fn="lang_html", ld="lang_ld",
          title="Token Cost by Language: 41 Languages Measured (GPT Dataset)",
          desc="Dataset: the same prompt in 41 languages counted with OpenAI's o200k_base and cl100k_base tokenizers. From +3% (Simplified Chinese) to +144% (Punjabi) more tokens than English. Free CSV, CC BY 4.0."),
@@ -472,6 +475,8 @@ def brand_ko(out, values):
                           f'alt="TokenSave logo" width="22" height="22" /> TokenSave <span class="font-semibold text-zinc-400 whitespace-nowrap">{KO_BRAND}</span>', 1)
     else:
         out = brand_title(out, home=url in LANG_HOMES)
+    if url == BASE + "/" and "<!-- ===== External references" in out and "Latest measurements" not in out:
+        out = out.replace("    <!-- ===== External references", __import__("data_pages").latest_html() + "\n    <!-- ===== External references", 1)
     if url in (BASE + "/", BASE + "/ko/") and '"@type": "WebSite"' not in out:
         ld = json.dumps({"@context": "https://schema.org", "@graph": [ORG, {
             "@type": "WebSite", "@id": BASE + "/#website", "name": "TokenSave",
