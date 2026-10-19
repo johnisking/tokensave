@@ -491,7 +491,9 @@ BRAND_SUFFIX, TITLE_MAX = " | TokenSave", 70
 LANG_HOMES = {BASE + (f"/{slug}/" if slug else "/") for slug, *_ in LANGS}
 ORG = {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave",
        "alternateName": ["토큰세이브", "tokensave.app"], "url": "https://tokensave.app/",
-       "logo": "https://tokensave.app/favicon-192.png", "sameAs": ["https://github.com/johnisking/tokensave"]}
+       "logo": "https://tokensave.app/favicon-192.png",
+       "sameAs": ["https://github.com/johnisking/tokensave", "https://x.com/tokensaveapp", "https://sidedock.io/profile/jonhisking",
+                  "https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking/token-cost-by-language"]}
 
 def brand_title(out, home=False):
     m = re.search(r"<title>(.*?)</title>", out, re.S)
