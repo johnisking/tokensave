@@ -1032,26 +1032,33 @@ def build():
 THIN_LANGS = "ar bn cs da el fa fi fil gu he hi hu id it kn ml mr no pa ro ru sk sv ta te th ur vi".split()
 THIN_TOOLS = ["plans", "image", "video", "agents"]
 
+def _prune_paths():
+    fp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "seo", "prune_noindex.txt")
+    if not os.path.exists(fp):
+        return set()
+    return {l.strip().rstrip("/") for l in open(fp, encoding="utf-8") if l.strip() and not l.startswith("#")}
+
 def thin_noindex():
     import re, glob
-    paths = {f"/{l}/{t}" for l in THIN_LANGS for t in THIN_TOOLS}
+    paths = {f"/{l}/{t}" for l in THIN_LANGS for t in THIN_TOOLS} | _prune_paths()
+    norm = lambda p: (p[:-6] if p.endswith("/index") else p).rstrip("/") or "/"
     alt_re = re.compile(r'[ \t]*<link rel="alternate" hreflang="[^"]+" href="' + re.escape(BASE) + r'(/[^"]+)" />\n')
     for fp in glob.glob(os.path.join(DIST, "**", "*.html"), recursive=True):
-        rel = "/" + os.path.relpath(fp, DIST)[:-5].replace(os.sep, "/")
+        rel = norm("/" + os.path.relpath(fp, DIST)[:-5].replace(os.sep, "/"))
         html = open(fp, encoding="utf-8").read()
         if rel in paths:
             new = alt_re.sub("", html)
             new = re.sub(r'([ \t]*)<link rel="canonical" href="[^"]+" />\n', r'\1<meta name="robots" content="noindex, follow" />\n', new, count=1)
         else:
-            new = alt_re.sub(lambda m: "" if m.group(1) in paths else m.group(0), html)
+            new = alt_re.sub(lambda m: "" if norm(m.group(1)) in paths else m.group(0), html)
         if new != html:
             open(fp, "w", encoding="utf-8").write(new)
     sm_path = os.path.join(DIST, "sitemap.xml")
     sm = open(sm_path, encoding="utf-8").read()
     sm = re.sub(r'\n  <url>\n    <loc>' + re.escape(BASE) + r'(/[^<]+)</loc>.*?\n  </url>',
-                lambda m: "" if m.group(1) in paths else m.group(0), sm, flags=re.S)
+                lambda m: "" if norm(m.group(1)) in paths else m.group(0), sm, flags=re.S)
     sm = re.sub(r'\n    <xhtml:link rel="alternate" hreflang="[^"]+" href="' + re.escape(BASE) + r'(/[^"]+)"/>',
-                lambda m: "" if m.group(1) in paths else m.group(0), sm)
+                lambda m: "" if norm(m.group(1)) in paths else m.group(0), sm)
     open(sm_path, "w", encoding="utf-8").write(sm)
 
 if __name__ == "__main__":
