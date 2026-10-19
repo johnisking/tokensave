@@ -493,7 +493,8 @@ ORG = {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "To
        "alternateName": ["토큰세이브", "tokensave.app"], "url": "https://tokensave.app/",
        "logo": "https://tokensave.app/favicon-192.png",
        "sameAs": ["https://github.com/johnisking/tokensave", "https://x.com/tokensaveapp", "https://sidedock.io/profile/jonhisking",
-                  "https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking/token-cost-by-language"]}
+                  "https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking/token-cost-by-language",
+                  "https://www.youtube.com/@tokensave", "https://www.youtube.com/channel/UCAJ-VAPVf_FOqXQausgR5nw"]}
 
 def brand_title(out, home=False):
     m = re.search(r"<title>(.*?)</title>", out, re.S)
