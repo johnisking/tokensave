@@ -1,5 +1,5 @@
 {
- "measured": "2026-10-18",
+ "measured": "2026-10-18 (local topics: runs 3-5 for Claude Code and all Codex runs added 2026-10-19)",
  "tools": {
   "claude_code": "Claude Code 2.1.295 (Opus 5.5), effort medium, WebSearch and WebFetch only",
   "codex": "Codex CLI 0.162 (gpt-6-luna), effort medium, codex --search exec"

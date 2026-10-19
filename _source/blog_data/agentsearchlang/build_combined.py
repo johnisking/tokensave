@@ -41,9 +41,12 @@ for l in ['en', 'ko', 'ja', 'es', 'uk']:
                 add('codex', 'ai', l, None, q, r, parse_codex(f'codexraw/codex_{l}_{q}_on_r{r}/run.jsonl', l), secs(f'codexraw/codex_{l}_{q}_on_r{r}/seconds.txt'))
 for k in qs_loc:
     a, q = k.split('_', 1); ask = 'en' if a.startswith('en-') else a; country = a.split('-')[-1]
-    for r in (1, 2):
-        add('claude_code', 'local', ask, country, q, r, parse(f'localraw/claude_{k}_r{r}/run.jsonl', ask), secs(f'localraw/claude_{k}_r{r}/seconds.txt'))
-json.dump(dict(measured='2026-10-18', tools={'claude_code': 'Claude Code 2.1.295 (Opus 5.5), effort medium, WebSearch and WebFetch only',
+    for r in range(1, 6):
+        for tool, pre, fn in (('claude_code', 'claude', parse), ('codex', 'codex', parse_codex)):
+            d = f'localraw/{pre}_{k}_r{r}'
+            if os.path.exists(d + '/run.jsonl'):
+                add(tool, 'local', ask, country, q, r, fn(d + '/run.jsonl', ask), secs(d + '/seconds.txt'))
+json.dump(dict(measured='2026-10-18 (local topics: runs 3-5 for Claude Code and all Codex runs added 2026-10-19)', tools={'claude_code': 'Claude Code 2.1.295 (Opus 5.5), effort medium, WebSearch and WebFetch only',
                'codex': 'Codex CLI 0.162 (gpt-6-luna), effort medium, codex --search exec'}, question_types=QT, prompts=prompts, rows=rows),
           open('combined.json', 'w'), ensure_ascii=False, indent=1)
 print(len(rows))
