@@ -58,6 +58,7 @@ def write_files(dist):
     write_agl_files(dist)
     write_amd_files(dist)
     write_tl_files(dist)
+    write_har_files(dist)
 
 
 def _write_lang_files(dist):
@@ -223,6 +224,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{TL_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(TL_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">The same coding task in 5 prompt languages: almost the same tokens, but the game and its comments follow your language. CSV · measured {TL_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{HAR_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(HAR_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">One coding task under 7 Claude Code settings: the harness is 90% of the input, a subagent costs +128%, unused plugins still add tokens. CSV · measured {HAR_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -1726,3 +1730,121 @@ def tl_html():
                   TL_CHART, "Median input tokens for the same coding task prompted in English, Korean, Japanese, Spanish and Ukrainian, 5 runs each", doi=TL_DOI, mirrors=TL_MIRRORS)
             + body + _page_tail(tl_citation(), _embed(TL_PATH, TL_CHART, "Input tokens for the same coding task in 5 prompt languages", "AI coding prompt language"),
                                 [(AGT_PATH, "Claude Code vs Codex: startup tokens and the same coding task"), (LANG_PATH, "Token cost by language"), (AGL_PATH, "Does AI search in your language?")]))
+
+
+HAR_PATH = "/data/claude-code-harness-cost"
+HAR_MEASURED = "2026-10-19"
+HAR_CHART = "/claude-code-harness-cost-chart.png"
+HAR_DOI = None
+HAR_MIRRORS = []
+HAR_TITLE = "What the Claude Code harness costs: plugins, subagents, plan mode, skills and hooks on the same task"
+HAR_DESC = ("Dataset: the same coding task run five times each under seven Claude Code settings (default, safe mode, a minimal harness, a subagent, "
+            "plan mode, a project skill and a hook): input and output tokens, cache reads, API cost, time and tool calls. Free CSV, CC BY 4.0.")
+HAR_CONDS = [("default", "Default"), ("safemode", "Safe mode (no personal plugins)"), ("minimal", "Minimal harness (1-line system prompt, Write and Read)"),
+             ("hook", "+ PostToolUse hook"), ("skill", "+ one project skill"), ("plan", "Plan mode, then build"), ("subagent", "Delegated to a subagent")]
+HAR_COLS = ["condition", "run", "input_tokens", "cache_read_tokens", "output_tokens", "api_cost_usd", "seconds", "tool_calls", "subagent_tool_calls",
+            "used_subagent", "used_skill", "file_chars", "works", "tools", "subagent_tools"]
+
+
+def _har():
+    return json.load(open(os.path.join(ROOT, "blog_data", "harness", "combined.json"), encoding="utf-8"))
+
+
+def har_citation():
+    if HAR_DOI:
+        return f"TokenSave (2026). {HAR_TITLE} [Data set]. Zenodo. https://doi.org/{HAR_DOI}"
+    return f"TokenSave (2026). {HAR_TITLE} [Data set]. {BASE}{HAR_PATH}"
+
+
+def write_har_files(dist):
+    d = _har()
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(HAR_COLS)
+    for r in d["rows"]:
+        w.writerow([json.dumps(r[c], sort_keys=True) if isinstance(r.get(c), dict) else ("" if r.get(c) is None else r.get(c)) for c in HAR_COLS])
+    open(os.path.join(dist, "data", "claude-code-harness-cost.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=HAR_TITLE, url=BASE + HAR_PATH, license="CC BY 4.0", measured=HAR_MEASURED, citation=har_citation(), tool=d["tool"],
+                conditions=d["conditions"], prompt=d["prompt"], subagent_prompt=d["subagent_prompt"], rows=d["rows"])
+    open(os.path.join(dist, "data", "claude-code-harness-cost.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def har_ld():
+    return _dataset_ld(HAR_TITLE, HAR_DESC, HAR_PATH, HAR_MEASURED,
+                       ["Claude Code", "harness", "plugins", "subagent", "plan mode", "skills", "hooks", "safe mode", "system prompt", "AI coding cost"],
+                       ["input tokens", "cache read tokens", "output tokens", "API cost (USD)", "time (seconds)", "tool calls", "game works (yes/no)"],
+                       "Claude Code 2.1.295 (Opus 5.5) at medium effort on one Windows laptop; one coding task under seven harness settings, five runs each",
+                       HAR_CHART, [("claude-code-harness-cost.csv", "text/csv"), ("claude-code-harness-cost.json", "application/json")], doi=HAR_DOI, mirrors=HAR_MIRRORS)
+
+
+def har_html():
+    d = _har()
+    R = d["rows"]
+    rs = lambda c: [r for r in R if r["condition"] == c]
+    med = lambda c, k: statistics.median(r[k] for r in rs(c))
+    f = lambda v: "{:,}".format(round(v))
+    pct = lambda c, k: round((med(c, k) / med("default", k) - 1) * 100)
+    sp = lambda c, k: ("+%d%%" if pct(c, k) >= 0 else "&minus;%d%%") % abs(pct(c, k))
+    ap = lambda c, k: "%d%%" % abs(pct(c, k))
+    n = len(rs("default"))
+    works = sum(1 for r in R if r["works"])
+
+    def row(c, name):
+        x = rs(c)
+        return ('          <tr><td>%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td>'
+                '<td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">$%.2f</td><td class="text-right tabular-nums">%s</td>'
+                '<td class="text-right tabular-nums">%d s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%d / %d</td></tr>') % (
+            esc(name), f(med(c, "input_tokens")), "&ndash;" if c == "default" else sp(c, "input_tokens"), f(med(c, "cache_read_tokens")),
+            f(med(c, "output_tokens")), med(c, "api_cost_usd"), "&ndash;" if c == "default" else sp(c, "api_cost_usd"),
+            round(med(c, "seconds")), f(med(c, "file_chars")), sum(1 for r in x if r["works"]), len(x))
+    trs = "\n".join(row(c, nm) for c, nm in HAR_CONDS)
+    head = ['<th>Setting</th>', '<th class="text-right">Input tokens (median)</th>', '<th class="text-right">vs default</th>',
+            '<th class="text-right">of which cache reads</th>', '<th class="text-right">Output tokens</th>', '<th class="text-right">API cost (median)</th>',
+            '<th class="text-right">vs default</th>', '<th class="text-right">Time</th>', '<th class="text-right">Game size (chars)</th>', '<th class="text-right">Game works</th>']
+    sub_s = round((med("subagent", "seconds") / med("default", "seconds") - 1) * 100)
+    lead = ('<strong>Most of what Claude Code sends to the model is its own harness, not your task.</strong> '
+            f'The same small coding task used a median {f(med("default", "input_tokens"))} input tokens in a default setup and {f(med("minimal", "input_tokens"))} '
+            f'with a one-line system prompt and two tools ({sp("minimal", "input_tokens")}); every game still worked. '
+            f'Delegating the task to a subagent cost {ap("subagent", "api_cost_usd")} more, and installed plugins added cost even when none was used.')
+    body = f'''      <h2>Key findings</h2>
+      <ul>
+        <li><strong>The harness is about 90% of the input.</strong> With Claude Code&rsquo;s system prompt and tool descriptions replaced by one sentence and two tools (Write and Read), the median run used {f(med("minimal", "input_tokens"))} input tokens instead of {f(med("default", "input_tokens"))} ({sp("minimal", "input_tokens")}) and cost ${med("minimal", "api_cost_usd"):.2f} instead of ${med("default", "api_cost_usd"):.2f} ({sp("minimal", "api_cost_usd")}). All {n} games worked. The games were also shorter (median {f(med("minimal", "file_chars"))} characters against {f(med("default", "file_chars"))}), so part of the saving is output.</li>
+        <li><strong>Installed plugins cost tokens even when unused.</strong> This laptop has 35 plugins installed, which list 376 skills and 19 agents to the model. <code>--safe-mode</code> loaded 3 plugins, 19 skills and 5 agents, with the same 27 tools. No run used a plugin, yet safe mode cut the median input by {ap("safemode", "input_tokens")} ({f(med("default", "input_tokens") - med("safemode", "input_tokens"))} tokens per task) and the cost by {ap("safemode", "api_cost_usd")}. Here too the games came out shorter ({f(med("safemode", "file_chars"))} characters, {f(med("safemode", "output_tokens"))} output tokens against {f(med("default", "output_tokens"))}), so not all of the cost drop is input.</li>
+        <li><strong>A subagent is the most expensive way to do a small task.</strong> Asked to delegate the work with the Agent tool, Claude Code did so in all {n} runs. The median run used {f(med("subagent", "input_tokens"))} input tokens ({sp("subagent", "input_tokens")}), cost ${med("subagent", "api_cost_usd"):.2f} ({sp("subagent", "api_cost_usd")}) and took {round(med("subagent", "seconds"))} seconds instead of {round(med("default", "seconds"))} (+{sub_s}%). The subagent starts with its own copy of the harness and checked its work with several shell commands.</li>
+        <li><strong>Plan mode roughly tripled the input but added a quarter to the cost.</strong> Planning first and then building (two calls, the second continuing the session) used {f(med("plan", "input_tokens"))} input tokens ({sp("plan", "input_tokens")}) and cost ${med("plan", "api_cost_usd"):.2f} ({sp("plan", "api_cost_usd")}). Most of the extra input was read back from the prompt cache, which is billed at a fraction of the normal price.</li>
+        <li><strong>A skill or a hook doubles the token count but barely moves the bill.</strong> One project skill (a 1.9 KB <code>SKILL.md</code>, used in all {n} runs) raised input to {f(med("skill", "input_tokens"))} ({sp("skill", "input_tokens")}) but cost only {sp("skill", "api_cost_usd")}; a PostToolUse hook that sends a reminder after each file write raised input {sp("hook", "input_tokens")} and cost {sp("hook", "api_cost_usd")}. Each adds model turns, and every turn re-reads the whole context, but nearly all of it from the cache.</li>
+        <li><strong>Every game worked.</strong> {works} of {len(R)} games loaded and responded to keyboard and mouse in a headless browser without script errors, so none of these settings bought or lost correctness on a task this small.</li>
+      </ul>
+      <h2>Tokens, cost and time by setting</h2>
+      <p class="text-sm text-zinc-400">Median of {n} runs per setting. Input tokens include cache reads and cache writes. Cost is the API list-price estimate Claude Code reports; subscription plans are not billed per token. Every run is in the CSV.</p>
+{_table(head, trs)}      <h2>What this means for our other Claude Code datasets</h2>
+      <p>Our earlier Claude Code measurements, such as the <a href="{AGT_PATH}">35,771 input tokens for a one-word reply</a>, were made on this same laptop with the same 35 plugins installed. Comparisons inside each dataset (file sizes, languages, effort levels) are unaffected, but the absolute Claude Code numbers include the cost of those plugins, so a clean installation will start lower.</p>
+      <h2>The settings</h2>
+      <ul>
+        <li><strong>Default:</strong> <code>claude -p --effort medium --output-format stream-json --verbose --permission-mode acceptEdits</code> with an empty MCP config (<code>--strict-mcp-config</code>). The task prompt: &ldquo;{esc(d["prompt"])}&rdquo;</li>
+        <li><strong>Safe mode:</strong> the same plus <code>--safe-mode</code>, which leaves out personal plugins, skills, hooks and CLAUDE.md.</li>
+        <li><strong>Minimal harness:</strong> <code>--system-prompt "You are a coding agent. Use your tools to complete the user's task." --tools Write,Read</code>.</li>
+        <li><strong>Subagent:</strong> the default command with one more sentence in the prompt: &ldquo;Delegate the implementation to a subagent with the Agent tool.&rdquo;</li>
+        <li><strong>Plan mode:</strong> the prompt with <code>--permission-mode plan</code>, then <code>claude -c</code> in the same folder with &ldquo;Go ahead and implement your plan.&rdquo;. The tokens and cost of both calls are added together.</li>
+        <li><strong>Skill:</strong> a 1.9 KB project skill, <code>.claude/skills/html-canvas-games/SKILL.md</code>, with conventions for single-file canvas games, placed in the working folder.</li>
+        <li><strong>Hook:</strong> a PostToolUse hook on Write and Edit that returns a reminder to check the requirements before finishing.</li>
+      </ul>
+      <h2>Method</h2>
+      <ul>
+        <li>Claude Code 2.1.295 with Opus 5.5 on one Windows laptop, effort medium, no MCP servers, each run in its own empty folder, the prompt sent through standard input. The seven settings were run in turn, five rounds, on {HAR_MEASURED}.</li>
+        <li>Tokens and cost come from the <code>modelUsage</code> and <code>total_cost_usd</code> fields of the final <code>result</code> event; the numbers of tools, skills, plugins and agents from the <code>system/init</code> event.</li>
+        <li>&ldquo;Game works&rdquo;: the file loaded in headless Chromium with a canvas, took mouse clicks and arrow keys for about two seconds and threw no script errors.</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>One small task and five runs per setting; on larger tasks a skill, a plan or a subagent may save rework that this task never needed.</li>
+        <li>The plugin overhead depends on what is installed; 35 plugins is a heavy setup, and fewer plugins will cost less.</li>
+        <li>The minimal harness has no shell, search or edit tools, so it is a measure of overhead, not a recommended setup.</li>
+      </ul>
+'''
+    return (_head("What the Claude Code harness costs: plugins, subagents, plan mode, skills and hooks", lead,
+                  f'Measured {HAR_MEASURED} · Claude Code (Opus 5.5) · 7 settings · {n} runs each · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{AGT_PATH}">Claude Code vs Codex: startup tokens</a>',
+                  [("claude-code-harness-cost.csv", "CSV"), ("claude-code-harness-cost.json", "JSON")],
+                  HAR_CHART, "Median input tokens and API cost for the same coding task under seven Claude Code settings, 5 runs each", doi=HAR_DOI, mirrors=HAR_MIRRORS)
+            + body + _page_tail(har_citation(), _embed(HAR_PATH, HAR_CHART, "Claude Code harness cost by setting", "Claude Code harness cost"),
+                                [(AGT_PATH, "Claude Code vs Codex: startup tokens and the same coding task"), (AMD_PATH, "CLAUDE.md and AGENTS.md size"), (EFF_PATH, "Claude effort levels: tokens, time and cost")]))
