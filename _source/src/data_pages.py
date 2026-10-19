@@ -1735,8 +1735,11 @@ def tl_html():
 HAR_PATH = "/data/claude-code-harness-cost"
 HAR_MEASURED = "2026-10-19"
 HAR_CHART = "/claude-code-harness-cost-chart.png"
-HAR_DOI = None
-HAR_MIRRORS = []
+HAR_DOI = "10.5281/zenodo.23465633"  # concept DOI
+HAR_MIRRORS = [("Zenodo", "https://zenodo.org/records/23465634"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-code-harness-cost"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-code-harness-cost-plugins-subagents"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/harness")]
 HAR_TITLE = "What the Claude Code harness costs: plugins, subagents, plan mode, skills and hooks on the same task"
 HAR_DESC = ("Dataset: the same coding task run five times each under seven Claude Code settings (default, safe mode, a minimal harness, a subagent, "
             "plan mode, a project skill and a hook): input and output tokens, cache reads, API cost, time and tool calls. Free CSV, CC BY 4.0.")

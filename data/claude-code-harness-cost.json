@@ -3,7 +3,7 @@
  "url": "https://tokensave.app/data/claude-code-harness-cost",
  "license": "CC BY 4.0",
  "measured": "2026-10-19",
- "citation": "TokenSave (2026). What the Claude Code harness costs: plugins, subagents, plan mode, skills and hooks on the same task [Data set]. https://tokensave.app/data/claude-code-harness-cost",
+ "citation": "TokenSave (2026). What the Claude Code harness costs: plugins, subagents, plan mode, skills and hooks on the same task [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23465633",
  "tool": "Claude Code 2.1.295 (Opus 5.5), effort medium, claude -p --output-format stream-json, no MCP servers",
  "conditions": {
   "default": "Default Claude Code",
