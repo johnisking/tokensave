@@ -1318,7 +1318,7 @@ AGL_PATH = "/data/claude-web-search-by-language"
 AGL_MEASURED = "2026-10-19"
 AGL_CHART = "/claude-web-search-by-language-chart.png"
 AGL_DOI = "10.5281/zenodo.23451506"  # concept DOI
-AGL_MIRRORS = [("Zenodo", "https://zenodo.org/records/23452537"),
+AGL_MIRRORS = [("Zenodo", "https://zenodo.org/records/23462652"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-web-search-by-language"),
                ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-web-search-by-language"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/search-language")]
