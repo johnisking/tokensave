@@ -411,7 +411,7 @@ SHORT_TITLES = {
     "/compare/performance": "AI Model Comparison Chart 2026: Capability vs Price",
     "/fr/blog/mistral-chatgpt-cout-prompt-francais": "Mistral ou ChatGPT : le coût d'un prompt en français",
     "/fil/blog/token-filipino-gpt": "Filipino sa GPT: ilang token kumpara sa English",
-    "/blog/codex-usage-limits": "Codex Usage Limits 2026: Plus vs Pro, 5-Hour Window, Resets",
+    "/blog/codex-usage-limits": "Codex Usage Limits (Oct 2026): Messages per 5 Hours, Measured",
     "/blog/claude-code-usage-limits": "Claude Code Usage Limits: 5-Hour and Weekly Caps, Resets",
 }
 
