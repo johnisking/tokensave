@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brick Breaker</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: radial-gradient(ellipse at center, #1b2440 0%, #0b0f1c 100%);
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #e8ecf6;
+    overflow: hidden;
+  }
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  h1 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+    letter-spacing: 6px;
+    font-weight: 600;
+    color: #9fb3ff;
+    text-transform: uppercase;
+  }
+  canvas {
+    display: block;
+    background: #0e1426;
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px #2a3765, 0 20px 60px rgba(0, 0, 0, 0.6);
+    max-width: 96vw;
+    max-height: 86vh;
+    cursor: none;
+  }
+  .hint {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #7d89aa;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Brick Breaker</h1>
+  <canvas id="game" width="800" height="600" tabindex="0"></canvas>
+  <div class="hint">Arrows / A-D or mouse to move &middot; Space / click to launch &middot; P to pause</div>
+</div>
+<script>
+(function () {
+  "use strict";
+
+  var canvas = document.getElementById("game");
+  var ctx = canvas.getContext("2d");
+  var W = canvas.width;
+  var H = canvas.height;
+
+  var HUD_H = 40;
+  var MAX_LIVES = 3;
+  var PADDLE_SPEED = 620;   // px per second (keyboard)
+  var MAX_BOUNCE = Math.PI / 3; // 60 degrees from vertical
+
+  // ---------- Level definitions ----------
+  // Layout characters: '.' = empty, '1' = 1-hit brick, '2' = 2-hit brick, '3' = 3-hit brick
+  var LEVELS = [
+    {
+      name: "Level 1",
+      ballSpeed: 360,
+      maxSpeed: 520,
+      paddleW: 110,
+      colors: ["#ff6b6b", "#ffa94d", "#ffd43b", "#69db7c", "#4dabf7"],
+      layout: [
+        "1111111111",
+        "1111111111",
+        "1111111111",
+        "1111111111",
+        "1111111111"
+      ]
+    },
+    {
+      name: "Level 2",
+      ballSpeed: 430,
+      maxSpeed: 620,
+      paddleW: 95,
+      colors: ["#da77f2", "#9775fa", "#748ffc", "#4dabf7", "#3bc9db", "#38d9a9", "#a9e34b"],
+      layout: [
+        "2222222222",
+        "2.111111.2",
+        "2121111212",
+        "1112222111",
+        "1211111121",
+        "1.111111.1",
+        "1111111111"
+      ]
+    }
+  ];
+
+  // ---------- Game state ----------
+  var state = "start"; // start | serve | play | paused | levelclear | over | win
+  var score = 0;
+  var lives = MAX_LIVES;
+  var levelIndex = 0;
+  var bricks = [];
+  var particles = [];
+
+  var paddle = { x: W / 2, y: H - 40, w: 110, h: 14 };
+  var ball = { x: W / 2, y: 0, r: 8, vx: 0, vy: 0, speed: 360 };
+
+  var keys = { left: false, right: false };
+  var mouseX = null;
+  var mouseActive = false;
+
+  // ---------- Setup ----------
+  function buildLevel(idx) {
+    var lvl = LEVELS[idx];
+    bricks = [];
+    var cols = lvl.layout[0].length;
+    var rows = lvl.layout.length;
+    var marginX = 30;
+    var gap = 6;
+    var top = HUD_H + 40;
+    var bw = (W - marginX * 2 - gap * (cols - 1)) / cols;
+    var bh = 22;
+    for (var r = 0; r < rows; r++) {
+      for (var c = 0; c < cols; c++) {
+        var ch = lvl.layout[r].charAt(c);
+        if (ch === ".") continue;
+        var hp = parseInt(ch, 10);
+        bricks.push({
+          x: marginX + c * (bw + gap),
+          y: top + r * (bh + gap),
+          w: bw,
+          h: bh,
+          hp: hp,
+          maxHp: hp,
+          color: lvl.colors[r % lvl.colors.length],
+          points: 10 * hp + (rows - r) * 2,
+          alive: true
+        });
+      }
+    }
+    paddle.w = lvl.paddleW;
+    paddle.x = Math.max(paddle.w / 2, Math.min(W - paddle.w / 2, paddle.x));
+    resetBall();
+  }
+
+  function resetBall() {
+    var lvl = LEVELS[levelIndex];
+    ball.speed = lvl.ballSpeed;
+    ball.vx = 0;
+    ball.vy = 0;
+    stickBallToPaddle();
+  }
+
+  function stickBallToPaddle() {
+    ball.x = paddle.x;
+    ball.y = paddle.y - ball.r - 1;
+  }
+
+  function launchBall() {
+    // Launch slightly angled based on a small random offset
+    var angle = (Math.random() * 0.6 - 0.3);
+    ball.vx = ball.speed * Math.sin(angle);
+    ball.vy = -ball.speed * Math.cos(angle);
+    state = "play";
+  }
+
+  function newGame() {
+    score = 0;
+    lives = MAX_LIVES;
+    levelIndex = 0;
+    particles = [];
+    paddle.x = W / 2;
+    buildLevel(0);
+    state = "serve";
+  }
+
+  // ---------- Input actions ----------
+  function primaryAction() {
+    switch (state) {
+      case "start":
+      case "over":
+      case "win":
+        newGame();
+        break;
+      case "serve":
+        launchBall();
+        break;
+      case "levelclear":
+        levelIndex++;
+        buildLevel(levelIndex);
+        state = "serve";
+        break;
+      case "paused":
+        state = "play";
+        break;
+    }
+  }
+
+  function togglePause() {
+    if (state === "play") state = "paused";
+    else if (state === "paused") state = "play";
+  }
+
+  window.addEventListener("keydown", function (e) {
+    var k = e.key;
+    var code = e.code;
+    if (k === "ArrowLeft" || k === "ArrowRight" || k === "ArrowUp" || k === "ArrowDown" ||
+        k === " " || code === "Space") {
+      e.preventDefault();
+    }
+    if (k === "ArrowLeft" || k === "a" || k === "A") { keys.left = true; mouseActive = false; }
+    if (k === "ArrowRight" || k === "d" || k === "D") { keys.right = true; mouseActive = false; }
+    if ((k === " " || code === "Space") && !e.repeat) primaryAction();
+    if ((k === "p" || k === "P") && !e.repeat) togglePause();
+  }, { passive: false });
+
+  window.addEventListener("keyup", function (e) {
+    var k = e.key;
+    if (k === "ArrowLeft" || k === "a" || k === "A") keys.left = false;
+    if (k === "ArrowRight" || k === "d" || k === "D") keys.right = false;
+  });
+
+  window.addEventListener("blur", function () {
+    keys.left = keys.right = false;
+    if (state === "play") state = "paused";
+  });
+
+  function canvasX(clientX) {
+    var rect = canvas.getBoundingClientRect();
+    return (clientX - rect.left) * (W / rect.width);
+  }
+
+  canvas.addEventListener("mousemove", function (e) {
+    mouseX = canvasX(e.clientX);
+    mouseActive = true;
+  });
+
+  canvas.addEventListener("mousedown", function (e) {
+    e.preventDefault();
+    canvas.focus();
+    mouseX = canvasX(e.clientX);
+    mouseActive = true;
+    primaryAction();
+  });
+
+  canvas.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+
+  // ---------- Physics ----------
+  function clamp(v, a, b) { return v < a ? a : (v > b ? b : v); }
+
+  function updatePaddle(dt) {
+    var dir = (keys.right ? 1 : 0) - (keys.left ? 1 : 0);
+    if (dir !== 0) {
+      paddle.x += dir * PADDLE_SPEED * dt;
+    } else if (mouseActive && mouseX !== null) {
+      paddle.x = mouseX;
+    }
+    paddle.x = clamp(paddle.x, paddle.w / 2, W - paddle.w / 2);
+  }
+
+  function circleRectOverlap(cx, cy, r, rx, ry, rw, rh) {
+    var nx = clamp(cx, rx, rx + rw);
+    var ny = clamp(cy, ry, ry + rh);
+    var dx = cx - nx;
+    var dy = cy - ny;
+    return dx * dx + dy * dy <= r * r;
+  }
+
+  function hitBrick(b) {
+    b.hp--;
+    spawnParticles(ball.x, ball.y, b.color, b.hp <= 0 ? 14 : 5);
+    if (b.hp <= 0) {
+      b.alive = false;
+      score += b.points;
+    } else {
+      score += 5;
+    }
+  }
+
+  function collideBricks() {
+    for (var i = 0; i < bricks.length; i++) {
+      var b = bricks[i];
+      if (!b.alive) continue;
+      if (!circleRectOverlap(ball.x, ball.y, ball.r, b.x, b.y, b.w, b.h)) continue;
+
+      // Determine axis of minimum penetration
+      var bcx = b.x + b.w / 2;
+      var bcy = b.y + b.h / 2;
+      var dx = ball.x - bcx;
+      var dy = ball.y - bcy;
+      var overlapX = (b.w / 2 + ball.r) - Math.abs(dx);
+      var overlapY = (b.h / 2 + ball.r) - Math.abs(dy);
+
+      if (overlapX < overlapY) {
+        // Side hit: reflect horizontally
+        ball.vx = dx < 0 ? -Math.abs(ball.vx) : Math.abs(ball.vx);
+        ball.x += (dx < 0 ? -overlapX : overlapX);
+      } else {
+        // Top/bottom hit: reflect vertically
+        ball.vy = dy < 0 ? -Math.abs(ball.vy) : Math.abs(ball.vy);
+        ball.y += (dy < 0 ? -overlapY : overlapY);
+      }
+      hitBrick(b);
+      return true; // only one brick per sub-step
+    }
+    return false;
+  }
+
+  function collidePaddle() {
+    if (ball.vy <= 0) return;
+    var px = paddle.x - paddle.w / 2;
+    if (!circleRectOverlap(ball.x, ball.y, ball.r, px, paddle.y, paddle.w, paddle.h)) return;
+    // Only bounce if the ball is above the paddle's middle (avoid catching it from below)
+    if (ball.y > paddle.y + paddle.h / 2) return;
+
+    var hit = clamp((ball.x - paddle.x) / (paddle.w / 2), -1, 1);
+    var angle = hit * MAX_BOUNCE;
+    var lvl = LEVELS[levelIndex];
+    ball.speed = Math.min(ball.speed * 1.02, lvl.maxSpeed);
+    ball.vx = ball.speed * Math.sin(angle);
+    ball.vy = -ball.speed * Math.cos(angle);
+    ball.y = paddle.y - ball.r - 0.5;
+  }
+
+  function collideWalls() {
+    if (ball.x - ball.r < 0) {
+      ball.x = ball.r;
+      ball.vx = Math.abs(ball.vx);
+    } else if (ball.x + ball.r > W) {
+      ball.x = W - ball.r;
+      ball.vx = -Math.abs(ball.vx);
+    }
+    if (ball.y - ball.r < HUD_H) {
+      ball.y = HUD_H + ball.r;
+      ball.vy = Math.abs(ball.vy);
+    }
+  }
+
+  function ensureMinVertical() {
+    // Avoid near-horizontal trajectories that take forever
+    var minVy = ball.speed * 0.25;
+    if (Math.abs(ball.vy) < minVy) {
+      var sign = ball.vy < 0 ? -1 : 1;
+      ball.vy = sign * minVy;
+      var vxSign = ball.vx < 0 ? -1 : 1;
+      ball.vx = vxSign * Math.sqrt(Math.max(0, ball.speed * ball.speed - minVy * minVy));
+    }
+  }
+
+  function updateBall(dt) {
+    var dist = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy) * dt;
+    var steps = Math.max(1, Math.ceil(dist / (ball.r * 0.5)));
+    var sdt = dt / steps;
+    for (var s = 0; s < steps; s++) {
+      ball.x += ball.vx * sdt;
+      ball.y += ball.vy * sdt;
+      collideWalls();
+      collidePaddle();
+      collideBricks();
+      ensureMinVertical();
+
+      if (ball.y - ball.r > H) {
+        loseLife();
+        return;
+      }
+      if (remainingBricks() === 0) {
+        levelCleared();
+        return;
+      }
+    }
+  }
+
+  function remainingBricks() {
+    var n = 0;
+    for (var i = 0; i < bricks.length; i++) if (bricks[i].alive) n++;
+    return n;
+  }
+
+  function loseLife() {
+    lives--;
+    if (lives <= 0) {
+      lives = 0;
+      state = "over";
+    } else {
+      resetBall();
+      state = "serve";
+    }
+  }
+
+  function levelCleared() {
+    if (levelIndex >= LEVELS.length - 1) {
+      state = "win";
+    } else {
+      state = "levelclear";
+    }
+  }
+
+  // ---------- Particles ----------
+  function spawnParticles(x, y, color, n) {
+    for (var i = 0; i < n; i++) {
+      var a = Math.random() * Math.PI * 2;
+      var sp = 60 + Math.random() * 180;
+      particles.push({
+        x: x, y: y,
+        vx: Math.cos(a) * sp,
+        vy: Math.sin(a) * sp,
+        life: 0.5 + Math.random() * 0.4,
+        max: 0.9,
+        color: color
+      });
+    }
+  }
+
+  function updateParticles(dt) {
+    for (var i = particles.length - 1; i >= 0; i--) {
+      var p = particles[i];
+      p.life -= dt;
+      if (p.life <= 0) { particles.splice(i, 1); continue; }
+      p.vy += 400 * dt;
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+    }
+  }
+
+  // ---------- Rendering ----------
+  function roundRect(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+  }
+
+  function drawBackground() {
+    ctx.fillStyle = "#0e1426";
+    ctx.fillRect(0, 0, W, H);
+    ctx.strokeStyle = "rgba(120, 140, 220, 0.05)";
+    ctx.lineWidth = 1;
+    for (var x = 0; x <= W; x += 40) {
+      ctx.beginPath(); ctx.moveTo(x + 0.5, HUD_H); ctx.lineTo(x + 0.5, H); ctx.stroke();
+    }
+    for (var y = HUD_H; y <= H; y += 40) {
+      ctx.beginPath(); ctx.moveTo(0, y + 0.5); ctx.lineTo(W, y + 0.5); ctx.stroke();
+    }
+  }
+
+  function drawHUD() {
+    ctx.fillStyle = "#141c35";
+    ctx.fillRect(0, 0, W, HUD_H);
+    ctx.fillStyle = "#2a3765";
+    ctx.fillRect(0, HUD_H - 2, W, 2);
+
+    ctx.font = "bold 18px 'Segoe UI', Helvetica, Arial, sans-serif";
+    ctx.textBaseline = "middle";
+
+    ctx.textAlign = "left";
+    ctx.fillStyle = "#e8ecf6";
+    ctx.fillText("SCORE  " + score, 16, HUD_H / 2);
+
+    ctx.textAlign = "center";
+    ctx.fillStyle = "#9fb3ff";
+    ctx.fillText(LEVELS[levelIndex].name.toUpperCase(), W / 2, HUD_H / 2);
+
+    ctx.textAlign = "right";
+    ctx.fillStyle = "#e8ecf6";
+    ctx.fillText("LIVES", W - 16 - MAX_LIVES * 22, HUD_H / 2);
+    for (var i = 0; i < MAX_LIVES; i++) {
+      ctx.beginPath();
+      ctx.arc(W - 16 - 8 - (MAX_LIVES - 1 - i) * 22, HUD_H / 2, 7, 0, Math.PI * 2);
+      ctx.fillStyle = i < lives ? "#ff6b6b" : "#33395a";
+      ctx.fill();
+    }
+  }
+
+  function shade(hex, amt) {
+    var n = parseInt(hex.slice(1), 16);
+    var r = clamp(((n >> 16) & 255) + amt, 0, 255);
+    var g = clamp(((n >> 8) & 255) + amt, 0, 255);
+    var b = clamp((n & 255) + amt, 0, 255);
+    return "rgb(" + r + "," + g + "," + b + ")";
+  }
+
+  function drawBricks() {
+    for (var i = 0; i < bricks.length; i++) {
+      var b = bricks[i];
+      if (!b.alive) continue;
+      var damaged = b.hp < b.maxHp;
+      var base = damaged ? shade(b.color, -70) : b.color;
+      var grad = ctx.createLinearGradient(0, b.y, 0, b.y + b.h);
+      grad.addColorStop(0, damaged ? shade(b.color, -40) : shade(b.color, 35));
+      grad.addColorStop(1, base);
+      roundRect(b.x, b.y, b.w, b.h, 4);
+      ctx.fillStyle = grad;
+      ctx.fill();
+      if (b.maxHp > 1) {
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = damaged ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.85)";
+        ctx.stroke();
+        // hit indicator dots
+        ctx.fillStyle = "rgba(255,255,255,0.9)";
+        for (var d = 0; d < b.hp; d++) {
+          ctx.beginPath();
+          ctx.arc(b.x + b.w / 2 + (d - (b.hp - 1) / 2) * 9, b.y + b.h / 2, 2.5, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+    }
+  }
+
+  function drawPaddle() {
+    var x = paddle.x - paddle.w / 2;
+    var grad = ctx.createLinearGradient(0, paddle.y, 0, paddle.y + paddle.h);
+    grad.addColorStop(0, "#e7ecff");
+    grad.addColorStop(1, "#7f95ff");
+    ctx.shadowColor = "rgba(127, 149, 255, 0.6)";
+    ctx.shadowBlur = 14;
+    roundRect(x, paddle.y, paddle.w, paddle.h, 7);
+    ctx.fillStyle = grad;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  }
+
+  function drawBall() {
+    ctx.shadowColor = "rgba(255, 255, 255, 0.8)";
+    ctx.shadowBlur = 12;
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+    ctx.fillStyle = "#ffffff";
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  }
+
+  function drawParticles() {
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      ctx.globalAlpha = clamp(p.life / p.max, 0, 1);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(p.x - 2, p.y - 2, 4, 4);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function drawOverlay(title, lines, titleColor) {
+    ctx.fillStyle = "rgba(8, 11, 22, 0.78)";
+    ctx.fillRect(0, HUD_H, W, H - HUD_H);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = titleColor || "#ffffff";
+    ctx.font = "bold 52px 'Segoe UI', Helvetica, Arial, sans-serif";
+    var cy = H / 2 - 20 - (lines.length * 14);
+    ctx.fillText(title, W / 2, cy);
+    ctx.font = "18px 'Segoe UI', Helvetica, Arial, sans-serif";
+    ctx.fillStyle = "#c9d2ee";
+    for (var i = 0; i < lines.length; i++) {
+      ctx.fillText(lines[i], W / 2, cy + 60 + i * 30);
+    }
+  }
+
+  function draw() {
+    drawBackground();
+    drawBricks();
+    drawParticles();
+    drawPaddle();
+    if (state !== "start") drawBall();
+    drawHUD();
+
+    var blink = (Math.floor(performance.now() / 500) % 2) === 0;
+
+    if (state === "start") {
+      drawOverlay("BRICK BREAKER", [
+        "Break every brick to clear the level. Two levels to beat.",
+        "Move: Left / Right arrows, A / D, or the mouse",
+        "Launch: Space or mouse click      Pause: P",
+        "You have 3 lives. Outlined bricks take multiple hits.",
+        "",
+        blink ? "Press SPACE or CLICK to start" : ""
+      ], "#9fb3ff");
+    } else if (state === "serve") {
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.font = "18px 'Segoe UI', Helvetica, Arial, sans-serif";
+      ctx.fillStyle = "rgba(220, 228, 255, 0.85)";
+      ctx.fillText("Press SPACE or CLICK to launch", W / 2, H - 100);
+    } else if (state === "paused") {
+      drawOverlay("PAUSED", ["Press P, SPACE or CLICK to resume"], "#ffd43b");
+    } else if (state === "levelclear") {
+      drawOverlay(LEVELS[levelIndex].name.toUpperCase() + " CLEAR!", [
+        "Score: " + score,
+        "Next up: " + LEVELS[levelIndex + 1].name + " - tougher bricks, faster ball",
+        "",
+        blink ? "Press SPACE or CLICK to continue" : ""
+      ], "#69db7c");
+    } else if (state === "over") {
+      drawOverlay("GAME OVER", [
+        "Final score: " + score,
+        "",
+        blink ? "Press SPACE or CLICK to play again" : ""
+      ], "#ff6b6b");
+    } else if (state === "win") {
+      drawOverlay("YOU WIN!", [
+        "All levels cleared!",
+        "Final score: " + score + "   (lives left: " + lives + ")",
+        "",
+        blink ? "Press SPACE or CLICK to play again" : ""
+      ], "#ffd43b");
+    }
+  }
+
+  // ---------- Main loop ----------
+  var lastTime = null;
+
+  function frame(now) {
+    if (lastTime === null) lastTime = now;
+    var dt = (now - lastTime) / 1000;
+    lastTime = now;
+    if (dt > 1 / 30) dt = 1 / 30; // clamp large gaps (tab switch etc.)
+
+    if (state === "play" || state === "serve") {
+      updatePaddle(dt);
+    }
+    if (state === "serve") {
+      stickBallToPaddle();
+    } else if (state === "play") {
+      updateBall(dt);
+    }
+    updateParticles(dt);
+    draw();
+    requestAnimationFrame(frame);
+  }
+
+  buildLevel(0);
+  canvas.focus();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

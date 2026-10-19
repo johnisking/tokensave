@@ -1,0 +1,142 @@
+{
+ "runs/default_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/default_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/default_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/default_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/default_r5/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/hook_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/hook_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/hook_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/hook_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/hook_r5/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/minimal_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/minimal_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/minimal_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/minimal_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/minimal_r5/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/plan_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/plan_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/plan_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/plan_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/plan_r5/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/safemode_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/safemode_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/safemode_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/safemode_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/safemode_r5/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/skill_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/skill_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/skill_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/skill_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/skill_r5/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/subagent_r1/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/subagent_r2/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/subagent_r3/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/subagent_r4/work/index.html": {
+  "works": true,
+  "errors": []
+ },
+ "runs/subagent_r5/work/index.html": {
+  "works": true,
+  "errors": []
+ }
+}

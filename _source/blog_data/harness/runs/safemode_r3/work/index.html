@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Brick Breaker</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #111; color: #eee; font-family: sans-serif; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  canvas { background: #1b1f2a; border: 2px solid #444; cursor: none; max-width: 100%; }
+  p { margin: 8px; font-size: 14px; color: #aaa; }
+</style>
+</head>
+<body>
+<canvas id="game" width="640" height="480"></canvas>
+<p>Move: mouse or ←/→ (A/D) &nbsp;|&nbsp; Launch: click or Space &nbsp;|&nbsp; Pause: P</p>
+<script>
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+const W = canvas.width, H = canvas.height;
+
+const LEVELS = [
+  [
+    '..........',
+    'RRRRRRRRRR',
+    'OOOOOOOOOO',
+    'YYYYYYYYYY',
+    'GGGGGGGGGG',
+  ],
+  [
+    'BBBBBBBBBB',
+    'B.PPPPPP.B',
+    'B.P.SS.P.B',
+    'B.P.SS.P.B',
+    'B.PPPPPP.B',
+    'BBBBBBBBBB',
+  ],
+];
+const COLORS = { R: '#e74c3c', O: '#e67e22', Y: '#f1c40f', G: '#2ecc71', B: '#3498db', P: '#9b59b6', S: '#bdc3c7' };
+// S bricks take 2 hits
+const HITS = { S: 2 };
+
+const COLS = 10, BRICK_H = 20, BRICK_GAP = 4, TOP = 50, SIDE = 20;
+const BRICK_W = (W - SIDE * 2 - BRICK_GAP * (COLS - 1)) / COLS;
+
+const paddle = { w: 90, h: 12, x: W / 2 - 45, y: H - 30, speed: 7 };
+const ball = { x: 0, y: 0, r: 7, dx: 0, dy: 0, stuck: true };
+let bricks = [], level = 0, score = 0, lives = 3;
+let state = 'start'; // start | play | paused | levelclear | over | win
+const keys = {};
+
+function loadLevel(n) {
+  bricks = [];
+  LEVELS[n].forEach((row, r) => {
+    [...row].forEach((ch, c) => {
+      if (ch === '.') return;
+      bricks.push({
+        x: SIDE + c * (BRICK_W + BRICK_GAP),
+        y: TOP + r * (BRICK_H + BRICK_GAP),
+        type: ch, hits: HITS[ch] || 1, alive: true,
+      });
+    });
+  });
+  resetBall();
+}
+
+function resetBall() {
+  ball.stuck = true;
+  ball.dx = 0; ball.dy = 0;
+  paddle.x = W / 2 - paddle.w / 2;
+}
+
+function launch() {
+  if (!ball.stuck) return;
+  const speed = 5 + level * 1;
+  const angle = (-Math.PI / 2) + (Math.random() * 0.6 - 0.3);
+  ball.dx = speed * Math.cos(angle);
+  ball.dy = speed * Math.sin(angle);
+  ball.stuck = false;
+}
+
+function newGame() {
+  level = 0; score = 0; lives = 3;
+  loadLevel(level);
+  state = 'play';
+}
+
+function action() {
+  if (state === 'start' || state === 'over' || state === 'win') newGame();
+  else if (state === 'levelclear') { level++; loadLevel(level); state = 'play'; }
+  else if (state === 'play') launch();
+}
+
+// Input
+document.addEventListener('keydown', e => {
+  keys[e.key] = true;
+  if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); action(); }
+  if (e.key === 'p' || e.key === 'P') {
+    if (state === 'play') state = 'paused';
+    else if (state === 'paused') state = 'play';
+  }
+  if (['ArrowLeft', 'ArrowRight'].includes(e.key)) e.preventDefault();
+});
+document.addEventListener('keyup', e => { keys[e.key] = false; });
+canvas.addEventListener('mousemove', e => {
+  const rect = canvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) * (W / rect.width);
+  paddle.x = mx - paddle.w / 2;
+  clampPaddle();
+});
+canvas.addEventListener('mousedown', e => { e.preventDefault(); action(); });
+
+function clampPaddle() {
+  paddle.x = Math.max(0, Math.min(W - paddle.w, paddle.x));
+}
+
+function update() {
+  if (state !== 'play') return;
+
+  if (keys['ArrowLeft'] || keys['a'] || keys['A']) paddle.x -= paddle.speed;
+  if (keys['ArrowRight'] || keys['d'] || keys['D']) paddle.x += paddle.speed;
+  clampPaddle();
+
+  if (ball.stuck) {
+    ball.x = paddle.x + paddle.w / 2;
+    ball.y = paddle.y - ball.r - 1;
+    return;
+  }
+
+  // Sub-step to avoid tunneling
+  const steps = Math.ceil(Math.max(Math.abs(ball.dx), Math.abs(ball.dy)) / 3);
+  for (let i = 0; i < steps; i++) {
+    if (!stepBall(1 / steps)) return;
+  }
+}
+
+function stepBall(f) {
+  ball.x += ball.dx * f;
+  ball.y += ball.dy * f;
+
+  // Walls
+  if (ball.x - ball.r < 0) { ball.x = ball.r; ball.dx = Math.abs(ball.dx); }
+  if (ball.x + ball.r > W) { ball.x = W - ball.r; ball.dx = -Math.abs(ball.dx); }
+  if (ball.y - ball.r < 0) { ball.y = ball.r; ball.dy = Math.abs(ball.dy); }
+
+  // Bottom: lose life
+  if (ball.y - ball.r > H) {
+    lives--;
+    if (lives <= 0) state = 'over';
+    else resetBall();
+    return false;
+  }
+
+  // Paddle
+  if (ball.dy > 0 &&
+      ball.y + ball.r >= paddle.y && ball.y + ball.r <= paddle.y + paddle.h + 6 &&
+      ball.x >= paddle.x - ball.r && ball.x <= paddle.x + paddle.w + ball.r) {
+    const hit = (ball.x - (paddle.x + paddle.w / 2)) / (paddle.w / 2); // -1..1
+    const speed = Math.hypot(ball.dx, ball.dy);
+    const angle = Math.max(-1, Math.min(1, hit)) * (Math.PI / 3);
+    ball.dx = speed * Math.sin(angle);
+    ball.dy = -speed * Math.cos(angle);
+    ball.y = paddle.y - ball.r;
+  }
+
+  // Bricks
+  for (const b of bricks) {
+    if (!b.alive) continue;
+    const cx = Math.max(b.x, Math.min(ball.x, b.x + BRICK_W));
+    const cy = Math.max(b.y, Math.min(ball.y, b.y + BRICK_H));
+    const ddx = ball.x - cx, ddy = ball.y - cy;
+    if (ddx * ddx + ddy * ddy <= ball.r * ball.r) {
+      // Decide bounce axis by penetration depth
+      const overlapX = Math.min(ball.x + ball.r - b.x, b.x + BRICK_W - (ball.x - ball.r));
+      const overlapY = Math.min(ball.y + ball.r - b.y, b.y + BRICK_H - (ball.y - ball.r));
+      if (overlapX < overlapY) {
+        ball.dx = ball.x < b.x + BRICK_W / 2 ? -Math.abs(ball.dx) : Math.abs(ball.dx);
+      } else {
+        ball.dy = ball.y < b.y + BRICK_H / 2 ? -Math.abs(ball.dy) : Math.abs(ball.dy);
+      }
+      b.hits--;
+      if (b.hits <= 0) {
+        b.alive = false;
+        score += 10 * (level + 1);
+      } else {
+        score += 5;
+      }
+      if (bricks.every(x => !x.alive)) {
+        state = level + 1 < LEVELS.length ? 'levelclear' : 'win';
+        return false;
+      }
+      break;
+    }
+  }
+  return true;
+}
+
+function drawText(text, y, size, color) {
+  ctx.fillStyle = color || '#fff';
+  ctx.font = `bold ${size}px sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.fillText(text, W / 2, y);
+}
+
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+
+  // HUD
+  ctx.fillStyle = '#fff';
+  ctx.font = '16px sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('Score: ' + score, 12, 26);
+  ctx.textAlign = 'center';
+  ctx.fillText('Level ' + (level + 1) + ' / ' + LEVELS.length, W / 2, 26);
+  ctx.textAlign = 'right';
+  ctx.fillText('Lives: ' + '♥'.repeat(Math.max(0, lives)), W - 12, 26);
+
+  // Bricks
+  for (const b of bricks) {
+    if (!b.alive) continue;
+    ctx.fillStyle = COLORS[b.type];
+    ctx.globalAlpha = b.type === 'S' && b.hits === 1 ? 0.5 : 1;
+    ctx.fillRect(b.x, b.y, BRICK_W, BRICK_H);
+    ctx.globalAlpha = 1;
+  }
+
+  // Paddle
+  ctx.fillStyle = '#ecf0f1';
+  ctx.fillRect(paddle.x, paddle.y, paddle.w, paddle.h);
+
+  // Ball
+  if (state === 'play' || state === 'paused') {
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+  }
+
+  // Overlays
+  const overlay = (title, sub) => {
+    ctx.fillStyle = 'rgba(0,0,0,0.6)';
+    ctx.fillRect(0, 0, W, H);
+    drawText(title, H / 2 - 10, 40);
+    drawText(sub, H / 2 + 30, 18, '#ccc');
+  };
+  if (state === 'start') overlay('BRICK BREAKER', 'Click or press Space to start');
+  else if (state === 'paused') overlay('PAUSED', 'Press P to resume');
+  else if (state === 'levelclear') overlay('LEVEL ' + (level + 1) + ' CLEAR!', 'Click or press Space for next level');
+  else if (state === 'over') overlay('GAME OVER', 'Score: ' + score + ' — Click or Space to restart');
+  else if (state === 'win') overlay('YOU WIN!', 'Score: ' + score + ' — Click or Space to play again');
+  else if (ball.stuck) drawText('Click or press Space to launch', H / 2 + 60, 16, '#aaa');
+}
+
+function loop() {
+  update();
+  draw();
+  requestAnimationFrame(loop);
+}
+
+loadLevel(0);
+loop();
+</script>
+</body>
+</html>
