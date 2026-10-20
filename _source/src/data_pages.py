@@ -261,7 +261,7 @@ MULTI_MIRRORS = [("Zenodo", "https://zenodo.org/records/23428351"),
 MULTI_TITLE = "Token cost by language on Claude, Gemini and GPT: 41 languages measured"
 MULTI_DESC = ("Dataset: the same prompt in 41 languages counted on Claude Opus/Sonnet 5.5, Claude Haiku 4.5, Gemini 3.x and GPT (o200k). "
               "Korean needs 89 Claude tokens vs 49 on GPT and 48 on Gemini. Free CSV, CC BY 4.0.")
-MULTI_COLS = [("claude55", "Claude Opus/Sonnet 5.5"), ("claude45", "Claude Haiku 4.5"), ("gemini", "Gemini 3.x"), ("gpt", "GPT o200k")]
+MULTI_COLS = [("claude55", "Claude 5.5 (Opus, Sonnet, Haiku)"), ("claude45", "Claude Haiku 4.5"), ("gemini", "Gemini 3.x"), ("gpt", "GPT o200k")]
 
 
 def _multi_rows():
@@ -292,7 +292,7 @@ def write_multi_files(dist):
         w.writerow(line + [r["prompt"]])
     open(os.path.join(dist, "data", "token-cost-by-language-claude-gemini.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
     meta = dict(title=MULTI_TITLE, url=BASE + MULTI_PATH, license="CC BY 4.0", measured=MULTI_MEASURED,
-                tokenizers={"claude55": "Claude Opus 5.5 / Sonnet 5.5 (identical counts)", "claude45": "Claude Haiku 4.5",
+                tokenizers={"claude55": "Claude Opus 5.5 / Sonnet 5.5 / Haiku 5.5 (identical counts; Haiku 5.5 added 2026-10-20)", "claude45": "Claude Haiku 4.5",
                             "gemini": "Gemini 3.8 Flash / 3.1 Pro (identical counts)", "gpt": "OpenAI o200k_base (GPT-4o and later)"},
                 citation=multi_citation(), rows=[{k: r[k] for k in r} for r in rows])
     open(os.path.join(dist, "data", "token-cost-by-language-claude-gemini.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
@@ -1864,15 +1864,15 @@ def har_html():
 
 # ---- TokenSave Language Tax Index (derived from datasets 1 and 2; versioned, re-measured when new models ship) ----
 LTI_PATH = "/data/language-tax-index"
-LTI_VERSION = "1.0"
-LTI_DATE = "2026-10-19"
+LTI_VERSION = "1.1"
+LTI_DATE = "2026-10-20"
 LTI_CHART = "/language-tax-index-chart.png"
 LTI_TITLE = "TokenSave Language Tax Index: extra tokens per language on Claude, Gemini and GPT"
 LTI_DESC = ("How many more tokens the same text needs in 40 languages than in English, per model. "
-            "Version 1.0 (October 2026): median +41% on Gemini, +52% on GPT, +88% on Claude 5.5. Updated when new models ship. CSV, CC BY 4.0.")
+            "Version 1.1 (October 2026): median +41% on Gemini, +52% on GPT, +88% on Claude 5.5 (Opus, Sonnet and Haiku 5.5). Updated when new models ship. CSV, CC BY 4.0.")
 # (key, label, family, current) - the legacy GPT-4 tokenizer stays as history
 LTI_MODELS = [("gemini", "Gemini 3.x", "Google", True), ("gpt", "GPT (o200k, GPT-4o and later)", "OpenAI", True),
-              ("claude55", "Claude Opus/Sonnet 5.5", "Anthropic", True), ("claude45", "Claude Haiku 4.5", "Anthropic", True),
+              ("claude55", "Claude 5.5 (Opus, Sonnet, Haiku)", "Anthropic", True), ("claude45", "Claude Haiku 4.5", "Anthropic", True),
               ("cl100k", "GPT-4 / GPT-3.5 (cl100k, legacy)", "OpenAI", False)]
 # New models are added by dropping blog_data/lti_models/<key>.json (made by blog_data/lti_add_model.py); see seo/new-model-routine.md.
 def _lti_extra():
@@ -1887,9 +1887,10 @@ def _lti_extra():
 LTI_EXTRA = _lti_extra()
 LTI_MODELS = LTI_MODELS[:-1] + [(m["key"], m["label"], m["family"], True) for m in LTI_EXTRA] + LTI_MODELS[-1:]
 # Version history: (version, date, what changed). Add a row every time the index is re-measured.
-LTI_HISTORY = [("1.0", "2026-10-19", "First release: 41 languages × 4 current tokenizers plus the legacy GPT-4 tokenizer, from our 2026-09-30 and 2026-10-17 measurements.")]
+LTI_HISTORY = [("1.1", "2026-10-20", "Added Claude Haiku 5.5 (released 2026-10-07), measured on all 41 prompts: identical counts to Opus and Sonnet 5.5 in every language, so it joins the Claude 5.5 column. Versus Haiku 4.5, English needs 34% more tokens (35 to 47) while Korean, Japanese, Chinese, Hindi, Russian and Ukrainian are unchanged."),
+               ("1.0", "2026-10-19", "First release: 41 languages × 4 current tokenizers plus the legacy GPT-4 tokenizer, from our 2026-09-30 and 2026-10-17 measurements.")]
 # Models released after the last measurement, queued for the next version.
-LTI_PENDING = ["Claude Haiku 5.5 (released 2026-10-07)"]
+LTI_PENDING = []
 
 
 def _lti_rows():
@@ -1977,7 +1978,7 @@ def lti_html():
     return f'''    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
       <p class="not-prose text-xs font-semibold uppercase tracking-wider text-violet-300"><a href="/data/" class="no-underline" style="text-decoration:none">TokenSave Data</a> · Index · v{LTI_VERSION}</p>
       <h1 class="text-3xl font-extrabold text-white">TokenSave Language Tax Index</h1>
-      <p class="mt-3 text-lg text-zinc-200"><strong>The “language tax” is how many more tokens the same text needs in your language than in English.</strong> On today's models the median across 40 languages is {_pct(sm["gemini"]["median"])} on Gemini, {_pct(sm["gpt"]["median"])} on GPT and {_pct(sm["claude55"]["median"])} on Claude Opus/Sonnet 5.5. API prices, context windows and token-based limits all scale with it.</p>
+      <p class="mt-3 text-lg text-zinc-200"><strong>The “language tax” is how many more tokens the same text needs in your language than in English.</strong> On today's models the median across 40 languages is {_pct(sm["gemini"]["median"])} on Gemini, {_pct(sm["gpt"]["median"])} on GPT and {_pct(sm["claude55"]["median"])} on Claude 5.5 (Opus, Sonnet and Haiku). API prices, context windows and token-based limits all scale with it.</p>
       <p class="text-sm text-zinc-400">Version {LTI_VERSION} · {LTI_DATE} · 41 languages · {len(cur)} current tokenizers + 1 legacy · License <a href="{LICENSE}">CC BY 4.0</a> · Re-measured when new models ship</p>
       <div class="not-prose flex flex-wrap gap-2 my-4">
         <a href="/data/language-tax-index.csv" {BTN} style="text-decoration:none">⬇ CSV</a>
@@ -1993,6 +1994,7 @@ def lti_html():
         <li><strong>Every model taxes non-English text, but by very different amounts.</strong> Gemini has the smallest median tax, Claude the largest. Korean is {_pct(ko["gemini_tax"])} on Gemini, {_pct(ko["gpt_tax"])} on GPT and {_pct(ko["claude55_tax"])} on Claude 5.5; Ukrainian {_pct(uk["gemini_tax"])}, {_pct(uk["gpt_tax"])} and {_pct(uk["claude55_tax"])}.</li>
         <li><strong>The tax has fallen over time.</strong> On the legacy GPT-4 tokenizer (cl100k) the median was {_pct(sm["cl100k"]["median"])}; on the current o200k tokenizer it is {_pct(sm["gpt"]["median"])}. Hindi went from {_pct(hi["cl100k_tax"])} to {_pct(hi["gpt_tax"])}.</li>
         <li><strong>A lower tax is not always a cheaper model.</strong> The index compares each language with English on the same model. Claude 5.5 also needs more tokens for English itself ({sm["claude55"]["en"]} for our prompt, against {sm["gpt"]["en"]} on GPT and {sm["gemini"]["en"]} on Gemini), and prices per token differ. Use the <a href="/">token calculator</a> to compare real costs.</li>
+        <li><strong>New in v1.1: Haiku 5.5 has a smaller tax than Haiku 4.5, because English got more expensive.</strong> Haiku 5.5 counts exactly like Opus and Sonnet 5.5 in all 41 languages. Its median tax is {_pct(sm["claude55"]["median"])} against {_pct(sm["claude45"]["median"])} on Haiku 4.5, but no language got cheaper: English rose from {by["en"]["claude45"]} to {by["en"]["claude55"]} tokens ({_pct(round((by["en"]["claude55"] / by["en"]["claude45"] - 1) * 100))}), Spanish {_pct(round((by["es"]["claude55"] / by["es"]["claude45"] - 1) * 100))} and German {_pct(round((by["de"]["claude55"] / by["de"]["claude45"] - 1) * 100))}, while Korean ({by["ko"]["claude55"]}), Japanese, Chinese, Hindi, Russian and Ukrainian stayed exactly the same. Across all 41 prompts Haiku 5.5 uses {round((sum(r["claude55"] for r in rows) / sum(r["claude45"] for r in rows) - 1) * 100)}% more tokens. At list prices ($0.10 vs $1 per million input tokens) it is still far cheaper per prompt.</li>
         <li><strong>It matters most for chat, documents and API work, much less for coding agents.</strong> In our coding test the prompt language moved input tokens by about 1%, because the agent's own instructions dwarf the prompt (<a href="/data/ai-coding-prompt-language">data</a>).</li>
       </ul>
       <h2>The index, all 41 languages</h2>
@@ -2002,7 +2004,7 @@ def lti_html():
       <ul>
         <li><strong>Definition:</strong> tax = tokens for the language ÷ tokens for English on the same tokenizer − 1, rounded to a whole percent. The headline number is the median over the 40 non-English languages.</li>
         <li><strong>Text:</strong> one everyday instruction (summarize a customer email and suggest a reply) translated into 41 languages. The prompts and raw counts are in the two source datasets: <a href="{LANG_PATH}">GPT tokenizers</a> (DOI <a href="https://doi.org/{LANG_DOI}">{LANG_DOI}</a>) and <a href="{MULTI_PATH}">Claude, Gemini and GPT</a> (DOI <a href="https://doi.org/{MULTI_DOI}">{MULTI_DOI}</a>).</li>
-        <li><strong>Counting:</strong> GPT with tiktoken; Claude from Claude Code usage reports minus a one-character baseline; Gemini with the Google AI Studio token counter. Models that share a tokenizer share a column (Claude Opus and Sonnet 5.5 gave identical counts, as did Gemini 3.8 Flash and 3.1 Pro).</li>
+        <li><strong>Counting:</strong> GPT with tiktoken; Claude from Claude Code usage reports minus a one-character baseline; Gemini with the Google AI Studio token counter. Models that share a tokenizer share a column (Claude Opus, Sonnet and Haiku 5.5 gave identical counts in all 41 languages, as did Gemini 3.8 Flash and 3.1 Pro).</li>
       </ul>
       <h2>Update policy and version history</h2>
       <p>We re-measure the same 41 prompts when a model with a new tokenizer ships, add or replace its column, and publish a new version here with the date. Earlier versions stay in the history, so changes over time can be cited.</p>
@@ -2012,7 +2014,7 @@ def lti_html():
       <p class="text-sm text-zinc-400">Queued for the next version: {pend}.</p>
       <h2>Limitations</h2>
       <ul>
-        <li>Version 1.0 rests on one prompt. On other text the per-language numbers move by roughly ±10–20 percentage points; the ranking of models and languages is more stable. Adding more texts is planned for a later version.</li>
+        <li>The index rests on one prompt. On other text the per-language numbers move by roughly ±10–20 percentage points; the ranking of models and languages is more stable. Adding more texts is planned for a later version.</li>
         <li>Input tokens only. Output in another language can cost more again, and prices per token differ by model.</li>
         <li>Claude counts come from usage reports and can be off by about ±2 tokens.</li>
       </ul>
@@ -2021,6 +2023,7 @@ def lti_html():
 
 # ---- Measurement log: newest first, shown on the data hub and the English home page ----
 CHANGELOG = [
+    ("2026-10-20", LTI_PATH, "Language Tax Index v1.1: Claude Haiku 5.5 measured in 41 languages"),
     ("2026-10-19", LTI_PATH, "Language Tax Index v1.0: extra tokens per language for every current model"),
     ("2026-10-19", "/data/claude-code-harness-cost", "Claude Code harness cost: plugins, subagents, plan mode, skills and hooks (35 runs)"),
     ("2026-10-19", "/data/ai-coding-prompt-language", "Coding in 5 prompt languages: re-run to 5 runs per language"),
