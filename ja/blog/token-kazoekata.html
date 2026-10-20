@@ -38,11 +38,11 @@
   <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "GPT・Claude・Gemini のトークンの数え方", "description": "GPT・Claude・Gemini でトークン数が違う理由、それぞれ正確に数える方法、コードなしですぐ見積もる方法をまとめました。", "inLanguage": "ja", "url": "https://tokensave.app/ja/blog/token-kazoekata", "mainEntityOfPage": "https://tokensave.app/ja/blog/token-kazoekata", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/token-kazoekata-ja.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ja/"}, {"@type": "ListItem", "position": 2, "name": "GPT・Claude・Gemini のトークンの数え方", "item": "https://tokensave.app/ja/blog/token-kazoekata"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "GPT・Claude・Gemini のトークンの数え方", "description": "GPT・Claude・Gemini でトークン数が違う理由、それぞれ正確に数える方法、コードなしですぐ見積もる方法をまとめました。", "inLanguage": "ja", "url": "https://tokensave.app/ja/blog/token-kazoekata", "mainEntityOfPage": "https://tokensave.app/ja/blog/token-kazoekata", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/token-kazoekata-ja.jpg", "author": {"@type": "Person", "@id": "https://tokensave.app/author/jonhisking#person", "name": "Jonhisking", "url": "https://tokensave.app/author/jonhisking", "sameAs": ["https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking"]}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ja/"}, {"@type": "ListItem", "position": 2, "name": "GPT・Claude・Gemini のトークンの数え方", "item": "https://tokensave.app/ja/blog/token-kazoekata"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=8b37ef9f" />
+  <link rel="stylesheet" href="/styles.css?v=da9b736d" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -103,13 +103,13 @@
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">GPT・Claude・Gemini のトークンの数え方</h1>
-        <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026年10月2日</p>
+        <p class="mt-2 text-xs text-zinc-500"><a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a> · 2026年10月2日</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="GPT・Claude・Gemini のトークンの数え方" src="/token-kazoekata-ja.jpg" /></p>
-<p>「これは何トークン？」の答えは、どのモデルに聞くかで変わります。OpenAI、Anthropic、Google はそれぞれ独自のトークナイザーを使っているので、同じ段落があるモデルでは100トークン、別のモデルでは130トークンになることもあります。ここでは、それぞれで正確に数える方法と、コードを書かずにすばやく見積もる方法を紹介します。</p>
+<p>「これは何トークン？」の答えは、どのモデルに聞くかで変わります。OpenAI、Anthropic、Google はそれぞれ独自のトークナイザーを使っているので、同じ段落があるモデルでは100トークン、別のモデルでは138トークンになることもあります。ここでは、それぞれで正確に数える方法と、コードを書かずにすばやく見積もる方法を紹介します。</p>
 <p class="not-prose my-5"><a href="/ja/" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 トークンカウンターを開く →</a></p>
 <h2>なぜ数が違うのか</h2>
-<p>トークナイザーは、各社が自社の学習データから作った固定の語彙を使って、テキストを分割します。語彙が違えば分け方も違います。GPT では1トークンの単語が Claude では2トークンになることもあれば、その逆もあります。差はふつうの英語なら小さく、コードや数字、他の言語では大きくなります。</p>
-<p>Anthropic は、新しい Claude モデルのトークナイザーが、同じテキストに対して以前のものよりはっきり多くのトークンを生成すると説明しています。TokenSave のトークンカウンターでは、現行の Claude Sonnet・Opus モデルについて、GPT より約30%多いトークン数を想定して見積もっています。</p>
+<p>トークナイザーは、各社が自社の学習データから作った固定の語彙を使って、テキストを分割します。語彙が違えば分け方も違います。GPT では1トークンの単語が Claude では2トークンになることもあれば、その逆もあります。ふつうの英語でも差は小さくなく、言語によっても変わります。</p>
+<p>Anthropic は、新しい Claude モデルのトークナイザーが、同じテキストに対して以前のものよりはっきり多くのトークンを生成すると説明しています。そこで実際に測りました。同じ文を41言語に訳し、各社のトークン計算 API で数えた結果（2026年10月）、<strong>Claude Opus・Sonnet・Haiku 5.5 は英語で GPT より38%、日本語で16%多い</strong>トークンになりました。韓国語では82%多く、Gemini は英語で GPT とほぼ同じでした。表と元データは<a href="/data/token-cost-by-language-claude-gemini">データセット</a>にあり、TokenSave のトークンカウンターは Claude と Gemini の見積もりにこの言語別の実測値を使っています。</p>
 <p>API の料金はトークン単位なので、これは実際の費用に影響します。100万トークンあたりの料金が同じ2つのモデルでも、同じプロンプトの費用が変わることがあるのです。</p>
 <h2>GPT（OpenAI）：ローカルで数える</h2>
 <p>OpenAI はトークナイザーを公開しているので、API を呼ばずに自分のマシンで正確に数えられます。</p>
@@ -189,6 +189,6 @@ console.log(enc.encode(&quot;Your text here&quot;).length);
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=8b37ef9f"></script>
+  <script type="module" src="/common.js?v=da9b736d"></script>
 </body>
 </html>

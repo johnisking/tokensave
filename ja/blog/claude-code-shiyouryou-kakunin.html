@@ -39,11 +39,11 @@
   <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Claude Code・Codex・Cursor の使用量と費用を確認する方法", "description": "Claude Code の使用量が記録される場所、確認する4つの方法、実際の17日分の記録の分析：トークンの95％がキャッシュ読み込み、API 換算145.90ドルと Max 5× の比較。Codex・Cursor も。", "inLanguage": "ja", "url": "https://tokensave.app/ja/blog/claude-code-shiyouryou-kakunin", "mainEntityOfPage": "https://tokensave.app/ja/blog/claude-code-shiyouryou-kakunin", "datePublished": "2026-10-15", "dateModified": "2026-10-15", "image": "https://tokensave.app/claude-code-shiyouryou-kakunin-ja.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ja/"}, {"@type": "ListItem", "position": 2, "name": "Claude Code・Codex・Cursor の使用量と費用を確認する方法", "item": "https://tokensave.app/ja/blog/claude-code-shiyouryou-kakunin"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Claude Code の使用量はどこに記録される？", "acceptedAnswer": {"@type": "Answer", "text": "Claude Code はセッションごとの会話記録を ~/.claude/projects/ の下に保存します。プロジェクトごとにフォルダが1つでき、1つのセッションが1つの .jsonl ファイル（1行に JSON が1つ）です。サブエージェントの会話は、そのセッションの隣にある subagents/ フォルダに入ります。"}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Claude Code・Codex・Cursor の使用量と費用を確認する方法", "description": "Claude Code の使用量が記録される場所、確認する4つの方法、実際の17日分の記録の分析：トークンの95％がキャッシュ読み込み、API 換算145.90ドルと Max 5× の比較。Codex・Cursor も。", "inLanguage": "ja", "url": "https://tokensave.app/ja/blog/claude-code-shiyouryou-kakunin", "mainEntityOfPage": "https://tokensave.app/ja/blog/claude-code-shiyouryou-kakunin", "datePublished": "2026-10-15", "dateModified": "2026-10-15", "image": "https://tokensave.app/claude-code-shiyouryou-kakunin-ja.jpg", "author": {"@type": "Person", "@id": "https://tokensave.app/author/jonhisking#person", "name": "Jonhisking", "url": "https://tokensave.app/author/jonhisking", "sameAs": ["https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking"]}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ja/"}, {"@type": "ListItem", "position": 2, "name": "Claude Code・Codex・Cursor の使用量と費用を確認する方法", "item": "https://tokensave.app/ja/blog/claude-code-shiyouryou-kakunin"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Claude Code の使用量はどこに記録される？", "acceptedAnswer": {"@type": "Answer", "text": "Claude Code はセッションごとの会話記録を ~/.claude/projects/ の下に保存します。プロジェクトごとにフォルダが1つでき、1つのセッションが1つの .jsonl ファイル（1行に JSON が1つ）です。サブエージェントの会話は、そのセッションの隣にある subagents/ フォルダに入ります。"}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=8b37ef9f" />
+  <link rel="stylesheet" href="/styles.css?v=da9b736d" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -104,7 +104,7 @@
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">Claude Code・Codex・Cursor の使用量と費用を確認する方法</h1>
-        <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026年10月15日</p>
+        <p class="mt-2 text-xs text-zinc-500"><a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a> · 2026年10月15日</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="Claude Code・Codex・Cursor の使用量と費用を確認する方法" src="/claude-code-shiyouryou-kakunin-ja.jpg" /></p>
 <p>Claude Code は、プランの上限にどれくらい近いかは教えてくれますが、トークンがどこに使われたかはあまり教えてくれません。セッションの中で <code>/usage</code> を入力すると、5時間枠と週の上限がパーセントのバーで表示され、API で使っている場合は今のセッションの概算金額が出ます。けれども「先週の火曜日にいくら使ったか」「今月どのプロジェクトがいちばん使ったか」「Max プランはトークン単位の支払いより本当にお得だったか」といった履歴は見られません。</p>
 <p>実はこの情報は、もうパソコンの中にあります。Claude Code は会話をすべて記録ファイルに残し、応答ごとにモデル名とトークン数を正確に書いています。ccusage や CodeBurn といったコマンドラインのツールは、このファイルを読んで合計しています。私はインストールなしで同じ答えを見たかったので、ブラウザの中で記録を読む <a href="/ja/claude-code-usage">Claude Code 使用量アナライザー</a>を作りました。Codex の記録と Cursor の使用量 CSV も一緒に読めます。</p>
@@ -350,6 +350,6 @@ Claude Code が初期設定で30日を過ぎた記録を削除するためです
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=8b37ef9f"></script>
+  <script type="module" src="/common.js?v=da9b736d"></script>
 </body>
 </html>

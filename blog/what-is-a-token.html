@@ -36,11 +36,11 @@
   <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "What Is a Token? A Plain-English Guide for AI Users", "description": "What AI tokens are, how many your text uses, why other languages need more, and why tokens decide cost and quality.", "inLanguage": "en", "url": "https://tokensave.app/blog/what-is-a-token", "mainEntityOfPage": "https://tokensave.app/blog/what-is-a-token", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/what-is-a-token-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "What Is a Token? A Plain-English Guide for AI Users", "item": "https://tokensave.app/blog/what-is-a-token"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "What Is a Token? A Plain-English Guide for AI Users", "description": "What AI tokens are, how many your text uses, why other languages need more, and why tokens decide cost and quality.", "inLanguage": "en", "url": "https://tokensave.app/blog/what-is-a-token", "mainEntityOfPage": "https://tokensave.app/blog/what-is-a-token", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/what-is-a-token-en.jpg", "author": {"@type": "Person", "@id": "https://tokensave.app/author/jonhisking#person", "name": "Jonhisking", "url": "https://tokensave.app/author/jonhisking", "sameAs": ["https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking"]}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "What Is a Token? A Plain-English Guide for AI Users", "item": "https://tokensave.app/blog/what-is-a-token"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=8b37ef9f" />
+  <link rel="stylesheet" href="/styles.css?v=da9b736d" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -101,7 +101,7 @@
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">What Is a Token? A Plain-English Guide for AI Users</h1>
-        <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
+        <p class="mt-2 text-xs text-zinc-500"><a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a> · October 2, 2026</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="What Is a Token? A Plain-English Guide for AI Users" src="/what-is-a-token-en.jpg" /></p>
 <p>If you use ChatGPT, Claude or Gemini through an app, you rarely see the word "token". The moment you look at an API price list, it is everywhere: <em>$2 per million input tokens</em>, <em>a 1 million token context window</em>, <em>max output 32K tokens</em>. This guide explains what a token is, how to estimate how many your text uses, and why it matters for both cost and quality.</p>
 <p class="not-prose my-5"><a href="/" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 Open the token counter →</a></p>
@@ -176,7 +176,7 @@
 </table></div>
 <p>Because API pricing is per token, a Japanese prompt costs about 80% more than the same prompt in English. The <a href="/blog/token-cost-by-language">full 41-language study</a> has every language and how it was measured.</p>
 <h2>Different models count differently</h2>
-<p>Each model family has its own tokenizer. OpenAI, Anthropic and Google all use different vocabularies, so the same text can be 10–30% more tokens on one model than another. When you compare prices between providers, compare the <strong>cost of your actual text</strong>, not just the price per million tokens.</p>
+<p>Each model family has its own tokenizer. OpenAI, Anthropic and Google all use different vocabularies, so the same text comes out at a different count. In <a href="/data/token-cost-by-language-claude-gemini">our test</a> the same English prompt was 38% more tokens on Claude 5.5 than on GPT, while Gemini was about the same as GPT. When you compare prices between providers, compare the <strong>cost of your actual text</strong>, not just the price per million tokens.</p>
 <h2>Why tokens matter</h2>
 <p><strong>Cost.</strong> API prices are quoted per million tokens, with separate prices for input (what you send) and output (what the model writes back). Output is usually 300–500% more expensive than input.</p>
 <p><strong>Limits.</strong> Every model has a <em>context window</em>: the maximum number of tokens it can consider at once, including the whole conversation so far. Plans and APIs also cap how many tokens you can use per minute or per day.</p>
@@ -224,6 +224,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=8b37ef9f"></script>
+  <script type="module" src="/common.js?v=da9b736d"></script>
 </body>
 </html>

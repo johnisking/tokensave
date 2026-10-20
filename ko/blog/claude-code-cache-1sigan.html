@@ -38,11 +38,11 @@
   <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "클로드 코드 캐시 1시간: 쉬고 오면 507% 비싸진다", "description": "클로드 코드를 0~65분 쉬었다가 이어 가며 실측: 55분까지 다음 메시지 비용은 그대로, 65분엔 캐시가 만료돼 507% 비싸졌습니다. 로그인별 캐시 시간과 쉬기 전 대처법.", "inLanguage": "ko", "url": "https://tokensave.app/ko/blog/claude-code-cache-1sigan", "mainEntityOfPage": "https://tokensave.app/ko/blog/claude-code-cache-1sigan", "datePublished": "2026-10-20", "dateModified": "2026-10-20", "image": "https://tokensave.app/claude-code-cache-1sigan-ko.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ko/"}, {"@type": "ListItem", "position": 2, "name": "클로드 코드 캐시 1시간: 쉬고 오면 507% 비싸진다", "item": "https://tokensave.app/ko/blog/claude-code-cache-1sigan"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "클로드 코드 캐시 1시간: 쉬고 오면 507% 비싸진다", "description": "클로드 코드를 0~65분 쉬었다가 이어 가며 실측: 55분까지 다음 메시지 비용은 그대로, 65분엔 캐시가 만료돼 507% 비싸졌습니다. 로그인별 캐시 시간과 쉬기 전 대처법.", "inLanguage": "ko", "url": "https://tokensave.app/ko/blog/claude-code-cache-1sigan", "mainEntityOfPage": "https://tokensave.app/ko/blog/claude-code-cache-1sigan", "datePublished": "2026-10-20", "dateModified": "2026-10-20", "image": "https://tokensave.app/claude-code-cache-1sigan-ko.jpg", "author": {"@type": "Person", "@id": "https://tokensave.app/author/jonhisking#person", "name": "Jonhisking", "url": "https://tokensave.app/author/jonhisking", "sameAs": ["https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking"]}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ko/"}, {"@type": "ListItem", "position": 2, "name": "클로드 코드 캐시 1시간: 쉬고 오면 507% 비싸진다", "item": "https://tokensave.app/ko/blog/claude-code-cache-1sigan"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=8b37ef9f" />
+  <link rel="stylesheet" href="/styles.css?v=da9b736d" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -103,7 +103,7 @@
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">클로드 코드 캐시 1시간: 쉬고 오면 507% 비싸진다</h1>
-        <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026년 10월 20일</p>
+        <p class="mt-2 text-xs text-zinc-500"><a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a> · 2026년 10월 20일</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="클로드 코드 캐시 1시간: 쉬고 오면 507% 비싸진다" src="/claude-code-cache-1sigan-ko.jpg" /></p>
 <p>클로드 코드로 한참 작업하다가 점심을 먹고 돌아와 메시지를 보내면, 첫 답이 유난히 느리고 사용량도 훅 줄어드는 경험을 한 분이 많을 겁니다. 원인으로 늘 꼽히는 것이 프롬프트 캐시입니다. 클로드 코드 캐시는 일정 시간이 지나면 사라지고, 그 뒤 첫 메시지는 대화 전체를 다시 처리해야 합니다.</p>
 <p>그런데 그 "일정 시간"이 몇 분인지는 글마다 다릅니다. 5분이라는 글도 있고 1시간이라는 글도 있습니다. 2026년 4월에는 캐시 유지 시간이 1시간에서 5분으로 줄었다는 사용자 분석이 나오며 논란이 됐고, Anthropic은 메인 대화에는 1시간 캐시를 쓴다고 답했습니다. 캐시가 만료되면 비용이 크게 뛴다는 글도 있지만, 직접 재 본 숫자는 찾기 어려웠습니다.</p>
@@ -347,6 +347,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=8b37ef9f"></script>
+  <script type="module" src="/common.js?v=da9b736d"></script>
 </body>
 </html>

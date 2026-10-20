@@ -34,11 +34,11 @@
   <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Claude Opus 5.5 effort 实测：从 low 到 max", "description": "用同一个游戏提示词实测 Claude Opus 5.5 的五个 effort 等级：medium 52 秒 $0.56，high 1 分 50 秒 $0.75，max 22 分钟 $5.25。附各类任务的推荐等级。", "inLanguage": "zh-CN", "url": "https://tokensave.app/zh-cn/blog/claude-opus-5-5-effort", "mainEntityOfPage": "https://tokensave.app/zh-cn/blog/claude-opus-5-5-effort", "datePublished": "2026-10-09", "dateModified": "2026-10-09", "image": "https://tokensave.app/claude-opus-5-5-effort-zh-cn.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/zh-cn/"}, {"@type": "ListItem", "position": 2, "name": "Claude Opus 5.5 effort 实测：从 low 到 max", "item": "https://tokensave.app/zh-cn/blog/claude-opus-5-5-effort"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Claude Opus 5.5 effort 实测：从 low 到 max", "description": "用同一个游戏提示词实测 Claude Opus 5.5 的五个 effort 等级：medium 52 秒 $0.56，high 1 分 50 秒 $0.75，max 22 分钟 $5.25。附各类任务的推荐等级。", "inLanguage": "zh-CN", "url": "https://tokensave.app/zh-cn/blog/claude-opus-5-5-effort", "mainEntityOfPage": "https://tokensave.app/zh-cn/blog/claude-opus-5-5-effort", "datePublished": "2026-10-09", "dateModified": "2026-10-09", "image": "https://tokensave.app/claude-opus-5-5-effort-zh-cn.jpg", "author": {"@type": "Person", "@id": "https://tokensave.app/author/jonhisking#person", "name": "Jonhisking", "url": "https://tokensave.app/author/jonhisking", "sameAs": ["https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking"]}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/zh-cn/"}, {"@type": "ListItem", "position": 2, "name": "Claude Opus 5.5 effort 实测：从 low 到 max", "item": "https://tokensave.app/zh-cn/blog/claude-opus-5-5-effort"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=8b37ef9f" />
+  <link rel="stylesheet" href="/styles.css?v=da9b736d" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -99,7 +99,7 @@
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">Claude Opus 5.5 effort 实测：从 low 到 max</h1>
-        <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026 年 10 月 9 日</p>
+        <p class="mt-2 text-xs text-zinc-500"><a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a> · 2026 年 10 月 9 日</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="Claude Opus 5.5 effort 实测：从 low 到 max" src="/claude-opus-5-5-effort-zh-cn.jpg" /></p>
 <p><strong>Claude Opus 5.5</strong> 有一个控制思考深度的 <strong>effort</strong> 设置，共五个等级：low、medium、high、xhigh 和 max。等级越高，结果理应越好，但官方文档并没有给出每提高一级要多花多少时间和费用。于是我们在 2026 年 10 月 9 日用同一个做游戏的请求，在每个等级各跑了一次，对比耗时、token、费用和成品。最快的等级只用了 32 秒，最慢的用了 22 分钟。下面逐级看看发生了什么变化、什么任务该用哪个等级，并附上实际使用体验。</p>
 <p class="not-prose my-5"><a href="/zh-cn/agents" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 打开编程智能体费用计算器 →</a></p>
@@ -373,6 +373,6 @@ medium。Opus 5 的默认值是 high。没有设置 effort 的 API 请求，在 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=8b37ef9f"></script>
+  <script type="module" src="/common.js?v=da9b736d"></script>
 </body>
 </html>

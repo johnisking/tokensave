@@ -39,11 +39,11 @@
   <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Claude Code·Codex·Cursor 사용량 확인법과 실제 비용", "description": "Claude Code 사용량이 기록되는 위치, 확인 방법 4가지, 실제 17일 기록 분석: 토큰 95%가 캐시 읽기, API 환산 $145.90 vs Max 5×. Codex·Cursor 사용량까지.", "inLanguage": "ko", "url": "https://tokensave.app/ko/blog/claude-code-sayongnyang-hwagin", "mainEntityOfPage": "https://tokensave.app/ko/blog/claude-code-sayongnyang-hwagin", "datePublished": "2026-10-15", "dateModified": "2026-10-15", "image": "https://tokensave.app/claude-code-sayongnyang-hwagin-ko.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ko/"}, {"@type": "ListItem", "position": 2, "name": "Claude Code·Codex·Cursor 사용량 확인법과 실제 비용", "item": "https://tokensave.app/ko/blog/claude-code-sayongnyang-hwagin"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Claude Code 사용량은 어디에 기록될까?", "acceptedAnswer": {"@type": "Answer", "text": "Claude Code는 세션마다 대화 기록을 ~/.claude/projects/ 아래에 저장합니다. 프로젝트마다 폴더가 하나씩 생기고, 세션 하나가 .jsonl 파일 하나입니다(한 줄에 JSON 하나). 서브에이전트 대화는 그 세션 옆의 subagents/ 폴더에 들어갑니다."}}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Claude Code·Codex·Cursor 사용량 확인법과 실제 비용", "description": "Claude Code 사용량이 기록되는 위치, 확인 방법 4가지, 실제 17일 기록 분석: 토큰 95%가 캐시 읽기, API 환산 $145.90 vs Max 5×. Codex·Cursor 사용량까지.", "inLanguage": "ko", "url": "https://tokensave.app/ko/blog/claude-code-sayongnyang-hwagin", "mainEntityOfPage": "https://tokensave.app/ko/blog/claude-code-sayongnyang-hwagin", "datePublished": "2026-10-15", "dateModified": "2026-10-15", "image": "https://tokensave.app/claude-code-sayongnyang-hwagin-ko.jpg", "author": {"@type": "Person", "@id": "https://tokensave.app/author/jonhisking#person", "name": "Jonhisking", "url": "https://tokensave.app/author/jonhisking", "sameAs": ["https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking"]}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/ko/"}, {"@type": "ListItem", "position": 2, "name": "Claude Code·Codex·Cursor 사용량 확인법과 실제 비용", "item": "https://tokensave.app/ko/blog/claude-code-sayongnyang-hwagin"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Claude Code 사용량은 어디에 기록될까?", "acceptedAnswer": {"@type": "Answer", "text": "Claude Code는 세션마다 대화 기록을 ~/.claude/projects/ 아래에 저장합니다. 프로젝트마다 폴더가 하나씩 생기고, 세션 하나가 .jsonl 파일 하나입니다(한 줄에 JSON 하나). 서브에이전트 대화는 그 세션 옆의 subagents/ 폴더에 들어갑니다."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=8b37ef9f" />
+  <link rel="stylesheet" href="/styles.css?v=da9b736d" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -104,7 +104,7 @@
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">Claude Code·Codex·Cursor 사용량 확인법과 실제 비용</h1>
-        <p class="mt-2 text-xs text-zinc-500">Jonhisking · 2026년 10월 15일</p>
+        <p class="mt-2 text-xs text-zinc-500"><a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a> · 2026년 10월 15일</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="Claude Code·Codex·Cursor 사용량 확인법과 실제 비용" src="/claude-code-sayongnyang-hwagin-ko.jpg" /></p>
 <p>Claude Code는 내가 요금제 한도에 얼마나 가까운지는 알려 주지만, 토큰이 어디에 쓰였는지는 잘 알려 주지 않습니다. 세션 안에서 <code>/usage</code>를 입력하면 5시간 한도와 주간 한도가 퍼센트 막대로 나오고, API로 쓰는 경우엔 지금 세션의 예상 금액이 나옵니다. 하지만 "지난 화요일엔 얼마를 썼는지", "이번 달 어떤 프로젝트가 가장 많이 썼는지", "Max 요금제가 토큰당 결제보다 정말 이득이었는지" 같은 기록은 보여 주지 않습니다.</p>
 <p>그런데 이 정보는 이미 내 컴퓨터에 있습니다. Claude Code는 대화를 모두 기록 파일로 남기고, 응답마다 모델 이름과 토큰 수를 정확히 적어 둡니다. ccusage나 CodeBurn 같은 명령줄 도구가 이 파일을 읽어 합산하는 방식입니다. 저는 설치 없이 같은 답을 보고 싶어서, 브라우저 안에서 기록을 읽는 <a href="/ko/claude-code-usage">Claude Code 사용량 분석기</a>를 만들었습니다. Codex 기록과 Cursor 사용량 CSV도 함께 읽습니다.</p>
@@ -351,6 +351,6 @@ Claude Code가 기본적으로 30일 지난 기록을 지우기 때문입니다.
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=8b37ef9f"></script>
+  <script type="module" src="/common.js?v=da9b736d"></script>
 </body>
 </html>

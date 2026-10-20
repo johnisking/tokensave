@@ -38,11 +38,11 @@
   <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek", "description": "Input and output API prices of 22 models side by side, the real cost of 10,000 requests, the cheapest LLM APIs, and how to choose.", "inLanguage": "en", "url": "https://tokensave.app/blog/llm-api-pricing-comparison", "mainEntityOfPage": "https://tokensave.app/blog/llm-api-pricing-comparison", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/llm-api-pricing-comparison-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek", "item": "https://tokensave.app/blog/llm-api-pricing-comparison"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek", "description": "Input and output API prices of 22 models side by side, the real cost of 10,000 requests, the cheapest LLM APIs, and how to choose.", "inLanguage": "en", "url": "https://tokensave.app/blog/llm-api-pricing-comparison", "mainEntityOfPage": "https://tokensave.app/blog/llm-api-pricing-comparison", "datePublished": "2026-10-02", "dateModified": "2026-10-02", "image": "https://tokensave.app/llm-api-pricing-comparison-en.jpg", "author": {"@type": "Person", "@id": "https://tokensave.app/author/jonhisking#person", "name": "Jonhisking", "url": "https://tokensave.app/author/jonhisking", "sameAs": ["https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking"]}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek", "item": "https://tokensave.app/blog/llm-api-pricing-comparison"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=8b37ef9f" />
+  <link rel="stylesheet" href="/styles.css?v=da9b736d" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -103,7 +103,7 @@
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek</h1>
-        <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 2, 2026</p>
+        <p class="mt-2 text-xs text-zinc-500"><a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a> · October 2, 2026</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="LLM API Pricing Compared: 22 Models From GPT-6 to Claude, Gemini and DeepSeek" src="/llm-api-pricing-comparison-en.jpg" /></p>
 <p>There are now dozens of language models with public API prices, and 10,000 of the same request can cost $3 on one and $450 on another. This page lists the current list prices of 22 popular models from OpenAI, Anthropic, Google, xAI, DeepSeek, Mistral, Alibaba and Moonshot side by side, with what a typical request actually costs, and how to choose.</p>
 <figure class="chart-fig"><img class="chart" src="/img/llm-api-price-chart.svg" alt="Bar chart of API prices per 1M tokens, input and output, for 15 AI models" width="560" height="806" loading="lazy" decoding="async" /><figcaption>API price per 1M tokens vs other major models (USD, checked 2026-10-14).</figcaption></figure>
@@ -262,7 +262,7 @@
 <p><strong>Flagship ($4 and up):</strong> Claude Opus 5.5, GPT-6 Astra, Claude Fable 5.1. Use them where you can show they do better: long, multi-step agent work and hard reasoning.</p>
 <h2>The price list is not the whole story</h2>
 <p><strong>Output is the expensive side.</strong> On most models, output costs 300–500% more than input. If your app writes long answers, compare output prices first. See <a href="/blog/why-output-tokens-cost-more">Why output tokens cost more</a>.</p>
-<p><strong>Tokenizers differ.</strong> Each provider splits text into tokens differently. The same text can be 10–30% more tokens on one model than another, so a lower price per token does not always mean a lower bill. Compare the cost of your own text in the <a href="/">token counter</a>, not just the price list. More in <a href="/blog/how-to-count-tokens-gpt-claude-gemini">How to count tokens for GPT, Claude and Gemini</a>.</p>
+<p><strong>Tokenizers differ.</strong> Each provider splits text into tokens differently. In <a href="/data/token-cost-by-language-claude-gemini">our test</a> the same English prompt was 38% more tokens on Claude 5.5 than on GPT, and 82% more in Korean, so a lower price per token does not always mean a lower bill. Compare the cost of your own text in the <a href="/">token counter</a>, not just the price list. More in <a href="/blog/how-to-count-tokens-gpt-claude-gemini">How to count tokens for GPT, Claude and Gemini</a>.</p>
 <p><strong>Your language matters.</strong> Non-English text uses more tokens: on GPT's tokenizer, about 44% more for Korean, 79% more for Japanese and 100% more for Czech than English.</p>
 <p><strong>Discounts change the ranking.</strong> Most providers offer cached input at a fraction of the normal price and batch processing at around half price. A mid-range model with good caching can cost less than a budget model without it for apps with long, repeated prompts. See <a href="/blog/prompt-caching-explained">Prompt caching</a> and <a href="/blog/batch-api-half-price">Batch APIs</a>.</p>
 <p><strong>Long prompts can cost more.</strong> Some models charge a higher rate above a certain prompt length; GPT-6 models, for example, charge more for requests over 272,000 input tokens.</p>
@@ -316,6 +316,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=8b37ef9f"></script>
+  <script type="module" src="/common.js?v=da9b736d"></script>
 </body>
 </html>

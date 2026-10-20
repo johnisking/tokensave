@@ -38,11 +38,11 @@
   <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Claude Code Cache Lasts 1 Hour: What a Break Costs (Measured)", "description": "We paused Claude Code 0 to 65 minutes: up to 55 minutes the next message cost the same; after 65 the cache expired and it cost 507% more. TTL rules and fixes.", "inLanguage": "en", "url": "https://tokensave.app/blog/claude-code-cache-break-cost", "mainEntityOfPage": "https://tokensave.app/blog/claude-code-cache-break-cost", "datePublished": "2026-10-20", "dateModified": "2026-10-20", "image": "https://tokensave.app/claude-code-cache-break-cost-en.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Claude Code Cache Lasts 1 Hour: What a Break Costs (Measured)", "item": "https://tokensave.app/blog/claude-code-cache-break-cost"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Claude Code Cache Lasts 1 Hour: What a Break Costs (Measured)", "description": "We paused Claude Code 0 to 65 minutes: up to 55 minutes the next message cost the same; after 65 the cache expired and it cost 507% more. TTL rules and fixes.", "inLanguage": "en", "url": "https://tokensave.app/blog/claude-code-cache-break-cost", "mainEntityOfPage": "https://tokensave.app/blog/claude-code-cache-break-cost", "datePublished": "2026-10-20", "dateModified": "2026-10-20", "image": "https://tokensave.app/claude-code-cache-break-cost-en.jpg", "author": {"@type": "Person", "@id": "https://tokensave.app/author/jonhisking#person", "name": "Jonhisking", "url": "https://tokensave.app/author/jonhisking", "sameAs": ["https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking"]}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Claude Code Cache Lasts 1 Hour: What a Break Costs (Measured)", "item": "https://tokensave.app/blog/claude-code-cache-break-cost"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=8b37ef9f" />
+  <link rel="stylesheet" href="/styles.css?v=da9b736d" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -103,7 +103,7 @@
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">Claude Code Cache Lasts 1 Hour: What a Break Costs (Measured)</h1>
-        <p class="mt-2 text-xs text-zinc-500">Jonhisking · October 20, 2026</p>
+        <p class="mt-2 text-xs text-zinc-500"><a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a> · October 20, 2026</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="Claude Code Cache Lasts 1 Hour: What a Break Costs (Measured)" src="/claude-code-cache-break-cost-en.jpg" /></p>
 <p>You work in Claude Code all morning, go to lunch, come back and send one more message. The first reply is slow, and your usage bar jumps more than a one-line request should cost. The usual explanation is the prompt cache: Claude Code keeps your conversation in Anthropic's cache for a while, and once that cache expires, the next message has to process the whole conversation again.</p>
 <p>What nobody quite agrees on is how long "a while" is. Some guides say five minutes, others say an hour. In April 2026 a user analysis claiming the cache lifetime had dropped from one hour to five minutes set off a wave of complaints, and Anthropic replied that the main conversation uses a one-hour cache. Plenty of posts say an expired cache makes things far more expensive, but we couldn't find anyone who had simply waited and measured it.</p>
@@ -347,6 +347,6 @@ No. Per the docs, subagents, compaction and other requests outside the main conv
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=8b37ef9f"></script>
+  <script type="module" src="/common.js?v=da9b736d"></script>
 </body>
 </html>

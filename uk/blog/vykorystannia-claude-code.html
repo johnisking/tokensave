@@ -34,11 +34,11 @@
   <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Як перевірити використання й вартість Claude Code, Codex і Cursor", "description": "Де Claude Code записує використання, 4 способи перевірки і 17 днів реальних журналів: 95% токенів — кеш, 145,90 $ за цінами API проти Max 5×.", "inLanguage": "uk", "url": "https://tokensave.app/uk/blog/vykorystannia-claude-code", "mainEntityOfPage": "https://tokensave.app/uk/blog/vykorystannia-claude-code", "datePublished": "2026-10-15", "dateModified": "2026-10-15", "image": "https://tokensave.app/vykorystannia-claude-code-uk.jpg", "author": {"@type": "Person", "name": "Jonhisking"}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/uk/"}, {"@type": "ListItem", "position": 2, "name": "Як перевірити використання й вартість Claude Code, Codex і Cursor", "item": "https://tokensave.app/uk/blog/vykorystannia-claude-code"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Як перевірити використання й вартість Claude Code, Codex і Cursor", "description": "Де Claude Code записує використання, 4 способи перевірки і 17 днів реальних журналів: 95% токенів — кеш, 145,90 $ за цінами API проти Max 5×.", "inLanguage": "uk", "url": "https://tokensave.app/uk/blog/vykorystannia-claude-code", "mainEntityOfPage": "https://tokensave.app/uk/blog/vykorystannia-claude-code", "datePublished": "2026-10-15", "dateModified": "2026-10-15", "image": "https://tokensave.app/vykorystannia-claude-code-uk.jpg", "author": {"@type": "Person", "@id": "https://tokensave.app/author/jonhisking#person", "name": "Jonhisking", "url": "https://tokensave.app/author/jonhisking", "sameAs": ["https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking"]}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/uk/"}, {"@type": "ListItem", "position": 2, "name": "Як перевірити використання й вартість Claude Code, Codex і Cursor", "item": "https://tokensave.app/uk/blog/vykorystannia-claude-code"}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=8b37ef9f" />
+  <link rel="stylesheet" href="/styles.css?v=da9b736d" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -100,7 +100,7 @@
 
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">Як перевірити використання й вартість Claude Code, Codex і Cursor</h1>
-        <p class="mt-2 text-xs text-zinc-500">Jonhisking · 15 жовтня 2026</p>
+        <p class="mt-2 text-xs text-zinc-500"><a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a> · 15 жовтня 2026</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="Як перевірити використання й вартість Claude Code, Codex і Cursor" src="/vykorystannia-claude-code-uk.jpg" /></p>
 <p>Як перевірити використання й вартість Claude Code, Codex і Cursor? Сам Claude Code показує, наскільки ви близькі до ліміту підписки, але майже не каже, куди пішли токени. Якщо в сесії ввести <code>/usage</code>, ви побачите відсоткові смужки для 5-годинного та тижневого ліміту, а в API — орієнтовну вартість поточної сесії. Проте історії на кшталт «скільки я витратив минулого вівторка», «який проєкт цього місяця використав найбільше» чи «чи справді Max вигідніший за оплату за токени» там немає.</p>
 <p>Насправді ця інформація вже є на вашому комп'ютері. Claude Code записує кожну розмову в журнал, і для кожної відповіді точно фіксує модель і кількість токенів. Інструменти командного рядка, як-от ccusage і CodeBurn, читають ці файли й підсумовують їх. Я хотів отримати ту саму відповідь без встановлення, тож зробив <a href="/uk/claude-code-usage">аналізатор використання Claude Code</a>, який читає журнали прямо в браузері. Він також читає журнали Codex і CSV використання Cursor.</p>
@@ -347,6 +347,6 @@ Claude Code за замовчуванням видаляє журнали, ст�
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=8b37ef9f"></script>
+  <script type="module" src="/common.js?v=da9b736d"></script>
 </body>
 </html>
