@@ -1,0 +1,205 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="AI에 존댓말 쓰면 비용 더 들까? 토큰 실측" src="/ai-jondaetmal-biyong-ko.jpg" /></p>
+<p>AI에 존댓말을 쓰면 비용이 더 들까요? 챗GPT나 클로드에게 "안녕하세요, 바쁘신데 죄송하지만…"으로 시작해 "감사합니다"로 끝내는 분이 많습니다. 2025년에는 OpenAI의 샘 올트먼이 사람들이 "please", "thank you"라고 말하는 데 드는 전기료가 수천만 달러라고 농담처럼 답한 것이 기사로 퍼지기도 했습니다.</p>
+<p>한국어는 사정이 조금 더 복잡합니다. 영어는 "please" 한 단어를 붙이면 되지만, 한국어는 "해 줘"가 "해 주세요", "해 주시겠습니까?"로 바뀌면서 문장 끝이 길어지고, 인사와 감사 표현까지 붙이면 문장이 훨씬 길어집니다. 그런데 AI 요금은 글자가 아니라 토큰으로 매겨집니다. 존댓말이 실제로 토큰과 비용을 얼마나 늘리는지는 직접 재 보지 않으면 알 수 없습니다.</p>
+<p>그래서 클로드 Opus 5.5와 Haiku 5.5에 같은 부탁 10개를 반말부터 가장 공손한 말투까지 4단계로 보내고, 프롬프트 토큰과 답변 토큰, 비용을 비교했습니다. 측정은 2026년 10월 20일에 했고, 가격은 Anthropic 공식 가격표(10월 20일 확인)를 기준으로 했습니다. 같은 방법으로 일본어와 영어도 쟀습니다.</p>
+<h2>어떻게 쟀나</h2>
+<p><img loading="lazy" width="1200" height="655" alt="어떻게 쟀나: 단계, 말투, 예시" src="/ai-jondaetmal-biyong-ko-2.jpg" /></p>
+<p>일상에서 AI에게 자주 하는 부탁 10개를 골랐습니다. 메일 제목 추천, 파이썬 질문, 데이트 코스, 번역, 회의록 템플릿, 엑셀 VLOOKUP 설명, 블로그 제목, 자기소개, 맞춤법 교정, 재택근무 팁입니다. 같은 부탁을 4단계 말투로 썼습니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>단계</th>
+<th>말투</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>반말 (해체)</td>
+<td>회의 일정이 바뀌었다고 알리는 메일 제목 3개 추천해 줘.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>해요체</td>
+<td>회의 일정이 바뀌었다고 알리는 메일 제목 3개 추천해 주세요.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>하십시오체</td>
+<td>회의 일정 변경을 안내하는 메일 제목 3개를 추천해 주시겠습니까?</td>
+</tr>
+<tr>
+<td>4</td>
+<td>하십시오체 + 인사·감사</td>
+<td>안녕하세요! 바쁘신데 죄송하지만, 회의 일정 변경을 안내하는 메일 제목 3개를 추천해 주실 수 있을까요? 미리 감사드립니다.</td>
+</tr>
+</tbody>
+</table></div>
+<p>측정은 Claude Code 2.1.295의 헤드리스 모드로 했습니다. 시스템 프롬프트를 "You are a helpful assistant." 한 줄로 바꾸고 도구를 모두 꺼서, 일반 채팅처럼 질문 하나에 답 하나만 받게 했습니다. Opus 5.5로 2회, Haiku 5.5로 1회 보냈고, 프롬프트 토큰은 한 글자짜리 기준 프롬프트를 뺀 값입니다. 비교를 위해 GPT 토크나이저(o200k_base) 토큰 수도 함께 셌습니다.</p>
+<h2>존댓말을 붙이면 프롬프트 토큰은 얼마나 늘까</h2>
+<p><img loading="lazy" width="1200" height="596" alt="존댓말을 붙이면 프롬프트 토큰은 얼마나 늘까: 말투, 클로드 토큰 (10개 합), 반말 대비, GPT 토큰 (10개 합), 반말 대비" src="/ai-jondaetmal-biyong-ko-3.jpg" /></p>
+<p>부탁 10개의 프롬프트 토큰을 말투별로 더했습니다. Haiku 5.5는 Opus 5.5와 같은 토크나이저를 써서 토큰 수가 똑같이 나왔습니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>말투</th>
+<th style="text-align: right;">클로드 토큰 (10개 합)</th>
+<th style="text-align: right;">반말 대비</th>
+<th style="text-align: right;">GPT 토큰 (10개 합)</th>
+<th style="text-align: right;">반말 대비</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>반말</td>
+<td style="text-align: right;">303</td>
+<td style="text-align: right;">기준</td>
+<td style="text-align: right;">196</td>
+<td style="text-align: right;">기준</td>
+</tr>
+<tr>
+<td>해요체</td>
+<td style="text-align: right;">313</td>
+<td style="text-align: right;">+3%</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">-5%</td>
+</tr>
+<tr>
+<td>하십시오체</td>
+<td style="text-align: right;">365</td>
+<td style="text-align: right;">+20%</td>
+<td style="text-align: right;">223</td>
+<td style="text-align: right;">+14%</td>
+</tr>
+<tr>
+<td>하십시오체 + 인사·감사</td>
+<td style="text-align: right;">651</td>
+<td style="text-align: right;"><strong>+115%</strong></td>
+<td style="text-align: right;">349</td>
+<td style="text-align: right;"><strong>+78%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>"해 줘"를 "해 주세요"로 바꾸는 정도는 토큰이 3%밖에 늘지 않았습니다. 첫 번째 부탁으로 보면 반말 34토큰, 해요체 35토큰으로 딱 1토큰 차이입니다. 하십시오체는 "변경을 안내하는", "주시겠습니까"처럼 표현 자체가 길어져 20% 늘었습니다.</p>
+<p>크게 늘어난 건 인사와 감사 표현을 붙였을 때입니다. "안녕하세요! 바쁘신데 죄송하지만"과 "미리 감사드립니다"가 붙으면서 프롬프트가 115% 늘었습니다. 첫 번째 부탁은 34토큰에서 72토큰이 됐습니다. GPT 토크나이저로 세면 늘어난 비율이 78%로 조금 작았는데, GPT가 한국어를 더 적은 토큰으로 묶기 때문입니다. 언어별 토큰 차이는 <a href="/ko/blog/claude-hangugeo-token">클로드 한국어 토큰 실측</a>에 따로 정리해 두었습니다.</p>
+<h2>답변 길이는 달라졌을까</h2>
+<p>비용에서 더 중요한 건 답변입니다. 공손하게 물으면 AI도 더 길고 정중하게 답할 수 있기 때문입니다. Opus 5.5의 답변 토큰과 비용을 말투별로 비교했습니다. 두 번 잰 값의 평균입니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>말투</th>
+<th style="text-align: right;">답변 토큰 (10개 합)</th>
+<th style="text-align: right;">반말 대비</th>
+<th style="text-align: right;">비용 (10개 합)</th>
+<th style="text-align: right;">반말 대비</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>반말</td>
+<td style="text-align: right;">6,464</td>
+<td style="text-align: right;">기준</td>
+<td style="text-align: right;">$0.130 (약 174원)</td>
+<td style="text-align: right;">기준</td>
+</tr>
+<tr>
+<td>해요체</td>
+<td style="text-align: right;">6,730</td>
+<td style="text-align: right;">+4%</td>
+<td style="text-align: right;">$0.136 (약 182원)</td>
+<td style="text-align: right;">+4%</td>
+</tr>
+<tr>
+<td>하십시오체</td>
+<td style="text-align: right;">6,864</td>
+<td style="text-align: right;">+6%</td>
+<td style="text-align: right;">$0.139 (약 186원)</td>
+<td style="text-align: right;">+6%</td>
+</tr>
+<tr>
+<td>하십시오체 + 인사·감사</td>
+<td style="text-align: right;">6,486</td>
+<td style="text-align: right;">±0%</td>
+<td style="text-align: right;">$0.132 (약 177원)</td>
+<td style="text-align: right;"><strong>+1%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>가장 공손한 말투의 답변은 반말일 때와 길이가 거의 같았습니다. 해요체와 하십시오체는 답변이 4~6% 길었지만, 같은 프롬프트를 두 번 보냈을 때 답변 길이가 최대 19%까지 달라졌기 때문에 이 정도 차이는 우연일 수도 있습니다. 반말로 묻는다고 답이 짧아지거나 존댓말로 묻는다고 답이 눈에 띄게 길어지지는 않았습니다.</p>
+<p>Haiku 5.5에서도 결과는 비슷했습니다. 가장 공손한 말투의 총비용은 반말보다 오히려 약 3% 적었습니다. 답변 길이가 그때그때 달라져서 생긴 차이입니다.</p>
+<h2>그래서 비용은 얼마나 늘었나</h2>
+<p>프롬프트가 115% 늘었는데 비용은 1%만 늘어난 이유는 두 가지입니다.</p>
+<ul>
+<li><strong>답변이 프롬프트보다 훨씬 깁니다.</strong> 반말 부탁 10개의 프롬프트는 303토큰인데 답변은 6,464토큰이었습니다. 늘어난 348토큰은 전체 토큰에서 아주 작은 부분입니다.</li>
+<li><strong>출력이 입력보다 비쌉니다.</strong> Opus 5.5는 입력이 100만 토큰당 $4, 출력이 $20입니다. 출력 단가가 입력보다 400% 비싸서 비용 대부분이 답변에서 나옵니다.</li>
+</ul>
+<p>부탁 하나로 계산하면 더 실감이 납니다. 인사와 감사 표현으로 늘어난 프롬프트는 부탁 하나에 평균 약 35토큰이고, Opus 5.5 입력 가격으로 약 $0.00014, 원화로 0.2원 정도입니다. Haiku 5.5라면 0.01원도 안 됩니다. 이 글의 원화는 1달러=1,340원으로 계산했습니다.</p>
+<h2>일본어·영어와 비교</h2>
+<p>같은 부탁을 일본어와 영어로도 4단계 말투로 보냈습니다. 가장 공손한 말투를 가장 짧은 말투와 비교한 결과입니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>언어</th>
+<th style="text-align: right;">프롬프트 토큰 (클로드)</th>
+<th style="text-align: right;">프롬프트 토큰 (GPT)</th>
+<th style="text-align: right;">총비용 (Opus 5.5)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>한국어</td>
+<td style="text-align: right;">+115%</td>
+<td style="text-align: right;">+78%</td>
+<td style="text-align: right;">+1%</td>
+</tr>
+<tr>
+<td>일본어</td>
+<td style="text-align: right;">+162%</td>
+<td style="text-align: right;">+123%</td>
+<td style="text-align: right;">+4%</td>
+</tr>
+<tr>
+<td>영어</td>
+<td style="text-align: right;">+114%</td>
+<td style="text-align: right;">+121%</td>
+<td style="text-align: right;">±0%</td>
+</tr>
+</tbody>
+</table></div>
+<p>일본어는 "お疲れ様です。お忙しいところ恐縮ですが"처럼 공손한 표현이 길어 프롬프트가 162% 늘었습니다. 그래도 총비용은 4% 늘어나는 데 그쳤습니다. 영어도 "Hi! Sorry to bother you"와 "Thanks so much!"를 붙이면 프롬프트가 114% 늘었지만 총비용은 그대로였습니다.</p>
+<p>흥미로운 점은 중간 단계입니다. 영어 "Please"와 "Could you please…?", 일본어 경어(ご提案いただけますでしょうか)로 물었을 때는 답변이 최대 21% 길어졌습니다. 한국어에서는 이런 경향이 뚜렷하지 않았습니다. 횟수가 적어서 규칙이라고 보기는 어렵고, 답변 길이가 말투보다 질문 내용과 그때그때의 차이에 더 크게 좌우된다는 점은 세 언어 모두 같았습니다.</p>
+<h2>존댓말이 비용을 키우는 경우</h2>
+<p><img loading="lazy" width="1200" height="658" alt="존댓말이 비용을 키우는 경우: 시스템 프롬프트와 템플릿; CLAUDE.md 같은 지시 파일; 긴 대화" src="/ai-jondaetmal-biyong-ko-4.jpg" /></p>
+<p>한 번 보내고 끝나는 채팅에서 존댓말은 비용에 거의 영향이 없었습니다. 하지만 같은 문장이 매번 반복해서 보내지는 곳이라면 이야기가 달라집니다.</p>
+<ul>
+<li><strong>시스템 프롬프트와 템플릿:</strong> 서비스에 넣는 시스템 프롬프트나 반복해서 쓰는 템플릿은 요청마다 다시 보내집니다. 인사말과 "부탁드립니다" 같은 표현이 들어 있으면 요청 수만큼 비용이 쌓입니다.</li>
+<li><strong>CLAUDE.md 같은 지시 파일:</strong> Claude Code는 CLAUDE.md를 매 요청마다 함께 보냅니다. 토큰세이브 실측에서는 CLAUDE.md 1KB가 요청마다 약 320토큰을 차지했습니다(<a href="/data/claude-md-agents-md-size">CLAUDE.md 크기 실측</a>). 지시 파일에는 공손한 표현보다 짧은 명령형이 낫습니다.</li>
+<li><strong>긴 대화:</strong> 대화가 길어지면 앞의 메시지가 매번 함께 보내집니다. 다만 캐시에서 읽는 토큰은 Opus 5.5 기준 일반 입력보다 95% 싸서, 공손한 표현 몇 줄이 큰 차이를 만들지는 않습니다.</li>
+</ul>
+<p>반대로 내가 직접 주고받는 일상 대화라면 말투를 바꿔서 아낄 수 있는 돈은 거의 없습니다. 답을 짧게 받는 것이 훨씬 효과가 큽니다. "세 줄로", "표로만"처럼 답의 길이를 정해 주면 비용의 대부분을 차지하는 출력 토큰이 직접 줄어듭니다.</p>
+<h2>내 프롬프트로 재 보기</h2>
+<p>내가 자주 쓰는 프롬프트가 몇 토큰인지 궁금하다면 <a href="/ko/">토큰 계산기</a>에 반말 버전과 존댓말 버전을 차례로 붙여 넣어 보세요. 모델별 토큰 수와 비용을 바로 보여 줍니다. 브라우저 안에서만 계산하고 아무것도 보내지 않습니다.</p>
+<p>이번 측정의 120개 프롬프트와 질문별 결과는 모두 <a href="/data/ai-politeness-token-cost">AI 존댓말 비용 실측 데이터</a>에서 CSV로 받을 수 있습니다. CC BY 4.0이라 출처만 밝히면 자유롭게 쓸 수 있습니다.</p>
+<h2>자주 묻는 질문</h2>
+<p><strong>AI에 존댓말을 쓰면 요금이 더 나오나요?</strong>
+조금 더 나오지만 거의 차이가 없습니다. 이번 측정에서 인사와 감사 표현까지 붙인 가장 공손한 말투는 프롬프트 토큰이 115% 늘었지만, 답변까지 합친 총비용은 Opus 5.5에서 1% 늘었습니다.</p>
+<p><strong>반말로 쓰면 답이 짧아지나요?</strong>
+이번 측정에서는 그렇지 않았습니다. 반말과 가장 공손한 말투의 답변 길이는 거의 같았고, 같은 질문을 두 번 보냈을 때의 차이(최대 19%)가 말투에 따른 차이보다 컸습니다.</p>
+<p><strong>해요체와 하십시오체 중 어느 쪽이 쌀까요?</strong>
+해요체가 조금 더 짧습니다. 프롬프트 토큰은 반말 대비 해요체 +3%, 하십시오체 +20%였습니다. 다만 금액으로는 부탁 하나에 1원도 안 되는 차이입니다.</p>
+<p><strong>구독 요금제(Pro, Max)를 쓰면 상관없지 않나요?</strong>
+구독은 토큰 단위로 돈을 내지 않지만, 사용 한도는 쓴 만큼 줄어듭니다. 그래도 존댓말이 차지하는 비중이 1% 안팎이라 한도에 미치는 영향도 거의 없습니다.</p>
+<p><strong>존댓말을 쓰면 답의 품질이 좋아지나요?</strong>
+이번 측정은 토큰과 비용만 재고, 답의 품질은 평가하지 않았습니다.</p>
+<h2>마무리</h2>
+<p>클로드에 같은 부탁 10개를 4단계 말투로 보내 보니, 인사와 감사 표현까지 붙인 가장 공손한 말투는 프롬프트 토큰이 115% 늘었습니다. 하지만 답변 길이는 그대로였고, 비용 대부분이 답변에서 나오기 때문에 총비용은 1%만 늘었습니다. 일본어(+4%)와 영어(±0%)도 마찬가지였습니다.</p>
+<p>혼자 쓰는 채팅이라면 편한 말투로 쓰면 됩니다. 시스템 프롬프트나 CLAUDE.md처럼 매번 반복해서 보내는 글은 짧은 명령형으로 쓰고, 비용을 줄이고 싶다면 말투보다 답의 길이를 정해 주는 편이 훨씬 효과적입니다. 측정은 Opus 5.5 2회, Haiku 5.5 1회라 작은 차이는 횟수를 늘리면 달라질 수 있습니다.</p>
+<h2>출처</h2>
+<ul>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Anthropic API 가격표 (Opus 5.5·Haiku 5.5 입력·출력·캐시 가격)</a></li>
+<li><a href="https://code.claude.com/docs/en/cli-reference" target="_blank" rel="noopener">Claude Code CLI 레퍼런스 (-p, --system-prompt, --tools)</a></li>
+<li><a href="https://kutv.com/news/offbeat/price-ai-etiquette-openai-ceo-being-polite-chat-bots-costs-millions-environmental-impact-chat-gtp-microsoft-copilot-anthropic-claude-washington-post-futurism" target="_blank" rel="noopener">KUTV: 샘 올트먼, "please"와 "thank you"에 드는 비용 언급 (2025년 4월)</a></li>
+<li><a href="/data/ai-politeness-token-cost">토큰세이브: AI 존댓말 비용 실측 데이터 (CSV, CC BY 4.0)</a></li>
+</ul>
+<!-- autoimg -->

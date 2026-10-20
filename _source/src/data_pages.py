@@ -245,13 +245,13 @@ def hub_html():
           <span class="block mt-1 text-sm text-zinc-400">Three browser games by Claude Haiku, Sonnet and Opus 5.5: all 45 passed play tests, Haiku cost about 95% less. CSV · measured {VIB_MEASURED}</span></a></li>
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{LNG_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(LNG_TITLE)}</span>
-          <span class="block mt-1 text-sm text-zinc-400">30 change requests three ways: a new session per request cost more than twice as much as one long chat. CSV · measured {LNG_MEASURED}</span></a></li>
+          <span class="block mt-1 text-sm text-zinc-400">30 change requests three ways: a new session per request cost 129% more than one long chat. CSV · measured {LNG_MEASURED}</span></a></li>
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{POL_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(POL_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">Greetings and thanks double the prompt in Korean, Japanese and English, but add only a few percent to the cost. CSV · measured {POL_MEASURED}</span></a></li>
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{COF_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(COF_TITLE)}</span>
-          <span class="block mt-1 text-sm text-zinc-400">Pauses of up to 55 minutes cost nothing extra; after 65 minutes the cache was gone and the next message cost about six times as much. CSV · measured {COF_MEASURED}</span></a></li>
+          <span class="block mt-1 text-sm text-zinc-400">Pauses of up to 55 minutes cost nothing extra; after 65 minutes the cache was gone and the next message cost about 500% more. CSV · measured {COF_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -2258,14 +2258,14 @@ def lng_html():
     head = ['<th>Strategy</th>', '<th class="text-right">Total API cost, run 1 · run 2</th>', '<th class="text-right">vs one session</th>',
             '<th class="text-right">Per request, 2&ndash;5</th>', '<th class="text-right">Per request, 26&ndash;30</th>', '<th class="text-right">Input tokens (total)</th>',
             '<th class="text-right">Time</th>']
-    lead = ('<strong>Starting a new chat for every request cost more than twice as much as staying in one long chat.</strong> '
+    lead = ('<strong>Starting a new chat for every request cost 129% more than staying in one long chat.</strong> '
             f'We sent the same 30 change requests to one browser game in Claude Code three ways. One long session cost ${one:.2f} on average, '
             f'one session with <code>/compact</code> halfway ${cmp_:.2f} ({_pct(round((cmp_ / one - 1) * 100))}), and a fresh session for every request ${fr:.2f} ({_pct(round((fr / one - 1) * 100))}).')
     body = f'''      <h2>Key findings</h2>
       <ul>
         <li><strong>A new session per request was the most expensive strategy, by far.</strong> Total API cost: one session ${T[("claude_one", 1)]["cost"]:.2f} and ${T[("claude_one", 2)]["cost"]:.2f}; a new session each time ${T[("claude_fresh", 1)]["cost"]:.2f} and ${T[("claude_fresh", 2)]["cost"]:.2f}. Both runs agree.</li>
-        <li><strong>Why: a fresh session has to find its way back in.</strong> Without the conversation, Claude Code re-read the game file and rebuilt its prompt cache on every request: a mean of {calls("claude_fresh"):.1f} model calls and {f(cw("claude_fresh"))} newly cached tokens per request, against {calls("claude_one"):.1f} calls and {f(cw("claude_one"))} in the long session. Cache writes cost twice the input price; cache reads cost a twentieth.</li>
-        <li><strong>A long chat does get more expensive per message.</strong> In one session, requests 2&ndash;5 cost ${per("claude_one", 2, 5):.3f} each on average and requests 26&ndash;30 cost ${per("claude_one", 26, 30):.3f}, about {per("claude_one", 26, 30) / per("claude_one", 2, 5):.0f} times as much, because every message re-reads a longer history and the game kept growing. Even then, a late message in the long chat was cheaper than an early one in a fresh session (${per("claude_fresh", 2, 5):.3f}).</li>
+        <li><strong>Why: a fresh session has to find its way back in.</strong> Without the conversation, Claude Code re-read the game file and rebuilt its prompt cache on every request: a mean of {calls("claude_fresh"):.1f} model calls and {f(cw("claude_fresh"))} newly cached tokens per request, against {calls("claude_one"):.1f} calls and {f(cw("claude_one"))} in the long session. A one-hour cache write costs 100% more than normal input; a cache read costs 95% less.</li>
+        <li><strong>A long chat does get more expensive per message.</strong> In one session, requests 2&ndash;5 cost ${per("claude_one", 2, 5):.3f} each on average and requests 26&ndash;30 cost ${per("claude_one", 26, 30):.3f}, {_pct(round((per("claude_one", 26, 30) / per("claude_one", 2, 5) - 1) * 100))}, because every message re-reads a longer history and the game kept growing. Even then, a late message in the long chat was cheaper than a late message in a fresh session (${per("claude_fresh", 26, 30):.3f}).</li>
         <li><strong><code>/compact</code> did not save money here.</strong> Compacting after request 15 cost ${comp[0]["cost_usd"]:.2f} and ${comp[1]["cost_usd"]:.2f} itself, and the next request had to rebuild the cache, so the total came out {_pct(round((cmp_ / one - 1) * 100))} against the uncompacted session. Over 30 requests the shorter history never paid that back.</li>
         <li><strong>All six final games worked</strong> after 30 rounds of changes, whichever strategy was used.</li>
       </ul>
@@ -2388,7 +2388,7 @@ def pol_html():
       <ul>
         <li><strong>Polite padding adds a lot of prompt tokens.</strong> The most polite version of each request (greeting + apology + thanks) needed {round(top["ko"] * 100)}% more Claude tokens than the plain version in Korean, {round(top["ja"] * 100)}% more in Japanese and {round(top["en"] * 100)}% more in English (GPT o200k: {round(gpt3["ko"] * 100)}%, {round(gpt3["ja"] * 100)}% and {round(gpt3["en"] * 100)}%). Changing only the verb ending (&ldquo;해 줘&rdquo; to &ldquo;해 주세요&rdquo;, &ldquo;して&rdquo; to &ldquo;してください&rdquo;, adding &ldquo;please&rdquo;) added just 3&ndash;5%.</li>
         <li><strong>The answers did not grow with politeness.</strong> For the most polite version, answers were about as long as for the plain one (Korean {pc(S[("ko", O)][3]["out"], S[("ko", O)][0]["out"])}, Japanese {pc(S[("ja", O)][3]["out"], S[("ja", O)][0]["out"])}, English {pc(S[("en", O)][3]["out"], S[("en", O)][0]["out"])}). The two middle levels (&ldquo;please&rdquo;, &ldquo;Could you please &hellip;?&rdquo;, &ldquo;ご提案いただけますでしょうか&rdquo;) did get longer answers in Japanese and English (up to {_pct(round(mid_max * 100))}), but Korean was mixed and the same prompts varied by up to 19% between two runs, so this is a hint rather than a rule.</li>
-        <li><strong>The polite words themselves cost little.</strong> Answers are 10&ndash;20 times longer than prompts and output tokens cost five times as much, so the extra prompt tokens of the most polite version are worth about {share:.1f}% of a message's cost on Opus 5.5. Measured totals for the most polite level against plain: Korean {_pct(round(cost3["ko"] * 100))}, Japanese {_pct(round(cost3["ja"] * 100))}, English {_pct(round(cost3["en"] * 100))}. Most of any difference in cost comes from how long the answer is, not from the courtesy phrases.</li>
+        <li><strong>The polite words themselves cost little.</strong> Answers are much longer than prompts (for plain Korean on Opus 5.5, 6,464 answer tokens against 303 prompt tokens over 10 requests) and output tokens cost 400% more than input, so the extra prompt tokens of the most polite version are worth about {share:.1f}% of a message's cost on Opus 5.5. Measured totals for the most polite level against plain: Korean {_pct(round(cost3["ko"] * 100))}, Japanese {_pct(round(cost3["ja"] * 100))}, English {_pct(round(cost3["en"] * 100))}. Most of any difference in cost comes from how long the answer is, not from the courtesy phrases.</li>
         <li><strong>Where it does add up: text that is sent again and again.</strong> A system prompt, a template or a CLAUDE.md is resent with every request, so greetings and courtesy phrases there cost on every call. In a one-off chat message they barely register.</li>
       </ul>
       <h2>Results on Claude Opus 5.5</h2>
@@ -2431,7 +2431,7 @@ COF_MIRRORS = [("Zenodo", "https://zenodo.org/records/23489502"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/coffee-break")]
 COF_TITLE = "The coffee-break tax: what your next Claude Code message costs after a 0 to 65 minute pause"
 COF_DESC = ("Dataset: Claude Code (Opus 5.5) builds a game, waits 0, 4, 6, 15, 30, 55 or 65 minutes, then gets a small change request in the same session: "
-            "cache reads and writes and the cost of that next message. Up to 55 minutes nothing changed; after 65 minutes the cache was gone and the message cost about six times as much. Free CSV, CC BY 4.0.")
+            "cache reads and writes and the cost of that next message. Up to 55 minutes nothing changed; after 65 minutes the cache was gone and the message cost about 500% more. Free CSV, CC BY 4.0.")
 COF_COLS = ["wait_min", "rep", "actual_gap_s", "turn1_cost_usd", "turn2_cost_usd", "turn2_first_call_cache_read", "turn2_first_call_cache_write",
             "turn2_first_call_cache_write_1h", "turn2_first_call_cache_write_5m", "turn2_cache_write_total", "turn2_cache_read_total", "turn2_model_calls", "cache_hit"]
 
@@ -2489,13 +2489,13 @@ def cof_html():
     head = ['<th>Pause</th>', '<th class="text-right">Read from cache</th>', '<th class="text-right">Written to cache</th>',
             '<th class="text-right">Cost of the next message</th>', '<th>Cache</th>']
     ratio = cold_cost / warm_cost
-    lead = ('<strong>Take a break of up to an hour and your next Claude Code message costs the same. Take longer, and it costs about %d times as much.</strong> '
+    lead = ('<strong>Take a break of up to an hour and your next Claude Code message costs the same. Take longer, and it costs %d%% more.</strong> '
             'In our runs Claude Code kept the conversation in Anthropic&rsquo;s prompt cache for one hour. After pauses of 0 to 55 minutes the next message read %s tokens from the cache and cost $%.3f; '
-            'after 65 minutes the cache had expired, %s tokens had to be written again, and the same message cost $%.3f.') % (round(ratio), f(warm_read), warm_cost, f(cold_write), cold_cost)
+            'after 65 minutes the cache had expired, %s tokens had to be written again, and the same message cost $%.3f.') % (round((ratio - 1) * 100), f(warm_read), warm_cost, f(cold_write), cold_cost)
     body = f'''      <h2>Key findings</h2>
       <ul>
         <li><strong>Nothing changed for an hour.</strong> After pauses of {", ".join(str(w) for w in warm)} minutes, the first model call of the next message read about {f(warm_read)} tokens from the cache and wrote only a few hundred new ones. The message cost ${warm_cost:.3f} on average whether we waited 0 minutes or 55.</li>
-        <li><strong>After 65 minutes the cache was gone.</strong> The first call had to write {f(cold_write)} tokens to the cache again, at twice the normal input price, and the message cost ${cold_cost:.3f}, about {ratio:.0f} times as much ({_pct(round((ratio - 1) * 100))}).</li>
+        <li><strong>After 65 minutes the cache was gone.</strong> The first call had to write {f(cold_write)} tokens to the cache again, at 100% more than the normal input price, and the message cost ${cold_cost:.3f} ({_pct(round((ratio - 1) * 100))}).</li>
         <li><strong>The cache lifetime was one hour.</strong> Every cache write in these runs was a one-hour write (<code>ephemeral_1h</code> in the usage report), not the five-minute default of the Anthropic API. That is why the 6- and 15-minute pauses, which would have missed a five-minute cache, cost nothing extra.</li>
         <li><strong>The bigger the project, the bigger the tax.</strong> Here the context was a small game of about 40,000 tokens. The cost of a cold start grows with everything in the conversation, so after a long session (our <a href="/data/long-chat-vs-new-chat-cost">long-chat measurement</a> reached 200,000 tokens of context and more) an expired cache costs far more.</li>
       </ul>

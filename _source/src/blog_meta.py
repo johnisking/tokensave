@@ -961,3 +961,25 @@ for _d in CPRO:
 # 2026-10-19 search-recovery refresh: October changes, measured Codex task tokens, CTR titles
 for _d in PRO[:2] + [CXLIM[0]]:
     _d["updated"] = "2026-10-19"
+
+# 2026-10-20 measured posts: politeness token cost (ko, ja) and Claude Code long chat vs new chat / cache (ko, ja)
+POLITE = [
+ _cc("ko", "/ko/blog/ai-jondaetmal-biyong", "polite-ko", "AI에 존댓말 쓰면 비용 더 들까? 토큰 실측",
+     "AI에 인사·감사까지 붙인 존댓말을 쓰면 프롬프트 토큰은 115% 늘지만 총비용은 1%만 늘었습니다. 클로드 Opus 5.5·Haiku 5.5에 반말부터 하십시오체까지 4단계로 실측한 결과.",
+     "Jonhisking · 2026년 10월 20일", "반말 버전과 존댓말 버전을 붙여 넣고 토큰 수와 비용을 바로 비교해 보세요.", "토큰 계산기 열기"),
+ _cc("ja", "/ja/blog/ai-keigo-cost", "polite-ja", "AIに敬語を使うとコストは増える？トークン実測",
+     "AIにあいさつとお礼まで付けた敬語で頼むと、プロンプトのトークンは162％増えても総費用は4％増えただけでした。Claude Opus 5.5・Haiku 5.5に普通体から敬語まで4段階で実測。",
+     "Jonhisking · 2026年10月20日", "普通体の版と敬語の版を貼り付けて、トークン数と費用をすぐに比べてみましょう。", "トークンカウンターを開く"),
+]
+for _b in POLITE:
+    _b["date"] = "2026-10-20"
+CCSESS = [
+ _cc("ko", "/ko/blog/claude-code-gin-daehwa-biyong", "ccsess-ko", "클로드 코드 긴 대화 vs 새 대화: 비용 실측",
+     "클로드 코드에 같은 요청 30개를 보내 보니 매번 새 대화는 한 세션보다 129% 비쌌고 /compact도 13% 더 들었습니다. 캐시 1시간, 65분 쉬면 다음 메시지 507% 비싸지는 이유까지.",
+     "Jonhisking · 2026년 10월 20일", "하루 작업 수와 크기를 넣고 클로드 코드의 API 비용을 Pro·Max와 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"),
+ _cc("ja", "/ja/blog/claude-code-nagai-kaiwa-hiyou", "ccsess-ja", "Claude Code 長い会話と新しい会話：費用を実測",
+     "Claude Code に同じ依頼30件を送ると、毎回新しい会話は1つのセッションより129％高く、/compact も13％増えました。キャッシュは1時間、65分休むと次のメッセージが507％高くなる理由まで。",
+     "Jonhisking · 2026年10月20日", "1日のタスク数と大きさを入れて、Claude Code の API 費用を Pro・Max と比べてみましょう。", "エージェント費用計算機を開く"),
+]
+for _b in CCSESS:
+    _b["date"] = "2026-10-20"

@@ -1,0 +1,205 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="AIに敬語を使うとコストは増える？トークン実測" src="/ai-keigo-cost-ja.jpg" /></p>
+<p>AIに敬語を使うとコストは増えるのでしょうか。ChatGPT や Claude に「お疲れ様です。お忙しいところ恐縮ですが…」と書き始め、「よろしくお願いいたします」で締める人は少なくありません。2025年には OpenAI のサム・アルトマン氏が、ユーザーが「please」「thank you」と言うために数千万ドルの電気代がかかっていると冗談めかして答え、ニュースになりました。</p>
+<p>日本語はさらに事情が複雑です。英語なら「please」を一語足せば済みますが、日本語は「考えて」が「考えてください」「ご提案いただけますでしょうか」と変わり、文末そのものが長くなります。あいさつとお礼まで付ければ、文はかなり長くなります。一方で AI の料金は文字数ではなくトークン数で決まります。敬語が実際にトークンと費用をどれだけ増やすのかは、測ってみないと分かりません。</p>
+<p>そこで Claude Opus 5.5 と Haiku 5.5 に、同じ依頼10件を普通体から最も丁寧な言い方まで4段階で送り、プロンプトのトークン、回答のトークン、費用を比べました。測定日は2026年10月20日、料金は Anthropic の公式料金表（10月20日確認）を基準にしています。同じ方法で韓国語と英語も測りました。金額は1ドル＝158円で換算し、円を先に、ドルを括弧に書いています。</p>
+<h2>どうやって測ったか</h2>
+<p><img loading="lazy" width="1200" height="791" alt="どうやって測ったか: 段階, 言い方, 例" src="/ai-keigo-cost-ja-2.jpg" /></p>
+<p>日常で AI によく頼む依頼を10件選びました。メールの件名、Python の質問、デートコース、翻訳、議事録のテンプレート、Excel の VLOOKUP、ブログ記事のタイトル、自己紹介、文章の誤字修正、在宅勤務のコツです。それぞれを4段階の言い方で書きました。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>段階</th>
+<th>言い方</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>普通体</td>
+<td>会議の日程変更を知らせるメールの件名を3つ考えて。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>です・ます（丁寧語）</td>
+<td>会議の日程変更を知らせるメールの件名を3つ考えてください。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>敬語（尊敬語・謙譲語）</td>
+<td>会議の日程変更をお知らせするメールの件名を3つご提案いただけますでしょうか。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>敬語＋あいさつ・お礼</td>
+<td>お疲れ様です。お忙しいところ恐縮ですが、会議の日程変更をお知らせするメールの件名を3つご提案いただけますでしょうか。よろしくお願いいたします。</td>
+</tr>
+</tbody>
+</table></div>
+<p>測定には Claude Code 2.1.295 のヘッドレスモードを使いました。システムプロンプトを「You are a helpful assistant.」の一行に差し替え、ツールをすべてオフにして、普通のチャットのように質問1つに回答1つだけを受け取る形にしています。Opus 5.5 で2回、Haiku 5.5 で1回送り、プロンプトのトークンは1文字だけの基準プロンプトとの差で求めました。比較のため GPT のトークナイザー（o200k_base）でも数えています。</p>
+<h2>敬語にするとプロンプトのトークンはどれだけ増えるか</h2>
+<p><img loading="lazy" width="1200" height="709" alt="敬語にするとプロンプトのトークンはどれだけ増えるか: 言い方, Claude のトークン（10件合計）, 普通体との差, GPT のトークン（10件合計）, 普通体との差" src="/ai-keigo-cost-ja-3.jpg" /></p>
+<p>依頼10件のプロンプトのトークンを、言い方ごとに合計しました。Haiku 5.5 は Opus 5.5 と同じトークナイザーを使うので、トークン数はまったく同じでした。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>言い方</th>
+<th style="text-align: right;">Claude のトークン（10件合計）</th>
+<th style="text-align: right;">普通体との差</th>
+<th style="text-align: right;">GPT のトークン（10件合計）</th>
+<th style="text-align: right;">普通体との差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通体</td>
+<td style="text-align: right;">236</td>
+<td style="text-align: right;">基準</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">基準</td>
+</tr>
+<tr>
+<td>です・ます</td>
+<td style="text-align: right;">247</td>
+<td style="text-align: right;">+5%</td>
+<td style="text-align: right;">193</td>
+<td style="text-align: right;">+4%</td>
+</tr>
+<tr>
+<td>敬語</td>
+<td style="text-align: right;">328</td>
+<td style="text-align: right;">+39%</td>
+<td style="text-align: right;">247</td>
+<td style="text-align: right;">+33%</td>
+</tr>
+<tr>
+<td>敬語＋あいさつ・お礼</td>
+<td style="text-align: right;">619</td>
+<td style="text-align: right;"><strong>+162%</strong></td>
+<td style="text-align: right;">414</td>
+<td style="text-align: right;"><strong>+123%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>「考えて」を「考えてください」にする程度なら、トークンは5％しか増えませんでした。1件目の依頼でいえば、普通体24トークン、です・ます25トークンで、差はちょうど1トークンです。尊敬語・謙譲語を使った敬語は「お知らせする」「ご提案いただけますでしょうか」のように表現そのものが長くなり、39％増えました。</p>
+<p>大きく増えたのは、あいさつとお礼を付けたときです。「お疲れ様です。お忙しいところ恐縮ですが」と「よろしくお願いいたします」が付くことで、プロンプトは162％増えました。1件目の依頼は24トークンから67トークンになっています。同じ条件の韓国語（+115％）や英語（+114％）よりも増え方が大きく、日本語の丁寧な決まり文句が長いことが分かります。言語ごとのトークンの違いは <a href="/ja/blog/claude-nihongo-token">Claude 日本語トークンの実測</a> にまとめています。</p>
+<h2>回答の長さは変わったか</h2>
+<p>費用でより大事なのは回答です。丁寧に聞けば、AI も丁寧で長めに答えるかもしれません。Opus 5.5 の回答のトークンと費用を言い方ごとに比べました。2回測った平均です。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>言い方</th>
+<th style="text-align: right;">回答のトークン（10件合計）</th>
+<th style="text-align: right;">普通体との差</th>
+<th style="text-align: right;">費用（10件合計）</th>
+<th style="text-align: right;">普通体との差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通体</td>
+<td style="text-align: right;">5,672</td>
+<td style="text-align: right;">基準</td>
+<td style="text-align: right;">約18.0円（$0.114）</td>
+<td style="text-align: right;">基準</td>
+</tr>
+<tr>
+<td>です・ます</td>
+<td style="text-align: right;">6,082</td>
+<td style="text-align: right;">+7%</td>
+<td style="text-align: right;">約19.4円（$0.123）</td>
+<td style="text-align: right;">+7%</td>
+</tr>
+<tr>
+<td>敬語</td>
+<td style="text-align: right;">6,796</td>
+<td style="text-align: right;">+20%</td>
+<td style="text-align: right;">約21.6円（$0.137）</td>
+<td style="text-align: right;">+20%</td>
+</tr>
+<tr>
+<td>敬語＋あいさつ・お礼</td>
+<td style="text-align: right;">5,800</td>
+<td style="text-align: right;">+2%</td>
+<td style="text-align: right;">約18.6円（$0.118）</td>
+<td style="text-align: right;"><strong>+4%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>意外だったのは3段階目の敬語です。「ご提案いただけますでしょうか」のように聞いたときは、回答が20％長くなり、費用も20％増えました。ところが、そこにあいさつとお礼まで付けた最も丁寧な言い方では、回答は普通体とほとんど同じ長さに戻りました。</p>
+<p>同じプロンプトを2回送ったときでも回答の長さは最大19％ほどぶれたので、この20％を「敬語にすると回答が長くなる」と言い切ることはできません。英語でも「Could you please…?」と聞いたときに回答が21％長くなっており、丁寧な依頼の形が回答を少し長くする可能性はある、という程度に受け取ってください。</p>
+<p>Haiku 5.5 では、最も丁寧な言い方の総費用が普通体より15％多くなりました。回答のトークンが14％多く出たためで、Opus 5.5 とは結果が逆でした。回答の長さがその都度変わることが、費用を左右していることが分かります。</p>
+<h2>結局、費用はどれだけ増えたか</h2>
+<p>プロンプトが162％増えたのに費用が4％しか増えなかった理由は2つです。</p>
+<ul>
+<li><strong>回答のほうがはるかに長い。</strong> 普通体の依頼10件のプロンプトは236トークンでしたが、回答は5,672トークンでした。増えた383トークンは、全体から見ればごく一部です。</li>
+<li><strong>出力は入力より高い。</strong> Opus 5.5 は入力が100万トークンあたり$4、出力が$20です。出力の単価が入力より400％高いため、費用のほとんどは回答から生まれます。</li>
+</ul>
+<p>依頼1件あたりで考えると、あいさつとお礼で増えたプロンプトは平均約38トークン、Opus 5.5 の入力料金で約$0.00015、円にすると約0.02円です。Haiku 5.5 なら入力単価が$0.10なので、さらに約98％安くなります。</p>
+<h2>韓国語・英語との比較</h2>
+<p>同じ依頼を韓国語と英語でも4段階の言い方で送りました。最も丁寧な言い方を、最も短い言い方と比べた結果です。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>言語</th>
+<th style="text-align: right;">プロンプトのトークン（Claude）</th>
+<th style="text-align: right;">プロンプトのトークン（GPT）</th>
+<th style="text-align: right;">総費用（Opus 5.5）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>日本語</td>
+<td style="text-align: right;">+162%</td>
+<td style="text-align: right;">+123%</td>
+<td style="text-align: right;">+4%</td>
+</tr>
+<tr>
+<td>韓国語</td>
+<td style="text-align: right;">+115%</td>
+<td style="text-align: right;">+78%</td>
+<td style="text-align: right;">+1%</td>
+</tr>
+<tr>
+<td>英語</td>
+<td style="text-align: right;">+114%</td>
+<td style="text-align: right;">+121%</td>
+<td style="text-align: right;">±0%</td>
+</tr>
+</tbody>
+</table></div>
+<p>プロンプトの増え方は日本語が最も大きく、総費用の増え方も日本語が最も大きくなりました。それでも4％です。韓国語は「안녕하세요! 바쁘신데 죄송하지만」、英語は「Hi! Sorry to bother you」と付けても、総費用はほぼ変わりませんでした。</p>
+<h2>敬語がコストを押し上げるとき</h2>
+<p><img loading="lazy" width="1200" height="808" alt="敬語がコストを押し上げるとき: システムプロンプトとテンプレート; CLAUDE.md のような指示ファイル; 長い会話" src="/ai-keigo-cost-ja-4.jpg" /></p>
+<p>一度送って終わるチャットでは、敬語は費用にほとんど影響しませんでした。ただし、同じ文章が毎回くり返し送られる場所では話が変わります。</p>
+<ul>
+<li><strong>システムプロンプトとテンプレート:</strong> サービスに組み込むシステムプロンプトや、くり返し使うテンプレートは、リクエストのたびに送り直されます。「お疲れ様です」「よろしくお願いいたします」のような表現が入っていると、リクエストの数だけ費用が積み上がります。</li>
+<li><strong>CLAUDE.md のような指示ファイル:</strong> Claude Code は CLAUDE.md を毎回のリクエストと一緒に送ります。トークンセーブの実測では、CLAUDE.md 1KB がリクエストごとに約320トークンを占めました（<a href="/data/claude-md-agents-md-size">CLAUDE.md のサイズの実測</a>）。指示ファイルは丁寧な表現より、短い命令形で書くほうが向いています。</li>
+<li><strong>長い会話:</strong> 会話が長くなると、前のメッセージも毎回一緒に送られます。ただし、キャッシュから読み込むトークンは Opus 5.5 で通常の入力より95％安いので、丁寧な表現が数行あっても大きな差にはなりません。</li>
+</ul>
+<p>反対に、自分で直接やり取りする普段のチャットなら、言い方を変えて節約できる金額はほとんどありません。回答を短くしてもらうほうがずっと効果的です。「3行で」「表だけで」のように回答の長さを指定すれば、費用の大部分を占める出力トークンが直接減ります。</p>
+<h2>自分のプロンプトで測ってみる</h2>
+<p>よく使うプロンプトが何トークンになるか気になる場合は、<a href="/ja/">トークンカウンター</a>に普通体の版と敬語の版を順番に貼り付けてみてください。モデルごとのトークン数と費用がすぐ分かります。計算はブラウザの中だけで行い、何も送信しません。</p>
+<p>今回の120件のプロンプトと、依頼ごとの結果はすべて <a href="/data/ai-politeness-token-cost">AI の丁寧語コストの実測データ</a> から CSV でダウンロードできます。CC BY 4.0 なので、出典を明記すれば自由に使えます。</p>
+<h2>よくある質問</h2>
+<p><strong>AI に敬語を使うと料金は高くなりますか？</strong>
+少し高くなりますが、ほとんど差はありません。今回の測定では、あいさつとお礼まで付けた最も丁寧な言い方でプロンプトのトークンは162％増えましたが、回答を含めた総費用は Opus 5.5 で4％増えただけでした。</p>
+<p><strong>普通体で聞くと回答は短くなりますか？</strong>
+今回の測定では、普通体と最も丁寧な言い方で回答の長さはほぼ同じでした。尊敬語・謙譲語だけで聞いたときは回答が20％長くなりましたが、同じ質問を2回送ったときのぶれ（最大19％）と同じくらいの差です。</p>
+<p><strong>です・ます調と敬語では、どちらが安いですか？</strong>
+です・ます調のほうが短く済みます。プロンプトのトークンは普通体に比べて、です・ます調が+5％、尊敬語・謙譲語の敬語が+39％でした。ただし金額にすると、依頼1件あたり1円にも届かない差です。</p>
+<p><strong>サブスク（Pro、Max）なら関係ないのでは？</strong>
+サブスクはトークン単位で料金を払いませんが、使用量の上限は使ったぶんだけ減ります。それでも敬語が占める割合は数％なので、上限への影響もほとんどありません。</p>
+<p><strong>敬語を使うと回答の質は上がりますか？</strong>
+今回の測定ではトークンと費用だけを測り、回答の質は評価していません。</p>
+<h2>まとめ</h2>
+<p>Claude に同じ依頼10件を4段階の言い方で送ったところ、あいさつとお礼まで付けた最も丁寧な言い方では、プロンプトのトークンが162％増えました。しかし費用のほとんどは回答から生まれるため、総費用は Opus 5.5 で4％増えただけでした。韓国語（+1％）と英語（±0％）も同じ傾向です。</p>
+<p>一人で使うチャットなら、話しやすい言い方で書けば十分です。システムプロンプトや CLAUDE.md のように毎回くり返し送る文章は短い命令形にして、費用を抑えたいなら言い方より回答の長さを指定するほうがはるかに効果があります。測定は Opus 5.5 で2回、Haiku 5.5 で1回なので、小さな差は回数を増やすと変わる可能性があります。</p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Anthropic API 料金表（Opus 5.5・Haiku 5.5 の入力・出力・キャッシュ料金）</a></li>
+<li><a href="https://code.claude.com/docs/en/cli-reference" target="_blank" rel="noopener">Claude Code CLI リファレンス（-p、--system-prompt、--tools）</a></li>
+<li><a href="https://kutv.com/news/offbeat/price-ai-etiquette-openai-ceo-being-polite-chat-bots-costs-millions-environmental-impact-chat-gtp-microsoft-copilot-anthropic-claude-washington-post-futurism" target="_blank" rel="noopener">KUTV：サム・アルトマン氏が「please」「thank you」のコストに言及（2025年4月）</a></li>
+<li><a href="/data/ai-politeness-token-cost">トークンセーブ：AI の丁寧語コストの実測データ（CSV、CC BY 4.0）</a></li>
+</ul>
+<!-- autoimg -->

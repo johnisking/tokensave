@@ -386,5 +386,46 @@
    "zenn.dev/fleagne": 5000,
    "aiagent-navi.com": 6000
   }
+ },
+ "polite-ko": {
+  "keyword": "AI 존댓말 반말",
+  "checked": "2026-10-20",
+  "median": 3250,
+  "note": "estimated from WebFetch summaries, ±30%",
+  "samples": {
+   "funissu.com (ChatGPT 말투)": 2250,
+   "findskill.ai (ChatGPT vs Claude 한국어)": 4250
+  }
+ },
+ "polite-ja": {
+  "keyword": "AI 敬語 使うべき",
+  "checked": "2026-10-20",
+  "median": 3000,
+  "note": "estimated from WebFetch summaries, ±30%; newsweekjapan paginated (partial)",
+  "samples": {
+   "ai-rise.net": 9000,
+   "library.libecity.com": 1500,
+   "newsweekjapan.jp (p1 only)": 550
+  }
+ },
+ "ccsess-ko": {
+  "keyword": "클로드 코드 compact 캐시 비용",
+  "checked": "2026-10-20",
+  "median": 8000,
+  "note": "estimated from WebFetch summaries, ±30%",
+  "samples": {
+   "digitalmarketer.co.kr": 6500,
+   "wikidocs.net @jaehong": 9500
+  }
+ },
+ "ccsess-ja": {
+  "keyword": "Claude Code compact キャッシュ 料金",
+  "checked": "2026-10-20",
+  "median": 7750,
+  "note": "estimated from WebFetch summaries, ±30%",
+  "samples": {
+   "zenn.dev sora_biz": 5500,
+   "we0.ai": 10000
+  }
  }
 }

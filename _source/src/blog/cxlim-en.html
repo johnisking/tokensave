@@ -1,5 +1,5 @@
 <p><img fetchpriority="high" width="1200" height="630" alt="Codex Usage Limits Explained: 5-Hour Window, Weekly Cap and Resets" src="/codex-usage-limits-en.jpg" /></p>
-<p>Codex, OpenAI's coding agent, is included in ChatGPT Plus, Pro and Business plans, and it is where most people now run into usage limits. Codex shares its allowance with ChatGPT Work, uses a 5-hour window on Plus and Business (weekly limits may also apply), and burns through it at very different speeds depending on the model. Here is how it works and how to get more out of it.</p>
+<p>Codex, OpenAI's coding agent, is included in ChatGPT Plus, Pro and Business plans, and it is where most people now run into usage limits. Codex shares its allowance with ChatGPT Work, uses a 5-hour window on Plus and Business (weekly limits may also apply), and burns through it at very different speeds depending on the model. Here is how it works, what one task actually uses in our own measurements, and how to get more out of it. Limits checked October 19, 2026.</p>
 <h2>Which plans include Codex</h2>
 <p>Codex (and ChatGPT Work) usage is included with <strong>Plus</strong> ($20), <strong>Pro</strong> ($100, $200 or $500) and <strong>Business</strong> Standard and Premium seats. Usage is not unlimited: each plan gets an included allowance.</p>
 <h2>Two limits at once</h2>
@@ -41,9 +41,45 @@
 </tbody>
 </table></div>
 <p>The low end of each range is long, multi-step tasks on a large codebase; the high end is short, simple requests. Pro plans currently have no 5-hour limit, but a larger included allowance: Pro 100 is 5× Plus, Pro 200 is 10× Plus for new subscribers (anyone with an active Pro 200 subscription between September 22 and September 29, 2026 keeps the previous allowance until October 29), and Pro 500 is 25× Plus. These multiples come from OpenAI's Thibault Sottiaux on X and press reports (WinBuzzer, Windows Report), not from OpenAI's pricing page.</p>
-<p><strong>Ultrafast</strong>, available only on Pro 500, is a faster mode that uses your included usage and credits more quickly.</p>
+<p><strong>Ultrafast</strong>, available only on Pro 500 among the Pro plans, is a faster mode that uses your included usage at 800% of the Standard rate (Fast mode uses 250%). Since October 8, 2026 it works with GPT-6.1 Sol as well as GPT-6 Astra.</p>
+<h2>What changed in October 2026</h2>
+<ul>
+<li><strong>October 8:</strong> Ultrafast extended to GPT-6.1 Sol in Codex, ChatGPT Work and the API.</li>
+<li><strong>October 9:</strong> Codex message predictions (beta, personal Pro, GPT-6 Astra or GPT-6.1 Sol). Generating a suggested next message does not count toward Codex limits or credits; the messages you send still do.</li>
+<li><strong>October 29:</strong> the last day of the old Pro 200 allowance for subscribers who qualified for the grace period. From October 30 they move to the new, lower Pro 200 allowance at the same price.</li>
+</ul>
+<p>The five-hour ranges for Plus and Business Standard did not change in October.</p>
 <h2>Why Codex uses the allowance so fast</h2>
 <p>Like every coding agent, Codex works in steps and sends its whole working context back to the model at each step: instructions, tool definitions, files it has read and earlier steps. A typical 25-step feature task sends around 1.6 million input tokens. On the API that task would cost about $0.72 on a Sol-class model and around $3.60 on GPT-6 Astra, which is why Astra's allowance is so much smaller. See <a href="/blog/ai-coding-agent-cost">What does an AI coding agent cost per task?</a></p>
+<h2>What one task uses: our measurements</h2>
+<p>We ran Codex CLI 0.162 with GPT-6 Luna on a ChatGPT plan and logged every token:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>What we ran</th>
+<th style="text-align: right;">Input tokens</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A one-word reply, no work</td>
+<td style="text-align: right;">14,678</td>
+<td>The harness alone: instructions and tool definitions</td>
+</tr>
+<tr>
+<td>The same, with 10 or 30 idle MCP tools connected</td>
+<td style="text-align: right;">14,678</td>
+<td>Unchanged: Codex loads MCP tools only when a task needs them</td>
+</tr>
+<tr>
+<td>A small coding task (a brick-breaker game in one HTML file), 25 runs</td>
+<td style="text-align: right;">median 48,600 (47,677–64,581)</td>
+<td>Most of it read from the cache</td>
+</tr>
+</tbody>
+</table></div>
+<p>Two practical results. First, even a tiny task sends tens of thousands of tokens, because the agent re-sends its context at every step; a long session on a real codebase multiplies that. Second, the language of a short prompt hardly matters: asking for the same game in Korean, Japanese, Spanish or Ukrainian moved Codex's median input by no more than 1.2% compared with English. The raw logs are in <a href="/data/claude-code-vs-codex-tokens">Claude Code vs Codex tokens</a> and <a href="/data/ai-coding-prompt-language">prompt language and coding cost</a>.</p>
 <h2>How to check your usage</h2>
 <p>OpenAI's help center points to <strong>Settings → Usage</strong> in ChatGPT, which shows your remaining allowance and reset times. Codex also warns you as you approach the limit.</p>
 <p><img loading="lazy" width="946" height="890" alt="ChatGPT Usage &amp; billing screen on the Free plan, where Codex shares one monthly usage limit (99% left)" src="/codex-usage-limits-usage-billing-en.jpg" /></p>
@@ -65,11 +101,20 @@
 <li><strong>Keep tasks small and specific.</strong> Fewer steps means less context resent.</li>
 <li><strong>Start fresh between unrelated tasks</strong> so old history is not carried along.</li>
 <li><strong>Point Codex at the right files</strong> instead of letting it search the whole repo.</li>
-<li><strong>Keep your instruction file short</strong>, and write it in English if you normally use another language: on GPT's tokenizer, Korean takes about 44% more tokens than English and Japanese 79% more.</li>
+<li><strong>Keep your instruction file short.</strong> AGENTS.md is sent with every request, and in our test Codex silently dropped everything past 32 KiB of it: a code word at the end of a 50 KB file was never seen. If you write it in another language, it also costs more: on GPT's tokenizer, Korean takes about 44% more tokens than English and Japanese 79% more. Details in <a href="/data/claude-md-agents-md-size">CLAUDE.md and AGENTS.md size</a>.</li>
 </ul>
 <p>Many of the same habits apply to Claude Code: see <a href="/blog/claude-code-save-tokens">How to save tokens in Claude Code</a>.</p>
 <h2>Codex or Claude Code?</h2>
 <p>Both are included in $20, $100 and $200 plans with similar limit systems. The <a href="/blog/chatgpt-pro-vs-claude-max">ChatGPT Pro vs Claude Max comparison</a> covers the differences, and the <a href="/agents">coding agent calculator</a> compares monthly API costs with every plan.</p>
+<h2>FAQ</h2>
+<p><strong>How many Codex messages do you get on ChatGPT Plus?</strong>
+OpenAI's estimate per 5-hour window is about 15–160 local messages with GPT-6.1 Sol, 15–150 with GPT-6 Sol, 5–45 with GPT-6 Astra and 350–3,000 with GPT-6 Luna. A weekly cap applies on top, and long multi-step tasks sit at the low end of each range.</p>
+<p><strong>Does ChatGPT Pro have a Codex limit?</strong>
+Pro 100, 200 and 500 have no five-hour window, but each has an included allowance. It is reported as 5×, 10× and 25× Plus; OpenAI's own page only says each tier includes more than the one below.</p>
+<p><strong>When does the Codex limit reset?</strong>
+The five-hour window starts with your first request after the previous one ends, so it is not a fixed clock time. The weekly limit resets on its own date. Settings → Usage in ChatGPT shows both, and <code>/status</code> shows them in the Codex CLI.</p>
+<p><strong>Does writing prompts in another language use more Codex allowance?</strong>
+Barely, for short prompts: in our test the same task asked in Korean, Japanese, Spanish or Ukrainian changed Codex's median input by no more than 1.2% compared with English. Long instruction files are different, because they are sent with every request and other languages need more tokens for the same text.</p>
 <p><em>Limits change often. OpenAI's <a href="https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex" target="_blank" rel="noopener">Codex and Work usage help page</a> has the current numbers.</em></p>
 <h2>Sources</h2>
 <ul>
@@ -77,6 +122,7 @@
 <li><a href="https://help.openai.com/en/articles/20001498-how-banked-codex-resets-work" target="_blank" rel="noopener">OpenAI Help: How banked Codex resets work</a></li>
 <li><a href="https://learn.chatgpt.com/docs/pricing" target="_blank" rel="noopener">ChatGPT plans and Codex pricing</a></li>
 <li><a href="https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers" target="_blank" rel="noopener">OpenAI Help: About ChatGPT Pro tiers</a></li>
+<li><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener">OpenAI Help: ChatGPT release notes</a></li>
 <li><a href="https://winbuzzer.com/2026/09/30/openai-adds-500-chatgpt-pro-cuts-allowance-new-200-subscribers-a005-xcxwbn/" target="_blank" rel="noopener">WinBuzzer: OpenAI Adds $500 ChatGPT Pro Plan, Cuts Allowance for New $200 Plan Subscribers</a></li>
 <li><a href="https://windowsreport.com/?p=1510692" target="_blank" rel="noopener">Windows Report: OpenAI Launches $500 ChatGPT Pro 500 Plan With 25x Plus Usage and Ultrafast Access</a></li>
 </ul>
