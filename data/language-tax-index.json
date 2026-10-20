@@ -1,14 +1,14 @@
 {
  "title": "TokenSave Language Tax Index: extra tokens per language on Claude, Gemini and GPT",
- "version": "1.0",
- "date": "2026-10-19",
+ "version": "1.1",
+ "date": "2026-10-20",
  "url": "https://tokensave.app/data/language-tax-index",
  "license": "CC BY 4.0",
  "definition": "tax = tokens for the language / tokens for English on the same tokenizer - 1, in percent",
  "models": {
   "gemini": "Gemini 3.x",
   "gpt": "GPT (o200k, GPT-4o and later)",
-  "claude55": "Claude Opus/Sonnet 5.5",
+  "claude55": "Claude 5.5 (Opus, Sonnet, Haiku)",
   "claude45": "Claude Haiku 4.5",
   "cl100k": "GPT-4 / GPT-3.5 (cl100k, legacy)"
  },
@@ -44,7 +44,7 @@
    "en": 34
   },
   "claude55": {
-   "label": "Claude Opus/Sonnet 5.5",
+   "label": "Claude 5.5 (Opus, Sonnet, Haiku)",
    "family": "Anthropic",
    "current": true,
    "median": 88,
@@ -91,21 +91,24 @@
  },
  "history": [
   {
+   "version": "1.1",
+   "date": "2026-10-20",
+   "note": "Added Claude Haiku 5.5 (released 2026-10-07), measured on all 41 prompts: identical counts to Opus and Sonnet 5.5 in every language, so it joins the Claude 5.5 column. Versus Haiku 4.5, English needs 34% more tokens (35 to 47) while Korean, Japanese, Chinese, Hindi, Russian and Ukrainian are unchanged."
+  },
+  {
    "version": "1.0",
    "date": "2026-10-19",
    "note": "First release: 41 languages × 4 current tokenizers plus the legacy GPT-4 tokenizer, from our 2026-09-30 and 2026-10-17 measurements."
   }
  ],
- "pending": [
-  "Claude Haiku 5.5 (released 2026-10-07)"
- ],
+ "pending": [],
  "sources": [
   "https://tokensave.app/data/token-cost-by-language",
   "https://tokensave.app/data/token-cost-by-language-claude-gemini",
   "https://doi.org/10.5281/zenodo.23427148",
   "https://doi.org/10.5281/zenodo.23428350"
  ],
- "citation": "TokenSave (2026). TokenSave Language Tax Index, version 1.0 (2026-10-19). https://tokensave.app/data/language-tax-index",
+ "citation": "TokenSave (2026). TokenSave Language Tax Index, version 1.1 (2026-10-20). https://tokensave.app/data/language-tax-index",
  "rows": [
   {
    "code": "en",

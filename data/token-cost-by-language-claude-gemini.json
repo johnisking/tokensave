@@ -4,7 +4,7 @@
  "license": "CC BY 4.0",
  "measured": "2026-10-17",
  "tokenizers": {
-  "claude55": "Claude Opus 5.5 / Sonnet 5.5 (identical counts)",
+  "claude55": "Claude Opus 5.5 / Sonnet 5.5 / Haiku 5.5 (identical counts; Haiku 5.5 added 2026-10-20)",
   "claude45": "Claude Haiku 4.5",
   "gemini": "Gemini 3.8 Flash / 3.1 Pro (identical counts)",
   "gpt": "OpenAI o200k_base (GPT-4o and later)"
