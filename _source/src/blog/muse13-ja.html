@@ -78,7 +78,7 @@
 </tbody>
 </table></div>
 <h2>実際の作業でかかる費用</h2>
-<p>よくあるリクエスト1回を、入力 2,000 トークン・出力 500 トークンとしました。同じ英文でもモデルごとにトークン数が違う点も反映しています。Claude は約 30% 多くなり、Meta のトークナイザーは公開されていないため GPT と同じと仮定しました。</p>
+<p>よくあるリクエスト1回を、入力 2,000 トークン・出力 500 トークンとしました。同じ英文でもモデルごとにトークン数が違う点も反映しています。自分たちで測ったところ Claude は GPT より約 38% 多く、Gemini はほぼ同じで（<a href="/data/token-cost-by-language-claude-gemini">データセット</a>）、Meta のトークナイザーは公開されていないため GPT と同じと仮定しました。</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -95,25 +95,25 @@
 <tr>
 <td>リクエスト1回</td>
 <td style="text-align: right;">$0.0046</td>
-<td style="text-align: right;">$0.0117</td>
+<td style="text-align: right;">$0.0124</td>
 <td style="text-align: right;">$0.0090</td>
-<td style="text-align: right;">$0.0095</td>
+<td style="text-align: right;">$0.0100</td>
 <td style="text-align: right;">$0.0046</td>
 <td style="text-align: right;">$0.0070</td>
 </tr>
 <tr>
 <td>月1万回</td>
 <td style="text-align: right;">$46</td>
-<td style="text-align: right;">$117</td>
+<td style="text-align: right;">$124</td>
 <td style="text-align: right;">$90</td>
-<td style="text-align: right;">$95</td>
+<td style="text-align: right;">$100</td>
 <td style="text-align: right;">$46</td>
 <td style="text-align: right;">$70</td>
 </tr>
 </tbody>
 </table></div>
 <ul>
-<li>同じリクエストで、Claude Sonnet 5.5 は Muse Spark 1.3 より <strong>153% 高く</strong>、GPT-6 Sol は <strong>95% 高く</strong>、Gemini 3.1 Pro は <strong>105% 高く</strong> なります。</li>
+<li>同じリクエストで、Claude Sonnet 5.5 は Muse Spark 1.3 より <strong>169% 高く</strong>、GPT-6 Sol は <strong>95% 高く</strong>、Gemini 3.1 Pro は <strong>116% 高く</strong> なります。</li>
 <li>DeepSeek V4 Pro はほぼ同じで、Grok 4.7 は <strong>51% 高く</strong> なります。</li>
 </ul>
 <h2>Meta が挙げる強み</h2>
