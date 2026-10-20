@@ -107,12 +107,12 @@
         <span class="block mt-1 text-sm text-zinc-300">How many more tokens your language needs than English, per model. Updated when new models ship.</span></a>
       <h2>Latest measurements</h2>
       <ul class="not-prose space-y-1.5 text-sm text-zinc-300">
+        <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-20</span><a href="/data/ai-coffee-break-cache-cost" class="hover:text-violet-300">The coffee-break tax: the next Claude Code message after a 0 to 65 minute pause</a></li>
+        <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-20</span><a href="/data/vibe-coding-by-claude-model" class="hover:text-violet-300">Vibe coding with Claude Haiku, Sonnet and Opus 5.5: 45 games, cost and play tests</a></li>
+        <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-20</span><a href="/data/long-chat-vs-new-chat-cost" class="hover:text-violet-300">Long chat or new chat: 30 requests in one session, with /compact, and in fresh sessions</a></li>
+        <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-20</span><a href="/data/ai-politeness-token-cost" class="hover:text-violet-300">Does being polite to AI cost more? Korean, Japanese and English</a></li>
         <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-20</span><a href="/data/language-tax-index" class="hover:text-violet-300">Language Tax Index v1.1: Claude Haiku 5.5 measured in 41 languages</a></li>
         <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-19</span><a href="/data/language-tax-index" class="hover:text-violet-300">Language Tax Index v1.0: extra tokens per language for every current model</a></li>
-        <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-19</span><a href="/data/claude-code-harness-cost" class="hover:text-violet-300">Claude Code harness cost: plugins, subagents, plan mode, skills and hooks (35 runs)</a></li>
-        <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-19</span><a href="/data/ai-coding-prompt-language" class="hover:text-violet-300">Coding in 5 prompt languages: re-run to 5 runs per language</a></li>
-        <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-19</span><a href="/data/claude-web-search-by-language" class="hover:text-violet-300">AI web search by language: 320 runs, local topics added for Codex</a></li>
-        <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-18</span><a href="/data/claude-md-agents-md-size" class="hover:text-violet-300">CLAUDE.md and AGENTS.md size: what instruction files cost</a></li>
       </ul>
       <h2>All datasets</h2>
       <ul class="not-prose mt-4 space-y-3">
@@ -155,6 +155,18 @@
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="/data/claude-code-harness-cost" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">What the Claude Code harness costs: plugins, subagents, plan mode, skills and hooks on the same task</span>
           <span class="block mt-1 text-sm text-zinc-400">One coding task under 7 Claude Code settings: the harness is 90% of the input, a subagent costs +128%, unused plugins still add tokens. CSV · measured 2026-10-19</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="/data/vibe-coding-by-claude-model" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">Vibe coding with Claude Haiku, Sonnet and Opus 5.5: cost, time and whether the game works</span>
+          <span class="block mt-1 text-sm text-zinc-400">Three browser games by Claude Haiku, Sonnet and Opus 5.5: all 45 passed play tests, Haiku cost about 95% less. CSV · measured 2026-10-20</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="/data/long-chat-vs-new-chat-cost" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">Long chat or new chat? What 30 requests cost in one Claude Code session, with /compact, and in fresh sessions</span>
+          <span class="block mt-1 text-sm text-zinc-400">30 change requests three ways: a new session per request cost more than twice as much as one long chat. CSV · measured 2026-10-20</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="/data/ai-politeness-token-cost" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">Does being polite to AI cost more? Plain, polite and very polite prompts in Korean, Japanese and English</span>
+          <span class="block mt-1 text-sm text-zinc-400">Greetings and thanks double the prompt in Korean, Japanese and English, but add only a few percent to the cost. CSV · measured 2026-10-20</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="/data/ai-coffee-break-cache-cost" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">The coffee-break tax: what your next Claude Code message costs after a 0 to 65 minute pause</span>
+          <span class="block mt-1 text-sm text-zinc-400">Pauses of up to 55 minutes cost nothing extra; after 65 minutes the cache was gone and the next message cost about six times as much. CSV · measured 2026-10-20</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>
