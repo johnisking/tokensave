@@ -8,6 +8,10 @@ brick: same check as the earlier datasets: loads, has a <canvas>, takes clicks a
   spawn    - the number of tiles or their sum grows over 40 moves
   score    - a number labelled score goes up
   newgame  - clicking a "New Game" button resets the board to 2 or 3 small tiles
+  rules    - 30 more moves: each board must equal the expected slide/merge result plus exactly one new 2 or 4
+  works    = all six checks pass and no rule violations
+sudoku: loads, 81 inputs, 3 puzzles valid and each with exactly one solution (counted by a solver),
+  Check marks a wrong digit, Solve fills a valid grid matching the givens, New Puzzle changes the givens.
 usage: python3 check_games.py runs_dir
 """
 import glob, json, os, re, sys
@@ -189,7 +193,7 @@ def check_2048(page, path, errors):
     res['rule_moves_ok'] = ok; res['rule_moves_bad'] = bad; res['rule_moves_unread'] = unread
     res['loads'] = not errors
     res['points'] = sum(bool(res[k]) for k in ('loads', 'tiles', 'moves', 'spawn', 'score', 'newgame'))
-    res['works'] = res['points'] == 6
+    res['works'] = res['points'] == 6 and res.get('rule_moves_bad') == 0 and res.get('rule_moves_unread') == 0
     res['errors'] = errors[:3]
     res['final_sum'] = sum(v1)
     return res
