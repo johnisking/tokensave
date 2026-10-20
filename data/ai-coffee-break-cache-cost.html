@@ -101,7 +101,7 @@
     <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
       <p class="not-prose text-xs font-semibold uppercase tracking-wider text-violet-300"><a href="/data/" class="no-underline" style="text-decoration:none">TokenSave Data</a> · Dataset</p>
       <h1 class="text-3xl font-extrabold text-white">The coffee-break tax: your next Claude Code message after a pause</h1>
-      <p class="mt-3 text-lg text-zinc-200"><strong>Take a break of up to an hour and your next Claude Code message costs the same. Take longer, and it costs about 6 times as much.</strong> In our runs Claude Code kept the conversation in Anthropic&rsquo;s prompt cache for one hour. After pauses of 0 to 55 minutes the next message read 43,002 tokens from the cache and cost $0.042; after 65 minutes the cache had expired, 27,660 tokens had to be written again, and the same message cost $0.255.</p>
+      <p class="mt-3 text-lg text-zinc-200"><strong>Take a break of up to an hour and your next Claude Code message costs the same. Take longer, and it costs about 6 times as much.</strong> In our runs Claude Code kept the conversation in Anthropic&rsquo;s prompt cache for one hour. After pauses of 0 to 55 minutes the next message read 42,667 tokens from the cache and cost $0.042; after 65 minutes the cache had expired, 27,460 tokens had to be written again, and the same message cost $0.253.</p>
       <p class="text-sm text-zinc-400">Measured 2026-10-20 · Claude Code (Opus 5.5) · pauses of 0, 4, 6, 15, 30, 55, 65 minutes · License <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · Related: <a href="/data/long-chat-vs-new-chat-cost">Long chat or new chat?</a></p>
       <div class="not-prose flex flex-wrap gap-2 my-4">
         <a href="/data/ai-coffee-break-cache-cost.csv" class="not-prose text-xs font-semibold rounded-md border border-violet-500/40 bg-violet-500/10 px-2.5 py-1 text-violet-200 hover:bg-violet-500/20" style="text-decoration:none">⬇ CSV</a>
@@ -111,24 +111,24 @@
       <img src="/ai-coffee-break-cache-cost-chart.png" alt="Cost of the next Claude Code message after pauses from 0 to 65 minutes" width="1200" loading="lazy">
       <h2>Key findings</h2>
       <ul>
-        <li><strong>Nothing changed for an hour.</strong> After pauses of 0, 4, 6, 15, 30, 55 minutes, the first model call of the next message read about 43,002 tokens from the cache and wrote only a few hundred new ones. The message cost $0.042 on average whether we waited 0 minutes or 55.</li>
-        <li><strong>After 65 minutes the cache was gone.</strong> The first call had to write 27,660 tokens to the cache again, at twice the normal input price, and the message cost $0.255, about 6 times as much (+501%).</li>
+        <li><strong>Nothing changed for an hour.</strong> After pauses of 0, 4, 6, 15, 30, 55 minutes, the first model call of the next message read about 42,667 tokens from the cache and wrote only a few hundred new ones. The message cost $0.042 on average whether we waited 0 minutes or 55.</li>
+        <li><strong>After 65 minutes the cache was gone.</strong> The first call had to write 27,460 tokens to the cache again, at twice the normal input price, and the message cost $0.253, about 6 times as much (+507%).</li>
         <li><strong>The cache lifetime was one hour.</strong> Every cache write in these runs was a one-hour write (<code>ephemeral_1h</code> in the usage report), not the five-minute default of the Anthropic API. That is why the 6- and 15-minute pauses, which would have missed a five-minute cache, cost nothing extra.</li>
         <li><strong>The bigger the project, the bigger the tax.</strong> Here the context was a small game of about 40,000 tokens. The cost of a cold start grows with everything in the conversation, so after a long session (our <a href="/data/long-chat-vs-new-chat-cost">long-chat measurement</a> reached 200,000 tokens of context and more) an expired cache costs far more.</li>
       </ul>
       <h2>The next message after each pause</h2>
-      <p class="text-sm text-zinc-400">First model call of the next message: tokens read from and written to the prompt cache. Cost is the API list-price estimate for the whole message (Opus 5.5). One run per pause; a second round is planned. Every run is in the CSV.</p>
+      <p class="text-sm text-zinc-400">First model call of the next message: tokens read from and written to the prompt cache. Cost is the API list-price estimate for the whole message (Opus 5.5). Mean of 2 runs. Every run is in the CSV.</p>
       <div class="overflow-x-auto">
         <table>
           <thead><tr><th>Pause</th><th class="text-right">Read from cache</th><th class="text-right">Written to cache</th><th class="text-right">Cost of the next message</th><th>Cache</th></tr></thead>
           <tbody>
-          <tr><td class="tabular-nums">0 min</td><td class="text-right tabular-nums">41,765</td><td class="text-right tabular-nums">589</td><td class="text-right tabular-nums">$0.041</td><td>still cached</td></tr>
-          <tr><td class="tabular-nums">4 min</td><td class="text-right tabular-nums">42,578</td><td class="text-right tabular-nums">498</td><td class="text-right tabular-nums">$0.042</td><td>still cached</td></tr>
-          <tr><td class="tabular-nums">6 min</td><td class="text-right tabular-nums">42,983</td><td class="text-right tabular-nums">471</td><td class="text-right tabular-nums">$0.042</td><td>still cached</td></tr>
-          <tr><td class="tabular-nums">15 min</td><td class="text-right tabular-nums">43,372</td><td class="text-right tabular-nums">462</td><td class="text-right tabular-nums">$0.040</td><td>still cached</td></tr>
-          <tr><td class="tabular-nums">30 min</td><td class="text-right tabular-nums">42,923</td><td class="text-right tabular-nums">515</td><td class="text-right tabular-nums">$0.044</td><td>still cached</td></tr>
-          <tr><td class="tabular-nums">55 min</td><td class="text-right tabular-nums">44,393</td><td class="text-right tabular-nums">521</td><td class="text-right tabular-nums">$0.045</td><td>still cached</td></tr>
-          <tr><td class="tabular-nums">65 min</td><td class="text-right tabular-nums">15,925</td><td class="text-right tabular-nums">27,660</td><td class="text-right tabular-nums">$0.255</td><td>cache expired, rebuilt</td></tr>
+          <tr><td class="tabular-nums">0 min</td><td class="text-right tabular-nums">41,436</td><td class="text-right tabular-nums">496</td><td class="text-right tabular-nums">$0.039</td><td>still cached</td></tr>
+          <tr><td class="tabular-nums">4 min</td><td class="text-right tabular-nums">43,232</td><td class="text-right tabular-nums">466</td><td class="text-right tabular-nums">$0.042</td><td>still cached</td></tr>
+          <tr><td class="tabular-nums">6 min</td><td class="text-right tabular-nums">42,440</td><td class="text-right tabular-nums">496</td><td class="text-right tabular-nums">$0.042</td><td>still cached</td></tr>
+          <tr><td class="tabular-nums">15 min</td><td class="text-right tabular-nums">43,076</td><td class="text-right tabular-nums">502</td><td class="text-right tabular-nums">$0.041</td><td>still cached</td></tr>
+          <tr><td class="tabular-nums">30 min</td><td class="text-right tabular-nums">42,636</td><td class="text-right tabular-nums">494</td><td class="text-right tabular-nums">$0.043</td><td>still cached</td></tr>
+          <tr><td class="tabular-nums">55 min</td><td class="text-right tabular-nums">43,183</td><td class="text-right tabular-nums">502</td><td class="text-right tabular-nums">$0.043</td><td>still cached</td></tr>
+          <tr><td class="tabular-nums">65 min</td><td class="text-right tabular-nums">15,925</td><td class="text-right tabular-nums">27,460</td><td class="text-right tabular-nums">$0.253</td><td>cache expired, rebuilt</td></tr>
           </tbody>
         </table>
       </div>
