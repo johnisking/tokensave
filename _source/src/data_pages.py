@@ -60,6 +60,9 @@ def write_files(dist):
     write_tl_files(dist)
     write_har_files(dist)
     write_lti_files(dist)
+    write_vib_files(dist)
+    write_lng_files(dist)
+    write_pol_files(dist)
 
 
 def _write_lang_files(dist):
@@ -236,6 +239,15 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{HAR_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(HAR_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">One coding task under 7 Claude Code settings: the harness is 90% of the input, a subagent costs +128%, unused plugins still add tokens. CSV · measured {HAR_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{VIB_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(VIB_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">Three browser games by Claude Haiku, Sonnet and Opus 5.5: all 45 passed play tests, Haiku cost about 95% less. CSV · measured {VIB_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{LNG_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(LNG_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">30 change requests three ways: a new session per request cost more than twice as much as one long chat. CSV · measured {LNG_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{POL_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(POL_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">Greetings and thanks double the prompt in Korean, Japanese and English, but add only a few percent to the cost. CSV · measured {POL_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -2023,6 +2035,9 @@ def lti_html():
 
 # ---- Measurement log: newest first, shown on the data hub and the English home page ----
 CHANGELOG = [
+    ("2026-10-20", "/data/vibe-coding-by-claude-model", "Vibe coding with Claude Haiku, Sonnet and Opus 5.5: 45 games, cost and play tests"),
+    ("2026-10-20", "/data/long-chat-vs-new-chat-cost", "Long chat or new chat: 30 requests in one session, with /compact, and in fresh sessions"),
+    ("2026-10-20", "/data/ai-politeness-token-cost", "Does being polite to AI cost more? Korean, Japanese and English"),
     ("2026-10-20", LTI_PATH, "Language Tax Index v1.1: Claude Haiku 5.5 measured in 41 languages"),
     ("2026-10-19", LTI_PATH, "Language Tax Index v1.0: extra tokens per language for every current model"),
     ("2026-10-19", "/data/claude-code-harness-cost", "Claude Code harness cost: plugins, subagents, plan mode, skills and hooks (35 runs)"),
@@ -2052,3 +2067,340 @@ def latest_html(limit=5):
       </ul>
     </section>
 '''
+
+
+# ---- Dataset 14: vibe coding with Claude Haiku, Sonnet and Opus 5.5 (measured 2026-10-20) ----
+VIB_PATH = "/data/vibe-coding-by-claude-model"
+VIB_MEASURED = "2026-10-20"
+VIB_CHART = "/vibe-coding-by-claude-model-chart.png"
+VIB_DOI = None
+VIB_MIRRORS = None
+VIB_TITLE = "Vibe coding with Claude Haiku, Sonnet and Opus 5.5: cost, time and whether the game works"
+VIB_DESC = ("Dataset: three browser games (brick-breaker, 2048, Sudoku) built by Claude Code with Haiku 5.5, Sonnet 5.5 and Opus 5.5, five runs each: "
+            "tokens, API cost, time and automated play tests. All 45 games passed; Haiku 5.5 cost about 95% less than Opus 5.5. Free CSV, CC BY 4.0.")
+VIB_TASKS = [("brick", "Brick-breaker"), ("2048", "2048"), ("sudoku", "Sudoku")]
+VIB_MODELS = [("claude-haiku-5-5", "Haiku 5.5"), ("claude-sonnet-5-5", "Sonnet 5.5"), ("claude-opus-5-5", "Opus 5.5")]
+VIB_COLS = ["task", "model", "run", "input_tokens", "cache_read_tokens", "output_tokens", "api_cost_usd", "seconds", "turns", "tool_calls",
+            "file_bytes", "works", "check_points", "rule_moves_ok", "rule_moves_bad", "puzzles_unique"]
+
+
+def _vib():
+    return json.load(open(os.path.join(ROOT, "blog_data", "vibe", "combined.json"), encoding="utf-8"))
+
+
+def vib_citation():
+    if VIB_DOI:
+        return f"TokenSave (2026). {VIB_TITLE} [Data set]. Zenodo. https://doi.org/{VIB_DOI}"
+    return f"TokenSave (2026). {VIB_TITLE} [Data set]. {BASE}{VIB_PATH}"
+
+
+def write_vib_files(dist):
+    d = _vib()
+    buf = io.StringIO(); w = csv.writer(buf); w.writerow(VIB_COLS)
+    for r in d["rows"]:
+        w.writerow(["" if r.get(c) is None else r.get(c) for c in VIB_COLS])
+    open(os.path.join(dist, "data", "vibe-coding-by-claude-model.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=VIB_TITLE, url=BASE + VIB_PATH, license="CC BY 4.0", measured=VIB_MEASURED, citation=vib_citation(), tool=d["tool"],
+                prompts=d["prompts"], rows=d["rows"])
+    open(os.path.join(dist, "data", "vibe-coding-by-claude-model.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def vib_ld():
+    return _dataset_ld(VIB_TITLE, VIB_DESC, VIB_PATH, VIB_MEASURED,
+                       ["vibe coding", "Claude Haiku 5.5", "Claude Sonnet 5.5", "Claude Opus 5.5", "Claude Code", "AI coding cost", "browser game", "2048", "Sudoku"],
+                       ["input tokens", "output tokens", "API cost (USD)", "time (seconds)", "automated play test (pass/fail)"],
+                       "Claude Code 2.1.295 at medium effort on one Windows laptop; three single-file browser games, three models, five runs each; games checked in headless Chromium",
+                       VIB_CHART, [("vibe-coding-by-claude-model.csv", "text/csv"), ("vibe-coding-by-claude-model.json", "application/json")], doi=VIB_DOI, mirrors=VIB_MIRRORS)
+
+
+def vib_html():
+    d = _vib(); R = d["rows"]
+    rs = lambda t, m: [r for r in R if r["task"] == t and r["model"] == m]
+    med = lambda t, m, k: statistics.median(r[k] for r in rs(t, m))
+    allm = lambda m, k: statistics.median(r[k] for r in R if r["model"] == m)
+    f = lambda v: "{:,}".format(round(v))
+    n = len(rs("brick", "claude-opus-5-5")); works = sum(1 for r in R if r["works"])
+    save = lambda t: round((1 - med(t, "claude-haiku-5-5", "api_cost_usd") / med(t, "claude-opus-5-5", "api_cost_usd")) * 100)
+    saves = [save(t) for t, _ in VIB_TASKS]
+    trs = "\n".join(
+        '          <tr><td>%s</td><td>%s</td><td class="text-right tabular-nums">$%.3f</td><td class="text-right tabular-nums">%d s</td>'
+        '<td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%d / %d</td></tr>' % (
+            tn, mn, med(t, m, "api_cost_usd"), round(med(t, m, "seconds")), f(med(t, m, "input_tokens")), f(med(t, m, "output_tokens")),
+            f(med(t, m, "file_bytes")), sum(1 for r in rs(t, m) if r["works"]), len(rs(t, m)))
+        for t, tn in VIB_TASKS for m, mn in VIB_MODELS)
+    head = ['<th>Game</th>', '<th>Model</th>', '<th class="text-right">API cost</th>', '<th class="text-right">Time</th>', '<th class="text-right">Input tokens</th>',
+            '<th class="text-right">Output tokens</th>', '<th class="text-right">File size (bytes)</th>', '<th class="text-right">Passed</th>']
+    H, S, O = "claude-haiku-5-5", "claude-sonnet-5-5", "claude-opus-5-5"
+    lead = ('<strong>Claude Haiku 5.5 built every game we asked for, for about 5% of what Opus 5.5 cost.</strong> '
+            f'Three browser games, three models, {n} runs each: all {works} of {len(R)} games passed automated play tests, including a strict check of the 2048 rules and of Sudoku puzzles with exactly one solution. '
+            f'Haiku was the cheapest by far (median ${allm(H, "api_cost_usd"):.3f} per game against ${allm(O, "api_cost_usd"):.2f} on Opus) but the slowest; Sonnet 5.5 was the fastest.')
+    body = f'''      <h2>Key findings</h2>
+      <ul>
+        <li><strong>All {works} games passed.</strong> Every brick-breaker loaded and took keyboard and mouse input without errors. Every 2048 got 30 out of 30 moves exactly right (slide, merge once, one new 2 or 4). Every Sudoku generated three puzzles that each had exactly one solution, checked with a solver, and its Check and Solve buttons worked. On games of this size the cheapest model did not lose correctness.</li>
+        <li><strong>Haiku 5.5 cost {min(saves)}&ndash;{max(saves)}% less than Opus 5.5.</strong> Median API cost per game: Haiku ${allm(H, "api_cost_usd"):.3f}, Sonnet ${allm(S, "api_cost_usd"):.2f}, Opus ${allm(O, "api_cost_usd"):.2f}. Haiku 5.5's list price is $0.10 / $0.50 per million input / output tokens against $4 / $20 for Opus 5.5.</li>
+        <li><strong>Haiku was the slowest and the wordiest.</strong> It wrote a median {f(allm(H, "output_tokens"))} output tokens per game against {f(allm(S, "output_tokens"))} on Sonnet and {f(allm(O, "output_tokens"))} on Opus, and often took more model turns, so it needed a median {round(allm(H, "seconds"))} seconds against {round(allm(S, "seconds"))} on Sonnet and {round(allm(O, "seconds"))} on Opus.</li>
+        <li><strong>Sonnet 5.5 was the fastest in every game</strong> and cost about half as much as Opus.</li>
+        <li><strong>On a subscription the cost gap shows up as usage limits.</strong> Plans are not billed per token, but cheaper models use less of the plan's allowance, so the same Pro or Max plan stretches much further on Haiku for this kind of task.</li>
+      </ul>
+      <h2>Cost, time and result by game and model</h2>
+      <p class="text-sm text-zinc-400">Median of {n} runs. Cost is the API list-price estimate Claude Code reports. Input tokens include cache reads and writes. Every run is in the CSV.</p>
+{_table(head, trs)}      <h2>The tasks</h2>
+      <ul>
+''' + "".join(f'        <li><strong>{esc(tn)}:</strong> &ldquo;{esc(d["prompts"][t])}&rdquo;</li>\n' for t, tn in VIB_TASKS) + f'''      </ul>
+      <h2>How the games were checked</h2>
+      <ul>
+        <li><strong>Brick-breaker:</strong> loads in headless Chromium with a canvas, takes clicks and arrow keys for about two seconds, no script errors (the same check as our earlier coding datasets).</li>
+        <li><strong>2048:</strong> two or three starting tiles of 2 or 4; arrow keys move tiles; tiles keep appearing; the score goes up; New Game resets the board; then 30 more moves where the board after each move must equal the expected slide-and-merge result plus exactly one new 2 or 4. A deliberately broken copy (merging into a wrong number) failed 22 of 30 moves.</li>
+        <li><strong>Sudoku:</strong> 81 inputs; three generated puzzles that are valid and have exactly one solution (counted by a backtracking solver); a wrong digit is marked by Check; Solve fills a valid grid that matches the givens; New Puzzle changes the givens. A broken copy that skipped the uniqueness test failed.</li>
+      </ul>
+      <h2>Method</h2>
+      <ul>
+        <li>Claude Code 2.1.295 on one Windows laptop, <code>claude -p --effort medium --permission-mode acceptEdits --model &lt;model&gt;</code>, no MCP servers, each run in its own empty folder. Brick-breaker and 2048 ran in rounds of all three models; Sudoku ran in a parallel loop on the same day, {VIB_MEASURED}.</li>
+        <li>Tokens and cost from the <code>modelUsage</code> and <code>total_cost_usd</code> fields of the final <code>result</code> event. Time is wall-clock time for the whole run.</li>
+        <li>The raw logs, the games and the checking script are in the GitHub repository and the downloads.</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>Three small, well-known games. On larger codebases or less familiar problems the models may differ in correctness, and a cheaper model that needs more fixes can end up costing more.</li>
+        <li>Automated tests check the rules a script can see; they do not judge how fun or polished a game is.</li>
+        <li>Five runs per game and model; time depends on server load on the day.</li>
+      </ul>
+'''
+    return (_head("Vibe coding with Claude Haiku, Sonnet and Opus 5.5", lead,
+                  f'Measured {VIB_MEASURED} · Claude Code · 3 games × 3 models × {n} runs · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{HAR_PATH}">Claude Code harness cost</a>',
+                  [("vibe-coding-by-claude-model.csv", "CSV"), ("vibe-coding-by-claude-model.json", "JSON")],
+                  VIB_CHART, "Median API cost and time per game for Claude Haiku, Sonnet and Opus 5.5", doi=VIB_DOI, mirrors=VIB_MIRRORS)
+            + body + _page_tail(vib_citation(), _embed(VIB_PATH, VIB_CHART, "Vibe coding cost by Claude model", "Vibe coding with Claude Haiku, Sonnet and Opus 5.5"),
+                                [(HAR_PATH, "What the Claude Code harness costs"), (EFF_PATH, "Claude effort levels: tokens, time and cost"), ("/agents", "Coding agent cost calculator")]))
+
+
+# ---- Dataset 15: long conversation vs /compact vs a new session per request (measured 2026-10-20) ----
+LNG_PATH = "/data/long-chat-vs-new-chat-cost"
+LNG_MEASURED = "2026-10-20"
+LNG_CHART = "/long-chat-vs-new-chat-cost-chart.png"
+LNG_DOI = None
+LNG_MIRRORS = None
+LNG_TITLE = "Long chat or new chat? What 30 requests cost in one Claude Code session, with /compact, and in fresh sessions"
+LNG_DESC = ("Dataset: 30 change requests on one browser game in Claude Code (Opus 5.5), sent in one session, in one session with /compact after request 15, "
+            "and as a new session for every request, two runs each: tokens, cache writes and reads, API cost and time per request. Free CSV, CC BY 4.0.")
+LNG_VARS = [("claude_one", "One session"), ("claude_compact", "One session, /compact after 15"), ("claude_fresh", "New session per request")]
+LNG_COLS = ["variant", "rep", "request", "input_tokens", "cache_write_tokens", "cache_read_tokens", "uncached_input_tokens", "output_tokens", "cost_usd",
+            "model_calls", "seconds", "text"]
+
+
+def _lng():
+    return json.load(open(os.path.join(ROOT, "blog_data", "longchat", "combined.json"), encoding="utf-8"))
+
+
+def lng_citation():
+    if LNG_DOI:
+        return f"TokenSave (2026). {LNG_TITLE} [Data set]. Zenodo. https://doi.org/{LNG_DOI}"
+    return f"TokenSave (2026). {LNG_TITLE} [Data set]. {BASE}{LNG_PATH}"
+
+
+def lng_totals(d=None):
+    d = d or _lng()
+    out = {}
+    for v, _ in LNG_VARS:
+        for rep in (1, 2):
+            x = [r for r in d["rows"] if r["variant"] == v and r["rep"] == rep]
+            c = sum(r["cost_usd"] for r in x) + sum(c["cost_usd"] for c in d["compactions"] if c["variant"] == v and c["rep"] == rep)
+            out[(v, rep)] = dict(cost=c, inp=sum(r["input_tokens"] for r in x), cw=sum(r["cache_write_tokens"] for r in x),
+                                 calls=sum(r["model_calls"] for r in x), sec=sum(r["seconds"] for r in x))
+    return out
+
+
+def write_lng_files(dist):
+    d = _lng()
+    buf = io.StringIO(); w = csv.writer(buf); w.writerow(LNG_COLS)
+    for r in d["rows"]:
+        w.writerow([r.get(c) for c in LNG_COLS])
+    open(os.path.join(dist, "data", "long-chat-vs-new-chat-cost.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=LNG_TITLE, url=BASE + LNG_PATH, license="CC BY 4.0", measured=LNG_MEASURED, citation=lng_citation(), tool=d["tool"],
+                requests=d["requests"], fresh_prefix=d["fresh_prefix"], compactions=d["compactions"], rows=d["rows"])
+    open(os.path.join(dist, "data", "long-chat-vs-new-chat-cost.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def lng_ld():
+    return _dataset_ld(LNG_TITLE, LNG_DESC, LNG_PATH, LNG_MEASURED,
+                       ["Claude Code", "long conversation", "context", "/compact", "new session", "prompt caching", "AI coding cost", "vibe coding"],
+                       ["input tokens", "cache write tokens", "cache read tokens", "output tokens", "API cost (USD)", "time (seconds)"],
+                       "Claude Code 2.1.295 (Opus 5.5) at medium effort on one Windows laptop; 30 change requests on one game under three conversation strategies, two runs each",
+                       LNG_CHART, [("long-chat-vs-new-chat-cost.csv", "text/csv"), ("long-chat-vs-new-chat-cost.json", "application/json")], doi=LNG_DOI, mirrors=LNG_MIRRORS)
+
+
+def lng_html():
+    d = _lng(); R = d["rows"]; T = lng_totals(d)
+    f = lambda v: "{:,}".format(round(v))
+    avg = lambda v, k: (T[(v, 1)][k] + T[(v, 2)][k]) / 2
+    one, cmp_, fr = avg("claude_one", "cost"), avg("claude_compact", "cost"), avg("claude_fresh", "cost")
+    per = lambda v, a, b: statistics.mean(r["cost_usd"] for r in R if r["variant"] == v and a <= r["request"] <= b)
+    calls = lambda v: statistics.mean(r["model_calls"] for r in R if r["variant"] == v and r["request"] > 1)
+    cw = lambda v: statistics.mean(r["cache_write_tokens"] for r in R if r["variant"] == v and r["request"] > 1)
+    comp = d["compactions"]
+    trs = "\n".join(
+        '          <tr><td>%s</td><td class="text-right tabular-nums">$%.2f · $%.2f</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">$%.3f</td>'
+        '<td class="text-right tabular-nums">$%.3f</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%d min</td></tr>' % (
+            nm, T[(v, 1)]["cost"], T[(v, 2)]["cost"], "&ndash;" if v == "claude_one" else _pct(round((avg(v, "cost") / one - 1) * 100)),
+            per(v, 2, 5), per(v, 26, 30), f(avg(v, "inp")), round(avg(v, "sec") / 60))
+        for v, nm in LNG_VARS)
+    head = ['<th>Strategy</th>', '<th class="text-right">Total API cost, run 1 · run 2</th>', '<th class="text-right">vs one session</th>',
+            '<th class="text-right">Per request, 2&ndash;5</th>', '<th class="text-right">Per request, 26&ndash;30</th>', '<th class="text-right">Input tokens (total)</th>',
+            '<th class="text-right">Time</th>']
+    lead = ('<strong>Starting a new chat for every request cost more than twice as much as staying in one long chat.</strong> '
+            f'We sent the same 30 change requests to one browser game in Claude Code three ways. One long session cost ${one:.2f} on average, '
+            f'one session with <code>/compact</code> halfway ${cmp_:.2f} ({_pct(round((cmp_ / one - 1) * 100))}), and a fresh session for every request ${fr:.2f} ({_pct(round((fr / one - 1) * 100))}).')
+    body = f'''      <h2>Key findings</h2>
+      <ul>
+        <li><strong>A new session per request was the most expensive strategy, by far.</strong> Total API cost: one session ${T[("claude_one", 1)]["cost"]:.2f} and ${T[("claude_one", 2)]["cost"]:.2f}; a new session each time ${T[("claude_fresh", 1)]["cost"]:.2f} and ${T[("claude_fresh", 2)]["cost"]:.2f}. Both runs agree.</li>
+        <li><strong>Why: a fresh session has to find its way back in.</strong> Without the conversation, Claude Code re-read the game file and rebuilt its prompt cache on every request: a mean of {calls("claude_fresh"):.1f} model calls and {f(cw("claude_fresh"))} newly cached tokens per request, against {calls("claude_one"):.1f} calls and {f(cw("claude_one"))} in the long session. Cache writes cost twice the input price; cache reads cost a twentieth.</li>
+        <li><strong>A long chat does get more expensive per message.</strong> In one session, requests 2&ndash;5 cost ${per("claude_one", 2, 5):.3f} each on average and requests 26&ndash;30 cost ${per("claude_one", 26, 30):.3f}, about {per("claude_one", 26, 30) / per("claude_one", 2, 5):.0f} times as much, because every message re-reads a longer history and the game kept growing. Even then, a late message in the long chat was cheaper than an early one in a fresh session (${per("claude_fresh", 2, 5):.3f}).</li>
+        <li><strong><code>/compact</code> did not save money here.</strong> Compacting after request 15 cost ${comp[0]["cost_usd"]:.2f} and ${comp[1]["cost_usd"]:.2f} itself, and the next request had to rebuild the cache, so the total came out {_pct(round((cmp_ / one - 1) * 100))} against the uncompacted session. Over 30 requests the shorter history never paid that back.</li>
+        <li><strong>All six final games worked</strong> after 30 rounds of changes, whichever strategy was used.</li>
+      </ul>
+      <h2>Results by strategy</h2>
+      <p class="text-sm text-zinc-400">Two runs each. Per-request costs are means over both runs. For one-session strategies Claude Code reports session totals, so each request is the difference from the previous one; the cost of the <code>/compact</code> call is counted in the total. Cost is the API list-price estimate (Opus 5.5).</p>
+{_table(head, trs)}      <h2>What to take from it</h2>
+      <ul>
+        <li>For a run of related changes to the same project, keep going in the same session; that is what the prompt cache is built for.</li>
+        <li>Start a new session when you switch to unrelated work, not between every small change.</li>
+        <li>Save <code>/compact</code> for when the context is close to full or the history is confusing the model. It is not a cost-saving step on its own.</li>
+        <li>Pauses matter too: the cache only lasts so long, which is the subject of our <a href="/data/ai-coffee-break-cache-cost">coffee-break measurement</a>.</li>
+      </ul>
+      <h2>Method</h2>
+      <ul>
+        <li>Claude Code 2.1.295 with Opus 5.5 on one Windows laptop, <code>claude -p --effort medium --permission-mode acceptEdits</code>, no MCP servers. Request 1 builds a brick-breaker game; requests 2&ndash;30 change it (ball colour, levels, sound, touch controls, a clean-up at the end). The full list is in the JSON download.</li>
+        <li><strong>One session:</strong> requests 2&ndash;30 sent with <code>--resume</code> to the first session. <strong>/compact:</strong> the same, with <code>/compact</code> sent after request 15. <strong>New session:</strong> each request in a new session in the same folder, prefixed with &ldquo;{esc(d["fresh_prefix"].strip())}&rdquo;.</li>
+        <li>All three strategies ran at the same time, twice, on {LNG_MEASURED}. Tokens and cost from the <code>result</code> event of each call.</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>One project of about 30&ndash;40 KB and requests that mostly touch the same file. A long session that wanders across unrelated work, or one that reaches the context limit and auto-compacts, may behave differently.</li>
+        <li>Claude Code only. Other tools cache differently.</li>
+        <li>On a subscription the bill does not change, but the same difference applies to how fast you reach the usage limit.</li>
+      </ul>
+'''
+    return (_head("Long chat or new chat? What 30 requests cost in Claude Code", lead,
+                  f'Measured {LNG_MEASURED} · Claude Code (Opus 5.5) · 30 requests × 3 strategies × 2 runs · License <a href="{LICENSE}">CC BY 4.0</a>',
+                  [("long-chat-vs-new-chat-cost.csv", "CSV"), ("long-chat-vs-new-chat-cost.json", "JSON")],
+                  LNG_CHART, "Cost per request over 30 requests in one session, with /compact, and in a new session each time", doi=LNG_DOI, mirrors=LNG_MIRRORS)
+            + body + _page_tail(lng_citation(), _embed(LNG_PATH, LNG_CHART, "Cost per request: long chat vs new chat", "Long chat or new chat?"),
+                                [(HAR_PATH, "What the Claude Code harness costs"), (AMD_PATH, "CLAUDE.md and AGENTS.md size"), ("/blog/claude-code-save-tokens", "How to save tokens in Claude Code")]))
+
+
+# ---- Dataset 16: politeness tax (measured 2026-10-20) ----
+POL_PATH = "/data/ai-politeness-token-cost"
+POL_MEASURED = "2026-10-20"
+POL_CHART = "/ai-politeness-token-cost-chart.png"
+POL_DOI = None
+POL_MIRRORS = None
+POL_TITLE = "Does being polite to AI cost more? Plain, polite and very polite prompts in Korean, Japanese and English"
+POL_DESC = ("Dataset: 10 everyday requests in Korean, Japanese and English at four politeness levels, sent to Claude Opus 5.5 and Haiku 5.5: "
+            "prompt tokens (Claude and GPT), answer tokens and cost. Polite padding more than doubles the prompt, but the most polite version cost only 0-4% more in total. Free CSV, CC BY 4.0.")
+POL_LANGS = [("ko", "Korean"), ("ja", "Japanese"), ("en", "English")]
+POL_COLS = ["model", "rep", "language", "request", "level", "level_name", "prompt_tokens", "gpt_o200k_tokens", "gpt_cl100k_tokens", "output_tokens",
+            "answer_chars", "cost_usd", "seconds", "prompt"]
+
+
+def _pol():
+    return json.load(open(os.path.join(ROOT, "blog_data", "honorific", "combined.json"), encoding="utf-8"))
+
+
+def pol_citation():
+    if POL_DOI:
+        return f"TokenSave (2026). {POL_TITLE} [Data set]. Zenodo. https://doi.org/{POL_DOI}"
+    return f"TokenSave (2026). {POL_TITLE} [Data set]. {BASE}{POL_PATH}"
+
+
+def write_pol_files(dist):
+    d = _pol()
+    buf = io.StringIO(); w = csv.writer(buf); w.writerow(POL_COLS)
+    for r in d["rows"]:
+        w.writerow([r.get(c) for c in POL_COLS])
+    open(os.path.join(dist, "data", "ai-politeness-token-cost.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=POL_TITLE, url=BASE + POL_PATH, license="CC BY 4.0", measured=POL_MEASURED, citation=pol_citation(), tool=d["tool"],
+                levels=d["levels"], cost_note=d["cost_note"], rows=d["rows"])
+    open(os.path.join(dist, "data", "ai-politeness-token-cost.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def pol_ld():
+    return _dataset_ld(POL_TITLE, POL_DESC, POL_PATH, POL_MEASURED,
+                       ["politeness", "please and thank you", "honorifics", "Korean", "Japanese", "keigo", "prompt tokens", "AI cost", "Claude"],
+                       ["prompt tokens (Claude, GPT o200k, GPT cl100k)", "output tokens", "answer length (characters)", "API cost (USD)"],
+                       "Claude Code 2.1.295 as a plain chat (no tools) with Opus 5.5 (two runs) and Haiku 5.5 (one run); GPT counts with js-tiktoken",
+                       POL_CHART, [("ai-politeness-token-cost.csv", "text/csv"), ("ai-politeness-token-cost.json", "application/json")], doi=POL_DOI, mirrors=POL_MIRRORS)
+
+
+def pol_sums(d=None):
+    d = d or _pol(); R = d["rows"]
+    out = {}
+    for L, _ in POL_LANGS:
+        for model in ("claude-opus-5-5", "claude-haiku-5-5"):
+            x = [r for r in R if r["language"] == L and r["model"] == model]
+            reps = len({r["rep"] for r in x})
+            out[(L, model)] = [dict(prompt=sum(r["prompt_tokens"] for r in x if r["level"] == lv) / reps,
+                                    gpt=sum(r["gpt_o200k_tokens"] for r in x if r["level"] == lv) / reps,
+                                    out=sum(r["output_tokens"] for r in x if r["level"] == lv) / reps,
+                                    cost=sum(r["cost_usd"] for r in x if r["level"] == lv) / reps) for lv in range(4)]
+    return out
+
+
+def pol_html():
+    d = _pol(); S = pol_sums(d); O = "claude-opus-5-5"; H = "claude-haiku-5-5"
+    f = lambda v: "{:,}".format(round(v))
+    pc = lambda a, b: _pct(round((a / b - 1) * 100))
+    lv = d["levels"]
+    trs = []
+    for L, ln in POL_LANGS:
+        s = S[(L, O)]
+        for i in range(4):
+            trs.append('          <tr><td>%s</td><td>%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td>'
+                       '<td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td></tr>' % (
+                           ln if i == 0 else "", esc(lv[L][i]), f(s[i]["prompt"]), "&ndash;" if i == 0 else pc(s[i]["prompt"], s[0]["prompt"]),
+                           f(s[i]["out"]), "&ndash;" if i == 0 else pc(s[i]["out"], s[0]["out"]), "$%.3f" % s[i]["cost"], "&ndash;" if i == 0 else pc(s[i]["cost"], s[0]["cost"])))
+    head = ['<th>Language</th>', '<th>Level</th>', '<th class="text-right">Prompt tokens (10 requests)</th>', '<th class="text-right">vs plain</th>',
+            '<th class="text-right">Answer tokens</th>', '<th class="text-right">vs plain</th>', '<th class="text-right">Cost (Opus 5.5)</th>', '<th class="text-right">vs plain</th>']
+    top = {L: S[(L, O)][3]["prompt"] / S[(L, O)][0]["prompt"] - 1 for L, _ in POL_LANGS}
+    cost3 = {L: S[(L, O)][3]["cost"] / S[(L, O)][0]["cost"] - 1 for L, _ in POL_LANGS}
+    gpt3 = {L: S[(L, O)][3]["gpt"] / S[(L, O)][0]["gpt"] - 1 for L, _ in POL_LANGS}
+    ch = [S[(L, O)][i]["out"] / S[(L, O)][0]["out"] - 1 for L, _ in POL_LANGS for i in range(1, 4)]
+    mid_max = max(S[(L, O)][i]["out"] / S[(L, O)][0]["out"] - 1 for L in ("ja", "en") for i in (1, 2))
+    trs_html = "\n".join(trs)
+    share = statistics.mean((S[(L, O)][3]["prompt"] - S[(L, O)][0]["prompt"]) * 4 / (S[(L, O)][0]["cost"] * 1e6) * 100 for L, _ in POL_LANGS)
+    lead = ('<strong>Being polite to AI more than doubles the length of your prompt, but adds only a few percent to what the message costs.</strong> '
+            f'Greetings, apologies and thanks raised the prompt by {round(top["ko"] * 100)}% in Korean, {round(top["ja"] * 100)}% in Japanese and {round(top["en"] * 100)}% in English on Claude, '
+            'yet the most polite version cost only 0&ndash;4% more in total, because the answer, which is most of the cost, did not get longer.')
+    body = f'''      <h2>Key findings</h2>
+      <ul>
+        <li><strong>Polite padding adds a lot of prompt tokens.</strong> The most polite version of each request (greeting + apology + thanks) needed {round(top["ko"] * 100)}% more Claude tokens than the plain version in Korean, {round(top["ja"] * 100)}% more in Japanese and {round(top["en"] * 100)}% more in English (GPT o200k: {round(gpt3["ko"] * 100)}%, {round(gpt3["ja"] * 100)}% and {round(gpt3["en"] * 100)}%). Changing only the verb ending (&ldquo;해 줘&rdquo; to &ldquo;해 주세요&rdquo;, &ldquo;して&rdquo; to &ldquo;してください&rdquo;, adding &ldquo;please&rdquo;) added just 3&ndash;5%.</li>
+        <li><strong>The answers did not grow with politeness.</strong> For the most polite version, answers were about as long as for the plain one (Korean {pc(S[("ko", O)][3]["out"], S[("ko", O)][0]["out"])}, Japanese {pc(S[("ja", O)][3]["out"], S[("ja", O)][0]["out"])}, English {pc(S[("en", O)][3]["out"], S[("en", O)][0]["out"])}). The two middle levels (&ldquo;please&rdquo;, &ldquo;Could you please &hellip;?&rdquo;, &ldquo;ご提案いただけますでしょうか&rdquo;) did get longer answers in Japanese and English (up to {_pct(round(mid_max * 100))}), but Korean was mixed and the same prompts varied by up to 19% between two runs, so this is a hint rather than a rule.</li>
+        <li><strong>The polite words themselves cost little.</strong> Answers are 10&ndash;20 times longer than prompts and output tokens cost five times as much, so the extra prompt tokens of the most polite version are worth about {share:.1f}% of a message's cost on Opus 5.5. Measured totals for the most polite level against plain: Korean {_pct(round(cost3["ko"] * 100))}, Japanese {_pct(round(cost3["ja"] * 100))}, English {_pct(round(cost3["en"] * 100))}. Most of any difference in cost comes from how long the answer is, not from the courtesy phrases.</li>
+        <li><strong>Where it does add up: text that is sent again and again.</strong> A system prompt, a template or a CLAUDE.md is resent with every request, so greetings and courtesy phrases there cost on every call. In a one-off chat message they barely register.</li>
+      </ul>
+      <h2>Results on Claude Opus 5.5</h2>
+      <p class="text-sm text-zinc-400">Sum of 10 requests per level, mean of two runs. Prompt tokens exclude the fixed system prompt. Cost = prompt and answer tokens at API list prices ($4 / $20 per million). Haiku 5.5 results and every single request are in the CSV.</p>
+{_table(head, trs_html)}      <h2>The four levels</h2>
+      <ul>
+        <li><strong>Korean:</strong> 반말 (&ldquo;추천해 줘&rdquo;), 해요체 (&ldquo;추천해 주세요&rdquo;), formal (&ldquo;추천해 주시겠습니까?&rdquo;), formal with &ldquo;안녕하세요! 바쁘신데 죄송하지만 &hellip; 감사합니다&rdquo;.</li>
+        <li><strong>Japanese:</strong> 普通体 (&ldquo;考えて&rdquo;), です・ます (&ldquo;考えてください&rdquo;), 敬語 (&ldquo;ご提案いただけますでしょうか&rdquo;), 敬語 with &ldquo;お疲れ様です。お忙しいところ恐縮ですが &hellip; よろしくお願いいたします&rdquo;.</li>
+        <li><strong>English:</strong> plain (&ldquo;Suggest&rdquo;), &ldquo;Please suggest&rdquo;, &ldquo;Could you please &hellip;? Thank you.&rdquo;, and &ldquo;Hi! Sorry to bother you, but could you please &hellip;? Thanks so much!&rdquo;.</li>
+      </ul>
+      <h2>Method</h2>
+      <ul>
+        <li>10 everyday requests (email subject lines, a Python question, a date plan, a translation, a template, Excel help, blog titles, a self-introduction, a spelling fix, work-from-home tips), each written at four politeness levels in three languages: 120 prompts. All prompts are in the downloads.</li>
+        <li>Each prompt sent once per run to Claude Code 2.1.295 as a plain chat: <code>claude -p --system-prompt "You are a helpful assistant." --tools ""</code>, no MCP servers. Opus 5.5 twice, Haiku 5.5 once, on {POL_MEASURED}. Prompt tokens = the run's input tokens minus a one-character baseline run.</li>
+        <li>GPT token counts with js-tiktoken (o200k_base and cl100k_base).</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>One-turn chats. In a long conversation every earlier message is sent again, so polite phrases in it are paid for repeatedly, though they stay small next to the answers.</li>
+        <li>Answer length varies a lot from run to run; two runs on Opus and one on Haiku cannot rule out a small effect of politeness on the answers.</li>
+        <li>We do not measure whether politeness changes answer quality.</li>
+      </ul>
+'''
+    return (_head("Does being polite to AI cost more?", lead,
+                  f'Measured {POL_MEASURED} · Claude Opus 5.5 and Haiku 5.5 · 3 languages × 10 requests × 4 levels · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{LTI_PATH}">Language Tax Index</a>',
+                  [("ai-politeness-token-cost.csv", "CSV"), ("ai-politeness-token-cost.json", "JSON")],
+                  POL_CHART, "Prompt tokens and total cost by politeness level in Korean, Japanese and English", doi=POL_DOI, mirrors=POL_MIRRORS)
+            + body + _page_tail(pol_citation(), _embed(POL_PATH, POL_CHART, "Politeness and AI token cost", "Does being polite to AI cost more?"),
+                                [(LTI_PATH, "Language Tax Index"), (LANG_PATH, "Token cost by language"), (AMD_PATH, "CLAUDE.md and AGENTS.md size")]))

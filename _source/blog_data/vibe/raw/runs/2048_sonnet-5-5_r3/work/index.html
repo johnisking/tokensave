@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2048</title>
+<style>
+  body { font-family: "Segoe UI", Arial, sans-serif; background: #faf8ef; color: #776e65; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+  h1 { font-size: 56px; margin: 0 0 10px; }
+  .bar { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+  .score { background: #bbada0; color: #fff; padding: 8px 18px; border-radius: 6px; font-weight: bold; font-size: 18px; }
+  button { background: #8f7a66; color: #f9f6f2; border: 0; border-radius: 6px; padding: 10px 18px; font-size: 16px; font-weight: bold; cursor: pointer; }
+  button:hover { background: #9f8a76; }
+  .wrap { position: relative; }
+  #board { position: relative; width: 420px; height: 420px; background: #bbada0; border-radius: 8px; }
+  .cell, .tile { position: absolute; width: 90px; height: 90px; border-radius: 4px; }
+  .cell { background: rgba(238,228,218,.35); }
+  .tile { display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 40px; transition: left .1s, top .1s; }
+  .tile.new { animation: pop .15s; }
+  @keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
+  .t2{background:#eee4da}.t4{background:#ede0c8}.t8{background:#f2b179;color:#f9f6f2}.t16{background:#f59563;color:#f9f6f2}
+  .t32{background:#f67c5f;color:#f9f6f2}.t64{background:#f65e3b;color:#f9f6f2}.t128{background:#edcf72;color:#f9f6f2;font-size:34px}
+  .t256{background:#edcc61;color:#f9f6f2;font-size:34px}.t512{background:#edc850;color:#f9f6f2;font-size:34px}
+  .t1024{background:#edc53f;color:#f9f6f2;font-size:28px}.t2048{background:#edc22e;color:#f9f6f2;font-size:28px}
+  .tbig{background:#3c3a32;color:#f9f6f2;font-size:24px}
+  #msg { display: none; position: absolute; inset: 0; background: rgba(238,228,218,.8); border-radius: 8px; flex-direction: column; align-items: center; justify-content: center; font-size: 40px; font-weight: bold; gap: 16px; }
+  #msg.show { display: flex; }
+  p { max-width: 420px; text-align: center; }
+</style>
+</head>
+<body>
+<h1>2048</h1>
+<div class="bar">
+  <div class="score">Score: <span id="score">0</span></div>
+  <button id="new">New Game</button>
+</div>
+<div class="wrap">
+  <div id="board"></div>
+  <div id="msg"><div>Game over! No moves left.</div><button id="retry">New Game</button></div>
+</div>
+<p>Use the arrow keys to move tiles. Matching tiles merge into one.</p>
+<script>
+(function () {
+  var N = 4, SIZE = 90, GAP = 12;
+  var grid, score;
+  var board = document.getElementById('board');
+  var scoreEl = document.getElementById('score');
+  var msg = document.getElementById('msg');
+
+  for (var i = 0; i < N * N; i++) {
+    var c = document.createElement('div');
+    c.className = 'cell';
+    c.style.left = (GAP + (i % N) * (SIZE + GAP)) + 'px';
+    c.style.top = (GAP + Math.floor(i / N) * (SIZE + GAP)) + 'px';
+    board.appendChild(c);
+  }
+
+  function addRandom() {
+    var empty = [];
+    for (var r = 0; r < N; r++) for (var c = 0; c < N; c++) if (!grid[r][c]) empty.push([r, c]);
+    if (!empty.length) return null;
+    var p = empty[Math.floor(Math.random() * empty.length)];
+    grid[p[0]][p[1]] = Math.random() < 0.9 ? 2 : 4;
+    return p;
+  }
+
+  function render(newPos) {
+    var old = board.querySelectorAll('.tile');
+    for (var i = 0; i < old.length; i++) board.removeChild(old[i]);
+    for (var r = 0; r < N; r++) for (var c = 0; c < N; c++) {
+      var v = grid[r][c];
+      if (!v) continue;
+      var t = document.createElement('div');
+      t.className = 'tile ' + (v <= 2048 ? 't' + v : 'tbig');
+      if (newPos && newPos[0] === r && newPos[1] === c) t.className += ' new';
+      t.textContent = v;
+      t.style.left = (GAP + c * (SIZE + GAP)) + 'px';
+      t.style.top = (GAP + r * (SIZE + GAP)) + 'px';
+      board.appendChild(t);
+    }
+    scoreEl.textContent = score;
+  }
+
+  function slideLine(line) {
+    var vals = line.filter(function (x) { return x; }), out = [], gained = 0;
+    for (var i = 0; i < vals.length; i++) {
+      if (vals[i] === vals[i + 1]) { out.push(vals[i] * 2); gained += vals[i] * 2; i++; }
+      else out.push(vals[i]);
+    }
+    while (out.length < N) out.push(0);
+    return { line: out, gained: gained };
+  }
+
+  function move(dir) {
+    var moved = false;
+    for (var k = 0; k < N; k++) {
+      var coords = [];
+      for (var j = 0; j < N; j++) {
+        if (dir === 'left') coords.push([k, j]);
+        else if (dir === 'right') coords.push([k, N - 1 - j]);
+        else if (dir === 'up') coords.push([j, k]);
+        else coords.push([N - 1 - j, k]);
+      }
+      var res = slideLine(coords.map(function (p) { return grid[p[0]][p[1]]; }));
+      for (var j = 0; j < N; j++) {
+        var p = coords[j];
+        if (grid[p[0]][p[1]] !== res.line[j]) moved = true;
+        grid[p[0]][p[1]] = res.line[j];
+      }
+      score += res.gained;
+    }
+    return moved;
+  }
+
+  function canMove() {
+    for (var r = 0; r < N; r++) for (var c = 0; c < N; c++) {
+      if (!grid[r][c]) return true;
+      if (c + 1 < N && grid[r][c] === grid[r][c + 1]) return true;
+      if (r + 1 < N && grid[r][c] === grid[r + 1][c]) return true;
+    }
+    return false;
+  }
+
+  function start() {
+    grid = [];
+    for (var r = 0; r < N; r++) grid.push([0, 0, 0, 0]);
+    score = 0;
+    msg.classList.remove('show');
+    addRandom();
+    render(addRandom());
+  }
+
+  document.addEventListener('keydown', function (e) {
+    var map = { ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'up', ArrowDown: 'down' };
+    var dir = map[e.key];
+    if (!dir) return;
+    e.preventDefault();
+    if (msg.classList.contains('show')) return;
+    if (move(dir)) {
+      var p = addRandom();
+      render(p);
+      if (!canMove()) msg.classList.add('show');
+    }
+  });
+
+  document.getElementById('new').addEventListener('click', function () { this.blur(); start(); });
+  document.getElementById('retry').addEventListener('click', start);
+  start();
+})();
+</script>
+</body>
+</html>

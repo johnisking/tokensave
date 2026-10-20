@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2048</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+    background: #faf8ef;
+    color: #776e65;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  h1 { margin: 0; font-size: 56px; }
+
+  .top {
+    width: min(500px, 90vw);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .score-box {
+    background: #bbada0;
+    color: #fff;
+    border-radius: 6px;
+    padding: 6px 18px;
+    min-width: 100px;
+    text-align: center;
+  }
+  .score-box span {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .score-box strong { font-size: 24px; }
+
+  button {
+    background: #8f7a66;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font: bold 16px Arial, Helvetica, sans-serif;
+    cursor: pointer;
+  }
+  button:hover { background: #7f6a56; }
+
+  .hint { margin: 0; font-size: 14px; }
+
+  /* Board: a square container; tile sizes/fonts scale with its width (cqi units). */
+  .board {
+    position: relative;
+    width: min(500px, 90vw);
+    aspect-ratio: 1;
+    background: #bbada0;
+    border-radius: 8px;
+    container-type: inline-size;
+  }
+
+  /* Cell positions: 4 cells of 21.25% with 3% gaps and 3% outer padding. */
+  .slot,
+  .tile {
+    position: absolute;
+    width: 21.25%;
+    height: 21.25%;
+    border-radius: 6px;
+  }
+
+  .slot { background: rgba(238, 228, 218, 0.35); }
+
+  .tiles {
+    position: absolute;
+    inset: 0;
+  }
+
+  .tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 8cqi;
+    background: #3c3a32;
+    color: #f9f6f2;
+  }
+  .tile.new { animation: pop 0.15s ease-out; }
+  @keyframes pop {
+    from { transform: scale(0.3); }
+    to { transform: scale(1); }
+  }
+
+  .tile.len3 { font-size: 6.5cqi; }
+  .tile.len4 { font-size: 5.2cqi; }
+  .tile.len5 { font-size: 4.2cqi; }
+  .tile.len6 { font-size: 3.5cqi; }
+
+  .tile.v2    { background: #eee4da; color: #776e65; }
+  .tile.v4    { background: #ede0c8; color: #776e65; }
+  .tile.v8    { background: #f2b179; }
+  .tile.v16   { background: #f59563; }
+  .tile.v32   { background: #f67c5f; }
+  .tile.v64   { background: #f65e3b; }
+  .tile.v128  { background: #edcf72; }
+  .tile.v256  { background: #edcc61; }
+  .tile.v512  { background: #edc850; }
+  .tile.v1024 { background: #edc53f; }
+  .tile.v2048 { background: #edc22e; }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background: rgba(250, 248, 239, 0.75);
+    border-radius: 8px;
+  }
+  .overlay.show { display: flex; }
+  .overlay p {
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <h1>2048</h1>
+
+  <div class="top">
+    <div class="score-box">
+      <span>Score</span>
+      <strong id="score">0</strong>
+    </div>
+    <button id="new-game">New Game</button>
+  </div>
+
+  <p class="hint">Use the arrow keys to move the tiles. Matching tiles merge.</p>
+
+  <div class="board" id="board">
+    <div class="tiles" id="tiles"></div>
+    <div class="overlay" id="overlay">
+      <p id="message"></p>
+      <button id="retry">Try Again</button>
+    </div>
+  </div>
+
+<script>
+  const SIZE = 4;
+  const boardEl = document.getElementById('board');
+  const tilesEl = document.getElementById('tiles');
+  const scoreEl = document.getElementById('score');
+  const overlayEl = document.getElementById('overlay');
+  const messageEl = document.getElementById('message');
+
+  // Left/top edge of the cell at index i (in percent of the board size).
+  const pos = i => `${3 + i * 24.25}%`;
+
+  // Maps each arrow key to the board coordinates of the j-th cell in line i,
+  // ordered from the side the tiles slide toward.
+  const cellAt = {
+    ArrowLeft:  (i, j) => [i, j],
+    ArrowRight: (i, j) => [i, SIZE - 1 - j],
+    ArrowUp:    (i, j) => [j, i],
+    ArrowDown:  (i, j) => [SIZE - 1 - j, i],
+  };
+
+  let grid;
+  let score;
+  let gameOver;
+  let spawned; // keys ("r,c") of tiles added by the latest move, for the pop animation
+
+  // Background cells are built once.
+  for (let r = 0; r < SIZE; r++) {
+    for (let c = 0; c < SIZE; c++) {
+      const slot = document.createElement('div');
+      slot.className = 'slot';
+      slot.style.top = pos(r);
+      slot.style.left = pos(c);
+      boardEl.insertBefore(slot, tilesEl);
+    }
+  }
+
+  function addRandomTile() {
+    const empty = [];
+    for (let r = 0; r < SIZE; r++) {
+      for (let c = 0; c < SIZE; c++) {
+        if (grid[r][c] === 0) empty.push([r, c]);
+      }
+    }
+    if (empty.length === 0) return;
+    const [r, c] = empty[Math.floor(Math.random() * empty.length)];
+    grid[r][c] = Math.random() < 0.9 ? 2 : 4;
+    spawned.push(`${r},${c}`);
+  }
+
+  // Slides one line toward index 0, merging equal neighbours once per move.
+  function slideLine(line) {
+    const vals = line.filter(v => v !== 0);
+    const out = [];
+    let gained = 0;
+    for (let i = 0; i < vals.length; i++) {
+      if (i + 1 < vals.length && vals[i] === vals[i + 1]) {
+        const merged = vals[i] * 2;
+        out.push(merged);
+        gained += merged;
+        i++;
+      } else {
+        out.push(vals[i]);
+      }
+    }
+    while (out.length < SIZE) out.push(0);
+    return { line: out, gained };
+  }
+
+  function move(key) {
+    if (gameOver || !cellAt[key]) return false;
+    const at = cellAt[key];
+    const next = grid.map(row => [...row]);
+    let gained = 0;
+
+    for (let i = 0; i < SIZE; i++) {
+      const line = [];
+      for (let j = 0; j < SIZE; j++) {
+        const [r, c] = at(i, j);
+        line.push(grid[r][c]);
+      }
+      const result = slideLine(line);
+      gained += result.gained;
+      result.line.forEach((v, j) => {
+        const [r, c] = at(i, j);
+        next[r][c] = v;
+      });
+    }
+
+    const changed = next.some((row, r) => row.some((v, c) => v !== grid[r][c]));
+    if (!changed) return false;
+
+    grid = next;
+    score += gained;
+    spawned = [];
+    addRandomTile();
+    render();
+
+    if (!hasMoves()) {
+      gameOver = true;
+      messageEl.textContent = `No moves left! Game over. Final score: ${score}`;
+      overlayEl.classList.add('show');
+    }
+    return true;
+  }
+
+  function hasMoves() {
+    for (let r = 0; r < SIZE; r++) {
+      for (let c = 0; c < SIZE; c++) {
+        const v = grid[r][c];
+        if (v === 0) return true;
+        if (c + 1 < SIZE && v === grid[r][c + 1]) return true;
+        if (r + 1 < SIZE && v === grid[r + 1][c]) return true;
+      }
+    }
+    return false;
+  }
+
+  function render() {
+    tilesEl.innerHTML = '';
+    for (let r = 0; r < SIZE; r++) {
+      for (let c = 0; c < SIZE; c++) {
+        const v = grid[r][c];
+        if (v === 0) continue;
+        const tile = document.createElement('div');
+        tile.className = `tile v${v} len${String(v).length}`;
+        tile.textContent = v;
+        tile.style.top = pos(r);
+        tile.style.left = pos(c);
+        if (spawned.includes(`${r},${c}`)) tile.classList.add('new');
+        tilesEl.appendChild(tile);
+      }
+    }
+    scoreEl.textContent = score;
+  }
+
+  function newGame() {
+    grid = Array.from({ length: SIZE }, () => Array(SIZE).fill(0));
+    score = 0;
+    gameOver = false;
+    spawned = [];
+    overlayEl.classList.remove('show');
+    addRandomTile();
+    addRandomTile();
+    render();
+  }
+
+  document.addEventListener('keydown', e => {
+    if (!cellAt[e.key]) return;
+    e.preventDefault(); // keep the arrow keys from scrolling the page
+    move(e.key);
+  });
+
+  function bindButton(id) {
+    const btn = document.getElementById(id);
+    btn.addEventListener('click', () => {
+      newGame();
+      btn.blur(); // so Space/Enter don't restart again by accident
+    });
+  }
+  bindButton('new-game');
+  bindButton('retry');
+
+  newGame();
+</script>
+</body>
+</html>

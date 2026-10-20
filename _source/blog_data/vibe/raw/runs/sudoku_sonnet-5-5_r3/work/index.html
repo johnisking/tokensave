@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sudoku</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: system-ui, sans-serif; background: #f4f4f8; display: flex; flex-direction: column; align-items: center; margin: 20px; }
+  h1 { margin: 0 0 12px; }
+  #grid { display: grid; grid-template-columns: repeat(9, 44px); border: 3px solid #222; background: #222; gap: 1px; }
+  #grid input { width: 44px; height: 44px; box-sizing: border-box; border: none; text-align: center; font-size: 22px; background: #fff; padding: 0; outline: none; color: #1a4fd0; caret-color: transparent; }
+  #grid input:focus { background: #fff6c8; }
+  #grid input[readonly] { background: #e8e8ee; color: #111; font-weight: bold; cursor: default; }
+  #grid input.wrong { background: #ffb3b3 !important; color: #a00; }
+  #grid input.c3 { margin-right: 2px; }
+  #grid input.r3 { margin-bottom: 2px; }
+  #controls { margin-top: 14px; display: flex; gap: 10px; }
+  button { font-size: 16px; padding: 8px 16px; cursor: pointer; border: 1px solid #555; border-radius: 6px; background: #fff; }
+  button:hover { background: #e6edff; }
+  #msg { margin-top: 10px; min-height: 1.4em; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Sudoku</h1>
+<div id="grid"></div>
+<div id="controls">
+  <button id="new">New Puzzle</button>
+  <button id="check">Check</button>
+  <button id="solve">Solve</button>
+</div>
+<div id="msg"></div>
+<script>
+const gridEl = document.getElementById('grid');
+const msg = document.getElementById('msg');
+const cells = [];
+let solution = [];
+
+for (let i = 0; i < 81; i++) {
+  const inp = document.createElement('input');
+  inp.type = 'text';
+  inp.maxLength = 1;
+  inp.inputMode = 'numeric';
+  inp.autocomplete = 'off';
+  const r = Math.floor(i / 9), c = i % 9;
+  if (c % 3 === 2 && c < 8) inp.classList.add('c3');
+  if (r % 3 === 2 && r < 8) inp.classList.add('r3');
+  inp.addEventListener('input', () => {
+    inp.value = inp.value.replace(/[^1-9]/g, '').slice(-1);
+    inp.classList.remove('wrong');
+    msg.textContent = '';
+  });
+  inp.addEventListener('keydown', e => {
+    const d = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -9, ArrowDown: 9 }[e.key];
+    if (d) {
+      const n = i + d;
+      if (n >= 0 && n < 81 && !(d === -1 && c === 0) && !(d === 1 && c === 8)) cells[n].focus();
+      e.preventDefault();
+    }
+  });
+  gridEl.appendChild(inp);
+  cells.push(inp);
+}
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function candidates(b, i) {
+  const r = Math.floor(i / 9), c = i % 9, used = new Set();
+  for (let k = 0; k < 9; k++) {
+    used.add(b[r * 9 + k]); used.add(b[k * 9 + c]);
+  }
+  const br = r - r % 3, bc = c - c % 3;
+  for (let y = 0; y < 3; y++) for (let x = 0; x < 3; x++) used.add(b[(br + y) * 9 + bc + x]);
+  const res = [];
+  for (let v = 1; v <= 9; v++) if (!used.has(v)) res.push(v);
+  return res;
+}
+
+// Count solutions up to limit, using MRV heuristic.
+function countSolutions(b, limit) {
+  let best = -1, bestC = null;
+  for (let i = 0; i < 81; i++) {
+    if (b[i] === 0) {
+      const cs = candidates(b, i);
+      if (cs.length === 0) return 0;
+      if (!bestC || cs.length < bestC.length) { best = i; bestC = cs; if (cs.length === 1) break; }
+    }
+  }
+  if (best < 0) return 1;
+  let total = 0;
+  for (const v of bestC) {
+    b[best] = v;
+    total += countSolutions(b, limit - total);
+    if (total >= limit) break;
+  }
+  b[best] = 0;
+  return total;
+}
+
+function fillGrid(b) {
+  const i = b.indexOf(0);
+  if (i < 0) return true;
+  for (const v of shuffle(candidates(b, i))) {
+    b[i] = v;
+    if (fillGrid(b)) return true;
+  }
+  b[i] = 0;
+  return false;
+}
+
+function generate() {
+  const sol = new Array(81).fill(0);
+  fillGrid(sol);
+  const puzzle = sol.slice();
+  for (const i of shuffle([...Array(81).keys()])) {
+    const keep = puzzle[i];
+    puzzle[i] = 0;
+    if (countSolutions(puzzle.slice(), 2) !== 1) puzzle[i] = keep;
+  }
+  return { puzzle, sol };
+}
+
+function newPuzzle() {
+  const { puzzle, sol } = generate();
+  solution = sol;
+  cells.forEach((inp, i) => {
+    inp.classList.remove('wrong');
+    if (puzzle[i]) { inp.value = puzzle[i]; inp.readOnly = true; }
+    else { inp.value = ''; inp.readOnly = false; }
+  });
+  msg.textContent = '';
+}
+
+document.getElementById('new').onclick = () => {
+  msg.textContent = 'Generating...';
+  setTimeout(newPuzzle, 20);
+};
+
+document.getElementById('check').onclick = () => {
+  let wrong = 0, empty = 0;
+  cells.forEach((inp, i) => {
+    inp.classList.remove('wrong');
+    if (inp.readOnly) return;
+    if (!inp.value) { empty++; return; }
+    if (+inp.value !== solution[i]) { inp.classList.add('wrong'); wrong++; }
+  });
+  if (wrong) msg.textContent = wrong + ' wrong cell(s) highlighted.';
+  else if (empty) msg.textContent = 'No mistakes so far, ' + empty + ' cell(s) left.';
+  else msg.textContent = 'Solved! Well done!';
+};
+
+document.getElementById('solve').onclick = () => {
+  cells.forEach((inp, i) => { inp.value = solution[i]; inp.classList.remove('wrong'); });
+  msg.textContent = 'Solution shown.';
+};
+
+newPuzzle();
+</script>
+</body>
+</html>

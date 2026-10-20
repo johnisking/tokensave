@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2048</title>
+<style>
+  body { font-family: "Segoe UI", Arial, sans-serif; background: #faf8ef; color: #776e65; margin: 0; padding: 20px; text-align: center; }
+  h1 { font-size: 56px; margin: 0 0 10px; }
+  .bar { display: flex; justify-content: center; align-items: center; gap: 16px; margin-bottom: 14px; }
+  .score { background: #bbada0; color: #fff; padding: 8px 18px; border-radius: 6px; font-weight: bold; }
+  .score span { display: block; font-size: 22px; }
+  button { background: #8f7a66; color: #fff; border: 0; border-radius: 6px; padding: 12px 18px; font-size: 16px; font-weight: bold; cursor: pointer; }
+  button:hover { background: #9f8a76; }
+  #board { position: relative; width: 340px; height: 340px; margin: 0 auto; background: #bbada0; border-radius: 8px; padding: 10px; box-sizing: content-box; }
+  .cell, .tile { position: absolute; width: 74px; height: 74px; border-radius: 4px; }
+  .cell { background: rgba(238,228,218,.35); }
+  .tile { display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 32px; transition: left .1s, top .1s; }
+  .tile.new { animation: pop .15s; }
+  @keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
+  .v2{background:#eee4da}.v4{background:#ede0c8}.v8{background:#f2b179;color:#f9f6f2}.v16{background:#f59563;color:#f9f6f2}
+  .v32{background:#f67c5f;color:#f9f6f2}.v64{background:#f65e3b;color:#f9f6f2}.v128{background:#edcf72;color:#f9f6f2;font-size:28px}
+  .v256{background:#edcc61;color:#f9f6f2;font-size:28px}.v512{background:#edc850;color:#f9f6f2;font-size:28px}
+  .v1024{background:#edc53f;color:#f9f6f2;font-size:22px}.v2048{background:#edc22e;color:#f9f6f2;font-size:22px}
+  .vbig{background:#3c3a32;color:#f9f6f2;font-size:20px}
+  #msg { display: none; position: absolute; inset: 0; background: rgba(238,228,218,.8); border-radius: 8px; flex-direction: column; align-items: center; justify-content: center; font-size: 36px; font-weight: bold; z-index: 5; }
+  #msg.show { display: flex; }
+  p.hint { font-size: 14px; }
+</style>
+</head>
+<body>
+<h1>2048</h1>
+<div class="bar">
+  <div class="score">SCORE<span id="score">0</span></div>
+  <div class="score">BEST<span id="best">0</span></div>
+  <button id="new">New Game</button>
+</div>
+<div id="board"><div id="msg"><div>Game over!</div><div style="font-size:18px;margin-top:8px">No moves left</div></div></div>
+<p class="hint">Use the arrow keys to move the tiles.</p>
+<script>
+const SIZE = 4, STEP = 84;
+const board = document.getElementById('board');
+const msg = document.getElementById('msg');
+const scoreEl = document.getElementById('score');
+const bestEl = document.getElementById('best');
+let grid, score, best = 0, over;
+
+for (let i = 0; i < 16; i++) {
+  const c = document.createElement('div');
+  c.className = 'cell';
+  c.style.left = 10 + (i % 4) * STEP + 'px';
+  c.style.top = 10 + Math.floor(i / 4) * STEP + 'px';
+  board.appendChild(c);
+}
+
+function addRandom() {
+  const empty = [];
+  for (let r = 0; r < SIZE; r++) for (let c = 0; c < SIZE; c++) if (!grid[r][c]) empty.push([r, c]);
+  if (!empty.length) return null;
+  const [r, c] = empty[Math.floor(Math.random() * empty.length)];
+  grid[r][c] = Math.random() < 0.9 ? 2 : 4;
+  return [r, c];
+}
+
+function render(newPos) {
+  board.querySelectorAll('.tile').forEach(t => t.remove());
+  for (let r = 0; r < SIZE; r++) for (let c = 0; c < SIZE; c++) {
+    const v = grid[r][c];
+    if (!v) continue;
+    const t = document.createElement('div');
+    t.className = 'tile ' + (v <= 2048 ? 'v' + v : 'vbig');
+    if (newPos && newPos[0] === r && newPos[1] === c) t.classList.add('new');
+    t.textContent = v;
+    t.style.left = 10 + c * STEP + 'px';
+    t.style.top = 10 + r * STEP + 'px';
+    board.appendChild(t);
+  }
+  scoreEl.textContent = score;
+  best = Math.max(best, score);
+  bestEl.textContent = best;
+  msg.classList.toggle('show', over);
+}
+
+function slideLine(line) {
+  const vals = line.filter(Boolean);
+  const out = [];
+  let gained = 0;
+  for (let i = 0; i < vals.length; i++) {
+    if (vals[i] === vals[i + 1]) {
+      out.push(vals[i] * 2);
+      gained += vals[i] * 2;
+      i++;
+    } else out.push(vals[i]);
+  }
+  while (out.length < SIZE) out.push(0);
+  return { out, gained };
+}
+
+// dir: 0 left, 1 right, 2 up, 3 down
+function move(dir) {
+  let moved = false, gainedTotal = 0;
+  for (let i = 0; i < SIZE; i++) {
+    let line = [];
+    for (let j = 0; j < SIZE; j++) {
+      line.push(dir < 2 ? grid[i][j] : grid[j][i]);
+    }
+    if (dir === 1 || dir === 3) line.reverse();
+    const { out, gained } = slideLine(line);
+    gainedTotal += gained;
+    if (dir === 1 || dir === 3) out.reverse();
+    for (let j = 0; j < SIZE; j++) {
+      const r = dir < 2 ? i : j, c = dir < 2 ? j : i;
+      if (grid[r][c] !== out[j]) moved = true;
+      grid[r][c] = out[j];
+    }
+  }
+  if (!moved) return;
+  score += gainedTotal;
+  const pos = addRandom();
+  if (!canMove()) over = true;
+  render(pos);
+}
+
+function canMove() {
+  for (let r = 0; r < SIZE; r++) for (let c = 0; c < SIZE; c++) {
+    if (!grid[r][c]) return true;
+    if (c < SIZE - 1 && grid[r][c] === grid[r][c + 1]) return true;
+    if (r < SIZE - 1 && grid[r][c] === grid[r + 1][c]) return true;
+  }
+  return false;
+}
+
+function newGame() {
+  grid = Array.from({ length: SIZE }, () => Array(SIZE).fill(0));
+  score = 0;
+  over = false;
+  addRandom();
+  const p = addRandom();
+  render(p);
+}
+
+document.addEventListener('keydown', e => {
+  const dir = { ArrowLeft: 0, ArrowRight: 1, ArrowUp: 2, ArrowDown: 3 }[e.key];
+  if (dir === undefined) return;
+  e.preventDefault();
+  if (!over) move(dir);
+});
+document.getElementById('new').addEventListener('click', e => { e.target.blur(); newGame(); });
+newGame();
+</script>
+</body>
+</html>

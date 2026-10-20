@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sudoku</title>
+<style>
+  body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; margin: 24px; background: #f4f4f8; }
+  h1 { margin: 0 0 12px; }
+  #grid { display: grid; grid-template-columns: repeat(9, 44px); border: 3px solid #222; background: #fff; }
+  #grid input {
+    width: 44px; height: 44px; box-sizing: border-box; text-align: center;
+    font-size: 22px; border: 1px solid #bbb; padding: 0; outline: none; background: #fff; color: #1a4fd0;
+  }
+  #grid input:focus { background: #fff8cc; }
+  #grid input.given { background: #e8e8ee; color: #111; font-weight: bold; }
+  #grid input.wrong { background: #ffb3b3; color: #900; }
+  #grid input.cb { border-right: 3px solid #222; }
+  #grid input.rb { border-bottom: 3px solid #222; }
+  #bar { margin-top: 14px; display: flex; gap: 10px; }
+  button { font-size: 16px; padding: 8px 16px; cursor: pointer; }
+  #msg { margin-top: 12px; min-height: 1.4em; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Sudoku</h1>
+<div id="grid"></div>
+<div id="bar">
+  <button id="new">New Puzzle</button>
+  <button id="check">Check</button>
+  <button id="solve">Solve</button>
+</div>
+<div id="msg"></div>
+<script>
+const gridEl = document.getElementById('grid');
+const msg = document.getElementById('msg');
+const cells = [];
+let solution = [];
+
+for (let i = 0; i < 81; i++) {
+  const r = Math.floor(i / 9), c = i % 9;
+  const inp = document.createElement('input');
+  inp.type = 'text';
+  inp.maxLength = 1;
+  inp.inputMode = 'numeric';
+  inp.autocomplete = 'off';
+  if (c === 2 || c === 5) inp.classList.add('cb');
+  if (r === 2 || r === 5) inp.classList.add('rb');
+  inp.addEventListener('input', () => {
+    inp.value = inp.value.replace(/[^1-9]/g, '');
+    inp.classList.remove('wrong');
+    msg.textContent = '';
+  });
+  gridEl.appendChild(inp);
+  cells.push(inp);
+}
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function canPlace(b, i, v) {
+  const r = Math.floor(i / 9), c = i % 9;
+  for (let k = 0; k < 9; k++) {
+    if (b[r * 9 + k] === v || b[k * 9 + c] === v) return false;
+  }
+  const br = r - r % 3, bc = c - c % 3;
+  for (let y = 0; y < 3; y++)
+    for (let x = 0; x < 3; x++)
+      if (b[(br + y) * 9 + bc + x] === v) return false;
+  return true;
+}
+
+// Random full solution via backtracking
+function fillBoard(b) {
+  const i = b.indexOf(0);
+  if (i < 0) return true;
+  for (const v of shuffle([1,2,3,4,5,6,7,8,9])) {
+    if (canPlace(b, i, v)) {
+      b[i] = v;
+      if (fillBoard(b)) return true;
+      b[i] = 0;
+    }
+  }
+  return false;
+}
+
+// Count solutions up to limit, choosing the most constrained cell first
+function countSolutions(b, limit) {
+  let best = -1, bestOpts = null;
+  for (let i = 0; i < 81; i++) {
+    if (b[i] !== 0) continue;
+    const opts = [];
+    for (let v = 1; v <= 9; v++) if (canPlace(b, i, v)) opts.push(v);
+    if (opts.length === 0) return 0;
+    if (!bestOpts || opts.length < bestOpts.length) { best = i; bestOpts = opts; if (opts.length === 1) break; }
+  }
+  if (best < 0) return 1;
+  let n = 0;
+  for (const v of bestOpts) {
+    b[best] = v;
+    n += countSolutions(b, limit - n);
+    if (n >= limit) break;
+  }
+  b[best] = 0;
+  return n;
+}
+
+function generate() {
+  const full = new Array(81).fill(0);
+  fillBoard(full);
+  const puzzle = full.slice();
+  for (const i of shuffle([...Array(81).keys()])) {
+    const keep = puzzle[i];
+    puzzle[i] = 0;
+    if (countSolutions(puzzle.slice(), 2) !== 1) puzzle[i] = keep;
+  }
+  return { puzzle, full };
+}
+
+function newPuzzle() {
+  const { puzzle, full } = generate();
+  solution = full;
+  cells.forEach((inp, i) => {
+    inp.classList.remove('wrong');
+    if (puzzle[i]) {
+      inp.value = puzzle[i];
+      inp.readOnly = true;
+      inp.classList.add('given');
+    } else {
+      inp.value = '';
+      inp.readOnly = false;
+      inp.classList.remove('given');
+    }
+  });
+  msg.textContent = '';
+}
+
+document.getElementById('new').onclick = newPuzzle;
+
+document.getElementById('check').onclick = () => {
+  let wrong = 0, empty = 0;
+  cells.forEach((inp, i) => {
+    inp.classList.remove('wrong');
+    if (inp.readOnly) return;
+    if (inp.value === '') { empty++; return; }
+    if (+inp.value !== solution[i]) { inp.classList.add('wrong'); wrong++; }
+  });
+  if (wrong) msg.textContent = wrong + ' wrong cell' + (wrong > 1 ? 's' : '') + ' highlighted.';
+  else if (empty) msg.textContent = 'No mistakes so far, ' + empty + ' cells left.';
+  else msg.textContent = 'Solved! Well done.';
+};
+
+document.getElementById('solve').onclick = () => {
+  cells.forEach((inp, i) => {
+    inp.value = solution[i];
+    inp.classList.remove('wrong');
+  });
+  msg.textContent = 'Solution shown.';
+};
+
+newPuzzle();
+</script>
+</body>
+</html>

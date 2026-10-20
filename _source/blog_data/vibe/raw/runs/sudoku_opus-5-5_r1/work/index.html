@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sudoku</title>
+<style>
+  body {
+    font-family: system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 24px;
+    background: #f4f5f7;
+    color: #222;
+  }
+  h1 { margin: 0 0 16px; }
+  #board {
+    display: grid;
+    grid-template-columns: repeat(9, 44px);
+    grid-template-rows: repeat(9, 44px);
+    border: 3px solid #222;
+    background: #fff;
+  }
+  #board input {
+    width: 44px;
+    height: 44px;
+    box-sizing: border-box;
+    border: 1px solid #bbb;
+    text-align: center;
+    font-size: 22px;
+    padding: 0;
+    outline: none;
+    color: #1a5fb4;
+    background: #fff;
+  }
+  #board input.given {
+    color: #222;
+    font-weight: bold;
+    background: #eceef1;
+  }
+  #board input:focus { background: #fff7c2; }
+  #board input.wrong { background: #ffc9c9; color: #c01c28; }
+  #board input.br { border-right: 3px solid #222; }
+  #board input.bb { border-bottom: 3px solid #222; }
+  .controls { margin-top: 16px; display: flex; gap: 10px; }
+  button {
+    font-size: 16px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #1a5fb4;
+    color: #fff;
+    cursor: pointer;
+  }
+  button:hover { background: #164f96; }
+  #status { margin-top: 12px; min-height: 1.4em; font-weight: 500; }
+</style>
+</head>
+<body>
+<h1>Sudoku</h1>
+<div id="board"></div>
+<div class="controls">
+  <button id="newBtn">New Puzzle</button>
+  <button id="checkBtn">Check</button>
+  <button id="solveBtn">Solve</button>
+</div>
+<div id="status"></div>
+
+<script>
+const boardEl = document.getElementById('board');
+const statusEl = document.getElementById('status');
+const cells = [];
+let puzzle = [];
+let solution = [];
+
+// Build the 81 inputs
+for (let i = 0; i < 81; i++) {
+  const r = Math.floor(i / 9), c = i % 9;
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.inputMode = 'numeric';
+  input.maxLength = 1;
+  input.autocomplete = 'off';
+  if (c === 2 || c === 5) input.classList.add('br');
+  if (r === 2 || r === 5) input.classList.add('bb');
+  input.addEventListener('input', () => {
+    const v = input.value.replace(/[^1-9]/g, '');
+    input.value = v.slice(-1);
+    input.classList.remove('wrong');
+    statusEl.textContent = '';
+  });
+  input.addEventListener('keydown', e => {
+    const moves = { ArrowUp: -9, ArrowDown: 9, ArrowLeft: -1, ArrowRight: 1 };
+    if (moves[e.key] !== undefined) {
+      const j = i + moves[e.key];
+      if (j >= 0 && j < 81) { cells[j].focus(); e.preventDefault(); }
+    }
+  });
+  boardEl.appendChild(input);
+  cells.push(input);
+}
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function canPlace(g, idx, n) {
+  const r = Math.floor(idx / 9), c = idx % 9;
+  const br = r - r % 3, bc = c - c % 3;
+  for (let k = 0; k < 9; k++) {
+    if (g[r * 9 + k] === n || g[k * 9 + c] === n) return false;
+    if (g[(br + Math.floor(k / 3)) * 9 + bc + k % 3] === n) return false;
+  }
+  return true;
+}
+
+// Fill grid completely with random valid digits
+function fillGrid(g) {
+  const idx = g.indexOf(0);
+  if (idx === -1) return true;
+  for (const n of shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9])) {
+    if (canPlace(g, idx, n)) {
+      g[idx] = n;
+      if (fillGrid(g)) return true;
+      g[idx] = 0;
+    }
+  }
+  return false;
+}
+
+// Count solutions up to `limit`, choosing the most constrained empty cell
+function countSolutions(g, limit) {
+  let best = -1, bestCands = null;
+  for (let i = 0; i < 81; i++) {
+    if (g[i] !== 0) continue;
+    const cands = [];
+    for (let n = 1; n <= 9; n++) if (canPlace(g, i, n)) cands.push(n);
+    if (cands.length === 0) return 0;
+    if (!bestCands || cands.length < bestCands.length) {
+      best = i; bestCands = cands;
+      if (cands.length === 1) break;
+    }
+  }
+  if (best === -1) return 1;
+  let count = 0;
+  for (const n of bestCands) {
+    g[best] = n;
+    count += countSolutions(g, limit - count);
+    g[best] = 0;
+    if (count >= limit) break;
+  }
+  return count;
+}
+
+function generatePuzzle() {
+  const full = new Array(81).fill(0);
+  fillGrid(full);
+  const p = full.slice();
+  for (const idx of shuffle([...Array(81).keys()])) {
+    const saved = p[idx];
+    p[idx] = 0;
+    if (countSolutions(p.slice(), 2) !== 1) p[idx] = saved;
+  }
+  return { puzzle: p, solution: full };
+}
+
+function newPuzzle() {
+  ({ puzzle, solution } = generatePuzzle());
+  cells.forEach((cell, i) => {
+    cell.classList.remove('wrong');
+    if (puzzle[i]) {
+      cell.value = puzzle[i];
+      cell.readOnly = true;
+      cell.classList.add('given');
+    } else {
+      cell.value = '';
+      cell.readOnly = false;
+      cell.classList.remove('given');
+    }
+  });
+  statusEl.textContent = '';
+}
+
+function check() {
+  let wrong = 0, empty = 0;
+  cells.forEach((cell, i) => {
+    cell.classList.remove('wrong');
+    if (puzzle[i]) return;
+    if (!cell.value) { empty++; return; }
+    if (Number(cell.value) !== solution[i]) {
+      cell.classList.add('wrong');
+      wrong++;
+    }
+  });
+  if (wrong) statusEl.textContent = `${wrong} wrong cell${wrong > 1 ? 's' : ''}.`;
+  else if (empty) statusEl.textContent = `No mistakes so far. ${empty} cell${empty > 1 ? 's' : ''} left.`;
+  else statusEl.textContent = 'Solved! Well done.';
+}
+
+function solve() {
+  cells.forEach((cell, i) => {
+    cell.value = solution[i];
+    cell.classList.remove('wrong');
+  });
+  statusEl.textContent = 'Solution shown.';
+}
+
+document.getElementById('newBtn').addEventListener('click', newPuzzle);
+document.getElementById('checkBtn').addEventListener('click', check);
+document.getElementById('solveBtn').addEventListener('click', solve);
+
+newPuzzle();
+</script>
+</body>
+</html>

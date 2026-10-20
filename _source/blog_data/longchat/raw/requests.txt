@@ -1,0 +1,30 @@
+Make a brick-breaker game that runs in the browser as a single file named index.html in the current folder. It needs 2 levels, a score display and 3 lives, and it must be playable with the keyboard and the mouse. Write the file and finish.
+Make the ball red.
+Make the paddle 20% wider.
+Add a start screen that says "Press Space to start".
+Show the current level number next to the score.
+Make the bricks in each row a different color.
+Add a pause when the P key is pressed.
+Make the ball speed up a little after every 5 bricks.
+Add a third level with a different brick layout.
+Show a "You win" screen after the last level.
+Save the high score in localStorage and show it.
+Make some bricks need two hits, and show them darker.
+Add a simple sound when the ball hits a brick, using the Web Audio API.
+Add a mute button in the top right corner.
+Make the game fit the window when it is resized.
+Add a short flash effect when a brick breaks.
+Give the player an extra life every 1,000 points.
+Add a power-up that sometimes drops from a broken brick and makes the paddle wider for 10 seconds.
+Show the remaining lives as small hearts instead of a number.
+Make the ball start from the paddle and launch when Space or the mouse button is pressed.
+Add touch controls so it works on a phone.
+Make the background a dark gradient.
+Show the time taken to clear each level.
+Add a "Restart" button on the game-over screen.
+Make the paddle slow down slightly near the walls.
+Add a combo counter that doubles points for hitting bricks without touching the paddle.
+Show a small tutorial line under the start text explaining the controls.
+Make the brick layout of level 2 a pyramid.
+Add a setting to choose easy or hard mode on the start screen; hard mode makes the ball faster.
+Clean up the code: remove anything unused and add short comments to each function.

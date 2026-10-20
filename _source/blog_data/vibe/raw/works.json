@@ -1,0 +1,467 @@
+{
+ "2048_haiku-5-5_r1": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 86
+ },
+ "2048_haiku-5-5_r2": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 90
+ },
+ "2048_haiku-5-5_r3": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 96
+ },
+ "2048_haiku-5-5_r4": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 86
+ },
+ "2048_haiku-5-5_r5": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 96
+ },
+ "2048_opus-5-5_r1": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 92
+ },
+ "2048_opus-5-5_r2": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 92
+ },
+ "2048_opus-5-5_r3": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 86
+ },
+ "2048_opus-5-5_r4": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 86
+ },
+ "2048_opus-5-5_r5": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 90
+ },
+ "2048_sonnet-5-5_r1": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 94
+ },
+ "2048_sonnet-5-5_r2": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 90
+ },
+ "2048_sonnet-5-5_r3": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 86
+ },
+ "2048_sonnet-5-5_r4": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 88
+ },
+ "2048_sonnet-5-5_r5": {
+  "tiles": true,
+  "moves": true,
+  "spawn": true,
+  "score": true,
+  "newgame": true,
+  "rule_moves_ok": 30,
+  "rule_moves_bad": 0,
+  "rule_moves_unread": 0,
+  "loads": true,
+  "points": 6,
+  "works": true,
+  "errors": [],
+  "final_sum": 94
+ },
+ "brick_haiku-5-5_r1": {
+  "works": true,
+  "errors": []
+ },
+ "brick_haiku-5-5_r2": {
+  "works": true,
+  "errors": []
+ },
+ "brick_haiku-5-5_r3": {
+  "works": true,
+  "errors": []
+ },
+ "brick_haiku-5-5_r4": {
+  "works": true,
+  "errors": []
+ },
+ "brick_haiku-5-5_r5": {
+  "works": true,
+  "errors": []
+ },
+ "brick_opus-5-5_r1": {
+  "works": true,
+  "errors": []
+ },
+ "brick_opus-5-5_r2": {
+  "works": true,
+  "errors": []
+ },
+ "brick_opus-5-5_r3": {
+  "works": true,
+  "errors": []
+ },
+ "brick_opus-5-5_r4": {
+  "works": true,
+  "errors": []
+ },
+ "brick_opus-5-5_r5": {
+  "works": true,
+  "errors": []
+ },
+ "brick_sonnet-5-5_r1": {
+  "works": true,
+  "errors": []
+ },
+ "brick_sonnet-5-5_r2": {
+  "works": true,
+  "errors": []
+ },
+ "brick_sonnet-5-5_r3": {
+  "works": true,
+  "errors": []
+ },
+ "brick_sonnet-5-5_r4": {
+  "works": true,
+  "errors": []
+ },
+ "brick_sonnet-5-5_r5": {
+  "works": true,
+  "errors": []
+ },
+ "sudoku_haiku-5-5_r1": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ },
+ "sudoku_haiku-5-5_r2": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ },
+ "sudoku_haiku-5-5_r3": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ },
+ "sudoku_haiku-5-5_r4": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ },
+ "sudoku_haiku-5-5_r5": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ },
+ "sudoku_opus-5-5_r1": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ },
+ "sudoku_opus-5-5_r2": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ },
+ "sudoku_opus-5-5_r3": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ },
+ "sudoku_opus-5-5_r4": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ },
+ "sudoku_opus-5-5_r5": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ },
+ "sudoku_sonnet-5-5_r1": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ },
+ "sudoku_sonnet-5-5_r2": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ },
+ "sudoku_sonnet-5-5_r3": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ },
+ "sudoku_sonnet-5-5_r4": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ },
+ "sudoku_sonnet-5-5_r5": {
+  "grid": true,
+  "puzzles_valid": 3,
+  "puzzles_unique": 3,
+  "solve_ok": true,
+  "check_marks": true,
+  "new_differs": true,
+  "loads": true,
+  "points": 7,
+  "works": true,
+  "errors": []
+ }
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sudoku</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #f4f5f7; display: flex; flex-direction: column; align-items: center; margin: 0; padding: 20px; }
+  h1 { margin: 0 0 12px; }
+  #board { display: grid; grid-template-columns: repeat(9, 48px); border: 3px solid #222; background: #222; gap: 1px; }
+  #board input { width: 48px; height: 48px; box-sizing: border-box; border: none; text-align: center; font-size: 22px; background: #fff; color: #1a56c4; padding: 0; outline: none; caret-color: transparent; }
+  #board input:focus { background: #fff6c7; }
+  #board input[readonly] { background: #e8e8ee; color: #111; font-weight: bold; cursor: default; }
+  #board input.wrong { background: #ffb3b3; color: #900; }
+  #board input.bR { margin-right: 2px; }
+  #board input.bB { margin-bottom: 2px; }
+  .controls { margin-top: 16px; display: flex; gap: 10px; }
+  button { font-size: 16px; padding: 8px 18px; border: 1px solid #888; border-radius: 6px; background: #fff; cursor: pointer; }
+  button:hover { background: #e6efff; }
+  #msg { margin-top: 12px; min-height: 24px; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Sudoku</h1>
+<div id="board"></div>
+<div class="controls">
+  <button id="newBtn">New Puzzle</button>
+  <button id="checkBtn">Check</button>
+  <button id="solveBtn">Solve</button>
+</div>
+<div id="msg"></div>
+
+<script>
+(function () {
+  const boardEl = document.getElementById('board');
+  const msg = document.getElementById('msg');
+  const inputs = [];
+  let solution = [];
+
+  for (let i = 0; i < 81; i++) {
+    const inp = document.createElement('input');
+    inp.type = 'text';
+    inp.maxLength = 1;
+    inp.inputMode = 'numeric';
+    inp.autocomplete = 'off';
+    const r = Math.floor(i / 9), c = i % 9;
+    if (c === 2 || c === 5) inp.classList.add('bR');
+    if (r === 2 || r === 5) inp.classList.add('bB');
+    inp.addEventListener('input', () => {
+      inp.value = inp.value.replace(/[^1-9]/g, '').slice(-1);
+      inp.classList.remove('wrong');
+      msg.textContent = '';
+    });
+    inp.addEventListener('keydown', e => {
+      const moves = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -9, ArrowDown: 9 };
+      if (moves[e.key]) {
+        const n = i + moves[e.key];
+        if (n >= 0 && n < 81) { inputs[n].focus(); e.preventDefault(); }
+      } else if ((e.key === 'Backspace' || e.key === 'Delete') && !inp.readOnly) {
+        inp.value = ''; inp.classList.remove('wrong');
+      }
+    });
+    inputs.push(inp);
+    boardEl.appendChild(inp);
+  }
+
+  function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function candidates(g, i) {
+    const r = Math.floor(i / 9), c = i % 9, used = new Set();
+    for (let k = 0; k < 9; k++) {
+      used.add(g[r * 9 + k]);
+      used.add(g[k * 9 + c]);
+    }
+    const br = r - r % 3, bc = c - c % 3;
+    for (let a = 0; a < 3; a++) for (let b = 0; b < 3; b++) used.add(g[(br + a) * 9 + bc + b]);
+    const res = [];
+    for (let v = 1; v <= 9; v++) if (!used.has(v)) res.push(v);
+    return res;
+  }
+
+  // Count solutions up to limit, using minimum-remaining-values cell choice.
+  // If random is true, tries digits in random order (used to build a full grid).
+  function solve(g, limit, random) {
+    let best = -1, bestC = null;
+    for (let i = 0; i < 81; i++) {
+      if (g[i] === 0) {
+        const c = candidates(g, i);
+        if (bestC === null || c.length < bestC.length) {
+          best = i; bestC = c;
+          if (c.length === 0) return 0;
+        }
+      }
+    }
+    if (best < 0) return 1;
+    if (random) shuffle(bestC);
+    let count = 0;
+    for (const v of bestC) {
+      g[best] = v;
+      count += solve(g, limit - count, random);
+      if (count >= limit) { if (!random) g[best] = 0; return count; }
+      g[best] = 0;
+    }
+    return count;
+  }
+
+  function fullGrid() {
+    // Fill randomly; keep the result (solve with random leaves grid restored, so do manual fill).
+    const g = new Array(81).fill(0);
+    (function fill() {
+      let best = -1, bestC = null;
+      for (let i = 0; i < 81; i++) {
+        if (g[i] === 0) {
+          const c = candidates(g, i);
+          if (bestC === null || c.length < bestC.length) { best = i; bestC = c; }
+        }
+      }
+      if (best < 0) return true;
+      shuffle(bestC);
+      for (const v of bestC) {
+        g[best] = v;
+        if (fill()) return true;
+      }
+      g[best] = 0;
+      return false;
+    })();
+    return g;
+  }
+
+  function generate() {
+    const sol = fullGrid();
+    const puzzle = sol.slice();
+    for (const i of shuffle([...Array(81).keys()])) {
+      const saved = puzzle[i];
+      puzzle[i] = 0;
+      if (solve(puzzle.slice(), 2, false) !== 1) puzzle[i] = saved;
+    }
+    return { puzzle, sol };
+  }
+
+  function load() {
+    const { puzzle, sol } = generate();
+    solution = sol;
+    inputs.forEach((inp, i) => {
+      inp.classList.remove('wrong');
+      inp.value = puzzle[i] || '';
+      inp.readOnly = puzzle[i] !== 0;
+    });
+    msg.textContent = '';
+  }
+
+  document.getElementById('newBtn').addEventListener('click', load);
+
+  document.getElementById('checkBtn').addEventListener('click', () => {
+    let wrong = 0, empty = 0;
+    inputs.forEach((inp, i) => {
+      inp.classList.remove('wrong');
+      if (inp.readOnly) return;
+      if (inp.value === '') { empty++; return; }
+      if (Number(inp.value) !== solution[i]) { inp.classList.add('wrong'); wrong++; }
+    });
+    if (wrong) { msg.style.color = '#b00'; msg.textContent = wrong + ' wrong cell' + (wrong > 1 ? 's' : '') + ' highlighted.'; }
+    else if (empty) { msg.style.color = '#555'; msg.textContent = 'No mistakes so far, ' + empty + ' cells left.'; }
+    else { msg.style.color = '#080'; msg.textContent = 'Solved! Well done!'; }
+  });
+
+  document.getElementById('solveBtn').addEventListener('click', () => {
+    inputs.forEach((inp, i) => { inp.value = solution[i]; inp.classList.remove('wrong'); });
+    msg.style.color = '#555';
+    msg.textContent = 'Solution shown.';
+  });
+
+  load();
+})();
+</script>
+</body>
+</html>

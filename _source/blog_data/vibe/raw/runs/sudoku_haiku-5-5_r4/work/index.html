@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sudoku</title>
+<style>
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 24px;
+    color: #111;
+  }
+  h1 { margin: 0 0 16px; font-weight: 600; }
+  #board {
+    display: grid;
+    grid-template-columns: repeat(9, 48px);
+    grid-template-rows: repeat(9, 48px);
+    border: 3px solid #222;
+    background: #fff;
+  }
+  #board input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #bbb;
+    border-radius: 0;
+    text-align: center;
+    font-size: 22px;
+    font-family: inherit;
+    color: #1d4ed8;
+    background: #fff;
+    outline: none;
+  }
+  #board input.br { border-right: 3px solid #222; }
+  #board input.bb { border-bottom: 3px solid #222; }
+  #board input:focus { background: #fff8d6; }
+  #board input.given {
+    color: #111;
+    font-weight: 700;
+    background: #e5e7eb;
+  }
+  #board input.wrong {
+    color: #b91c1c;
+    background: #fecaca;
+  }
+  .controls { margin-top: 18px; display: flex; gap: 10px; }
+  button {
+    font-size: 16px;
+    padding: 8px 18px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+  }
+  button:hover { background: #e5e7eb; }
+  #status { margin-top: 14px; min-height: 1.4em; font-size: 15px; }
+</style>
+</head>
+<body>
+  <h1>Sudoku</h1>
+  <div id="board"></div>
+  <div class="controls">
+    <button id="newBtn">New Puzzle</button>
+    <button id="checkBtn">Check</button>
+    <button id="solveBtn">Solve</button>
+  </div>
+  <div id="status"></div>
+
+<script>
+  const boardEl = document.getElementById('board');
+  const statusEl = document.getElementById('status');
+  const cells = [];
+  let solution = [];
+
+  // ---------- Board UI ----------
+  for (let i = 0; i < 81; i++) {
+    const r = Math.floor(i / 9), c = i % 9;
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.inputMode = 'numeric';
+    input.autocomplete = 'off';
+    input.dataset.index = i;
+    if (c % 3 === 2 && c < 8) input.classList.add('br');
+    if (r % 3 === 2 && r < 8) input.classList.add('bb');
+    input.addEventListener('focus', () => input.select());
+    input.addEventListener('input', onInput);
+    input.addEventListener('keydown', onKeyDown);
+    boardEl.appendChild(input);
+    cells.push(input);
+  }
+
+  function onInput(e) {
+    const el = e.target;
+    const digits = el.value.match(/[1-9]/g);
+    el.value = digits ? digits[digits.length - 1] : '';
+    el.classList.remove('wrong');
+    statusEl.textContent = '';
+  }
+
+  function onKeyDown(e) {
+    const i = +e.target.dataset.index;
+    let r = Math.floor(i / 9), c = i % 9;
+    const moves = { ArrowUp: [-1, 0], ArrowDown: [1, 0], ArrowLeft: [0, -1], ArrowRight: [0, 1] };
+    const d = moves[e.key];
+    if (!d) return;
+    e.preventDefault();
+    r = (r + d[0] + 9) % 9;
+    c = (c + d[1] + 9) % 9;
+    cells[r * 9 + c].focus();
+  }
+
+  // ---------- Sudoku logic ----------
+  function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function canPlace(g, i, n) {
+    const r = Math.floor(i / 9), c = i % 9;
+    for (let k = 0; k < 9; k++) {
+      if (g[r * 9 + k] === n || g[k * 9 + c] === n) return false;
+    }
+    const br = r - r % 3, bc = c - c % 3;
+    for (let y = 0; y < 3; y++) {
+      for (let x = 0; x < 3; x++) {
+        if (g[(br + y) * 9 + bc + x] === n) return false;
+      }
+    }
+    return true;
+  }
+
+  // Fills g in place with a random complete grid.
+  function fillGrid(g) {
+    const i = g.indexOf(0);
+    if (i < 0) return true;
+    for (const n of shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9])) {
+      if (canPlace(g, i, n)) {
+        g[i] = n;
+        if (fillGrid(g)) return true;
+        g[i] = 0;
+      }
+    }
+    return false;
+  }
+
+  // Counts solutions of g (up to limit). Mutates g temporarily but restores it.
+  function countSolutions(g, limit) {
+    let count = 0;
+    function search() {
+      let best = -1, bestCands = null;
+      for (let i = 0; i < 81; i++) {
+        if (g[i]) continue;
+        const cands = [];
+        for (let n = 1; n <= 9; n++) if (canPlace(g, i, n)) cands.push(n);
+        if (cands.length === 0) return;
+        if (best < 0 || cands.length < bestCands.length) {
+          best = i;
+          bestCands = cands;
+          if (cands.length === 1) break;
+        }
+      }
+      if (best < 0) { count++; return; }
+      for (const n of bestCands) {
+        g[best] = n;
+        search();
+        g[best] = 0;
+        if (count >= limit) return;
+      }
+    }
+    search();
+    return count;
+  }
+
+  // Removes clues from a full grid while the puzzle keeps exactly one solution.
+  function makePuzzle(full) {
+    const p = full.slice();
+    const TARGET_REMOVALS = 50;
+    let removed = 0;
+    for (const i of shuffle([...Array(81).keys()])) {
+      if (removed >= TARGET_REMOVALS) break;
+      const keep = p[i];
+      p[i] = 0;
+      if (countSolutions(p, 2) === 1) {
+        removed++;
+      } else {
+        p[i] = keep;
+      }
+    }
+    return p;
+  }
+
+  // ---------- Actions ----------
+  function newPuzzle() {
+    const full = new Array(81).fill(0);
+    fillGrid(full);
+    const puzzle = makePuzzle(full);
+    solution = full;
+    puzzle.forEach((v, i) => {
+      const el = cells[i];
+      el.classList.remove('wrong', 'given');
+      el.value = v ? String(v) : '';
+      el.readOnly = v !== 0;
+      if (v) el.classList.add('given');
+    });
+    statusEl.textContent = '';
+  }
+
+  function check() {
+    let wrong = 0, empty = 0;
+    cells.forEach((el, i) => {
+      el.classList.remove('wrong');
+      if (el.readOnly) return;
+      if (el.value === '') { empty++; return; }
+      if (+el.value !== solution[i]) {
+        el.classList.add('wrong');
+        wrong++;
+      }
+    });
+    if (wrong) {
+      statusEl.textContent = `${wrong} wrong cell(s) highlighted.`;
+    } else if (empty) {
+      statusEl.textContent = `No mistakes so far. ${empty} cell(s) left.`;
+    } else {
+      statusEl.textContent = 'Congratulations, the puzzle is solved!';
+    }
+  }
+
+  function showSolution() {
+    cells.forEach((el, i) => {
+      el.classList.remove('wrong');
+      el.value = String(solution[i]);
+      el.readOnly = true;
+    });
+    statusEl.textContent = 'Solution filled in.';
+  }
+
+  document.getElementById('newBtn').addEventListener('click', newPuzzle);
+  document.getElementById('checkBtn').addEventListener('click', check);
+  document.getElementById('solveBtn').addEventListener('click', showSolution);
+
+  newPuzzle();
+</script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sudoku</title>
+<style>
+  body {
+    margin: 0;
+    padding: 24px 12px;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #f3f1ea;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h1 { margin: 0 0 16px; font-size: 1.8rem; font-weight: 600; }
+  #board {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    width: min(92vw, 468px);
+    aspect-ratio: 1 / 1;
+    border: 3px solid #222;
+    background: #fff;
+  }
+  #board input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-right: 1px solid #c4c4c4;
+    border-bottom: 1px solid #c4c4c4;
+    border-radius: 0;
+    background: #fff;
+    text-align: center;
+    font-size: 1.6rem;
+    font-family: inherit;
+    color: #1f4fb4;
+    outline: none;
+    caret-color: transparent;
+  }
+  #board input.box-right { border-right: 3px solid #222; }
+  #board input.box-bottom { border-bottom: 3px solid #222; }
+  #board input.given { color: #111; font-weight: 700; background: #e9e9e4; }
+  #board input:focus { background: #dbeafe; }
+  #board input.given:focus { background: #d4d4cc; }
+  #board input.wrong { background: #f8c9c9; color: #b71c1c; }
+  #board input.wrong:focus { background: #f2aaaa; }
+  .controls { display: flex; gap: 10px; margin-top: 18px; }
+  button {
+    font-size: 1rem;
+    padding: 8px 16px;
+    border: 1px solid #222;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+  }
+  button:hover { background: #eee; }
+  #status { margin-top: 14px; min-height: 1.4em; font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<h1>Sudoku</h1>
+<div id="board"></div>
+<div class="controls">
+  <button id="new-btn">New Puzzle</button>
+  <button id="check-btn">Check</button>
+  <button id="solve-btn">Solve</button>
+</div>
+<div id="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  const REMOVE_TARGET = 50;   // cells to blank out of a full grid (uniqueness is kept)
+
+  const boardEl = document.getElementById('board');
+  const statusEl = document.getElementById('status');
+  const cells = [];
+  let solution = [];
+
+  // Row, column and box index for each of the 81 cells
+  const ROW = [], COL = [], BOX = [];
+  for (let i = 0; i < 81; i++) {
+    ROW[i] = Math.floor(i / 9);
+    COL[i] = i % 9;
+    BOX[i] = Math.floor(ROW[i] / 3) * 3 + Math.floor(COL[i] / 3);
+  }
+
+  // ---------- Solver and generator ----------
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function countBits(mask) {
+    let n = 0;
+    while (mask) { mask &= mask - 1; n++; }
+    return n;
+  }
+
+  // Counts solutions of a grid (0 = empty), stopping once `limit` is reached.
+  // Returns { count, solution } where solution is the first one found.
+  function countSolutions(grid, limit, randomize) {
+    const g = grid.slice();
+    const rows = Array(9).fill(0), cols = Array(9).fill(0), boxes = Array(9).fill(0);
+
+    for (let i = 0; i < 81; i++) {
+      if (!g[i]) continue;
+      const bit = 1 << g[i];
+      if ((rows[ROW[i]] | cols[COL[i]] | boxes[BOX[i]]) & bit) return { count: 0, solution: null };
+      rows[ROW[i]] |= bit; cols[COL[i]] |= bit; boxes[BOX[i]] |= bit;
+    }
+
+    let count = 0;
+    let found = null;
+
+    function search() {
+      // Pick the empty cell with the fewest candidates to fail fast
+      let best = -1, bestMask = 0, bestN = 10;
+      for (let i = 0; i < 81; i++) {
+        if (g[i]) continue;
+        const mask = ~(rows[ROW[i]] | cols[COL[i]] | boxes[BOX[i]]) & 0x3FE;
+        const n = countBits(mask);
+        if (n < bestN) {
+          best = i; bestMask = mask; bestN = n;
+          if (n <= 1) break;
+        }
+      }
+
+      if (best === -1) {          // no empty cells left: a solution
+        count++;
+        if (!found) found = g.slice();
+        return;
+      }
+
+      const digits = [];
+      for (let d = 1; d <= 9; d++) if (bestMask & (1 << d)) digits.push(d);
+      if (randomize) shuffle(digits);
+
+      const r = ROW[best], c = COL[best], b = BOX[best];
+      for (const d of digits) {
+        const bit = 1 << d;
+        g[best] = d;
+        rows[r] |= bit; cols[c] |= bit; boxes[b] |= bit;
+        search();
+        rows[r] &= ~bit; cols[c] &= ~bit; boxes[b] &= ~bit;
+        g[best] = 0;
+        if (count >= limit) return;
+      }
+    }
+
+    search();
+    return { count, solution: found };
+  }
+
+  function makePuzzle() {
+    const full = countSolutions(Array(81).fill(0), 1, true).solution;
+    const puzzle = full.slice();
+    let removed = 0;
+
+    for (const i of shuffle([...Array(81).keys()])) {
+      if (removed === REMOVE_TARGET) break;
+      const saved = puzzle[i];
+      puzzle[i] = 0;
+      // Keep the removal only if the puzzle still has exactly one solution
+      if (countSolutions(puzzle, 2, false).count === 1) removed++;
+      else puzzle[i] = saved;
+    }
+
+    return { puzzle, solution: full };
+  }
+
+  // ---------- Board UI ----------
+
+  function setStatus(msg) {
+    statusEl.textContent = msg;
+  }
+
+  function setCell(i, v) {
+    const cell = cells[i];
+    if (cell.readOnly) return;
+    cell.value = v;
+    cell.classList.remove('wrong');
+  }
+
+  function onKeyDown(e) {
+    const i = cells.indexOf(e.target);
+
+    const arrows = { ArrowUp: [-1, 0], ArrowDown: [1, 0], ArrowLeft: [0, -1], ArrowRight: [0, 1] };
+    if (arrows[e.key]) {
+      e.preventDefault();
+      const [dr, dc] = arrows[e.key];
+      const r = Math.min(8, Math.max(0, ROW[i] + dr));
+      const c = Math.min(8, Math.max(0, COL[i] + dc));
+      cells[r * 9 + c].focus();
+      return;
+    }
+
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+
+    if (e.key === 'Backspace' || e.key === 'Delete' || e.key === '0' || e.key === ' ') {
+      e.preventDefault();
+      setCell(i, '');
+    } else if (/^[1-9]$/.test(e.key)) {
+      e.preventDefault();
+      setCell(i, e.key);
+    } else if (e.key.length === 1) {
+      e.preventDefault();     // block letters and symbols
+    }
+  }
+
+  // Handles paste and other non-keydown input: keep only one digit 1-9
+  function onInput(e) {
+    const cell = e.target;
+    const v = cell.value.replace(/[^1-9]/g, '').slice(-1);
+    if (cell.value !== v) cell.value = v;
+    cell.classList.remove('wrong');
+  }
+
+  for (let i = 0; i < 81; i++) {
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.inputMode = 'numeric';
+    input.maxLength = 1;
+    input.autocomplete = 'off';
+    input.setAttribute('aria-label', `Row ${ROW[i] + 1}, column ${COL[i] + 1}`);
+    if (COL[i] % 3 === 2 && COL[i] < 8) input.classList.add('box-right');
+    if (ROW[i] % 3 === 2 && ROW[i] < 8) input.classList.add('box-bottom');
+    input.addEventListener('keydown', onKeyDown);
+    input.addEventListener('input', onInput);
+    boardEl.appendChild(input);
+    cells.push(input);
+  }
+
+  // ---------- Actions ----------
+
+  function newPuzzle() {
+    const result = makePuzzle();
+    solution = result.solution;
+    cells.forEach((cell, i) => {
+      const given = result.puzzle[i] !== 0;
+      cell.value = given ? String(result.puzzle[i]) : '';
+      cell.readOnly = given;
+      cell.classList.toggle('given', given);
+      cell.classList.remove('wrong');
+    });
+    setStatus('New puzzle. Fill in the empty cells.');
+  }
+
+  function check() {
+    let wrong = 0, empty = 0;
+    cells.forEach((cell, i) => {
+      cell.classList.remove('wrong');
+      if (cell.readOnly) return;
+      if (cell.value === '') { empty++; return; }
+      if (Number(cell.value) !== solution[i]) {
+        cell.classList.add('wrong');
+        wrong++;
+      }
+    });
+
+    if (wrong) setStatus(`${wrong} wrong cell${wrong > 1 ? 's' : ''} highlighted.`);
+    else if (empty) setStatus(`No mistakes so far. ${empty} cell${empty > 1 ? 's' : ''} left to fill.`);
+    else setStatus('Congratulations! The puzzle is solved.');
+  }
+
+  function showSolution() {
+    cells.forEach((cell, i) => {
+      cell.value = String(solution[i]);
+      cell.classList.remove('wrong');
+      cell.readOnly = true;
+    });
+    setStatus('Solution shown. Click "New Puzzle" to play again.');
+  }
+
+  document.getElementById('new-btn').addEventListener('click', newPuzzle);
+  document.getElementById('check-btn').addEventListener('click', check);
+  document.getElementById('solve-btn').addEventListener('click', showSolution);
+
+  newPuzzle();
+})();
+</script>
+</body>
+</html>

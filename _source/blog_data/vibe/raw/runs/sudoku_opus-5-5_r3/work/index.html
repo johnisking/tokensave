@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sudoku</title>
+<style>
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 24px;
+    background: #f4f5f7;
+    color: #222;
+  }
+  h1 { margin: 0 0 16px; }
+  #board {
+    display: grid;
+    grid-template-columns: repeat(9, 44px);
+    grid-template-rows: repeat(9, 44px);
+    border: 3px solid #222;
+    background: #fff;
+  }
+  #board input {
+    width: 44px;
+    height: 44px;
+    box-sizing: border-box;
+    border: 1px solid #bbb;
+    text-align: center;
+    font-size: 22px;
+    padding: 0;
+    outline: none;
+    background: #fff;
+    color: #1a5fb4;
+    caret-color: transparent;
+  }
+  #board input:focus { background: #e3efff; }
+  #board input.given {
+    color: #222;
+    font-weight: 700;
+    background: #eceef1;
+  }
+  #board input.wrong { background: #f8c9c9; color: #a00; }
+  #board input.box-right { border-right: 2px solid #222; }
+  #board input.box-bottom { border-bottom: 2px solid #222; }
+  .controls { margin-top: 16px; display: flex; gap: 10px; }
+  button {
+    font-size: 16px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #1a5fb4;
+    color: #fff;
+    cursor: pointer;
+  }
+  button:hover { background: #164f96; }
+  #message { margin-top: 12px; min-height: 1.4em; font-weight: 600; }
+</style>
+</head>
+<body>
+<h1>Sudoku</h1>
+<div id="board"></div>
+<div class="controls">
+  <button id="newBtn">New Puzzle</button>
+  <button id="checkBtn">Check</button>
+  <button id="solveBtn">Solve</button>
+</div>
+<div id="message"></div>
+
+<script>
+(function () {
+  const boardEl = document.getElementById('board');
+  const messageEl = document.getElementById('message');
+  const inputs = [];
+  let puzzle = [];
+  let solution = [];
+
+  // Build the 9x9 grid of inputs
+  for (let i = 0; i < 81; i++) {
+    const r = Math.floor(i / 9), c = i % 9;
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.inputMode = 'numeric';
+    input.maxLength = 1;
+    input.autocomplete = 'off';
+    input.setAttribute('aria-label', 'Row ' + (r + 1) + ' column ' + (c + 1));
+    if (c === 2 || c === 5) input.classList.add('box-right');
+    if (r === 2 || r === 5) input.classList.add('box-bottom');
+
+    input.addEventListener('keydown', (e) => {
+      if (input.readOnly) {
+        handleArrows(e, i);
+        return;
+      }
+      if (/^[1-9]$/.test(e.key)) {
+        e.preventDefault();
+        input.value = e.key;
+        input.classList.remove('wrong');
+        messageEl.textContent = '';
+        checkComplete();
+      } else if (e.key === 'Backspace' || e.key === 'Delete' || e.key === '0') {
+        e.preventDefault();
+        input.value = '';
+        input.classList.remove('wrong');
+        messageEl.textContent = '';
+      } else {
+        handleArrows(e, i);
+      }
+    });
+    // Fallback for mobile keyboards / paste: keep only a single digit 1-9
+    input.addEventListener('input', () => {
+      if (input.readOnly) return;
+      const m = input.value.match(/[1-9]/g);
+      input.value = m ? m[m.length - 1] : '';
+      input.classList.remove('wrong');
+      messageEl.textContent = '';
+      checkComplete();
+    });
+
+    boardEl.appendChild(input);
+    inputs.push(input);
+  }
+
+  function handleArrows(e, i) {
+    const r = Math.floor(i / 9), c = i % 9;
+    let nr = r, nc = c;
+    if (e.key === 'ArrowUp') nr = (r + 8) % 9;
+    else if (e.key === 'ArrowDown') nr = (r + 1) % 9;
+    else if (e.key === 'ArrowLeft') nc = (c + 8) % 9;
+    else if (e.key === 'ArrowRight') nc = (c + 1) % 9;
+    else {
+      // Block other typed characters, but leave shortcuts and Tab alone
+      if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) e.preventDefault();
+      return;
+    }
+    e.preventDefault();
+    inputs[nr * 9 + nc].focus();
+  }
+
+  // ---------- Sudoku logic ----------
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function canPlace(grid, idx, n) {
+    const r = Math.floor(idx / 9), c = idx % 9;
+    const br = r - r % 3, bc = c - c % 3;
+    for (let k = 0; k < 9; k++) {
+      if (grid[r * 9 + k] === n) return false;
+      if (grid[k * 9 + c] === n) return false;
+      if (grid[(br + Math.floor(k / 3)) * 9 + bc + (k % 3)] === n) return false;
+    }
+    return true;
+  }
+
+  // Fill a grid completely with a random valid solution
+  function fillGrid(grid) {
+    const idx = grid.indexOf(0);
+    if (idx === -1) return true;
+    for (const n of shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9])) {
+      if (canPlace(grid, idx, n)) {
+        grid[idx] = n;
+        if (fillGrid(grid)) return true;
+        grid[idx] = 0;
+      }
+    }
+    return false;
+  }
+
+  // Count solutions up to `limit`, choosing the most constrained cell first
+  function countSolutions(grid, limit) {
+    let best = -1, bestCands = null;
+    for (let i = 0; i < 81; i++) {
+      if (grid[i] !== 0) continue;
+      const cands = [];
+      for (let n = 1; n <= 9; n++) if (canPlace(grid, i, n)) cands.push(n);
+      if (cands.length === 0) return 0;
+      if (bestCands === null || cands.length < bestCands.length) {
+        best = i;
+        bestCands = cands;
+        if (cands.length === 1) break;
+      }
+    }
+    if (best === -1) return 1;
+    let count = 0;
+    for (const n of bestCands) {
+      grid[best] = n;
+      count += countSolutions(grid, limit - count);
+      grid[best] = 0;
+      if (count >= limit) break;
+    }
+    return count;
+  }
+
+  function generatePuzzle() {
+    const full = new Array(81).fill(0);
+    fillGrid(full);
+    const puz = full.slice();
+    // Try removing cells in random order, keeping only removals that preserve uniqueness
+    for (const idx of shuffle([...Array(81).keys()])) {
+      const saved = puz[idx];
+      puz[idx] = 0;
+      if (countSolutions(puz.slice(), 2) !== 1) puz[idx] = saved;
+    }
+    return { puzzle: puz, solution: full };
+  }
+
+  // ---------- UI actions ----------
+  function newPuzzle() {
+    const g = generatePuzzle();
+    puzzle = g.puzzle;
+    solution = g.solution;
+    for (let i = 0; i < 81; i++) {
+      const input = inputs[i];
+      input.classList.remove('wrong');
+      if (puzzle[i] !== 0) {
+        input.value = String(puzzle[i]);
+        input.readOnly = true;
+        input.classList.add('given');
+      } else {
+        input.value = '';
+        input.readOnly = false;
+        input.classList.remove('given');
+      }
+    }
+    messageEl.textContent = '';
+    messageEl.style.color = '';
+  }
+
+  function check() {
+    let wrong = 0, empty = 0;
+    for (let i = 0; i < 81; i++) {
+      const input = inputs[i];
+      if (input.readOnly) continue;
+      if (input.value === '') { empty++; input.classList.remove('wrong'); continue; }
+      if (Number(input.value) !== solution[i]) {
+        input.classList.add('wrong');
+        wrong++;
+      } else {
+        input.classList.remove('wrong');
+      }
+    }
+    if (wrong > 0) {
+      messageEl.style.color = '#a00';
+      messageEl.textContent = wrong + ' wrong cell' + (wrong > 1 ? 's' : '') + ' highlighted.';
+    } else if (empty > 0) {
+      messageEl.style.color = '#1a5fb4';
+      messageEl.textContent = 'No mistakes so far. ' + empty + ' cell' + (empty > 1 ? 's' : '') + ' left.';
+    } else {
+      messageEl.style.color = '#2a7a2a';
+      messageEl.textContent = 'Solved! Well done.';
+    }
+  }
+
+  function checkComplete() {
+    for (let i = 0; i < 81; i++) {
+      if (Number(inputs[i].value) !== solution[i]) return;
+    }
+    messageEl.style.color = '#2a7a2a';
+    messageEl.textContent = 'Solved! Well done.';
+  }
+
+  function solve() {
+    for (let i = 0; i < 81; i++) {
+      inputs[i].value = String(solution[i]);
+      inputs[i].classList.remove('wrong');
+    }
+    messageEl.style.color = '#1a5fb4';
+    messageEl.textContent = 'Solution shown.';
+  }
+
+  document.getElementById('newBtn').addEventListener('click', newPuzzle);
+  document.getElementById('checkBtn').addEventListener('click', check);
+  document.getElementById('solveBtn').addEventListener('click', solve);
+
+  newPuzzle();
+})();
+</script>
+</body>
+</html>

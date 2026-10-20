@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2048</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    background: #faf8ef;
+    color: #776e65;
+    display: flex;
+    justify-content: center;
+  }
+  .container { width: 420px; padding: 24px 0; }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  h1 { font-size: 64px; margin: 0; color: #776e65; }
+  .score-box {
+    background: #bbada0;
+    color: #fff;
+    padding: 6px 18px;
+    border-radius: 4px;
+    text-align: center;
+    min-width: 80px;
+  }
+  .score-box .label { font-size: 12px; text-transform: uppercase; color: #eee4da; }
+  .score-box .value { font-size: 24px; font-weight: bold; }
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  button {
+    background: #8f7a66;
+    color: #f9f6f2;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 18px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  button:hover { background: #9f8b77; }
+  .board-wrap { position: relative; }
+  .board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 12px;
+    padding: 12px;
+    background: #bbada0;
+    border-radius: 6px;
+    width: 420px;
+    height: 420px;
+  }
+  .cell {
+    background: rgba(238, 228, 218, 0.35);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 40px;
+    user-select: none;
+  }
+  .tile-2    { background: #eee4da; color: #776e65; }
+  .tile-4    { background: #ede0c8; color: #776e65; }
+  .tile-8    { background: #f2b179; color: #f9f6f2; }
+  .tile-16   { background: #f59563; color: #f9f6f2; }
+  .tile-32   { background: #f67c5f; color: #f9f6f2; }
+  .tile-64   { background: #f65e3b; color: #f9f6f2; }
+  .tile-128  { background: #edcf72; color: #f9f6f2; font-size: 34px; }
+  .tile-256  { background: #edcc61; color: #f9f6f2; font-size: 34px; }
+  .tile-512  { background: #edc850; color: #f9f6f2; font-size: 34px; }
+  .tile-1024 { background: #edc53f; color: #f9f6f2; font-size: 28px; }
+  .tile-2048 { background: #edc22e; color: #f9f6f2; font-size: 28px; }
+  .tile-super { background: #3c3a32; color: #f9f6f2; font-size: 24px; }
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(238, 228, 218, 0.75);
+    border-radius: 6px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .overlay.show { display: flex; }
+  .overlay .msg { font-size: 44px; font-weight: bold; color: #776e65; }
+  .hint { margin-top: 16px; font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>2048</h1>
+    <div class="score-box">
+      <div class="label">Score</div>
+      <div class="value" id="score">0</div>
+    </div>
+  </div>
+  <div class="controls">
+    <span>Join the tiles, get to 2048!</span>
+    <button id="new-game">New Game</button>
+  </div>
+  <div class="board-wrap">
+    <div class="board" id="board"></div>
+    <div class="overlay" id="overlay">
+      <div class="msg">Game Over!</div>
+      <div>No moves left. Final score: <span id="final-score">0</span></div>
+      <button id="try-again">Try Again</button>
+    </div>
+  </div>
+  <p class="hint">Use the <strong>arrow keys</strong> to move the tiles.</p>
+</div>
+
+<script>
+  const SIZE = 4;
+  let grid, score, over;
+
+  const boardEl = document.getElementById('board');
+  const scoreEl = document.getElementById('score');
+  const overlayEl = document.getElementById('overlay');
+  const finalScoreEl = document.getElementById('final-score');
+
+  const cells = [];
+  for (let i = 0; i < SIZE * SIZE; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'cell';
+    boardEl.appendChild(cell);
+    cells.push(cell);
+  }
+
+  function newGame() {
+    grid = Array.from({ length: SIZE }, () => Array(SIZE).fill(0));
+    score = 0;
+    over = false;
+    addRandomTile();
+    addRandomTile();
+    render();
+  }
+
+  function addRandomTile() {
+    const empty = [];
+    for (let r = 0; r < SIZE; r++)
+      for (let c = 0; c < SIZE; c++)
+        if (grid[r][c] === 0) empty.push([r, c]);
+    if (empty.length === 0) return;
+    const [r, c] = empty[Math.floor(Math.random() * empty.length)];
+    grid[r][c] = Math.random() < 0.9 ? 2 : 4;
+  }
+
+  // Slide and merge one line toward index 0. Returns the new line.
+  function slideLine(line) {
+    const nums = line.filter(v => v !== 0);
+    const out = [];
+    for (let i = 0; i < nums.length; i++) {
+      if (i + 1 < nums.length && nums[i] === nums[i + 1]) {
+        const merged = nums[i] * 2;
+        out.push(merged);
+        score += merged;
+        i++;
+      } else {
+        out.push(nums[i]);
+      }
+    }
+    while (out.length < SIZE) out.push(0);
+    return out;
+  }
+
+  // Returns the list of [row, col] coordinates for each line, ordered
+  // so that index 0 is the edge tiles move toward.
+  function getLines(dir) {
+    const lines = [];
+    for (let i = 0; i < SIZE; i++) {
+      const line = [];
+      for (let j = 0; j < SIZE; j++) {
+        if (dir === 'left') line.push([i, j]);
+        else if (dir === 'right') line.push([i, SIZE - 1 - j]);
+        else if (dir === 'up') line.push([j, i]);
+        else if (dir === 'down') line.push([SIZE - 1 - j, i]);
+      }
+      lines.push(line);
+    }
+    return lines;
+  }
+
+  function move(dir) {
+    if (over) return;
+    let moved = false;
+    for (const coords of getLines(dir)) {
+      const values = coords.map(([r, c]) => grid[r][c]);
+      const result = slideLine(values);
+      coords.forEach(([r, c], k) => {
+        if (grid[r][c] !== result[k]) moved = true;
+        grid[r][c] = result[k];
+      });
+    }
+    if (moved) {
+      addRandomTile();
+      if (!movesAvailable()) over = true;
+      render();
+    }
+  }
+
+  function movesAvailable() {
+    for (let r = 0; r < SIZE; r++) {
+      for (let c = 0; c < SIZE; c++) {
+        const v = grid[r][c];
+        if (v === 0) return true;
+        if (c + 1 < SIZE && grid[r][c + 1] === v) return true;
+        if (r + 1 < SIZE && grid[r + 1][c] === v) return true;
+      }
+    }
+    return false;
+  }
+
+  function render() {
+    for (let r = 0; r < SIZE; r++) {
+      for (let c = 0; c < SIZE; c++) {
+        const v = grid[r][c];
+        const cell = cells[r * SIZE + c];
+        cell.textContent = v ? v : '';
+        cell.className = 'cell' + (v ? (v <= 2048 ? ' tile-' + v : ' tile-super') : '');
+      }
+    }
+    scoreEl.textContent = score;
+    finalScoreEl.textContent = score;
+    overlayEl.classList.toggle('show', over);
+  }
+
+  const KEYS = { ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'up', ArrowDown: 'down' };
+  document.addEventListener('keydown', e => {
+    const dir = KEYS[e.key];
+    if (!dir) return;
+    e.preventDefault();
+    move(dir);
+  });
+
+  document.getElementById('new-game').addEventListener('click', newGame);
+  document.getElementById('try-again').addEventListener('click', newGame);
+
+  newGame();
+</script>
+</body>
+</html>
