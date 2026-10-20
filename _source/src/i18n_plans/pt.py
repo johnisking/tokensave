@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # Subscription vs API page — pt strings (translated from en.py).
 P = dict(
+    pattern='Como seu uso se distribui no mês',
+    patEven='Mais ou menos igual todo dia',
+    patPeak='1 semana intensa + 3 tranquilas',
+    patNote='Mensagens por dia = sua semana intensa. As semanas tranquilas contam como um quarto disso, cerca de {n} mensagens no mês. O plano precisa cobrir os limites da semana intensa; a API cobra só o que você envia.',
+    perMsg='Por mensagem enviada: {plan} {p} · API {a}',
     h1='Assinatura ou API?',
     sub='Vale a pena assinar ChatGPT Plus, Claude Pro ou Google AI Pro para o seu uso de IA, ou a API sairia mais barata?',
     badge='Preços dos planos verificados em outubro de 2026 · Preços da API atualizados diariamente',

@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # Subscription vs API page — ja strings (translated from en.py).
 P = dict(
+    pattern='1か月の使い方',
+    patEven='毎日だいたい同じ',
+    patPeak='忙しい週1週＋落ち着いた週3週',
+    patNote='1日のメッセージ数＝忙しい週の値です。落ち着いた3週はその4分の1として計算し、月の合計は約{n}件です。プランは忙しい週の上限までカバーする必要がありますが、APIは実際に送った分だけの支払いです。',
+    perMsg='実際に送ったメッセージ1件あたり：{plan} {p} · API {a}',
     h1='サブスクとAPI、どっちが得？',
     sub='あなたのAIの使い方なら、ChatGPT Plus・Claude Pro・Google AI Proは元が取れる？それともAPIのほうが安い？',
     badge='プラン料金は2026年10月に確認 · API料金は毎日更新',

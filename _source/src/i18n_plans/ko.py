@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # Subscription vs API page — ko strings (translated from en.py).
 P = dict(
+    pattern='한 달 동안 쓰는 방식',
+    patEven='매일 비슷하게',
+    patPeak='바쁜 주 1주 + 한가한 주 3주',
+    patNote='하루 메시지 수 = 바쁜 주 기준입니다. 한가한 3주는 그 4분의 1로 계산해, 한 달 합계 약 {n}개입니다. 요금제는 바쁜 주의 한도까지 감당해야 하지만, API는 실제로 보낸 만큼만 냅니다.',
+    perMsg='실제로 보낸 메시지 1개당: {plan} {p} · API {a}',
     h1='구독이 나을까, API가 나을까?',
     sub='내 AI 사용량이라면 ChatGPT Plus, Claude Pro, Google AI Pro 구독이 제값을 할까요, 아니면 API가 더 저렴할까요?',
     badge='요금제 가격 2026년 10월 확인 · API 가격 매일 업데이트',

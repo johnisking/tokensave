@@ -127,7 +127,7 @@ TOOLS = [
          runtime=["na", "cheapest", "srcOfficial", "srcRunway"]),
     dict(key="plans", nav="navPlans", body="plans_body.html", strings=PL, script="plans.js",
          file="plans.html", page="plans", og="og-token.jpg",
-         runtime=["apiLabel", "perMonth", "cheaperApi", "cheaperPlan", "breakEven", "langNote"]),
+         runtime=["apiLabel", "perMonth", "cheaperApi", "cheaperPlan", "breakEven", "langNote", "patNote", "perMsg"]),
     dict(key="agents", nav="navAgents", body="agents_body.html", strings=AG, script="agents.js",
          file="agents.html", page="agents", og="og-token.jpg",
          runtime=["apiLabel", "perMonth", "perTask", "apiCheaper", "planCheaper"]),

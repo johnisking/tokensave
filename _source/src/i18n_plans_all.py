@@ -11,3 +11,6 @@ for _f in sorted(os.listdir(_DIR)):
     _m = importlib.util.module_from_spec(_s)
     _s.loader.exec_module(_m)
     PL[_t], PNAV[_t], PMETA[_t] = _m.P, _m.NAV, _m.META
+# Keys added later fall back to English until a language file has them
+for _t in PL:
+    PL[_t] = {**PL["en"], **PL[_t]}
