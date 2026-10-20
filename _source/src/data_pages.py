@@ -2081,6 +2081,7 @@ VIB_CHART = "/vibe-coding-by-claude-model-chart.png"
 VIB_DOI = "10.5281/zenodo.23489448"  # concept DOI
 VIB_MIRRORS = [("Zenodo", "https://zenodo.org/records/23489449"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/vibe-coding-by-claude-model"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/vibe-coding-claude-haiku-vs-sonnet-vs-opus-5-5"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/vibe-coding")]
 VIB_TITLE = "Vibe coding with Claude Haiku, Sonnet and Opus 5.5: cost, time and whether the game works"
 VIB_DESC = ("Dataset: three browser games (brick-breaker, 2048, Sudoku) built by Claude Code with Haiku 5.5, Sonnet 5.5 and Opus 5.5, five runs each: "
@@ -2188,6 +2189,7 @@ LNG_CHART = "/long-chat-vs-new-chat-cost-chart.png"
 LNG_DOI = "10.5281/zenodo.23489464"  # concept DOI
 LNG_MIRRORS = [("Zenodo", "https://zenodo.org/records/23489465"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/long-chat-vs-new-chat-cost"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/long-chat-vs-new-chat-claude-code-cost"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/long-chat")]
 LNG_TITLE = "Long chat or new chat? What 30 requests cost in one Claude Code session, with /compact, and in fresh sessions"
 LNG_DESC = ("Dataset: 30 change requests on one browser game in Claude Code (Opus 5.5), sent in one session, in one session with /compact after request 15, "
@@ -2304,6 +2306,7 @@ POL_CHART = "/ai-politeness-token-cost-chart.png"
 POL_DOI = "10.5281/zenodo.23489481"  # concept DOI
 POL_MIRRORS = [("Zenodo", "https://zenodo.org/records/23489482"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/ai-politeness-token-cost"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/politeness-and-ai-token-cost-ko-ja-en"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/politeness")]
 POL_TITLE = "Does being polite to AI cost more? Plain, polite and very polite prompts in Korean, Japanese and English"
 POL_DESC = ("Dataset: 10 everyday requests in Korean, Japanese and English at four politeness levels, sent to Claude Opus 5.5 and Haiku 5.5: "
@@ -2424,6 +2427,7 @@ COF_CHART = "/ai-coffee-break-cache-cost-chart.png"
 COF_DOI = "10.5281/zenodo.23489501"  # concept DOI
 COF_MIRRORS = [("Zenodo", "https://zenodo.org/records/23489502"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/ai-coffee-break-cache-cost"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/coffee-break-tax-claude-code-prompt-cache"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/coffee-break")]
 COF_TITLE = "The coffee-break tax: what your next Claude Code message costs after a 0 to 65 minute pause"
 COF_DESC = ("Dataset: Claude Code (Opus 5.5) builds a game, waits 0, 4, 6, 15, 30, 55 or 65 minutes, then gets a small change request in the same session: "
