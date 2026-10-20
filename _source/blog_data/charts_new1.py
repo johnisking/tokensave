@@ -65,3 +65,20 @@ for k, (key, lab) in enumerate([("prompt", "Prompt tokens"), ("cost", "Total cos
     if k == 0: ax.legend(frameon=False, labelcolor=FG, fontsize=10)
 plt.savefig('src/static' + D.POL_CHART, facecolor=BG); plt.close(fig)
 print('ok')
+
+# coffee break
+W = D.cof_waits()
+fig = frame("The coffee-break tax", "Cost of the next Claude Code message after a pause · Opus 5.5 · the prompt cache lasted one hour",
+            f"{D.COF_MEASURED} · tokensave.app/data/ai-coffee-break-cache-cost · CC BY 4.0")
+ax = fig.add_axes([0.07, 0.12, 0.9, 0.7]); style(ax)
+ws = list(W); vals = [statistics.mean(r['turn2_cost_usd'] for r in W[w]) for w in ws]
+cols = [C[0] if w < 60 else C[2] for w in ws]
+ax.bar(range(len(ws)), vals, 0.6, color=cols)
+for i, v in enumerate(vals):
+    ax.text(i, v, f"${v:.3f}", ha='center', va='bottom', color=FG, fontsize=11)
+ax.set_xticks(range(len(ws))); ax.set_xticklabels([f"{w} min" for w in ws], color=FG, fontsize=11)
+ax.axvline(len([w for w in ws if w < 60]) - 0.5, color=MUTED, ls=':', lw=1)
+ax.text(len([w for w in ws if w < 60]) - 0.55, max(vals) * 0.9, "cache expires\nafter 1 hour", color=MUTED, fontsize=10, ha="right")
+ax.set_ylabel("USD for the next message", color=MUTED)
+plt.savefig('src/static' + D.COF_CHART, facecolor=BG); plt.close(fig)
+print('coffee ok')

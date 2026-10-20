@@ -63,6 +63,7 @@ def write_files(dist):
     write_vib_files(dist)
     write_lng_files(dist)
     write_pol_files(dist)
+    write_cof_files(dist)
 
 
 def _write_lang_files(dist):
@@ -248,6 +249,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{POL_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(POL_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">Greetings and thanks double the prompt in Korean, Japanese and English, but add only a few percent to the cost. CSV · measured {POL_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{COF_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(COF_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">Pauses of up to 55 minutes cost nothing extra; after 65 minutes the cache was gone and the next message cost about six times as much. CSV · measured {COF_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -2035,6 +2039,7 @@ def lti_html():
 
 # ---- Measurement log: newest first, shown on the data hub and the English home page ----
 CHANGELOG = [
+    ("2026-10-20", "/data/ai-coffee-break-cache-cost", "The coffee-break tax: the next Claude Code message after a 0 to 65 minute pause"),
     ("2026-10-20", "/data/vibe-coding-by-claude-model", "Vibe coding with Claude Haiku, Sonnet and Opus 5.5: 45 games, cost and play tests"),
     ("2026-10-20", "/data/long-chat-vs-new-chat-cost", "Long chat or new chat: 30 requests in one session, with /compact, and in fresh sessions"),
     ("2026-10-20", "/data/ai-politeness-token-cost", "Does being polite to AI cost more? Korean, Japanese and English"),
@@ -2404,3 +2409,107 @@ def pol_html():
                   POL_CHART, "Prompt tokens and total cost by politeness level in Korean, Japanese and English", doi=POL_DOI, mirrors=POL_MIRRORS)
             + body + _page_tail(pol_citation(), _embed(POL_PATH, POL_CHART, "Politeness and AI token cost", "Does being polite to AI cost more?"),
                                 [(LTI_PATH, "Language Tax Index"), (LANG_PATH, "Token cost by language"), (AMD_PATH, "CLAUDE.md and AGENTS.md size")]))
+
+
+# ---- Dataset 17: coffee-break tax: the next message after a pause (measured 2026-10-20) ----
+COF_PATH = "/data/ai-coffee-break-cache-cost"
+COF_MEASURED = "2026-10-20"
+COF_CHART = "/ai-coffee-break-cache-cost-chart.png"
+COF_DOI = None
+COF_MIRRORS = None
+COF_TITLE = "The coffee-break tax: what your next Claude Code message costs after a 0 to 65 minute pause"
+COF_DESC = ("Dataset: Claude Code (Opus 5.5) builds a game, waits 0, 4, 6, 15, 30, 55 or 65 minutes, then gets a small change request in the same session: "
+            "cache reads and writes and the cost of that next message. Up to 55 minutes nothing changed; after 65 minutes the cache was gone and the message cost about six times as much. Free CSV, CC BY 4.0.")
+COF_COLS = ["wait_min", "rep", "actual_gap_s", "turn1_cost_usd", "turn2_cost_usd", "turn2_first_call_cache_read", "turn2_first_call_cache_write",
+            "turn2_first_call_cache_write_1h", "turn2_first_call_cache_write_5m", "turn2_cache_write_total", "turn2_cache_read_total", "turn2_model_calls", "cache_hit"]
+
+
+def _cof():
+    return json.load(open(os.path.join(ROOT, "blog_data", "coffee", "combined.json"), encoding="utf-8"))
+
+
+def cof_citation():
+    if COF_DOI:
+        return f"TokenSave (2026). {COF_TITLE} [Data set]. Zenodo. https://doi.org/{COF_DOI}"
+    return f"TokenSave (2026). {COF_TITLE} [Data set]. {BASE}{COF_PATH}"
+
+
+def write_cof_files(dist):
+    d = _cof()
+    buf = io.StringIO(); w = csv.writer(buf); w.writerow(COF_COLS)
+    for r in d["rows"]:
+        w.writerow([r.get(c) for c in COF_COLS])
+    open(os.path.join(dist, "data", "ai-coffee-break-cache-cost.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=COF_TITLE, url=BASE + COF_PATH, license="CC BY 4.0", measured=COF_MEASURED, citation=cof_citation(), tool=d["tool"],
+                turn1_prompt=d["turn1_prompt"], turn2_prompt=d["turn2_prompt"], rows=d["rows"])
+    open(os.path.join(dist, "data", "ai-coffee-break-cache-cost.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def cof_ld():
+    return _dataset_ld(COF_TITLE, COF_DESC, COF_PATH, COF_MEASURED,
+                       ["prompt caching", "cache TTL", "Claude Code", "coffee break", "AI coding cost", "session", "resume"],
+                       ["pause length (minutes)", "cache read tokens", "cache write tokens", "API cost of the next message (USD)"],
+                       "Claude Code 2.1.295 (Opus 5.5) at medium effort on one Windows laptop; one session per pause length, all started together",
+                       COF_CHART, [("ai-coffee-break-cache-cost.csv", "text/csv"), ("ai-coffee-break-cache-cost.json", "application/json")], doi=COF_DOI, mirrors=COF_MIRRORS)
+
+
+def cof_waits(d=None):
+    d = d or _cof(); R = d["rows"]
+    waits = sorted({r["wait_min"] for r in R})
+    return {w: [r for r in R if r["wait_min"] == w] for w in waits}
+
+
+def cof_html():
+    d = _cof(); W = cof_waits(d); R = d["rows"]
+    f = lambda v: "{:,}".format(round(v))
+    reps = len({r["rep"] for r in R})
+    mc = lambda w: statistics.mean(r["turn2_cost_usd"] for r in W[w])
+    warm = [w for w in W if w < 60]; cold = [w for w in W if w > 60]
+    warm_cost = statistics.mean(r["turn2_cost_usd"] for w in warm for r in W[w])
+    cold_cost = statistics.mean(r["turn2_cost_usd"] for w in cold for r in W[w])
+    cold_write = statistics.mean(r["turn2_first_call_cache_write"] for w in cold for r in W[w])
+    warm_read = statistics.mean(r["turn2_first_call_cache_read"] for w in warm for r in W[w])
+    trs = "\n".join(
+        '          <tr><td class="tabular-nums">%d min</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">$%.3f</td><td>%s</td></tr>' % (
+            w, f(statistics.mean(r["turn2_first_call_cache_read"] for r in W[w])), f(statistics.mean(r["turn2_first_call_cache_write"] for r in W[w])),
+            mc(w), "still cached" if all(r["cache_hit"] for r in W[w]) else "cache expired, rebuilt")
+        for w in W)
+    head = ['<th>Pause</th>', '<th class="text-right">Read from cache</th>', '<th class="text-right">Written to cache</th>',
+            '<th class="text-right">Cost of the next message</th>', '<th>Cache</th>']
+    ratio = cold_cost / warm_cost
+    lead = ('<strong>Take a break of up to an hour and your next Claude Code message costs the same. Take longer, and it costs about %d times as much.</strong> '
+            'In our runs Claude Code kept the conversation in Anthropic&rsquo;s prompt cache for one hour. After pauses of 0 to 55 minutes the next message read %s tokens from the cache and cost $%.3f; '
+            'after 65 minutes the cache had expired, %s tokens had to be written again, and the same message cost $%.3f.') % (round(ratio), f(warm_read), warm_cost, f(cold_write), cold_cost)
+    body = f'''      <h2>Key findings</h2>
+      <ul>
+        <li><strong>Nothing changed for an hour.</strong> After pauses of {", ".join(str(w) for w in warm)} minutes, the first model call of the next message read about {f(warm_read)} tokens from the cache and wrote only a few hundred new ones. The message cost ${warm_cost:.3f} on average whether we waited 0 minutes or 55.</li>
+        <li><strong>After 65 minutes the cache was gone.</strong> The first call had to write {f(cold_write)} tokens to the cache again, at twice the normal input price, and the message cost ${cold_cost:.3f}, about {ratio:.0f} times as much ({_pct(round((ratio - 1) * 100))}).</li>
+        <li><strong>The cache lifetime was one hour.</strong> Every cache write in these runs was a one-hour write (<code>ephemeral_1h</code> in the usage report), not the five-minute default of the Anthropic API. That is why the 6- and 15-minute pauses, which would have missed a five-minute cache, cost nothing extra.</li>
+        <li><strong>The bigger the project, the bigger the tax.</strong> Here the context was a small game of about 40,000 tokens. The cost of a cold start grows with everything in the conversation, so after a long session (our <a href="/data/long-chat-vs-new-chat-cost">long-chat measurement</a> reached 200,000 tokens of context and more) an expired cache costs far more.</li>
+      </ul>
+      <h2>The next message after each pause</h2>
+      <p class="text-sm text-zinc-400">First model call of the next message: tokens read from and written to the prompt cache. Cost is the API list-price estimate for the whole message (Opus 5.5). {"Mean of %d runs." % reps if reps > 1 else "One run per pause; a second round is planned."} Every run is in the CSV.</p>
+{_table(head, trs)}      <h2>What to take from it</h2>
+      <ul>
+        <li>Short breaks are free. Lunch is not: if you come back after more than an hour, the first message pays to rebuild the cache.</li>
+        <li>If you know you will be away for longer, it can be cheaper to start a fresh, small session for the next task than to resume a huge one.</li>
+        <li>On a subscription this shows up as usage-limit consumption rather than a bill.</li>
+      </ul>
+      <h2>Method</h2>
+      <ul>
+        <li>Claude Code 2.1.295 with Opus 5.5 on one Windows laptop, signed in with a subscription, <code>claude -p --effort medium --permission-mode acceptEdits</code>, no MCP servers. Turn 1: &ldquo;{esc(d["turn1_prompt"])}&rdquo;. After the pause, turn 2 with <code>--resume</code>: &ldquo;{esc(d["turn2_prompt"])}&rdquo;.</li>
+        <li>One session per pause length, all started within a minute of each other on {COF_MEASURED}, so the sessions overlapped in time. Cache reads and writes come from the <code>usage</code> of each model call in the stream-json log; cost from <code>total_cost_usd</code>.</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>The cache lifetime is set by Claude Code and Anthropic and may differ by login type, version or settings; with an API key and a five-minute cache the break-even pause would be much shorter.</li>
+        <li>Because the sessions ran at the same time, part of the shared system prompt may have stayed cached through the other sessions: after 65 minutes about {f(statistics.mean(r["turn2_first_call_cache_read"] for w in cold for r in W[w]))} tokens were still read from the cache. A lone session may pay a little more.</li>
+        <li>Codex runs were started too but stalled on file writes when many ran in parallel, so they are left out.</li>
+      </ul>
+'''
+    return (_head("The coffee-break tax: your next Claude Code message after a pause", lead,
+                  f'Measured {COF_MEASURED} · Claude Code (Opus 5.5) · pauses of {", ".join(str(w) for w in W)} minutes · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="/data/long-chat-vs-new-chat-cost">Long chat or new chat?</a>',
+                  [("ai-coffee-break-cache-cost.csv", "CSV"), ("ai-coffee-break-cache-cost.json", "JSON")],
+                  COF_CHART, "Cost of the next Claude Code message after pauses from 0 to 65 minutes", doi=COF_DOI, mirrors=COF_MIRRORS)
+            + body + _page_tail(cof_citation(), _embed(COF_PATH, COF_CHART, "Cost of the next message after a pause", "The coffee-break tax"),
+                                [("/data/long-chat-vs-new-chat-cost", "Long chat or new chat?"), (HAR_PATH, "What the Claude Code harness costs"), ("/blog/claude-code-save-tokens", "How to save tokens in Claude Code")]))
