@@ -300,7 +300,7 @@ TPW = [
 ]
 COUNT = [
  _cc("en", "/blog/how-to-count-tokens-gpt-claude-gemini", "count-en", "How to Count Tokens for GPT, Claude and Gemini (2026)",
-     "Claude counts about 30% more tokens than GPT for the same text. How to get an exact count for GPT, Claude and Gemini, and a free estimate without code.", _BY["en"], *_CTA_TK["en"]),
+     "In our test Claude used 38% more tokens than GPT for the same English text. How to get an exact count for GPT, Claude and Gemini, plus a free estimate.", _BY["en"], *_CTA_TK["en"]),
  _cc("ko", "/ko/blog/token-segi-bangbeop", "count-ko", "GPT·Claude·Gemini 토큰 세는 방법",
      "GPT, Claude, Gemini가 토큰을 다르게 세는 이유, 각각 정확하게 세는 방법, 코드 없이 바로 어림잡는 방법을 정리했습니다.", _BY["ko"], *_CTA_TK["ko"]),
  _cc("ja", "/ja/blog/token-kazoekata", "count-ja", "GPT・Claude・Gemini のトークンの数え方",

@@ -47,26 +47,26 @@ Two facts from Anthropic matter for cost:
 - **Newer Claude models use more tokens for the same text.** Anthropic says Claude 4.7 and later models use a new tokenizer that produces about 30% more tokens for the same text than earlier models. All the 5.x models above use it. The tokenizer change came with 4.7; the lower per-token prices came later, with 5.5.
 - **Web content adds up fast.** Anthropic's own rule of thumb is that an average 10 KB web page is about 2,500 tokens, a large 100 KB documentation page about 25,000, and a 500 KB research paper PDF about 125,000.
 
-How many tokens per word? On OpenAI's current tokenizer we measured about 1.1 to 1.3 tokens per English word ([full results](/blog/tokens-per-word)). Anthropic doesn't publish a word ratio for Claude, so for the estimates on this page we use **about 1.5 Claude tokens per English word**: our GPT measurement plus the 30% our [token counter](/claude-token-counter) adds for Claude over GPT. That 30% is our own estimate, not an Anthropic figure. For anything you'll pay real money for, count your actual text instead of trusting a ratio.
+How many tokens per word? On OpenAI's current tokenizer we measured about 1.1 to 1.3 tokens per English word ([full results](/blog/tokens-per-word)). Anthropic doesn't publish a word ratio for Claude, so for the estimates on this page we use **about 1.6 Claude tokens per English word**: our GPT measurement plus the 38% more tokens we measured on current Claude models for the same English text ([dataset](/data/token-cost-by-language-claude-gemini)). That 38% is our own measurement on a short prompt, not an Anthropic figure. For anything you'll pay real money for, count your actual text instead of trusting a ratio.
 
-Language matters even more. In our measurements on the same content, Korean used about 44% more tokens than English, Japanese about 79% more, Polish about 88% more and Spanish about 18% more. Those numbers were measured on GPT's tokenizer. We haven't measured the language gap on Claude, but if you prompt in a language other than English, count your text before assuming English-level costs.
+Language matters even more. In our measurements on the same content, Korean used about 44% more tokens than English, Japanese about 79% more, Polish about 88% more and Spanish about 18% more. Those numbers were measured on GPT's tokenizer. On current Claude models the same prompts showed a different spread: Korean about 89% more than English, Japanese about 51%, Spanish about 47% and Polish about 100% ([dataset](/data/token-cost-by-language-claude-gemini)). If you prompt in a language other than English, count your text before assuming English-level costs.
 
 ## How much does a Claude message cost?
 
 ![How much does a Claude message cost?: Request, Tokens in / out, Haiku 5.5, Sonnet 5.5, Opus 5.5](/claude-token-cost-how-much-does-a-claude-message-cost-en.jpg)
 
-Here are four everyday requests, priced with the estimate of 1.5 tokens per English word: a short question with a 300-word answer, a 5,000-word report summarized into 400 words, a 100-page document (about 40,000 words) with a 1,000-word answer, and a message deep in a chat that already holds 30,000 tokens of history, without caching. These are our calculations from the list prices, not measurements. Thinking tokens, tools and caching are left out to keep them simple.
+Here are four everyday requests, priced with the estimate of 1.6 tokens per English word: a short question with a 300-word answer, a 5,000-word report summarized into 400 words, a 100-page document (about 40,000 words) with a 1,000-word answer, and a message deep in a chat that already holds 30,000 tokens of history, without caching. These are our calculations from the list prices, not measurements. Thinking tokens, tools and caching are left out to keep them simple.
 
 | Request | Tokens in / out | Haiku 5.5 | Sonnet 5.5 | Opus 5.5 |
 |---|---|---:|---:|---:|
-| Question + 300-word answer | 75 / 450 | $0.0002 | $0.005 | $0.009 |
-| Summarize a 5,000-word report | 7,500 / 600 | $0.001 | $0.021 | $0.042 |
-| 100-page document + answer | 60,000 / 1,500 | $0.007 | $0.135 | $0.27 |
-| Chat with 30K tokens of history | 30,000 / 600 | $0.003 | $0.066 | $0.132 |
+| Question + 300-word answer | 80 / 480 | $0.0002 | $0.005 | $0.010 |
+| Summarize a 5,000-word report | 8,000 / 640 | $0.001 | $0.022 | $0.045 |
+| 100-page document + answer | 64,000 / 1,600 | $0.007 | $0.144 | $0.29 |
+| Chat with 30K tokens of history | 30,000 / 640 | $0.003 | $0.066 | $0.133 |
 
 - **A short answer costs less than a cent,** on Sonnet 5.5 and on Opus 5.5.
 - **In these examples the input cost more than the answer** once a document was pasted in, even though each output token costs more.
-- **Long chats cost more per message.** Every message re-sends the whole conversation as input. On Sonnet 5.5 the 30,000-token chat costs $0.066 per message, against half a cent for the short question. With prompt caching on, that same message would cost about $0.009 on Sonnet 5.5 and $0.018 on Opus 5.5, because the history is read from cache at 5% of the input price.
+- **Long chats cost more per message.** Every message re-sends the whole conversation as input. On Sonnet 5.5 the 30,000-token chat costs $0.066 per message, against half a cent for the short question. With prompt caching on, that same message would cost about $0.009 on Sonnet 5.5 and $0.019 on Opus 5.5, because the history is read from cache at 5% of the input price.
 
 To get an exact count for your own text and its cost on every model, paste it into the [token counter](/).
 

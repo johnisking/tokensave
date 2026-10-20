@@ -47,7 +47,7 @@ List prices in US dollars, checked October 1, 2026. Prices change often, sometim
 
 **Output is the expensive side.** On most models, output costs 300–500% more than input. If your app writes long answers, compare output prices first. See [Why output tokens cost more](/blog/why-output-tokens-cost-more).
 
-**Tokenizers differ.** Each provider splits text into tokens differently. The same text can be 10–30% more tokens on one model than another, so a lower price per token does not always mean a lower bill. Compare the cost of your own text in the [token counter](/), not just the price list. More in [How to count tokens for GPT, Claude and Gemini](/blog/how-to-count-tokens-gpt-claude-gemini).
+**Tokenizers differ.** Each provider splits text into tokens differently. In [our test](/data/token-cost-by-language-claude-gemini) the same English prompt was 38% more tokens on Claude 5.5 than on GPT, and 82% more in Korean, so a lower price per token does not always mean a lower bill. Compare the cost of your own text in the [token counter](/), not just the price list. More in [How to count tokens for GPT, Claude and Gemini](/blog/how-to-count-tokens-gpt-claude-gemini).
 
 **Your language matters.** Non-English text uses more tokens: on GPT's tokenizer, about 44% more for Korean, 79% more for Japanese and 100% more for Czech than English.
 

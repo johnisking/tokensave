@@ -35,13 +35,13 @@ A typical request of 2,000 input and 500 output tokens of English, at list price
 | Model | Input / output per 1M | 1 request | 10,000 requests |
 |---|---|---:|---:|
 | GPT-6.1 Sol | $2 / $10 | $0.0090 | $90 |
-| Gemini 3.1 Pro | $2 / $12 | $0.0095 | $95 |
-| Claude Sonnet 5.5 | $2 / $10 | $0.0117 | $117 |
-| Gemini 4 Argon (standard) | $4 / $20 | $0.0171 | $171 |
-| Claude Opus 5.5 | $4 / $20 | $0.0234 | $234 |
+| Gemini 3.1 Pro | $2 / $12 | $0.0100 | $100 |
+| Claude Sonnet 5.5 | $2 / $10 | $0.0124 | $124 |
+| Gemini 4 Argon (standard) | $4 / $20 | $0.0180 | $180 |
+| Claude Opus 5.5 | $4 / $20 | $0.0248 | $248 |
 | GPT-6 Astra | $10 / $50 | $0.0450 | $450 |
 
-Claude Sonnet 5.5 has the same price per token as GPT-6.1 Sol but costs about 30% more per request, because Claude's tokenizer turns the same English text into about 30% more tokens. **Claude Opus 5.5 costs about 160% more than GPT-6.1 Sol per request.**
+Claude Sonnet 5.5 has the same price per token as GPT-6.1 Sol but costs about 38% more per request, because Claude's tokenizer turned the same English text into about 38% more tokens in our own test ([dataset](/data/token-cost-by-language-claude-gemini)). **Claude Opus 5.5 costs about 176% more than GPT-6.1 Sol per request.**
 
 On quality, OpenAI reports GPT-6.1 Sol 2.2 points above Opus 5.5 on AutomationBench (multi-step workflows) at medium effort, and on its Terminal-Bench Science test it spent about $5.47 per task against $23.21 for Opus 5.5. These are OpenAI's own benchmarks; test on your own tasks before you switch a production workload. For an independent view of capability against price, see [AI model capability vs price](/compare/performance).
 
@@ -60,7 +60,7 @@ In ChatGPT it is available in ChatGPT Work and Codex for Plus, Pro, Business, En
 ## Should you switch?
 
 - **On GPT-6 Sol: yes.** Same list price, half the cache price, better scores. Change the model name to `gpt-6.1-sol` and run your tests.
-- **On Claude Sonnet 5.5 for cost reasons:** GPT-6.1 Sol is about 23% cheaper per request for the same English text. Whether it is as good for your work is the real question; compare on a sample first.
+- **On Claude Sonnet 5.5 for cost reasons:** GPT-6.1 Sol is about 28% cheaper per request for the same English text. Whether it is as good for your work is the real question; compare on a sample first.
 - **On Claude Opus 5.5 or GPT-6 Astra:** GPT-6.1 Sol is worth testing as a cheaper default, keeping the bigger model for the hardest requests.
 - **On GPT-6 Luna:** stay unless Luna's answers are not good enough. GPT-6.1 Sol costs $2 / $10 per million tokens against Luna's $0.10 / $0.50.
 

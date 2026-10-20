@@ -46,7 +46,7 @@ Because API pricing is per token, a Japanese prompt costs about 80% more than th
 
 ## Different models count differently
 
-Each model family has its own tokenizer. OpenAI, Anthropic and Google all use different vocabularies, so the same text can be 10–30% more tokens on one model than another. When you compare prices between providers, compare the **cost of your actual text**, not just the price per million tokens.
+Each model family has its own tokenizer. OpenAI, Anthropic and Google all use different vocabularies, so the same text comes out at a different count. In [our test](/data/token-cost-by-language-claude-gemini) the same English prompt was 38% more tokens on Claude 5.5 than on GPT, while Gemini was about the same as GPT. When you compare prices between providers, compare the **cost of your actual text**, not just the price per million tokens.
 
 ## Why tokens matter
 

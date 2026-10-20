@@ -263,7 +263,7 @@ def build_all(llm):
             pg["body"] = pg["body"].replace("<h2>API prices</h2>", f'<p>Hands-on test: <a href="{href}">{esc(label)}</a>.</p>\n      <h2>API prices</h2>', 1)
         line = perf.compare_line(a, b, eci)
         if "claude" in x or "claude" in y:
-            line += '\n      <p>Counting tokens for Claude? Use the <a href="/claude-token-counter">Claude token counter</a>: Claude needs about 30% more tokens than GPT for the same text.</p>'
+            line += '\n      <p>Counting tokens for Claude? Use the <a href="/claude-token-counter">Claude token counter</a>: in our test Claude used 38% more tokens than GPT for the same English prompt (<a href="/data/token-cost-by-language-claude-gemini">data</a>).</p>'
         if line:
             pg["body"] = pg["body"].replace("<h2>Cost by workload</h2>", "<h2>Capability</h2>\n      " + line + "\n      <h2>Cost by workload</h2>", 1)
         pages.append(pg)
