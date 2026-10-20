@@ -26,11 +26,14 @@ const PROVIDERS = [
 
 const $ = id => document.getElementById(id);
 const els = { msgs: $('pMsgs'), msgsNum: $('pMsgsNum'), turns: $('pTurns'), turnsVal: $('pTurnsVal'),
-  lang: $('pLang'), langNote: $('pLangNote'), tokIn: $('pTokIn'), tokOut: $('pTokOut'), cards: $('pCards') };
-const state = { size: 'chat' };
+  lang: $('pLang'), langNote: $('pLangNote'), tokIn: $('pTokIn'), tokOut: $('pTokOut'), cards: $('pCards'), patNote: $('pPatNote') };
+const state = { size: 'chat', pat: 'even' };
+// Days of use per month: every day at the entered rate, or one busy week at that rate and 23 quiet days at a quarter of it
+const DAYS = { even: 30, peak: 7 + 23 / 4 };
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const money = n => '$' + (n >= 100 ? Math.round(n).toLocaleString('en-US') : n >= 1 ? n.toFixed(2) : n.toFixed(3));
+const perMsgMoney = n => '$' + (n >= 1 ? n.toFixed(2) : n >= 0.01 ? n.toFixed(3) : n.toFixed(4));
 const planMoney = n => Number.isInteger(n) ? money(n) : '$' + n.toFixed(2);
 const big = n => n >= 1e9 ? (n / 1e9).toFixed(2) + 'B' : n >= 1e6 ? (n / 1e6).toFixed(1) + 'M' : n >= 1e3 ? Math.round(n / 1e3) + 'K' : String(Math.round(n));
 
@@ -46,13 +49,15 @@ function monthlyTokens() {
   const [p, r] = SIZES[state.size].map(x => x * ratio);
   const inPerChat = p * turns * (turns + 1) / 2 + r * turns * (turns - 1) / 2;
   const outPerChat = r * turns;
-  const chats = perDay * 30 / turns;
-  return { perDay, ratio, tin: inPerChat * chats, tout: outPerChat * chats };
+  const msgs = perDay * DAYS[state.pat];
+  const chats = msgs / turns;
+  return { perDay, msgs, ratio, tin: inPerChat * chats, tout: outPerChat * chats };
 }
 
 function render() {
   els.turnsVal.textContent = els.turns.value;
-  const { perDay, ratio, tin, tout } = monthlyTokens();
+  const { perDay, msgs, ratio, tin, tout } = monthlyTokens();
+  els.patNote.textContent = state.pat === 'peak' ? tr('patNote', { n: Math.round(msgs).toLocaleString('en-US') }) : '';
   els.tokIn.textContent = big(tin);
   els.tokOut.textContent = big(tout);
   const langName = (LANGS.find(l => l[0] === els.lang.value) || [0, ''])[1];
@@ -81,6 +86,7 @@ function render() {
         ${esc(apiWins ? tr('cheaperApi', { d: money(diff) }) : tr('cheaperPlan', { plan: fullPlan, d: money(diff) }))}
         <span class="block text-[11px] font-normal text-zinc-400 mt-1">${api[0].name} vs ${esc(fullPlan)}</span>
       </p>
+      <p class="mt-2 text-[11px] text-zinc-400 ltr">${esc(tr('perMsg', { plan: fullPlan, p: perMsgMoney(planPrice / msgs), a: perMsgMoney(main / msgs) }))}</p>
       ${breakEven ? `<p class="mt-2 text-[11px] text-zinc-500">${esc(tr('breakEven', { plan: fullPlan, n: breakEven.toLocaleString('en-US') }))}</p>` : ''}
     </article>`;
   }).join('');
@@ -99,6 +105,13 @@ sizeBtns.forEach(b => b.addEventListener('click', () => {
   render();
 }));
 sizeBtns.forEach(x => x.classList.toggle('tab-active', x.dataset.size === state.size));
+const patBtns = document.querySelectorAll('#pPattern button');
+patBtns.forEach(b => b.addEventListener('click', () => {
+  state.pat = b.dataset.pat;
+  patBtns.forEach(x => x.classList.toggle('tab-active', x === b));
+  render();
+}));
+patBtns.forEach(x => x.classList.toggle('tab-active', x.dataset.pat === state.pat));
 els.turns.addEventListener('input', render);
 els.lang.addEventListener('change', render);
 render();
