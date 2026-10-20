@@ -1,0 +1,216 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="Claude Code キャッシュは1時間：休憩後は507％高い" src="/claude-code-cache-1jikan-ja.jpg" /></p>
+<p>Claude Code でしばらく作業してから昼休みに入り、戻ってメッセージを送ると、最初の返事がやけに遅く、使用量もぐっと減っている。そんな経験をした人は多いはずです。原因としてよく挙げられるのがプロンプトキャッシュです。Claude Code のキャッシュは一定時間が過ぎると消え、そのあとの最初のメッセージは会話全体を処理し直す必要があります。</p>
+<p>ところが、その「一定時間」が何分なのかは記事によって違います。5分という記事もあれば、1時間という記事もあります。2026年4月には、キャッシュの有効時間が1時間から5分に縮んだというユーザーの分析が出て話題になり、Anthropic はメインの会話には1時間のキャッシュを使っていると答えました。キャッシュが切れると費用が大きく跳ね上がるという記事もありますが、実際に測った数字はなかなか見つかりません。</p>
+<p>そこで、実際に待ってみました。同じゲームを作らせたあと、休憩時間を0分から65分まで変えて同じ修正を頼み、そのメッセージがキャッシュをどれだけ読み、どれだけ書いたか、費用はいくらだったかを比べました。測定日は2026年10月20日、Claude Code 2.1.295 と Claude Opus 5.5 を使いました。</p>
+<h2>どうやって測ったか</h2>
+<p>サブスクのプランでログインした Claude Code を、ヘッドレスモード（-p）で動かしました。モデルは Opus 5.5、effort は medium、MCP サーバーはつないでいません。まず「キーボードとマウスで遊べるブロック崩しゲームを index.html 1つで作って」と頼み、ゲームを作らせます。そのあと決めた時間だけ待ってから、同じ会話を続けて（--resume）「ボールを赤く、少し速くして」という小さな修正を頼みました。</p>
+<p>休憩時間は0分、4分、6分、15分、30分、55分、65分の7通りです。キャッシュが5分なら4分と6分の間で、1時間なら55分と65分の間で、費用が急に跳ね上がるはずです。休憩時間ごとに別のセッションを開いて1分以内に一斉にスタートし、同じ実験を2回行いました。トークン数は Claude Code が残すモデル呼び出しごとの使用量の記録から、費用は結果と一緒に返る API 定価換算の金額（total_cost_usd）から取っています。金額は1ドル＝158円で換算し、円を先に、ドルを括弧に書いています。</p>
+<h2>結果：55分までは変わらず、65分で+507％</h2>
+<p><img loading="lazy" width="1200" height="776" alt="結果：55分までは変わらず、65分で+507％: 休憩時間, キャッシュから読み込み, キャッシュに新しく書き込み, 次のメッセージの費用, キャッシュ" src="/claude-code-cache-1jikan-5565-507-ja.jpg" /></p>
+<p>休憩後に送ったメッセージの最初のモデル呼び出しで、キャッシュから読んだトークンと新しく書いたトークン、そしてそのメッセージ全体の費用です。2回測った平均です。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>休憩時間</th>
+<th style="text-align: right;">キャッシュから読み込み</th>
+<th style="text-align: right;">キャッシュに新しく書き込み</th>
+<th style="text-align: right;">次のメッセージの費用</th>
+<th>キャッシュ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0分</td>
+<td style="text-align: right;">41,436</td>
+<td style="text-align: right;">496</td>
+<td style="text-align: right;">約6.2円（$0.039）</td>
+<td>有効</td>
+</tr>
+<tr>
+<td>4分</td>
+<td style="text-align: right;">43,232</td>
+<td style="text-align: right;">466</td>
+<td style="text-align: right;">約6.6円（$0.042）</td>
+<td>有効</td>
+</tr>
+<tr>
+<td>6分</td>
+<td style="text-align: right;">42,440</td>
+<td style="text-align: right;">496</td>
+<td style="text-align: right;">約6.6円（$0.042）</td>
+<td>有効</td>
+</tr>
+<tr>
+<td>15分</td>
+<td style="text-align: right;">43,076</td>
+<td style="text-align: right;">502</td>
+<td style="text-align: right;">約6.5円（$0.041）</td>
+<td>有効</td>
+</tr>
+<tr>
+<td>30分</td>
+<td style="text-align: right;">42,636</td>
+<td style="text-align: right;">494</td>
+<td style="text-align: right;">約6.8円（$0.043）</td>
+<td>有効</td>
+</tr>
+<tr>
+<td>55分</td>
+<td style="text-align: right;">43,183</td>
+<td style="text-align: right;">502</td>
+<td style="text-align: right;">約6.8円（$0.043）</td>
+<td>有効</td>
+</tr>
+<tr>
+<td>65分</td>
+<td style="text-align: right;">15,925</td>
+<td style="text-align: right;">27,460</td>
+<td style="text-align: right;"><strong>約40.0円（$0.253）</strong></td>
+<td>期限切れ</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>55分までは何も変わりませんでした。</strong> 0分休んでも55分休んでも、最初の呼び出しは約4万3千トークンをキャッシュから読み、新しく書いたのは数百トークンだけでした。メッセージの費用も平均$0.042で同じです。</p>
+<p><strong>65分休むと、キャッシュの期限が切れていました。</strong> 最初の呼び出しで27,460トークンをキャッシュに書き直す必要があり、同じメッセージが$0.253と507％高くなりました。2回の測定とも同じ結果です。キャッシュが5分なら逃していたはずの6分や15分の休憩でも、追加の費用はかかりませんでした。</p>
+<h2>なぜ1時間なのか</h2>
+<p><img loading="lazy" width="1200" height="679" alt="なぜ1時間なのか: ログイン方法, メインの会話, サブエージェント・要約（compact）など" src="/claude-code-cache-1jikan-ja-3.jpg" /></p>
+<p>使用量の記録を見ると、今回の実行で Claude Code が書いたキャッシュはすべて ephemeral_1h、つまり1時間のものでした。Anthropic API の標準のキャッシュは5分ですが、Claude Code は条件によって1時間のキャッシュを要求します。公式ドキュメントにまとめられている初期設定は次のとおりです。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>ログイン方法</th>
+<th>メインの会話</th>
+<th>サブエージェント・要約（compact）など</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>サブスク、プランに含まれる使用量の範囲内</td>
+<td>1時間</td>
+<td>5分</td>
+</tr>
+<tr>
+<td>サブスクで使用量クレジットを使っている間</td>
+<td>5分</td>
+<td>5分</td>
+</tr>
+<tr>
+<td>API キー、クラウドプロバイダー</td>
+<td>5分</td>
+<td>5分</td>
+</tr>
+</tbody>
+</table></div>
+<p>サブスクでも、プランに含まれる使用量を超えて使用量クレジットを使い始めると、メインの会話も5分に切り替わります。公式ドキュメントは、このときはキャッシュ書き込みの単価が安い5分のキャッシュを使うと説明しています。4月の議論のときも、Anthropic はキャッシュの時間をリクエストごとに決めており、メインの会話には1時間のキャッシュを使うと説明していました（Byline Network の報道による）。</p>
+<p>1時間のキャッシュはタダではありません。Opus 5.5 の場合、料金は次のように違います。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>トークンの種類</th>
+<th style="text-align: right;">100万トークンあたり</th>
+<th style="text-align: right;">通常の入力との差</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>通常の入力</td>
+<td style="text-align: right;">$4</td>
+<td style="text-align: right;">基準</td>
+</tr>
+<tr>
+<td>キャッシュ書き込み（5分）</td>
+<td style="text-align: right;">$5</td>
+<td style="text-align: right;">+25%</td>
+</tr>
+<tr>
+<td>キャッシュ書き込み（1時間）</td>
+<td style="text-align: right;">$8</td>
+<td style="text-align: right;">+100%</td>
+</tr>
+<tr>
+<td>キャッシュ読み込み</td>
+<td style="text-align: right;">$0.20</td>
+<td style="text-align: right;">-95%</td>
+</tr>
+</tbody>
+</table></div>
+<p>1時間のキャッシュは書き込むときに高い代わりに、一度書けば1時間のあいだ95％安く読めます。メッセージの合間に数分ずつ考えたりコードを確かめたりする人には、5分のキャッシュより有利なしくみです。</p>
+<h2>会話が大きいとどれだけ高くなるか</h2>
+<p>今回のゲームは、会話全体が約4万トークンの小さなプロジェクトでした。キャッシュが切れたときに書き直す量は会話の大きさに比例するので、会話が大きいほど休憩の代償も大きくなります。Opus 5.5 の料金で、会話全体を読むときと書き直すときだけを計算すると次のようになります（出力や新しく読むファイルは除く）。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>会話の大きさ</th>
+<th style="text-align: right;">キャッシュが有効なとき（読み込み）</th>
+<th style="text-align: right;">キャッシュが切れたとき（書き直し）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4万トークン</td>
+<td style="text-align: right;">約1.3円（$0.008）</td>
+<td style="text-align: right;">約51円（$0.32）</td>
+</tr>
+<tr>
+<td>10万トークン</td>
+<td style="text-align: right;">約3.2円（$0.02）</td>
+<td style="text-align: right;">約126円（$0.80）</td>
+</tr>
+<tr>
+<td>20万トークン</td>
+<td style="text-align: right;">約6.3円（$0.04）</td>
+<td style="text-align: right;">約253円（$1.60）</td>
+</tr>
+</tbody>
+</table></div>
+<p>同じ日に測った長い会話の実験では、修正依頼30件を1つのセッションで続けると、会話は20万トークンを超えました。その規模のセッションを1時間以上空けると、戻って送る最初のメッセージ1件に、書き直しの費用だけで$1.60かかります。会話が小さいセッションなら、期限が切れても数十円なので、あまり気にする必要はありません。</p>
+<h2>席を立つ前にできること</h2>
+<p><img loading="lazy" width="1200" height="1123" alt="席を立つ前にできること: 1時間以内ならそのまま休む。 サブスクなら、55分までは費用が変わりませんでした。; 長く休んで同じ作業を続けるなら、先に /compact。 公式ドキュメントによると、/compact はキャッシュが有効なうちなら会話" src="/claude-code-cache-1jikan-ja-4.jpg" /></p>
+<p>休憩そのものは減らせないので、長く休むときにできることをまとめました。今回実際に測ったのは休憩時間ごとの費用だけで、以下の方法の効果は公式ドキュメントの説明にもとづいています。</p>
+<ul>
+<li><strong>1時間以内ならそのまま休む。</strong> サブスクなら、55分までは費用が変わりませんでした。</li>
+<li><strong>長く休んで同じ作業を続けるなら、先に /compact。</strong> 公式ドキュメントによると、/compact はキャッシュが有効なうちなら会話をキャッシュから読んで安く要約でき、期限が切れたあとは会話全体をキャッシュなしで処理します。短い要約だけを残しておけば、戻ってから書き直す量も減ります。</li>
+<li><strong>戻ってから別の作業をするなら /clear。</strong> 公式ドキュメントは、新しく始めたいときの /clear には費用がかからないと説明しています。続きの内容をファイルにメモさせておき、新しいセッションでそのファイルだけを読ませる方法もあります。</li>
+<li><strong>戻ったらキャッシュの状態を確かめる。</strong> バージョン2.1.251から、/usage の画面の「Prompt cache (main)」の行に、キャッシュが有効か（warm、cold）と有効時間が表示されます。cold なら、次のメッセージで会話全体を書き直すことになります。</li>
+<li><strong>休憩中に自動で要約されることもある。</strong> 公式ドキュメントによると、1時間のキャッシュを使うターミナルのセッションで長い会話を放置すると、Claude Code がキャッシュが切れる直前に会話を要約することがあります（idleCompaction の設定、2.1.290以降）。今回の測定はヘッドレスモードなので、この機能は動いていません。</li>
+</ul>
+<h2>キャッシュの時間を自分で決める方法</h2>
+<p>公式ドキュメントによると、バージョン2.1.242から、キャッシュの有効時間を自分で選べます。メインの会話は promptCacheTtl の設定か CLAUDE_CODE_PROMPT_CACHE_TTL の環境変数で、サブエージェントなどほかのリクエストは subagentPromptCacheTtl で決め、値は 5m か 1h だけを受け付けます。</p>
+<p>API キーで Claude Code を使っていて、メッセージの間隔がよく5分を超えるなら、promptCacheTtl を 1h にすることを検討する価値があります。逆に、短く集中して終わらせる使い方なら、書き込みの単価が安い5分のキャッシュのほうが向いています。いま自分のキャッシュが何分なのかは、ターミナルで次のように確かめられます。</p>
+<pre><code>claude -p &quot;hello&quot; --output-format json
+</code></pre>
+<p>結果の usage.cache_creation の中で、ephemeral_1h_input_tokens に数字があれば1時間、ephemeral_5m_input_tokens にあれば5分のキャッシュです。</p>
+<h2>同じ日に測った長い会話の実験</h2>
+<p>休憩時間と一緒に、同じゲームに修正依頼30件を3つのやり方で送る実験もしました。1つのセッションで続けると平均$4.16、15件目のあとに /compact を使うと13％増え、依頼ごとに新しいセッションを開くと129％増えました。新しいセッションも毎回キャッシュを最初から書き直す必要があって高くついたもので、しくみはこの記事の65分の休憩と同じです。詳しい数字は<a href="/data/long-chat-vs-new-chat-cost">長い会話と新しい会話の実測データ</a>にあります。</p>
+<p>自分のセッションが実際に日付やプロジェクト別にいくら使ったかは、<a href="/ja/claude-code-usage">使用量アナライザー</a>に ~/.claude/projects フォルダを入れると確認できます。1日の作業量からサブスクと API を比べるなら、<a href="/ja/agents">エージェント費用計算機</a>を使ってみてください。</p>
+<h2>今回の測定の限界</h2>
+<ul>
+<li><strong>小さなプロジェクト1つ:</strong> 会話が約4万トークンのゲーム1つで測りました。大きな会話で期限切れのコストがいくらになるかは、上の表のように料金から計算した値です。</li>
+<li><strong>セッションを同時に実行:</strong> 7つのセッションを1分以内に一斉に始めたため、共通部分の一部がほかのセッションのおかげでキャッシュに残っていた可能性があります。65分の休憩でも15,925トークンはキャッシュから読まれていました。セッションを1つだけ動かす場合、期限切れのコストはもう少し大きくなるかもしれません。</li>
+<li><strong>サブスクでログイン、Opus 5.5 のみ:</strong> API キーや使用量クレジットならキャッシュは5分なので、結果は大きく変わります。Codex も一緒に動かしましたが、いくつも同時に実行するとファイルの書き込みで止まってしまったため、結果から外しました。</li>
+<li><strong>費用は API 定価での換算:</strong> サブスクではこの金額は請求されず、その代わりに同じ割合で使用量の上限が減ります。</li>
+</ul>
+<h2>よくある質問</h2>
+<p><strong>Claude Code のキャッシュは何分もちますか？</strong>
+サブスクでログインしていて、プランに含まれる使用量の範囲内なら、メインの会話は1時間です。今回の測定でも55分までは有効で、65分では切れていました。API キー、クラウドプロバイダー、使用量クレジットを使っている間は標準で5分です。</p>
+<p><strong>キャッシュは最後のメッセージから1時間ですか？</strong>
+公式ドキュメントによると、キャッシュを読むリクエストがあるたびに時間がリセットされます。作業を続けている間はキャッシュが保たれ、最後のリクエストから1時間リクエストがなければ期限切れになります。</p>
+<p><strong>休憩の前に /compact をすれば節約できますか？</strong>
+公式ドキュメントは、キャッシュが有効なうちに要約するほうが安く、要約のあとは短い要約だけを書き直せばよいと説明しています。今回の測定では、このケースを直接は測っていません。同じ日の実験で、休憩なしに途中で /compact を使った場合はかえって13％増えたので、休憩の直前のように理由があるときに使うのがよさそうです。</p>
+<p><strong>サブスクならキャッシュの期限切れは関係ないのでは？</strong>
+料金が別にかかるわけではありませんが、使用量の上限がそのぶん多く減ります。今回の小さなゲームでも、メッセージ1件が$0.042ぶんから$0.253ぶんに増え、大きなセッションほど差は広がります。</p>
+<p><strong>サブエージェントも1時間のキャッシュを使いますか？</strong>
+いいえ。公式ドキュメントによると、サブエージェントや要約（compact）のリクエストなど、メインの会話の外のリクエストはサブスクでも標準で5分です。subagentPromptCacheTtl で変えられます。</p>
+<h2>まとめ</h2>
+<p>サブスクの Claude Code で、同じ会話を0分から65分まで休んでから続けてみたところ、55分までは次のメッセージの費用が$0.042でまったく同じでした。65分休むとキャッシュの期限が切れ、同じメッセージが$0.253と507％高くなりました。使用量の記録で確かめたキャッシュは1時間のものでした。</p>
+<p>1時間以内の休憩は気にしなくて大丈夫です。それより長く休む予定で会話が大きいなら、席を立つ前に /compact で小さくしておくか、戻ってから /clear で新しく始めることを考えてみてください。測定は小さなプロジェクト1つで2回行ったものなので、会話の大きさやバージョンによって数字は変わる可能性があります。元の記録と CSV は<a href="/data/ai-coffee-break-cache-cost">休憩時間とキャッシュの実測データ</a>から CC BY 4.0 でダウンロードできます。</p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://code.claude.com/docs/en/prompt-caching" target="_blank" rel="noopener">Claude Code 公式ドキュメント：プロンプトキャッシュ（有効時間、promptCacheTtl、/compact、idleCompaction）</a></li>
+<li><a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener">Claude Code 公式ドキュメント：コストの管理（/usage のキャッシュ表示、/clear）</a></li>
+<li><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" target="_blank" rel="noopener">Anthropic プロンプトキャッシュのドキュメント（キャッシュ書き込み・読み込みの料金）</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">Anthropic API 料金表（Opus 5.5）</a></li>
+<li><a href="https://byline.network/2026/04/14-555/" target="_blank" rel="noopener">Byline Network：Claude Code のトークン急消費をめぐる報道（2026年4月14日、韓国語）</a></li>
+<li><a href="/data/ai-coffee-break-cache-cost">トークンセーブ：休憩時間とキャッシュの実測データ（CSV、CC BY 4.0）</a></li>
+</ul>
+<!-- autoimg -->

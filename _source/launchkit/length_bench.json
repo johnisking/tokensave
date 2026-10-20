@@ -427,5 +427,36 @@
    "zenn.dev sora_biz": 5500,
    "we0.ai": 10000
   }
+ },
+ "coffee-ko": {
+  "keyword": "클로드 코드 캐시 1시간",
+  "checked": "2026-10-20",
+  "median": 3000,
+  "note": "estimated from WebFetch summaries, ±30%",
+  "samples": {
+   "byline.network": 2100,
+   "maily.so Automata": 3000,
+   "wikidocs @jaehong 10472": 4000
+  }
+ },
+ "coffee-ja": {
+  "keyword": "Claude Code キャッシュ 1時間",
+  "checked": "2026-10-20",
+  "median": 2600,
+  "note": "estimated from WebFetch summaries, ±30%",
+  "samples": {
+   "library.libecity.com": 2750,
+   "smartscope.blog": 2400
+  }
+ },
+ "coffee-en": {
+  "keyword": "Claude Code cache expired break cost",
+  "checked": "2026-10-20",
+  "median": 1175,
+  "note": "estimated from WebFetch summaries, ±30%",
+  "samples": {
+   "pub.towardsai.net": 750,
+   "wmedia.es": 1600
+  }
  }
 }

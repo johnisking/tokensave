@@ -983,3 +983,18 @@ CCSESS = [
 ]
 for _b in CCSESS:
     _b["date"] = "2026-10-20"
+
+# 2026-10-20 coffee-break cache post (en, ko, ja): pauses of 0-65 min, one-hour cache measured
+COFFEE = [
+ _cc("en", "/blog/claude-code-cache-break-cost", "coffee-en", "Claude Code Cache Lasts 1 Hour: What a Break Costs (Measured)",
+     "We paused Claude Code 0 to 65 minutes: up to 55 minutes the next message cost the same; after 65 the cache expired and it cost 507% more. TTL rules and fixes.",
+     "Jonhisking · October 20, 2026", "Set task size and tasks per day to compare Claude Code's API cost with Pro and Max.", "Open the agent cost calculator"),
+ _cc("ko", "/ko/blog/claude-code-cache-1sigan", "coffee-ko", "클로드 코드 캐시 1시간: 쉬고 오면 507% 비싸진다",
+     "클로드 코드를 0~65분 쉬었다가 이어 가며 실측: 55분까지 다음 메시지 비용은 그대로, 65분엔 캐시가 만료돼 507% 비싸졌습니다. 로그인별 캐시 시간과 쉬기 전 대처법.",
+     "Jonhisking · 2026년 10월 20일", "하루 작업 수와 크기를 넣고 클로드 코드의 API 비용을 Pro·Max와 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"),
+ _cc("ja", "/ja/blog/claude-code-cache-1jikan", "coffee-ja", "Claude Code キャッシュは1時間：休憩後は507％高い",
+     "Claude Code を0〜65分休ませて実測：55分までは次のメッセージの費用が同じ、65分でキャッシュが切れて507％高くなりました。ログイン別のキャッシュ時間と休憩前の対策。",
+     "Jonhisking · 2026年10月20日", "1日のタスク数と大きさを入れて、Claude Code の API 費用を Pro・Max と比べてみましょう。", "エージェント費用計算機を開く"),
+]
+for _b in COFFEE:
+    _b["date"] = "2026-10-20"
