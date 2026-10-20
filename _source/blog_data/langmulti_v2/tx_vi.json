@@ -1,0 +1,12 @@
+{
+ "1": "Hãy tóm tắt email của khách hàng dưới đây thành ba ý chính và đề xuất một câu trả lời lịch sự. Khách hàng nói rằng đơn hàng đến trễ hai ngày và thiếu một món trong hộp.",
+ "2": "Viết một hàm Python đọc file CSV chứa các đơn hàng, xóa các dòng trùng lặp có cùng ID đơn hàng và trả về tổng doanh thu của từng tháng. Thêm chú thích ngắn và xử lý các giá trị bị thiếu.",
+ "3": "Mình đang lên kế hoạch đi chơi cuối tuần với hai người bạn. Bọn mình thích leo núi và đồ ăn ngon, và không muốn lái xe quá ba tiếng. Bạn có thể gợi ý ba địa điểm và cho bọn mình biết nên mang theo những gì không?",
+ "4": "Viết một đoạn mô tả sản phẩm ngắn cho chai nước bằng thép không gỉ giữ lạnh đồ uống trong 24 giờ. Chai nhẹ, vừa với khay để cốc trên ô tô và có năm màu.",
+ "5": "Giải thích bằng lời đơn giản cách vắc-xin dạy hệ miễn dịch nhận biết virus, và tại sao một số loại vắc-xin cần tiêm mũi thứ hai.",
+ "6": "Viết lại tin nhắn này cho chuyên nghiệp hơn: ê, báo cáo chưa xong vì dữ liệu về muộn, sáng mai mình gửi nhé, xin lỗi nha.",
+ "7": "Đây là ghi chú của mình từ cuộc họp hôm nay: ngày ra mắt dời sang 12/3, bên marketing cần ảnh chụp màn hình bản cuối trước thứ Sáu, và chúng ta vẫn chưa chọn được nhà cung cấp dịch vụ thanh toán. Hãy chuyển chúng thành một bản cập nhật ngắn cho cả nhóm.",
+ "8": "Website của chúng tôi có 12.400 lượt truy cập trong tháng 9 và 9.800 trong tháng 10. Số lượt đăng ký giảm từ 310 xuống 295. Điều gì có thể giải thích việc này, và chúng tôi nên kiểm tra ba chỉ số nào trước?",
+ "9": "Mình có cơm, trứng, rau chân vịt, tỏi và nước tương. Gợi ý một món ăn tối đơn giản có thể làm trong 20 phút và liệt kê các bước.",
+ "10": "Tuần sau mình có bài thi về Cách mạng Pháp. Hãy lập kế hoạch ôn tập bảy ngày, mỗi ngày một chủ đề chính và có một bài kiểm tra ngắn ở cuối."
+}

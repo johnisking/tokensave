@@ -1,0 +1,12 @@
+{
+ "1": "Please summarize the customer email below in three bullet points and suggest a polite reply. The customer says the order arrived two days late and one item was missing from the box.",
+ "2": "Write a Python function that reads a CSV file of orders, removes duplicate rows with the same order ID, and returns the total revenue for each month. Add short comments and handle missing values.",
+ "3": "I'm planning a weekend trip with two friends. We like hiking and good food, and we don't want to drive more than three hours. Can you suggest three places and tell us what to pack?",
+ "4": "Write a short product description for a stainless steel water bottle that keeps drinks cold for 24 hours. It is light, fits in a car cup holder and comes in five colors.",
+ "5": "Explain in simple words how a vaccine teaches the immune system to recognize a virus, and why some vaccines need a second dose.",
+ "6": "Rewrite this message so it sounds more professional: hey, the report isn't done yet because the data came in late, I'll send it tomorrow morning, sorry about that.",
+ "7": "Here are my notes from today's meeting: the launch moves to March 12, marketing needs the final screenshots by Friday, and we still have not chosen a payment provider. Turn them into a short update for the team.",
+ "8": "Our website had 12,400 visitors in September and 9,800 in October. Sign-ups went from 310 to 295. What might explain this, and which three numbers should we check first?",
+ "9": "I have rice, eggs, spinach, garlic and soy sauce. Suggest a simple dinner I can make in twenty minutes and list the steps.",
+ "10": "I have an exam on the French Revolution next week. Make a seven-day study plan with one main topic per day and a short quiz at the end."
+}

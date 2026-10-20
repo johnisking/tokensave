@@ -1,0 +1,12 @@
+{
+ "1": "Tiivistä alla oleva asiakkaan sähköposti kolmeen kohtaan ja ehdota kohteliasta vastausta. Asiakas kertoo, että tilaus saapui kaksi päivää myöhässä ja laatikosta puuttui yksi tuote.",
+ "2": "Kirjoita Python-funktio, joka lukee tilauksia sisältävän CSV-tiedoston, poistaa päällekkäiset rivit, joilla on sama tilaus-ID, ja palauttaa kunkin kuukauden kokonaistulot. Lisää lyhyet kommentit ja käsittele puuttuvat arvot.",
+ "3": "Suunnittelen viikonloppureissua kahden kaverin kanssa. Tykkäämme patikoinnista ja hyvästä ruoasta, emmekä halua ajaa yli kolmea tuntia. Voitko ehdottaa kolme paikkaa ja kertoa, mitä meidän kannattaa pakata mukaan?",
+ "4": "Kirjoita lyhyt tuotekuvaus ruostumattomasta teräksestä valmistetulle juomapullolle, joka pitää juomat kylminä 24 tuntia. Se on kevyt, mahtuu auton mukitelineeseen ja sitä on saatavana viittä eri väriä.",
+ "5": "Selitä yksinkertaisin sanoin, miten rokote opettaa immuunijärjestelmää tunnistamaan viruksen ja miksi jotkin rokotteet tarvitsevat toisen annoksen.",
+ "6": "Kirjoita tämä viesti uudelleen niin, että se kuulostaa ammattimaisemmalta: moi, raportti ei ole vielä valmis, koska data tuli myöhässä, lähetän sen huomenna aamulla, sori siitä.",
+ "7": "Tässä muistiinpanoni tämänpäiväisestä palaverista: julkaisu siirtyy 12. maaliskuuta, markkinointi tarvitsee lopulliset kuvakaappaukset perjantaihin mennessä, emmekä ole vieläkään valinneet maksupalvelun tarjoajaa. Tee niistä lyhyt tilannekatsaus tiimille.",
+ "8": "Sivustollamme oli syyskuussa 12 400 kävijää ja lokakuussa 9 800. Rekisteröitymiset laskivat 310:stä 295:een. Mikä voisi selittää tämän, ja mitkä kolme lukua meidän pitäisi tarkistaa ensin?",
+ "9": "Minulla on riisiä, kananmunia, pinaattia, valkosipulia ja soijakastiketta. Ehdota helppo illallinen, jonka voin tehdä kahdessakymmenessä minuutissa, ja listaa vaiheet.",
+ "10": "Minulla on ensi viikolla koe Ranskan vallankumouksesta. Tee seitsemän päivän opiskelusuunnitelma, jossa on yksi pääaihe per päivä ja lopussa lyhyt tietovisa."
+}

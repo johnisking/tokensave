@@ -1,0 +1,12 @@
+{
+ "1": "Fasse die folgende Kunden-E-Mail in drei Stichpunkten zusammen und schlage eine höfliche Antwort vor. Der Kunde sagt, dass die Bestellung zwei Tage zu spät ankam und ein Artikel im Paket fehlte.",
+ "2": "Schreib eine Python-Funktion, die eine CSV-Datei mit Bestellungen einliest, doppelte Zeilen mit derselben Bestell-ID entfernt und den Gesamtumsatz für jeden Monat zurückgibt. Füge kurze Kommentare hinzu und behandle fehlende Werte.",
+ "3": "Ich plane mit zwei Freunden einen Wochenendausflug. Wir wandern gern und mögen gutes Essen, und wir wollen nicht länger als drei Stunden fahren. Kannst du uns drei Orte vorschlagen und sagen, was wir einpacken sollen?",
+ "4": "Schreib eine kurze Produktbeschreibung für eine Trinkflasche aus Edelstahl, die Getränke 24 Stunden lang kalt hält. Sie ist leicht, passt in den Getränkehalter im Auto und ist in fünf Farben erhältlich.",
+ "5": "Erklär mir in einfachen Worten, wie ein Impfstoff dem Immunsystem beibringt, ein Virus zu erkennen, und warum manche Impfstoffe eine zweite Dosis brauchen.",
+ "6": "Formuliere diese Nachricht so um, dass sie professioneller klingt: hey, der Bericht ist noch nicht fertig, weil die Daten zu spät kamen, ich schick ihn morgen früh, sorry dafür.",
+ "7": "Hier sind meine Notizen aus dem heutigen Meeting: Der Launch wird auf den 12. März verschoben, das Marketing braucht die finalen Screenshots bis Freitag, und wir haben immer noch keinen Zahlungsanbieter ausgewählt. Mach daraus ein kurzes Update fürs Team.",
+ "8": "Unsere Website hatte im September 12.400 Besucher und im Oktober 9.800. Die Anmeldungen sind von 310 auf 295 gesunken. Woran könnte das liegen, und welche drei Zahlen sollten wir uns zuerst ansehen?",
+ "9": "Ich habe Reis, Eier, Spinat, Knoblauch und Sojasoße. Schlag mir ein einfaches Abendessen vor, das ich in zwanzig Minuten machen kann, und liste die Schritte auf.",
+ "10": "Ich habe nächste Woche eine Prüfung über die Französische Revolution. Erstell mir einen Lernplan für sieben Tage mit einem Hauptthema pro Tag und einem kurzen Quiz am Ende."
+}

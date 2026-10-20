@@ -1,0 +1,12 @@
+{
+ "1": "Zhrňte nižšie uvedený e-mail zákazníka do troch bodov a navrhnite zdvorilú odpoveď. Zákazník píše, že objednávka dorazila s dvojdňovým oneskorením a v krabici chýbala jedna položka.",
+ "2": "Napíšte funkciu v Pythone, ktorá načíta CSV súbor s objednávkami, odstráni duplicitné riadky s rovnakým ID objednávky a vráti celkové tržby za každý mesiac. Pridajte krátke komentáre a ošetrite chýbajúce hodnoty.",
+ "3": "Plánujem víkendový výlet s dvoma kamarátmi. Radi chodíme na túry a dobre sa najeme a nechceme šoférovať dlhšie ako tri hodiny. Môžete navrhnúť tri miesta a poradiť nám, čo si zbaliť?",
+ "4": "Napíšte krátky popis produktu pre nerezovú fľašu na vodu, ktorá udrží nápoje studené 24 hodín. Je ľahká, zmestí sa do držiaka na nápoje v aute a vyrába sa v piatich farbách.",
+ "5": "Vysvetlite jednoduchými slovami, ako vakcína učí imunitný systém rozpoznať vírus a prečo niektoré vakcíny potrebujú druhú dávku.",
+ "6": "Prepíšte túto správu, aby znela profesionálnejšie: ahoj, report ešte nie je hotový, lebo dáta prišli neskoro, pošlem ho zajtra ráno, sorry.",
+ "7": "Tu sú moje poznámky z dnešného stretnutia: spustenie sa posúva na 12. marca, marketing potrebuje finálne screenshoty do piatka a stále sme nevybrali poskytovateľa platieb. Spravte z nich krátku aktualizáciu pre tím.",
+ "8": "Náš web mal v septembri 12 400 návštevníkov a v októbri 9 800. Počet registrácií klesol z 310 na 295. Čím sa to dá vysvetliť a ktoré tri čísla by sme mali skontrolovať ako prvé?",
+ "9": "Mám ryžu, vajcia, špenát, cesnak a sójovú omáčku. Navrhnite jednoduchú večeru, ktorú zvládnem za dvadsať minút, a vypíšte postup.",
+ "10": "Budúci týždeň mám skúšku z Veľkej francúzskej revolúcie. Zostavte sedemdňový študijný plán s jednou hlavnou témou na každý deň a krátkym kvízom na konci."
+}

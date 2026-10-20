@@ -1,0 +1,12 @@
+{
+ "1": "Ibuod ang email ng customer sa ibaba sa tatlong punto at magmungkahi ng magalang na sagot. Sinabi ng customer na dumating ang order nang dalawang araw na huli at may isang item na kulang sa kahon.",
+ "2": "Gumawa ng Python function na nagbabasa ng CSV file ng mga order, nagtatanggal ng mga duplicate na row na may parehong order ID, at nagbabalik ng kabuuang kita para sa bawat buwan. Lagyan ng maiikling comment at i-handle ang mga missing value.",
+ "3": "Nagpaplano ako ng weekend trip kasama ang dalawang kaibigan. Mahilig kami sa hiking at masarap na pagkain, at ayaw naming mag-drive nang higit sa tatlong oras. Puwede ka bang magmungkahi ng tatlong lugar at sabihin kung ano ang dapat naming dalhin?",
+ "4": "Sumulat ng maikling product description para sa isang stainless steel na water bottle na kayang panatilihing malamig ang inumin nang 24 oras. Magaan ito, kasya sa cup holder ng kotse, at may limang kulay.",
+ "5": "Ipaliwanag sa simpleng salita kung paano tinuturuan ng bakuna ang immune system na makilala ang isang virus, at kung bakit kailangan ng ilang bakuna ng pangalawang dose.",
+ "6": "Isulat ulit ang mensaheng ito para mas professional ang dating: uy, hindi pa tapos yung report kasi late dumating yung data, ipapadala ko bukas ng umaga, sorry.",
+ "7": "Ito ang notes ko mula sa meeting ngayong araw: inilipat ang launch sa March 12, kailangan ng marketing ang final na screenshots bago mag-Biyernes, at hindi pa rin tayo nakakapili ng payment provider. Gawin mo itong maikling update para sa team.",
+ "8": "Ang website namin ay nagkaroon ng 12,400 na bisita noong Setyembre at 9,800 noong Oktubre. Bumaba ang sign-ups mula 310 papuntang 295. Ano kaya ang posibleng dahilan nito, at aling tatlong numero ang dapat naming tingnan muna?",
+ "9": "May kanin, itlog, spinach, bawang, at toyo ako. Magmungkahi ng simpleng hapunan na kaya kong lutuin sa loob ng 20 minuto at ilista ang mga hakbang.",
+ "10": "May exam ako tungkol sa French Revolution sa susunod na linggo. Gumawa ng pitong araw na study plan na may isang pangunahing topic bawat araw at maikling quiz sa dulo."
+}

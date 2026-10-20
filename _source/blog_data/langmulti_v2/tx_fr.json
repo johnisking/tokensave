@@ -1,0 +1,12 @@
+{
+ "1": "Résumez l'e-mail du client ci-dessous en trois points et proposez une réponse polie. Le client indique que la commande est arrivée avec deux jours de retard et qu'un article manquait dans le colis.",
+ "2": "Écrivez une fonction Python qui lit un fichier CSV de commandes, supprime les lignes en double ayant le même ID de commande et renvoie le chiffre d'affaires total pour chaque mois. Ajoutez des commentaires courts et gérez les valeurs manquantes.",
+ "3": "Je prépare un week-end avec deux amis. On aime la randonnée et la bonne cuisine, et on ne veut pas conduire plus de trois heures. Pouvez-vous nous proposer trois endroits et nous dire quoi emporter ?",
+ "4": "Rédigez une courte description produit pour une gourde en acier inoxydable qui garde les boissons fraîches pendant 24 heures. Elle est légère, tient dans un porte-gobelet de voiture et existe en cinq couleurs.",
+ "5": "Expliquez avec des mots simples comment un vaccin apprend au système immunitaire à reconnaître un virus, et pourquoi certains vaccins nécessitent une deuxième dose.",
+ "6": "Reformulez ce message pour qu'il paraisse plus professionnel : salut, le rapport n'est pas encore fini parce que les données sont arrivées en retard, je l'envoie demain matin, désolé.",
+ "7": "Voici mes notes de la réunion d'aujourd'hui : le lancement est repoussé au 12 mars, le marketing a besoin des captures d'écran finales d'ici vendredi, et nous n'avons toujours pas choisi de prestataire de paiement. Transformez-les en un court point d'étape pour l'équipe.",
+ "8": "Notre site a eu 12 400 visiteurs en septembre et 9 800 en octobre. Les inscriptions sont passées de 310 à 295. Qu'est-ce qui pourrait l'expliquer, et quels sont les trois chiffres à vérifier en premier ?",
+ "9": "J'ai du riz, des œufs, des épinards, de l'ail et de la sauce soja. Proposez-moi un dîner simple que je peux faire en vingt minutes et donnez-moi les étapes.",
+ "10": "J'ai un examen sur la Révolution française la semaine prochaine. Faites-moi un planning de révision sur sept jours avec un thème principal par jour et un petit quiz à la fin."
+}

@@ -1,0 +1,12 @@
+{
+ "1": "Podsumuj poniższy e-mail od klienta w trzech punktach i zaproponuj uprzejmą odpowiedź. Klient twierdzi, że zamówienie dotarło z dwudniowym opóźnieniem, a w paczce brakowało jednego produktu.",
+ "2": "Napisz funkcję w Pythonie, która wczytuje plik CSV z zamówieniami, usuwa zduplikowane wiersze z tym samym ID zamówienia i zwraca łączny przychód dla każdego miesiąca. Dodaj krótkie komentarze i obsłuż brakujące wartości.",
+ "3": "Planuję weekendowy wyjazd z dwójką znajomych. Lubimy chodzić po górach i dobrze zjeść, a nie chcemy jechać samochodem dłużej niż trzy godziny. Możesz zaproponować trzy miejsca i podpowiedzieć, co spakować?",
+ "4": "Napisz krótki opis produktu dla butelki na wodę ze stali nierdzewnej, która utrzymuje napoje w chłodzie przez 24 godziny. Jest lekka, mieści się w samochodowym uchwycie na kubek i jest dostępna w pięciu kolorach.",
+ "5": "Wyjaśnij prostymi słowami, jak szczepionka uczy układ odpornościowy rozpoznawać wirusa i dlaczego niektóre szczepionki wymagają drugiej dawki.",
+ "6": "Przeredaguj tę wiadomość, żeby brzmiała bardziej profesjonalnie: hej, raport jeszcze nie jest gotowy, bo dane przyszły późno, wyślę go jutro rano, sorry.",
+ "7": "Oto moje notatki z dzisiejszego spotkania: premiera przesuwa się na 12 marca, marketing potrzebuje finalnych zrzutów ekranu do piątku, a wciąż nie wybraliśmy operatora płatności. Zrób z nich krótką aktualizację dla zespołu.",
+ "8": "Nasza strona miała 12 400 odwiedzających we wrześniu i 9800 w październiku. Liczba rejestracji spadła z 310 do 295. Co może to wyjaśniać i które trzy liczby powinniśmy sprawdzić najpierw?",
+ "9": "Mam ryż, jajka, szpinak, czosnek i sos sojowy. Zaproponuj prostą kolację, którą zrobię w dwadzieścia minut, i wypisz kolejne kroki.",
+ "10": "W przyszłym tygodniu mam egzamin z rewolucji francuskiej. Przygotuj siedmiodniowy plan nauki z jednym głównym tematem na każdy dzień i krótkim quizem na koniec."
+}

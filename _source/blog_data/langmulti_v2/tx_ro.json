@@ -1,0 +1,12 @@
+{
+ "1": "Rezumați e-mailul clientului de mai jos în trei puncte și propuneți un răspuns politicos. Clientul spune că comanda a sosit cu două zile întârziere și că un articol lipsea din cutie.",
+ "2": "Scrieți o funcție în Python care citește un fișier CSV cu comenzi, elimină rândurile duplicate cu același ID de comandă și returnează venitul total pentru fiecare lună. Adăugați comentarii scurte și tratați valorile lipsă.",
+ "3": "Plănuiesc o excursie de weekend cu doi prieteni. Ne plac drumețiile și mâncarea bună și nu vrem să conducem mai mult de trei ore. Puteți să ne sugerați trei locuri și să ne spuneți ce să luăm cu noi?",
+ "4": "Scrieți o scurtă descriere de produs pentru o sticlă de apă din oțel inoxidabil care păstrează băuturile reci timp de 24 de ore. Este ușoară, încape în suportul de pahare din mașină și este disponibilă în cinci culori.",
+ "5": "Explicați în cuvinte simple cum învață un vaccin sistemul imunitar să recunoască un virus și de ce unele vaccinuri au nevoie de o a doua doză.",
+ "6": "Rescrieți acest mesaj ca să sune mai profesionist: salut, raportul nu e gata încă pentru că datele au venit târziu, îl trimit mâine dimineață, scuze.",
+ "7": "Iată notițele mele de la ședința de azi: lansarea se mută pe 12 martie, cei de la marketing au nevoie de capturile de ecran finale până vineri și încă n-am ales un furnizor de plăți. Transformați-le într-un scurt update pentru echipă.",
+ "8": "Site-ul nostru a avut 12.400 de vizitatori în septembrie și 9.800 în octombrie. Înregistrările au scăzut de la 310 la 295. Ce ar putea explica asta și care sunt primele trei cifre pe care ar trebui să le verificăm?",
+ "9": "Am orez, ouă, spanac, usturoi și sos de soia. Sugerați-mi o cină simplă pe care o pot face în douăzeci de minute și scrieți pașii.",
+ "10": "Săptămâna viitoare am un examen despre Revoluția Franceză. Faceți-mi un plan de studiu de șapte zile, cu o temă principală pe zi și un scurt test la final."
+}

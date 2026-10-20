@@ -1,0 +1,12 @@
+{
+ "1": "Ringkas email pelanggan di bawah ini dalam tiga poin dan sarankan balasan yang sopan. Pelanggan mengatakan pesanan tiba dua hari terlambat dan satu barang hilang dari kotak.",
+ "2": "Tulis fungsi Python yang membaca file CSV berisi pesanan, menghapus baris duplikat dengan ID pesanan yang sama, dan mengembalikan total pendapatan untuk setiap bulan. Tambahkan komentar singkat dan tangani nilai yang kosong.",
+ "3": "Saya sedang merencanakan perjalanan akhir pekan bersama dua teman. Kami suka hiking dan makanan enak, dan tidak mau menyetir lebih dari tiga jam. Bisa sarankan tiga tempat dan beri tahu apa saja yang perlu dibawa?",
+ "4": "Tulis deskripsi produk singkat untuk botol minum stainless steel yang bisa menjaga minuman tetap dingin selama 24 jam. Botolnya ringan, muat di tempat gelas mobil, dan tersedia dalam lima warna.",
+ "5": "Jelaskan dengan kata-kata sederhana bagaimana vaksin mengajari sistem kekebalan tubuh untuk mengenali virus, dan kenapa beberapa vaksin perlu dosis kedua.",
+ "6": "Tulis ulang pesan ini supaya terdengar lebih profesional: hai, laporannya belum selesai karena datanya telat masuk, besok pagi aku kirim ya, maaf.",
+ "7": "Ini catatan saya dari rapat hari ini: peluncuran diundur ke 12 Maret, tim marketing butuh screenshot final paling lambat hari Jumat, dan kita masih belum memilih penyedia pembayaran. Ubah jadi update singkat untuk tim.",
+ "8": "Website kami punya 12.400 pengunjung di bulan September dan 9.800 di bulan Oktober. Pendaftaran turun dari 310 menjadi 295. Apa kemungkinan penyebabnya, dan tiga angka mana yang harus kami cek dulu?",
+ "9": "Saya punya nasi, telur, bayam, bawang putih, dan kecap asin. Sarankan menu makan malam sederhana yang bisa dibuat dalam 20 menit dan tuliskan langkah-langkahnya.",
+ "10": "Minggu depan saya ada ujian tentang Revolusi Prancis. Buatkan rencana belajar tujuh hari dengan satu topik utama per hari dan kuis singkat di akhir."
+}

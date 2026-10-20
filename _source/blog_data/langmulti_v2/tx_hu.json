@@ -1,0 +1,12 @@
+{
+ "1": "Foglald össze az alábbi ügyfél-e-mailt három pontban, és javasolj egy udvarias választ. Az ügyfél azt írja, hogy a rendelés két nap késéssel érkezett, és egy termék hiányzott a dobozból.",
+ "2": "Írj egy Python függvényt, amely beolvas egy rendeléseket tartalmazó CSV fájlt, eltávolítja az azonos rendelési ID-jű duplikált sorokat, és visszaadja a teljes bevételt hónaponként. Írj hozzá rövid kommenteket, és kezeld a hiányzó értékeket.",
+ "3": "Hétvégi kirándulást tervezek két barátommal. Szeretünk túrázni és jókat enni, és nem akarunk három óránál többet vezetni. Tudnál javasolni három helyet, és megírnád, mit vigyünk magunkkal?",
+ "4": "Írj egy rövid termékleírást egy rozsdamentes acél kulacshoz, amely 24 órán át hidegen tartja az italokat. Könnyű, belefér az autós pohártartóba, és öt színben kapható.",
+ "5": "Magyarázd el egyszerűen, hogyan tanítja meg egy vakcina az immunrendszert felismerni egy vírust, és miért kell egyes vakcinákból második adag.",
+ "6": "Fogalmazd át ezt az üzenetet, hogy professzionálisabban hangozzon: szia, a riport még nincs kész, mert későn jöttek meg az adatok, holnap reggel elküldöm, bocsi.",
+ "7": "Itt vannak a jegyzeteim a mai megbeszélésről: az indulás március 12-re csúszik, a marketingnek péntekig kellenek a végleges képernyőképek, és még mindig nem választottunk fizetési szolgáltatót. Csinálj belőlük egy rövid összefoglalót a csapatnak.",
+ "8": "A weboldalunknak szeptemberben 12 400 látogatója volt, októberben 9800. A regisztrációk száma 310-ről 295-re csökkent. Mi lehet ennek az oka, és melyik három számot nézzük meg először?",
+ "9": "Van itthon rizs, tojás, spenót, fokhagyma és szójaszósz. Javasolj egy egyszerű vacsorát, amit húsz perc alatt meg tudok csinálni, és írd le a lépéseket.",
+ "10": "Jövő héten vizsgám lesz a francia forradalomból. Készíts egy hétnapos tanulási tervet, minden napra egy fő témával, és a végén egy rövid kvízzel."
+}

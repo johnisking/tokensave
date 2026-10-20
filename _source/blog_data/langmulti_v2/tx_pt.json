@@ -1,0 +1,12 @@
+{
+ "1": "Resuma o e-mail do cliente abaixo em três tópicos e sugira uma resposta educada. O cliente diz que o pedido chegou com dois dias de atraso e que faltava um item na caixa.",
+ "2": "Escreva uma função em Python que leia um arquivo CSV de pedidos, remova as linhas duplicadas com o mesmo ID de pedido e retorne a receita total de cada mês. Adicione comentários curtos e trate os valores ausentes.",
+ "3": "Estou planejando uma viagem de fim de semana com dois amigos. A gente gosta de fazer trilha e de comer bem, e não queremos dirigir mais de três horas. Você pode sugerir três lugares e dizer o que devemos levar?",
+ "4": "Escreva uma descrição curta de produto para uma garrafa de água de aço inoxidável que mantém as bebidas geladas por 24 horas. Ela é leve, cabe no porta-copos do carro e vem em cinco cores.",
+ "5": "Explique com palavras simples como uma vacina ensina o sistema imunológico a reconhecer um vírus e por que algumas vacinas precisam de uma segunda dose.",
+ "6": "Reescreva esta mensagem para que pareça mais profissional: oi, o relatório ainda não está pronto porque os dados chegaram atrasados, vou mandar amanhã de manhã, desculpa.",
+ "7": "Aqui estão minhas anotações da reunião de hoje: o lançamento passa para 12 de março, o marketing precisa das capturas de tela finais até sexta-feira e ainda não escolhemos um provedor de pagamentos. Transforme isso em uma atualização curta para a equipe.",
+ "8": "Nosso site teve 12.400 visitantes em setembro e 9.800 em outubro. Os cadastros caíram de 310 para 295. O que pode explicar isso e quais três números devemos verificar primeiro?",
+ "9": "Tenho arroz, ovos, espinafre, alho e molho de soja. Sugira um jantar simples que eu consiga fazer em vinte minutos e liste os passos.",
+ "10": "Tenho uma prova sobre a Revolução Francesa na semana que vem. Monte um plano de estudos de sete dias com um tema principal por dia e um quiz curto no final."
+}

@@ -1,0 +1,12 @@
+{
+ "1": "Shrňte níže uvedený e-mail zákazníka do tří bodů a navrhněte zdvořilou odpověď. Zákazník píše, že objednávka dorazila se dvoudenním zpožděním a v krabici chyběla jedna položka.",
+ "2": "Napište funkci v Pythonu, která načte CSV soubor s objednávkami, odstraní duplicitní řádky se stejným ID objednávky a vrátí celkové tržby za každý měsíc. Přidejte krátké komentáře a ošetřete chybějící hodnoty.",
+ "3": "Plánuji víkendový výlet se dvěma kamarády. Rádi chodíme na túry a dobře jíme a nechceme řídit déle než tři hodiny. Můžete navrhnout tři místa a poradit nám, co si zabalit?",
+ "4": "Napište krátký popis produktu pro nerezovou láhev na vodu, která udrží nápoje studené 24 hodin. Je lehká, vejde se do držáku na pití v autě a vyrábí se v pěti barvách.",
+ "5": "Vysvětlete jednoduchými slovy, jak vakcína učí imunitní systém rozpoznat virus a proč některé vakcíny potřebují druhou dávku.",
+ "6": "Přepište tuto zprávu, aby zněla profesionálněji: ahoj, report ještě není hotový, protože data přišla pozdě, pošlu ho zítra ráno, sorry.",
+ "7": "Tady jsou moje poznámky z dnešní schůzky: spuštění se posouvá na 12. března, marketing potřebuje finální screenshoty do pátku a pořád jsme nevybrali poskytovatele plateb. Udělejte z nich krátkou aktualizaci pro tým.",
+ "8": "Náš web měl v září 12 400 návštěvníků a v říjnu 9 800. Počet registrací klesl z 310 na 295. Čím se to dá vysvětlit a která tři čísla bychom měli zkontrolovat jako první?",
+ "9": "Mám rýži, vejce, špenát, česnek a sójovou omáčku. Navrhněte jednoduchou večeři, kterou zvládnu za dvacet minut, a vypište postup.",
+ "10": "Příští týden mám zkoušku z Velké francouzské revoluce. Sestavte sedmidenní studijní plán s jedním hlavním tématem na každý den a krátkým kvízem na konci."
+}

@@ -1,0 +1,12 @@
+{
+ "1": "Sammanfatta kundens e-post nedan i tre punkter och föreslå ett artigt svar. Kunden säger att beställningen kom två dagar för sent och att en vara saknades i lådan.",
+ "2": "Skriv en Python-funktion som läser in en CSV-fil med beställningar, tar bort dubblettrader med samma order-ID och returnerar den totala intäkten för varje månad. Lägg till korta kommentarer och hantera saknade värden.",
+ "3": "Jag planerar en weekendresa med två kompisar. Vi gillar att vandra och god mat, och vi vill inte köra mer än tre timmar. Kan du föreslå tre ställen och berätta vad vi ska packa?",
+ "4": "Skriv en kort produktbeskrivning för en vattenflaska i rostfritt stål som håller drycker kalla i 24 timmar. Den är lätt, passar i bilens mugghållare och finns i fem färger.",
+ "5": "Förklara med enkla ord hur ett vaccin lär immunförsvaret att känna igen ett virus, och varför vissa vacciner behöver en andra dos.",
+ "6": "Skriv om det här meddelandet så att det låter mer professionellt: hej, rapporten är inte klar än eftersom datan kom in sent, jag skickar den i morgon bitti, sorry för det.",
+ "7": "Här är mina anteckningar från dagens möte: lanseringen flyttas till 12 mars, marknadsföring behöver de slutliga skärmdumparna senast fredag och vi har fortfarande inte valt någon betalleverantör. Gör om dem till en kort uppdatering för teamet.",
+ "8": "Vår webbplats hade 12 400 besökare i september och 9 800 i oktober. Antalet registreringar gick från 310 till 295. Vad kan förklara det, och vilka tre siffror bör vi kolla först?",
+ "9": "Jag har ris, ägg, spenat, vitlök och soja. Föreslå en enkel middag som jag kan laga på tjugo minuter och lista stegen.",
+ "10": "Jag har en tenta om franska revolutionen nästa vecka. Gör en studieplan på sju dagar med ett huvudämne per dag och ett kort quiz i slutet."
+}

@@ -1,0 +1,12 @@
+{
+ "1": "Opsummer kundens e-mail nedenfor i tre punkter, og foreslå et høfligt svar. Kunden skriver, at ordren kom to dage for sent, og at der manglede en vare i kassen.",
+ "2": "Skriv en Python-funktion, der læser en CSV-fil med ordrer, fjerner dublerede rækker med samme ordre-ID og returnerer den samlede omsætning for hver måned. Tilføj korte kommentarer, og håndter manglende værdier.",
+ "3": "Jeg planlægger en weekendtur med to venner. Vi kan godt lide at vandre og god mad, og vi vil ikke køre mere end tre timer. Kan du foreslå tre steder og fortælle, hvad vi skal pakke?",
+ "4": "Skriv en kort produktbeskrivelse til en drikkeflaske i rustfrit stål, der holder drikkevarer kolde i 24 timer. Den er let, passer i bilens kopholder og fås i fem farver.",
+ "5": "Forklar med enkle ord, hvordan en vaccine lærer immunforsvaret at genkende en virus, og hvorfor nogle vacciner kræver en ekstra dosis.",
+ "6": "Omskriv denne besked, så den lyder mere professionel: hej, rapporten er ikke færdig endnu, fordi dataene kom sent, jeg sender den i morgen tidlig, undskyld.",
+ "7": "Her er mine noter fra dagens møde: lanceringen bliver flyttet til den 12. marts, marketing skal have de endelige skærmbilleder senest fredag, og vi har stadig ikke valgt en betalingsudbyder. Lav dem om til en kort opdatering til teamet.",
+ "8": "Vores hjemmeside havde 12.400 besøgende i september og 9.800 i oktober. Tilmeldingerne gik fra 310 til 295. Hvad kan forklare det, og hvilke tre tal skal vi tjekke først?",
+ "9": "Jeg har ris, æg, spinat, hvidløg og sojasovs. Foreslå en simpel aftensmad, jeg kan lave på tyve minutter, og skriv trinene op.",
+ "10": "Jeg har eksamen i Den Franske Revolution i næste uge. Lav en læseplan over syv dage med ét hovedemne om dagen og en kort quiz til sidst."
+}
