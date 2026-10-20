@@ -1,12 +1,12 @@
 ![How to Count Tokens for GPT, Claude and Gemini](/how-to-count-tokens-gpt-claude-gemini-en.jpg)
 
-"How many tokens is this?" has a different answer depending on which model you ask. OpenAI, Anthropic and Google each use their own tokenizer, so the same paragraph can be 100 tokens on one model and 130 on another. Here is how to get an exact count for each, and how to get a quick estimate without writing code.
+"How many tokens is this?" has a different answer depending on which model you ask. OpenAI, Anthropic and Google each use their own tokenizer, so the same paragraph can be 100 tokens on one model and 138 on another. Here is how to get an exact count for each, and how to get a quick estimate without writing code.
 
 ## Why the counts differ
 
-A tokenizer splits text into pieces from a fixed vocabulary that was built from the company's own training data. Different vocabularies mean different splits. A word that is one token for GPT may be two for Claude, and the other way round. The differences are usually small for plain English and larger for code, numbers and other languages.
+A tokenizer splits text into pieces from a fixed vocabulary that was built from the company's own training data. Different vocabularies mean different splits. A word that is one token for GPT may be two for Claude, and the other way round. The gap can be large even for plain English, and it changes by language.
 
-Anthropic has said that the tokenizer used by its newer Claude models produces noticeably more tokens for the same text than its earlier one. Our token counter assumes about 30% more tokens than GPT for current Claude Sonnet and Opus models when it estimates.
+Anthropic has said that the tokenizer used by its newer Claude models produces noticeably more tokens for the same text than its earlier one. We measured it: the same prompt, translated into 41 languages and counted with each provider's own token-counting API in October 2026, came out at **38% more tokens on Claude Opus, Sonnet and Haiku 5.5 than on GPT in English**, 82% more in Korean and 16% more in Japanese. Gemini was within a few percent of GPT in English. The full table and raw data are in our [dataset](/data/token-cost-by-language-claude-gemini), and our token counter uses these measured figures, per language, when it estimates Claude and Gemini.
 
 Because API prices are per token, this changes real costs: two models with the same price per million tokens can cost different amounts for the same prompt.
 

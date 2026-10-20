@@ -3,14 +3,21 @@
 Ratios come from our own measurements (blog/tokens-per-word, token-cost-by-language) and the
 tokenizer factors the token counter uses for Claude and Gemini.
 """
-import json, html
+import json, html, os
 
 esc = lambda s: html.escape(str(s), quote=True)
 
 # tokens per English word on GPT's o200k tokenizer (measured, see /blog/tokens-per-word)
 TPW = {"prose": 1.15, "tech": 1.33}
-# tokenizer factor vs GPT, same as token.js
-MODELS = [("GPT (OpenAI)", 1.00), ("Claude Opus / Sonnet", 1.30), ("Claude Haiku 4.5", 1.05), ("Gemini", 0.95)]
+# tokenizer factor vs GPT for English, measured (blog_data/langmulti, 2026-10-17); per-language factors in _model_factors()
+MODELS = [("GPT (OpenAI)", 1.00), ("Claude Opus / Sonnet / Haiku 5.5", 1.38), ("Claude Haiku 4.5", 1.03), ("Gemini", 1.00)]
+_MULTI = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "blog_data", "langmulti", "combined.json")
+
+
+def _model_factors():
+    """{lang code: [GPT, Claude 5.x, Claude Haiku 4.5, Gemini]} — tokens vs GPT for the same prompt, measured"""
+    rows = json.load(open(_MULTI, encoding="utf-8"))
+    return {r["code"]: [1.0, round(r["claude55"] / r["gpt"], 2), round(r["claude45"] / r["gpt"], 2), round(r["gemini"] / r["gpt"], 2)] for r in rows}
 WORDS_PER_PAGE = 500
 CHARS_PER_TOKEN_EN = 4.8
 
@@ -19,9 +26,9 @@ DESC = "Convert tokens to words and words to tokens for GPT, Claude and Gemini, 
 
 FAQ = [
     ("How many words is 1,000 tokens?",
-     "In everyday English on GPT models, 1,000 tokens is about 870 words, or roughly 1¾ pages. Technical writing is closer to 750 words. On Claude Opus and Sonnet the same 1,000 tokens hold only about 670 words, because Claude's tokenizer splits text into about 30% more tokens."),
+     "In everyday English on GPT models, 1,000 tokens is about 870 words, or roughly 1¾ pages. Technical writing is closer to 750 words. On Claude Opus, Sonnet and Haiku 5.5 the same 1,000 tokens hold only about 630 words, because in our test Claude used 38% more tokens than GPT for the same English text."),
     ("How many tokens is 1,000 words?",
-     "About 1,150 tokens on GPT for ordinary English prose, and about 1,330 for technical text. The same 1,000 words are about 1,500 tokens on Claude Opus and Sonnet, and about 1,090 on Gemini."),
+     "About 1,150 tokens on GPT for ordinary English prose, and about 1,330 for technical text. The same 1,000 words are about 1,590 tokens on Claude Opus, Sonnet and Haiku 5.5, and about the same as GPT on Gemini."),
     ("Is \"1 token = ¾ of a word\" still right?",
      "It is a safe, slightly high estimate. That rule of thumb comes from OpenAI's older tokenizers. On current GPT models we measured 1.12 to 1.33 tokens per English word, so ordinary writing usually uses about 15% fewer tokens than the rule predicts."),
     ("Why do other languages need more tokens?",
@@ -42,8 +49,9 @@ def _row(tokens, label):
 def body(lang_ratios):
     """lang_ratios: [[tag, native name, ratio vs English], ...]"""
     langs = sorted(lang_ratios, key=lambda x: (x[0] != "en", x[1]))
-    opts = "".join(f'<option value="{t}" data-r="{r}"{" selected" if t == "en" else ""}>{esc(n)}</option>' for t, n, r in langs)
-    mopts = "".join(f'<option value="{f}">{esc(n)}</option>' for n, f in MODELS)
+    mf = _model_factors()
+    opts = "".join(f'<option value="{t}" data-r="{r}" data-m="{",".join(str(x) for x in mf.get(t, [f for _, f in MODELS]))}"{" selected" if t == "en" else ""}>{esc(n)}</option>' for t, n, r in langs)
+    mopts = "".join(f'<option value="{i}">{esc(n)}</option>' for i, (n, f) in enumerate(MODELS))
     table = "".join(_row(t, l) for t, l in [(1_000, "1,000 tokens"), (10_000, "10,000 tokens"), (128_000, "128,000 tokens"), (1_000_000, "1 million tokens")])
     faq_cards = "\n".join(f'''      <div class="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5">
         <h2 class="font-semibold mb-1.5">{esc(q)}</h2>
@@ -83,9 +91,9 @@ def body(lang_ratios):
     <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
       <h2 style="margin-top:0">Quick reference (everyday English)</h2>
       <p>A page is about 500 words, so 1,000 tokens on GPT is roughly 1¾ pages and a 128,000-token context window holds about 220 pages.</p>
-      <div class="overflow-x-auto"><table><thead><tr><th>Tokens</th><th>GPT</th><th>Claude Opus / Sonnet</th><th>Gemini</th></tr></thead><tbody>{table}</tbody></table></div>
+      <div class="overflow-x-auto"><table><thead><tr><th>Tokens</th><th>GPT</th><th>Claude Opus / Sonnet / Haiku 5.5</th><th>Gemini</th></tr></thead><tbody>{table}</tbody></table></div>
       <h2>Where the numbers come from</h2>
-      <p>We counted real English text on GPT's current tokenizer (o200k): ordinary prose came out at <strong>1.12–1.15 tokens per word</strong>, technical documentation at <strong>1.33</strong>, about 4.4–4.9 characters per token. Claude Opus and Sonnet split the same text into about 30% more tokens, Claude Haiku 4.5 about 5% more, and Gemini about 5% fewer. The full method is in <a href="/blog/tokens-per-word">How many tokens is a word?</a></p>
+      <p>We counted real English text on GPT's current tokenizer (o200k): ordinary prose came out at <strong>1.12–1.15 tokens per word</strong>, technical documentation at <strong>1.33</strong>, about 4.4–4.9 characters per token. For Claude and Gemini we use <a href=\"/data/token-cost-by-language-claude-gemini\">our own measurement</a> of the same prompt in 41 languages, counted with each provider's token-counting API: in English, Claude Opus, Sonnet and Haiku 5.5 used 38% more tokens than GPT, Claude Haiku 4.5 3% more, and Gemini the same. The gap changes by language (Korean +82% on Claude 5.5, Japanese +16%), and the converter uses the figure for the language you pick. The full method is in <a href="/blog/tokens-per-word">How many tokens is a word?</a></p>
       <p>Other languages use the ratios from our <a href="/blog/token-cost-by-language">41-language measurement</a>: the same prompt translated into each language and counted on GPT. Words are a poor unit across languages (Chinese, Japanese and Thai do not separate words with spaces), so for them the converter shows how much English-equivalent content fits in your tokens.</p>
       <h2>Related</h2>
       <ul>
@@ -106,19 +114,20 @@ def body(lang_ratios):
       const $ = id => document.getElementById(id);
       const tok = $('twTokens'), wrd = $('twWords'), model = $('twModel'), lang = $('twLang'), kind = $('twKind');
       const R = () => parseFloat(lang.selectedOptions[0].dataset.r);
-      const f = () => TPW[kind.value] * parseFloat(model.value) * R();
+      const M = () => parseFloat(lang.selectedOptions[0].dataset.m.split(',')[+model.value]);
+      const f = () => TPW[kind.value] * M() * R();
       const fmt = n => isFinite(n) ? Math.round(n).toLocaleString('en-US') : '–';
       let last = 'tok';
       function out(t, w) {{
         $('twPages').textContent = isFinite(w) ? (w / PAGE).toLocaleString('en-US', {{maximumFractionDigits: 1}}) : '–';
         const en = t / R();
         const isEn = lang.value === 'en';
-        $('twChars').textContent = isEn ? fmt(en / parseFloat(model.value) * CPT) : '–';
+        $('twChars').textContent = isEn ? fmt(en / M() * CPT) : '–';
         $('twEn').textContent = isEn ? fmt(t) + ' tokens' : fmt(en) + ' tokens';
         const ln = lang.selectedOptions[0].text, r = R();
         const pct = Math.round((r - 1) * 100);
         $('twNote').textContent = isEn
-          ? 'English, ' + kind.selectedOptions[0].text.toLowerCase() + ': ' + (TPW[kind.value] * parseFloat(model.value)).toFixed(2) + ' tokens per word on ' + model.selectedOptions[0].text + '.'
+          ? 'English, ' + kind.selectedOptions[0].text.toLowerCase() + ': ' + (TPW[kind.value] * M()).toFixed(2) + ' tokens per word on ' + model.selectedOptions[0].text + '.'
           : ln + ' uses ' + (pct >= 0 ? pct + '% more' : -pct + '% fewer') + ' tokens than English for the same meaning, so "words" here means English-equivalent words of content.';
       }}
       function fromTokens() {{ const t = parseFloat(tok.value); const w = t / f(); wrd.value = isFinite(w) ? Math.round(w) : ''; out(t, w); }}

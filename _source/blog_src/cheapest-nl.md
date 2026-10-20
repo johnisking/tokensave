@@ -9,7 +9,7 @@ Gaat het je alleen om de laagste rekening? Dan is **GPT-5 nano** de goedkoopste 
 We keken naar de kosten van één gewoon verzoek, niet alleen naar de prijs per miljoen tokens. Die prijs alleen is om twee redenen misleidend:
 
 - **Output is bij de meeste modellen 200% tot 700% duurder dan input.** Een model met goedkope input en dure output kan dus verliezen van een model waarbij het andersom is.
-- **Tokenizers verschillen.** Dezelfde Engelse tekst levert bij Claude Opus en Sonnet ongeveer 30% meer tokens op dan bij GPT, en bij Gemini ongeveer 5% minder. Een Claude-model van "$2 per miljoen" kost per verzoek dus meer dan een GPT-model van "$2 per miljoen".
+- **Tokenizers verschillen.** In onze eigen meting leverde dezelfde Engelse tekst bij de huidige Claude-modellen ongeveer 38% meer tokens op dan bij GPT, en bij Gemini ongeveer evenveel ([dataset](/data/token-cost-by-language-claude-gemini), in het Engels). Een Claude-model van "$2 per miljoen" kost per verzoek dus meer dan een GPT-model van "$2 per miljoen".
 
 Daarom hebben we één gewoon verzoek doorgerekend: **2.000 inputtokens en 500 outputtokens Engelse tekst**, geteld zoals de tokenizer van elk model ze telt. We gebruikten de officiële prijslijsten, gecontroleerd op 1 oktober 2026. Zonder caching- of batchkorting.
 
@@ -26,14 +26,14 @@ GPT-5 nano, GPT-6 Luna en Qwen 3.8 Flash. Alle drie kosten minder dan $6 per 10.
 | Qwen 3.8 Flash | Qwen | $0,15 / $0,47 | $0,00053 | $5,35 |
 | GPT-4o mini | OpenAI | $0,15 / $0,60 | $0,00060 | $6,00 |
 | Mistral Small | Mistral | $0,15 / $0,60 | $0,00063 | $6,30 |
-| Gemini 3.1 Flash-Lite | Google | $0,25 / $1,50 | $0,00119 | $11,88 |
 | DeepSeek V4.1 Flash (piek) | DeepSeek | $0,30 / $1,20 | $0,00120 | $12,00 |
+| Gemini 3.1 Flash-Lite | Google | $0,25 / $1,50 | $0,00125 | $12,50 |
 | GPT-5 mini | OpenAI | $0,25 / $2,00 | $0,00150 | $15,00 |
 | GPT-4.1 mini | OpenAI | $0,40 / $1,60 | $0,00160 | $16,00 |
-| Gemini 3.5 Flash-Lite | Google | $0,30 / $2,50 | $0,00176 | $17,57 |
 | Mistral Large 3 | Mistral | $0,50 / $1,50 | $0,00184 | $18,38 |
+| Gemini 3.5 Flash-Lite | Google | $0,30 / $2,50 | $0,00185 | $18,50 |
 
-Ter vergelijking: dezelfde 10.000 verzoeken kosten **$90** op GPT-6 Sol, **$117** op Claude Sonnet 5.5, **$234** op Claude Opus 5.5 en **$450** op GPT-6 Astra. Het goedkoopste model in de tabel kost minder dan 1% van wat GPT-6 Astra kost.
+Ter vergelijking: dezelfde 10.000 verzoeken kosten **$90** op GPT-6 Sol, **$124** op Claude Sonnet 5.5, **$248** op Claude Opus 5.5 en **$450** op GPT-6 Astra. Het goedkoopste model in de tabel kost minder dan 1% van wat GPT-6 Astra kost.
 
 ## Welk goedkoop model kies je?
 
@@ -44,8 +44,8 @@ Begin met GPT-6 Luna. Voor het allersimpelste werk op grote schaal neem je GPT-5
 - **GPT-6 Luna** probeer je als eerste. Het is het nieuwste kleine model van OpenAI (september 2026) en kost maar $1,50 per 10.000 verzoeken meer dan GPT-5 nano. Goed voor classificatie, gegevens uit tekst halen, routering, korte antwoorden en samenvattingen.
 - **GPT-5 nano** voor het eenvoudigste werk in de grootste volumes, waar elke fractie van een cent telt: taggen, ja/nee-controles, spamfilters.
 - **Qwen 3.8 Flash** en **Mistral Small** zijn de goedkoopste opties buiten OpenAI. Handig als je een tweede aanbieder wilt, of open-weight modellen die je later zelf kunt hosten.
-- **Gemini 3.1 Flash-Lite** en **DeepSeek V4.1 Flash** zijn ruim 160% duurder dan Luna, maar een stap beter in schrijven en redeneren. Toch zijn ze per verzoek nog zo'n 87% goedkoper dan GPT-6 Sol. DeepSeek V4.1 Flash kost buiten de piekuren de helft ($0,15 / $0,60). Daarmee komt hij vlak achter GPT-6 Luna; zie [DeepSeek V4.1 Flash-prijzen](/blog/deepseek-v4-1-flash-api-pricing) (in het Engels).
-- **Claude Haiku 5.5** is het goedkoopste Claude-model: $0,10 / $0,50 per miljoen voor prompts tot 100.000 tokens (daarboven duurder), zo'n $0,00059 per verzoek, ongeveer 30% duurder dan Luna. Het oudere Claude Haiku 4.5 ($1 / $5) kost $0,0047 per verzoek. Kies Haiku als je specifiek het gedrag van Claude nodig hebt.
+- **Gemini 3.1 Flash-Lite** en **DeepSeek V4.1 Flash** zijn zo'n 170% duurder dan Luna, maar een stap beter in schrijven en redeneren. Toch zijn ze per verzoek nog zo'n 86% goedkoper dan GPT-6 Sol. DeepSeek V4.1 Flash kost buiten de piekuren de helft ($0,15 / $0,60). Daarmee komt hij vlak achter GPT-6 Luna; zie [DeepSeek V4.1 Flash-prijzen](/blog/deepseek-v4-1-flash-api-pricing) (in het Engels).
+- **Claude Haiku 5.5** is het goedkoopste Claude-model: $0,10 / $0,50 per miljoen voor prompts tot 100.000 tokens (daarboven duurder), zo'n $0,00062 per verzoek, ongeveer 38% duurder dan Luna. Het oudere Claude Haiku 4.5 ($1 / $5) kost $0,0046 per verzoek. Kies Haiku als je specifiek het gedrag van Claude nodig hebt.
 
 ## Wanneer kost het goedkoopste model juist meer?
 

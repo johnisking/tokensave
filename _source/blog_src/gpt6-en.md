@@ -60,13 +60,13 @@ If you want a cheap GPT-6 API, this is it: $0.10 per million input tokens, $0.01
 | GPT-6 Luna, Batch or Flex* | $0.05 / $0.25 | $0.000225 | $2.25 |
 | GPT-5 nano | $0.05 / $0.40 | $0.00030 | $3.00 |
 | **GPT-6 Luna** | **$0.10 / $0.50** | **$0.00045** | **$4.50** |
-| Claude Haiku 5.5 | $0.10 / $0.50 | $0.00059 | $5.85 |
+| Claude Haiku 5.5 | $0.10 / $0.50 | $0.00062 | $6.21 |
 | GPT-6.1 Sol | $2 / $10 | $0.0090 | $90 |
 
-*Batch and Flex prices per LiteLLM's price list (October 15, 2026); confirm on OpenAI's pricing page. The Haiku 5.5 row allows for Claude's tokenizer, which counts about 30% more tokens for the same English text.
+*Batch and Flex prices per LiteLLM's price list (October 15, 2026); confirm on OpenAI's pricing page. The Haiku 5.5 row allows for Claude's tokenizer, which counted about 38% more tokens for the same English text in our test ([dataset](/data/token-cost-by-language-claude-gemini)).
 
 - **Only GPT-5 nano is cheaper at standard rates**, and Luna through Batch or Flex undercuts it for work that can wait. See [the cheapest LLM APIs, ranked](/blog/cheapest-llm-api).
-- **Claude Haiku 5.5 has the same list price** but costs about 30% more per request because of the token count.
+- **Claude Haiku 5.5 has the same list price** but costs about 38% more per request because of the token count.
 - **Use Luna for** classification, extraction, routing, tagging, short answers and short summaries. It is also what the ChatGPT Free plan runs in Codex.
 - **Move up to Sol** for longer writing, multi-step reasoning and anything Luna gets wrong; a failed answer plus a retry costs more than starting on Sol.
 
@@ -173,21 +173,21 @@ At list price, GPT-6 matches Anthropic tier for tier. Input / output per million
 | Top | GPT-6 Astra: $10 / $50 | Fable 5.1: $10 / $50 | – |
 | Between | – | Opus 5.5: $4 / $20 | – |
 
-The same price per token doesn't give the same bill: Claude turns the same text into about 30% more tokens than GPT, and Gemini about 5% fewer. The 2,000 / 500 chat request, counted by each tokenizer:
+The same price per token doesn't give the same bill: in our own measurement Claude turned the same English text into about 38% more tokens than GPT, and Gemini into about the same number ([dataset](/data/token-cost-by-language-claude-gemini)). The 2,000 / 500 chat request, counted by each tokenizer:
 
 | Model | 1 request | 10,000 requests |
 |---|---:|---:|
 | GPT-6 Luna | $0.00045 | $4.50 |
-| Claude Haiku 5.5 | $0.00059 | $5.85 |
+| Claude Haiku 5.5 | $0.00062 | $6.21 |
 | GPT-6.1 Sol | $0.0090 | $90 |
-| Gemini 3.1 Pro | $0.0095 | $95 |
-| Claude Sonnet 5.5 | $0.0117 | $117 |
-| Claude Opus 5.5 | $0.0234 | $234 |
+| Gemini 3.1 Pro | $0.0100 | $100 |
+| Claude Sonnet 5.5 | $0.0124 | $124 |
+| Claude Opus 5.5 | $0.0248 | $248 |
 | GPT-6 Astra | $0.045 | $450 |
-| Claude Fable 5.1 | $0.0585 | $585 |
+| Claude Fable 5.1 | $0.0621 | $621 |
 
-- **Claude Sonnet 5.5 costs about 30% more per request than GPT-6.1 Sol**, and Gemini 3.1 Pro about 6% more.
-- **GPT-6 Astra costs about 92% more per request than Claude Opus 5.5**, and Claude Fable 5.1 about 30% more than Astra.
+- **Claude Sonnet 5.5 costs about 38% more per request than GPT-6.1 Sol**, and Gemini 3.1 Pro about 11% more.
+- **GPT-6 Astra costs about 81% more per request than Claude Opus 5.5**, and Claude Fable 5.1 about 38% more than Astra.
 - **Cost per token isn't cost per task.** Models spend different numbers of tokens on the same job; test on your own prompts.
 
 All 22 models: [LLM API pricing compared](/blog/llm-api-pricing-comparison). Head to head: [GPT-6 Sol vs Claude Sonnet 5.5](/compare/gpt-6-sol-vs-claude-sonnet-5-5) · [GPT-6.1 Sol vs Claude Sonnet 5.5](/compare/gpt-6-1-sol-vs-claude-sonnet-5-5) · [Gemini 3.1 Pro vs GPT-6 Sol](/compare/gemini-3-1-pro-vs-gpt-6-sol).
@@ -225,7 +225,7 @@ $10 per million input tokens, $1 cached and $50 output, 400% more than Sol: abou
 Yes. Per LiteLLM's price list, once a prompt passes 272,000 input tokens the whole request is billed 100% more for input and 50% more for output, on every GPT-6 model.
 
 **Is GPT-6 cheaper than Claude?**
-At list price they tie: Luna matches Haiku 5.5, 6.1 Sol matches Sonnet 5.5 and Astra matches Fable 5.1. Per request GPT-6 usually costs less, because Claude turns the same English text into about 30% more tokens.
+At list price they tie: Luna matches Haiku 5.5, 6.1 Sol matches Sonnet 5.5 and Astra matches Fable 5.1. Per request GPT-6 usually costs less, because Claude turned the same English text into about 38% more tokens in our test.
 
 *Core prices from our checks of OpenAI's pricing page, October 2–11, 2026; long-prompt, Batch, Flex, Priority and web search figures from LiteLLM's price list, October 15, 2026.*
 

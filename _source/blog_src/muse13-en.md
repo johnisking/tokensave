@@ -35,14 +35,14 @@ List prices per million tokens:
 
 ## What it costs on real work
 
-A typical request here is 2,000 input tokens and 500 output tokens. Prices include each model's tokenizer difference on the same English text (Claude uses about 30% more tokens; Meta's tokenizer is not public, so we treat it like GPT's).
+A typical request here is 2,000 input tokens and 500 output tokens. Prices include each model's tokenizer difference on the same English text (in our own test Claude used about 38% more tokens and Gemini about the same, see [dataset](/data/token-cost-by-language-claude-gemini); Meta's tokenizer is not public, so we treat it like GPT's).
 
 | Task | Muse Spark 1.3 | Claude Sonnet 5.5 | GPT-6 Sol | Gemini 3.1 Pro | DeepSeek V4 Pro | Grok 4.7 |
 |---|---:|---:|---:|---:|---:|---:|
-| One typical request | $0.0046 | $0.0117 | $0.0090 | $0.0095 | $0.0046 | $0.0070 |
-| 10,000 requests a month | $46 | $117 | $90 | $95 | $46 | $70 |
+| One typical request | $0.0046 | $0.0124 | $0.0090 | $0.0100 | $0.0046 | $0.0070 |
+| 10,000 requests a month | $46 | $124 | $90 | $100 | $46 | $70 |
 
-- On this request, Claude Sonnet 5.5 costs **153% more** than Muse Spark 1.3, GPT-6 Sol **95% more**, and Gemini 3.1 Pro **105% more**.
+- On this request, Claude Sonnet 5.5 costs **169% more** than Muse Spark 1.3, GPT-6 Sol **95% more**, and Gemini 3.1 Pro **116% more**.
 - DeepSeek V4 Pro costs about the same. Grok 4.7 costs **51% more**.
 
 ## What Meta says it is good at

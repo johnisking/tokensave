@@ -137,7 +137,10 @@ TOOLS = [
 PAGES = [
     dict(file="about.html", path="/about", body="about_body.html",
          title="About TokenSave",
-         desc="Free, private AI calculators for tokens, video and image costs in 41 languages."),
+         desc="Who runs TokenSave, how we measure AI token costs ourselves, and where the raw data with DOIs is published."),
+    dict(file="author/jonhisking.html", path="/author/jonhisking", body="author_body.html",
+         title="Jonhisking, author of TokenSave",
+         desc="Who writes TokenSave: an independent developer in South Korea who measures AI token costs himself and publishes the raw data with DOIs."),
     dict(file="languages.html", path="/languages", body=None,
          title="All 41 languages | TokenSave",
          desc="TokenSave in 41 languages, grouped by region, with how many GPT tokens each needs vs English."),
@@ -197,7 +200,7 @@ PAGES = [
          desc="Dataset: the same coding task prompted in English, Korean, Japanese, Spanish and Ukrainian cost almost the same tokens in Claude Code and Codex, but the game text and comments followed the prompt language. Free CSV, CC BY 4.0."),
     dict(file="data/ai-coffee-break-cache-cost.html", path="/data/ai-coffee-break-cache-cost", body=None, fn="cof_html", ld="cof_ld",
          title="The Coffee-Break Tax: Claude Code Cost After a Pause (Cache TTL)",
-         desc="Dataset: the next Claude Code message after pauses of 0 to 65 minutes. Up to 55 minutes it cost the same; after 65 the cache expired and it cost about 6x. Free CSV, CC BY 4.0."),
+         desc="Dataset: the next Claude Code message after pauses of 0 to 65 minutes. Up to 55 minutes it cost the same; after 65 the cache expired and it cost 507% more. Free CSV, CC BY 4.0."),
     dict(file="data/vibe-coding-by-claude-model.html", path="/data/vibe-coding-by-claude-model", body=None, fn="vib_html", ld="vib_ld",
          title="Vibe Coding with Claude Haiku vs Sonnet vs Opus 5.5: Cost and Results",
          desc="Dataset: 45 browser games (brick-breaker, 2048, Sudoku) built by Claude Haiku, Sonnet and Opus 5.5. All passed play tests; Haiku 5.5 cost about 95% less than Opus. Free CSV, CC BY 4.0."),
@@ -508,6 +511,10 @@ ORG = {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "To
                   "https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking/token-cost-by-language",
                   "https://www.youtube.com/@tokensave", "https://www.youtube.com/channel/UCAJ-VAPVf_FOqXQausgR5nw"]}
 
+AUTHOR = {"@type": "Person", "@id": BASE + "/author/jonhisking#person", "name": "Jonhisking", "url": BASE + "/author/jonhisking",
+          "sameAs": ["https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking"]}
+
+
 def brand_title(out, home=False):
     m = re.search(r"<title>(.*?)</title>", out, re.S)
     if not m or "TokenSave" in m.group(1):
@@ -655,7 +662,7 @@ def build():
             title=esc(pg["title"]), desc=esc(pg["desc"]), lang=esc(S["en"]["lang"]),
             homeUrl="/", hreflang=(BLOG_ALTS_EN if pg["path"] == "/blog/" else ""), langOptions=en_opts, langAll=en_all, toolNav=en_nav, ver=ver, adsHead=extras, faq="", guide="",
             f1="", f2="", fAbout=esc(SITE["en"]["fAbout"]), fPrivacy=esc(SITE["en"]["fPrivacy"]),
-            ldjson=js(getattr(DP, pg["ld"])() if pg.get("ld") else {"@context": "https://schema.org", "@type": "WebPage", "name": pg["title"], "url": url}),
+            ldjson=js(getattr(DP, pg["ld"])() if pg.get("ld") else {"@context": "https://schema.org", "@type": "ProfilePage", "name": pg["title"], "url": url, "mainEntity": AUTHOR} if pg["path"] == "/author/jonhisking" else {"@context": "https://schema.org", "@type": "WebPage", "name": pg["title"], "url": url}),
             tjson=js({"static": True}),
             scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>',
         )
@@ -923,7 +930,7 @@ def build():
               article = article[:cut] + top_cta + article[cut:]
           body = f"""    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">{esc(b["title"])}</h1>
-        <p class="mt-2 text-xs text-zinc-500">{esc(byline(b))}</p>
+        <p class="mt-2 text-xs text-zinc-500">{esc(byline(b)).replace("Jonhisking", '<a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a>', 1)}</p>
   {article}{related_html(b)}
         <div class="not-prose mt-8 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 text-center">
           <p class="text-zinc-200">{esc(b["cta"])}</p>
@@ -936,7 +943,7 @@ def build():
               {"@type": "BlogPosting", "headline": b["title"], "description": b["desc"], "inLanguage": tag,
                "url": url, "mainEntityOfPage": url, "datePublished": bdate, "dateModified": modified(b),
                "image": f"{BASE}/{b.get('og') or AUTOIMG.get(b['path'], gimg)}",
-               "author": {"@type": "Person", "name": "Jonhisking"},
+               "author": AUTHOR,
                "publisher": {"@type": "Organization", "@id": BASE + "/#org", "name": "TokenSave", "url": BASE + "/"}},
               {"@type": "BreadcrumbList", "itemListElement": [
                   {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + tool_home},

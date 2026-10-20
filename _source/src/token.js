@@ -7,7 +7,7 @@ import { tr, fx } from './common.js';
 
 // =========================================================
 // 1) MODEL CONFIG
-//    ratio: multiplier applied to the heuristic estimate
+//    ratio: multiplier applied to the heuristic estimate (fam: use the measured per-language table instead)
 //    exact: true when o200k is the model's real tokenizer
 // =========================================================
 const PROVIDERS = {
@@ -27,21 +27,21 @@ const PROVIDERS = {
     { id: 'gpt-4o-mini',  name: 'GPT-4o mini',   in: 0.15,  out: 0.60,  ratio: 1.00, exact: true  },
   ],
   claude: [
-    // Claude 4.7+ uses a newer tokenizer (~30% more tokens for the same text)
-    { id: 'claude-fable-5-1',  name: 'Claude Fable 5.1',  in: 10.00, out: 50.00, ratio: 1.30 },
-    { id: 'claude-opus-5-5',   name: 'Claude Opus 5.5',   in: 4.00,  out: 20.00, ratio: 1.30 },
-    { id: 'claude-sonnet-5-5', name: 'Claude Sonnet 5.5', in: 2.00,  out: 10.00, ratio: 1.30 },
+    // Claude 4.7+ uses a newer tokenizer. fam = column of MEASURED below (our own test, 2026-10-17)
+    { id: 'claude-fable-5-1',  name: 'Claude Fable 5.1',  in: 10.00, out: 50.00, ratio: 1.38, fam: 0 },
+    { id: 'claude-opus-5-5',   name: 'Claude Opus 5.5',   in: 4.00,  out: 20.00, ratio: 1.38, fam: 0 },
+    { id: 'claude-sonnet-5-5', name: 'Claude Sonnet 5.5', in: 2.00,  out: 10.00, ratio: 1.38, fam: 0 },
     // Haiku 5.5 (2026-10-07): $0.10/$0.50 up to a 100K-token prompt, $0.50/$2.50 above (platform.claude.com, checked 2026-10-14)
-    { id: 'claude-haiku-5-5',  name: 'Claude Haiku 5.5',  in: 0.10,  out: 0.50,  ratio: 1.30, long: { over: 100000, in: 0.50, out: 2.50 } },
-    { id: 'claude-haiku-4-5',  name: 'Claude Haiku 4.5',  in: 1.00,  out: 5.00,  ratio: 1.05 },
+    { id: 'claude-haiku-5-5',  name: 'Claude Haiku 5.5',  in: 0.10,  out: 0.50,  ratio: 1.38, fam: 0, long: { over: 100000, in: 0.50, out: 2.50 } },
+    { id: 'claude-haiku-4-5',  name: 'Claude Haiku 4.5',  in: 1.00,  out: 5.00,  ratio: 1.03, fam: 1 },
   ],
   gemini: [
     // Gemini 4 Argon (2026-09-30): standard $4/$20; introductory $2/$10 for a limited time
-    { id: 'gemini-4-argon',        name: 'Gemini 4 Argon',        in: 4.00, out: 20.00, ratio: 0.95 },
-    { id: 'gemini-3-1-pro',       name: 'Gemini 3.1 Pro',        in: 2.00, out: 12.00, ratio: 0.95 },
-    { id: 'gemini-3-8-flash',      name: 'Gemini 3.8 Flash',      in: 0.75, out: 3.75,  ratio: 0.95 },
-    { id: 'gemini-3-5-flash-lite', name: 'Gemini 3.5 Flash-Lite', in: 0.30, out: 2.50,  ratio: 0.95 },
-    { id: 'gemini-3-1-flash-lite', name: 'Gemini 3.1 Flash-Lite', in: 0.25, out: 1.50,  ratio: 0.95 },
+    { id: 'gemini-4-argon',        name: 'Gemini 4 Argon',        in: 4.00, out: 20.00, ratio: 1.00, fam: 2 },
+    { id: 'gemini-3-1-pro',       name: 'Gemini 3.1 Pro',        in: 2.00, out: 12.00, ratio: 1.00, fam: 2 },
+    { id: 'gemini-3-8-flash',      name: 'Gemini 3.8 Flash',      in: 0.75, out: 3.75,  ratio: 1.00, fam: 2 },
+    { id: 'gemini-3-5-flash-lite', name: 'Gemini 3.5 Flash-Lite', in: 0.30, out: 2.50,  ratio: 1.00, fam: 2 },
+    { id: 'gemini-3-1-flash-lite', name: 'Gemini 3.1 Flash-Lite', in: 0.25, out: 1.50,  ratio: 1.00, fam: 2 },
   ],
   // Other providers: their tokenizers are not o200k, so counts are estimates
   other: [
@@ -134,6 +134,38 @@ function analyze(text) {
   for (const k in WEIGHT) scriptTokens += counts[k] * WEIGHT[k];
   const nonLatinChars = Object.keys(WEIGHT).reduce((s, k) => s + counts[k], 0);
   return { tokens: Math.round(latinTokens + symbolTokens + scriptTokens), counts, nonLatinChars, latinTokens };
+}
+
+// =========================================================
+// 3b) Measured tokens vs GPT (o200k) for the same prompt, by language: [Claude 5.x, Claude Haiku 4.5, Gemini 3.x]
+//     TokenSave dataset, 2026-10-17 (/data/token-cost-by-language-claude-gemini). One short prompt per language,
+//     counted with each provider's token-counting API, so treat these as estimates.
+// =========================================================
+const MEASURED = { 'en': [1.38, 1.03, 1.00], 'zh-CN': [1.54, 1.54, 0.97], 'id': [2.05, 1.44, 0.95], 'es': [1.73, 1.23, 0.95], 'pt': [1.68, 1.32, 1.05], 'fa': [2.19, 2.19, 0.93], 'de': [2.21, 1.56, 1.07], 'ar': [2.07, 2.07, 1.12], 'fr': [1.59, 1.34, 1.09], 'nl': [1.84, 1.39, 1.14], 'ru': [1.58, 1.58, 0.96], 'sv': [1.49, 1.13, 1.04], 'no': [1.53, 1.22, 1.07], 'zh-TW': [1.30, 1.30, 0.83], 'vi': [1.91, 1.78, 0.93], 'da': [1.54, 1.22, 1.02], 'it': [1.66, 1.21, 1.00], 'ko': [1.82, 1.82, 0.98], 'fi': [1.96, 1.43, 1.20], 'tr': [1.80, 1.44, 0.92], 'hi': [2.16, 2.16, 0.80], 'fil': [1.62, 1.15, 1.02], 'ro': [1.42, 1.13, 1.00], 'he': [1.62, 1.62, 1.15], 'ur': [2.15, 2.15, 0.89], 'gu': [2.63, 2.63, 1.04], 'mr': [2.21, 2.21, 0.75], 'bn': [2.49, 2.49, 0.68], 'th': [2.02, 2.02, 0.78], 'hu': [1.49, 1.17, 1.08], 'ja': [1.16, 1.16, 0.75], 'kn': [5.21, 5.21, 0.95], 'ml': [3.37, 3.37, 1.03], 'uk': [1.25, 1.25, 0.92], 'pl': [1.47, 1.14, 0.91], 'ta': [2.63, 2.63, 0.78], 'cs': [1.26, 1.03, 0.93], 'sk': [1.34, 1.07, 0.96], 'te': [2.29, 2.29, 0.91], 'el': [1.67, 1.67, 0.99], 'pa': [3.81, 3.81, 1.04] };
+const SCRIPT_LANG = { hangul: 'ko', kana: 'ja', cjk: 'zh-CN', cyrillic: 'ru', arabic: 'ar', thai: 'th', devan: 'hi', bengali: 'bn', hebrew: 'he',
+  greek: 'el', gurmukhi: 'pa', gujarati: 'gu', tamil: 'ta', telugu: 'te', kannada: 'kn', malayalam: 'ml' };
+const PAGE_SCRIPT_LANG = { 'zh-Hant': { cjk: 'zh-TW' }, uk: { cyrillic: 'uk' }, fa: { arabic: 'fa' }, ur: { arabic: 'ur' }, mr: { devan: 'mr' } };
+function latinLang(text) {
+  const words = (text.match(/\p{L}+/gu) || []).length;
+  if (words && (text.match(EN_WORDS) || []).length / words > 0.12) return 'en';
+  if (MEASURED[PAGE_LANG] && LATIN_TAX[PAGE_LANG]) return PAGE_LANG;
+  return guessLatin(text) || 'en';
+}
+// Token-weighted mix of the measured ratios of each script in the text (falls back to the model's fixed ratio)
+function modelRatio(a, text) {
+  if (model.fam === undefined) return model.ratio;
+  const f = model.fam, map = { ...SCRIPT_LANG, ...(PAGE_SCRIPT_LANG[PAGE_LANG] || {}) };
+  if (a.counts.kana) map.cjk = 'ja';
+  let w = 0, sum = 0;
+  for (const k in WEIGHT) {
+    const t = a.counts[k] * WEIGHT[k];
+    if (!t) continue;
+    const m = MEASURED[map[k]];
+    sum += t * (m ? m[f] : 1); w += t;
+  }
+  const rest = Math.max(0, a.tokens - w);
+  if (rest) { sum += rest * MEASURED[latinLang(text)][f]; w += rest; }
+  return w ? sum / w : model.ratio;
 }
 
 // =========================================================
@@ -313,7 +345,7 @@ function countTokens(text) {
   if (provider === 'openai' && enc) {
     try { return { tokens: enc.encode(text).length, exact: !!model.exact, based: true, a }; } catch (_) {}
   }
-  return { tokens: Math.round(a.tokens * model.ratio), exact: false, based: false, a };
+  return { tokens: Math.round(a.tokens * modelRatio(a, text)), exact: false, based: false, a };
 }
 
 let raf = null;

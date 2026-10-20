@@ -5,7 +5,7 @@
 <p>We keken naar de kosten van één gewoon verzoek, niet alleen naar de prijs per miljoen tokens. Die prijs alleen is om twee redenen misleidend:</p>
 <ul>
 <li><strong>Output is bij de meeste modellen 200% tot 700% duurder dan input.</strong> Een model met goedkope input en dure output kan dus verliezen van een model waarbij het andersom is.</li>
-<li><strong>Tokenizers verschillen.</strong> Dezelfde Engelse tekst levert bij Claude Opus en Sonnet ongeveer 30% meer tokens op dan bij GPT, en bij Gemini ongeveer 5% minder. Een Claude-model van "$2 per miljoen" kost per verzoek dus meer dan een GPT-model van "$2 per miljoen".</li>
+<li><strong>Tokenizers verschillen.</strong> In onze eigen meting leverde dezelfde Engelse tekst bij de huidige Claude-modellen ongeveer 38% meer tokens op dan bij GPT, en bij Gemini ongeveer evenveel (<a href="/data/token-cost-by-language-claude-gemini">dataset</a>, in het Engels). Een Claude-model van "$2 per miljoen" kost per verzoek dus meer dan een GPT-model van "$2 per miljoen".</li>
 </ul>
 <p>Daarom hebben we één gewoon verzoek doorgerekend: <strong>2.000 inputtokens en 500 outputtokens Engelse tekst</strong>, geteld zoals de tokenizer van elk model ze telt. We gebruikten de officiële prijslijsten, gecontroleerd op 1 oktober 2026. Zonder caching- of batchkorting.</p>
 <h2>Wat zijn de goedkoopste AI API's?</h2>
@@ -58,18 +58,18 @@
 <td style="text-align: right;">$6,30</td>
 </tr>
 <tr>
-<td>Gemini 3.1 Flash-Lite</td>
-<td>Google</td>
-<td>$0,25 / $1,50</td>
-<td style="text-align: right;">$0,00119</td>
-<td style="text-align: right;">$11,88</td>
-</tr>
-<tr>
 <td>DeepSeek V4.1 Flash (piek)</td>
 <td>DeepSeek</td>
 <td>$0,30 / $1,20</td>
 <td style="text-align: right;">$0,00120</td>
 <td style="text-align: right;">$12,00</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Flash-Lite</td>
+<td>Google</td>
+<td>$0,25 / $1,50</td>
+<td style="text-align: right;">$0,00125</td>
+<td style="text-align: right;">$12,50</td>
 </tr>
 <tr>
 <td>GPT-5 mini</td>
@@ -86,22 +86,22 @@
 <td style="text-align: right;">$16,00</td>
 </tr>
 <tr>
-<td>Gemini 3.5 Flash-Lite</td>
-<td>Google</td>
-<td>$0,30 / $2,50</td>
-<td style="text-align: right;">$0,00176</td>
-<td style="text-align: right;">$17,57</td>
-</tr>
-<tr>
 <td>Mistral Large 3</td>
 <td>Mistral</td>
 <td>$0,50 / $1,50</td>
 <td style="text-align: right;">$0,00184</td>
 <td style="text-align: right;">$18,38</td>
 </tr>
+<tr>
+<td>Gemini 3.5 Flash-Lite</td>
+<td>Google</td>
+<td>$0,30 / $2,50</td>
+<td style="text-align: right;">$0,00185</td>
+<td style="text-align: right;">$18,50</td>
+</tr>
 </tbody>
 </table></div>
-<p>Ter vergelijking: dezelfde 10.000 verzoeken kosten <strong>$90</strong> op GPT-6 Sol, <strong>$117</strong> op Claude Sonnet 5.5, <strong>$234</strong> op Claude Opus 5.5 en <strong>$450</strong> op GPT-6 Astra. Het goedkoopste model in de tabel kost minder dan 1% van wat GPT-6 Astra kost.</p>
+<p>Ter vergelijking: dezelfde 10.000 verzoeken kosten <strong>$90</strong> op GPT-6 Sol, <strong>$124</strong> op Claude Sonnet 5.5, <strong>$248</strong> op Claude Opus 5.5 en <strong>$450</strong> op GPT-6 Astra. Het goedkoopste model in de tabel kost minder dan 1% van wat GPT-6 Astra kost.</p>
 <h2>Welk goedkoop model kies je?</h2>
 <p><img loading="lazy" width="1200" height="931" alt="Welk goedkoop model kies je?: GPT-6 Luna probeer je als eerste. Het is het nieuwste kleine model van OpenAI (september 2026) en kost maar $1" src="/goedkoopste-ai-api-welk-goedkoop-model-kies-je-nl.jpg" /></p>
 <p>Begin met GPT-6 Luna. Voor het allersimpelste werk op grote schaal neem je GPT-5 nano.</p>
@@ -109,8 +109,8 @@
 <li><strong>GPT-6 Luna</strong> probeer je als eerste. Het is het nieuwste kleine model van OpenAI (september 2026) en kost maar $1,50 per 10.000 verzoeken meer dan GPT-5 nano. Goed voor classificatie, gegevens uit tekst halen, routering, korte antwoorden en samenvattingen.</li>
 <li><strong>GPT-5 nano</strong> voor het eenvoudigste werk in de grootste volumes, waar elke fractie van een cent telt: taggen, ja/nee-controles, spamfilters.</li>
 <li><strong>Qwen 3.8 Flash</strong> en <strong>Mistral Small</strong> zijn de goedkoopste opties buiten OpenAI. Handig als je een tweede aanbieder wilt, of open-weight modellen die je later zelf kunt hosten.</li>
-<li><strong>Gemini 3.1 Flash-Lite</strong> en <strong>DeepSeek V4.1 Flash</strong> zijn ruim 160% duurder dan Luna, maar een stap beter in schrijven en redeneren. Toch zijn ze per verzoek nog zo'n 87% goedkoper dan GPT-6 Sol. DeepSeek V4.1 Flash kost buiten de piekuren de helft ($0,15 / $0,60). Daarmee komt hij vlak achter GPT-6 Luna; zie <a href="/blog/deepseek-v4-1-flash-api-pricing">DeepSeek V4.1 Flash-prijzen</a> (in het Engels).</li>
-<li><strong>Claude Haiku 5.5</strong> is het goedkoopste Claude-model: $0,10 / $0,50 per miljoen voor prompts tot 100.000 tokens (daarboven duurder), zo'n $0,00059 per verzoek, ongeveer 30% duurder dan Luna. Het oudere Claude Haiku 4.5 ($1 / $5) kost $0,0047 per verzoek. Kies Haiku als je specifiek het gedrag van Claude nodig hebt.</li>
+<li><strong>Gemini 3.1 Flash-Lite</strong> en <strong>DeepSeek V4.1 Flash</strong> zijn zo'n 170% duurder dan Luna, maar een stap beter in schrijven en redeneren. Toch zijn ze per verzoek nog zo'n 86% goedkoper dan GPT-6 Sol. DeepSeek V4.1 Flash kost buiten de piekuren de helft ($0,15 / $0,60). Daarmee komt hij vlak achter GPT-6 Luna; zie <a href="/blog/deepseek-v4-1-flash-api-pricing">DeepSeek V4.1 Flash-prijzen</a> (in het Engels).</li>
+<li><strong>Claude Haiku 5.5</strong> is het goedkoopste Claude-model: $0,10 / $0,50 per miljoen voor prompts tot 100.000 tokens (daarboven duurder), zo'n $0,00062 per verzoek, ongeveer 38% duurder dan Luna. Het oudere Claude Haiku 4.5 ($1 / $5) kost $0,0046 per verzoek. Kies Haiku als je specifiek het gedrag van Claude nodig hebt.</li>
 </ul>
 <h2>Wanneer kost het goedkoopste model juist meer?</h2>
 <p>Als het fouten maakt. Een goedkoop model dat faalt, betaal je twee keer: een keer voor het slechte antwoord en nog een keer voor de nieuwe poging op een beter model. Plus je eigen tijd. Twee aanpakken besparen meer dan overal het goedkoopste model kiezen:</p>

@@ -13,7 +13,8 @@ CPT_JA = 1.2          # Japanese characters per GPT token
 JA_VS_EN = 1.79       # Japanese needs 79% more tokens than English for the same meaning
 TPW_EN = 1.15         # GPT tokens per English word (everyday prose)
 GENKOU = 400          # characters per 原稿用紙 sheet
-MODELS = [("GPT（OpenAI）", 1.00), ("Claude Opus / Sonnet", 1.30), ("Claude Haiku 4.5", 1.05), ("Gemini", 0.95)]
+# 日本語の同じプロンプトでの GPT 比（実測、blog_data/langmulti、2026-10-17）
+MODELS = [("GPT（OpenAI）", 1.00), ("Claude Opus / Sonnet / Haiku 5.5", 1.16), ("Claude Haiku 4.5", 1.16), ("Gemini", 0.75)]
 
 TITLE = "トークン⇔文字数 変換ツール｜日本語・GPT／Claude／Gemini"
 DESC = "トークン数を日本語の文字数・原稿用紙の枚数に、文字数をトークン数に変換。GPT・Claude・Gemini対応、実測の比率で計算する無料ツール。"
@@ -25,9 +26,9 @@ def _c(tokens, f):
 
 FAQ = [
     ("1トークンは日本語で何文字？",
-     f"GPT の現行トークナイザーで、ふつうの日本語は1トークンあたり約1.2文字です。Claude Opus・Sonnet は同じ文章を約30%多いトークンに分けるので約0.9文字、Gemini は約1.3文字です。漢字とかなの割合で多少変わります。"),
+     f"GPT の現行トークナイザーで、ふつうの日本語は1トークンあたり約1.2文字です。実測では同じ日本語の文で Claude Opus・Sonnet・Haiku 5.5 は GPT より16%多いトークンになったので約1.0文字、Gemini は25%少なかったので約1.6文字です。漢字とかなの割合で多少変わります。"),
     ("日本語1,000文字は何トークン？",
-     f"GPT で約{1000 / CPT_JA:,.0f}トークン、Claude Opus・Sonnet で約{1000 / CPT_JA * 1.30:,.0f}トークン、Gemini で約{1000 / CPT_JA * 0.95:,.0f}トークンです。原稿用紙なら2枚半ほどです。"),
+     f"GPT で約{1000 / CPT_JA:,.0f}トークン、Claude Opus・Sonnet・Haiku 5.5 で約{1000 / CPT_JA * 1.16:,.0f}トークン、Gemini で約{1000 / CPT_JA * 0.75:,.0f}トークンです。原稿用紙なら2枚半ほどです。"),
     ("なぜ日本語はトークンが多いの？",
      "トークナイザーは主に英語のデータで作られているため、日本語は細かく分けられます。同じ意味を伝えるのに、日本語は英語より約79%多いトークンが必要です。API はトークン単位の課金なので、そのぶん料金も高くなります。"),
     ("正確な数はわかる？",
@@ -78,10 +79,10 @@ def body():
 
     <section class="prose-ts mt-12 max-w-3xl mx-auto bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
       <h2 style="margin-top:0">早見表（ふつうの日本語）</h2>
-      <div class="overflow-x-auto"><table><thead><tr><th>トークン</th><th>GPT</th><th>Claude Opus / Sonnet</th><th>Gemini</th><th>原稿用紙（GPT）</th></tr></thead><tbody>{table}</tbody></table></div>
+      <div class="overflow-x-auto"><table><thead><tr><th>トークン</th><th>GPT</th><th>Claude 5.5</th><th>Gemini</th><th>原稿用紙（GPT）</th></tr></thead><tbody>{table}</tbody></table></div>
       <p>12.8万トークンは、よくあるコンテキストウィンドウの大きさです。GPT なら日本語で約15万字、原稿用紙380枚ほどが一度に入ります。</p>
       <h2>数字の出どころ</h2>
-      <p>同じカスタマーサポート用のプロンプトを日本語と英語で書き、GPT の現行トークナイザー（o200k）で数えました。日本語は73文字で61トークン、<strong>1トークンあたり約1.2文字</strong>で、同じ内容の英語より<strong>約79%多いトークン</strong>になりました。Claude と Gemini の差はトークンカウンターと同じ係数（英文での実測：Claude Opus・Sonnet は約30%多く、Gemini は約5%少ない）を使っているので、日本語では多少ずれることがあります。詳しくは<a href="/ja/blog/token-mojisuu">1トークンは何文字？</a>と<a href="/ja/blog/nihongo-tokens-gpt">日本語は GPT で何トークン？</a>をご覧ください。</p>
+      <p>同じカスタマーサポート用のプロンプトを日本語と英語で書き、GPT の現行トークナイザー（o200k）で数えました。日本語は73文字で61トークン、<strong>1トークンあたり約1.2文字</strong>で、同じ内容の英語より<strong>約79%多いトークン</strong>になりました。Claude と Gemini は、同じ文を41言語で各社のトークン計算 API に数えさせた<a href="/data/token-cost-by-language-claude-gemini">自前の実測データ</a>の日本語の値（GPT 比で Claude 5.5 は16%多く、Gemini は25%少ない）を使っています。1文での測定なので、文章によって多少ずれます。詳しくは<a href="/ja/blog/token-mojisuu">1トークンは何文字？</a>と<a href="/ja/blog/nihongo-tokens-gpt">日本語は GPT で何トークン？</a>をご覧ください。</p>
       <h2>関連</h2>
       <ul>
         <li><a href="/ja/">AI トークンカウンター</a> — 実際の文章のトークン数と API 料金</li>
