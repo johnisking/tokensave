@@ -3,7 +3,7 @@
  "url": "https://tokensave.app/data/ai-politeness-token-cost",
  "license": "CC BY 4.0",
  "measured": "2026-10-20",
- "citation": "TokenSave (2026). Does being polite to AI cost more? Plain, polite and very polite prompts in Korean, Japanese and English [Data set]. https://tokensave.app/data/ai-politeness-token-cost",
+ "citation": "TokenSave (2026). Does being polite to AI cost more? Plain, polite and very polite prompts in Korean, Japanese and English [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23489481",
  "tool": "Claude Code 2.1.295, claude -p --system-prompt 'You are a helpful assistant.' --tools '' (plain chat, no tools), no MCP; GPT counts with js-tiktoken",
  "levels": {
   "ko": [

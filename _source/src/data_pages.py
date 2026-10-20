@@ -2078,8 +2078,9 @@ def latest_html(limit=5):
 VIB_PATH = "/data/vibe-coding-by-claude-model"
 VIB_MEASURED = "2026-10-20"
 VIB_CHART = "/vibe-coding-by-claude-model-chart.png"
-VIB_DOI = None
-VIB_MIRRORS = None
+VIB_DOI = "10.5281/zenodo.23489448"  # concept DOI
+VIB_MIRRORS = [("Zenodo", "https://zenodo.org/records/23489449"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/vibe-coding")]
 VIB_TITLE = "Vibe coding with Claude Haiku, Sonnet and Opus 5.5: cost, time and whether the game works"
 VIB_DESC = ("Dataset: three browser games (brick-breaker, 2048, Sudoku) built by Claude Code with Haiku 5.5, Sonnet 5.5 and Opus 5.5, five runs each: "
             "tokens, API cost, time and automated play tests. All 45 games passed; Haiku 5.5 cost about 95% less than Opus 5.5. Free CSV, CC BY 4.0.")
@@ -2183,8 +2184,9 @@ def vib_html():
 LNG_PATH = "/data/long-chat-vs-new-chat-cost"
 LNG_MEASURED = "2026-10-20"
 LNG_CHART = "/long-chat-vs-new-chat-cost-chart.png"
-LNG_DOI = None
-LNG_MIRRORS = None
+LNG_DOI = "10.5281/zenodo.23489464"  # concept DOI
+LNG_MIRRORS = [("Zenodo", "https://zenodo.org/records/23489465"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/long-chat")]
 LNG_TITLE = "Long chat or new chat? What 30 requests cost in one Claude Code session, with /compact, and in fresh sessions"
 LNG_DESC = ("Dataset: 30 change requests on one browser game in Claude Code (Opus 5.5), sent in one session, in one session with /compact after request 15, "
             "and as a new session for every request, two runs each: tokens, cache writes and reads, API cost and time per request. Free CSV, CC BY 4.0.")
@@ -2297,8 +2299,9 @@ def lng_html():
 POL_PATH = "/data/ai-politeness-token-cost"
 POL_MEASURED = "2026-10-20"
 POL_CHART = "/ai-politeness-token-cost-chart.png"
-POL_DOI = None
-POL_MIRRORS = None
+POL_DOI = "10.5281/zenodo.23489481"  # concept DOI
+POL_MIRRORS = [("Zenodo", "https://zenodo.org/records/23489482"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/politeness")]
 POL_TITLE = "Does being polite to AI cost more? Plain, polite and very polite prompts in Korean, Japanese and English"
 POL_DESC = ("Dataset: 10 everyday requests in Korean, Japanese and English at four politeness levels, sent to Claude Opus 5.5 and Haiku 5.5: "
             "prompt tokens (Claude and GPT), answer tokens and cost. Polite padding more than doubles the prompt, but the most polite version cost only 0-4% more in total. Free CSV, CC BY 4.0.")
@@ -2415,8 +2418,9 @@ def pol_html():
 COF_PATH = "/data/ai-coffee-break-cache-cost"
 COF_MEASURED = "2026-10-20"
 COF_CHART = "/ai-coffee-break-cache-cost-chart.png"
-COF_DOI = None
-COF_MIRRORS = None
+COF_DOI = "10.5281/zenodo.23489501"  # concept DOI
+COF_MIRRORS = [("Zenodo", "https://zenodo.org/records/23489502"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/coffee-break")]
 COF_TITLE = "The coffee-break tax: what your next Claude Code message costs after a 0 to 65 minute pause"
 COF_DESC = ("Dataset: Claude Code (Opus 5.5) builds a game, waits 0, 4, 6, 15, 30, 55 or 65 minutes, then gets a small change request in the same session: "
             "cache reads and writes and the cost of that next message. Up to 55 minutes nothing changed; after 65 minutes the cache was gone and the message cost about six times as much. Free CSV, CC BY 4.0.")

@@ -3,7 +3,7 @@
  "url": "https://tokensave.app/data/long-chat-vs-new-chat-cost",
  "license": "CC BY 4.0",
  "measured": "2026-10-20",
- "citation": "TokenSave (2026). Long chat or new chat? What 30 requests cost in one Claude Code session, with /compact, and in fresh sessions [Data set]. https://tokensave.app/data/long-chat-vs-new-chat-cost",
+ "citation": "TokenSave (2026). Long chat or new chat? What 30 requests cost in one Claude Code session, with /compact, and in fresh sessions [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23489464",
  "tool": "Claude Code 2.1.295 (Opus 5.5), claude -p --effort medium --permission-mode acceptEdits, no MCP servers, stream-json",
  "requests": [
   "Make a brick-breaker game that runs in the browser as a single file named index.html in the current folder. It needs 2 levels, a score display and 3 lives, and it must be playable with the keyboard and the mouse. Write the file and finish.",
