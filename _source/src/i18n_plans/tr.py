@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 P = dict(
+    pattern='Kullanımın aya nasıl dağılıyor',
+    patEven='Her gün aşağı yukarı aynı',
+    patPeak='1 yoğun hafta + 3 sakin hafta',
+    patNote='Günlük mesaj = yoğun haftan. Sakin haftalar bunun dörtte biri sayılır; ayda toplam yaklaşık {n} mesaj. Plan yoğun haftanın limitlerini karşılamak zorunda, API ise yalnızca gönderdiğin kadar ücret alır.',
+    perMsg='Gönderdiğin mesaj başına: {plan} {p} · API {a}',
     h1="Abonelik mi, API mi?",
     sub="ChatGPT Plus, Claude Pro veya Google AI Pro, yapay zekâyı kullanma şeklinize göre değer mi, yoksa API daha mı ucuz?",
     badge="Plan fiyatları Ekim 2026'da kontrol edildi · API fiyatları her gün güncellenir",

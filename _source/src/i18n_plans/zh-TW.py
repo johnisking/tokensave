@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # Subscription vs API page — zh-TW strings (translated from en.py).
 P = dict(
+    pattern='一個月的使用分布',
+    patEven='每天差不多',
+    patPeak='忙碌 1 週 + 清閒 3 週',
+    patNote='每天訊息數 = 忙碌那週的用量。清閒的 3 週以四分之一計算，一個月合計約 {n} 則。訂閱方案仍要撐得住忙碌週的用量上限，而 API 只收你實際送出的部分。',
+    perMsg='每則實際送出的訊息：{plan} {p} · API {a}',
     h1='訂閱還是 API？',
     sub='依你使用 AI 的方式，ChatGPT Plus、Claude Pro 或 Google AI Pro 值得訂閱嗎？還是 API 更便宜？',
     badge='方案價格查核於 2026 年 10 月 · API 價格每日更新',

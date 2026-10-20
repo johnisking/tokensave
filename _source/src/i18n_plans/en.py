@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # Subscription vs API page — English source strings. Other languages: i18n_plans/<tag>.py with the same keys.
 P = dict(
+    pattern='How your use is spread over the month',
+    patEven='About the same every day',
+    patPeak='1 busy week + 3 quiet weeks',
+    patNote="Messages per day = your busy week. The quiet weeks count at a quarter of that, about {n} messages a month in total. A plan still has to cover the busy week's limits, while the API only charges for what you send.",
+    perMsg='Per message you send: {plan} {p} · API {a}',
     h1="Subscription or API?",
     sub="Is ChatGPT Plus, Claude Pro or Google AI Pro worth it for how you use AI, or would the API cost less?",
     badge="Plan prices checked October 2026 · API prices updated daily",
