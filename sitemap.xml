@@ -6211,6 +6211,66 @@
     </image:image>
   </url>
   <url>
+    <loc>https://tokensave.app/blog/claude-code-cache-break-cost</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-code-cache-break-cost"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-cache-1sigan"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-cache-1jikan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-cache-break-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cache-break-cost-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cache-break-cost-results-nothing-changes-for-55-minutes-t-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cache-break-cost-why-one-hour-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cache-break-cost-what-you-can-do-before-a-long-break-en.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/blog/claude-code-cache-1sigan</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-code-cache-break-cost"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-cache-1sigan"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-cache-1jikan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-cache-break-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cache-1sigan-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cache-1sigan-55-65-507-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cache-1sigan-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cache-1sigan-ko-4.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/blog/claude-code-cache-1jikan</loc>
+    <lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-code-cache-break-cost"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-cache-1sigan"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-code-cache-1jikan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-cache-break-cost"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cache-1jikan-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cache-1jikan-5565-507-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cache-1jikan-ja-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-cache-1jikan-ja-4.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://tokensave.app/blog/what-is-a-token</loc>
     <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/what-is-a-token"/>
@@ -6728,11 +6788,11 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/</loc>
