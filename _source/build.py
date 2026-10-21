@@ -512,7 +512,9 @@ ORG = {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "To
                   "https://www.youtube.com/@tokensave", "https://www.youtube.com/channel/UCAJ-VAPVf_FOqXQausgR5nw"]}
 
 AUTHOR = {"@type": "Person", "@id": BASE + "/author/jonhisking#person", "name": "Jonhisking", "url": BASE + "/author/jonhisking",
-          "sameAs": ["https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking"]}
+          "sameAs": ["https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking"],
+          "subjectOf": {"@type": "NewsArticle", "headline": "TokenSave tells LDS what 45 Claude coding runs reveal about cost and testing",
+                        "url": "https://letsdatascience.com/news/tokensave-tells-lds-what-45-claude-coding-runs-reveal-0d3335f3", "publisher": {"@type": "Organization", "name": "Let's Data Science"}}}
 
 
 def brand_title(out, home=False):
