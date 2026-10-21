@@ -65,6 +65,7 @@ def write_files(dist):
     write_pol_files(dist)
     write_cof_files(dist)
     write_tai_files(dist)
+    write_ccv_files(dist)
 
 
 def _write_lang_files(dist):
@@ -256,6 +257,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{TAI_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(TAI_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">Six documents as text and as pxpipe images on four Claude models: 64% to 81% fewer input tokens, but ids outside the factsheet were read 0 of 80 times. CSV · measured {TAI_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{CCV_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(CCV_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">The prompt &ldquo;a&rdquo; on Claude Code versions from July 2025 to today: the baseline rose 86% to May 2026, then fell back to half that by October. CSV · measured {CCV_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -2043,6 +2047,7 @@ def lti_html():
 
 # ---- Measurement log: newest first, shown on the data hub and the English home page ----
 CHANGELOG = [
+    ("2026-10-21", "/data/claude-code-baseline-tokens-by-version", "Claude Code baseline tokens by version: +86% in ten months, then back to half the peak"),
     ("2026-10-21", "/data/text-as-image-token-cost", "Text as images (pxpipe) on Claude: 64% to 81% fewer tokens, but exact ids often lost"),
     ("2026-10-20", "/data/ai-coffee-break-cache-cost", "The coffee-break tax: the next Claude Code message after a 0 to 65 minute pause"),
     ("2026-10-20", "/data/vibe-coding-by-claude-model", "Vibe coding with Claude Haiku, Sonnet and Opus 5.5: 45 games, cost and play tests"),
@@ -2660,3 +2665,118 @@ def tai_html():
                   TAI_CHART, "Input tokens as text and as pxpipe images, and exact values read back, on four Claude models", doi=TAI_DOI, mirrors=TAI_MIRRORS)
             + body + _page_tail(tai_citation(), _embed(TAI_PATH, TAI_CHART, "Text as images: tokens and exact values", "Text as images to cut AI tokens"),
                                 [(IMG_PATH, "Image token cost on Claude, Gemini and GPT"), (LTI_PATH, "Language Tax Index"), (FMT_PATH, "Token cost by data format")]))
+
+
+# ---- Dataset 19: Claude Code baseline tokens by version (measured 2026-10-21) ----
+CCV_PATH = "/data/claude-code-baseline-tokens-by-version"
+CCV_MEASURED = "2026-10-21"
+CCV_CHART = "/claude-code-baseline-tokens-chart.png"
+CCV_DOI = None
+CCV_MIRRORS = []
+CCV_TITLE = "Claude Code baseline tokens by version: what every request carries before you type"
+CCV_DESC = ("Dataset: the input tokens of Claude Code's first request for the one-letter prompt \"a\", measured on {n} versions from July 2025 to October 2026, "
+            "with MCP off and with 16 claude.ai connectors on. The baseline rose 86% to a peak in May 2026, then fell back to half that by October. Free CSV, CC BY 4.0.")
+CCV_COLS = ["version", "released", "arm", "runs", "first_request_input_tokens", "min", "max", "tools", "builtin_tools", "mcp_tools", "connected_servers", "cache_write_1h"]
+
+
+def _ccv():
+    return json.load(open(os.path.join(ROOT, "blog_data", "ccversions", "combined.json"), encoding="utf-8"))
+
+
+def ccv_citation():
+    if CCV_DOI:
+        return f"TokenSave (2026). {CCV_TITLE} [Data set]. Zenodo. https://doi.org/{CCV_DOI}"
+    return f"TokenSave (2026). {CCV_TITLE} [Data set]. {BASE}{CCV_PATH}"
+
+
+def write_ccv_files(dist):
+    d = _ccv()
+    buf = io.StringIO(); w = csv.writer(buf); w.writerow(CCV_COLS + ["builtin_tool_names"])
+    for r in d["rows"]:
+        w.writerow([r.get(c) for c in CCV_COLS] + [" ".join(r["builtin_tool_names"])])
+    open(os.path.join(dist, "data", "claude-code-baseline-tokens-by-version.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=CCV_TITLE, url=BASE + CCV_PATH, license="CC BY 4.0", measured=CCV_MEASURED, citation=ccv_citation(),
+                model=d["model"], prompt=d["prompt"], rows=d["rows"], not_measured=d["not_measured"])
+    open(os.path.join(dist, "data", "claude-code-baseline-tokens-by-version.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def _ccv_clean(d=None):
+    d = d or _ccv()
+    key = lambda v: tuple(map(int, v.split(".")))
+    return sorted([r for r in d["rows"] if r["arm"] == "clean"], key=lambda r: key(r["version"])), {r["version"]: r for r in d["rows"] if r["arm"] == "connectors"}
+
+
+def ccv_ld():
+    n = len(_ccv_clean()[0])
+    return _dataset_ld(CCV_TITLE, CCV_DESC.format(n=n), CCV_PATH, CCV_MEASURED,
+                       ["Claude Code", "system prompt", "baseline tokens", "context overhead", "MCP", "claude.ai connectors", "token usage", "version history"],
+                       ["input tokens of the first request", "number of tools", "MCP tools from claude.ai connectors"],
+                       "Each Claude Code version installed from npm on one Windows laptop and run with claude -p \"a\" (Claude Haiku 5.5), fresh config folder, 3 runs per version",
+                       CCV_CHART, [("claude-code-baseline-tokens-by-version.csv", "text/csv"), ("claude-code-baseline-tokens-by-version.json", "application/json")], doi=CCV_DOI, mirrors=CCV_MIRRORS)
+
+
+def ccv_html():
+    d = _ccv(); C, K = _ccv_clean(d)
+    f = lambda v: "{:,}".format(round(v))
+    tok = lambda r: r["first_request_input_tokens"]
+    first, last = C[0], C[-1]
+    peak = max(C, key=tok)
+    drops = [(a, b) for a, b in zip(C, C[1:])]
+    big = min(drops, key=lambda ab: tok(ab[1]) / tok(ab[0]))
+    pct = lambda a, b: round((b / a - 1) * 100)
+    on = [r for r in C if r["version"] in K and K[r["version"]]["mcp_tools"] > 0]
+    on_tok = [tok(K[r["version"]]) for r in on]
+    on_tools = [K[r["version"]]["mcp_tools"] for r in on]
+    before_on = [r for r in C if r["version"] in K and r not in on and tuple(map(int, r["version"].split("."))) < tuple(map(int, on[0]["version"].split(".")))]
+    after_on = [r for r in C if r["version"] in K and tuple(map(int, r["version"].split("."))) > tuple(map(int, on[-1]["version"].split(".")))]
+    srv = K[on[0]["version"]]["connected_servers"]
+    prev = None; trs = []
+    for r in C:
+        ch = "" if prev is None else _pct(pct(tok(prev), tok(r)))
+        k = K.get(r["version"])
+        conn = f(tok(k)) if k else "&ndash;"
+        trs.append('          <tr><td class="tabular-nums">%s</td><td class="tabular-nums">%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%d</td><td class="text-right tabular-nums">%s</td></tr>' % (
+            r["version"], r["released"], f(tok(r)), ch, r["builtin_tools"], conn))
+        prev = r
+    head = ['<th>Version</th>', '<th>Released</th>', '<th class="text-right">Baseline tokens</th>', '<th class="text-right">Change</th>',
+            '<th class="text-right">Built-in tools</th>', '<th class="text-right">With connectors on</th>']
+    nm = ", ".join(x["version"] for x in d["not_measured"])
+    lead = ('<strong>Every Claude Code request starts with a fixed block of instructions and tool definitions. Between mid-2025 and May 2026 that block grew by %d%%, '
+            'from %s tokens in %s to %s in %s, then came back down: version %s sends %s tokens before you type anything, half the peak.</strong> '
+            'We installed %d versions from npm and sent each the one-letter prompt &ldquo;a&rdquo;.') % (
+        pct(tok(first), tok(peak)), f(tok(first)), first["released"][:7], f(tok(peak)), peak["released"][:7], last["version"], f(tok(last)), len(C))
+    body = f'''      <h2>Key findings</h2>
+      <ul>
+        <li><strong>Ten months of growth.</strong> Version {first["version"]} ({first["released"]}) sent {f(tok(first))} tokens with the prompt &ldquo;a&rdquo;. By {peak["version"]} ({peak["released"]}) it was {f(tok(peak))} ({_pct(pct(tok(first), tok(peak)))}). Built-in tools went from {first["builtin_tools"]} to {peak["builtin_tools"]} along the way: plan mode, task lists, scheduled tasks, worktrees and more.</li>
+        <li><strong>The biggest single change was a cut.</strong> Between {big[0]["version"]} ({big[0]["released"]}) and {big[1]["version"]} ({big[1]["released"]}) the baseline fell from {f(tok(big[0]))} to {f(tok(big[1]))} tokens ({_pct(pct(tok(big[0]), tok(big[1])))}), with the same number of tools. Today&rsquo;s {f(tok(last))} is about where it was in mid-2025.</li>
+        <li><strong>Connected apps once came along in full.</strong> Apps connected to a claude.ai account (connectors) are also available in Claude Code. In versions {on[0]["version"]} to {on[-1]["version"]} ({on[0]["released"]} to {on[-1]["released"]}), all of their tools were sent with every request: with the {srv} connected apps on our account that was {min(on_tool for on_tool in on_tools)}&ndash;{max(on_tools)} extra tools and about {f(statistics.mean(on_tok))} tokens for the prompt &ldquo;a&rdquo;, roughly {round(statistics.mean(on_tok) / statistics.mean(tok(r) for r in on))} times the baseline. Earlier versions did not load them; from {after_on[0]["version"]} they are loaded only when needed and the baseline is the same as with them off.</li>
+        <li><strong>The numbers are exact and repeatable.</strong> Three runs of the same version gave the same count every time.</li>
+      </ul>
+      <h2>Baseline by version</h2>
+      <p class="text-sm text-zinc-400">Input tokens of the first model request (uncached + cache read + cache write) for the prompt &ldquo;a&rdquo;, Claude Haiku 5.5, MCP off. &ldquo;With connectors on&rdquo; is the same request with the {srv} connected claude.ai apps of our account enabled (one run). Change is against the previous row.</p>
+{_table(head, chr(10).join(trs))}      <h2>What to take from it</h2>
+      <ul>
+        <li>The baseline is paid on every request, but after the first one it is usually read from the prompt cache at a tenth of the input price or less. It matters most for short sessions, subagents (each starts with its own copy) and after the cache expires (see our <a href="/data/ai-coffee-break-cache-cost">coffee-break measurement</a>).</li>
+        <li>If you used Claude Code between late March and May 2026 with many apps connected on claude.ai, sessions started with hundreds of thousands of tokens. Updating removes that cost.</li>
+        <li>Your own number will be higher than ours: CLAUDE.md files, MCP servers, plugins, skills and hooks all add to it (see <a href="{HAR_PATH}">what the harness costs</a> and <a href="{AMD_PATH}">CLAUDE.md size</a>).</li>
+      </ul>
+      <h2>Method</h2>
+      <ul>
+        <li>Each version was installed with <code>npm install @anthropic-ai/claude-code@&lt;version&gt;</code> into its own folder on one Windows laptop and run as <code>claude -p "a" --model claude-haiku-5-5 --output-format stream-json --verbose</code>, in an empty folder, with auto-update off and a fresh config folder holding only the login (no user settings, CLAUDE.md, plugins or skills). MCP was off (<code>--strict-mcp-config</code> with an empty config, <code>ENABLE_CLAUDEAI_MCP_SERVERS=false</code>); the second set left our account&rsquo;s claude.ai connectors on.</li>
+        <li>We count the usage of the first assistant message in the log, because some older versions made a second request for the same prompt and their final total counts both.</li>
+        <li>Release dates are npm publish dates. Three runs per version with MCP off, one with connectors on, on {CCV_MEASURED}.</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>Versions {nm} would not install on Windows (early Claude Code required WSL), so the series starts in July 2025.</li>
+        <li>One model (Haiku 5.5), one prompt, one machine. Tool definitions and the system prompt can differ by model, operating system and account features, so other setups will see other absolute numbers; the trend is what this shows.</li>
+        <li>Old versions were run against today&rsquo;s API and account. Features the server switches on per account may make an old version send more or less than it did at release.</li>
+        <li>The connector numbers depend on how many apps are connected; ours had {srv}.</li>
+      </ul>
+'''
+    return (_head("What Claude Code sends before you type: baseline tokens by version", lead,
+                  f'Measured {CCV_MEASURED} · {len(C)} versions, {C[0]["released"][:7]} to {C[-1]["released"][:7]} · Claude Haiku 5.5 · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{HAR_PATH}">Claude Code harness cost</a>',
+                  [("claude-code-baseline-tokens-by-version.csv", "CSV"), ("claude-code-baseline-tokens-by-version.json", "JSON")],
+                  CCV_CHART, "Claude Code baseline input tokens by version, and with claude.ai connectors on", doi=CCV_DOI, mirrors=CCV_MIRRORS)
+            + body + _page_tail(ccv_citation(), _embed(CCV_PATH, CCV_CHART, "Claude Code baseline tokens by version", "Claude Code baseline tokens by version"),
+                                [(HAR_PATH, "What the Claude Code harness costs"), (AMD_PATH, "CLAUDE.md and AGENTS.md size"), ("/data/ai-coffee-break-cache-cost", "The coffee-break tax")]))
