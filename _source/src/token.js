@@ -786,3 +786,97 @@ openShared();
 window.addEventListener('hashchange', openShared);
 
 render();
+
+// =========================================================
+// 7) Text → image (experimental): render the text as dense PNG pages in the browser.
+//    Image tokens depend on pixel size, not on how much text is inside, so long or non-English text can
+//    cost fewer input tokens as an image. Exact values (numbers, ids, code) are often misread:
+//    see /data/text-as-image-token-cost. Nothing is uploaded.
+// =========================================================
+const IMG_T = {
+  en: { btn: 'Text → image', sum: 'As image: {img} tokens vs {txt} as text ({pct})', sumUp: 'As image: {img} tokens vs {txt} as text ({pct}): text is cheaper here',
+        warn: 'Experimental. Models often misread numbers, ids and code in images, and wrong answers look plausible. Use it for long text you want summarized or reviewed, not for values that must be exact.',
+        more: 'Our test', copy: 'Copy image', copied: 'Image copied', noCopy: 'Copying not supported here: use Download', dl: 'Download page {n}', empty: 'Type or paste some text first', na: 'Pick a GPT, Claude or Gemini model for an image estimate', est: 'estimate' },
+  ko: { btn: '텍스트 → 이미지', sum: '이미지로: {img}토큰 / 텍스트로: {txt}토큰 ({pct})', sumUp: '이미지로: {img}토큰 / 텍스트로: {txt}토큰 ({pct}) — 이 글은 텍스트가 더 쌉니다',
+        warn: '실험 기능입니다. AI는 이미지 속 숫자·ID·코드를 자주 잘못 읽고, 틀려도 그럴듯하게 답합니다. 요약·검토용 긴 글에만 쓰고, 정확해야 하는 값은 텍스트로 보내세요.',
+        more: '우리 실측', copy: '이미지 복사', copied: '이미지를 복사했습니다', noCopy: '이 브라우저는 복사를 지원하지 않습니다. 다운로드를 쓰세요', dl: '{n}쪽 다운로드', empty: '먼저 텍스트를 입력하세요', na: '이미지 추정은 GPT·Claude·Gemini 모델에서만 됩니다', est: '추정' },
+  ja: { btn: 'テキスト → 画像', sum: '画像なら {img} トークン / テキストなら {txt} トークン（{pct}）', sumUp: '画像なら {img} トークン / テキストなら {txt} トークン（{pct}）：この文章はテキストの方が安い',
+        warn: '試験機能です。AIは画像内の数字・ID・コードをよく読み間違え、間違っていてももっともらしく答えます。要約・チェック用の長文だけに使い、正確さが必要な値はテキストで送ってください。',
+        more: '私たちの実測', copy: '画像をコピー', copied: '画像をコピーしました', noCopy: 'このブラウザはコピーに対応していません。ダウンロードを使ってください', dl: '{n}ページ目を保存', empty: '先にテキストを入力してください', na: '画像の推定は GPT・Claude・Gemini のモデルのみです', est: '推定' },
+};
+const IL = IMG_T[(document.documentElement.lang || 'en').slice(0, 2)] || IMG_T.en;
+const ifmt = (s, v) => s.replace(/\{(\w+)\}/g, (_, k) => v[k]);
+const IMG_W = 1568, IMG_MAXH = 728, IMG_FONT = 12, IMG_LH = 14, IMG_PAD = 4;
+const DATA_PAGE = '/data/text-as-image-token-cost';
+$('imgBtnLabel').textContent = IL.btn;
+$('imgCopy').textContent = IL.copy;
+
+// tokens one page costs on each provider (vision pricing, checked 2026-10-21; see /image-token-calculator)
+function pageTokens(w, h) {
+  if (provider === 'claude') return Math.ceil(w / 28) * Math.ceil(h / 28);          // Claude 4.7+: 28-px patches
+  if (provider === 'gemini') return 1100;                                            // Gemini 3.x: ~flat per image (our measurement)
+  if (provider === 'openai') {                                                       // GPT: 512-px tiles after fitting 2048 / shortest side 768
+    let s = Math.min(1, 2048 / Math.max(w, h)); let W = w * s, H = h * s;
+    const k = Math.min(1, 768 / Math.min(W, H)); W *= k; H *= k;
+    return 85 + 170 * Math.ceil(W / 512) * Math.ceil(H / 512);
+  }
+  return null;
+}
+
+function renderPages(text) {
+  const c = document.createElement('canvas'), x = c.getContext('2d');
+  const font = `${IMG_FONT}px ui-monospace, "Cascadia Mono", Consolas, "Noto Sans Mono CJK KR", "Noto Sans Mono", monospace`;
+  x.font = font;
+  const maxW = IMG_W - 2 * IMG_PAD;
+  // reflow like pxpipe: keep line breaks as ↵ and pack text into full-width rows
+  const flat = text.replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').replace(/\n/g, ' ↵ ');
+  const rows = []; let line = '';
+  for (const ch of flat) {
+    if (x.measureText(line + ch).width > maxW) { rows.push(line); line = ch === ' ' ? '' : ch; }
+    else line += ch;
+  }
+  if (line) rows.push(line);
+  const perPage = Math.floor((IMG_MAXH - 2 * IMG_PAD) / IMG_LH), pages = [];
+  for (let i = 0; i < rows.length; i += perPage) {
+    const part = rows.slice(i, i + perPage), h = part.length * IMG_LH + 2 * IMG_PAD;
+    const p = document.createElement('canvas'); p.width = IMG_W; p.height = h;
+    const g = p.getContext('2d');
+    g.fillStyle = '#fff'; g.fillRect(0, 0, IMG_W, h);
+    g.fillStyle = '#000'; g.font = font; g.textBaseline = 'top';
+    part.forEach((r, j) => g.fillText(r, IMG_PAD, IMG_PAD + j * IMG_LH));
+    pages.push(p);
+  }
+  return pages;
+}
+
+let imgPages = [];
+$('btnImg').addEventListener('click', () => {
+  const text = els.input.value;
+  if (!text.trim()) return toast(IL.empty);
+  if (pageTokens(100, 100) === null) return toast(IL.na);
+  imgPages = renderPages(text);
+  const imgTok = imgPages.reduce((a, p) => a + pageTokens(p.width, p.height), 0);
+  const txtTok = countTokens(text).tokens;
+  const pct = txtTok ? Math.round((imgTok / txtTok - 1) * 100) : 0;
+  const pctS = (pct > 0 ? '+' : '') + pct + '%';
+  $('imgSummary').textContent = ifmt(pct < 0 ? IL.sum : IL.sumUp, { img: fmt(imgTok), txt: fmt(txtTok), pct: pctS }) + ' · ' + IL.est;
+  $('imgWarn').innerHTML = `${IL.warn} <a href="${DATA_PAGE}" class="underline text-sky-300">${IL.more}</a>`;
+  const box = $('imgPages'); box.innerHTML = '';
+  imgPages.forEach((p, i) => {
+    const url = p.toDataURL('image/png');
+    const fig = document.createElement('div');
+    fig.innerHTML = `<img src="${url}" alt="page ${i + 1}" class="w-full border border-zinc-800 rounded bg-white"><a download="tokensave-text-${i + 1}.png" href="${url}" class="inline-block mt-1 text-sky-300 underline">${ifmt(IL.dl, { n: i + 1 })}</a>`;
+    box.appendChild(fig);
+  });
+  $('imgPanel').classList.remove('hidden');
+  try { (window.dataLayer = window.dataLayer || []).push({ event: 'text_to_image', provider, pages: imgPages.length, saved_pct: -pct }); } catch (_) {}
+});
+$('imgClose').addEventListener('click', () => $('imgPanel').classList.add('hidden'));
+$('imgCopy').addEventListener('click', async () => {
+  if (!imgPages.length) return;
+  try {
+    const blob = await new Promise(r => imgPages[0].toBlob(r, 'image/png'));
+    await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+    toast(IL.copied + (imgPages.length > 1 ? ' (1/' + imgPages.length + ')' : ''));
+  } catch (_) { toast(IL.noCopy); }
+});
