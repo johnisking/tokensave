@@ -64,6 +64,7 @@ def write_files(dist):
     write_lng_files(dist)
     write_pol_files(dist)
     write_cof_files(dist)
+    write_tai_files(dist)
 
 
 def _write_lang_files(dist):
@@ -252,6 +253,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{COF_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(COF_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">Pauses of up to 55 minutes cost nothing extra; after 65 minutes the cache was gone and the next message cost about 500% more. CSV · measured {COF_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{TAI_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(TAI_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">Six documents as text and as pxpipe images on four Claude models: 64% to 81% fewer input tokens, but ids outside the factsheet were read 0 of 80 times. CSV · measured {TAI_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -2039,6 +2043,7 @@ def lti_html():
 
 # ---- Measurement log: newest first, shown on the data hub and the English home page ----
 CHANGELOG = [
+    ("2026-10-21", "/data/text-as-image-token-cost", "Text as images (pxpipe) on Claude: 64% to 81% fewer tokens, but exact ids often lost"),
     ("2026-10-20", "/data/ai-coffee-break-cache-cost", "The coffee-break tax: the next Claude Code message after a 0 to 65 minute pause"),
     ("2026-10-20", "/data/vibe-coding-by-claude-model", "Vibe coding with Claude Haiku, Sonnet and Opus 5.5: 45 games, cost and play tests"),
     ("2026-10-20", "/data/long-chat-vs-new-chat-cost", "Long chat or new chat: 30 requests in one session, with /compact, and in fresh sessions"),
@@ -2526,3 +2531,130 @@ def cof_html():
                   COF_CHART, "Cost of the next Claude Code message after pauses from 0 to 65 minutes", doi=COF_DOI, mirrors=COF_MIRRORS)
             + body + _page_tail(cof_citation(), _embed(COF_PATH, COF_CHART, "Cost of the next message after a pause", "The coffee-break tax"),
                                 [("/data/long-chat-vs-new-chat-cost", "Long chat or new chat?"), (HAR_PATH, "What the Claude Code harness costs"), ("/blog/claude-code-save-tokens", "How to save tokens in Claude Code")]))
+
+
+# ---- Dataset 18: text rendered as images (pxpipe) on Claude: tokens vs exact values (measured 2026-10-21) ----
+TAI_PATH = "/data/text-as-image-token-cost"
+TAI_MEASURED = "2026-10-21"
+TAI_CHART = "/text-as-image-token-cost-chart.png"
+TAI_DOI = None
+TAI_MIRRORS = []
+TAI_TITLE = "Text as images to cut AI tokens: an independent check of pxpipe on Claude"
+TAI_DESC = ("Dataset: six documents (English, Korean and Japanese prose, code, JSON, a server log) sent to Claude Haiku, Sonnet and Opus 5.5 and Fable 5.1 "
+            "as plain text and as pxpipe images. Input tokens fell 64% to 81%, but exact ids and numbers were often lost: ids not in pxpipe's factsheet were read 0 of 80 times. Free CSV, CC BY 4.0.")
+TAI_MODELS = [("claude-haiku-5-5", "Haiku 5.5"), ("claude-sonnet-5-5", "Sonnet 5.5"), ("claude-opus-5-5", "Opus 5.5"), ("claude-fable-5-1", "Fable 5.1")]
+TAI_DOCS = [("prose_en", "English prose"), ("prose_ko", "Korean prose"), ("prose_ja", "Japanese prose"), ("code", "Code"), ("json", "JSON"), ("log", "Server log")]
+TAI_TYPES = ["planted_hex", "planted_num", "natural_hex", "natural_num"]
+TAI_COLS = ["model", "doc", "arm", "rep", "input_tokens", "output_tokens"] + [t + s for t in TAI_TYPES for s in ("_correct", "_wrong", "_null")]
+
+
+def _tai():
+    return json.load(open(os.path.join(ROOT, "blog_data", "pxpipe", "combined.json"), encoding="utf-8"))
+
+
+def tai_citation():
+    if TAI_DOI:
+        return f"TokenSave (2026). {TAI_TITLE} [Data set]. Zenodo. https://doi.org/{TAI_DOI}"
+    return f"TokenSave (2026). {TAI_TITLE} [Data set]. {BASE}{TAI_PATH}"
+
+
+def write_tai_files(dist):
+    d = _tai()
+    buf = io.StringIO(); w = csv.writer(buf); w.writerow(TAI_COLS)
+    for r in d["rows"]:
+        w.writerow([r.get(c) for c in TAI_COLS])
+    open(os.path.join(dist, "data", "text-as-image-token-cost.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=TAI_TITLE, url=BASE + TAI_PATH, license="CC BY 4.0", measured=TAI_MEASURED, citation=tai_citation(),
+                tool=d["tool"], pxpipe=d["pxpipe"], docs=d["docs"], rows=d["rows"])
+    open(os.path.join(dist, "data", "text-as-image-token-cost.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def tai_ld():
+    return _dataset_ld(TAI_TITLE, TAI_DESC, TAI_PATH, TAI_MEASURED,
+                       ["pxpipe", "text as image", "vision tokens", "context compression", "Claude Code", "token cost", "OCR accuracy", "Korean", "Japanese"],
+                       ["input tokens per document", "exact values answered correctly", "wrong answers", "null answers"],
+                       "Claude Code 2.1.295 (claude -p, stream-json input, no tools) on one Windows laptop; images made with pxpipe-proxy 0.15.0's own transform",
+                       TAI_CHART, [("text-as-image-token-cost.csv", "text/csv"), ("text-as-image-token-cost.json", "application/json")], doi=TAI_DOI, mirrors=TAI_MIRRORS)
+
+
+def tai_stats(d=None):
+    d = d or _tai(); R = d["rows"]
+    tok = lambda m, doc, arm: statistics.mean(r["input_tokens"] for r in R if r["model"] == m and r["doc"] == doc and r["arm"] == arm)
+    def score(m, arm, types):
+        c = wr = t = 0
+        for r in R:
+            if r["model"] == m and r["arm"] == arm:
+                for ty in types:
+                    if r[ty + "_correct"] is not None:
+                        c += r[ty + "_correct"]; wr += r[ty + "_wrong"]; t += r[ty + "_correct"] + r[ty + "_wrong"] + r[ty + "_null"]
+        return c, wr, t
+    return tok, score
+
+
+def tai_html():
+    d = _tai(); tok, score = tai_stats(d)
+    f = lambda v: "{:,}".format(round(v))
+    cut = lambda m, doc: (tok(m, doc, "px") / tok(m, doc, "text") - 1) * 100
+    cuts = [cut(m, doc) for m, _ in TAI_MODELS for doc, _ in TAI_DOCS]
+    lo, hi = min(cuts), max(cuts)
+    nat = [score(m, "px", ["natural_hex"]) for m, _ in TAI_MODELS]
+    nat_c, nat_t = sum(x[0] for x in nat), sum(x[2] for x in nat)
+    op = "claude-opus-5-5"
+    tok_rows = "\n".join(
+        '          <tr><td>%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td></tr>' % (
+            lab, f(tok(op, doc, "text")), f(tok(op, doc, "px")), _pct(round(cut(op, doc))), _pct(round(cut("claude-fable-5-1", doc))))
+        for doc, lab in TAI_DOCS)
+    tok_head = ['<th>Document</th>', '<th class="text-right">As text</th>', '<th class="text-right">As pxpipe images</th>',
+                '<th class="text-right">Change</th>', '<th class="text-right">Change (Fable profile)</th>']
+    def cell(m, arm, types):
+        c, wr, t = score(m, arm, types)
+        return '%d/%d%s' % (c, t, (' <span class="text-zinc-500">(%d wrong)</span>' % wr) if wr else '')
+    rec_rows = "\n".join(
+        '          <tr><td>%s</td><td>%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td></tr>' % (
+            lab, arm_l, cell(m, arm, ["planted_hex"]), cell(m, arm, ["planted_num"]), cell(m, arm, ["natural_hex"]), cell(m, arm, ["natural_num"]))
+        for m, lab in TAI_MODELS for arm, arm_l in (("px", "pxpipe"), ("img", "images only")))
+    rec_head = ['<th>Model</th>', '<th>Input</th>', '<th class="text-right">Planted ids</th>', '<th class="text-right">Planted numbers</th>',
+                '<th class="text-right">Other ids (JSON, log)</th>', '<th class="text-right">Other numbers (JSON, log)</th>']
+    oc, ow, ot = score(op, "px", ["planted_num"])
+    lead = ('<strong>Rendering context as images really does cut Claude&rsquo;s input tokens, by %d%% to %d%% in our runs. '
+            'But exact values did not survive: ids that pxpipe did not copy into its text factsheet were read back %d of %d times.</strong> '
+            'pxpipe is an open-source proxy that turns bulky Claude Code context into dense PNG pages. We sent the same six documents as text and through pxpipe&rsquo;s own transform '
+            'and asked four Claude models for values in them. As text, every model answered every item correctly.') % (round(-hi), round(-lo), nat_c, nat_t)
+    body = f'''      <h2>Key findings</h2>
+      <ul>
+        <li><strong>The token cut is real.</strong> Across six documents, the pxpipe version needed {round(-hi)}% to {round(-lo)}% fewer input tokens than plain text. Haiku, Sonnet and Opus 5.5 use the same tokenizer and image profile, so their counts matched; Fable&rsquo;s denser profile cut a few points more.</li>
+        <li><strong>Non-English text gained most.</strong> Korean prose went from {f(tok(op, "prose_ko", "text"))} to {f(tok(op, "prose_ko", "px"))} tokens ({_pct(round(cut(op, "prose_ko")))}), Japanese {_pct(round(cut(op, "prose_ja")))}, English {_pct(round(cut(op, "prose_en")))}: the more tokens a language costs as text, the more an image saves.</li>
+        <li><strong>Ids came back mostly through the factsheet, not the image.</strong> pxpipe adds a text list of &ldquo;exact identifiers&rdquo; next to the images. Our planted ids were all in it. Ids that were not, such as most request ids in the 230-line log (94 of 235 ids made the list), were read {nat_c} of {nat_t} times across all four models.</li>
+        <li><strong>Numbers were the weak spot.</strong> Even the best model, Opus 5.5, gave the right planted number {oc} of {ot} times. In Korean prose it got 3 of 10.</li>
+        <li><strong>Wrong answers were silent.</strong> Models were told to answer null if unsure. Some still answered with a plausible wrong value: a digit dropped (94392 read as 9392), a number that is not in the document, or, for Fable 5.1, a real value from the factsheet attached to the wrong ticket.</li>
+      </ul>
+      <h2>Input tokens per document</h2>
+      <p class="text-sm text-zinc-400">Tokens the document added to the request (call input minus the same call with only the question). Opus 5.5 shown; Haiku and Sonnet 5.5 were the same within a few tokens. Mean of 2 runs.</p>
+{_table(tok_head, tok_rows)}      <h2>Exact values read back</h2>
+      <p class="text-sm text-zinc-400">Correct answers out of all asked, both runs together. As plain text, all four models answered every item correctly. &ldquo;pxpipe&rdquo; is images plus pxpipe&rsquo;s factsheet, as the proxy sends them; &ldquo;images only&rdquo; leaves the factsheet out. &ldquo;Other&rdquo; values are ids and numbers that were already in the JSON and log, not planted by us.</p>
+{_table(rec_head, rec_rows)}      <h2>What to take from it</h2>
+      <ul>
+        <li>Use image context for what the model needs to understand, not for what it needs to copy. Ids, hashes, prices and line numbers should stay text.</li>
+        <li>Don&rsquo;t judge it by one ID test. A value that happens to be in the factsheet comes back fine; most values in a large log won&rsquo;t be in it.</li>
+        <li>Haiku 5.5 read the pages poorly. pxpipe does not enable Haiku by default (Sonnet 5.5 is opt-in, Opus 5.5 and Fable are on by default).</li>
+      </ul>
+      <h2>Method</h2>
+      <ul>
+        <li>Six documents of 10,600 to 23,200 characters: one of our own articles in English, Korean and Japanese, part of our usage-analyzer source code, a generated JSON API response and a generated server log. Into each we planted five lines like &ldquo;ticket T123 uses build hash 3f9a1c7e02bd and a timeout of 19043 ms&rdquo;; for the JSON and the log we also asked for five existing records (an id and a number each). 10 or 20 items per document.</li>
+        <li>Images came from pxpipe-proxy 0.15.0&rsquo;s own <code>transformAnthropicMessages</code>, with the document as an earlier tool result: Opus 5.5&rsquo;s spaced profile for Haiku, Sonnet and Opus 5.5, the dense Fable profile for Fable 5.1. We sent the page images and the factsheet text exactly as returned, followed by the question.</li>
+        <li>Claude Code 2.1.295 on one Windows laptop, signed in with a subscription: <code>claude -p --input-format stream-json --tools ""</code>, no MCP servers, system prompt &ldquo;Answer from the provided document only. Never guess: use null for anything you cannot read with certainty.&rdquo; Two runs per model, document and input type (144 calls), plus one question-only call per model and document for the token baseline. Answers were scored by exact match after removing spaces, commas and a trailing &ldquo;ms&rdquo;.</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>Two runs per cell, six documents: small samples. Treat single cells as examples.</li>
+        <li>We tested exact recall only. pxpipe&rsquo;s own tests report good results on gist, state and arithmetic questions, which we did not repeat.</li>
+        <li>In real use pxpipe images older history and the system prompt, while recent turns stay text; we imaged one whole document at a time. Savings on a full Claude Code bill depend on how much of each request is imaged and cached.</li>
+        <li>pxpipe changes quickly; this is version 0.15.0 on {TAI_MEASURED}.</li>
+      </ul>
+'''
+    return (_head("Text as images: fewer AI tokens, fewer exact values", lead,
+                  f'Measured {TAI_MEASURED} · Claude Haiku, Sonnet, Opus 5.5 and Fable 5.1 · pxpipe 0.15.0 · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{IMG_PATH}">Image token cost</a>',
+                  [("text-as-image-token-cost.csv", "CSV"), ("text-as-image-token-cost.json", "JSON")],
+                  TAI_CHART, "Input tokens as text and as pxpipe images, and exact values read back, on four Claude models", doi=TAI_DOI, mirrors=TAI_MIRRORS)
+            + body + _page_tail(tai_citation(), _embed(TAI_PATH, TAI_CHART, "Text as images: tokens and exact values", "Text as images to cut AI tokens"),
+                                [(IMG_PATH, "Image token cost on Claude, Gemini and GPT"), (LTI_PATH, "Language Tax Index"), (FMT_PATH, "Token cost by data format")]))
