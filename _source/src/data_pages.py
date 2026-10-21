@@ -1024,7 +1024,7 @@ EFF_PATH = "/data/claude-effort-cost"
 EFF_MEASURED = "2026-10-09"
 EFF_CHART = "/claude-effort-cost-chart.png"
 EFF_DOI = "10.5281/zenodo.23446567"  # concept DOI
-EFF_MIRRORS = [("Zenodo", "https://zenodo.org/records/23446568"),
+EFF_MIRRORS = [("Zenodo", "https://zenodo.org/records/23533306"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-effort-cost"),
                ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-effort-levels-tokens-time-and-cost"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/effort")]
