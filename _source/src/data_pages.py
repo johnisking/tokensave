@@ -2116,7 +2116,7 @@ VIB_PATH = "/data/vibe-coding-by-claude-model"
 VIB_MEASURED = "2026-10-20"
 VIB_CHART = "/vibe-coding-by-claude-model-chart.png"
 VIB_DOI = "10.5281/zenodo.23489448"  # concept DOI
-VIB_MIRRORS = [("Zenodo", "https://zenodo.org/records/23489449"),
+VIB_MIRRORS = [("Zenodo", "https://zenodo.org/records/23536989"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/vibe-coding-by-claude-model"),
                ("Kaggle", "https://www.kaggle.com/datasets/johnisking/vibe-coding-claude-haiku-vs-sonnet-vs-opus-5-5"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/vibe-coding")]
