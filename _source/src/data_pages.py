@@ -2572,6 +2572,7 @@ TAI_CHART = "/text-as-image-token-cost-chart.png"
 TAI_DOI = "10.5281/zenodo.23525350"  # concept DOI
 TAI_MIRRORS = [("Zenodo", "https://zenodo.org/records/23525351"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/text-as-image-token-cost"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/text-as-images-ai-token-cost-pxpipe-on-claude"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/text-as-image")]
 TAI_TITLE = "Text as images to cut AI tokens: an independent check of pxpipe on Claude"
 TAI_DESC = ("Dataset: six documents (English, Korean and Japanese prose, code, JSON, a server log) sent to Claude Haiku, Sonnet and Opus 5.5 and Fable 5.1 "
