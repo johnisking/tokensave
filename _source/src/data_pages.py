@@ -2671,8 +2671,10 @@ def tai_html():
 CCV_PATH = "/data/claude-code-baseline-tokens-by-version"
 CCV_MEASURED = "2026-10-21"
 CCV_CHART = "/claude-code-baseline-tokens-chart.png"
-CCV_DOI = None
-CCV_MIRRORS = []
+CCV_DOI = "10.5281/zenodo.23527278"  # concept DOI
+CCV_MIRRORS = [("Zenodo", "https://zenodo.org/records/23527279"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-code-baseline-tokens-by-version"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-code-versions")]
 CCV_TITLE = "Claude Code baseline tokens by version: what every request carries before you type"
 CCV_DESC = ("Dataset: the input tokens of Claude Code's first request for the one-letter prompt \"a\", measured on {n} versions from July 2025 to October 2026, "
             "with MCP off and with 16 claude.ai connectors on. The baseline rose 86% to a peak in May 2026, then fell back to half that by October. Free CSV, CC BY 4.0.")
