@@ -3,7 +3,7 @@
  "url": "https://tokensave.app/data/text-as-image-token-cost",
  "license": "CC BY 4.0",
  "measured": "2026-10-21",
- "citation": "TokenSave (2026). Text as images to cut AI tokens: an independent check of pxpipe on Claude [Data set]. https://tokensave.app/data/text-as-image-token-cost",
+ "citation": "TokenSave (2026). Text as images to cut AI tokens: an independent check of pxpipe on Claude [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23525350",
  "tool": "Claude Code 2.1.295 (claude -p, stream-json input, no tools, no MCP), Windows laptop, subscription login",
  "pxpipe": "pxpipe-proxy 0.15.0 transformAnthropicMessages; spaced profile (claude-opus-5-5) for Haiku/Sonnet/Opus 5.5, dense Fable profile for Fable 5.1",
  "docs": {
