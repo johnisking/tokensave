@@ -976,13 +976,7 @@ def build():
           open(os.path.join(folder, b["path"].rsplit("/", 1)[1] + ".html"), "w", encoding="utf-8").write(render(base, body, values))
 
     # Directory badges, English home page footer only (listing verification)
-    BADGES = ('<p class="pt-3 flex flex-wrap items-center justify-center gap-3"><a href="https://verifieddr.com/website/tokensave-app" target="_blank">'
-              '<img src="https://verifieddr.com/badge/tokensave-app.svg?metric=truedr" alt="Verified DR - Verified Domain Rating for tokensave.app" '
-              'width="220" height="68" loading="lazy" /></a>'
-              '<a href="https://easylaunch.dev/ai/tokensave" target="_blank" rel="noopener">'
-              '<img src="https://easylaunch.dev/badge/easylaunch-badge-dark.svg" alt="Featured on EasyLaunch" width="188" height="56" loading="lazy" /></a>'
-              '<a href="https://uno.directory" target="_blank" rel="noopener">'
-              '<img src="https://uno.directory/uno-directory.svg" alt="Listed on Uno Directory" width="120" height="30" loading="lazy" /></a>'
+    BADGES = ('<p class="pt-3 flex flex-wrap items-center justify-center gap-3">'
               '<a href="https://findly.tools/tokensave?utm_source=tokensave" target="_blank" rel="noopener noreferrer">'
               '<img src="https://findly.tools/badges/findly-tools-badge-dark.svg" alt="Featured on Findly.tools" width="175" height="55" loading="lazy" /></a>'
               '<a href="https://neeed.directory/products/tokensave?utm_source=tokensave" target="_blank">'
