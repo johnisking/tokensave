@@ -43,21 +43,26 @@ hbars([lab[k] for k in order], ser, [p[k] for k in order], "One page, PDF or pas
       "Input tokens for one page", "src/static/pdf-token-cost-chart.png", 2900, size=(12, 7.2), left=0.2)
 
 # 3. effort
-e = json.load(open('blog_data/effortdata/combined.json'))["rows"]
-fig, axes = plt.subplots(1, 2, figsize=(12, 6.6), dpi=100); fig.patch.set_facecolor(BG)
+import statistics
+e0 = json.load(open('blog_data/effortdata/combined.json'))["rows"]
+e = [r for r in e0 if r["model_name"] != "Haiku 5.5"]
+for lv in ["low", "medium", "high", "xhigh", "max"]:
+    rs = [r for r in e0 if r["model_name"] == "Haiku 5.5" and r["effort"] == lv]
+    if rs: e.append(dict(model_name="Haiku 5.5", effort=lv + " (avg of 3)", output_tokens=round(statistics.mean(r["output_tokens"] for r in rs)), cost_usd=statistics.mean(r["cost_usd"] for r in rs)))
+fig, axes = plt.subplots(1, 2, figsize=(12, 8.2), dpi=100); fig.patch.set_facecolor(BG)
 labels = [f'{r["model_name"]} · {r["effort"]}' for r in e][::-1]
-cols = ["#f59e0b" if r["model_name"].startswith("Opus") else "#38bdf8" for r in e][::-1]
-for ax, key, xl, fmt in [(axes[0], "output_tokens", "Output tokens", "{:,}"), (axes[1], "cost_usd", "Cost (USD, API prices)", "${:.2f}")]:
+cols = [{"Opus": "#f59e0b", "Sonnet": "#38bdf8", "Haiku": "#34d399"}[r["model_name"].split()[0]] for r in e][::-1]
+for ax, key, xl, fmt in [(axes[0], "output_tokens", "Output tokens", "{:,}"), (axes[1], "cost_usd", "Cost (USD, API prices)", None)]:
     ax.set_facecolor(BG); vals = [r[key] for r in e][::-1]
     ax.barh(range(len(vals)), vals, color=cols, height=0.6)
     mx = max(vals)
-    for i, v in enumerate(vals): ax.text(v + mx * 0.01, i, fmt.format(v), va='center', fontsize=9, color=MUTED)
+    for i, v in enumerate(vals): ax.text(v + mx * 0.01, i, fmt.format(v) if fmt else (f"${v:.2f}" if v >= 0.1 else f"${v:.3f}"), va='center', fontsize=9, color=MUTED)
     ax.set_yticks(range(len(vals))); ax.set_yticklabels(labels if ax is axes[0] else [""] * len(vals), color=FG, fontsize=11)
     ax.tick_params(axis='x', colors=MUTED); ax.set_xlabel(xl, color=MUTED, fontsize=11)
     for s in ax.spines.values(): s.set_visible(False)
     ax.grid(axis='x', color=GRID); ax.set_axisbelow(True); ax.set_xlim(0, mx * 1.18)
 fig.text(0.02, 0.955, "Same coding task at every effort level: tokens and cost", fontsize=17, fontweight='bold', color=FG)
-fig.text(0.02, 0.92, "Claude Code, one browser game per run · measured 2026-10-09 · tokensave.app/data · CC BY 4.0", fontsize=11, color=MUTED)
-plt.subplots_adjust(left=0.17, right=0.98, top=0.86, bottom=0.1, wspace=0.08)
+fig.text(0.02, 0.92, "Claude Code, one browser game per run · Opus and Sonnet measured 2026-10-09, Haiku 2026-10-21 · tokensave.app/data · CC BY 4.0", fontsize=11, color=MUTED)
+plt.subplots_adjust(left=0.235, right=0.98, top=0.86, bottom=0.1, wspace=0.08)
 plt.savefig("src/static/claude-effort-cost-chart.png", facecolor=BG); plt.close(fig)
 print("ok")

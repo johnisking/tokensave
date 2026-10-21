@@ -5,7 +5,7 @@ sys.path.insert(0, 'src')
 import data_pages as D
 BG='#0f0f12'; FG='#e4e4e7'; MUTED='#a1a1aa'; GRID='#27272a'
 rows = D._lti_rows(); sm = D._lti_summary(rows)
-order = ["gemini", "gpt", "claude55", "claude45", "cl100k"]
+order = ["gemini_4_argon", "gemini", "gpt", "claude55", "claude45", "cl100k"]
 labels = [sm[k]["label"] for k in order]
 fig, ax = plt.subplots(figsize=(12, 6.2), dpi=100); fig.patch.set_facecolor(BG); ax.set_facecolor(BG)
 for y, k in enumerate(order):
