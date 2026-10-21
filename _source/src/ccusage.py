@@ -241,7 +241,7 @@ def build_page(lang):
     period = _seg("ccPeriod", [("all", t["pAll"]), ("7", t["p7"]), ("30", t["p30"]), ("month", t["pMonth"])], "all")
     plan_opts = [("Claude Code", [("pro", "Claude Pro · $20"), ("max5", "Claude Max 5× · $100"), ("max20", "Claude Max 20× · $200")]),
                  ("Codex", [("plus", "ChatGPT Plus · $20"), ("gpro100", "ChatGPT Pro 100 · $100"), ("gpro200", "ChatGPT Pro 200 · $200")]),
-                 ("Cursor", [("cpremium", "Cursor Premium · $30"), ("csuper", "Cursor Super · $100"), ("cultra", "Cursor Ultra · $200")])]
+                 ("Cursor", [("cpremium", "Cursor Premium · $30"), ("csuper", "Cursor Super · $100"), ("cultra", "Cursor Ultra · $200"), ("cteams", "Cursor Teams Standard · $40"), ("cteamsp", "Cursor Teams Premium · $120")])]
     plan = ('<select id="ccPlanSel" class="bg-zinc-950/70 border border-zinc-800 rounded-lg px-3 py-1.5 text-sm">' +
             "".join(f'<optgroup label="{esc(g)}">' + "".join(f'<option value="{v}">{esc(l)}</option>' for v, l in o) + '</optgroup>' for g, o in plan_opts) +
             f'<option value="api">{e("plApi")}</option></select>')

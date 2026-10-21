@@ -56,11 +56,13 @@ const money = n => {
   return new Intl.NumberFormat(CUR[2], { style: 'currency', currency: CUR[0], maximumFractionDigits: 0 }).format(v);
 };
 const fmtTok = n => n >= 1e9 ? (n / 1e9).toFixed(2) + 'B' : n >= 1e6 ? (n / 1e6).toFixed(1) + 'M' : n >= 1e3 ? Math.round(n / 1e3) + 'K' : String(n);
-// Plan fees in USD per month before VAT, checked 2026-10-15 (claude.com/pricing, chatgpt.com/pricing, cursor.com/pricing)
+// Plan fees in USD per month before VAT, checked 2026-10-15 (claude.com/pricing, chatgpt.com/pricing, cursor.com/pricing);
+// Cursor Teams seats per user, monthly billing (cursor.com/blog/teams-pricing-june-2026, checked 2026-10-21)
 const PLANS = {
   pro: ['claude', 20, 'Claude Pro'], max5: ['claude', 100, 'Claude Max 5×'], max20: ['claude', 200, 'Claude Max 20×'],
   plus: ['codex', 20, 'ChatGPT Plus'], gpro100: ['codex', 100, 'ChatGPT Pro 100'], gpro200: ['codex', 200, 'ChatGPT Pro 200'],
   cpremium: ['cursor', 30, 'Cursor Premium'], csuper: ['cursor', 100, 'Cursor Super'], cultra: ['cursor', 200, 'Cursor Ultra'],
+  cteams: ['cursor', 40, 'Cursor Teams Standard'], cteamsp: ['cursor', 120, 'Cursor Teams Premium'],
 };
 const TOOL_NAME = { claude: 'Claude Code', codex: 'Codex', cursor: 'Cursor' };
 
@@ -250,7 +252,8 @@ function parseCsvLine(l) {
 function parseCursor(text, recs) {
   const lines = text.replace(/^﻿/, '').split(/\r?\n/).filter(Boolean);
   const h = parseCsvLine(lines[0]).map(x => x.trim().toLowerCase());
-  const ix = n => h.indexOf(n);
+  // exact header, or the same name followed by a unit/suffix (team exports may add one, e.g. "Cost ($)")
+  const ix = n => { const i = h.indexOf(n); return i >= 0 ? i : h.findIndex(x => x.startsWith(n + ' ') || x.startsWith(n + '(')); };
   const iD = ix('date'), iM = ix('model'), iW = ix('input (w/ cache write)'), iI = ix('input (w/o cache write)'), iR = ix('cache read'), iO = ix('output tokens'), iC = ix('cost'), iK = ix('kind');
   if (iD < 0 || iC < 0) return 0;
   let n = 0;
