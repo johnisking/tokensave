@@ -249,6 +249,28 @@ function parseCsvLine(l) {
   }
   r.push(cur); return r;
 }
+// Grok in Cursor, per 1M tokens: [input, cache read, output]; standard <=256K input (cursor.com, 2026-10-21)
+const GROK = [2, 0.50, 6], GROK_FAST = [4, 1, 12];
+// API list-price estimate for a Cursor CSV row ("input (w/ cache write)" = cache writes, "w/o" = plain input)
+function cursorEst(model, r) {
+  const m = String(model || '').toLowerCase().replace(/^cursor-/, '');
+  let pi, pr, po, pw;
+  if (/^grok-4(\.\d+)?/.test(m)) {
+    [pi, pr, po] = /fast/.test(m) ? GROK_FAST : GROK; pw = pi;
+    if (r.inp + r.cw + r.rd > 256000) { pi *= 2; pr *= 2; po *= 2; pw *= 2; }
+  } else {
+    const fam = family(m.replace(/(-(low|medium|high|xhigh|max|thinking|fast))+$/, ''));
+    if (fam && P[fam]) { [pi, po, pr] = P[fam]; pw = pi * 1.25; }
+    else {
+      const k = openaiKey(m.replace(/(-(low|medium|high|xhigh|max|fast))+$/, ''));
+      if (!k) return null;
+      const o = OP[k]; pi = o[0]; pr = o[1]; pw = o[2] || o[0]; po = o[3];
+    }
+  }
+  const cost = (r.inp * pi + r.cw * pw + r.rd * pr + r.out * po) / 1e6;
+  return { cost, save: r.rd * (pi - pr) / 1e6, oc: r.out * po / 1e6 };
+}
+
 function parseCursor(text, recs) {
   const lines = text.replace(/^﻿/, '').split(/\r?\n/).filter(Boolean);
   const h = parseCsvLine(lines[0]).map(x => x.trim().toLowerCase());
@@ -263,8 +285,11 @@ function parseCursor(text, recs) {
     const ts = c[iD];
     if (!ts || isNaN(Date.parse(ts))) continue;
     if (/error/i.test(c[iK] || '')) continue;
-    recs.push({ tool: 'cursor', day: new Date(ts).toISOString().slice(0, 10), ts: Date.parse(ts), proj: 'Cursor', fam: c[iM] || '?',
-      cost: num(iC), save: 0, inp: num(iI), out: num(iO), cw: num(iW), rd: num(iR) });
+    const r = { tool: 'cursor', day: new Date(ts).toISOString().slice(0, 10), ts: Date.parse(ts), proj: 'Cursor', fam: c[iM] || '?',
+      cost: num(iC), save: 0, inp: num(iI), out: num(iO), cw: num(iW), rd: num(iR) };
+    // usage included in a plan (e.g. Teams) is exported with cost 0: estimate it at API list price
+    if (!r.cost && r.inp + r.out + r.cw + r.rd > 0) { const e = cursorEst(r.fam, r); if (e) Object.assign(r, e); else UNPRICED.add(r.fam); }
+    recs.push(r);
     n++;
   }
   return n;
