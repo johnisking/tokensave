@@ -1029,8 +1029,9 @@ EFF_MIRRORS = [("Zenodo", "https://zenodo.org/records/23446568"),
                ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-effort-levels-tokens-time-and-cost"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/effort")]
 EFF_TITLE = "Claude effort levels: tokens, time and cost for the same coding task"
-EFF_DESC = ("Dataset: the same coding prompt run in Claude Code at every effort level of Claude Opus 5.5 (low to max) and at medium and high on Sonnet 5.5, "
-            "with time, output tokens, total tokens, API-equivalent cost and lines of code. Max used 160,033 output tokens and $5.25 against 6,299 and $0.56 at medium. Free CSV, CC BY 4.0.")
+EFF_UPDATED = "2026-10-21"
+EFF_DESC = ("Dataset: the same coding prompt run in Claude Code at every effort level of Claude Opus 5.5 and Haiku 5.5 (low to max, Haiku 3 runs each) and at medium and high on Sonnet 5.5, "
+            "with time, output tokens, total tokens, API-equivalent cost and lines of code. Opus max used 160,033 output tokens and $5.25 against 6,299 and $0.56 at medium; Haiku max cost about ten times its xhigh. Free CSV, CC BY 4.0.")
 
 
 def _eff():
@@ -1045,9 +1046,9 @@ def write_eff_files(dist):
     d = _eff()
     buf = io.StringIO()
     w = csv.writer(buf)
-    w.writerow(["model", "effort", "seconds", "output_tokens", "total_tokens", "cost_usd", "code_lines"])
+    w.writerow(["model", "effort", "run", "seconds", "output_tokens", "total_tokens", "cost_usd", "code_lines"])
     for r in d["rows"]:
-        w.writerow([r["model"], r["effort"], r["seconds"], r["output_tokens"], r["total_tokens"], f'{r["cost_usd"]:.2f}', r["code_lines"]])
+        w.writerow([r["model"], r["effort"], r.get("run", 1), r["seconds"], r["output_tokens"], r["total_tokens"], _usd(r["cost_usd"]).lstrip("$"), r["code_lines"]])
     open(os.path.join(dist, "data", "claude-effort-cost.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
     meta = dict(title=EFF_TITLE, url=BASE + EFF_PATH, license="CC BY 4.0", measured=EFF_MEASURED, tool=d["tool"], prompt=d["prompt"],
                 citation=eff_citation(), rows=d["rows"])
@@ -1062,6 +1063,21 @@ def eff_ld():
                        EFF_CHART, [("claude-effort-cost.csv", "text/csv"), ("claude-effort-cost.json", "application/json")], doi=EFF_DOI, mirrors=EFF_MIRRORS)
 
 
+def _usd(v):
+    return f"${v:.2f}" if v >= 0.1 else f"${v:.4f}"
+
+
+def _haiku_eff(d):
+    out = []
+    for lv in ["low", "medium", "high", "xhigh", "max"]:
+        rs = [r for r in d["rows"] if r["model_name"] == "Haiku 5.5" and r["effort"] == lv]
+        if not rs: continue
+        m = lambda f: statistics.mean(r[f] for r in rs)
+        out.append(dict(effort=lv, n=len(rs), cost=m("cost_usd"), out=round(m("output_tokens")), seconds=round(m("seconds")),
+                        turns=m("turns"), lines=round(m("code_lines")), ok=sum(r["plays_ok"] for r in rs)))
+    return out
+
+
 def _dur(s):
     return f"{s} s" if s < 60 else f"{s // 60} min {s % 60} s"
 
@@ -1071,16 +1087,17 @@ def eff_html():
     by = {(r["model_name"], r["effort"]): r for r in d["rows"]}
     lo, me, hi, xh, mx = (by[("Opus 5.5", k)] for k in ["low", "medium", "high", "xhigh", "max"])
     sme, shi = by[("Sonnet 5.5", "medium")], by[("Sonnet 5.5", "high")]
+    H = {x["effort"]: x for x in _haiku_eff(d)}
     pct = lambda a, b: round((a / b - 1) * 100)
     trs = "\n".join(
-        f'          <tr><td>{esc(r["model_name"])} · {esc(r["effort"])}</td><td class="text-right tabular-nums">{_dur(r["seconds"])}</td>'
+        f'          <tr><td>{esc(r["model_name"])} · {esc(r["effort"])}{" · run " + str(r["run"]) if "run" in r else ""}</td><td class="text-right tabular-nums">{_dur(r["seconds"])}</td>'
         f'<td class="text-right tabular-nums">{r["output_tokens"]:,}</td><td class="text-right tabular-nums">{r["total_tokens"]:,}</td>'
-        f'<td class="text-right tabular-nums">${r["cost_usd"]:.2f}</td><td class="text-right tabular-nums">{r["code_lines"]:,}</td></tr>'
+        f'<td class="text-right tabular-nums">{_usd(r["cost_usd"])}</td><td class="text-right tabular-nums">{r["code_lines"]:,}</td></tr>'
         for r in d["rows"])
     head = ['<th>Model · effort</th>', '<th class="text-right">Time</th>', '<th class="text-right">Output tokens</th>', '<th class="text-right">Total tokens</th>', '<th class="text-right">Cost</th>', '<th class="text-right">Lines of code</th>']
     return _head("Claude effort levels: what low, medium, high, xhigh and max cost",
                  f'<strong>The same coding task used {me["output_tokens"]:,} output tokens and ${me["cost_usd"]:.2f} at medium effort on Claude Opus 5.5, and {mx["output_tokens"]:,} tokens and ${mx["cost_usd"]:.2f} at max.</strong> High cost only {pct(hi["cost_usd"], me["cost_usd"])}% more than medium; the jump starts at xhigh.',
-                 f'Measured {EFF_MEASURED} · Opus 5.5 at 5 levels, Sonnet 5.5 at 2 · License <a href="{LICENSE}">CC BY 4.0</a> · Write-up: <a href="/blog/claude-opus-5-5-effort">Claude Opus 5.5 effort levels tested</a>',
+                 f'Measured {EFF_MEASURED}, Haiku 5.5 added {EFF_UPDATED} · Opus 5.5 and Haiku 5.5 at 5 levels, Sonnet 5.5 at 2 · License <a href="{LICENSE}">CC BY 4.0</a> · Write-up: <a href="/blog/claude-opus-5-5-effort">Claude Opus 5.5 effort levels tested</a>',
                  [("claude-effort-cost.csv", "CSV"), ("claude-effort-cost.json", "JSON")],
                  EFF_CHART, "Output tokens and cost for the same task at each Claude effort level", doi=EFF_DOI, mirrors=EFF_MIRRORS) + f'''      <h2>Key findings</h2>
       <ul>
@@ -1088,7 +1105,12 @@ def eff_html():
         <li><strong>High is the best value step.</strong> Output tokens rose {pct(hi["output_tokens"], me["output_tokens"])}% ({me["output_tokens"]:,} to {hi["output_tokens"]:,}) but cost only {pct(hi["cost_usd"], me["cost_usd"])}% more, because most of each request is input that does not change.</li>
         <li><strong>Costs jump from xhigh.</strong> xhigh cost {pct(xh["cost_usd"], me["cost_usd"])}% more than medium and max {pct(mx["cost_usd"], me["cost_usd"])}% more. Max used {mx["output_tokens"]:,} output tokens against {me["output_tokens"]:,} at medium and took {_dur(mx["seconds"])}.</li>
         <li><strong>Sonnet 5.5 is cheaper per run, not just per token.</strong> At the same effort it used {abs(pct(sme["output_tokens"], me["output_tokens"]))}% fewer output tokens than Opus 5.5 and cost {abs(pct(sme["cost_usd"], me["cost_usd"]))}% less at medium and {abs(pct(shi["cost_usd"], hi["cost_usd"]))}% less at high.</li>
+        <li><strong>New: Haiku 5.5 at every level, three runs each.</strong> Average cost went from {_usd(H["low"]["cost"])} at low to {_usd(H["xhigh"]["cost"])} at xhigh, then {_usd(H["max"]["cost"])} at max ({pct(H["max"]["cost"], H["xhigh"]["cost"])}% more than xhigh). At max Haiku wrote its own test script and ran it, which took {H["max"]["turns"]:.0f} turns instead of {H["xhigh"]["turns"]:.0f}; each turn re-reads the conversation. Even so, Haiku at max cost {abs(pct(H["max"]["cost"], lo["cost_usd"]))}% less than Opus 5.5 at low.</li>
+        <li><strong>Every Haiku game passed at every level.</strong> We played all 15 with a script: each kept score, reached level 2 and counted down three lives ({sum(x["ok"] for x in H.values())} of {sum(x["n"] for x in H.values())}). Higher effort wrote longer code ({H["low"]["lines"]} lines on average at low, {H["max"]["lines"]} at max), not more working games.</li>
       </ul>
+      <h2>Haiku 5.5 by effort level (average of 3 runs)</h2>
+{_table(['<th>Effort</th>', '<th class="text-right">Cost</th>', '<th class="text-right">Output tokens</th>', '<th class="text-right">Time</th>', '<th class="text-right">Turns</th>', '<th class="text-right">Lines</th>', '<th class="text-right">Games passed</th>'], chr(10).join(
+        f'          <tr><td>{x["effort"]}</td><td class="text-right tabular-nums">{_usd(x["cost"])}</td><td class="text-right tabular-nums">{x["out"]:,}</td><td class="text-right tabular-nums">{_dur(x["seconds"])}</td><td class="text-right tabular-nums">{x["turns"]:.1f}</td><td class="text-right tabular-nums">{x["lines"]}</td><td class="text-right tabular-nums">{x["ok"]}/{x["n"]}</td></tr>' for x in H.values()))}
       <h2>All runs</h2>
 {_table(head, trs)}      <h2>Method</h2>
       <ul>
@@ -1096,10 +1118,11 @@ def eff_html():
         <li>Run once per effort level in Claude Code (<code>claude -p --effort …</code>), each in its own empty folder.</li>
         <li>Tokens and cost from <a href="https://github.com/ryoppippi/ccusage">ccusage</a> at API prices; time from start and end timestamps; lines counted in the finished <code>index.html</code>.</li>
         <li>All seven games ran without errors and had every requested feature; screenshots and a review of each are in the <a href="/blog/claude-opus-5-5-effort">write-up</a>.</li>
+        <li>Haiku 5.5 (added {EFF_UPDATED}): Claude Code 2.1.295, <code>claude -p --model claude-haiku-5-5 --effort …</code> with no MCP servers, three runs per level. Tokens and cost from Claude Code&rsquo;s own usage report at list prices. Each game was played by a script in a headless browser to check the score, level 2 and three lives.</li>
       </ul>
       <h2>Limitations</h2>
       <ul>
-        <li>One run per level and one task. Runs vary, especially at high effort levels; treat the numbers as an order of magnitude, not a fixed price.</li>
+        <li>One run per level for Opus and Sonnet, three for Haiku, and one task. Runs vary, especially at high effort levels; treat the numbers as an order of magnitude, not a fixed price.</li>
         <li>Costs are API-equivalent. On a Pro or Max plan the same runs use up your usage limit instead of money.</li>
         <li>Max effort tried to run an automated test that needed permission, which added time.</li>
       </ul>
@@ -1888,12 +1911,12 @@ def har_html():
 
 # ---- TokenSave Language Tax Index (derived from datasets 1 and 2; versioned, re-measured when new models ship) ----
 LTI_PATH = "/data/language-tax-index"
-LTI_VERSION = "1.1"
-LTI_DATE = "2026-10-20"
+LTI_VERSION = "1.2"
+LTI_DATE = "2026-10-21"
 LTI_CHART = "/language-tax-index-chart.png"
 LTI_TITLE = "TokenSave Language Tax Index: extra tokens per language on Claude, Gemini and GPT"
 LTI_DESC = ("How many more tokens the same text needs in 40 languages than in English, per model. "
-            "Version 1.1 (October 2026): median +41% on Gemini, +52% on GPT, +88% on Claude 5.5 (Opus, Sonnet and Haiku 5.5). Updated when new models ship. CSV, CC BY 4.0.")
+            "Version 1.2 (October 2026): median +41% on Gemini 3.x and Gemini 4 Argon, +52% on GPT, +88% on Claude 5.5 (Opus, Sonnet and Haiku 5.5). Updated when new models ship. CSV, CC BY 4.0.")
 # (key, label, family, current) - the legacy GPT-4 tokenizer stays as history
 LTI_MODELS = [("gemini", "Gemini 3.x", "Google", True), ("gpt", "GPT (o200k, GPT-4o and later)", "OpenAI", True),
               ("claude55", "Claude 5.5 (Opus, Sonnet, Haiku)", "Anthropic", True), ("claude45", "Claude Haiku 4.5", "Anthropic", True),
@@ -1911,7 +1934,8 @@ def _lti_extra():
 LTI_EXTRA = _lti_extra()
 LTI_MODELS = LTI_MODELS[:-1] + [(m["key"], m["label"], m["family"], True) for m in LTI_EXTRA] + LTI_MODELS[-1:]
 # Version history: (version, date, what changed). Add a row every time the index is re-measured.
-LTI_HISTORY = [("1.1", "2026-10-20", "Added Claude Haiku 5.5 (released 2026-10-07), measured on all 41 prompts: identical counts to Opus and Sonnet 5.5 in every language, so it joins the Claude 5.5 column. Versus Haiku 4.5, English needs 34% more tokens (35 to 47) while Korean, Japanese, Chinese, Hindi, Russian and Ukrainian are unchanged."),
+LTI_HISTORY = [("1.2", "2026-10-21", "Added Gemini 4 Argon, measured on all 41 prompts in Google AI Studio: a new tokenizer. Its median tax equals Gemini 3.x (+41%), but East Asian languages got cheaper (Korean 48 to 41 tokens, Japanese 46 to 42) and most Indian languages more expensive (Kannada 58 to 72, Hindi 41 to 48, Tamil 52 to 63). English is unchanged at 34."),
+               ("1.1", "2026-10-20", "Added Claude Haiku 5.5 (released 2026-10-07), measured on all 41 prompts: identical counts to Opus and Sonnet 5.5 in every language, so it joins the Claude 5.5 column. Versus Haiku 4.5, English needs 34% more tokens (35 to 47) while Korean, Japanese, Chinese, Hindi, Russian and Ukrainian are unchanged."),
                ("1.0", "2026-10-19", "First release: 41 languages × 4 current tokenizers plus the legacy GPT-4 tokenizer, from our 2026-09-30 and 2026-10-17 measurements.")]
 # Models released after the last measurement, queued for the next version.
 LTI_PENDING = []
@@ -2002,7 +2026,7 @@ def lti_html():
     return f'''    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
       <p class="not-prose text-xs font-semibold uppercase tracking-wider text-violet-300"><a href="/data/" class="no-underline" style="text-decoration:none">TokenSave Data</a> · Index · v{LTI_VERSION}</p>
       <h1 class="text-3xl font-extrabold text-white">TokenSave Language Tax Index</h1>
-      <p class="mt-3 text-lg text-zinc-200"><strong>The “language tax” is how many more tokens the same text needs in your language than in English.</strong> On today's models the median across 40 languages is {_pct(sm["gemini"]["median"])} on Gemini, {_pct(sm["gpt"]["median"])} on GPT and {_pct(sm["claude55"]["median"])} on Claude 5.5 (Opus, Sonnet and Haiku). API prices, context windows and token-based limits all scale with it.</p>
+      <p class="mt-3 text-lg text-zinc-200"><strong>The “language tax” is how many more tokens the same text needs in your language than in English.</strong> On today's models the median across 40 languages is {_pct(sm["gemini_4_argon"]["median"])} on Gemini (3.x and 4 Argon alike), {_pct(sm["gpt"]["median"])} on GPT and {_pct(sm["claude55"]["median"])} on Claude 5.5 (Opus, Sonnet and Haiku). API prices, context windows and token-based limits all scale with it.</p>
       <p class="text-sm text-zinc-400">Version {LTI_VERSION} · {LTI_DATE} · 41 languages · {len(cur)} current tokenizers + 1 legacy · License <a href="{LICENSE}">CC BY 4.0</a> · Re-measured when new models ship</p>
       <div class="not-prose flex flex-wrap gap-2 my-4">
         <a href="/data/language-tax-index.csv" {BTN} style="text-decoration:none">⬇ CSV</a>
@@ -2015,9 +2039,10 @@ def lti_html():
       <img src="{LTI_CHART}" alt="TokenSave Language Tax Index: median extra tokens versus English by model, with the range across 40 languages" width="1200" loading="lazy">
       <h2>What the index shows</h2>
       <ul>
-        <li><strong>Every model taxes non-English text, but by very different amounts.</strong> Gemini has the smallest median tax, Claude the largest. Korean is {_pct(ko["gemini_tax"])} on Gemini, {_pct(ko["gpt_tax"])} on GPT and {_pct(ko["claude55_tax"])} on Claude 5.5; Ukrainian {_pct(uk["gemini_tax"])}, {_pct(uk["gpt_tax"])} and {_pct(uk["claude55_tax"])}.</li>
+        <li><strong>Every model taxes non-English text, but by very different amounts.</strong> Gemini has the smallest median tax, Claude the largest. Korean is {_pct(ko["gemini_4_argon_tax"])} on Gemini 4 Argon, {_pct(ko["gpt_tax"])} on GPT and {_pct(ko["claude55_tax"])} on Claude 5.5; Ukrainian {_pct(uk["gemini_4_argon_tax"])}, {_pct(uk["gpt_tax"])} and {_pct(uk["claude55_tax"])}.</li>
         <li><strong>The tax has fallen over time.</strong> On the legacy GPT-4 tokenizer (cl100k) the median was {_pct(sm["cl100k"]["median"])}; on the current o200k tokenizer it is {_pct(sm["gpt"]["median"])}. Hindi went from {_pct(hi["cl100k_tax"])} to {_pct(hi["gpt_tax"])}.</li>
         <li><strong>A lower tax is not always a cheaper model.</strong> The index compares each language with English on the same model. Claude 5.5 also needs more tokens for English itself ({sm["claude55"]["en"]} for our prompt, against {sm["gpt"]["en"]} on GPT and {sm["gemini"]["en"]} on Gemini), and prices per token differ. Use the <a href="/">token calculator</a> to compare real costs.</li>
+        <li><strong>New in v1.2: Gemini 4 Argon moved the tax between languages.</strong> Its median is the same as Gemini 3.x ({_pct(sm["gemini_4_argon"]["median"])}) and English is unchanged at {by["en"]["gemini_4_argon"]} tokens, but {sum(r["gemini_4_argon"] < r["gemini"] for r in rows)} of 41 prompts got cheaper and {sum(r["gemini_4_argon"] > r["gemini"] for r in rows)} more expensive. Korean fell from {by["ko"]["gemini"]} to {by["ko"]["gemini_4_argon"]} tokens ({_pct(round((by["ko"]["gemini_4_argon"] / by["ko"]["gemini"] - 1) * 100))}) and Japanese from {by["ja"]["gemini"]} to {by["ja"]["gemini_4_argon"]} ({_pct(round((by["ja"]["gemini_4_argon"] / by["ja"]["gemini"] - 1) * 100))}), while Kannada rose from {by["kn"]["gemini"]} to {by["kn"]["gemini_4_argon"]} ({_pct(round((by["kn"]["gemini_4_argon"] / by["kn"]["gemini"] - 1) * 100))}), Hindi from {by["hi"]["gemini"]} to {by["hi"]["gemini_4_argon"]} ({_pct(round((by["hi"]["gemini_4_argon"] / by["hi"]["gemini"] - 1) * 100))}) and Tamil from {by["ta"]["gemini"]} to {by["ta"]["gemini_4_argon"]} ({_pct(round((by["ta"]["gemini_4_argon"] / by["ta"]["gemini"] - 1) * 100))}).</li>
         <li><strong>New in v1.1: Haiku 5.5 has a smaller tax than Haiku 4.5, because English got more expensive.</strong> Haiku 5.5 counts exactly like Opus and Sonnet 5.5 in all 41 languages. Its median tax is {_pct(sm["claude55"]["median"])} against {_pct(sm["claude45"]["median"])} on Haiku 4.5, but no language got cheaper: English rose from {by["en"]["claude45"]} to {by["en"]["claude55"]} tokens ({_pct(round((by["en"]["claude55"] / by["en"]["claude45"] - 1) * 100))}), Spanish {_pct(round((by["es"]["claude55"] / by["es"]["claude45"] - 1) * 100))} and German {_pct(round((by["de"]["claude55"] / by["de"]["claude45"] - 1) * 100))}, while Korean ({by["ko"]["claude55"]}), Japanese, Chinese, Hindi, Russian and Ukrainian stayed exactly the same. Across all 41 prompts Haiku 5.5 uses {round((sum(r["claude55"] for r in rows) / sum(r["claude45"] for r in rows) - 1) * 100)}% more tokens. At list prices ($0.10 vs $1 per million input tokens) it is still far cheaper per prompt.</li>
         <li><strong>It matters most for chat, documents and API work, much less for coding agents.</strong> In our coding test the prompt language moved input tokens by about 1%, because the agent's own instructions dwarf the prompt (<a href="/data/ai-coding-prompt-language">data</a>).</li>
       </ul>
@@ -2028,7 +2053,7 @@ def lti_html():
       <ul>
         <li><strong>Definition:</strong> tax = tokens for the language ÷ tokens for English on the same tokenizer − 1, rounded to a whole percent. The headline number is the median over the 40 non-English languages.</li>
         <li><strong>Text:</strong> one everyday instruction (summarize a customer email and suggest a reply) translated into 41 languages. The prompts and raw counts are in the two source datasets: <a href="{LANG_PATH}">GPT tokenizers</a> (DOI <a href="https://doi.org/{LANG_DOI}">{LANG_DOI}</a>) and <a href="{MULTI_PATH}">Claude, Gemini and GPT</a> (DOI <a href="https://doi.org/{MULTI_DOI}">{MULTI_DOI}</a>).</li>
-        <li><strong>Counting:</strong> GPT with tiktoken; Claude from Claude Code usage reports minus a one-character baseline; Gemini with the Google AI Studio token counter. Models that share a tokenizer share a column (Claude Opus, Sonnet and Haiku 5.5 gave identical counts in all 41 languages, as did Gemini 3.8 Flash and 3.1 Pro).</li>
+        <li><strong>Counting:</strong> GPT with tiktoken; Claude from Claude Code usage reports minus a one-character baseline; Gemini with the Google AI Studio token counter. Models that share a tokenizer share a column (Claude Opus, Sonnet and Haiku 5.5 gave identical counts in all 41 languages, as did Gemini 3.8 Flash and 3.1 Pro). Gemini 4 Argon was counted in the same AI Studio counter, which adds a fixed 31 tokens on that model (the one-letter text &ldquo;a&rdquo; shows 32); we subtract it.</li>
       </ul>
       <h2>Update policy and version history</h2>
       <p>We re-measure the same 41 prompts when a model with a new tokenizer ships, add or replace its column, and publish a new version here with the date. Earlier versions stay in the history, so changes over time can be cited.</p>
@@ -2047,6 +2072,8 @@ def lti_html():
 
 # ---- Measurement log: newest first, shown on the data hub and the English home page ----
 CHANGELOG = [
+    ("2026-10-21", EFF_PATH, "Claude effort levels: Haiku 5.5 added, 15 games, max about ten times the cost of xhigh"),
+    ("2026-10-21", LTI_PATH, "Language Tax Index v1.2: Gemini 4 Argon in 41 languages, Korean 15% cheaper, Kannada 24% dearer than Gemini 3.x"),
     ("2026-10-21", "/data/claude-code-baseline-tokens-by-version", "Claude Code baseline tokens by version: +86% in ten months, then back to half the peak"),
     ("2026-10-21", "/data/text-as-image-token-cost", "Text as images (pxpipe) on Claude: 64% to 81% fewer tokens, but exact ids often lost"),
     ("2026-10-20", "/data/ai-coffee-break-cache-cost", "The coffee-break tax: the next Claude Code message after a 0 to 65 minute pause"),
