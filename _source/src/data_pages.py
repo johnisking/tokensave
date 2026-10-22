@@ -68,6 +68,7 @@ def write_files(dist):
     write_ccv_files(dist)
     write_bmc_files(dist)
     write_blm_files(dist)
+    write_agy_files(dist)
 
 
 def _write_lang_files(dist):
@@ -268,6 +269,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{BLM_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(BLM_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">MCP for Blender in Claude Code, 72 runs: everyday tasks $0.16 to $0.23, a racing scene with a chase camera about $0.47; a long property dump $0.87, or $0.17 through tokensave-mcp-diet. CSV · measured {BLM_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{AGY_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(AGY_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">Google's Antigravity CLI (the Gemini CLI replacement) against Claude Code and Codex, 44 runs: the same Opus 5.5 read 68% to 88% fewer input tokens in Antigravity for the same game, and all 12 games worked. CSV · measured {AGY_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -2080,6 +2084,7 @@ def lti_html():
 
 # ---- Measurement log: newest first, shown on the data hub and the English home page ----
 CHANGELOG = [
+    ("2026-10-22", "/data/antigravity-cli-vs-claude-code-vs-codex", "Antigravity CLI vs Claude Code vs Codex: the same Opus 5.5 read 68% to 88% fewer tokens in Antigravity"),
     ("2026-10-22", "/data/blender-mcp-token-cost", "Blender MCP token cost: everyday tasks $0.16 to $0.23, a racing scene $0.47, and the one case a diet fixes"),
     ("2026-10-22", "/data/browser-mcp-token-cost", "Browser MCP token cost: one long-page snapshot is over 200,000 tokens, and a snapshot diet that cuts it 99%"),
     ("2026-10-21", EFF_PATH, "Claude effort levels: Haiku 5.5 added, 15 games, max about ten times the cost of xhigh"),
@@ -3117,6 +3122,149 @@ def blm_html():
                                 [(BMC_PATH, "Browser MCP token cost"), (AGT_PATH, "Claude Code vs Codex: startup tokens and MCP tools"), (HAR_PATH, "What the Claude Code harness costs")]))
 
 
+# ---- Dataset 22: Antigravity CLI vs Claude Code vs Codex (measured 2026-10-22) ----
+AGY_PATH = "/data/antigravity-cli-vs-claude-code-vs-codex"
+AGY_MEASURED = "2026-10-22"
+AGY_CHART = "/antigravity-cli-vs-claude-code-vs-codex-chart.png"
+AGY_DOI = ""  # set after the Zenodo upload
+AGY_MIRRORS = []
+AGY_TITLE = "Antigravity CLI vs Claude Code vs Codex: startup tokens, MCP tools and the same coding task"
+AGY_DESC = ("Dataset: input tokens Google's Antigravity CLI (with Gemini 4 Argon and with Claude Opus 5.5), Claude Code and Codex use before any work, what 1 to 30 MCP tools add, "
+            "and tokens, time and output for the same browser-game task. Opus 5.5 used 68% to 88% fewer input tokens in Antigravity than in Claude Code. 44 runs, free CSV, CC BY 4.0.")
+AGY_TOOLS = [("claude", "Claude Code + Opus 5.5"), ("codex", "Codex + gpt-6-luna"), ("agyg", "Antigravity + Gemini 4 Argon"), ("agyo", "Antigravity + Opus 5.5")]
+AGY_COLS = ["tool", "test", "mcp_tools", "run", "input_tokens_reported", "cache_read_tokens", "output_tokens", "seconds", "api_cost_usd",
+            "file_lines", "check_score", "check_level2", "check_lives", "game_ok", "check_note"]
+
+
+def _agy():
+    return json.load(open(os.path.join(ROOT, "blog_data", "agy3", "rows.json"), encoding="utf-8"))
+
+
+def agy_citation():
+    if AGY_DOI:
+        return f"TokenSave (2026). {AGY_TITLE} [Data set]. Zenodo. https://doi.org/{AGY_DOI}"
+    return f"TokenSave (2026). {AGY_TITLE} [Data set]. {BASE}{AGY_PATH}"
+
+
+def write_agy_files(dist):
+    R = _agy()
+    buf = io.StringIO(); w = csv.writer(buf); w.writerow(AGY_COLS + ["tool_label"])
+    lab = dict(AGY_TOOLS)
+    for r in R:
+        g = r["kind"] == "game"
+        w.writerow([r["tool"], "game" if g else "startup", "" if g else r["n"], r["rep"], r["inp"], r.get("cache_read", 0), r["out"], r["seconds"],
+                    r.get("cost", ""), r.get("lines", ""), r.get("check_score", ""), r.get("check_level2", ""), r.get("check_lives", ""),
+                    r.get("game_ok", ""), r.get("check_note", ""), lab[r["tool"]]])
+    open(os.path.join(dist, "data", "antigravity-cli-vs-claude-code-vs-codex.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=AGY_TITLE, url=BASE + AGY_PATH, license="CC BY 4.0", citation=agy_citation(), measured=AGY_MEASURED,
+                setup="Windows 11; Claude Code 2.1.295 (Opus 5.5, Max plan); Codex CLI 0.162.0-alpha.17.2 (gpt-6-luna, ChatGPT plan); Antigravity CLI 1.4.5 "
+                      "(gemini-4-argon-medium and claude-opus-5-5-medium, personal Google account)",
+                note=("input_tokens_reported is each CLI's own figure. Claude Code: input + cache creation + cache read. Codex: input including cached input. "
+                      "Antigravity: the usage.input_tokens field of agy --output-format json; cache_read_tokens is reported separately and for the Opus runs is larger than input_tokens, "
+                      "so it is not contained in it there. Read input_tokens_reported + cache_read_tokens as an upper bound for Antigravity."),
+                tools=lab, rows=R)
+    open(os.path.join(dist, "data", "antigravity-cli-vs-claude-code-vs-codex.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def agy_ld():
+    return _dataset_ld(AGY_TITLE, AGY_DESC, AGY_PATH, AGY_MEASURED,
+                       ["Antigravity CLI tokens", "Antigravity CLI vs Claude Code", "Gemini CLI replacement", "agy CLI", "Claude Code vs Codex", "AI coding agent tokens", "MCP tools tokens"],
+                       ["input tokens before any work", "input tokens added by 1, 10 and 30 MCP tools", "input and output tokens for one coding task", "seconds", "whether the game works"],
+                       "Each CLI run headless on Windows 11 with the same prompts: a one-word reply with 0, 1, 10 and 30 dummy MCP tools (2 runs each) and a brick-breaker game task (3 runs each); every game checked in a headless browser",
+                       AGY_CHART, [("antigravity-cli-vs-claude-code-vs-codex.csv", "text/csv"), ("antigravity-cli-vs-claude-code-vs-codex.json", "application/json")],
+                       doi=AGY_DOI or None, mirrors=AGY_MIRRORS)
+
+
+def agy_stats():
+    R = _agy(); B = {}; G = {}
+    mean = statistics.mean
+    for k, _ in AGY_TOOLS:
+        for n in (0, 1, 10, 30):
+            rs = [r for r in R if r["tool"] == k and r["kind"] == "base" and r["n"] == n]
+            B[(k, n)] = dict(inp=mean(r["inp"] for r in rs), cache=mean(r.get("cache_read", 0) for r in rs))
+        rs = [r for r in R if r["tool"] == k and r["kind"] == "game"]
+        G[k] = dict(inp=mean(r["inp"] for r in rs), cache=mean(r.get("cache_read", 0) for r in rs), out=mean(r["out"] for r in rs),
+                    sec=mean(r["seconds"] for r in rs), lines=mean(r["lines"] for r in rs), ok=sum(bool(r["game_ok"]) for r in rs), n=len(rs),
+                    lo=min(r["inp"] for r in rs), hi=max(r["inp"] for r in rs),
+                    cost=(mean(r["cost"] for r in rs) if all(r.get("cost") for r in rs) else None))
+    return R, B, G
+
+
+def agy_html():
+    R, B, G = agy_stats()
+    f = lambda v: "{:,}".format(round(v))
+    pct = lambda a, b: round((b / a - 1) * 100)
+    cc, ao, ag, cx = G["claude"], G["agyo"], G["agyg"], G["codex"]
+    s_lo, s_hi = abs(pct(B[("claude", 0)]["inp"], B[("agyo", 0)]["inp"] + B[("agyo", 0)]["cache"])), abs(pct(B[("claude", 0)]["inp"], B[("agyo", 0)]["inp"]))
+    g_lo, g_hi = abs(pct(cc["inp"], ao["inp"] + ao["cache"])), abs(pct(cc["inp"], ao["inp"]))
+    lead = (f'<strong>The same model, Claude Opus 5.5, read {g_lo}% to {g_hi}% fewer input tokens in Google&rsquo;s Antigravity CLI than in Claude Code for the same coding task, '
+            f'and {s_lo}% to {s_hi}% fewer before doing anything.</strong> Both made a working game. Gemini 4 Argon in Antigravity also stayed far below Claude Code and Codex. '
+            'The range comes from one open question: whether Antigravity&rsquo;s separately reported cache reads should be added on top.')
+    agy_add = lambda k, n: B[(k, n)]["inp"] - B[(k, 0)]["inp"]
+    li = []
+    li.append(f'<li><strong>Startup: {f(B[("claude", 0)]["inp"])} input tokens in Claude Code, {f(B[("codex", 0)]["inp"])} in Codex, {f(B[("agyg", 0)]["inp"])} in Antigravity with Gemini 4 Argon '
+              f'and {f(B[("agyo", 0)]["inp"])} in Antigravity with Opus 5.5</strong> ({f(B[("agyo", 0)]["inp"] + B[("agyo", 0)]["cache"])} counting its cache reads), for the prompt &ldquo;Reply with the single word OK.&rdquo; with no MCP server. '
+              'Most of it is each tool&rsquo;s own instructions and tool definitions, sent with every request.</li>')
+    li.append(f'<li><strong>Same task, same model:</strong> asked to build a brick-breaker game, Opus 5.5 read {f(cc["inp"])} input tokens in Claude Code and {f(ao["inp"])} in Antigravity '
+              f'({f(ao["inp"] + ao["cache"])} counting cache reads), wrote {f(cc["out"])} and {f(ao["out"])} output tokens, and took {round(cc["sec"])} and {round(ao["sec"])} seconds. '
+              f'Claude Code&rsquo;s games were longer ({round(cc["lines"])} lines on average against {round(ao["lines"])}). Claude Code put the run at ${cc["cost"]:.2f} at API prices; Antigravity shows no price.</li>')
+    li.append(f'<li><strong>Gemini 4 Argon in Antigravity</strong> read {f(ag["inp"])} input tokens ({f(ag["inp"] + ag["cache"])} counting cache reads) and wrote the longest games ({round(ag["lines"])} lines), but took the longest too ({round(ag["sec"])} seconds). '
+              f'Codex read {f(cx["inp"])} on average ({f(cx["lo"])} to {f(cx["hi"])}) and wrote minified games of about {round(cx["lines"])} lines.</li>')
+    li.append(f'<li><strong>MCP tools barely matter any more.</strong> Thirty test tools added {f(agy_add("claude", 30))} tokens in Claude Code, none in Codex (14,618 in seven of its eight startup runs, with or without tools), {f(agy_add("agyg", 30))} in Antigravity with Gemini and {f(agy_add("agyo", 30))} with Opus. '
+              f'In Antigravity one tool already added {f(agy_add("agyg", 1))} (Gemini) and {f(agy_add("agyo", 1))} (Opus) and 29 more added little, so all four now seem to load a tool&rsquo;s details only when it is used.</li>')
+    li.append(f'<li><strong>All 12 games worked</strong> in a headless-browser check: the score rises when bricks break, level 2 appears, and lives go 3, 2, 1, 0. '
+              'The automatic check could not read the score in two Codex games; a manual check showed bricks breaking and points adding up in both.</li>')
+    li.append('<li><strong>Why Antigravity:</strong> Google stopped serving Gemini CLI to personal accounts (Google AI Pro, Ultra and free Code Assist) on 2026-06-18 and pointed them to Antigravity CLI. '
+              'Antigravity can also run Claude models, which is what makes the same-model comparison possible.</li>')
+    hb = ['<th>MCP tools</th>'] + [f'<th class="text-right">{esc(l)}</th>' for _, l in AGY_TOOLS]
+    rb = []
+    for n in (0, 1, 10, 30):
+        cells = []
+        for k, _ in AGY_TOOLS:
+            v = B[(k, n)]; extra = f' <span class="text-zinc-500">(+{f(v["cache"])} cache)</span>' if k.startswith("agy") and v["cache"] else ""
+            add = "" if n == 0 else f' <span class="text-zinc-500">({"+" if agy_add(k, n) >= 0 else "&minus;"}{f(abs(agy_add(k, n)))})</span>'
+            cells.append(f'<td class="text-right tabular-nums">{f(v["inp"])}{extra}{add}</td>')
+        rb.append(f'          <tr><td>{n}</td>' + "".join(cells) + "</tr>")
+    hg = ['<th>Tool</th>', '<th class="text-right">Input tokens</th>', '<th class="text-right">Cache reads reported separately</th>', '<th class="text-right">Output tokens</th>',
+          '<th class="text-right">Seconds</th>', '<th class="text-right">Lines</th>', '<th class="text-right">Games working</th>']
+    rg = []
+    for k, l in AGY_TOOLS:
+        g = G[k]
+        rg.append(f'          <tr><td>{esc(l)}</td><td class="text-right tabular-nums">{f(g["inp"])}</td>'
+                  f'<td class="text-right tabular-nums">{f(g["cache"]) if k.startswith("agy") else "included"}</td><td class="text-right tabular-nums">{f(g["out"])}</td>'
+                  f'<td class="text-right tabular-nums">{round(g["sec"])}</td><td class="text-right tabular-nums">{round(g["lines"])}</td><td class="text-right tabular-nums">{g["ok"]} of {g["n"]}</td></tr>')
+    body = ('      <h2>Key findings</h2>\n      <ul>\n' + "\n".join("        " + x for x in li) + '\n      </ul>\n'
+            '      <h2>Startup tokens and MCP tools</h2>\n'
+            '      <p class="text-sm text-zinc-400">Input tokens for &ldquo;Reply with the single word OK.&rdquo;, average of two runs. In brackets: Antigravity&rsquo;s separately reported cache reads, and the change against no MCP server.</p>\n'
+            + _table(hb, chr(10).join(rb)) +
+            '      <h2>The same coding task</h2>\n'
+            '      <p class="text-sm text-zinc-400">&ldquo;Make a brick-breaker game that runs in the browser as a single file named index.html &hellip; 2 levels, a score display and 3 lives &hellip; keyboard and mouse.&rdquo; Average of three runs each, medium effort.</p>\n'
+            + _table(hg, chr(10).join(rg)) +
+            '      <h2>How to read Antigravity&rsquo;s numbers</h2>\n'
+            '      <p><code>agy --output-format json</code> reports <code>input_tokens</code>, <code>output_tokens</code>, <code>thinking_tokens</code>, <code>cache_read_tokens</code> and <code>total_tokens</code>, '
+            f'where total is input plus output. Its documentation does not say whether cache reads are part of input. In our Opus runs the cache reads ({f(ao["cache"])} on the game task) were larger than the reported input ({f(ao["inp"])}), '
+            'so there they cannot be contained in it. We therefore show both: the reported input as the low figure and input plus cache reads as the high one. Even the high figure is far below Claude Code&rsquo;s.</p>\n'
+            '      <h2>Method</h2>\n      <ul>\n'
+            f'        <li>Windows 11, {AGY_MEASURED}. Every run in its own empty folder, one after another, with no other MCP servers.</li>\n'
+            '        <li><strong>Claude Code 2.1.295</strong>, Opus 5.5, Max plan: <code>claude -p --output-format json --mcp-config mcp.json --strict-mcp-config</code>; the game at <code>--effort medium --permission-mode acceptEdits</code>. Input = input + cache creation + cache read.</li>\n'
+            '        <li><strong>Codex CLI 0.162.0-alpha.17.2</strong>, gpt-6-luna, ChatGPT plan: <code>codex exec --json</code>, reasoning effort low for startup and medium for the game, MCP server added with <code>-c mcp_servers.&hellip;</code>. Input includes cached input.</li>\n'
+            '        <li><strong>Antigravity CLI 1.4.5</strong> (<code>agy</code>), personal Google account: <code>agy -p --output-format json --model gemini-4-argon-medium</code> or <code>claude-opus-5-5-medium</code>; the game with <code>--mode accept-edits</code>. '
+            'The MCP server was written to the global <code>~/.gemini/config/mcp_config.json</code> for each startup run and removed afterwards.</li>\n'
+            f'        <li>MCP test server: the same small stdio server as in our <a href="{AGT_PATH}">Claude Code vs Codex dataset</a>, exposing 1, 10 or 30 tracker tools with a one-sentence description and a five-field schema each.</li>\n'
+            '        <li>Games were checked in headless Chromium: break bricks and watch the score, clear or skip to level 2, and lose the ball until lives reach zero. Scripts and every log are in the GitHub mirror.</li>\n'
+            '      </ul>\n      <h2>Limitations</h2>\n      <ul>\n'
+            '        <li>Two runs per startup test and three per game. One task, one machine, one day.</li>\n'
+            '        <li>Token counts are each tool&rsquo;s own report, and the three tools count cache differently (see above). Prices are not compared: Codex and Antigravity show none on a subscription.</li>\n'
+            '        <li>We cannot see how Antigravity sets up Opus 5.5 behind its <code>claude-opus-5-5-medium</code> name, so its settings may differ from Claude Code&rsquo;s medium effort.</li>\n'
+            '      </ul>\n')
+    return (_head(f"Antigravity CLI vs Claude Code vs Codex: the same Opus 5.5 read {g_lo}% to {g_hi}% fewer tokens in Antigravity", lead,
+                  f'Measured {AGY_MEASURED} · {len(R)} runs · Claude Code 2.1.295, Codex CLI 0.162, Antigravity CLI 1.4.5 · License <a href="{LICENSE}">CC BY 4.0</a> · Earlier: <a href="{AGT_PATH}">Claude Code vs Codex</a>',
+                  [("antigravity-cli-vs-claude-code-vs-codex.csv", "CSV"), ("antigravity-cli-vs-claude-code-vs-codex.json", "JSON")],
+                  AGY_CHART, "Input tokens for the same coding task in Claude Code, Codex and Antigravity CLI", doi=AGY_DOI or None, mirrors=AGY_MIRRORS)
+            + body + _page_tail(agy_citation(), _embed(AGY_PATH, AGY_CHART, "Input tokens for the same coding task in Claude Code, Codex and Antigravity CLI", "Antigravity CLI vs Claude Code vs Codex"),
+                                [(AGT_PATH, "Claude Code vs Codex: startup tokens and MCP tools"), (HAR_PATH, "What the Claude Code harness costs"), (CCV_PATH, "Claude Code baseline tokens by version"), ("/agents", "Estimate your Claude Code or Codex bill")]))
+
+
 # ---- "Try it yourself" box near the top of every dataset page (2026-10-22) ----
 _CTA = {
     "/": ("Count the tokens in your own text", "Paste your prompt and see tokens, characters and API cost on GPT, Claude and Gemini. Free and private: it runs in your browser."),
@@ -3127,7 +3275,7 @@ _CTA_MAP = {LANG_PATH: "/", MULTI_PATH: "/", FMT_PATH: "/", CODE_PATH: "/", PDF_
             IMG_PATH: "/", TAI_PATH: "/",
             EFF_PATH: "/agents", AGT_PATH: "/agents", AGS_PATH: "/agents", AGL_PATH: "/agents", AMD_PATH: "/agents", HAR_PATH: "/agents",
             VIB_PATH: "/agents", CCV_PATH: "/claude-code-usage",
-            LNG_PATH: "/claude-code-usage", COF_PATH: "/claude-code-usage", BMC_PATH: "/agents", BLM_PATH: "/agents"}
+            LNG_PATH: "/claude-code-usage", COF_PATH: "/claude-code-usage", BMC_PATH: "/agents", BLM_PATH: "/agents", AGY_PATH: "/agents"}
 
 
 def add_cta(path, body):
