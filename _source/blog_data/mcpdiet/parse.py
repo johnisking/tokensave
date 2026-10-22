@@ -19,9 +19,9 @@ def rd(p):
                     results[c['tool_use_id']]=(len(txt),imgs)
         if j.get('type')=='result': res=j
     return rows,results,res
-for p in sorted(glob.glob('baseline/*/run.jsonl')):
+for p in sorted(glob.glob(sys.argv[1] if len(sys.argv)>1 else 'baseline/*/run.jsonl')):
     rows,results,res=rd(p)
-    name=p.split('/')[1]
+    name=p.split('/')[-2]
     mu=res.get('modelUsage',{})
     inp=sum(v['inputTokens']+v['cacheReadInputTokens']+v['cacheCreationInputTokens'] for v in mu.values()); out=sum(v['outputTokens'] for v in mu.values())
     print(f"\n== {name} in={inp} out={out} cost={res['total_cost_usd']:.3f} turns={res['num_turns']} ans={res.get('result','')[:60]!r}")
