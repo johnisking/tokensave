@@ -200,7 +200,7 @@ PAGES = [
          desc="Dataset: the same coding task prompted in English, Korean, Japanese, Spanish and Ukrainian cost almost the same tokens in Claude Code and Codex, but the game text and comments followed the prompt language. Free CSV, CC BY 4.0."),
     dict(file="data/browser-mcp-token-cost.html", path="/data/browser-mcp-token-cost", body=None, fn="bmc_html", ld="bmc_ld",
          title="Browser MCP Token Cost: Playwright vs Chrome DevTools MCP",
-         desc="Dataset: Playwright MCP and Chrome DevTools MCP in Claude Code, 68 runs. One full snapshot of a long page is over 200,000 Claude tokens; the tokensave-mcp-diet proxy cuts it 96%. Free CSV, CC BY 4.0."),
+         desc="Dataset: Playwright MCP and Chrome DevTools MCP in Claude Code, 94 runs. One full snapshot of a long page is over 200,000 Claude tokens; the tokensave-mcp-diet proxy cuts it 99%. Free CSV, CC BY 4.0."),
     dict(file="data/claude-code-baseline-tokens-by-version.html", path="/data/claude-code-baseline-tokens-by-version", body=None, fn="ccv_html", ld="ccv_ld",
          title="Claude Code Baseline Tokens by Version (System Prompt Size)",
          desc="Dataset: Claude Code's first request for the prompt \"a\" on versions from July 2025 to October 2026. The baseline rose 86% to May 2026, then fell back to half that by October. Free CSV, CC BY 4.0."),
