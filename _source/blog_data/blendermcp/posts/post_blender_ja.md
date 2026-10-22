@@ -26,7 +26,7 @@ BlenderをMCPでClaudeにつなぐとトークンを大量に使う、という�
 
 ## 結果2：レーシングシーンは$0.47
 
-![レーシングシーン6本のフレーム](race_all_6_runs.png)
+![レーシングシーン6本のフレーム](https://tokensave.app/blender-mcp-race-scenes.jpg)
 
 「実在のブランドに似ていないローポリのレーシングカー、コーナーのあるサーキット、コーナーを抜ける5秒のアニメーション、車を後ろから追うカメラ」を頼みました。平均で約10リクエスト、93秒、$0.47（5回で$0.42〜0.56）でした。プロキシあり・なし合わせて10回すべて動くアニメーションになりました。動画は後からEEVEEでレンダリングしました（GTX 1650で1本約90秒、計測した費用には含みません）。
 
@@ -83,6 +83,6 @@ BlenderをMCPでClaudeにつなぐとトークンを大量に使う、という�
 
 ## データ
 
-- 計測データ・方法・実行ごとのCSV（CC BY 4.0）：https://tokensave.app/data/blender-mcp-token-cost
+- 計測データ・方法・実行ごとのCSV（CC BY 4.0、DOI 10.5281/zenodo.23562484）：https://tokensave.app/data/blender-mcp-token-cost
 - tokensave-mcp-diet（MIT）：https://github.com/johnisking/tokensave-mcp-diet
 - ブラウザMCPで同じことを測った結果：https://tokensave.app/data/browser-mcp-token-cost

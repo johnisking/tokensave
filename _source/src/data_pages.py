@@ -2964,6 +2964,7 @@ BLM_CHART = "/blender-mcp-token-cost-chart.png"
 BLM_DOI = "10.5281/zenodo.23562484"  # concept DOI
 BLM_MIRRORS = [("Zenodo", "https://zenodo.org/records/23562485"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/blender-mcp-token-cost"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/blender-mcp-token-cost-72-claude-code-runs"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/blender-mcp"),
                ("GitHub (tokensave-mcp-diet)", "https://github.com/johnisking/tokensave-mcp-diet")]
 BLM_TITLE = "Blender MCP token cost: 72 Claude Code runs, from a table and chairs to a racing scene"

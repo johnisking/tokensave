@@ -26,7 +26,7 @@ The largest text result in these 25 runs was 2,347 characters. The current MCP f
 
 ## Result 2: a racing scene cost $0.47
 
-![Six frames from the racing scenes](race_all_6_runs.png)
+![Six frames from the racing scenes](https://tokensave.app/blender-mcp-race-scenes.jpg)
 
 I asked for a low-poly racing car of its own design, a circuit with a corner, a 5-second animation through the corner and a chase camera. Claude did it in about 10 requests and 93 seconds, for $0.47 on average ($0.42 to $0.56 over 5 runs). All 10 runs, with and without the proxy, produced a working animation. I rendered them afterwards in EEVEE; that took about 90 seconds per clip on the GTX 1650 and is not part of the measured cost.
 
@@ -83,6 +83,6 @@ One bug I hit on the way: MCP for Blender also returns each result as `structure
 
 ## Data
 
-- Full data, method and per-run CSV (CC BY 4.0): https://tokensave.app/data/blender-mcp-token-cost
+- Full data, method and per-run CSV (CC BY 4.0, DOI 10.5281/zenodo.23562484): https://tokensave.app/data/blender-mcp-token-cost
 - tokensave-mcp-diet (MIT): https://github.com/johnisking/tokensave-mcp-diet
 - The same test for browser MCP: https://tokensave.app/data/browser-mcp-token-cost

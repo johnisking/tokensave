@@ -26,7 +26,7 @@
 
 ## 결과 2: 레이싱 장면 하나에 $0.47
 
-![레이싱 장면 6개의 프레임](race_all_6_runs.png)
+![레이싱 장면 6개의 프레임](https://tokensave.app/blender-mcp-race-scenes.jpg)
 
 "실제 브랜드를 닮지 않은 로우폴리 레이싱카, 코너가 있는 서킷, 코너를 도는 5초 애니메이션, 차 뒤를 따라가는 카메라"를 부탁했습니다. 평균 약 10번 주고받고 93초 걸렸으며 비용은 $0.47이었습니다(5회 중 $0.42~0.56). 다이어트 유무 합쳐 10번 모두 제대로 움직이는 애니메이션이 나왔습니다. 영상은 나중에 EEVEE로 렌더링했고(GTX 1650으로 한 편에 약 90초), 이 시간은 잰 비용에 넣지 않았습니다.
 
@@ -83,6 +83,6 @@
 
 ## 데이터
 
-- 실측 데이터·방법·실행별 CSV(CC BY 4.0): https://tokensave.app/data/blender-mcp-token-cost
+- 실측 데이터·방법·실행별 CSV(CC BY 4.0, DOI 10.5281/zenodo.23562484): https://tokensave.app/data/blender-mcp-token-cost
 - tokensave-mcp-diet (MIT): https://github.com/johnisking/tokensave-mcp-diet
 - 브라우저 MCP로 같은 걸 잰 결과: https://tokensave.app/data/browser-mcp-token-cost
