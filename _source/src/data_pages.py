@@ -67,6 +67,7 @@ def write_files(dist):
     write_tai_files(dist)
     write_ccv_files(dist)
     write_bmc_files(dist)
+    write_blm_files(dist)
 
 
 def _write_lang_files(dist):
@@ -264,6 +265,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{BMC_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(BMC_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">Playwright MCP and Chrome DevTools MCP in Claude Code, 94 runs: everyday tasks stay small, but one full snapshot of a long page is over 200,000 tokens; our tokensave-mcp-diet proxy cuts it 99%. CSV · measured {BMC_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{BLM_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(BLM_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">MCP for Blender in Claude Code, 72 runs: everyday tasks $0.16 to $0.23, a racing scene with a chase camera about $0.47; a long property dump $0.87, or $0.17 through tokensave-mcp-diet. CSV · measured {BLM_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -2076,6 +2080,7 @@ def lti_html():
 
 # ---- Measurement log: newest first, shown on the data hub and the English home page ----
 CHANGELOG = [
+    ("2026-10-22", "/data/blender-mcp-token-cost", "Blender MCP token cost: everyday tasks $0.16 to $0.23, a racing scene $0.47, and the one case a diet fixes"),
     ("2026-10-22", "/data/browser-mcp-token-cost", "Browser MCP token cost: one long-page snapshot is over 200,000 tokens, and a snapshot diet that cuts it 99%"),
     ("2026-10-21", EFF_PATH, "Claude effort levels: Haiku 5.5 added, 15 games, max about ten times the cost of xhigh"),
     ("2026-10-21", LTI_PATH, "Language Tax Index v1.2: Gemini 4 Argon in 41 languages, Korean 15% cheaper, Kannada 24% dearer than Gemini 3.x"),
@@ -2952,6 +2957,160 @@ def bmc_html():
                                 [(AGT_PATH, "Claude Code vs Codex: startup tokens and MCP tools"), (HAR_PATH, "What the Claude Code harness costs"), (CCV_PATH, "Claude Code baseline tokens by version")]))
 
 
+# ---- Dataset 21: Blender MCP token cost, with and without tokensave-mcp-diet 0.3 (measured 2026-10-22) ----
+BLM_PATH = "/data/blender-mcp-token-cost"
+BLM_MEASURED = "2026-10-22"
+BLM_CHART = "/blender-mcp-token-cost-chart.png"
+BLM_DOI = None
+BLM_MIRRORS = [("GitHub (tokensave-mcp-diet)", "https://github.com/johnisking/tokensave-mcp-diet")]
+BLM_TITLE = "Blender MCP token cost: 72 Claude Code runs, from a table and chairs to a racing scene"
+BLM_DESC = ("Dataset: input tokens, cost, images and tool-result size for MCP for Blender in Claude Code (Opus 5.5) on 8 tasks, 72 runs, with and without the tokensave-mcp-diet 0.3 proxy. "
+            "Everyday tasks cost $0.16 to $0.23; a racing scene with a chase camera about $0.47; one long property dump $0.87, or $0.17 with the proxy. Free CSV, CC BY 4.0.")
+BLM_TASKS = [("infoS", "Describe a small room (13 objects)"), ("infoL", "Describe a city block (580 objects)"), ("build", "Build a table and four chairs"),
+             ("red", "Make the chairs red, then look"), ("sides", "Look at the table from four sides"), ("verts", "Probe: print every vertex (19,042)"),
+             ("props", "Probe: print every property of 580 objects"), ("race", "Showcase: racing car, circuit, 5 s chase camera")]
+BLM_COLS = ["mode", "task", "run", "input_tokens", "output_tokens", "api_cost_usd", "requests", "seconds", "tool_calls", "max_text_result_chars",
+            "images", "image_tokens_est", "user_prompt_chars", "refused_too_large", "passed_check"]
+
+
+def _blm():
+    base = os.path.join(ROOT, "blog_data", "blendermcp")
+    rows = json.load(open(os.path.join(base, "rows.json"), encoding="utf-8"))
+    for r in rows:
+        f = os.path.join(base, "facts", r["run"] + ".json")
+        facts = json.load(open(f, encoding="utf-8")) if os.path.exists(f) else None
+        t = r["task"]
+        if t == "build":
+            ok = bool(facts) and "Table" in facts["objects"] and all(f"Chair {i}" in facts["objects"] for i in range(1, 5))
+        elif t == "red":
+            cs = [v["colors"] for k, v in (facts or {}).get("objects", {}).items() if k.startswith("Chair")]
+            ok = len(cs) == 4 and all(c and all(x[0] > 0.4 and x[1] < 0.2 and x[2] < 0.2 for x in c) for c in cs)
+        elif t == "race":
+            ok = bool(facts) and facts["frame_end"] >= 120 and facts["camera_anim"] and bool(facts["animated_objects"]) and facts["res"] == [1280, 720] and "EEVEE" in facts["engine"]
+        elif t in ("verts", "props"):
+            ok = bool(r["answer"].strip()) and not r.get("is_error")
+        else:
+            ok = bool(r["answer"].strip())
+        r["passed_check"] = ok
+    return rows
+
+
+def blm_citation():
+    if BLM_DOI:
+        return f"TokenSave (2026). {BLM_TITLE} [Data set]. Zenodo. https://doi.org/{BLM_DOI}"
+    return f"TokenSave (2026). {BLM_TITLE} [Data set]. {BASE}{BLM_PATH}"
+
+
+def write_blm_files(dist):
+    R = _blm()
+    buf = io.StringIO(); w = csv.writer(buf); w.writerow(BLM_COLS + ["task_label", "calls"])
+    lab = dict(BLM_TASKS)
+    for r in R:
+        w.writerow([r["mode"], r["task"], r["rep"], r["input_tokens"], r["output_tokens"], r["api_cost_usd"], r["requests"], r["seconds"], r["tool_calls"],
+                    r["max_text_result_chars"], r["images"], r["image_tokens_est"], r["user_prompt_chars"], r["refused_too_large"], r["passed_check"],
+                    lab[r["task"]], " ".join(r["calls"])])
+    open(os.path.join(dist, "data", "blender-mcp-token-cost.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=BLM_TITLE, url=BASE + BLM_PATH, license="CC BY 4.0", citation=blm_citation(), measured=BLM_MEASURED,
+                setup="Claude Code 2.1.295, Opus 5.5, effort medium, Windows 11; Blender 5.2.2 LTS; MCP for Blender (mcp-for-blender via uvx, add-on 1.8); tokensave-mcp-diet 0.3.0",
+                tasks=lab, rows=R)
+    open(os.path.join(dist, "data", "blender-mcp-token-cost.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def blm_ld():
+    return _dataset_ld(BLM_TITLE, BLM_DESC, BLM_PATH, BLM_MEASURED,
+                       ["Blender MCP tokens", "Blender MCP cost", "MCP for Blender", "Claude Code Blender", "MCP token usage", "reduce MCP tokens"],
+                       ["input tokens per task", "API cost per task", "images and estimated image tokens", "largest text result (characters)"],
+                       "Claude Code 2.1.295 with MCP for Blender only (Blender 5.2.2, add-on 1.8), 8 tasks on scenes generated by script, 3 to 5 runs each, with and without the tokensave-mcp-diet 0.3 proxy; results checked by reading the saved .blend file",
+                       BLM_CHART, [("blender-mcp-token-cost.csv", "text/csv"), ("blender-mcp-token-cost.json", "application/json")], doi=BLM_DOI, mirrors=BLM_MIRRORS)
+
+
+def blm_stats():
+    R = _blm(); out = {}
+    for t, _ in BLM_TASKS:
+        for m in ("base", "diet"):
+            rs = [r for r in R if r["task"] == t and r["mode"] == m]
+            c = [r["api_cost_usd"] for r in rs]
+            out[(t, m)] = dict(n=len(rs), inp=statistics.mean(r["input_tokens"] for r in rs), cost=statistics.mean(c), lo=min(c), hi=max(c),
+                               sd=statistics.stdev(c) if len(c) > 1 else 0, img=statistics.mean(r["image_tokens_est"] for r in rs),
+                               maxt=max(r["max_text_result_chars"] for r in rs), req=statistics.mean(r["requests"] for r in rs),
+                               refused=sum(r["refused_too_large"] for r in rs), passed=sum(r["passed_check"] for r in rs),
+                               up=statistics.mean(r["user_prompt_chars"] for r in rs), sec=statistics.mean(r["seconds"] for r in rs))
+    return R, out
+
+
+def blm_html():
+    R, S = blm_stats()
+    f = lambda v: "{:,}".format(round(v))
+    pct = lambda a, b: round((b / a - 1) * 100)
+    trs = []
+    for t, lab in BLM_TASKS:
+        b, d = S[(t, "base")], S[(t, "diet")]
+        trs.append(f'          <tr><td>{esc(lab)}</td><td class="text-right tabular-nums">{b["n"]} + {d["n"]}</td>'
+                   f'<td class="text-right tabular-nums">{f(b["inp"])}</td><td class="text-right tabular-nums">{f(d["inp"])}</td>'
+                   f'<td class="text-right tabular-nums">${b["cost"]:.3f} <span class="text-zinc-500">(${b["lo"]:.2f}&ndash;${b["hi"]:.2f})</span></td>'
+                   f'<td class="text-right tabular-nums">${d["cost"]:.3f} <span class="text-zinc-500">(${d["lo"]:.2f}&ndash;${d["hi"]:.2f})</span></td>'
+                   f'<td class="text-right tabular-nums">{_pct(pct(b["cost"], d["cost"]))}</td>'
+                   f'<td class="text-right tabular-nums">{f(b["maxt"])}</td><td class="text-right tabular-nums">{f(b["img"])} &rarr; {f(d["img"])}</td></tr>')
+    head = ['<th>Task</th>', '<th class="text-right">Runs (base + diet)</th>', '<th class="text-right">Input tokens, as shipped</th>', '<th class="text-right">With the diet</th>',
+            '<th class="text-right">Cost, as shipped</th>', '<th class="text-right">With the diet</th>', '<th class="text-right">Change</th>',
+            '<th class="text-right">Largest text result (chars)</th>', '<th class="text-right">Image tokens (est.)</th>']
+    EV = ("infoS", "infoL", "build", "red", "sides")
+    every = [r for r in R if r["mode"] == "base" and r["task"] in EV]
+    pb, pd = S[("props", "base")], S[("props", "diet")]
+    rb, rd = S[("race", "base")], S[("race", "diet")]
+    ib, idd = S[("infoS", "base")], S[("infoS", "diet")]
+    npass = sum(r["passed_check"] for r in R)
+    base_req = statistics.median(r["input_tokens"] / r["requests"] for r in every)
+    lo_ev, hi_ev = min(S[(t, "base")]["cost"] for t in EV), max(S[(t, "base")]["cost"] for t in EV)
+    lead = (f'<strong>Blender MCP is lighter than its reputation. Everyday tasks in Claude Code cost ${lo_ev:.2f} to ${hi_ev:.2f} each, '
+            f'and a racing car with a circuit and a 5-second chase-camera animation cost ${rb["cost"]:.2f}.</strong> '
+            f'The expensive case is a long script output: printing every property of 580 objects cost ${pb["cost"]:.2f}, and ${pd["cost"]:.2f} ({_pct(pct(pb["cost"], pd["cost"]))}) through our open-source tokensave-mcp-diet proxy. '
+            f'Elsewhere the proxy saved little.')
+    li = []
+    li.append(f'<li><strong>Everyday tasks were cheap.</strong> Describing a scene, building a table with four chairs, recolouring the chairs and checking them with a screenshot took 69,000 to 126,000 input tokens per task. '
+              f'The largest text result in {len(every)} everyday runs was {f(max(r["max_text_result_chars"] for r in every))} characters: the current MCP for Blender already returns short summaries (20 objects per call by default) and 768-pixel images. '
+              f'Each request carried about {f(base_req)} tokens, most of it Claude Code&rsquo;s own instructions.</li>')
+    li.append(f'<li><strong>A racing scene cost about ${rb["cost"]:.2f}.</strong> Claude built a low-poly car of its own design and a circuit with a corner, animated the car over 120 frames and added a chase camera, '
+              f'in {rb["req"]:.1f} requests and about {round(rb["sec"])} seconds on average. All {rb["n"] + rd["n"]} runs produced a working animation.</li>')
+    li.append(f'<li><strong>The expensive case is a long script output.</strong> Asked to print every property of 580 objects, the script returned 122,373 characters. Claude Code refused it as too large; Claude then re-ran it in four chunks of about 32,000 characters, '
+              f'and all of them stayed in the context: {f(pb["inp"])} input tokens and ${pb["cost"]:.2f}, more than four times an everyday task.</li>')
+    li.append(f'<li><strong>tokensave-mcp-diet 0.3 cut that case by {abs(pct(pb["cost"], pd["cost"]))}%.</strong> It keeps the first 2,000 and last 1,000 characters of any text result over 8,000, describes the hidden lines '
+              f'(&ldquo;568 lines like: name=Building ## | type=MESH | location=(#, #, #) ...&rdquo;) and lets the model read any part with a new <code>result_detail</code> tool. The task cost ${pd["lo"]:.2f} to ${pd["hi"]:.2f} in its three runs.</li>')
+    li.append(f'<li><strong>Elsewhere the proxy changed little, and we say so.</strong> It also asks for 512-pixel images by default, which cut image tokens by {abs(pct(rb["img"], rd["img"]))}% on the racing scene, but images were a small share of the input, '
+              f'so the scene cost {abs(pct(rb["cost"], rd["cost"]))}% less ({rb["n"]} runs each, within run-to-run noise). The small-room description, where the proxy changed nothing, came out {abs(pct(ib["cost"], idd["cost"]))}% cheaper too, so treat differences under about 8% as noise.</li>')
+    li.append(f'<li>Every task passed its check in {npass} of {len(R)} runs (read back from the saved .blend file: names, colours, frame range, camera, engine).</li>')
+    body = ('      <h2>Key findings</h2>\n      <ul>\n' + "\n".join("        " + x for x in li) + '\n      </ul>\n'
+            '      <h2>All tasks, with and without tokensave-mcp-diet 0.3</h2>\n'
+            '      <p class="text-sm text-zinc-400">Averages. Input = all input tokens of the task (uncached + cache read + cache write). Cost at Opus 5.5 API prices as reported by Claude Code, lowest and highest run in brackets. '
+            'Image tokens estimated as width &times; height / 750 for every image returned. Largest text result is from the runs without the diet.</p>\n'
+            + _table(head, chr(10).join(trs)) +
+            '      <h2>What tokensave-mcp-diet 0.3 does for Blender</h2>\n'
+            '      <p>The proxy (<a href="https://github.com/johnisking/tokensave-mcp-diet">github.com/johnisking/tokensave-mcp-diet</a>, MIT) sits in front of MCP for Blender and passes every tool through. Version 0.3 adds three things: '
+            'long text results (over 8,000 characters) keep their head and tail plus a summary of the hidden lines, with the full text available through <code>result_detail</code>; '
+            'tools with a <code>max_size</code> get 512-pixel images unless the model asks for more than 1,000; and an optional <code>--drop-user-prompt</code> flag removes the server&rsquo;s <code>user_prompt</code> argument (used for its opt-in telemetry), '
+            f'which Claude filled with about {f(rb["up"])} characters per racing-scene run. That flag was off in these runs. Install: <code>npx -y github:johnisking/tokensave-mcp-diet -- uvx mcp-for-blender</code>.</p>\n'
+            '      <p>One bug surfaced during the runs: MCP for Blender also sends each result as <code>structuredContent</code>, and Claude Code shows that instead of the text, so the first diet runs of the two probes were not shortened. '
+            'Version 0.3 now shortens those fields too, and the probe runs were repeated after the fix in fresh working directories.</p>\n'
+            '      <h2>Method</h2>\n      <ul>\n'
+            f'        <li>Claude Code 2.1.295, <code>claude -p &lt;prompt&gt; --effort medium --output-format stream-json --verbose</code>, model Opus 5.5, Windows 11 with a GTX 1650, on {BLM_MEASURED}. Only the Blender MCP server was attached (<code>--strict-mcp-config</code>); web, file and shell tools were disabled, and so were the server&rsquo;s 3D-generation and asset-download tools.</li>\n'
+            '        <li>Blender 5.2.2 LTS with the window open (screenshots need it); MCP for Blender via <code>uvx mcp-for-blender</code>, add-on 1.8, telemetry off. A fresh copy of the scene was opened for every run, and every run had its own working directory.</li>\n'
+            '        <li>Scenes were generated by our own script, so they are identical in every run and contain no third-party assets: a room with 13 objects, a city block with 580 objects including a 19,042-vertex sphere, and an empty scene with a camera and a light.</li>\n'
+            '        <li>After each run the scene was saved and checked headlessly: the named table and chairs, the chair colours, the frame range, the scene camera and its animation, the render engine and the resolution. The racing scenes were rendered afterwards, outside the measured runs.</li>\n'
+            '        <li>Everyday tasks and the racing scene ran 5 times per mode, the two probes 3 times.</li>\n'
+            '      </ul>\n      <h2>Limitations</h2>\n      <ul>\n'
+            '        <li>One model, one machine, one client (Claude Code). Clients that do not refuse large results would take in all 122,000 characters of the property dump at once.</li>\n'
+            f'        <li>Costs vary from run to run (racing scene: ${rb["lo"]:.2f} to ${rb["hi"]:.2f} without the diet), because Claude takes a different number of steps each time.</li>\n'
+            '        <li>Image tokens are an estimate from the image size; the input totals are exact.</li>\n'
+            f'        <li>MCP for Blender changes quickly; these results are for the version of {BLM_MEASURED}, which already keeps most results small.</li>\n'
+            '      </ul>\n')
+    return (_head(f"How many tokens does Blender MCP cost? 72 Claude Code runs, and a racing scene for ${rb['cost']:.2f}", lead,
+                  f'Measured {BLM_MEASURED} · {len(R)} runs · Claude Code 2.1.295, Opus 5.5, Blender 5.2.2 · License <a href="{LICENSE}">CC BY 4.0</a> · Tool: <a href="https://github.com/johnisking/tokensave-mcp-diet">tokensave-mcp-diet</a> · Related: <a href="{BMC_PATH}">Browser MCP token cost</a>',
+                  [("blender-mcp-token-cost.csv", "CSV"), ("blender-mcp-token-cost.json", "JSON")],
+                  BLM_CHART, "Cost per task with MCP for Blender in Claude Code, with and without tokensave-mcp-diet", doi=BLM_DOI, mirrors=BLM_MIRRORS)
+            + body + _page_tail(blm_citation(), _embed(BLM_PATH, BLM_CHART, "Blender MCP cost per task", "Blender MCP token cost"),
+                                [(BMC_PATH, "Browser MCP token cost"), (AGT_PATH, "Claude Code vs Codex: startup tokens and MCP tools"), (HAR_PATH, "What the Claude Code harness costs")]))
+
+
 # ---- "Try it yourself" box near the top of every dataset page (2026-10-22) ----
 _CTA = {
     "/": ("Count the tokens in your own text", "Paste your prompt and see tokens, characters and API cost on GPT, Claude and Gemini. Free and private: it runs in your browser."),
@@ -2962,7 +3121,7 @@ _CTA_MAP = {LANG_PATH: "/", MULTI_PATH: "/", FMT_PATH: "/", CODE_PATH: "/", PDF_
             IMG_PATH: "/", TAI_PATH: "/",
             EFF_PATH: "/agents", AGT_PATH: "/agents", AGS_PATH: "/agents", AGL_PATH: "/agents", AMD_PATH: "/agents", HAR_PATH: "/agents",
             VIB_PATH: "/agents", CCV_PATH: "/claude-code-usage",
-            LNG_PATH: "/claude-code-usage", COF_PATH: "/claude-code-usage", BMC_PATH: "/agents"}
+            LNG_PATH: "/claude-code-usage", COF_PATH: "/claude-code-usage", BMC_PATH: "/agents", BLM_PATH: "/agents"}
 
 
 def add_cta(path, body):
