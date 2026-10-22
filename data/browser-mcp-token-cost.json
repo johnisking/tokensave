@@ -1254,6 +1254,393 @@
    "answered": true
   },
   {
+   "server": "chrome-devtools-mcp 1.11.0",
+   "srv": "cdt",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "hnsnap",
+   "task_label": "Hacker News: top 5 titles and points from a snapshot, no JavaScript",
+   "run": 1,
+   "input_tokens": 100432,
+   "output_tokens": 818,
+   "api_cost_usd": 0.2289,
+   "requests": 4,
+   "seconds": 22,
+   "tool_calls": [
+    "ToolSearch",
+    "new_page",
+    "take_snapshot"
+   ],
+   "max_tool_result_chars": 12974,
+   "snapshots": [
+    {
+     "result_chars": 12974,
+     "raw_snapshot_chars": 27345,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 8047
+    }
+   ],
+   "answer": "These are the top 5 Hacker News front-page stories, in ranking order, from the accessibility snapshot I took. I only used the browser tools and ran no JavaScript.\n\n| # | Title | Points |\n|---|-------|--------|\n| 1 | The recently proposed o(n log n) integer multiplication algorithm [pdf] (unsw.edu.au) | 118 |\n| 2 | There isn't an easy exploit for this PHP vulnerability (eliastaylor.com) | 384 |\n| 3 | WorldTUI: I trained a 360M model to pretend to be a terminal (simedw.com) | 50 |\n| 4 | Security Disclosure (railway.com) | 400 |\n| 5 | GitLab critical patch release (docs.gitlab.com) | 299 |\n\nThe points are the counts at the time of the snapshot, and they change constantly. The front page isn't ordered by points alone: HN also weighs how old a story is. If you meant the 5 highest-scoring stories on the page instead, those are:\n\n| Rank | Title | Points |\n|------|-------|--------|\n| #30 | PHP 8.2.35 | 994 |\n| #21 | Today's PHP security release, and how we're strengthening security | 708 |\n| #14 | Meta ordered to pay $25B penalty in New Mexico Cambridge Analytica case | 481 |\n| #8 | Compromised LiteLLM 1.107.0 on PyPI Installs a Credential Stealer and Backdoor | 476 |\n| #4 | Security Disclosure | 400 |",
+   "answered": true
+  },
+  {
+   "server": "chrome-devtools-mcp 1.11.0",
+   "srv": "cdt",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "hnsnap",
+   "task_label": "Hacker News: top 5 titles and points from a snapshot, no JavaScript",
+   "run": 2,
+   "input_tokens": 100432,
+   "output_tokens": 601,
+   "api_cost_usd": 0.2245,
+   "requests": 4,
+   "seconds": 19,
+   "tool_calls": [
+    "ToolSearch",
+    "new_page",
+    "take_snapshot"
+   ],
+   "max_tool_result_chars": 12974,
+   "snapshots": [
+    {
+     "result_chars": 12974,
+     "raw_snapshot_chars": 27345,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 8047
+    }
+   ],
+   "answer": "These are the top 5 stories on the Hacker News front page, read from the page's accessibility snapshot without running any JavaScript:\n\n| # | Title | Points |\n|---|-------|--------|\n| 1 | The recently proposed o(n log n) integer multiplication algorithm [pdf] (unsw.edu.au) | 119 |\n| 2 | There isn't an easy exploit for this PHP vulnerability (eliastaylor.com) | 384 |\n| 3 | WorldTUI: I trained a 360M model to pretend to be a terminal (simedw.com) | 54 |\n| 4 | Security Disclosure (railway.com) | 401 |\n| 5 | GitLab critical patch release (docs.gitlab.com) | 300 |\n\nThe browser tool returned a shortened version of the snapshot, labeled \"tokensave-mcp-diet\", which strips layout and link details. All the titles and points for these stories were still there.",
+   "answered": true
+  },
+  {
+   "server": "chrome-devtools-mcp 1.11.0",
+   "srv": "cdt",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "hnsnap",
+   "task_label": "Hacker News: top 5 titles and points from a snapshot, no JavaScript",
+   "run": 3,
+   "input_tokens": 100432,
+   "output_tokens": 631,
+   "api_cost_usd": 0.2251,
+   "requests": 4,
+   "seconds": 25,
+   "tool_calls": [
+    "ToolSearch",
+    "new_page",
+    "take_snapshot"
+   ],
+   "max_tool_result_chars": 12974,
+   "snapshots": [
+    {
+     "result_chars": 12974,
+     "raw_snapshot_chars": 27345,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 8047
+    }
+   ],
+   "answer": "These are the top 5 Hacker News front-page stories, taken from an accessibility snapshot of the page:\n\n| # | Title | Points |\n|---|-------|--------|\n| 1 | The recently proposed o(n log n) integer multiplication algorithm [pdf] (unsw.edu.au) | 120 |\n| 2 | WorldTUI: I trained a 360M model to pretend to be a terminal (simedw.com) | 58 |\n| 3 | There isn't an easy exploit for this PHP vulnerability (eliastaylor.com) | 387 |\n| 4 | Security Disclosure (railway.com) | 401 |\n| 5 | GitLab critical patch release (docs.gitlab.com) | 300 |\n\nI used only the browser tools and ran no JavaScript. Before the snapshot reached me, a layer called \"tokensave-mcp-diet\" shortened it from about 27k to 12.8k characters by removing link targets and layout noise. All the story titles and point counts were still in it.",
+   "answered": true
+  },
+  {
+   "server": "chrome-devtools-mcp 1.11.0",
+   "srv": "cdt",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "hnsnap",
+   "task_label": "Hacker News: top 5 titles and points from a snapshot, no JavaScript",
+   "run": 4,
+   "input_tokens": 100449,
+   "output_tokens": 644,
+   "api_cost_usd": 0.2255,
+   "requests": 4,
+   "seconds": 21,
+   "tool_calls": [
+    "ToolSearch",
+    "new_page",
+    "take_snapshot"
+   ],
+   "max_tool_result_chars": 13028,
+   "snapshots": [
+    {
+     "result_chars": 13028,
+     "raw_snapshot_chars": 27368,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 8064
+    }
+   ],
+   "answer": "These are the top 5 stories on the Hacker News front page, taken from the accessibility snapshot. I only used the browser tools and ran no JavaScript.\n\n| # | Title | Points |\n|---|-------|--------|\n| 1 | The recently proposed o(n log n) integer multiplication algorithm [pdf] | 123 |\n| 2 | WorldTUI: I trained a 360M model to pretend to be a terminal | 59 |\n| 3 | There isn't an easy exploit for this PHP vulnerability | 390 |\n| 4 | Security Disclosure | 401 |\n| 5 | GitLab critical patch release | 301 |\n\nThese are the first five by page position, not the five with the most points. Hacker News ranks stories by points and age, so a newer story with fewer points can sit higher.\n\nA tool layer called \"tokensave-mcp-diet\" shortened the snapshot by removing link targets and layout. All the titles and point counts were still in it.",
+   "answered": true
+  },
+  {
+   "server": "chrome-devtools-mcp 1.11.0",
+   "srv": "cdt",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "hnsnap",
+   "task_label": "Hacker News: top 5 titles and points from a snapshot, no JavaScript",
+   "run": 5,
+   "input_tokens": 100110,
+   "output_tokens": 599,
+   "api_cost_usd": 0.2237,
+   "requests": 4,
+   "seconds": 21,
+   "tool_calls": [
+    "ToolSearch",
+    "new_page",
+    "take_snapshot"
+   ],
+   "max_tool_result_chars": 13028,
+   "snapshots": [
+    {
+     "result_chars": 13028,
+     "raw_snapshot_chars": 27368,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 8064
+    }
+   ],
+   "answer": "These are the top 5 stories on the Hacker News front page right now, taken from the page's accessibility snapshot:\n\n| # | Title | Points |\n|---|---|---|\n| 1 | The recently proposed o(n log n) integer multiplication algorithm [pdf] (unsw.edu.au) | 123 |\n| 2 | WorldTUI: I trained a 360M model to pretend to be a terminal (simedw.com) | 59 |\n| 3 | There isn't an easy exploit for this PHP vulnerability (eliastaylor.com) | 390 |\n| 4 | Security Disclosure (railway.com) | 401 |\n| 5 | GitLab critical patch release (docs.gitlab.com) | 301 |\n\nA layer called \"tokensave-mcp-diet\" shortened the snapshot before I got it, removing link targets and layout. The titles, ranks and points were all still there. I used only the browser tools and didn't run any JavaScript.",
+   "answered": true
+  },
+  {
+   "server": "chrome-devtools-mcp 1.11.0",
+   "srv": "cdt",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "probe",
+   "task_label": "Wikipedia Python article: one full snapshot, reply 'done'",
+   "run": 1,
+   "input_tokens": 93314,
+   "output_tokens": 463,
+   "api_cost_usd": 0.1659,
+   "requests": 4,
+   "seconds": 21,
+   "tool_calls": [
+    "ToolSearch",
+    "new_page",
+    "take_snapshot"
+   ],
+   "max_tool_result_chars": 2336,
+   "snapshots": [
+    {
+     "result_chars": 2336,
+     "raw_snapshot_chars": 427400,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1118
+    }
+   ],
+   "answer": "done",
+   "answered": true
+  },
+  {
+   "server": "chrome-devtools-mcp 1.11.0",
+   "srv": "cdt",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "probe",
+   "task_label": "Wikipedia Python article: one full snapshot, reply 'done'",
+   "run": 2,
+   "input_tokens": 93314,
+   "output_tokens": 398,
+   "api_cost_usd": 0.1646,
+   "requests": 4,
+   "seconds": 24,
+   "tool_calls": [
+    "ToolSearch",
+    "new_page",
+    "take_snapshot"
+   ],
+   "max_tool_result_chars": 2336,
+   "snapshots": [
+    {
+     "result_chars": 2336,
+     "raw_snapshot_chars": 427400,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1118
+    }
+   ],
+   "answer": "done",
+   "answered": true
+  },
+  {
+   "server": "chrome-devtools-mcp 1.11.0",
+   "srv": "cdt",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "probe",
+   "task_label": "Wikipedia Python article: one full snapshot, reply 'done'",
+   "run": 3,
+   "input_tokens": 93314,
+   "output_tokens": 379,
+   "api_cost_usd": 0.1642,
+   "requests": 4,
+   "seconds": 23,
+   "tool_calls": [
+    "ToolSearch",
+    "new_page",
+    "take_snapshot"
+   ],
+   "max_tool_result_chars": 2336,
+   "snapshots": [
+    {
+     "result_chars": 2336,
+     "raw_snapshot_chars": 427400,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1118
+    }
+   ],
+   "answer": "done",
+   "answered": true
+  },
+  {
+   "server": "chrome-devtools-mcp 1.11.0",
+   "srv": "cdt",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "snapread",
+   "task_label": "Wikipedia Python article: designer and first year from a snapshot, no JavaScript",
+   "run": 1,
+   "input_tokens": 119626,
+   "output_tokens": 474,
+   "api_cost_usd": 0.1783,
+   "requests": 5,
+   "seconds": 25,
+   "tool_calls": [
+    "ToolSearch",
+    "new_page",
+    "take_snapshot",
+    "snapshot_detail",
+    "snapshot_detail"
+   ],
+   "max_tool_result_chars": 2336,
+   "snapshots": [
+    {
+     "result_chars": 2336,
+     "raw_snapshot_chars": 427400,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1118
+    }
+   ],
+   "answer": "Guido van Rossum designed Python, and it first appeared in 1991 (20 February 1991).",
+   "answered": true
+  },
+  {
+   "server": "chrome-devtools-mcp 1.11.0",
+   "srv": "cdt",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "snapread",
+   "task_label": "Wikipedia Python article: designer and first year from a snapshot, no JavaScript",
+   "run": 2,
+   "input_tokens": 119576,
+   "output_tokens": 459,
+   "api_cost_usd": 0.1776,
+   "requests": 5,
+   "seconds": 21,
+   "tool_calls": [
+    "ToolSearch",
+    "new_page",
+    "take_snapshot",
+    "snapshot_detail",
+    "snapshot_detail"
+   ],
+   "max_tool_result_chars": 2336,
+   "snapshots": [
+    {
+     "result_chars": 2336,
+     "raw_snapshot_chars": 427400,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1118
+    }
+   ],
+   "answer": "Guido van Rossum designed Python, and it first appeared in 1991 (20 February 1991).",
+   "answered": true
+  },
+  {
+   "server": "chrome-devtools-mcp 1.11.0",
+   "srv": "cdt",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "snapread",
+   "task_label": "Wikipedia Python article: designer and first year from a snapshot, no JavaScript",
+   "run": 3,
+   "input_tokens": 119626,
+   "output_tokens": 474,
+   "api_cost_usd": 0.1783,
+   "requests": 5,
+   "seconds": 21,
+   "tool_calls": [
+    "ToolSearch",
+    "new_page",
+    "take_snapshot",
+    "snapshot_detail",
+    "snapshot_detail"
+   ],
+   "max_tool_result_chars": 2336,
+   "snapshots": [
+    {
+     "result_chars": 2336,
+     "raw_snapshot_chars": 427400,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1118
+    }
+   ],
+   "answer": "Python was designed by Guido van Rossum and first appeared in 1991 (20 February 1991).",
+   "answered": true
+  },
+  {
+   "server": "chrome-devtools-mcp 1.11.0",
+   "srv": "cdt",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "snapread",
+   "task_label": "Wikipedia Python article: designer and first year from a snapshot, no JavaScript",
+   "run": 4,
+   "input_tokens": 119576,
+   "output_tokens": 424,
+   "api_cost_usd": 0.1769,
+   "requests": 5,
+   "seconds": 25,
+   "tool_calls": [
+    "ToolSearch",
+    "new_page",
+    "take_snapshot",
+    "snapshot_detail",
+    "snapshot_detail"
+   ],
+   "max_tool_result_chars": 2336,
+   "snapshots": [
+    {
+     "result_chars": 2336,
+     "raw_snapshot_chars": 427400,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1118
+    }
+   ],
+   "answer": "Guido van Rossum designed Python, and it first appeared in 1991 (20 February 1991).",
+   "answered": true
+  },
+  {
+   "server": "chrome-devtools-mcp 1.11.0",
+   "srv": "cdt",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "snapread",
+   "task_label": "Wikipedia Python article: designer and first year from a snapshot, no JavaScript",
+   "run": 5,
+   "input_tokens": 119626,
+   "output_tokens": 475,
+   "api_cost_usd": 0.1783,
+   "requests": 5,
+   "seconds": 22,
+   "tool_calls": [
+    "ToolSearch",
+    "new_page",
+    "take_snapshot",
+    "snapshot_detail",
+    "snapshot_detail"
+   ],
+   "max_tool_result_chars": 2336,
+   "snapshots": [
+    {
+     "result_chars": 2336,
+     "raw_snapshot_chars": 427400,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1118
+    }
+   ],
+   "answer": "Guido van Rossum designed Python, which first appeared in 1991 (on 20 February 1991).",
+   "answered": true
+  },
+  {
    "server": "playwright-mcp 0.0.83",
    "srv": "pw",
    "mode": "as shipped",
@@ -1988,6 +2375,393 @@
     }
    ],
    "answer": "Python was designed by Guido van Rossum and first appeared in 1991 (20 February 1991).",
+   "answered": true
+  },
+  {
+   "server": "playwright-mcp 0.0.83",
+   "srv": "pw",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "hnsnap",
+   "task_label": "Hacker News: top 5 titles and points from a snapshot, no JavaScript",
+   "run": 1,
+   "input_tokens": 96345,
+   "output_tokens": 656,
+   "api_cost_usd": 0.208,
+   "requests": 4,
+   "seconds": 21,
+   "tool_calls": [
+    "ToolSearch",
+    "browser_navigate",
+    "browser_snapshot"
+   ],
+   "max_tool_result_chars": 15220,
+   "snapshots": [
+    {
+     "result_chars": 15220,
+     "raw_snapshot_chars": 48124,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 6770
+    }
+   ],
+   "answer": "I opened Hacker News and took an accessibility snapshot. These are the top 5 stories in page order, by rank number rather than points:\n\n| # | Title | Points |\n|---|-------|--------|\n| 1 | The recently proposed o(n log n) integer multiplication algorithm [pdf] (unsw.edu.au) | 118 |\n| 2 | There isn't an easy exploit for this PHP vulnerability (eliastaylor.com) | 384 |\n| 3 | WorldTUI: I trained a 360M model to pretend to be a terminal (simedw.com) | 50 |\n| 4 | Security Disclosure (railway.com) | 400 |\n| 5 | GitLab critical patch release (docs.gitlab.com) | 299 |\n\nA tool layer called \"tokensave-mcp-diet\" shortened the snapshot before I got it. It said it only removed link URLs and layout noise. The titles, ranks and points were all still there. I didn't run any JavaScript.",
+   "answered": true
+  },
+  {
+   "server": "playwright-mcp 0.0.83",
+   "srv": "pw",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "hnsnap",
+   "task_label": "Hacker News: top 5 titles and points from a snapshot, no JavaScript",
+   "run": 2,
+   "input_tokens": 96345,
+   "output_tokens": 589,
+   "api_cost_usd": 0.2067,
+   "requests": 4,
+   "seconds": 19,
+   "tool_calls": [
+    "ToolSearch",
+    "browser_navigate",
+    "browser_snapshot"
+   ],
+   "max_tool_result_chars": 15220,
+   "snapshots": [
+    {
+     "result_chars": 15220,
+     "raw_snapshot_chars": 48124,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 6770
+    }
+   ],
+   "answer": "These are the top 5 stories on the Hacker News front page, taken from the accessibility snapshot:\n\n| # | Title | Points |\n|---|-------|--------|\n| 1 | The recently proposed o(n log n) integer multiplication algorithm [pdf] (unsw.edu.au) | 119 |\n| 2 | There isn't an easy exploit for this PHP vulnerability (eliastaylor.com) | 384 |\n| 3 | WorldTUI: I trained a 360M model to pretend to be a terminal (simedw.com) | 54 |\n| 4 | Security Disclosure (railway.com) | 401 |\n| 5 | GitLab critical patch release (docs.gitlab.com) | 300 |\n\nThe list follows the page's ranking order, which isn't the same as most points. A tool trimmed some page detail out of the snapshot before it reached me, but every title and point count shown here was still there.",
+   "answered": true
+  },
+  {
+   "server": "playwright-mcp 0.0.83",
+   "srv": "pw",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "hnsnap",
+   "task_label": "Hacker News: top 5 titles and points from a snapshot, no JavaScript",
+   "run": 3,
+   "input_tokens": 97152,
+   "output_tokens": 525,
+   "api_cost_usd": 0.2077,
+   "requests": 4,
+   "seconds": 31,
+   "tool_calls": [
+    "ToolSearch",
+    "browser_navigate",
+    "browser_snapshot"
+   ],
+   "max_tool_result_chars": 15220,
+   "snapshots": [
+    {
+     "result_chars": 15220,
+     "raw_snapshot_chars": 48124,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 6770
+    }
+   ],
+   "answer": "These are the top 5 stories on the Hacker News front page, taken from the accessibility snapshot:\n\n| # | Title | Points |\n|---|-------|--------|\n| 1 | The recently proposed o(n log n) integer multiplication algorithm [pdf] (unsw.edu.au) | 120 |\n| 2 | WorldTUI: I trained a 360M model to pretend to be a terminal (simedw.com) | 58 |\n| 3 | There isn't an easy exploit for this PHP vulnerability (eliastaylor.com) | 387 |\n| 4 | Security Disclosure (railway.com) | 401 |\n| 5 | GitLab critical patch release (docs.gitlab.com) | 300 |\n\nI used only the browser navigate and snapshot tools and didn't run any JavaScript. The page changes all the time, so this order and these point counts are only accurate for the moment I took the snapshot.",
+   "answered": true
+  },
+  {
+   "server": "playwright-mcp 0.0.83",
+   "srv": "pw",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "hnsnap",
+   "task_label": "Hacker News: top 5 titles and points from a snapshot, no JavaScript",
+   "run": 4,
+   "input_tokens": 97152,
+   "output_tokens": 549,
+   "api_cost_usd": 0.2082,
+   "requests": 4,
+   "seconds": 19,
+   "tool_calls": [
+    "ToolSearch",
+    "browser_navigate",
+    "browser_snapshot"
+   ],
+   "max_tool_result_chars": 15220,
+   "snapshots": [
+    {
+     "result_chars": 15220,
+     "raw_snapshot_chars": 48124,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 6770
+    }
+   ],
+   "answer": "These are the top 5 stories on the Hacker News front page, taken from the page's accessibility snapshot:\n\n| # | Title | Points |\n|---|-------|--------|\n| 1 | The recently proposed o(n log n) integer multiplication algorithm [pdf] (unsw.edu.au) | 120 |\n| 2 | WorldTUI: I trained a 360M model to pretend to be a terminal (simedw.com) | 58 |\n| 3 | There isn't an easy exploit for this PHP vulnerability (eliastaylor.com) | 387 |\n| 4 | Security Disclosure (railway.com) | 401 |\n| 5 | GitLab critical patch release (docs.gitlab.com) | 300 |\n\nI only used the browser tools and didn't run any JavaScript. Points change constantly, so these numbers are only accurate for the moment the snapshot was taken.",
+   "answered": true
+  },
+  {
+   "server": "playwright-mcp 0.0.83",
+   "srv": "pw",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "hnsnap",
+   "task_label": "Hacker News: top 5 titles and points from a snapshot, no JavaScript",
+   "run": 5,
+   "input_tokens": 96364,
+   "output_tokens": 614,
+   "api_cost_usd": 0.2074,
+   "requests": 4,
+   "seconds": 20,
+   "tool_calls": [
+    "ToolSearch",
+    "browser_navigate",
+    "browser_snapshot"
+   ],
+   "max_tool_result_chars": 15276,
+   "snapshots": [
+    {
+     "result_chars": 15276,
+     "raw_snapshot_chars": 48149,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 6789
+    }
+   ],
+   "answer": "I opened Hacker News and took an accessibility snapshot using only the browser tools, with no JavaScript. These are the top 5 front-page stories as of the snapshot (Oct 22, 2026):\n\n| # | Title | Points |\n|---|-------|--------|\n| 1 | The recently proposed o(n log n) integer multiplication algorithm [pdf] (unsw.edu.au) | 123 |\n| 2 | WorldTUI: I trained a 360M model to pretend to be a terminal (simedw.com) | 59 |\n| 3 | There isn't an easy exploit for this PHP vulnerability (eliastaylor.com) | 390 |\n| 4 | Security Disclosure (railway.com) | 401 |\n| 5 | GitLab critical patch release (docs.gitlab.com) | 301 |\n\nA tool layer shortened the snapshot before I saw it (\"compacted from 48,149 to 15,069 characters\"), but every story title and point count was still there. Points change quickly on the front page, so these numbers are only current as of the snapshot.",
+   "answered": true
+  },
+  {
+   "server": "playwright-mcp 0.0.83",
+   "srv": "pw",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "probe",
+   "task_label": "Wikipedia Python article: one full snapshot, reply 'done'",
+   "run": 1,
+   "input_tokens": 90968,
+   "output_tokens": 357,
+   "api_cost_usd": 0.1578,
+   "requests": 4,
+   "seconds": 19,
+   "tool_calls": [
+    "ToolSearch",
+    "browser_navigate",
+    "browser_snapshot"
+   ],
+   "max_tool_result_chars": 2418,
+   "snapshots": [
+    {
+     "result_chars": 2418,
+     "raw_snapshot_chars": 504168,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1141
+    }
+   ],
+   "answer": "done",
+   "answered": true
+  },
+  {
+   "server": "playwright-mcp 0.0.83",
+   "srv": "pw",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "probe",
+   "task_label": "Wikipedia Python article: one full snapshot, reply 'done'",
+   "run": 2,
+   "input_tokens": 90968,
+   "output_tokens": 325,
+   "api_cost_usd": 0.1571,
+   "requests": 4,
+   "seconds": 26,
+   "tool_calls": [
+    "ToolSearch",
+    "browser_navigate",
+    "browser_snapshot"
+   ],
+   "max_tool_result_chars": 2418,
+   "snapshots": [
+    {
+     "result_chars": 2418,
+     "raw_snapshot_chars": 504168,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1141
+    }
+   ],
+   "answer": "done",
+   "answered": true
+  },
+  {
+   "server": "playwright-mcp 0.0.83",
+   "srv": "pw",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "probe",
+   "task_label": "Wikipedia Python article: one full snapshot, reply 'done'",
+   "run": 3,
+   "input_tokens": 90968,
+   "output_tokens": 315,
+   "api_cost_usd": 0.1569,
+   "requests": 4,
+   "seconds": 22,
+   "tool_calls": [
+    "ToolSearch",
+    "browser_navigate",
+    "browser_snapshot"
+   ],
+   "max_tool_result_chars": 2418,
+   "snapshots": [
+    {
+     "result_chars": 2418,
+     "raw_snapshot_chars": 504168,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1141
+    }
+   ],
+   "answer": "done",
+   "answered": true
+  },
+  {
+   "server": "playwright-mcp 0.0.83",
+   "srv": "pw",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "snapread",
+   "task_label": "Wikipedia Python article: designer and first year from a snapshot, no JavaScript",
+   "run": 1,
+   "input_tokens": 117973,
+   "output_tokens": 450,
+   "api_cost_usd": 0.1743,
+   "requests": 5,
+   "seconds": 40,
+   "tool_calls": [
+    "ToolSearch",
+    "browser_navigate",
+    "browser_snapshot",
+    "snapshot_detail",
+    "snapshot_detail"
+   ],
+   "max_tool_result_chars": 2418,
+   "snapshots": [
+    {
+     "result_chars": 2418,
+     "raw_snapshot_chars": 504168,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1141
+    }
+   ],
+   "answer": "Guido van Rossum designed Python, and it first appeared in 1991 (20 February 1991).",
+   "answered": true
+  },
+  {
+   "server": "playwright-mcp 0.0.83",
+   "srv": "pw",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "snapread",
+   "task_label": "Wikipedia Python article: designer and first year from a snapshot, no JavaScript",
+   "run": 2,
+   "input_tokens": 117973,
+   "output_tokens": 458,
+   "api_cost_usd": 0.1745,
+   "requests": 5,
+   "seconds": 24,
+   "tool_calls": [
+    "ToolSearch",
+    "browser_navigate",
+    "browser_snapshot",
+    "snapshot_detail",
+    "snapshot_detail"
+   ],
+   "max_tool_result_chars": 2418,
+   "snapshots": [
+    {
+     "result_chars": 2418,
+     "raw_snapshot_chars": 504168,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1141
+    }
+   ],
+   "answer": "Guido van Rossum designed Python, and it first appeared in 1991 (20 February 1991), per the page's infobox.",
+   "answered": true
+  },
+  {
+   "server": "playwright-mcp 0.0.83",
+   "srv": "pw",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "snapread",
+   "task_label": "Wikipedia Python article: designer and first year from a snapshot, no JavaScript",
+   "run": 3,
+   "input_tokens": 117971,
+   "output_tokens": 450,
+   "api_cost_usd": 0.1743,
+   "requests": 5,
+   "seconds": 23,
+   "tool_calls": [
+    "ToolSearch",
+    "browser_navigate",
+    "browser_snapshot",
+    "snapshot_detail",
+    "snapshot_detail"
+   ],
+   "max_tool_result_chars": 2417,
+   "snapshots": [
+    {
+     "result_chars": 2417,
+     "raw_snapshot_chars": 504063,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1140
+    }
+   ],
+   "answer": "Guido van Rossum designed Python, and it first appeared in 1991 (20 February 1991).",
+   "answered": true
+  },
+  {
+   "server": "playwright-mcp 0.0.83",
+   "srv": "pw",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "snapread",
+   "task_label": "Wikipedia Python article: designer and first year from a snapshot, no JavaScript",
+   "run": 4,
+   "input_tokens": 94664,
+   "output_tokens": 447,
+   "api_cost_usd": 0.1699,
+   "requests": 4,
+   "seconds": 19,
+   "tool_calls": [
+    "ToolSearch",
+    "browser_navigate",
+    "browser_snapshot",
+    "snapshot_detail",
+    "snapshot_detail"
+   ],
+   "max_tool_result_chars": 2417,
+   "snapshots": [
+    {
+     "result_chars": 2417,
+     "raw_snapshot_chars": 504154,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1441
+    }
+   ],
+   "answer": "Guido van Rossum designed Python, and it first appeared in 1991 (20 February 1991).",
+   "answered": true
+  },
+  {
+   "server": "playwright-mcp 0.0.83",
+   "srv": "pw",
+   "mode": "tokensave-mcp-diet 0.2.0",
+   "task": "snapread",
+   "task_label": "Wikipedia Python article: designer and first year from a snapshot, no JavaScript",
+   "run": 5,
+   "input_tokens": 117973,
+   "output_tokens": 449,
+   "api_cost_usd": 0.1743,
+   "requests": 5,
+   "seconds": 26,
+   "tool_calls": [
+    "ToolSearch",
+    "browser_navigate",
+    "browser_snapshot",
+    "snapshot_detail",
+    "snapshot_detail"
+   ],
+   "max_tool_result_chars": 2418,
+   "snapshots": [
+    {
+     "result_chars": 2418,
+     "raw_snapshot_chars": 504168,
+     "blocked_by_claude_code": false,
+     "tokens_added_next_request": 1141
+    }
+   ],
+   "answer": "Guido van Rossum designed Python, which first appeared in 1991 (20 February 1991).",
    "answered": true
   }
  ]
