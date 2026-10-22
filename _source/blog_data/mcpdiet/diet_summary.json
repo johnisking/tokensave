@@ -1,0 +1,398 @@
+{
+ "cdt_base_hnsnap_r1": {
+  "inp": 106089,
+  "out": 562,
+  "cost": 0.2712072,
+  "turns": 4,
+  "big": 27387,
+  "ans": "Here are the top 5 stories on the Hacker News front page, in ranked or",
+  "tools": {
+   "ToolSearch": 1,
+   "new_page": 1,
+   "take_snapshot": 1
+  }
+ },
+ "cdt_base_hnsnap_r2": {
+  "inp": 106090,
+  "out": 584,
+  "cost": 0.2716552,
+  "turns": 4,
+  "big": 27390,
+  "ans": "These are the top 5 stories on the Hacker News front page, read from t",
+  "tools": {
+   "ToolSearch": 1,
+   "new_page": 1,
+   "take_snapshot": 1
+  }
+ },
+ "cdt_base_snapread_r1": {
+  "inp": 147727,
+  "out": 659,
+  "cost": 0.22267020000000004,
+  "turns": 6,
+  "big": 1327,
+  "ans": "Guido van Rossum designed Python, and it first appeared in 1991 (20 Fe",
+  "tools": {
+   "ToolSearch": 2,
+   "new_page": 1,
+   "take_snapshot": 1,
+   "take_screenshot": 1
+  }
+ },
+ "cdt_base_snapread_r2": {
+  "inp": 172294,
+  "out": 912,
+  "cost": 0.2351394,
+  "turns": 7,
+  "big": 1327,
+  "ans": "Guido van Rossum designed Python, and it first appeared in 1991 (20 Fe",
+  "tools": {
+   "ToolSearch": 2,
+   "new_page": 1,
+   "take_snapshot": 2,
+   "take_screenshot": 1
+  }
+ },
+ "cdt_diet_hnsnap_r1": {
+  "inp": 169853,
+  "out": 1237,
+  "cost": 0.2188822,
+  "turns": 11,
+  "big": 1288,
+  "ans": "These are the top 5 stories on the Hacker News front page right now, t",
+  "tools": {
+   "ToolSearch": 2,
+   "new_page": 1,
+   "take_snapshot": 1,
+   "snapshot_detail": 6
+  }
+ },
+ "cdt_diet_hnsnap_r2": {
+  "inp": 168736,
+  "out": 837,
+  "cost": 0.201915,
+  "turns": 7,
+  "big": 1474,
+  "ans": "These are the top 5 stories on the Hacker News front page right now, t",
+  "tools": {
+   "ToolSearch": 2,
+   "new_page": 1,
+   "take_snapshot": 1,
+   "snapshot_detail": 2
+  }
+ },
+ "cdt_diet_probe_r1": {
+  "inp": 100675,
+  "out": 256,
+  "cost": 0.220613,
+  "turns": 4,
+  "big": 16381,
+  "ans": "done",
+  "tools": {
+   "ToolSearch": 1,
+   "new_page": 1,
+   "take_snapshot": 1
+  }
+ },
+ "cdt_diet_snapread_r1": {
+  "inp": 134000,
+  "out": 390,
+  "cost": 0.234318,
+  "turns": 5,
+  "big": 16381,
+  "ans": "Python was designed by Guido van Rossum and first appeared in 1991 (20",
+  "tools": {
+   "ToolSearch": 1,
+   "new_page": 1,
+   "take_snapshot": 1,
+   "snapshot_detail": 1
+  }
+ },
+ "cdt_diet_snapread_r2": {
+  "inp": 165715,
+  "out": 538,
+  "cost": 0.24479079999999998,
+  "turns": 6,
+  "big": 16381,
+  "ans": "Python was designed by Guido van Rossum and first appeared on 20 Febru",
+  "tools": {
+   "ToolSearch": 2,
+   "new_page": 1,
+   "take_snapshot": 1,
+   "snapshot_detail": 1
+  }
+ },
+ "cdt_v2_hnsnap_r1": {
+  "inp": 100451,
+  "out": 537,
+  "cost": 0.2234192,
+  "turns": 4,
+  "big": 13022,
+  "ans": "I opened https://news.ycombinator.com/ and took an accessibility snaps",
+  "tools": {
+   "ToolSearch": 1,
+   "new_page": 1,
+   "take_snapshot": 1
+  }
+ },
+ "cdt_v2_hnsnap_r2": {
+  "inp": 100451,
+  "out": 601,
+  "cost": 0.22469920000000002,
+  "turns": 4,
+  "big": 13022,
+  "ans": "These are the top 5 stories on the Hacker News front page, taken from ",
+  "tools": {
+   "ToolSearch": 1,
+   "new_page": 1,
+   "take_snapshot": 1
+  }
+ },
+ "cdt_v2_probe_r1": {
+  "inp": 100675,
+  "out": 256,
+  "cost": 0.220613,
+  "turns": 4,
+  "big": 16381,
+  "ans": "done",
+  "tools": {
+   "ToolSearch": 1,
+   "new_page": 1,
+   "take_snapshot": 1
+  }
+ },
+ "cdt_v2_snapread_r1": {
+  "inp": 165693,
+  "out": 515,
+  "cost": 0.24424059999999997,
+  "turns": 6,
+  "big": 16381,
+  "ans": "Python was designed by Guido van Rossum and first appeared in 1991 (20",
+  "tools": {
+   "ToolSearch": 2,
+   "new_page": 1,
+   "take_snapshot": 1,
+   "snapshot_detail": 1
+  }
+ },
+ "cdt_v2_snapread_r2": {
+  "inp": 134019,
+  "out": 409,
+  "cost": 0.23485000000000003,
+  "turns": 5,
+  "big": 16381,
+  "ans": "Guido van Rossum designed Python, and it first appeared in 1991 (20 Fe",
+  "tools": {
+   "ToolSearch": 1,
+   "new_page": 1,
+   "take_snapshot": 1,
+   "snapshot_detail": 1
+  }
+ },
+ "pw_base_hnsnap_r1": {
+  "inp": 107914,
+  "out": 460,
+  "cost": 0.29707399999999995,
+  "turns": 4,
+  "big": 48166,
+  "ans": "These are the top 5 stories on the Hacker News front page, taken from ",
+  "tools": {
+   "ToolSearch": 1,
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  }
+ },
+ "pw_base_hnsnap_r2": {
+  "inp": 107914,
+  "out": 486,
+  "cost": 0.29759399999999997,
+  "turns": 4,
+  "big": 48167,
+  "ans": "These are the top 5 stories on the Hacker News front page, taken from ",
+  "tools": {
+   "ToolSearch": 1,
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  }
+ },
+ "pw_base_snapread_r1": {
+  "inp": 116487,
+  "out": 456,
+  "cost": 0.171818,
+  "turns": 6,
+  "big": 1737,
+  "ans": "Guido van Rossum designed Python, and it first appeared in 1991 (20 Fe",
+  "tools": {
+   "ToolSearch": 2,
+   "browser_navigate": 1,
+   "browser_snapshot": 1,
+   "browser_find": 1
+  }
+ },
+ "pw_base_snapread_r2": {
+  "inp": 97801,
+  "out": 388,
+  "cost": 0.21377060000000003,
+  "turns": 4,
+  "big": 17421,
+  "ans": "Python was designed by Guido van Rossum and first appeared in 1991 (20",
+  "tools": {
+   "ToolSearch": 1,
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  }
+ },
+ "pw_diet_hnsnap_r1": {
+  "inp": 163214,
+  "out": 1169,
+  "cost": 0.19938539999999996,
+  "turns": 11,
+  "big": 2148,
+  "ans": "These are the top 5 stories on Hacker News right now, read from the pa",
+  "tools": {
+   "ToolSearch": 2,
+   "browser_navigate": 1,
+   "browser_snapshot": 1,
+   "snapshot_detail": 6
+  }
+ },
+ "pw_diet_hnsnap_r2": {
+  "inp": 163503,
+  "out": 997,
+  "cost": 0.19825739999999997,
+  "turns": 7,
+  "big": 2230,
+  "ans": "These are the top 5 stories on the Hacker News front page, taken from ",
+  "tools": {
+   "ToolSearch": 2,
+   "browser_navigate": 1,
+   "browser_snapshot": 1,
+   "snapshot_detail": 2
+  }
+ },
+ "pw_diet_probe_r1": {
+  "inp": 99020,
+  "out": 223,
+  "cost": 0.2194972,
+  "turns": 4,
+  "big": 17856,
+  "ans": "done",
+  "tools": {
+   "ToolSearch": 1,
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  }
+ },
+ "pw_diet_snapread_r1": {
+  "inp": 133820,
+  "out": 367,
+  "cost": 0.23672359999999998,
+  "turns": 5,
+  "big": 17856,
+  "ans": "Guido van Rossum designed Python, and it first appeared in 1991 (20 Fe",
+  "tools": {
+   "ToolSearch": 1,
+   "browser_navigate": 1,
+   "browser_snapshot": 1,
+   "snapshot_detail": 1
+  }
+ },
+ "pw_diet_snapread_r2": {
+  "inp": 110516,
+  "out": 363,
+  "cost": 0.2322794,
+  "turns": 5,
+  "big": 17856,
+  "ans": "Guido van Rossum designed Python, and it first appeared in 1991 (20 Fe",
+  "tools": {
+   "ToolSearch": 1,
+   "browser_navigate": 1,
+   "browser_snapshot": 1,
+   "snapshot_detail": 1
+  }
+ },
+ "pw_v2_hnsnap_r1": {
+  "inp": 97162,
+  "out": 536,
+  "cost": 0.20804620000000001,
+  "turns": 4,
+  "big": 15271,
+  "ans": "Here are the top 5 stories on the Hacker News front page, taken from t",
+  "tools": {
+   "ToolSearch": 1,
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  }
+ },
+ "pw_v2_hnsnap_r2": {
+  "inp": 96367,
+  "out": 529,
+  "cost": 0.20568019999999998,
+  "turns": 4,
+  "big": 15271,
+  "ans": "These are the top 5 stories on the Hacker News front page right now, t",
+  "tools": {
+   "ToolSearch": 1,
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  }
+ },
+ "pw_v2_probe_r1": {
+  "inp": 99020,
+  "out": 223,
+  "cost": 0.2194972,
+  "turns": 4,
+  "big": 17856,
+  "ans": "done",
+  "tools": {
+   "ToolSearch": 1,
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  }
+ },
+ "pw_v2_snapread_r1": {
+  "inp": 133832,
+  "out": 379,
+  "cost": 0.23705959999999998,
+  "turns": 5,
+  "big": 17856,
+  "ans": "Guido van Rossum designed Python, and it first appeared in 1991 (20 Fe",
+  "tools": {
+   "ToolSearch": 1,
+   "browser_navigate": 1,
+   "browser_snapshot": 1,
+   "snapshot_detail": 1
+  }
+ },
+ "pw_v2_snapread_r2": {
+  "inp": 133836,
+  "out": 383,
+  "cost": 0.2371716,
+  "turns": 5,
+  "big": 17856,
+  "ans": "Python was designed by Guido van Rossum and first appeared in 1991 (20",
+  "tools": {
+   "ToolSearch": 1,
+   "browser_navigate": 1,
+   "browser_snapshot": 1,
+   "snapshot_detail": 1
+  }
+ },
+ "_claude_token_count_of_full_wikipedia_snapshot": {
+  "method": "claude -p 'Reply with OK only.' with the snapshot on stdin, Opus 5.5, minus an empty run (2,889 tokens)",
+  "playwright_mcp_0.0.83": 205642,
+  "chrome_devtools_mcp_1.11.0": 208926,
+  "o200k": {
+   "playwright": 133668,
+   "chrome_devtools": 138745
+  },
+  "chars": {
+   "playwright": 504168,
+   "chrome_devtools": 427400
+  },
+  "api_cost_usd_one_snapshot_cache_write": {
+   "playwright": 1.65,
+   "chrome_devtools": 1.676
+  }
+ }
+}

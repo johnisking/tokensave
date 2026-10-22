@@ -66,6 +66,7 @@ def write_files(dist):
     write_cof_files(dist)
     write_tai_files(dist)
     write_ccv_files(dist)
+    write_bmc_files(dist)
 
 
 def _write_lang_files(dist):
@@ -260,6 +261,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{CCV_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(CCV_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">The prompt &ldquo;a&rdquo; on Claude Code versions from July 2025 to today: the baseline rose 86% to May 2026, then fell back to half that by October. CSV · measured {CCV_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{BMC_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(BMC_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">Playwright MCP and Chrome DevTools MCP in Claude Code, 68 runs: everyday tasks stay small, but one full snapshot of a long page is over 200,000 tokens; our tokensave-mcp-diet proxy cuts it 96%. CSV · measured {BMC_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -2072,6 +2076,7 @@ def lti_html():
 
 # ---- Measurement log: newest first, shown on the data hub and the English home page ----
 CHANGELOG = [
+    ("2026-10-22", "/data/browser-mcp-token-cost", "Browser MCP token cost: one long-page snapshot is over 200,000 tokens, and a snapshot diet that cuts it 96%"),
     ("2026-10-21", EFF_PATH, "Claude effort levels: Haiku 5.5 added, 15 games, max about ten times the cost of xhigh"),
     ("2026-10-21", LTI_PATH, "Language Tax Index v1.2: Gemini 4 Argon in 41 languages, Korean 15% cheaper, Kannada 24% dearer than Gemini 3.x"),
     ("2026-10-21", "/data/claude-code-baseline-tokens-by-version", "Claude Code baseline tokens by version: +86% in ten months, then back to half the peak"),
@@ -2813,6 +2818,136 @@ def ccv_html():
                                 [(HAR_PATH, "What the Claude Code harness costs"), (AMD_PATH, "CLAUDE.md and AGENTS.md size"), ("/data/ai-coffee-break-cache-cost", "The coffee-break tax")]))
 
 
+
+# ---- Dataset 20: browser MCP token cost (Playwright MCP, Chrome DevTools MCP) and tokensave-mcp-diet (measured 2026-10-22) ----
+BMC_PATH = "/data/browser-mcp-token-cost"
+BMC_MEASURED = "2026-10-22"
+BMC_CHART = "/browser-mcp-token-cost-chart.png"
+BMC_DOI = None
+BMC_MIRRORS = [("GitHub (tokensave-mcp-diet)", "https://github.com/johnisking/tokensave-mcp-diet")]
+BMC_TITLE = "Browser MCP token cost: Playwright MCP vs Chrome DevTools MCP, and what a snapshot diet saves"
+BMC_DESC = ("Dataset: input tokens, cost and tool-result size for Playwright MCP and Chrome DevTools MCP in Claude Code (Opus 5.5) on 7 browser tasks, 68 runs. "
+            "One full snapshot of a long Wikipedia article is about 206,000 Claude tokens; the tokensave-mcp-diet proxy cuts it to about 9,000. Free CSV, CC BY 4.0.")
+BMC_COLS = ["server", "mode", "task", "run", "input_tokens", "output_tokens", "api_cost_usd", "requests", "seconds", "max_tool_result_chars",
+            "snapshot_raw_chars", "snapshot_result_chars", "snapshot_tokens_added", "snapshot_blocked_by_claude_code", "answered"]
+
+
+def _bmc():
+    return json.load(open(os.path.join(ROOT, "blog_data", "mcpdiet", "combined.json"), encoding="utf-8"))
+
+
+def bmc_citation():
+    if BMC_DOI:
+        return f"TokenSave (2026). {BMC_TITLE} [Data set]. Zenodo. https://doi.org/{BMC_DOI}"
+    return f"TokenSave (2026). {BMC_TITLE} [Data set]. {BASE}{BMC_PATH}"
+
+
+def write_bmc_files(dist):
+    d = _bmc()
+    buf = io.StringIO(); w = csv.writer(buf); w.writerow(BMC_COLS + ["task_label", "tool_calls"])
+    for r in d["rows"]:
+        s = r["snapshots"][-1] if r["snapshots"] else {}
+        w.writerow([r["server"], r["mode"], r["task"], r["run"], r["input_tokens"], r["output_tokens"], r["api_cost_usd"], r["requests"], r["seconds"],
+                    r["max_tool_result_chars"], s.get("raw_snapshot_chars") or "", s.get("result_chars", ""), s.get("tokens_added_next_request", ""),
+                    s.get("blocked_by_claude_code", ""), r["answered"], r["task_label"], " ".join(r["tool_calls"])])
+    open(os.path.join(dist, "data", "browser-mcp-token-cost.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=BMC_TITLE, url=BASE + BMC_PATH, license="CC BY 4.0", citation=bmc_citation(), **d)
+    open(os.path.join(dist, "data", "browser-mcp-token-cost.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def bmc_ld():
+    return _dataset_ld(BMC_TITLE, BMC_DESC, BMC_PATH, BMC_MEASURED,
+                       ["Playwright MCP tokens", "Chrome DevTools MCP tokens", "MCP token usage", "browser snapshot tokens", "Claude Code MCP cost", "reduce MCP tokens"],
+                       ["input tokens per task", "API cost per task", "tool result size (characters)", "tokens added by one page snapshot"],
+                       "Claude Code 2.1.295 with one browser MCP server per run (Playwright MCP 0.0.83 or Chrome DevTools MCP 1.11.0, headless), 7 tasks on public pages, 2 to 5 runs each, with and without the tokensave-mcp-diet proxy",
+                       BMC_CHART, [("browser-mcp-token-cost.csv", "text/csv"), ("browser-mcp-token-cost.json", "application/json")], doi=BMC_DOI, mirrors=BMC_MIRRORS)
+
+
+def bmc_html():
+    d = _bmc(); R = d["rows"]; F = d["full_snapshot_claude_tokens"]
+    f = lambda v: "{:,}".format(round(v))
+    SRV = [("pw", "Playwright MCP"), ("cdt", "Chrome DevTools MCP")]
+    pick = lambda srv, mode, task: [r for r in R if r["srv"] == srv and r["mode"].startswith(mode) and r["task"] == task]
+    avg = lambda rs, k: statistics.mean(r[k] for r in rs)
+    snap = lambda srv, mode, task: pick(srv, mode, task)[0]["snapshots"][-1]
+    pct = lambda a, b: round((b / a - 1) * 100)
+    rng = lambda rs: f"${min(r['api_cost_usd'] for r in rs):.3f}&ndash;${max(r['api_cost_usd'] for r in rs):.3f}"
+    # everyday tasks, as shipped
+    tasks = [("todo", "TodoMVC: add 3 items, complete 1"), ("wiki", "Wikipedia: designer and first year"), ("hn", "Hacker News: top 5 stories"), ("hist", "Wikipedia: 5 release dates")]
+    trs = []
+    for tk, lab in tasks:
+        cells = []
+        for s, _ in SRV:
+            rs = pick(s, "as", tk)
+            cells.append(f'<td class="text-right tabular-nums">{f(avg(rs, "input_tokens"))}</td><td class="text-right tabular-nums">${avg(rs, "api_cost_usd"):.2f}</td>'
+                         f'<td class="text-right tabular-nums">{f(max(r["max_tool_result_chars"] for r in rs))}</td>')
+        trs.append(f'          <tr><td>{esc(lab)}</td>{"".join(cells)}</tr>')
+    head1 = ['<th>Task (2 runs each)</th>'] + [f'<th class="text-right">{n}: {k}</th>' for _, n in SRV for k in ("input", "cost", "largest result (chars)")]
+    # snapshot tasks, as shipped vs diet
+    trs2 = []
+    for tk, lab in [("hnsnap", "Hacker News top 5, from a snapshot"), ("snapread", "Wikipedia facts, from a snapshot"), ("probe", "Wikipedia, one full snapshot")]:
+        for s, n in SRV:
+            b, g = pick(s, "as", tk), pick(s, "tokensave", tk)
+            sb, sg = b[0]["snapshots"][-1], g[0]["snapshots"][-1]
+            nb = sum(1 for r in b for x in r["snapshots"][-1:] if x["blocked_by_claude_code"])
+            sb_txt = (f(sb["tokens_added_next_request"]) if nb == 0 else "refused, saved to file" if nb == len(b) else f"refused in {nb} of {len(b)} runs")
+            trs2.append(f'          <tr><td>{esc(lab)}</td><td>{n}</td><td class="text-right tabular-nums">{sb_txt}</td><td class="text-right tabular-nums">{f(sg["tokens_added_next_request"])}</td>'
+                        f'<td class="text-right tabular-nums">${avg(b, "api_cost_usd"):.3f} <span class="text-zinc-500">({rng(b)})</span></td><td class="text-right tabular-nums">${avg(g, "api_cost_usd"):.3f} <span class="text-zinc-500">({rng(g)})</span></td>'
+                        f'<td class="text-right tabular-nums">{_pct(pct(avg(b, "api_cost_usd"), avg(g, "api_cost_usd")))}</td></tr>')
+    head2 = ['<th>Task</th>', '<th>Server</th>', '<th class="text-right">Snapshot tokens, as shipped</th>', '<th class="text-right">With the diet</th>',
+             '<th class="text-right">Task cost, as shipped</th>', '<th class="text-right">With the diet</th>', '<th class="text-right">Change</th>']
+    hn_pw, hn_cdt = (snap("pw", "as", "hnsnap")["tokens_added_next_request"], snap("pw", "tokensave", "hnsnap")["tokens_added_next_request"]), \
+                    (snap("cdt", "as", "hnsnap")["tokens_added_next_request"], snap("cdt", "tokensave", "hnsnap")["tokens_added_next_request"])
+    wk_pw, wk_cdt = F["playwright_mcp_0.0.83"], F["chrome_devtools_mcp_1.11.0"]
+    ol_pw, ol_cdt = snap("pw", "tokensave", "probe")["tokens_added_next_request"], snap("cdt", "tokensave", "probe")["tokens_added_next_request"]
+    every = [r for r in R if r["mode"] == "as shipped" and r["task"] in ("todo", "wiki", "hn", "hist")]
+    base_req = statistics.median(r["input_tokens"] / r["requests"] for r in every)
+    lead = (f'<strong>On everyday browser tasks both servers were light: the largest tool result in 16 runs was {f(max(r["max_tool_result_chars"] for r in every))} characters, because Claude ran small scripts or searches instead of reading whole pages. '
+            f'One full snapshot of a long Wikipedia article is another story: about {f(wk_pw)} Claude tokens from Playwright MCP and {f(wk_cdt)} from Chrome DevTools MCP.</strong> '
+            f'Our open-source proxy, tokensave-mcp-diet, cut that to about {f(ol_pw)} and {f(ol_cdt)}, and cut a Hacker News snapshot by {abs(pct(hn_pw[0], hn_pw[1]))}% and {abs(pct(hn_cdt[0], hn_cdt[1]))}%.')
+    body = f'''      <h2>Key findings</h2>
+      <ul>
+        <li><strong>Everyday tasks were cheap, and not because of the MCP.</strong> Filling a to-do list, finding facts on Wikipedia and reading Hacker News took 90,000 to 224,000 input tokens per task ($0.16 to $0.22 at API prices). Each request carried about {f(base_req)} tokens, most of it Claude Code&rsquo;s own instructions and tools; the browser results added little. Opus 5.5 preferred <code>evaluate</code> scripts and Playwright&rsquo;s <code>find</code> over full snapshots.</li>
+        <li><strong>One full snapshot of a long page is over 200,000 tokens.</strong> The accessibility snapshot of the Python article on English Wikipedia was {f(F["chars"]["playwright"])} characters from Playwright MCP and {f(F["chars"]["chrome_devtools"])} from Chrome DevTools MCP. Sent to Opus 5.5 it counted {f(wk_pw)} and {f(wk_cdt)} tokens, about ${F["api_cost_usd_one_snapshot_cache_write"]["playwright"]:.2f} each at list price. (OpenAI&rsquo;s o200k tokenizer counts {f(F["o200k"]["playwright"])} and {f(F["o200k"]["chrome_devtools"])}.)</li>
+        <li><strong>Claude Code already blocks that.</strong> It refused both results as too large, saved them to a file and told the model to read it in pieces. The task still got answered. Clients without such a limit would put the whole page into the context.</li>
+        <li><strong>Medium pages get through, and that is where a diet pays off inside Claude Code.</strong> A Hacker News snapshot added {f(hn_pw[0])} tokens (Playwright) and {f(hn_cdt[0])} (Chrome DevTools). Through tokensave-mcp-diet: {f(hn_pw[1])} ({_pct(pct(*hn_pw))}) and {f(hn_cdt[1])} ({_pct(pct(*hn_cdt))}), with the same answer in all 5 runs. The whole task cost {abs(pct(avg(pick("pw", "as", "hnsnap"), "api_cost_usd"), avg(pick("pw", "tokensave", "hnsnap"), "api_cost_usd")))}% and {abs(pct(avg(pick("cdt", "as", "hnsnap"), "api_cost_usd"), avg(pick("cdt", "tokensave", "hnsnap"), "api_cost_usd")))}% less.</li>
+        <li><strong>On pages Claude Code already blocks, the diet does not save money in Claude Code.</strong> Its outline (about {f(ol_pw)} tokens) is more than Claude Code&rsquo;s short refusal note, so the Wikipedia tasks cost 3% to 44% more with it. Every task was answered correctly in all {len(R)} runs.</li>
+      </ul>
+      <h2>Everyday tasks, servers as shipped</h2>
+      <p class="text-sm text-zinc-400">Average of 2 runs. Input = all input tokens of the task (uncached + cache read + cache write). Cost at Opus 5.5 API prices as reported by Claude Code. Largest result = the biggest single tool result in either run.</p>
+{_table(head1, chr(10).join(trs))}      <h2>Snapshot tasks, with and without tokensave-mcp-diet</h2>
+      <p class="text-sm text-zinc-400">The prompt asked for an accessibility snapshot and forbade JavaScript. &ldquo;Snapshot tokens&rdquo; = how much the next request grew after the snapshot came back. Cost = average of 5 runs (3 for the full-snapshot probe), lowest and highest run in brackets. The snapshot token counts varied by at most 4% between runs.</p>
+{_table(head2, chr(10).join(trs2))}      <h2>What tokensave-mcp-diet does</h2>
+      <p>It is a small open-source MCP proxy (<a href="https://github.com/johnisking/tokensave-mcp-diet">github.com/johnisking/tokensave-mcp-diet</a>, MIT) that sits in front of either server. Every tool passes through. When a page snapshot is over 8,000 characters it first removes noise (link targets, cursor marks, separators, empty layout wrappers) and keeps every element ref, so clicking still works. If the result is still over 20,000 characters it sends an outline of headings, form fields, buttons and links instead. The full snapshot stays in memory, and a new tool, <code>snapshot_detail</code>, returns any part of it by ref or by text.</p>
+      <h2>What to take from it</h2>
+      <ul>
+        <li>If an agent works through browser MCP in Claude Code, most of the bill is Claude Code&rsquo;s fixed per-request overhead and the number of steps, not the pages.</li>
+        <li>The expensive case is a full snapshot of a long page. Ask for a specific element, a search or a script instead of &ldquo;read the page&rdquo;.</li>
+        <li>In clients that pass large tool results straight through, one long page can add more than 200,000 tokens to the context. A proxy like tokensave-mcp-diet, or a server option that saves snapshots to files, keeps that out of the context.</li>
+      </ul>
+      <h2>Method</h2>
+      <ul>
+        <li>Claude Code 2.1.295, <code>claude -p &lt;prompt&gt; --effort medium --output-format stream-json --verbose</code>, model Opus 5.5, Windows 11, on {BMC_MEASURED}. Each run had exactly one MCP server (<code>--strict-mcp-config</code>) and could use only its tools: WebFetch, WebSearch, Bash, file tools and subagents were disabled.</li>
+        <li>Servers: <code>@playwright/mcp@0.0.83</code> and <code>chrome-devtools-mcp@1.11.0</code>, both <code>--headless --isolated</code>. tokensave-mcp-diet 0.1.0 wrapped the same commands.</li>
+        <li>Pages: demo.playwright.dev/todomvc, the English Wikipedia articles &ldquo;Python (programming language)&rdquo; and &ldquo;History of Python&rdquo;, and the Hacker News front page, live on the day. Snapshot tasks forbade JavaScript (<code>evaluate</code> tools disabled).</li>
+        <li>The Claude token count of a full Wikipedia snapshot was measured by piping the saved snapshot text to <code>claude -p "Reply with OK only."</code> with no tools, minus an empty run ({f(2889)} tokens).</li>
+      </ul>
+      <h2>Limitations</h2>
+      <ul>
+        <li>Two runs per everyday task, five per snapshot task (three for the full-snapshot probe), one model, one machine, live pages that change during the day (Hacker News points moved between runs).</li>
+        <li>Only Claude Code was measured. We did not test Claude Desktop, Cursor or Codex, so we do not know which of them pass a 200,000-token result through.</li>
+        <li>Snapshot formats change between server versions; Playwright MCP already saves the snapshot to a file when navigating.</li>
+        <li>The outline drops plain text, so the model must ask for details; on some tasks that adds steps.</li>
+      </ul>
+'''
+    return (_head("How many tokens does browser MCP cost? Playwright vs Chrome DevTools, and a snapshot diet", lead,
+                  f'Measured {BMC_MEASURED} · {len(R)} runs · Claude Code 2.1.295, Opus 5.5 · License <a href="{LICENSE}">CC BY 4.0</a> · Tool: <a href="https://github.com/johnisking/tokensave-mcp-diet">tokensave-mcp-diet</a> · Related: <a href="{AGT_PATH}">Claude Code vs Codex</a>',
+                  [("browser-mcp-token-cost.csv", "CSV"), ("browser-mcp-token-cost.json", "JSON")],
+                  BMC_CHART, "Claude tokens one browser MCP page snapshot adds, as shipped and with tokensave-mcp-diet", doi=BMC_DOI, mirrors=BMC_MIRRORS)
+            + body + _page_tail(bmc_citation(), _embed(BMC_PATH, BMC_CHART, "Claude tokens one browser MCP page snapshot adds", "browser MCP token cost"),
+                                [(AGT_PATH, "Claude Code vs Codex: startup tokens and MCP tools"), (HAR_PATH, "What the Claude Code harness costs"), (CCV_PATH, "Claude Code baseline tokens by version")]))
+
+
 # ---- "Try it yourself" box near the top of every dataset page (2026-10-22) ----
 _CTA = {
     "/": ("Count the tokens in your own text", "Paste your prompt and see tokens, characters and API cost on GPT, Claude and Gemini. Free and private: it runs in your browser."),
@@ -2823,7 +2958,7 @@ _CTA_MAP = {LANG_PATH: "/", MULTI_PATH: "/", FMT_PATH: "/", CODE_PATH: "/", PDF_
             IMG_PATH: "/", TAI_PATH: "/",
             EFF_PATH: "/agents", AGT_PATH: "/agents", AGS_PATH: "/agents", AGL_PATH: "/agents", AMD_PATH: "/agents", HAR_PATH: "/agents",
             VIB_PATH: "/agents", CCV_PATH: "/claude-code-usage",
-            LNG_PATH: "/claude-code-usage", COF_PATH: "/claude-code-usage"}
+            LNG_PATH: "/claude-code-usage", COF_PATH: "/claude-code-usage", BMC_PATH: "/agents"}
 
 
 def add_cta(path, body):
