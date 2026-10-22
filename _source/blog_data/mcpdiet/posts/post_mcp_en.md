@@ -83,6 +83,8 @@ On Hacker News, snapshot tokens fell 43% to 63% and the task cost 18% to 31% les
 
 To be honest about Wikipedia: inside Claude Code the proxy lost money. Where Claude Code would have sent a short refusal note, the proxy sent a 9,000-token outline, and the task cost 3% to 44% more. In a client that passes large results through, the same outline turns 200,000 tokens into 9,000, a 96% cut. The tool pays off on medium-size pages, and in clients that don't have Claude Code's guard.
 
+> **Update (same day): version 0.2 fixes the Wikipedia loss.** Pages over 60,000 characters now get only a table of contents (headings with their refs, about 1,100 tokens), and a heading ref returns that whole section. Re-measured with 5 runs each: finding facts on the Wikipedia article now costs $0.181 → $0.173 (−4%) on Playwright and $0.230 → $0.178 (−23%) on Chrome DevTools, a bare full snapshot costs about the same as Claude Code's own refusal (+2% and +3%), and Hacker News stays at −30% and −17%. The full Wikipedia snapshot goes from about 205,600 Claude tokens to about 1,140 (−99%). The install command above now gets 0.2.
+
 ## What to take away
 
 - In Claude Code, most of the browser-MCP bill is the number of steps, not the pages. Saying clearly what you want, so the agent finishes in fewer steps, helps most.
