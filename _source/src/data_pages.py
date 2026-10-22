@@ -2961,8 +2961,11 @@ def bmc_html():
 BLM_PATH = "/data/blender-mcp-token-cost"
 BLM_MEASURED = "2026-10-22"
 BLM_CHART = "/blender-mcp-token-cost-chart.png"
-BLM_DOI = None
-BLM_MIRRORS = [("GitHub (tokensave-mcp-diet)", "https://github.com/johnisking/tokensave-mcp-diet")]
+BLM_DOI = "10.5281/zenodo.23562484"  # concept DOI
+BLM_MIRRORS = [("Zenodo", "https://zenodo.org/records/23562485"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/blender-mcp-token-cost"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/blender-mcp"),
+               ("GitHub (tokensave-mcp-diet)", "https://github.com/johnisking/tokensave-mcp-diet")]
 BLM_TITLE = "Blender MCP token cost: 72 Claude Code runs, from a table and chairs to a racing scene"
 BLM_DESC = ("Dataset: input tokens, cost, images and tool-result size for MCP for Blender in Claude Code (Opus 5.5) on 8 tasks, 72 runs, with and without the tokensave-mcp-diet 0.3 proxy. "
             "Everyday tasks cost $0.16 to $0.23; a racing scene with a chase camera about $0.47; one long property dump $0.87, or $0.17 with the proxy. Free CSV, CC BY 4.0.")
@@ -3080,6 +3083,8 @@ def blm_html():
               f'so the scene cost {abs(pct(rb["cost"], rd["cost"]))}% less ({rb["n"]} runs each, within run-to-run noise). The small-room description, where the proxy changed nothing, came out {abs(pct(ib["cost"], idd["cost"]))}% cheaper too, so treat differences under about 8% as noise.</li>')
     li.append(f'<li>Every task passed its check in {npass} of {len(R)} runs (read back from the saved .blend file: names, colours, frame range, camera, engine).</li>')
     body = ('      <h2>Key findings</h2>\n      <ul>\n' + "\n".join("        " + x for x in li) + '\n      </ul>\n'
+            '      <figure class="my-6"><img src="/blender-mcp-race-scenes.jpg" alt="Frames from the 6 first racing-scene runs: low-poly race cars on circuits, seen from a chase camera" width="1440" height="1620" loading="lazy" class="rounded-lg">'
+            '<figcaption class="text-sm text-zinc-400 mt-2">Frames 10, 60 and 110 from the first three runs without the proxy (top) and with it (bottom), rendered afterwards in EEVEE. Every car and circuit was designed by Claude in that run.</figcaption></figure>\n'
             '      <h2>All tasks, with and without tokensave-mcp-diet 0.3</h2>\n'
             '      <p class="text-sm text-zinc-400">Averages. Input = all input tokens of the task (uncached + cache read + cache write). Cost at Opus 5.5 API prices as reported by Claude Code, lowest and highest run in brackets. '
             'Image tokens estimated as width &times; height / 750 for every image returned. Largest text result is from the runs without the diet.</p>\n'
