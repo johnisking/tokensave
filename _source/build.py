@@ -664,6 +664,8 @@ def build():
     for pg in PAGES:
         DP = __import__("data_pages")
         body = getattr(DP, pg["fn"])() if pg.get("fn") else languages_html() if pg["path"] == "/languages" else blog_index_html() if pg["path"] == "/blog/" else __import__("tokens_words").body(LANG_RATIOS) if pg["path"] == "/tokens-to-words" else open(os.path.join(SRC, pg["body"]), encoding="utf-8").read()
+        if (pg.get("path") or "").startswith("/data/"):
+            body = DP.add_cta(pg["path"], body)
         url = BASE + (pg["path"] or "/404")
         values = dict(
             htmlLang="en", dir="ltr", url=url, ogLocale="en_US", ogImage=f"{BASE}/og-token.jpg",

@@ -2811,3 +2811,33 @@ def ccv_html():
                   CCV_CHART, "Claude Code baseline input tokens by version, and with claude.ai connectors on", doi=CCV_DOI, mirrors=CCV_MIRRORS)
             + body + _page_tail(ccv_citation(), _embed(CCV_PATH, CCV_CHART, "Claude Code baseline tokens by version", "Claude Code baseline tokens by version"),
                                 [(HAR_PATH, "What the Claude Code harness costs"), (AMD_PATH, "CLAUDE.md and AGENTS.md size"), ("/data/ai-coffee-break-cache-cost", "The coffee-break tax")]))
+
+
+# ---- "Try it yourself" box near the top of every dataset page (2026-10-22) ----
+_CTA = {
+    "/": ("Count the tokens in your own text", "Paste your prompt and see tokens, characters and API cost on GPT, Claude and Gemini. Free and private: it runs in your browser."),
+    "/agents": ("Estimate your own Claude Code or Codex bill", "See the monthly cost of Claude Code and Codex for your usage: API per task vs Claude and ChatGPT plans. Free, no sign-up."),
+    "/claude-code-usage": ("Check your own Claude Code usage", "Open your Claude Code or Codex log folder, or a Cursor usage CSV, and see tokens and API-equivalent cost by day, project and model. Runs in your browser."),
+}
+_CTA_MAP = {LANG_PATH: "/", MULTI_PATH: "/", FMT_PATH: "/", CODE_PATH: "/", PDF_PATH: "/", LTI_PATH: "/", TL_PATH: "/", POL_PATH: "/",
+            IMG_PATH: "/", TAI_PATH: "/",
+            EFF_PATH: "/agents", AGT_PATH: "/agents", AGS_PATH: "/agents", AGL_PATH: "/agents", AMD_PATH: "/agents", HAR_PATH: "/agents",
+            VIB_PATH: "/agents", CCV_PATH: "/claude-code-usage",
+            LNG_PATH: "/claude-code-usage", COF_PATH: "/claude-code-usage"}
+
+
+def add_cta(path, body):
+    tool = _CTA_MAP.get(path)
+    if not tool:
+        return body
+    head, text = _CTA[tool]
+    box = (f'      <a href="{tool}" class="not-prose block no-underline my-5 rounded-xl border border-violet-500/50 bg-violet-500/10 hover:bg-violet-500/20 p-4" '
+           f'style="text-decoration:none" data-cta="data-top">\n'
+           f'        <span class="block text-base font-bold text-white">{esc(head)} &rarr;</span>\n'
+           f'        <span class="block mt-1 text-sm text-zinc-300">{esc(text)}</span>\n      </a>\n')
+    i = body.find('href="#cite"')
+    j = body.find('</div>', i) if i >= 0 else -1
+    if j < 0:
+        return body
+    j += len('</div>') + 1
+    return body[:j] + box + body[j:]
