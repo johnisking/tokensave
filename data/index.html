@@ -107,12 +107,12 @@
         <span class="block mt-1 text-sm text-zinc-300">How many more tokens your language needs than English, per model. Updated when new models ship.</span></a>
       <h2>Latest measurements</h2>
       <ul class="not-prose space-y-1.5 text-sm text-zinc-300">
+        <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-22</span><a href="/data/browser-mcp-token-cost" class="hover:text-violet-300">Browser MCP token cost: one long-page snapshot is over 200,000 tokens, and a snapshot diet that cuts it 96%</a></li>
         <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-21</span><a href="/data/claude-effort-cost" class="hover:text-violet-300">Claude effort levels: Haiku 5.5 added, 15 games, max about ten times the cost of xhigh</a></li>
         <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-21</span><a href="/data/language-tax-index" class="hover:text-violet-300">Language Tax Index v1.2: Gemini 4 Argon in 41 languages, Korean 15% cheaper, Kannada 24% dearer than Gemini 3.x</a></li>
         <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-21</span><a href="/data/claude-code-baseline-tokens-by-version" class="hover:text-violet-300">Claude Code baseline tokens by version: +86% in ten months, then back to half the peak</a></li>
         <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-21</span><a href="/data/text-as-image-token-cost" class="hover:text-violet-300">Text as images (pxpipe) on Claude: 64% to 81% fewer tokens, but exact ids often lost</a></li>
         <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-20</span><a href="/data/ai-coffee-break-cache-cost" class="hover:text-violet-300">The coffee-break tax: the next Claude Code message after a 0 to 65 minute pause</a></li>
-        <li class="flex gap-3"><span class="shrink-0 tabular-nums text-zinc-500">2026-10-20</span><a href="/data/vibe-coding-by-claude-model" class="hover:text-violet-300">Vibe coding with Claude Haiku, Sonnet and Opus 5.5: 45 games, cost and play tests</a></li>
       </ul>
       <h2>All datasets</h2>
       <ul class="not-prose mt-4 space-y-3">
@@ -173,6 +173,9 @@
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="/data/claude-code-baseline-tokens-by-version" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">Claude Code baseline tokens by version: what every request carries before you type</span>
           <span class="block mt-1 text-sm text-zinc-400">The prompt &ldquo;a&rdquo; on Claude Code versions from July 2025 to today: the baseline rose 86% to May 2026, then fell back to half that by October. CSV · measured 2026-10-21</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="/data/browser-mcp-token-cost" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">Browser MCP token cost: Playwright MCP vs Chrome DevTools MCP, and what a snapshot diet saves</span>
+          <span class="block mt-1 text-sm text-zinc-400">Playwright MCP and Chrome DevTools MCP in Claude Code, 68 runs: everyday tasks stay small, but one full snapshot of a long page is over 200,000 tokens; our tokensave-mcp-diet proxy cuts it 96%. CSV · measured 2026-10-22</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>
