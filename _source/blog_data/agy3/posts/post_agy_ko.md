@@ -65,5 +65,5 @@ Antigravity에서는 도구 1개만 붙여도 약 280~460토큰이 늘었고, �
 
 ## 데이터
 
-- 전체 데이터, 실행별 CSV, 방법(CC BY 4.0): https://tokensave.app/data/antigravity-cli-vs-claude-code-vs-codex
+- 전체 데이터, 실행별 CSV, 방법(CC BY 4.0, DOI 10.5281/zenodo.23569397): https://tokensave.app/data/antigravity-cli-vs-claude-code-vs-codex
 - 앞서 잰 Claude Code vs Codex: https://tokensave.app/data/claude-code-vs-codex-tokens

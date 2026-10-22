@@ -65,5 +65,5 @@ Antigravity CLIではツール1個で約280〜460トークン増え、残り29�
 
 ## データ
 
-- 全データ、実行ごとのCSV、方法（CC BY 4.0）：https://tokensave.app/data/antigravity-cli-vs-claude-code-vs-codex
+- 全データ、実行ごとのCSV、方法（CC BY 4.0、DOI 10.5281/zenodo.23569397）：https://tokensave.app/data/antigravity-cli-vs-claude-code-vs-codex
 - 以前のClaude Code vs Codex：https://tokensave.app/data/claude-code-vs-codex-tokens

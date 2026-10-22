@@ -2,7 +2,7 @@
  "title": "Antigravity CLI vs Claude Code vs Codex: startup tokens, MCP tools and the same coding task",
  "url": "https://tokensave.app/data/antigravity-cli-vs-claude-code-vs-codex",
  "license": "CC BY 4.0",
- "citation": "TokenSave (2026). Antigravity CLI vs Claude Code vs Codex: startup tokens, MCP tools and the same coding task [Data set]. https://tokensave.app/data/antigravity-cli-vs-claude-code-vs-codex",
+ "citation": "TokenSave (2026). Antigravity CLI vs Claude Code vs Codex: startup tokens, MCP tools and the same coding task [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23569397",
  "measured": "2026-10-22",
  "setup": "Windows 11; Claude Code 2.1.295 (Opus 5.5, Max plan); Codex CLI 0.162.0-alpha.17.2 (gpt-6-luna, ChatGPT plan); Antigravity CLI 1.4.5 (gemini-4-argon-medium and claude-opus-5-5-medium, personal Google account)",
  "note": "input_tokens_reported is each CLI's own figure. Claude Code: input + cache creation + cache read. Codex: input including cached input. Antigravity: the usage.input_tokens field of agy --output-format json; cache_read_tokens is reported separately and for the Opus runs is larger than input_tokens, so it is not contained in it there. Read input_tokens_reported + cache_read_tokens as an upper bound for Antigravity.",

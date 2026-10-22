@@ -65,5 +65,5 @@ In Antigravity one tool already added about 280 to 460 tokens and the next 29 ad
 
 ## Data
 
-- Full data, per-run CSV and method (CC BY 4.0): https://tokensave.app/data/antigravity-cli-vs-claude-code-vs-codex
+- Full data, per-run CSV and method (CC BY 4.0, DOI 10.5281/zenodo.23569397): https://tokensave.app/data/antigravity-cli-vs-claude-code-vs-codex
 - The earlier Claude Code vs Codex test: https://tokensave.app/data/claude-code-vs-codex-tokens

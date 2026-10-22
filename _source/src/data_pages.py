@@ -3126,8 +3126,10 @@ def blm_html():
 AGY_PATH = "/data/antigravity-cli-vs-claude-code-vs-codex"
 AGY_MEASURED = "2026-10-22"
 AGY_CHART = "/antigravity-cli-vs-claude-code-vs-codex-chart.png"
-AGY_DOI = ""  # set after the Zenodo upload
-AGY_MIRRORS = []
+AGY_DOI = "10.5281/zenodo.23569397"  # concept DOI
+AGY_MIRRORS = [("Zenodo", "https://zenodo.org/records/23569398"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/antigravity-cli-vs-claude-code-vs-codex"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/antigravity-cli")]
 AGY_TITLE = "Antigravity CLI vs Claude Code vs Codex: startup tokens, MCP tools and the same coding task"
 AGY_DESC = ("Dataset: input tokens Google's Antigravity CLI (with Gemini 4 Argon and with Claude Opus 5.5), Claude Code and Codex use before any work, what 1 to 30 MCP tools add, "
             "and tokens, time and output for the same browser-game task. Opus 5.5 used 68% to 88% fewer input tokens in Antigravity than in Claude Code. 44 runs, free CSV, CC BY 4.0.")
