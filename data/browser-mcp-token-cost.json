@@ -2,7 +2,7 @@
  "title": "Browser MCP token cost: Playwright MCP vs Chrome DevTools MCP, and what a snapshot diet saves",
  "url": "https://tokensave.app/data/browser-mcp-token-cost",
  "license": "CC BY 4.0",
- "citation": "TokenSave (2026). Browser MCP token cost: Playwright MCP vs Chrome DevTools MCP, and what a snapshot diet saves [Data set]. https://tokensave.app/data/browser-mcp-token-cost",
+ "citation": "TokenSave (2026). Browser MCP token cost: Playwright MCP vs Chrome DevTools MCP, and what a snapshot diet saves [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23555401",
  "measured": "2026-10-22",
  "client": "Claude Code 2.1.295, claude-opus-5-5, effort medium, Windows 11",
  "full_snapshot_claude_tokens": {

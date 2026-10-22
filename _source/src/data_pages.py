@@ -2823,8 +2823,12 @@ def ccv_html():
 BMC_PATH = "/data/browser-mcp-token-cost"
 BMC_MEASURED = "2026-10-22"
 BMC_CHART = "/browser-mcp-token-cost-chart.png"
-BMC_DOI = None
-BMC_MIRRORS = [("GitHub (tokensave-mcp-diet)", "https://github.com/johnisking/tokensave-mcp-diet")]
+BMC_DOI = "10.5281/zenodo.23555401"  # concept DOI
+BMC_MIRRORS = [("Zenodo", "https://zenodo.org/records/23555402"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/browser-mcp-token-cost"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/browser-mcp-token-cost-playwright-vs-devtools"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/browser-mcp"),
+               ("GitHub (tokensave-mcp-diet)", "https://github.com/johnisking/tokensave-mcp-diet")]
 BMC_TITLE = "Browser MCP token cost: Playwright MCP vs Chrome DevTools MCP, and what a snapshot diet saves"
 BMC_DESC = ("Dataset: input tokens, cost and tool-result size for Playwright MCP and Chrome DevTools MCP in Claude Code (Opus 5.5) on 7 browser tasks, 94 runs. "
             "One full snapshot of a long Wikipedia article is about 206,000 Claude tokens; the tokensave-mcp-diet proxy turns it into a table of contents of about 1,100. Free CSV, CC BY 4.0.")
