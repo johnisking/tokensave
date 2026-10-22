@@ -5,3 +5,4 @@ build.log
 _source/seo/data/**/*
 !_source/seo/data/**/.gitkeep
 _source/seo/private/
+_source/blog_data/mcpdiet/snapshots/
