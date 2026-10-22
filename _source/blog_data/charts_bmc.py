@@ -9,11 +9,11 @@ def added(srv, mode, task):
     return v[0]
 panels = [
   ("A long Wikipedia article: one full snapshot", [
-     ("Playwright MCP", F["playwright_mcp_0.0.83"], added("pw", "snapshot", "probe")),
-     ("Chrome DevTools MCP", F["chrome_devtools_mcp_1.11.0"], added("cdt", "snapshot", "probe"))]),
+     ("Playwright MCP", F["playwright_mcp_0.0.83"], added("pw", "tokensave", "probe")),
+     ("Chrome DevTools MCP", F["chrome_devtools_mcp_1.11.0"], added("cdt", "tokensave", "probe"))]),
   ("Hacker News front page: one snapshot", [
-     ("Playwright MCP", added("pw", "as", "hnsnap"), added("pw", "snapshot", "hnsnap")),
-     ("Chrome DevTools MCP", added("cdt", "as", "hnsnap"), added("cdt", "snapshot", "hnsnap"))]),
+     ("Playwright MCP", added("pw", "as", "hnsnap"), added("pw", "tokensave", "hnsnap")),
+     ("Chrome DevTools MCP", added("cdt", "as", "hnsnap"), added("cdt", "tokensave", "hnsnap"))]),
 ]
 fig, axes = plt.subplots(1, 2, figsize=(12, 5.6), dpi=100); fig.patch.set_facecolor(BG)
 for ax, (title, items) in zip(axes, panels):
@@ -23,7 +23,7 @@ for ax, (title, items) in zip(axes, panels):
     for name, raw, diet in items:
         ax.barh(y, raw, color=MUTED, height=0.36); ax.text(raw + top*0.02, y, f"{raw:,}  as shipped", va='center', color=FG, fontsize=10.5)
         ax.barh(y + 0.4, diet, color="#34d399", height=0.36)
-        ax.text(diet + top*0.02, y + 0.4, f"{diet:,}  with snapshot-diet (−{round((1 - diet/raw)*100)}%)", va='center', color=FG, fontsize=10.5)
+        ax.text(diet + top*0.02, y + 0.4, f"{diet:,}  with the diet (−{round((1 - diet/raw)*100)}%)", va='center', color=FG, fontsize=10.5)
         ticks.append(y + 0.2); labels.append(name); y += 1.2
     ax.set_yticks(ticks); ax.set_yticklabels(labels); ax.invert_yaxis()
     ax.set_xlim(0, top * 1.9)

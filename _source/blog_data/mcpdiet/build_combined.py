@@ -1,7 +1,7 @@
 """combined.json for the browser-MCP token dataset (dataset 20).
 Runs: Claude Code 2.1.295, Opus 5.5, effort medium, one MCP server per run (Playwright MCP 0.0.83 or Chrome DevTools MCP 1.11.0, headless, isolated),
-built-in file/web/shell tools disabled. 'base' = server as shipped, 'diet' = the same server behind snapshot-diet 0.1.0 (compact, outline fallback).
-Run folders: baseline/<srv>_<task>_r<n> (base, task set A) and diet/<srv>_<mode>_<task>_r<n> (mode base|v2; v2 = snapshot-diet 0.1.0; 'diet' = earlier outline-only build, not used).
+built-in file/web/shell tools disabled. 'base' = server as shipped, 'diet' = the same server behind tokensave-mcp-diet 0.1.0 (compact, outline fallback; built as snapshot-diet).
+Run folders: baseline/<srv>_<task>_r<n> (base, task set A) and diet/<srv>_<mode>_<task>_r<n> (mode base|v2; v2 = tokensave-mcp-diet 0.1.0; 'diet' = earlier outline-only build, not used).
 """
 import json, os, glob, re
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -9,7 +9,7 @@ SECONDS = {  # wall-clock seconds printed by the run scripts on the PC
  "pw_todo_r1":29,"pw_todo_r2":43,"pw_wiki_r1":15,"pw_wiki_r2":33,"cdt_todo_r1":21,"cdt_todo_r2":26,"cdt_wiki_r1":16,"cdt_wiki_r2":15,
  "pw_hn_r1":15,"pw_hn_r2":16,"pw_hist_r1":18,"pw_hist_r2":21,"pw_probe_r1":15,"cdt_hn_r1":16,"cdt_hn_r2":28,"cdt_hist_r1":18,"cdt_hist_r2":14,"cdt_probe_r1":22,
  "pw_base_snapread_r1":17,"pw_base_hnsnap_r1":25,"cdt_base_snapread_r1":32,"cdt_base_hnsnap_r1":17,"pw_base_snapread_r2":15,"cdt_base_snapread_r2":30,"pw_base_hnsnap_r2":26,"cdt_base_hnsnap_r2":24,
- "pw_v2_probe_r1":19,"cdt_v2_probe_r1":16,"pw_v2_snapread_r1":22,"cdt_v2_snapread_r1":19,"pw_v2_hnsnap_r1":20,"cdt_v2_hnsnap_r1":17,"pw_v2_snapread_r2":20,"cdt_v2_snapread_r2":18,"pw_v2_hnsnap_r2":20,"cdt_v2_hnsnap_r2":15}
+ "pw_v2_probe_r1":19,"cdt_v2_probe_r1":16,"pw_v2_snapread_r1":22,"cdt_v2_snapread_r1":19,"pw_v2_hnsnap_r1":20,"cdt_v2_hnsnap_r1":17,"pw_v2_snapread_r2":20,"cdt_v2_snapread_r2":18,"pw_v2_hnsnap_r2":20,"cdt_v2_hnsnap_r2":15,"pw_base_hnsnap_r3":18,"pw_v2_hnsnap_r3":19,"cdt_base_hnsnap_r3":18,"cdt_v2_hnsnap_r3":22,"pw_base_snapread_r3":24,"pw_v2_snapread_r3":16,"cdt_base_snapread_r3":30,"cdt_v2_snapread_r3":20,"pw_base_hnsnap_r4":15,"pw_v2_hnsnap_r4":15,"cdt_base_hnsnap_r4":19,"cdt_v2_hnsnap_r4":16,"pw_base_snapread_r4":19,"pw_v2_snapread_r4":16,"cdt_base_snapread_r4":25,"cdt_v2_snapread_r4":17,"pw_base_hnsnap_r5":18,"pw_v2_hnsnap_r5":24,"cdt_base_hnsnap_r5":16,"cdt_v2_hnsnap_r5":17,"pw_base_snapread_r5":21,"pw_v2_snapread_r5":18,"cdt_base_snapread_r5":26,"cdt_v2_snapread_r5":31,"pw_base_probe_r2":19,"pw_v2_probe_r2":18,"cdt_base_probe_r2":18,"cdt_v2_probe_r2":20,"pw_base_probe_r3":15,"pw_v2_probe_r3":17,"cdt_base_probe_r3":19,"cdt_v2_probe_r3":15}
 TASK = {"todo":"TodoMVC: add 3 items, complete 1, report items left","wiki":"Wikipedia Python article: designer and first year (any method)",
         "hn":"Hacker News: top 5 titles and points (any method)","hist":"Wikipedia History of Python: 5 release dates (any method)",
         "probe":"Wikipedia Python article: one full snapshot, reply 'done'","snapread":"Wikipedia Python article: designer and first year from a snapshot, no JavaScript",
@@ -54,7 +54,7 @@ for p in sorted(glob.glob(os.path.join(HERE, "baseline/*/run.jsonl")) + glob.glo
             if m2: raw = int((m2.group(1) or m2.group(2)).replace(",", ""))
             added = reqs[idx] - reqs[idx - 1] if idx < len(reqs) else None  # tokens added by the next request
             snaps.append(dict(result_chars=n, raw_snapshot_chars=raw, blocked_by_claude_code=blocked, tokens_added_next_request=added))
-    rows.append(dict(server={"pw":"playwright-mcp 0.0.83","cdt":"chrome-devtools-mcp 1.11.0"}[srv], srv=srv, mode={"base":"as shipped","v2":"snapshot-diet 0.1.0"}[mode],
+    rows.append(dict(server={"pw":"playwright-mcp 0.0.83","cdt":"chrome-devtools-mcp 1.11.0"}[srv], srv=srv, mode={"base":"as shipped","v2":"tokensave-mcp-diet 0.1.0"}[mode],
                      task=task, task_label=TASK[task], run=int(run[1:]),
                      input_tokens=sum(v["inputTokens"]+v["cacheReadInputTokens"]+v["cacheCreationInputTokens"] for v in mu.values()),
                      output_tokens=sum(v["outputTokens"] for v in mu.values()), api_cost_usd=round(res["total_cost_usd"], 4),
