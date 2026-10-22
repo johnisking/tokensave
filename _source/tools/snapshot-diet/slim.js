@@ -94,3 +94,18 @@ export function detail(text, { ref, query } = {}, maxChars = 4000) {
   if (s.length > maxChars) s = s.slice(0, maxChars) + `\n… (cut at ${maxChars} characters; ask for a narrower ref or query)`;
   return s;
 }
+
+// Compact: same tree with the noise removed (link targets, cursor marks, separators, empty wrappers, deep indents).
+export function compact(text) {
+  const out = [];
+  for (const raw of text.split("\n")) {
+    if (/^\s*- \/url:/.test(raw)) continue;
+    if (/^\s*- text: "?[|·•,;:]?"?\s*$/.test(raw)) continue;
+    if (/^\s*- (generic|cell|row|rowgroup|table|list|listitem|group|region|paragraph|separator|img|LayoutTable|LayoutTableRow|LayoutTableCell|none|ignored) \[ref=e\d+\]:?\s*$/.test(raw)) continue;
+    if (/^\s*uid=[\d_]+ (generic|none|ignored|LayoutTable\w*|InlineTextBox)\s*$/.test(raw)) continue;
+    let l = clean(raw, 120);
+    l = l.replace(/^(\s+)/, (m) => " ".repeat(Math.floor(m.length / 2)));
+    out.push(l);
+  }
+  return out.join("\n");
+}
