@@ -668,6 +668,86 @@
   "is_error": false
  },
  {
+  "run": "base_race_r4",
+  "mode": "base",
+  "task": "race",
+  "rep": 4,
+  "input_tokens": 204114,
+  "output_tokens": 8092,
+  "api_cost_usd": 0.4199,
+  "requests": 7,
+  "max_request_input": 34750,
+  "seconds": 83,
+  "tool_calls": 6,
+  "calls": [
+   "ToolSearch",
+   "get_scene_info",
+   "execute_blender_code",
+   "execute_blender_code",
+   "look",
+   "look"
+  ],
+  "max_text_result_chars": 410,
+  "images": 2,
+  "image_sizes": [
+   [
+    908,
+    454
+   ],
+   [
+    604,
+    300
+   ]
+  ],
+  "image_tokens_est": 792,
+  "user_prompt_chars": 2740,
+  "refused_too_large": false,
+  "tool_errors": 0,
+  "answer": "done",
+  "is_error": false
+ },
+ {
+  "run": "base_race_r5",
+  "mode": "base",
+  "task": "race",
+  "rep": 5,
+  "input_tokens": 266463,
+  "output_tokens": 8179,
+  "api_cost_usd": 0.438,
+  "requests": 9,
+  "max_request_input": 35242,
+  "seconds": 86,
+  "tool_calls": 8,
+  "calls": [
+   "ToolSearch",
+   "get_scene_info",
+   "execute_blender_code",
+   "execute_blender_code",
+   "look",
+   "execute_blender_code",
+   "look",
+   "execute_blender_code"
+  ],
+  "max_text_result_chars": 410,
+  "images": 2,
+  "image_sizes": [
+   [
+    644,
+    644
+   ],
+   [
+    908,
+    454
+   ]
+  ],
+  "image_tokens_est": 1103,
+  "user_prompt_chars": 3836,
+  "refused_too_large": false,
+  "tool_errors": 0,
+  "answer": "done",
+  "is_error": false
+ },
+ {
   "run": "base_red_r1",
   "mode": "base",
   "task": "red",
@@ -1700,6 +1780,90 @@
   ],
   "image_tokens_est": 533,
   "user_prompt_chars": 3288,
+  "refused_too_large": false,
+  "tool_errors": 0,
+  "answer": "done",
+  "is_error": false
+ },
+ {
+  "run": "diet_race_r4",
+  "mode": "diet",
+  "task": "race",
+  "rep": 4,
+  "input_tokens": 258507,
+  "output_tokens": 9031,
+  "api_cost_usd": 0.4474,
+  "requests": 9,
+  "max_request_input": 34466,
+  "seconds": 101,
+  "tool_calls": 9,
+  "calls": [
+   "ToolSearch",
+   "get_scene_info",
+   "execute_blender_code",
+   "execute_blender_code",
+   "execute_blender_code",
+   "execute_blender_code",
+   "look",
+   "execute_blender_code",
+   "look"
+  ],
+  "max_text_result_chars": 410,
+  "images": 2,
+  "image_sizes": [
+   [
+    518,
+    258
+   ],
+   [
+    516,
+    256
+   ]
+  ],
+  "image_tokens_est": 354,
+  "user_prompt_chars": 4384,
+  "refused_too_large": false,
+  "tool_errors": 0,
+  "answer": "done",
+  "is_error": false
+ },
+ {
+  "run": "diet_race_r5",
+  "mode": "diet",
+  "task": "race",
+  "rep": 5,
+  "input_tokens": 257503,
+  "output_tokens": 8502,
+  "api_cost_usd": 0.4334,
+  "requests": 9,
+  "max_request_input": 34062,
+  "seconds": 84,
+  "tool_calls": 9,
+  "calls": [
+   "ToolSearch",
+   "get_scene_info",
+   "execute_blender_code",
+   "execute_blender_code",
+   "execute_blender_code",
+   "execute_blender_code",
+   "look",
+   "look",
+   "execute_blender_code"
+  ],
+  "max_text_result_chars": 410,
+  "images": 2,
+  "image_sizes": [
+   [
+    516,
+    388
+   ],
+   [
+    516,
+    256
+   ]
+  ],
+  "image_tokens_est": 443,
+  "user_prompt_chars": 4384,
   "refused_too_large": false,
   "tool_errors": 0,
   "answer": "done",
