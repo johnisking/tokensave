@@ -3277,8 +3277,11 @@ def agy_html():
 LGO_PATH = "/data/output-tokens-per-character-by-model"
 LGO_MEASURED = "2026-10-23"
 LGO_CHART = "/output-tokens-per-character-by-model-chart.png"
-LGO_DOI = ""
-LGO_MIRRORS = []
+LGO_DOI = "10.5281/zenodo.23585139"  # concept DOI
+LGO_MIRRORS = [("Zenodo", "https://zenodo.org/records/23585140"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/output-tokens-per-character-by-model"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/output-tokens-per-character-claude-gpt-gemini"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/output-tokens-per-character")]
 LGO_TITLE = "Same code, about 60% more output tokens: Claude vs GPT vs Gemini in four coding tools and five languages"
 LGO_DESC = ("Dataset: the same brick-breaker task in Claude Code, Codex and Antigravity CLI (Gemini 4 Argon and Claude Opus 5.5), prompted in English, Korean, Japanese, Spanish and Ukrainian, 80 runs. "
             "Claude Opus 5.5 used about 60% more output tokens per 1,000 characters of game code than Gemini or GPT, in both tools that ran it. Prompt language moved input tokens only a few percent. Free CSV, CC BY 4.0.")

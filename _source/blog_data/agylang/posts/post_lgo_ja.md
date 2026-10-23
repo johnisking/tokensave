@@ -52,5 +52,5 @@
 
 ## データ
 
-- 全データ、実行ごとのCSV、方法（CC BY 4.0）：https://tokensave.app/data/output-tokens-per-character-by-model
+- 全データ、実行ごとのCSV、方法（CC BY 4.0、DOI 10.5281/zenodo.23585139）：https://tokensave.app/data/output-tokens-per-character-by-model
 - 昨日の3ツール比較：https://tokensave.app/data/antigravity-cli-vs-claude-code-vs-codex

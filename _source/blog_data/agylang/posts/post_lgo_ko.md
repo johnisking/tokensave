@@ -52,5 +52,5 @@
 
 ## 데이터
 
-- 전체 데이터, 실행별 CSV, 방법(CC BY 4.0): https://tokensave.app/data/output-tokens-per-character-by-model
+- 전체 데이터, 실행별 CSV, 방법(CC BY 4.0, DOI 10.5281/zenodo.23585139): https://tokensave.app/data/output-tokens-per-character-by-model
 - 어제 한 3자 비교: https://tokensave.app/data/antigravity-cli-vs-claude-code-vs-codex

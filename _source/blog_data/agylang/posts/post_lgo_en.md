@@ -52,5 +52,5 @@ One more detail: in Antigravity, Opus wrote longer games for Korean and Ukrainia
 
 ## Data
 
-- Full data, per-run CSV and method (CC BY 4.0): https://tokensave.app/data/output-tokens-per-character-by-model
+- Full data, per-run CSV and method (CC BY 4.0, DOI 10.5281/zenodo.23585139): https://tokensave.app/data/output-tokens-per-character-by-model
 - Yesterday's three-way comparison: https://tokensave.app/data/antigravity-cli-vs-claude-code-vs-codex

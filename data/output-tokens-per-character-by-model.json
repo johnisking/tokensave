@@ -2,7 +2,7 @@
  "title": "Same code, about 60% more output tokens: Claude vs GPT vs Gemini in four coding tools and five languages",
  "url": "https://tokensave.app/data/output-tokens-per-character-by-model",
  "license": "CC BY 4.0",
- "citation": "TokenSave (2026). Same code, about 60% more output tokens: Claude vs GPT vs Gemini in four coding tools and five languages [Data set]. https://tokensave.app/data/output-tokens-per-character-by-model",
+ "citation": "TokenSave (2026). Same code, about 60% more output tokens: Claude vs GPT vs Gemini in four coding tools and five languages [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23585139",
  "measured": "2026-10-18 to 2026-10-23",
  "setup": "Windows 11; Claude Code 2.1.295 (Opus 5.5, effort medium); Codex CLI 0.162 (gpt-6-luna, medium); Antigravity CLI 1.4.5 (gemini-4-argon-medium, claude-opus-5-5-medium)",
  "note": "output_tokens_per_1000_chars = output tokens reported by the tool / characters of the index.html it wrote x 1000. Output tokens include the short final reply and any tool-call wrapping. Claude Code and Codex rows are the runs of our dataset 'ai-coding-prompt-language' (same versions); Antigravity English rows are from 'antigravity-cli-vs-claude-code-vs-codex'.",
