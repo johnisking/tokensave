@@ -381,5 +381,80 @@
    "removed": 1
   },
   "cases": "6/7 YYYYYYn"
+ },
+ "geminifull_t6t1_r1": {
+  "build": true,
+  "solved": true,
+  "regressions": [],
+  "points": 1,
+  "diff": {
+   "files": 1,
+   "added": 1,
+   "removed": 1
+  },
+  "cases": "6/6 YYYYYY"
+ },
+ "geminifull_t6t2_r1": {
+  "build": true,
+  "solved": true,
+  "regressions": [],
+  "points": 1,
+  "diff": {
+   "files": 1,
+   "added": 3,
+   "removed": 2
+  },
+  "cases": "6/7 YYYnYYY"
+ },
+ "geminifull_t6t1_r2": {
+  "build": true,
+  "solved": true,
+  "regressions": [],
+  "points": 1,
+  "diff": {
+   "files": 1,
+   "added": 1,
+   "removed": 1
+  },
+  "cases": "6/6 YYYYYY"
+ },
+ "geminifull_t6t2_r2": {
+  "build": true,
+  "solved": true,
+  "regressions": [],
+  "points": 1,
+  "diff": {
+   "files": 1,
+   "added": 3,
+   "removed": 2
+  },
+  "cases": "6/7 YYYnYYY"
+ },
+ "geminifull_t6t3_r1": {
+  "build": true,
+  "solved": false,
+  "regressions": [],
+  "points": 0,
+  "diff": {
+   "files": 0,
+   "added": 0,
+   "removed": 0
+  },
+  "cases": "3/7 nnnYYYn",
+  "note": "Full permissions (owner ran it); hit the 30-minute print timeout with no edit (7.5M cache-read tokens)."
+ },
+ "geminifull_t6t3_r2": {
+  "build": true,
+  "solved": false,
+  "regressions": [],
+  "points": 0,
+  "diff": {
+   "files": 0,
+   "added": 0,
+   "removed": 0
+  },
+  "cases": "3/7 nnnYYYn",
+  "note": "Excluded: Antigravity quota ran out after 637 s (429 RESOURCE_EXHAUSTED, resets in about 6 days); no edit.",
+  "excluded": true
  }
 }
