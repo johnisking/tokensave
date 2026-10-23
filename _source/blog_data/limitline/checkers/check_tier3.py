@@ -99,8 +99,8 @@ def check(pw, root):
             opts = p.evaluate("[...document.querySelector('#filter').options].map(o => [o.value, o.text])")
             food = next(v for v, t in opts if 'Food' in (v + t))
             p.select_option('#filter', food); p.wait_for_timeout(200); r = rows(p)
-            ok = len(r) >= 1 and all('Groceries' in x for x in r) and any(re.fullmatch(r'\s*all\s*', t, re.I) for _, t in opts)
-            allv = next(v for v, t in opts if re.fullmatch(r'\s*all\s*', t, re.I))
+            ok = len(r) >= 1 and all('Groceries' in x for x in r) and any(re.fullmatch(r'\s*all\b.*', t, re.I) or v.strip().lower() == 'all' for v, t in opts)
+            allv = next(v for v, t in opts if re.fullmatch(r'\s*all\b.*', t, re.I) or v.strip().lower() == 'all')
             p.select_option('#filter', allv); p.wait_for_timeout(200)
             res['filter'] = ok and len(rows(p)) >= 2
         except Exception as e:
