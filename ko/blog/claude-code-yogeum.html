@@ -106,7 +106,7 @@
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">클로드 코드 요금 2026: 월 $20·$100·$200, API 비교</h1>
         <p class="mt-2 text-xs text-zinc-500"><a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a> · 2026년 10월 2일 (2026년 10월 12일 업데이트)</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="클로드 코드 요금 2026: 월 $20·$100·$200, API 비교" src="/claude-code-yogeum-ko.jpg" /></p>
-<p><strong>클로드 코드 요금 한 줄 정리:</strong> 클로드 코드(Claude Code)는 클로드 유료 요금제에 모두 포함되어 있습니다. <strong>프로(Pro) 월 $20</strong>(연간 결제 시 월 $17), <strong>Max 5x 월 $100</strong>, <strong>Max 20x 월 $200</strong>입니다. 요금제 없이 API 종량제로 쓴 토큰만큼 낼 수도 있는데, 우리 실측에서 작은 작업 하나가 <strong>소넷 5.5로 $0.25, 오퍼스 5.5로 $0.56~0.75</strong>였습니다. 무료 요금제에는 클로드 코드가 없습니다. 아래 가격은 모두 Anthropic 공식 가격 페이지 기준이며, 2026년 10월 12일에 확인했습니다.</p>
+<p><strong>클로드 코드 요금 한 줄 정리:</strong> 클로드 코드(Claude Code)는 클로드 유료 요금제에 모두 포함되어 있습니다. <strong>프로(Pro) 월 $20</strong>(연간 결제 시 월 $17), <strong>Max 5x 월 $100</strong>, <strong>Max 20x 월 $200</strong>입니다. 요금제 없이 API 종량제로 쓴 토큰만큼 낼 수도 있는데, 우리 실측에서 작은 작업 하나가 <strong>소넷 5.5로 $0.10~0.12, 오퍼스 5.5로 $0.26~0.35</strong>였습니다(Claude Code 2.1.295, 3회 평균). 무료 요금제에는 클로드 코드가 없습니다. 아래 가격은 모두 Anthropic 공식 가격 페이지 기준이며, 2026년 10월 12일에 확인했습니다.</p>
 <p>Anthropic은 원화 가격표를 따로 내놓지 않았습니다. 1달러=1,340원으로 가정한 우리 계산으로는 프로 $20이 약 2만 7천원, Max 5x $100이 약 13만 4천원, Max 20x $200이 약 26만 8천원입니다. 세금 전 대략적인 금액이고, 실제 청구액은 카드사 환율과 해외 결제 수수료에 따라 달라집니다.</p>
 <p>어느 방식이 가장 싼지는 얼마나 쓰느냐에 달려 있습니다. 이 글에서는 클로드 코드 요금제별로 무엇이 들어 있는지, API로 작업 하나에 실제로 얼마가 드는지(직접 측정), 사용량 네 단계별 한 달 비용, 그리고 구독이 토큰 종량제보다 싸지는 지점을 차례로 정리합니다.</p>
 <p class="not-prose my-5"><a href="/ko/agents" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 코딩 에이전트 비용 계산기 열기 →</a></p>
@@ -256,6 +256,9 @@
 </tr>
 </tbody>
 </table></div>
+<blockquote>
+<p><strong>업데이트 (2026년 10월 23일):</strong> Claude Code 2.1.295에서 MCP 서버 없이 3번씩 다시 재 보니 같은 작업이 평균 $0.10(소넷 5.5 medium), $0.12(소넷 high), $0.26(오퍼스 5.5 medium), $0.35(오퍼스 high)로, 이 표의 10월 9일 값보다 53~61% 쌌습니다. <a href="/data/claude-effort-cost">effort 데이터셋</a> 참고.</p>
+</blockquote>
 <ul>
 <li><strong>네 번 모두 제대로 돌아가는 게임이 나왔습니다.</strong> effort를 올리거나 오퍼스를 쓰면 완성도가 올라갔을 뿐, 되고 안 되고의 차이는 아니었습니다.</li>
 <li><strong>비용의 63~81%는 캐시 쓰기였습니다.</strong> 게임 코드 자체(출력)는 17~33%였습니다. 캐시 읽기는 토큰 수로는 가장 많았지만 비용으로는 2~4%에 그쳤습니다.</li>

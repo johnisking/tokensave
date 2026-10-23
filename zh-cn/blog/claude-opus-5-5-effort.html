@@ -102,6 +102,9 @@
         <p class="mt-2 text-xs text-zinc-500"><a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a> · 2026 年 10 月 9 日</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="Claude Opus 5.5 effort 实测：从 low 到 max" src="/claude-opus-5-5-effort-zh-cn.jpg" /></p>
 <p><strong>Claude Opus 5.5</strong> 有一个控制思考深度的 <strong>effort</strong> 设置，共五个等级：low、medium、high、xhigh 和 max。等级越高，结果理应越好，但官方文档并没有给出每提高一级要多花多少时间和费用。于是我们在 2026 年 10 月 9 日用同一个做游戏的请求，在每个等级各跑了一次，对比耗时、token、费用和成品。最快的等级只用了 32 秒，最慢的用了 22 分钟。下面逐级看看发生了什么变化、什么任务该用哪个等级，并附上实际使用体验。</p>
+<blockquote>
+<p><strong>更新（2026年10月23日）：</strong> 我们在 Claude Code 2.1.295 上、不加 MCP 服务器，把每个等级各重测了 3 次，同一任务的费用大幅下降：Opus 5.5 在 low 为 $0.17、medium $0.26、high $0.35、xhigh $0.82、max $5.33；Sonnet 5.5 在 medium 为 $0.10、high $0.12。21 个游戏全部正常运行。各等级的顺序和从 xhigh 开始的跳涨没有变化。下文是 10 月 9 日在较早版本上各测 1 次的结果。完整数据：<a href="/data/claude-effort-cost">Claude effort 数据集</a></p>
+</blockquote>
 <p class="not-prose my-5"><a href="/zh-cn/agents" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 打开编程智能体费用计算器 →</a></p>
 <h2>effort 是什么</h2>
 <ul>

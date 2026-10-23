@@ -106,6 +106,9 @@
         <p class="mt-2 text-xs text-zinc-500"><a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a> · 2026年10月10日</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="Claude Sonnet 5.5 vs Opus 5.5：同じ依頼で実測比較" src="/claude-sonnet-5-5-vs-opus-5-5-ja.jpg" /></p>
 <p>Claude <strong>Sonnet 5.5</strong> は、Opus 5.5 よりトークン単価が50%安いモデルです。単価が安いぶん、出来も落ちるのでしょうか。2026年10月9日、<a href="/ja/blog/claude-opus-5-5-effort">Opus 5.5 の effort 実測</a> とまったく同じブロック崩しの依頼を Sonnet 5.5 に medium と high で1回ずつ実行し、<strong>Opus 5.5</strong> と時間・トークン・費用・出来上がったものを1対1で比べました。最も安い組み合わせは37秒で $0.25、最も高い組み合わせは1分50秒で $0.75 でした。4つのゲームを実際に遊んだ感想と、普段2つのモデルを使ってきた経験もあわせてまとめました。</p>
+<blockquote>
+<p><strong>更新（2026年10月23日）：</strong> Claude Code 2.1.295 で各レベル3回ずつ測り直すと、同じタスクは Sonnet 5.5 が medium $0.10・high $0.12、Opus 5.5 が $0.26・$0.35 で、Sonnet は引き続き62%・67%安くなりました。ゲーム12本はすべて動作しました。以下の本文は10月9日に以前のバージョンで1回ずつ測った結果です。全データ：<a href="/data/claude-effort-cost">Claude effort データセット</a></p>
+</blockquote>
 <p class="not-prose my-5"><a href="/ja/agents" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 コーディングエージェント費用計算機を開く →</a></p>
 <h2>Sonnet 5.5 と Opus 5.5 の料金</h2>
 <p>Anthropic 公式の料金ページによる、100万トークンあたりの料金です。</p>
