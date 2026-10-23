@@ -45,7 +45,8 @@ def serve(root):
 
 def rows(p):
     return p.evaluate("""() => { const l = document.querySelector('#list'); if (!l) return [];
-      return [...l.querySelectorAll('tr, li, [data-id], .row')].filter(r => r.offsetParent !== null && !r.querySelector('th') && r.innerText.trim()).map(r => r.innerText.trim()); }""")
+      let rs = [...l.querySelectorAll('tr')]; if (!rs.length) rs = [...l.querySelectorAll('li')]; if (!rs.length) rs = [...l.querySelectorAll('.row, [data-id]')].filter(x => x.tagName !== 'BUTTON');
+      return rs.filter(r => r.offsetParent !== null && !r.querySelector('th') && r.innerText.trim()).map(r => r.innerText.trim()); }""")
 
 
 def fill_tx(p, date, desc, amount, cat):
@@ -88,7 +89,7 @@ def check(pw, root):
         try:
             fill_tx(p, '2026-10-07', 'Cinema', -30, 'Fun')
             n0 = len(rows(p))
-            p.evaluate("""() => { const r = [...document.querySelectorAll('#list .delete')].find(b => (b.closest('tr, li, [data-id], .row') || b.parentElement).innerText.includes('Cinema')); r && r.click(); }""")
+            p.evaluate("""() => { const r = [...document.querySelectorAll('#list .delete')].find(b => (b.closest('tr') || b.closest('li') || b.closest('.row') || (b.parentElement && b.parentElement.closest('[data-id]')) || b.parentElement).innerText.includes('Cinema')); r && r.click(); }""")
             p.wait_for_timeout(200)
             r = rows(p)
             res['delete'] = len(r) == n0 - 1 and not any('Cinema' in x for x in r) and balance(p) == '749.50'
