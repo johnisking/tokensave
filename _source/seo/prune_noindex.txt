@@ -249,3 +249,10 @@
 /th/
 /ur/
 /vi/
+# 2026-10-23: ko/ja secondary tool pages (0 clicks, under 10 impressions 9/1 to 10/13)
+/ja/video
+/ja/image
+/ja/plans
+/ko/video
+/ko/image
+/ko/plans
