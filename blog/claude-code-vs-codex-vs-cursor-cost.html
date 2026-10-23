@@ -41,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=b5566536" />
+  <link rel="stylesheet" href="/styles.css?v=df71e7f2" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
@@ -104,10 +104,9 @@
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">Claude Code vs Codex vs Cursor: Cost and a Real Test (2026)</h1>
         <p class="mt-2 text-xs text-zinc-500"><a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a> · October 6, 2026 · Updated October 12, 2026</p>
   <p><img fetchpriority="high" width="1200" height="630" alt="Claude Code vs Codex vs Cursor: Cost and a Real Test (2026)" src="/claude-code-vs-codex-vs-cursor-cost-en.jpg" /></p>
-<p>Claude Code, OpenAI's Codex and Cursor all sell a $20 plan and a $200 plan, so on the pricing page they look interchangeable. They are not. Claude Code and Codex give you a usage allowance that refills on a schedule, while Cursor bills model usage at API prices from a monthly pool. Their free options differ too, and so does how much work each one gets out of a task. This comparison covers the plans, how each tool counts usage, what independent benchmarks show, and what happened when we gave all three the same prompt.</p>
+<p>Claude Code, OpenAI's Codex and Cursor all sell plans up to $200 a month, so on the pricing page they look interchangeable. They are not. Claude Code and Codex give you a usage allowance that refills on a schedule. Cursor, sold as part of The X Subscription since mid-October 2026, includes a weekly pool for its own Grok and Composer models only and charges Claude, GPT and Gemini separately at API prices. Their free options differ too, and so does how much work each one gets out of a task. This comparison covers the plans, how each tool counts usage, what independent benchmarks show, and what happened when we gave all three the same prompt.</p>
 <p class="not-prose my-5"><a href="/agents" class="inline-block rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 no-underline" style="text-decoration:none">🧮 Open the agent cost calculator →</a></p>
 <h2>Claude Code vs Codex vs Cursor at a glance</h2>
-<p><img loading="lazy" width="1200" height="988" alt="Claude Code vs Codex vs Cursor at a glance: Claude Code, Codex, Cursor" src="/claude-code-vs-codex-vs-cursor-cost-claude-code-vs-codex-vs-cursor-at-a-glan-en.jpg" /></p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -140,32 +139,31 @@
 <td>Free option</td>
 <td>No (Claude Free has no Claude Code)</td>
 <td>Yes, GPT-6 Luna</td>
-<td>Yes, Hobby plan</td>
+<td>Yes, Free plan (Cursor's own models)</td>
 </tr>
 <tr>
 <td>Entry paid plan</td>
 <td>Claude Pro $20</td>
 <td>ChatGPT Plus $20</td>
-<td>Pro $20</td>
+<td>Plus $8 (Grok and Composer only)</td>
 </tr>
 <tr>
 <td>How usage is counted</td>
 <td>5-hour and weekly limits</td>
 <td>5-hour and weekly limits on Plus; weekly on Pro</td>
-<td>Monthly usage pools at API prices</td>
+<td>Weekly pool for Cursor models; other models at API prices</td>
 </tr>
 <tr>
 <td>Shares usage with</td>
 <td>The Claude app</td>
 <td>ChatGPT Work and other agent features</td>
-<td>Nothing else</td>
+<td>The Grok apps and Grok Bot</td>
 </tr>
 </tbody>
 </table></div>
 <p>The biggest structural difference is lock-in. Claude Code and Codex each run their own company's models, while Cursor lets you switch between providers in one editor and pays each model's list price.</p>
 <h2>The plans and prices (2026)</h2>
-<p><img loading="lazy" width="1200" height="860" alt="The plans and prices (2026): Price, Claude Code (Anthropic), Codex (OpenAI), Cursor" src="/claude-code-vs-codex-vs-cursor-cost-the-plans-and-prices-2026-en.jpg" /></p>
-<p>US monthly prices, checked October 11, 2026:</p>
+<p>US monthly prices, checked October 11, 2026 (Cursor rechecked October 23 after its plans changed):</p>
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
@@ -180,31 +178,31 @@
 <td>Free</td>
 <td>–</td>
 <td>ChatGPT Free (GPT-6 Luna)</td>
-<td>Hobby (limited Agent requests)</td>
+<td>Free (limited usage)</td>
 </tr>
 <tr>
 <td>$8</td>
 <td>–</td>
 <td>ChatGPT Go (GPT-6 Luna)</td>
-<td>–</td>
+<td>Plus (Grok and Composer only)</td>
 </tr>
 <tr>
 <td>$20</td>
 <td>Claude Pro</td>
 <td>ChatGPT Plus</td>
-<td>Pro</td>
+<td>–</td>
 </tr>
 <tr>
-<td>$60</td>
+<td>$30</td>
 <td>–</td>
 <td>–</td>
-<td>Pro+</td>
+<td>Premium</td>
 </tr>
 <tr>
 <td>$100</td>
 <td>Max 5x</td>
 <td>Pro 100</td>
-<td>–</td>
+<td>Super</td>
 </tr>
 <tr>
 <td>$200</td>
@@ -223,8 +221,8 @@
 <ul>
 <li><strong>Claude's Max plans are named after their usage.</strong> Max 5x gives 500% of Pro's usage and Max 20x gives 2,000%, per Anthropic's pricing page.</li>
 <li><strong>ChatGPT's Pro multiples are reported, not official.</strong> OpenAI's help center only says each Pro tier includes more usage than the one below. Press reports and an OpenAI staff post on X put Pro 100, 200 and 500 at about 500%, 1,000% and 2,500% of Plus. New Pro 200 subscribers since September 29, 2026 get the smaller allowance.</li>
-<li><strong>Cursor doesn't publish the dollar size of each plan's pool.</strong> Its guide says daily Agent users typically spend $60 to $100 a month in total, and power users running several agents often pass $200. See <a href="/blog/cursor-pricing">Cursor pricing</a>.</li>
-<li><strong>Codex has the only free option that runs a real agent on its own models.</strong> Claude's free plan doesn't include Claude Code, and Cursor's free plan picks the model for you.</li>
+<li><strong>Cursor's plans no longer include Claude or GPT.</strong> Premium, Super and Ultra give 400%, 1,500% and 5,000% of Plus's usage for Cursor's own models, and third-party models are paid from prepaid credit at API list price. Cursor doesn't publish the dollar size of the pool. See <a href="/blog/cursor-pricing">Cursor pricing</a>.</li>
+<li><strong>Codex has the only free option that runs a real agent on its own models.</strong> Claude's free plan doesn't include Claude Code, and Cursor's free plan covers only its own models.</li>
 </ul>
 <p>Full details for each tool: <a href="/blog/claude-code-cost-per-month">Claude Code pricing</a>, <a href="/blog/codex-pricing">Codex pricing</a> and <a href="/blog/cursor-pricing">Cursor pricing</a>.</p>
 <h2>How each one counts usage</h2>
@@ -233,12 +231,12 @@
 <h3>Codex: 5-hour and weekly limits, a monthly meter on Free</h3>
 <p>On Plus and Business, Codex has a rolling 5-hour window, and weekly limits may also apply. Pro plans currently have no 5-hour window, only a weekly allowance. OpenAI publishes ranges per model for Plus: about 5 to 45 local messages per 5 hours on GPT-6 Astra and 350 to 3,000 on GPT-6 Luna. Since April 2, 2026, usage is metered in credits based on API token prices.</p>
 <p>On our free account, Codex showed neither a 5-hour nor a weekly meter. It showed one usage bar, labeled one month, with a reset date a month out. More: <a href="/blog/codex-usage-limits">Codex usage limits</a>.</p>
-<h3>Cursor: monthly pools at API prices</h3>
-<p>Cursor splits paid usage into two monthly pools. Cursor's own models (Grok 4.7, 4.6, 4.5 and Composer 2.5) have a larger included pool; Claude, GPT, Gemini and the rest are charged at each model's API price from a separate pool. When you run out, you can turn on on-demand usage at the same rates or upgrade.</p>
+<h3>Cursor: a weekly pool for its own models, API prices for the rest</h3>
+<p>Since mid-October 2026, each paid Cursor plan includes one weekly pool for Cursor's own models (Grok 4.7, 4.6, 4.5 and Composer 2.5), shared with the Grok apps. Claude, GPT, Gemini and the rest are not included: on Premium and above they are charged at each model's API list price from the first request, paid from prepaid credit. When the pool runs out, you wait for the weekly reset, pay from credit or upgrade. Existing Pro and Pro+ subscribers stay on the older monthly pools.</p>
 <ul>
 <li><strong>Claude Code and Codex hide the price per task.</strong> You see a percentage of your allowance, not dollars.</li>
-<li><strong>Cursor shows the price per task, but not the size of the pool.</strong> A task that would cost $0.50 on the API uses about $0.50 of your usage.</li>
-<li><strong>Running out works differently.</strong> On Claude Code and Codex you wait for the reset or buy extra usage; on Cursor you pay overage or upgrade.</li>
+<li><strong>Cursor shows the price per task, but not the size of the pool.</strong> A Claude task that would cost $0.50 on the API costs $0.50 of your prepaid credit.</li>
+<li><strong>Running out works differently.</strong> On Claude Code and Codex you wait for the reset or buy extra usage; on Cursor you pay from prepaid credit or upgrade.</li>
 </ul>
 <h2>Same prompt, three tools: our test</h2>
 <p>Plans and benchmarks only go so far, so we gave each tool the same task between October 9 and 11, 2026. The prompt, word for word:</p>
@@ -385,7 +383,7 @@
 <ul>
 <li><strong>Claude Max 20x</strong> gives 2,000% of Pro's usage for 1,000% of Pro's price, so each unit of usage costs 50% less than on Pro. FinOps LLM, which logged one heavy user's Claude Code sessions, measured about 1.9 billion tokens in a Max 20x week, almost all of it cache reads. See <a href="/blog/claude-pro-max-how-many-tokens">how many tokens you get with Claude Pro and Max</a>.</li>
 <li><strong>ChatGPT Pro 200</strong> is reported at 1,000% of Plus usage for 1,000% of the price: no bulk discount, but no 5-hour window and all of ChatGPT's Pro features.</li>
-<li><strong>Cursor Ultra</strong> includes a larger usage pool and works with every model, but Cursor doesn't publish the pool's dollar size, and its own guide says power users often spend more than $200.</li>
+<li><strong>Cursor Ultra</strong> gives 5,000% of Plus's usage for Grok and Composer, but Claude and GPT are paid on top at API prices, and Cursor doesn't publish the pool's dollar size.</li>
 </ul>
 <p>If you use one agent all day, the flat allowances from Anthropic and OpenAI usually go further than paying API prices, because they aren't tied to per-token rates. Cursor wins on flexibility (any model in one editor) and on seeing the cost of each task.</p>
 <h2>What a month costs on the API, for reference</h2>
@@ -426,7 +424,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>On Cursor, the API column is roughly what you would draw from your pool when using Claude models. On Codex, GPT-6.1 Sol's API prices are the same as Sonnet 5.5's ($2 input and $10 output per million tokens), and GPT-6 Luna's are 95% lower, so a similar workload on Luna would cost far less.</p>
+<p>On Cursor, the API column is roughly what you would pay from prepaid credit, on top of the plan, when using Claude models. On Codex, GPT-6.1 Sol's API prices are the same as Sonnet 5.5's ($2 input and $10 output per million tokens), and GPT-6 Luna's are 95% lower, so a similar workload on Luna would cost far less.</p>
 <h2>My own setup</h2>
 <p>I use Claude on the Max 5x plan every day. On Opus 5 I used to run out of my limit; since Opus 5.5 I haven't hit it, though one week recently reached 93%. On the OpenAI side I'm on the free plan, which is where the Codex runs above were done. Cursor was new to me; I installed it for the test above.</p>
 <h2>Claude Code or Codex: which should you pick?</h2>
@@ -434,16 +432,16 @@
 <li><strong>You want to try an AI coding agent without paying:</strong> Codex on ChatGPT Free. In our test it built a complete game for a sliver of its monthly allowance.</li>
 <li><strong>You want the highest scores on hard tasks and can pay for it:</strong> Claude Code. It led the Artificial Analysis index at max effort, and Max 5x or Max 20x makes heavy use affordable compared with API prices.</li>
 <li><strong>You want the most work per dollar on long tasks:</strong> Codex. In the same index it used 88% fewer tokens per task than Claude Code at their top settings.</li>
-<li><strong>You want to switch between Claude, GPT and others in one editor:</strong> Cursor. Start on Pro and move up only if you keep running past the included usage.</li>
+<li><strong>You want to switch between Claude, GPT and others in one editor:</strong> Cursor. Expect to pay for Claude and GPT on top of the plan; Plus at $8 is enough if Grok and Composer will do.</li>
 <li><strong>You code with AI a few times a week:</strong> any $20 plan, or an API key. At light use the API can cost less than $20 a month.</li>
 <li><strong>You keep hitting limits:</strong> move up one tier before adding a second subscription.</li>
 </ul>
 <h2>Verdict</h2>
 <ul>
-<li><strong>All three cost $20 to start, but only Codex and Cursor have a real free tier,</strong> and Codex's went much further in our test.</li>
+<li><strong>Only Codex and Cursor have a real free tier,</strong> and Codex's went much further in our test.</li>
 <li><strong>Claude Code does more per task at high effort,</strong> scoring highest in independent benchmarks, and uses far more tokens to do it.</li>
 <li><strong>Codex is the lean option,</strong> cheaper per task and faster on long jobs, with a weekly-only limit on Pro.</li>
-<li><strong>Cursor is the flexible option,</strong> with every major model in one editor and per-task costs at API prices.</li>
+<li><strong>Cursor is the flexible option,</strong> with every major model in one editor, but Claude and GPT now cost API prices on top of the plan.</li>
 <li><strong>For heavy daily use, a $100 or $200 flat plan from Anthropic or OpenAI is usually the cheapest way to buy agent time.</strong></li>
 </ul>
 <h2>FAQ</h2>
@@ -500,6 +498,6 @@ Yes. Claude Code shares its allowance with the Claude app, and Codex shares one 
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=b5566536"></script>
+  <script type="module" src="/common.js?v=df71e7f2"></script>
 </body>
 </html>

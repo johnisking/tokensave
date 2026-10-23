@@ -539,6 +539,10 @@
     <lastmod>2026-10-21</lastmod>
   </url>
   <url>
+    <loc>https://tokensave.app/press</loc>
+    <lastmod>2026-10-02</lastmod>
+  </url>
+  <url>
     <loc>https://tokensave.app/languages</loc>
     <lastmod>2026-10-09</lastmod>
   </url>
@@ -556,7 +560,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/blog/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/tokens-to-words</loc>
@@ -568,51 +572,51 @@
   </url>
   <url>
     <loc>https://tokensave.app/data/language-tax-index</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/token-cost-by-language</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/token-cost-by-language-claude-gemini</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/token-cost-by-format</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/image-token-cost</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/token-cost-by-programming-language</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/pdf-token-cost</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/claude-code-vs-codex-tokens</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/ai-agent-web-search-tokens</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/claude-web-search-by-language</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/claude-md-agents-md-size</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/ai-coding-prompt-language</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/output-tokens-per-character-by-model</loc>
@@ -624,43 +628,43 @@
   </url>
   <url>
     <loc>https://tokensave.app/data/blender-mcp-token-cost</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/browser-mcp-token-cost</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/claude-code-baseline-tokens-by-version</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/text-as-image-token-cost</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/ai-coffee-break-cache-cost</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/vibe-coding-by-claude-model</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/long-chat-vs-new-chat-cost</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/ai-politeness-token-cost</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/claude-code-harness-cost</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/claude-effort-cost</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/cs/blog/cestina-tokeny-gpt</loc>
@@ -1918,18 +1922,12 @@
   </url>
   <url>
     <loc>https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-vs-codex"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost"/>
     <image:image>
       <image:loc>https://tokensave.app/claude-code-vs-codex-vs-cursor-cost-en.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://tokensave.app/claude-code-vs-codex-vs-cursor-cost-claude-code-vs-codex-vs-cursor-at-a-glan-en.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://tokensave.app/claude-code-vs-codex-vs-cursor-cost-the-plans-and-prices-2026-en.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/claude-code-vs-codex-vs-cursor-cost-same-prompt-en.jpg</image:loc>
@@ -1940,7 +1938,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/claude-code-vs-codex</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-vs-codex"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost"/>
@@ -2409,7 +2407,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/blog/muse-spark-1-3-api-pricing</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/muse-spark-1-3-api-pricing"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/muse-spark-1-3-api-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/muse-spark-1-3-api-ryoukin"/>
@@ -2432,7 +2430,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/muse-spark-1-3-api-gagyeok</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/muse-spark-1-3-api-pricing"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/muse-spark-1-3-api-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/muse-spark-1-3-api-ryoukin"/>
@@ -2455,7 +2453,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/muse-spark-1-3-api-ryoukin</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/muse-spark-1-3-api-pricing"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/muse-spark-1-3-api-gagyeok"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/muse-spark-1-3-api-ryoukin"/>
@@ -2918,7 +2916,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/blog/cursor-pricing</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/cursor-pricing"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/cursor-pricing"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/cursor-ryoukin"/>
@@ -2927,24 +2925,15 @@
       <image:loc>https://tokensave.app/cursor-pricing-en.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/cursor-pricing-cursor-pricing-plans-2026-en.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://tokensave.app/cursor-pricing-en-7.jpg</image:loc>
-    </image:image>
-    <image:image>
       <image:loc>https://tokensave.app/cursor-pricing-en-6.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/cursor-pricing-en-5.jpg</image:loc>
     </image:image>
-    <image:image>
-      <image:loc>https://tokensave.app/cursor-pricing-which-cursor-plan-should-you-pick-en.jpg</image:loc>
-    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/cursor-pricing</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/cursor-pricing"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/cursor-pricing"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/cursor-ryoukin"/>
@@ -2953,33 +2942,21 @@
       <image:loc>https://tokensave.app/cursor-pricing-ko.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://tokensave.app/cursor-pricing-ko-2.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://tokensave.app/cursor-pricing-ko-7.jpg</image:loc>
-    </image:image>
-    <image:image>
       <image:loc>https://tokensave.app/cursor-pricing-ko-6.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/cursor-pricing-ko-5.jpg</image:loc>
     </image:image>
-    <image:image>
-      <image:loc>https://tokensave.app/cursor-pricing-ko-3.jpg</image:loc>
-    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/cursor-ryoukin</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/cursor-pricing"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/cursor-pricing"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/cursor-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/cursor-pricing"/>
     <image:image>
       <image:loc>https://tokensave.app/cursor-ryoukin-ja.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://tokensave.app/cursor-ryoukin-cursor-2026-ja.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/cursor-ryoukin-ja-6.jpg</image:loc>
@@ -3049,7 +3026,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/blog/github-copilot-pricing</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/github-copilot-pricing"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/github-copilot-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/github-copilot-pricing"/>
@@ -3068,7 +3045,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/github-copilot-ryoukin</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/github-copilot-pricing"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/github-copilot-ryoukin"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/github-copilot-pricing"/>
@@ -3186,7 +3163,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/blog/claude-pro-price</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-pro-price"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-ryoukin-plan"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-yogeumje"/>
@@ -3206,7 +3183,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/claude-ryoukin-plan</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-pro-price"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-ryoukin-plan"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-yogeumje"/>
@@ -3226,7 +3203,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/claude-yogeumje</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-pro-price"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-ryoukin-plan"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-yogeumje"/>
@@ -3920,7 +3897,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ai-game-cost-calculator</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
@@ -3932,7 +3909,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/ai-game-cost-calculator</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
@@ -3944,7 +3921,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ja/ai-game-cost-calculator</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
@@ -3956,7 +3933,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/zh-cn/ai-game-cost-calculator</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
@@ -3968,7 +3945,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/es/ai-game-cost-calculator</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
@@ -3980,7 +3957,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/pt/ai-game-cost-calculator</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
@@ -3992,7 +3969,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/tr/ai-game-cost-calculator</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
@@ -4004,7 +3981,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/claude-code-usage</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/claude-code-usage"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/claude-code-usage"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/claude-code-usage"/>
@@ -4013,7 +3990,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/claude-code-usage</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/claude-code-usage"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/claude-code-usage"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/claude-code-usage"/>
@@ -4022,7 +3999,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ja/claude-code-usage</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/claude-code-usage"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/claude-code-usage"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/claude-code-usage"/>
@@ -4031,7 +4008,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/tr/claude-code-usage</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/claude-code-usage"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/claude-code-usage"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/claude-code-usage"/>
@@ -4040,11 +4017,11 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/</loc>
