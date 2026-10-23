@@ -1,0 +1,6 @@
+Reading additional input from stdin...
+{"type":"thread.started","thread_id":"01a169a1-006a-7d53-8b2b-b5486e741b7e"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"I’ll open the page in the in-app browser, inspect its accessibility snapshot, and answer from the displayed content."}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"I can’t take the requested accessibility snapshot because browser tools aren’t available in this session."}}
+{"type":"turn.completed","usage":{"input_tokens":51661,"cached_input_tokens":38656,"cache_write_input_tokens":0,"output_tokens":201,"reasoning_output_tokens":96}}

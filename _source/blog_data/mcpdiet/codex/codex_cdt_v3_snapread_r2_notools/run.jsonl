@@ -1,0 +1,6 @@
+Reading additional input from stdin...
+{"type":"thread.started","thread_id":"01a169a3-c67c-71b1-b1fb-62f804f840fd"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"I’ll use the browser controls to open the page and inspect its accessibility snapshot."}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"I can’t inspect the page: browser tools aren’t available in this session."}}
+{"type":"turn.completed","usage":{"input_tokens":52854,"cached_input_tokens":39552,"cache_write_input_tokens":0,"output_tokens":243,"reasoning_output_tokens":147}}

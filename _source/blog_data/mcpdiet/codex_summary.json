@@ -1,0 +1,734 @@
+{
+ "codex_cdt_base_hnsnap_r1": {
+  "srv": "cdt",
+  "mode": "base",
+  "task": "hnsnap",
+  "run": "r1",
+  "input_tokens": 139471,
+  "cached_input_tokens": 115072,
+  "output_tokens": 394,
+  "reasoning_output_tokens": 73,
+  "seconds": 15,
+  "tools": {
+   "new_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 27017,
+  "result_chars": 27098,
+  "correct": true,
+  "answer": "Top 5 stories on Hacker News at the time of the accessibility snapshot:\n\n1. “Today, we hacked what we'd set out to hack: the iPhone.” — **134 points**\n2. “OpenSSL 4.1.0” — **152 points**\n3. “Local Wik"
+ },
+ "codex_cdt_base_hnsnap_r2": {
+  "srv": "cdt",
+  "mode": "base",
+  "task": "hnsnap",
+  "run": "r2",
+  "input_tokens": 165165,
+  "cached_input_tokens": 138880,
+  "output_tokens": 414,
+  "reasoning_output_tokens": 57,
+  "seconds": 15,
+  "tools": {
+   "list_pages": 1,
+   "navigate_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 27129,
+  "result_chars": 27286,
+  "correct": true,
+  "answer": "Top 5 stories from the accessibility snapshot:\n\n1. “Today, we hacked what we'd set out to hack: the iPhone.” — **101 points**\n2. “OpenSSL 4.1.0” — **148 points**\n3. “Local Wikipedia: Wikipedia, but on"
+ },
+ "codex_cdt_base_hnsnap_r3": {
+  "srv": "cdt",
+  "mode": "base",
+  "task": "hnsnap",
+  "run": "r3",
+  "input_tokens": 106652,
+  "cached_input_tokens": 85376,
+  "output_tokens": 382,
+  "reasoning_output_tokens": 84,
+  "seconds": 14,
+  "tools": {
+   "new_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 27035,
+  "result_chars": 27116,
+  "correct": true,
+  "answer": "From the page’s accessibility snapshot, the top five stories are:\n\n1. “Today, we hacked what we'd set out to hack: the iPhone.” — **123 points**\n2. “OpenSSL 4.1.0” — **151 points**\n3. “Local Wikipedia"
+ },
+ "codex_cdt_base_probe_r1": {
+  "srv": "cdt",
+  "mode": "base",
+  "task": "probe",
+  "run": "r1",
+  "input_tokens": 160203,
+  "cached_input_tokens": 138496,
+  "output_tokens": 284,
+  "reasoning_output_tokens": 53,
+  "seconds": 17,
+  "tools": {
+   "list_pages": 1,
+   "navigate_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 984980,
+  "result_chars": 985227,
+  "correct": true,
+  "answer": "done"
+ },
+ "codex_cdt_base_probe_r2": {
+  "srv": "cdt",
+  "mode": "base",
+  "task": "probe",
+  "run": "r2",
+  "input_tokens": 166503,
+  "cached_input_tokens": 141184,
+  "output_tokens": 323,
+  "reasoning_output_tokens": 68,
+  "seconds": 15,
+  "tools": {
+   "new_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 984980,
+  "result_chars": 985121,
+  "correct": true,
+  "answer": "done"
+ },
+ "codex_cdt_base_probe_r3": {
+  "srv": "cdt",
+  "mode": "base",
+  "task": "probe",
+  "run": "r3",
+  "input_tokens": 148131,
+  "cached_input_tokens": 127232,
+  "output_tokens": 337,
+  "reasoning_output_tokens": 75,
+  "seconds": 15,
+  "tools": {
+   "new_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 984980,
+  "result_chars": 985121,
+  "correct": true,
+  "answer": "done"
+ },
+ "codex_cdt_base_snapread_r1": {
+  "srv": "cdt",
+  "mode": "base",
+  "task": "snapread",
+  "run": "r1",
+  "input_tokens": 162293,
+  "cached_input_tokens": 138112,
+  "output_tokens": 438,
+  "reasoning_output_tokens": 200,
+  "seconds": 20,
+  "tools": {
+   "list_pages": 1,
+   "navigate_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 427902,
+  "result_chars": 428149,
+  "correct": true,
+  "answer": "Python was designed by Guido van Rossum and first appeared in 1991."
+ },
+ "codex_cdt_base_snapread_r2": {
+  "srv": "cdt",
+  "mode": "base",
+  "task": "snapread",
+  "run": "r2",
+  "input_tokens": 138849,
+  "cached_input_tokens": 114304,
+  "output_tokens": 322,
+  "reasoning_output_tokens": 103,
+  "seconds": 16,
+  "tools": {
+   "new_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 427902,
+  "result_chars": 428043,
+  "correct": true,
+  "answer": "Python was designed by Guido van Rossum and first appeared in 1991."
+ },
+ "codex_cdt_base_snapread_r3": {
+  "srv": "cdt",
+  "mode": "base",
+  "task": "snapread",
+  "run": "r3",
+  "input_tokens": 163050,
+  "cached_input_tokens": 138752,
+  "output_tokens": 328,
+  "reasoning_output_tokens": 83,
+  "seconds": 16,
+  "tools": {
+   "list_pages": 1,
+   "navigate_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 427902,
+  "result_chars": 428149,
+  "correct": true,
+  "answer": "Guido van Rossum designed Python; it first appeared in 1991."
+ },
+ "codex_cdt_v3_hnsnap_r1": {
+  "srv": "cdt",
+  "mode": "v3",
+  "task": "hnsnap",
+  "run": "r1",
+  "input_tokens": 185248,
+  "cached_input_tokens": 162304,
+  "output_tokens": 533,
+  "reasoning_output_tokens": 116,
+  "seconds": 17,
+  "tools": {
+   "new_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 13137,
+  "result_chars": 13218,
+  "correct": true,
+  "answer": "From the page’s accessibility snapshot, the top five stories are:\n\n1. “Today, we hacked what we'd set out to hack: the iPhone.” — **90 points**\n2. “OpenSSL 4.1.0” — **148 points**\n3. “Local Wikipedia:"
+ },
+ "codex_cdt_v3_hnsnap_r2": {
+  "srv": "cdt",
+  "mode": "v3",
+  "task": "hnsnap",
+  "run": "r2",
+  "input_tokens": 133106,
+  "cached_input_tokens": 109568,
+  "output_tokens": 349,
+  "reasoning_output_tokens": 38,
+  "seconds": 18,
+  "tools": {
+   "new_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 13127,
+  "result_chars": 13208,
+  "correct": true,
+  "answer": "From the accessibility snapshot, the top five stories are:\n\n1. “Today, we hacked what we'd set out to hack: the iPhone.” — **112 points**\n2. “OpenSSL 4.1.0” — **149 points**\n3. “Local Wikipedia: Wikip"
+ },
+ "codex_cdt_v3_hnsnap_r3": {
+  "srv": "cdt",
+  "mode": "v3",
+  "task": "hnsnap",
+  "run": "r3",
+  "input_tokens": 159608,
+  "cached_input_tokens": 138112,
+  "output_tokens": 473,
+  "reasoning_output_tokens": 107,
+  "seconds": 18,
+  "tools": {
+   "new_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 13101,
+  "result_chars": 13182,
+  "correct": true,
+  "answer": "Top 5 stories from the accessibility snapshot:\n\n1. “Today, we hacked what we'd set out to hack: the iPhone.” — **123 points**\n2. “OpenSSL 4.1.0” — **151 points**\n3. “Local Wikipedia: Wikipedia, but on"
+ },
+ "codex_cdt_v3_probe_r1": {
+  "srv": "cdt",
+  "mode": "v3",
+  "task": "probe",
+  "run": "r1",
+  "input_tokens": 167344,
+  "cached_input_tokens": 151168,
+  "output_tokens": 354,
+  "reasoning_output_tokens": 64,
+  "seconds": 17,
+  "tools": {
+   "list_pages": 1,
+   "navigate_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 2349,
+  "result_chars": 2596,
+  "correct": true,
+  "answer": "done"
+ },
+ "codex_cdt_v3_probe_r2": {
+  "srv": "cdt",
+  "mode": "v3",
+  "task": "probe",
+  "run": "r2",
+  "input_tokens": 166093,
+  "cached_input_tokens": 148352,
+  "output_tokens": 359,
+  "reasoning_output_tokens": 100,
+  "seconds": 16,
+  "tools": {
+   "new_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 2349,
+  "result_chars": 2490,
+  "correct": true,
+  "answer": "done"
+ },
+ "codex_cdt_v3_probe_r3": {
+  "srv": "cdt",
+  "mode": "v3",
+  "task": "probe",
+  "run": "r3",
+  "input_tokens": 182569,
+  "cached_input_tokens": 157696,
+  "output_tokens": 387,
+  "reasoning_output_tokens": 95,
+  "seconds": 19,
+  "tools": {
+   "list_pages": 1,
+   "navigate_page": 1,
+   "take_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 2349,
+  "result_chars": 2596,
+  "correct": true,
+  "answer": "done"
+ },
+ "codex_cdt_v3_snapread_r1": {
+  "srv": "cdt",
+  "mode": "v3",
+  "task": "snapread",
+  "run": "r1",
+  "input_tokens": 260482,
+  "cached_input_tokens": 231680,
+  "output_tokens": 492,
+  "reasoning_output_tokens": 61,
+  "seconds": 23,
+  "tools": {
+   "new_page": 1,
+   "take_snapshot": 1,
+   "snapshot_detail": 2
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 2336,
+  "result_chars": 3875,
+  "correct": true,
+  "answer": "Guido van Rossum designed Python; it first appeared in 1991."
+ },
+ "codex_cdt_v3_snapread_r2": {
+  "srv": "cdt",
+  "mode": "v3",
+  "task": "snapread",
+  "run": "r2",
+  "input_tokens": 210009,
+  "cached_input_tokens": 192896,
+  "output_tokens": 402,
+  "reasoning_output_tokens": 49,
+  "seconds": 20,
+  "tools": {
+   "new_page": 1,
+   "take_snapshot": 1,
+   "snapshot_detail": 3
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 2336,
+  "result_chars": 3153,
+  "correct": true,
+  "answer": "Guido van Rossum designed Python; it first appeared in 1991."
+ },
+ "codex_cdt_v3_snapread_r3": {
+  "srv": "cdt",
+  "mode": "v3",
+  "task": "snapread",
+  "run": "r3",
+  "input_tokens": 187363,
+  "cached_input_tokens": 154624,
+  "output_tokens": 358,
+  "reasoning_output_tokens": 89,
+  "seconds": 21,
+  "tools": {
+   "new_page": 1,
+   "take_snapshot": 1,
+   "snapshot_detail": 2
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 2336,
+  "result_chars": 3190,
+  "correct": true,
+  "answer": "Guido van Rossum designed Python; it first appeared in 1991."
+ },
+ "codex_pw_base_hnsnap_r1": {
+  "srv": "pw",
+  "mode": "base",
+  "task": "hnsnap",
+  "run": "r1",
+  "input_tokens": 118732,
+  "cached_input_tokens": 77696,
+  "output_tokens": 385,
+  "reasoning_output_tokens": 54,
+  "seconds": 15,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 47587,
+  "result_chars": 47824,
+  "correct": true,
+  "answer": "From the accessibility snapshot, the top five Hacker News stories were:\n\n1. “Today, we hacked what we'd set out to hack: the iPhone.” — **90 points**\n2. “OpenSSL 4.1.0” — **148 points**\n3. “Local Wiki"
+ },
+ "codex_pw_base_hnsnap_r2": {
+  "srv": "pw",
+  "mode": "base",
+  "task": "hnsnap",
+  "run": "r2",
+  "input_tokens": 137363,
+  "cached_input_tokens": 98560,
+  "output_tokens": 394,
+  "reasoning_output_tokens": 85,
+  "seconds": 14,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 47586,
+  "result_chars": 47823,
+  "correct": true,
+  "answer": "Top five stories from the accessibility snapshot:\n\n1. “Today, we hacked what we'd set out to hack: the iPhone.” — **101 points**\n2. “OpenSSL 4.1.0” — **148 points**\n3. “Local Wikipedia: Wikipedia, but"
+ },
+ "codex_pw_base_hnsnap_r3": {
+  "srv": "pw",
+  "mode": "base",
+  "task": "hnsnap",
+  "run": "r3",
+  "input_tokens": 144551,
+  "cached_input_tokens": 116608,
+  "output_tokens": 398,
+  "reasoning_output_tokens": 86,
+  "seconds": 16,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 47492,
+  "result_chars": 47729,
+  "correct": true,
+  "answer": "Top five stories in the accessibility snapshot:\n\n1. “Today, we hacked what we'd set out to hack: the iPhone.” — **123 points**\n2. “OpenSSL 4.1.0” — **151 points**\n3. “Local Wikipedia: Wikipedia, but o"
+ },
+ "codex_pw_base_probe_r1": {
+  "srv": "pw",
+  "mode": "base",
+  "task": "probe",
+  "run": "r1",
+  "input_tokens": 147305,
+  "cached_input_tokens": 119040,
+  "output_tokens": 271,
+  "reasoning_output_tokens": 70,
+  "seconds": 16,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 504809,
+  "result_chars": 505136,
+  "correct": true,
+  "answer": "done"
+ },
+ "codex_pw_base_probe_r2": {
+  "srv": "pw",
+  "mode": "base",
+  "task": "probe",
+  "run": "r2",
+  "input_tokens": 136645,
+  "cached_input_tokens": 113408,
+  "output_tokens": 297,
+  "reasoning_output_tokens": 76,
+  "seconds": 18,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 504809,
+  "result_chars": 505136,
+  "correct": true,
+  "answer": "done"
+ },
+ "codex_pw_base_probe_r3": {
+  "srv": "pw",
+  "mode": "base",
+  "task": "probe",
+  "run": "r3",
+  "input_tokens": 89738,
+  "cached_input_tokens": 72832,
+  "output_tokens": 161,
+  "reasoning_output_tokens": 18,
+  "seconds": 13,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 504705,
+  "result_chars": 505032,
+  "correct": true,
+  "answer": "done"
+ },
+ "codex_pw_base_snapread_r1": {
+  "srv": "pw",
+  "mode": "base",
+  "task": "snapread",
+  "run": "r1",
+  "input_tokens": 143005,
+  "cached_input_tokens": 115840,
+  "output_tokens": 252,
+  "reasoning_output_tokens": 36,
+  "seconds": 17,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 504809,
+  "result_chars": 505136,
+  "correct": true,
+  "answer": "Guido van Rossum designed Python; it first appeared in 1991."
+ },
+ "codex_pw_base_snapread_r2": {
+  "srv": "pw",
+  "mode": "base",
+  "task": "snapread",
+  "run": "r2",
+  "input_tokens": 110301,
+  "cached_input_tokens": 86656,
+  "output_tokens": 197,
+  "reasoning_output_tokens": 13,
+  "seconds": 13,
+  "tools": {
+   "browser_tabs": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 504809,
+  "result_chars": 505267,
+  "correct": true,
+  "answer": "Guido van Rossum designed Python; it first appeared in 1991."
+ },
+ "codex_pw_base_snapread_r3": {
+  "srv": "pw",
+  "mode": "base",
+  "task": "snapread",
+  "run": "r3",
+  "input_tokens": 138510,
+  "cached_input_tokens": 100864,
+  "output_tokens": 240,
+  "reasoning_output_tokens": 28,
+  "seconds": 17,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 504809,
+  "result_chars": 505136,
+  "correct": true,
+  "answer": "Guido van Rossum designed Python; it first appeared in 1991."
+ },
+ "codex_pw_v3_hnsnap_r1": {
+  "srv": "pw",
+  "mode": "v3",
+  "task": "hnsnap",
+  "run": "r1",
+  "input_tokens": 130606,
+  "cached_input_tokens": 107776,
+  "output_tokens": 623,
+  "reasoning_output_tokens": 288,
+  "seconds": 19,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 15359,
+  "result_chars": 15596,
+  "correct": true,
+  "answer": "Top five stories on Hacker News:\n\n1. “Today, we hacked what we'd set out to hack: the iPhone.” — **90 points**\n2. “OpenSSL 4.1.0” — **148 points**\n3. “Local Wikipedia: Wikipedia, but only for things a"
+ },
+ "codex_pw_v3_hnsnap_r2": {
+  "srv": "pw",
+  "mode": "v3",
+  "task": "hnsnap",
+  "run": "r2",
+  "input_tokens": 134423,
+  "cached_input_tokens": 102272,
+  "output_tokens": 363,
+  "reasoning_output_tokens": 33,
+  "seconds": 14,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 15347,
+  "result_chars": 15584,
+  "correct": true,
+  "answer": "From the accessibility snapshot, the top five Hacker News stories were:\n\n1. “Today, we hacked what we'd set out to hack: the iPhone.” — **101 points**\n2. “OpenSSL 4.1.0” — **148 points**\n3. “Local Wik"
+ },
+ "codex_pw_v3_hnsnap_r3": {
+  "srv": "pw",
+  "mode": "v3",
+  "task": "hnsnap",
+  "run": "r3",
+  "input_tokens": 103224,
+  "cached_input_tokens": 87168,
+  "output_tokens": 315,
+  "reasoning_output_tokens": 25,
+  "seconds": 13,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 15323,
+  "result_chars": 15560,
+  "correct": true,
+  "answer": "Top 5 stories from the accessibility snapshot:\n\n1. “Today, we hacked what we'd set out to hack: the iPhone.” — **123 points**\n2. “OpenSSL 4.1.0” — **151 points**\n3. “Local Wikipedia: Wikipedia, but on"
+ },
+ "codex_pw_v3_probe_r1": {
+  "srv": "pw",
+  "mode": "v3",
+  "task": "probe",
+  "run": "r1",
+  "input_tokens": 134356,
+  "cached_input_tokens": 115712,
+  "output_tokens": 229,
+  "reasoning_output_tokens": 29,
+  "seconds": 16,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 2417,
+  "result_chars": 2744,
+  "correct": true,
+  "answer": "done"
+ },
+ "codex_pw_v3_probe_r2": {
+  "srv": "pw",
+  "mode": "v3",
+  "task": "probe",
+  "run": "r2",
+  "input_tokens": 129777,
+  "cached_input_tokens": 98688,
+  "output_tokens": 235,
+  "reasoning_output_tokens": 39,
+  "seconds": 16,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 2417,
+  "result_chars": 2744,
+  "correct": true,
+  "answer": "done"
+ },
+ "codex_pw_v3_probe_r3": {
+  "srv": "pw",
+  "mode": "v3",
+  "task": "probe",
+  "run": "r3",
+  "input_tokens": 158842,
+  "cached_input_tokens": 143616,
+  "output_tokens": 369,
+  "reasoning_output_tokens": 137,
+  "seconds": 17,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 2418,
+  "result_chars": 2745,
+  "correct": true,
+  "answer": "done"
+ },
+ "codex_pw_v3_snapread_r1": {
+  "srv": "pw",
+  "mode": "v3",
+  "task": "snapread",
+  "run": "r1",
+  "input_tokens": 181537,
+  "cached_input_tokens": 166784,
+  "output_tokens": 329,
+  "reasoning_output_tokens": 40,
+  "seconds": 17,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1,
+   "snapshot_detail": 2
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 2418,
+  "result_chars": 3480,
+  "correct": true,
+  "answer": "Guido van Rossum designed Python; it first appeared in 1991."
+ },
+ "codex_pw_v3_snapread_r2": {
+  "srv": "pw",
+  "mode": "v3",
+  "task": "snapread",
+  "run": "r2",
+  "input_tokens": 195162,
+  "cached_input_tokens": 178176,
+  "output_tokens": 352,
+  "reasoning_output_tokens": 74,
+  "seconds": 20,
+  "tools": {
+   "browser_navigate": 1,
+   "browser_snapshot": 1,
+   "snapshot_detail": 2
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 2417,
+  "result_chars": 3479,
+  "correct": true,
+  "answer": "Python was designed by Guido van Rossum and first appeared in 1991."
+ },
+ "codex_pw_v3_snapread_r3": {
+  "srv": "pw",
+  "mode": "v3",
+  "task": "snapread",
+  "run": "r3",
+  "input_tokens": 150889,
+  "cached_input_tokens": 132864,
+  "output_tokens": 348,
+  "reasoning_output_tokens": 113,
+  "seconds": 18,
+  "tools": {
+   "browser_tabs": 1,
+   "browser_snapshot": 1,
+   "snapshot_detail": 2
+  },
+  "tool_errors": 0,
+  "largest_result_chars": 2417,
+  "result_chars": 3610,
+  "correct": true,
+  "answer": "Guido van Rossum designed Python; it first appeared in 1991."
+ }
+}
