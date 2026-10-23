@@ -360,13 +360,9 @@ def compile_css():
                     "-o", os.path.join(DIST, "styles.css"), "--minify"], cwd=TW, check=True,
                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-RANK_NAV = {"en": "AI Ranking", "ko": "AI 순위", "ja": "AIランキング", "zh-CN": "AI排行", "zh-TW": "AI排行", "es": "Ranking IA",
-    "pt": "Ranking IA", "fr": "Classement IA", "de": "KI-Ranking", "it": "Classifica IA", "ru": "Рейтинг ИИ", "uk": "Рейтинг ШІ",
-    "tr": "YZ Sıralaması", "ar": "تصنيف AI", "fa": "رتبه‌بندی AI", "hi": "AI रैंकिंग", "id": "Peringkat AI", "vi": "Xếp hạng AI",
-    "th": "อันดับ AI", "pl": "Ranking AI", "nl": "AI-ranglijst", "bn": "AI র‍্যাঙ্কিং", "ur": "AI درجہ بندی", "fil": "Ranggo ng AI",
-    "cs": "Žebříček AI", "sv": "AI-ranking", "he": "דירוג AI", "el": "Κατάταξη AI", "ro": "Clasament AI", "hu": "MI-rangsor",
-    "da": "AI-rangliste", "fi": "AI-ranking", "no": "KI-rangering", "sk": "Rebríček AI", "mr": "AI क्रमवारी", "gu": "AI રેન્કિંગ",
-    "kn": "AI ಶ್ರೇಯಾಂಕ", "ml": "AI റാങ്കിംഗ്", "ta": "AI தரவரிசை", "te": "AI ర్యాంకింగ్", "pa": "AI ਰੈਂਕਿੰਗ"}
+# Top-menu slot that used to point to the noindexed /compare/performance (2026-10-23): now the measured-data hub.
+DATA_NAV = {"en": "Data", "ko": "실측 데이터", "ja": "実測データ", "zh-CN": "实测数据", "zh-TW": "實測數據", "es": "Datos", "pt": "Dados",
+    "fr": "Données", "de": "Daten", "it": "Dati", "ru": "Данные", "uk": "Дані", "tr": "Veriler", "pl": "Dane", "nl": "Data"}
 
 BLOG_NAV = {"en": "Blog", "ko": "블로그", "ja": "ブログ", "zh-CN": "博客", "zh-TW": "部落格", "es": "Blog", "pt": "Blog", "fr": "Blog",
     "de": "Blog", "it": "Blog", "ru": "Блог", "uk": "Блог", "tr": "Blog", "ar": "المدونة", "fa": "وبلاگ", "hi": "ब्लॉग", "id": "Blog",
@@ -460,11 +456,10 @@ def render(base, body, values):
             values = dict(values, title=values["title"][: -len(" | TokenSave")])
     lab_fb = FEEDBACK.get(values.get("htmlLang", "en"), FEEDBACK["en"])
     values = dict(values, feedback=f'✉️ {esc(lab_fb)} → <a href="mailto:contact@jonhisking.com" class="text-zinc-400 hover:text-zinc-200 select-all">contact@jonhisking.com</a>')
-    if "toolNav" in values:  # every page's top menu gets the capability/price ranking
-        here = values.get("url", "").endswith("/compare/performance")
-        lab = RANK_NAV.get(values.get("htmlLang", "en"), RANK_NAV["en"])
-        href = {"ko": "/ko/compare/performance", "ja": "/ja/compare/performance"}.get(values.get("htmlLang"), "/compare/performance")
-        values = dict(values, toolNav=values["toolNav"] + f'\n          <a href="{href}" class="{NAV_ON if here else NAV_OFF}"'
+    if "toolNav" in values:  # every page's top menu links to the measured-data hub
+        here = values.get("url", "").rstrip("/").endswith("/data")
+        lab = DATA_NAV.get(values.get("htmlLang", "en"), DATA_NAV["en"])
+        values = dict(values, toolNav=values["toolNav"] + f'\n          <a href="/data/" class="{NAV_ON if here else NAV_OFF}"'
                       + (' aria-current="page"' if here else '') + f'>📊 {esc(lab)}</a>')
     if "toolNav" in values and values.get("htmlLang") in GC_NAV:
         gl = values["htmlLang"]
@@ -533,6 +528,8 @@ AUTHOR = {"@type": "Person", "@id": BASE + "/author/jonhisking#person", "name": 
           "sameAs": ["https://huggingface.co/JOHNISKING", "https://www.kaggle.com/johnisking", "https://github.com/johnisking"],
           "subjectOf": {"@type": "NewsArticle", "headline": "TokenSave tells LDS what 45 Claude coding runs reveal about cost and testing",
                         "url": "https://letsdatascience.com/news/tokensave-tells-lds-what-45-claude-coding-runs-reveal-0d3335f3", "publisher": {"@type": "Organization", "name": "Let's Data Science"}}}
+
+AUTHOR_REF = {k: AUTHOR[k] for k in ("@type", "@id", "name", "url")}  # articles point to the author; press mentions stay on the author page
 
 
 def brand_title(out, home=False):
@@ -965,7 +962,7 @@ def build():
               {"@type": "BlogPosting", "headline": b["title"], "description": b["desc"], "inLanguage": tag,
                "url": url, "mainEntityOfPage": url, "datePublished": bdate, "dateModified": modified(b),
                "image": f"{BASE}/{b.get('og') or AUTOIMG.get(b['path'], gimg)}",
-               "author": AUTHOR,
+               "author": AUTHOR_REF,
                "publisher": {"@type": "Organization", "@id": BASE + "/#org", "name": "TokenSave", "url": BASE + "/"}},
               {"@type": "BreadcrumbList", "itemListElement": [
                   {"@type": "ListItem", "position": 1, "name": "TokenSave", "item": BASE + tool_home},
@@ -1069,6 +1066,7 @@ def build():
         + "".join(entries) + "\n</urlset>\n"
     )
     thin_noindex()
+    import seo_lastmod; seo_lastmod.apply(DIST)
     print("built", count, "tool pages +", len(PAGES), "site pages +", len(BLOG) + len(PRO) + len(MISTRAL_FR) + len(PROMPT_PL) + len(GUIDES) + sum(map(len, MULTI)), "articles +", len(cmp_pages) + 1, "compare pages ->", DIST)
 
 # Languages with only one article (the per-language token measurement post). Their home page (token
