@@ -69,6 +69,7 @@ def write_files(dist):
     write_bmc_files(dist)
     write_blm_files(dist)
     write_agy_files(dist)
+    write_lgo_files(dist)
 
 
 def _write_lang_files(dist):
@@ -272,6 +273,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{AGY_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(AGY_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">Google's Antigravity CLI (the Gemini CLI replacement) against Claude Code and Codex, 44 runs: the same Opus 5.5 read 68% to 88% fewer input tokens in Antigravity for the same game, and all 12 games worked. CSV · measured {AGY_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{LGO_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(LGO_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">80 runs of one coding task in Claude Code, Codex and Antigravity CLI, prompted in five languages: Claude Opus 5.5 spent about 60% more output tokens per character of code than Gemini or GPT. CSV · measured {LGO_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -2084,6 +2088,7 @@ def lti_html():
 
 # ---- Measurement log: newest first, shown on the data hub and the English home page ----
 CHANGELOG = [
+    ("2026-10-23", "/data/output-tokens-per-character-by-model", "Same code, about 60% more output tokens: Claude vs GPT vs Gemini in four coding tools and five languages"),
     ("2026-10-22", "/data/antigravity-cli-vs-claude-code-vs-codex", "Antigravity CLI vs Claude Code vs Codex: the same Opus 5.5 read 68% to 88% fewer tokens in Antigravity"),
     ("2026-10-22", "/data/blender-mcp-token-cost", "Blender MCP token cost: everyday tasks $0.16 to $0.23, a racing scene $0.47, and the one case a diet fixes"),
     ("2026-10-22", "/data/browser-mcp-token-cost", "Browser MCP token cost: one long-page snapshot is over 200,000 tokens, and a snapshot diet that cuts it 99%"),
@@ -3268,6 +3273,118 @@ def agy_html():
                                 [(AGT_PATH, "Claude Code vs Codex: startup tokens and MCP tools"), (HAR_PATH, "What the Claude Code harness costs"), (CCV_PATH, "Claude Code baseline tokens by version"), ("/agents", "Estimate your Claude Code or Codex bill")]))
 
 
+# ---- Dataset 23: output tokens per character by model, tool and prompt language (measured 2026-10-18 to 2026-10-23) ----
+LGO_PATH = "/data/output-tokens-per-character-by-model"
+LGO_MEASURED = "2026-10-23"
+LGO_CHART = "/output-tokens-per-character-by-model-chart.png"
+LGO_DOI = ""
+LGO_MIRRORS = []
+LGO_TITLE = "Same code, about 60% more output tokens: Claude vs GPT vs Gemini in four coding tools and five languages"
+LGO_DESC = ("Dataset: the same brick-breaker task in Claude Code, Codex and Antigravity CLI (Gemini 4 Argon and Claude Opus 5.5), prompted in English, Korean, Japanese, Spanish and Ukrainian, 80 runs. "
+            "Claude Opus 5.5 used about 60% more output tokens per 1,000 characters of game code than Gemini or GPT, in both tools that ran it. Prompt language moved input tokens only a few percent. Free CSV, CC BY 4.0.")
+LGO_TOOLS = [("claude_code", "Claude Code + Opus 5.5"), ("antigravity_opus", "Antigravity + Opus 5.5"), ("antigravity_gemini", "Antigravity + Gemini 4 Argon"), ("codex", "Codex + gpt-6-luna")]
+LGO_LANGS = [("en", "English"), ("ko", "Korean"), ("ja", "Japanese"), ("es", "Spanish"), ("uk", "Ukrainian")]
+LGO_COLS = ["tool", "lang", "run", "measured", "input_tokens", "cache_read_reported_separately", "output_tokens", "seconds", "file_chars", "file_lines",
+            "output_tokens_per_1000_chars", "game_ok", "source"]
+
+
+def _lgo():
+    return json.load(open(os.path.join(ROOT, "blog_data", "agylang", "rows.json"), encoding="utf-8"))
+
+
+def lgo_citation():
+    if LGO_DOI:
+        return f"TokenSave (2026). {LGO_TITLE} [Data set]. Zenodo. https://doi.org/{LGO_DOI}"
+    return f"TokenSave (2026). {LGO_TITLE} [Data set]. {BASE}{LGO_PATH}"
+
+
+def write_lgo_files(dist):
+    R = _lgo()
+    buf = io.StringIO(); w = csv.writer(buf); w.writerow(LGO_COLS)
+    for r in R:
+        w.writerow([r[c] if r[c] is not None else "" for c in LGO_COLS])
+    open(os.path.join(dist, "data", "output-tokens-per-character-by-model.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=LGO_TITLE, url=BASE + LGO_PATH, license="CC BY 4.0", citation=lgo_citation(), measured="2026-10-18 to 2026-10-23",
+                setup="Windows 11; Claude Code 2.1.295 (Opus 5.5, effort medium); Codex CLI 0.162 (gpt-6-luna, medium); Antigravity CLI 1.4.5 (gemini-4-argon-medium, claude-opus-5-5-medium)",
+                note=("output_tokens_per_1000_chars = output tokens reported by the tool / characters of the index.html it wrote x 1000. Output tokens include the short final reply and any tool-call wrapping. "
+                      "Claude Code and Codex rows are the runs of our dataset 'ai-coding-prompt-language' (same versions); Antigravity English rows are from 'antigravity-cli-vs-claude-code-vs-codex'."),
+                tools=dict(LGO_TOOLS), rows=R)
+    open(os.path.join(dist, "data", "output-tokens-per-character-by-model.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def lgo_ld():
+    return _dataset_ld(LGO_TITLE, LGO_DESC, LGO_PATH, LGO_MEASURED,
+                       ["output tokens per character", "Claude tokenizer", "Claude vs GPT tokens", "Claude vs Gemini tokens", "Antigravity CLI", "prompt language tokens", "AI coding cost by language"],
+                       ["input tokens", "output tokens", "output tokens per 1,000 characters of generated code", "seconds", "whether the game works"],
+                       "The same brick-breaker prompt in five languages, run headless in Claude Code, Codex and Antigravity CLI; every game checked in headless Chromium for score, a second level and lives 3 to 0",
+                       LGO_CHART, [("output-tokens-per-character-by-model.csv", "text/csv"), ("output-tokens-per-character-by-model.json", "application/json")],
+                       doi=LGO_DOI or None, mirrors=LGO_MIRRORS)
+
+
+def lgo_stats():
+    R = _lgo(); S = {}
+    for t, _ in LGO_TOOLS:
+        for l, _ in LGO_LANGS:
+            rs = [r for r in R if r["tool"] == t and r["lang"] == l]
+            S[(t, l)] = dict(n=len(rs), inp=statistics.mean(r["input_tokens"] for r in rs), out=statistics.mean(r["output_tokens"] for r in rs),
+                             chars=statistics.mean(r["file_chars"] for r in rs), per=statistics.mean(r["output_tokens_per_1000_chars"] for r in rs),
+                             ok=sum(bool(r["game_ok"]) for r in rs))
+        rs = [r for r in R if r["tool"] == t]
+        S[t] = dict(per=statistics.mean(r["output_tokens_per_1000_chars"] for r in rs), lo=min(S[(t, l)]["per"] for l, _ in LGO_LANGS),
+                    hi=max(S[(t, l)]["per"] for l, _ in LGO_LANGS), ok=sum(bool(r["game_ok"]) for r in rs), n=len(rs))
+    return R, S
+
+
+def lgo_html():
+    R, S = lgo_stats()
+    f = lambda v: "{:,}".format(round(v))
+    pct = lambda a, b: round((b / a - 1) * 100)
+    op, cc, gm, cx = S["antigravity_opus"], S["claude_code"], S["antigravity_gemini"], S["codex"]
+    vs_g, vs_x = pct(gm["per"], op["per"]), pct(cx["per"], cc["per"])
+    nok = sum(S[t]["ok"] for t, _ in LGO_TOOLS)
+    lead = (f'<strong>To write the same kind of game, Claude Opus 5.5 spent about {vs_g}% more output tokens per character of code than Gemini 4 Argon, and about {vs_x}% more than GPT.</strong> '
+            f'Opus came out the same in Claude Code ({f(cc["per"])} tokens per 1,000 characters) and in Google&rsquo;s Antigravity CLI ({f(op["per"])}), so it is the model&rsquo;s tokenizer, not the tool. '
+            'Writing the prompt in Korean, Japanese, Spanish or Ukrainian instead of English changed input tokens by only a few percent.')
+    li = []
+    li.append(f'<li><strong>Output tokens per 1,000 characters of game code:</strong> Opus 5.5 {f(cc["per"])} in Claude Code and {f(op["per"])} in Antigravity, Gemini 4 Argon {f(gm["per"])}, gpt-6-luna {f(cx["per"])} in Codex. '
+              f'The range across the five prompt languages was narrow for every model (Opus {f(min(cc["lo"], op["lo"]))} to {f(max(cc["hi"], op["hi"]))}, Gemini {f(gm["lo"])} to {f(gm["hi"])}, GPT {f(cx["lo"])} to {f(cx["hi"])}).</li>')
+    li.append('<li><strong>Why it matters:</strong> output tokens are the expensive ones (Opus 5.5 charges five times more for output than for input), and because the gap is per character, it comes on top of any difference in how long each model&rsquo;s game turned out. '
+              'It matches the direction of our earlier tokenizer test, where the same source code needed 43% to 59% more Claude tokens than GPT tokens.</li>')
+    li.append(f'<li><strong>Prompt language barely moved input tokens.</strong> Inside each tool the five languages stayed within a few percent; the tool decided the size: about {f(S[("claude_code","ko")]["inp"])} input tokens in Claude Code, '
+              f'{f(S[("codex","ko")]["inp"])} in Codex and {f(S[("antigravity_opus","ko")]["inp"])} to {f(S[("antigravity_gemini","ko")]["inp"])} in Antigravity for the Korean prompt. Most of every request is the tool&rsquo;s own instructions.</li>')
+    li.append(f'<li><strong>Opus wrote longer games in Korean and Ukrainian</strong> in Antigravity ({f(S[("antigravity_opus","ko")]["chars"])} and {f(S[("antigravity_opus","uk")]["chars"])} characters against {f(S[("antigravity_opus","en")]["chars"])} in English), '
+              'so its total output rose there, but per character it stayed the same.</li>')
+    li.append(f'<li><strong>{nok} of {len(R)} games worked</strong> (score rises, level 2 appears, lives go 3, 2, 1, 0), and every game showed its text in the prompt language. The one failure is a Codex game from the earlier dataset.</li>')
+    hp = ['<th>Tool + model</th>'] + [f'<th class="text-right">{n}</th>' for _, n in LGO_LANGS]
+    rp, ri = [], []
+    for t, lab in LGO_TOOLS:
+        rp.append(f'          <tr><td>{esc(lab)}</td>' + "".join(f'<td class="text-right tabular-nums">{f(S[(t, l)]["per"])}</td>' for l, _ in LGO_LANGS) + '</tr>')
+        ri.append(f'          <tr><td>{esc(lab)}</td>' + "".join(f'<td class="text-right tabular-nums">{f(S[(t, l)]["inp"])}</td>' for l, _ in LGO_LANGS) + '</tr>')
+    body = ('      <h2>Key findings</h2>\n      <ul>\n' + "\n".join("        " + x for x in li) + '\n      </ul>\n'
+            '      <h2>Output tokens per 1,000 characters of code</h2>\n'
+            '      <p class="text-sm text-zinc-400">Output tokens reported by each tool divided by the characters of the index.html it wrote. Average of 5 runs (Claude Code, Codex) or 3 runs (Antigravity) per language.</p>\n'
+            + _table(hp, chr(10).join(rp)) +
+            '      <h2>Input tokens by prompt language</h2>\n'
+            '      <p class="text-sm text-zinc-400">Claude Code: input + cache creation + cache read. Codex: input including cached. Antigravity: its reported input_tokens (cache reads are reported separately and are in the CSV). '
+            'Claude Code&rsquo;s English average includes two runs from 2026-10-18 that took an extra step.</p>\n'
+            + _table(hp, chr(10).join(ri)) +
+            '      <h2>Method</h2>\n      <ul>\n'
+            '        <li>Task: &ldquo;Make a brick-breaker game that runs in the browser as a single file named index.html &hellip; 2 levels, a score display and 3 lives &hellip; keyboard and mouse&rdquo;, translated into Korean, Japanese, Spanish and Ukrainian. Medium effort everywhere, each run in its own empty folder on Windows 11.</li>\n'
+            f'        <li>Claude Code 2.1.295 and Codex CLI 0.162: the 50 runs of our <a href="{TL_PATH}">prompt-language dataset</a> (2026-10-18 and 19). Antigravity CLI 1.4.5: English from our <a href="{AGY_PATH}">three-way comparison</a> (2026-10-22) and 24 new runs in the other four languages (2026-10-23).</li>\n'
+            '        <li>Every game was played in headless Chromium by a script that watches the score, the level and the lives; the check reads the game&rsquo;s own text in all five languages.</li>\n'
+            '      </ul>\n      <h2>Limitations</h2>\n      <ul>\n'
+            '        <li>Output tokens include the short final reply and the tool-call wrapping around the file, not only the code. Antigravity reported no or few thinking tokens; Claude Code and Codex count any reasoning inside their output figure.</li>\n'
+            '        <li>One task (a browser game in HTML, CSS and JavaScript). Other kinds of code may tokenize differently.</li>\n'
+            '        <li>3 to 5 runs per cell, measured over six days with the same tool versions.</li>\n'
+            '      </ul>\n')
+    return (_head(f"Same code, about {vs_g}% more output tokens: Claude vs GPT vs Gemini in four coding tools and five languages", lead,
+                  f'Measured 2026-10-18 to {LGO_MEASURED} · {len(R)} runs · Claude Code 2.1.295, Codex CLI 0.162, Antigravity CLI 1.4.5 · License <a href="{LICENSE}">CC BY 4.0</a>',
+                  [("output-tokens-per-character-by-model.csv", "CSV"), ("output-tokens-per-character-by-model.json", "JSON")],
+                  LGO_CHART, "Output tokens per 1,000 characters of generated game code by model, tool and prompt language", doi=LGO_DOI or None, mirrors=LGO_MIRRORS)
+            + body + _page_tail(lgo_citation(), _embed(LGO_PATH, LGO_CHART, "Output tokens per 1,000 characters of code by model", "output tokens per character by model"),
+                                [(AGY_PATH, "Antigravity CLI vs Claude Code vs Codex"), (TL_PATH, "Does prompt language change AI coding cost?"), (CODE_PATH, "Token cost by programming language"), ("/", "Count tokens for your own text")]))
+
+
 # ---- "Try it yourself" box near the top of every dataset page (2026-10-22) ----
 _CTA = {
     "/": ("Count the tokens in your own text", "Paste your prompt and see tokens, characters and API cost on GPT, Claude and Gemini. Free and private: it runs in your browser."),
@@ -3278,7 +3395,7 @@ _CTA_MAP = {LANG_PATH: "/", MULTI_PATH: "/", FMT_PATH: "/", CODE_PATH: "/", PDF_
             IMG_PATH: "/", TAI_PATH: "/",
             EFF_PATH: "/agents", AGT_PATH: "/agents", AGS_PATH: "/agents", AGL_PATH: "/agents", AMD_PATH: "/agents", HAR_PATH: "/agents",
             VIB_PATH: "/agents", CCV_PATH: "/claude-code-usage",
-            LNG_PATH: "/claude-code-usage", COF_PATH: "/claude-code-usage", BMC_PATH: "/agents", BLM_PATH: "/agents", AGY_PATH: "/agents"}
+            LNG_PATH: "/claude-code-usage", COF_PATH: "/claude-code-usage", BMC_PATH: "/agents", BLM_PATH: "/agents", AGY_PATH: "/agents", LGO_PATH: "/"}
 
 
 def add_cta(path, body):
