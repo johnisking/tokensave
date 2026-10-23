@@ -216,12 +216,16 @@
 "hash": "952d603727f71d7a"
 },
 "https://tokensave.app/data/": {
-"date": "2026-10-23",
-"hash": "8b76f13914962070"
+"date": "2026-10-24",
+"hash": "3cb76bbefa8168d0"
 },
 "https://tokensave.app/data/ai-agent-web-search-tokens": {
 "date": "2026-10-23",
 "hash": "4ee76f46130afb3e"
+},
+"https://tokensave.app/data/ai-coding-limit-line": {
+"date": "2026-10-24",
+"hash": "d64ae8775cbeb2c8"
 },
 "https://tokensave.app/data/ai-coding-prompt-language": {
 "date": "2026-10-23",
