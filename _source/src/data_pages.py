@@ -3537,7 +3537,7 @@ def lim_html():
               '(one syntax error from literal \\n in a file, one app whose fixed category list and &minus;$ amounts failed three checks, one missed report row).</li>')
     li.append('<li><strong>Level 5A was a brownfield task:</strong> a 1,032-line budget app with six planted bugs described only by symptoms, plus three features. '
               'Every Claude run fixed all six bugs, added all three features and kept all 23 earlier tests passing.</li>')
-    li.append('<li><strong>Level 6, real bugs in marked:</strong> the easy one (a one-line regular expression) and the medium one were solved by almost every run, Haiku and Sonnet in 15 to 20 seconds.</li>')
+    li.append('<li><strong>Level 6, real bugs in marked:</strong> the easy one (a one-line regular expression) and the medium one were solved by almost every run, Haiku and Sonnet in 14 to 20 seconds.</li>')
     li.append('<li><strong>The hard bug is where the models split.</strong> A backslash at the end of a code span hid emphasis later in the line. Every run fixed the examples in the bug report; '
               'the cases left were code spans that themselves contain a backtick (such as <code>_``\\`_``</code>), which the report did not mention and the maintainers covered in their test. '
               f'Cases passed per run, without tests: Haiku {cl(S[("haiku", "6t3")]["runs"])}; Sonnet {cl(S[("sonnet", "6t3")]["runs"])}; Opus {cl(S[("opus", "6t3")]["runs"])}; '
