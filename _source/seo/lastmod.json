@@ -220,100 +220,100 @@
 "hash": "ace70a7210161396"
 },
 "https://tokensave.app/data/ai-agent-web-search-tokens": {
-"date": "2026-10-22",
-"hash": "19444dc2b9ad263f"
+"date": "2026-10-23",
+"hash": "4ee76f46130afb3e"
 },
 "https://tokensave.app/data/ai-coding-prompt-language": {
-"date": "2026-10-22",
-"hash": "aa4b0fae6cea3139"
+"date": "2026-10-23",
+"hash": "cb0bcbf0f19a3e0c"
 },
 "https://tokensave.app/data/ai-coffee-break-cache-cost": {
-"date": "2026-10-22",
-"hash": "d0289b5e2c67cf8a"
+"date": "2026-10-23",
+"hash": "94620a8fb269bfa2"
 },
 "https://tokensave.app/data/ai-politeness-token-cost": {
-"date": "2026-10-22",
-"hash": "99d4cfa8b348dc79"
+"date": "2026-10-23",
+"hash": "76501ee8c7e20910"
 },
 "https://tokensave.app/data/antigravity-cli-vs-claude-code-vs-codex": {
 "date": "2026-10-23",
-"hash": "8c4cb25d07ac4a0e"
+"hash": "b7dbe5dd387c3e7d"
 },
 "https://tokensave.app/data/blender-mcp-token-cost": {
-"date": "2026-10-22",
-"hash": "074392cdb818781d"
+"date": "2026-10-23",
+"hash": "def335ecce51676c"
 },
 "https://tokensave.app/data/browser-mcp-token-cost": {
-"date": "2026-10-22",
-"hash": "a8c14ae847455307"
+"date": "2026-10-23",
+"hash": "60fd4836e9f60ace"
 },
 "https://tokensave.app/data/claude-code-baseline-tokens-by-version": {
-"date": "2026-10-22",
-"hash": "13630c04a2f6563f"
+"date": "2026-10-23",
+"hash": "878c5188c813c3b3"
 },
 "https://tokensave.app/data/claude-code-harness-cost": {
-"date": "2026-10-22",
-"hash": "5dbc146191d6cc00"
+"date": "2026-10-23",
+"hash": "c3780ffe323f14e0"
 },
 "https://tokensave.app/data/claude-code-vs-codex-tokens": {
-"date": "2026-10-22",
-"hash": "f7d8ffc0c44beb0e"
+"date": "2026-10-23",
+"hash": "e9924c5f94cd67fb"
 },
 "https://tokensave.app/data/claude-effort-cost": {
-"date": "2026-10-22",
-"hash": "6509b723af48e285"
+"date": "2026-10-23",
+"hash": "f67e243af3f06cde"
 },
 "https://tokensave.app/data/claude-md-agents-md-size": {
-"date": "2026-10-22",
-"hash": "c7acb1a3c2cd666f"
+"date": "2026-10-23",
+"hash": "3890d016d429ea09"
 },
 "https://tokensave.app/data/claude-web-search-by-language": {
-"date": "2026-10-22",
-"hash": "0a33795d10a02972"
+"date": "2026-10-23",
+"hash": "2480c44c8b785ad3"
 },
 "https://tokensave.app/data/image-token-cost": {
-"date": "2026-10-22",
-"hash": "ffac28b98703252b"
+"date": "2026-10-23",
+"hash": "4ae2b73c81cf3705"
 },
 "https://tokensave.app/data/language-tax-index": {
-"date": "2026-10-22",
-"hash": "850ca497e55806ac"
+"date": "2026-10-23",
+"hash": "65addd5e5f40b0ed"
 },
 "https://tokensave.app/data/long-chat-vs-new-chat-cost": {
-"date": "2026-10-22",
-"hash": "9749a5813535c12b"
+"date": "2026-10-23",
+"hash": "3d0c4a55e9b4aef6"
 },
 "https://tokensave.app/data/output-tokens-per-character-by-model": {
 "date": "2026-10-23",
-"hash": "b96d6df57b2af948"
+"hash": "a9804030d335d8a0"
 },
 "https://tokensave.app/data/pdf-token-cost": {
-"date": "2026-10-22",
-"hash": "e762a9ce5db08da6"
+"date": "2026-10-23",
+"hash": "46478aa1a9c23e7f"
 },
 "https://tokensave.app/data/text-as-image-token-cost": {
-"date": "2026-10-22",
-"hash": "60b4b2b7db27a644"
+"date": "2026-10-23",
+"hash": "9957c58ae8a4230f"
 },
 "https://tokensave.app/data/token-cost-by-format": {
-"date": "2026-10-22",
-"hash": "8393ddc6e8606aae"
+"date": "2026-10-23",
+"hash": "9dc06dc7448de1ad"
 },
 "https://tokensave.app/data/token-cost-by-language": {
-"date": "2026-10-22",
-"hash": "f6d3fd04356fd202"
+"date": "2026-10-23",
+"hash": "8c267ea3960eafd3"
 },
 "https://tokensave.app/data/token-cost-by-language-claude-gemini": {
-"date": "2026-10-22",
-"hash": "1cbcb0cfbf34648a"
+"date": "2026-10-23",
+"hash": "40f654bd44984189"
 },
 "https://tokensave.app/data/token-cost-by-programming-language": {
-"date": "2026-10-22",
-"hash": "b7297b7776cb86ff"
+"date": "2026-10-23",
+"hash": "bea2e38102db2a43"
 },
 "https://tokensave.app/data/vibe-coding-by-claude-model": {
-"date": "2026-10-22",
-"hash": "a5369236cf0cf453"
+"date": "2026-10-23",
+"hash": "4bb0f9e09feb81b3"
 },
 "https://tokensave.app/de/": {
 "date": "2026-10-21",

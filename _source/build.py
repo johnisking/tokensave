@@ -1066,6 +1066,7 @@ def build():
         + "".join(entries) + "\n</urlset>\n"
     )
     thin_noindex()
+    import cite_bibtex; cite_bibtex.apply(DIST)
     import seo_lastmod; seo_lastmod.apply(DIST)
     print("built", count, "tool pages +", len(PAGES), "site pages +", len(BLOG) + len(PRO) + len(MISTRAL_FR) + len(PROMPT_PL) + len(GUIDES) + sum(map(len, MULTI)), "articles +", len(cmp_pages) + 1, "compare pages ->", DIST)
 
