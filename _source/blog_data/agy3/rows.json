@@ -17,7 +17,8 @@
   "check_level2": true,
   "check_lives": true,
   "game_ok": true,
-  "check_note": ""
+  "check_note": "",
+  "measured": "2026-10-22"
  },
  {
   "run": "agyg_game_r2",
@@ -37,7 +38,8 @@
   "check_level2": true,
   "check_lives": true,
   "game_ok": true,
-  "check_note": ""
+  "check_note": "",
+  "measured": "2026-10-22"
  },
  {
   "run": "agyg_game_r3",
@@ -57,7 +59,8 @@
   "check_level2": true,
   "check_lives": true,
   "game_ok": true,
-  "check_note": ""
+  "check_note": "",
+  "measured": "2026-10-22"
  },
  {
   "run": "agyg_n0_r1",
@@ -71,7 +74,8 @@
   "out": 5,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyg_n0_r2",
@@ -85,7 +89,8 @@
   "out": 5,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyg_n10_r1",
@@ -99,7 +104,8 @@
   "out": 5,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyg_n10_r2",
@@ -113,7 +119,8 @@
   "out": 5,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyg_n1_r1",
@@ -127,7 +134,8 @@
   "out": 5,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyg_n1_r2",
@@ -141,7 +149,8 @@
   "out": 5,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyg_n30_r1",
@@ -155,7 +164,8 @@
   "out": 5,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyg_n30_r2",
@@ -169,7 +179,8 @@
   "out": 5,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyo_game_r1",
@@ -189,7 +200,8 @@
   "check_level2": true,
   "check_lives": true,
   "game_ok": true,
-  "check_note": ""
+  "check_note": "",
+  "measured": "2026-10-22"
  },
  {
   "run": "agyo_game_r2",
@@ -209,7 +221,8 @@
   "check_level2": true,
   "check_lives": true,
   "game_ok": true,
-  "check_note": ""
+  "check_note": "",
+  "measured": "2026-10-22"
  },
  {
   "run": "agyo_game_r3",
@@ -229,7 +242,8 @@
   "check_level2": true,
   "check_lives": true,
   "game_ok": true,
-  "check_note": ""
+  "check_note": "",
+  "measured": "2026-10-22"
  },
  {
   "run": "agyo_n0_r1",
@@ -243,7 +257,8 @@
   "out": 4,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyo_n0_r2",
@@ -257,7 +272,8 @@
   "out": 4,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyo_n10_r1",
@@ -271,7 +287,8 @@
   "out": 4,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyo_n10_r2",
@@ -285,7 +302,8 @@
   "out": 4,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyo_n1_r1",
@@ -299,7 +317,8 @@
   "out": 4,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyo_n1_r2",
@@ -313,7 +332,8 @@
   "out": 4,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyo_n30_r1",
@@ -327,7 +347,8 @@
   "out": 4,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "agyo_n30_r2",
@@ -341,7 +362,8 @@
   "out": 4,
   "thinking": 0,
   "status": "SUCCESS",
-  "turns": 1
+  "turns": 1,
+  "measured": "2026-10-22"
  },
  {
   "run": "claude_game_r1",
@@ -361,7 +383,8 @@
   "check_level2": true,
   "check_lives": true,
   "game_ok": true,
-  "check_note": ""
+  "check_note": "",
+  "measured": "2026-10-22"
  },
  {
   "run": "claude_game_r2",
@@ -381,7 +404,8 @@
   "check_level2": true,
   "check_lives": true,
   "game_ok": true,
-  "check_note": ""
+  "check_note": "",
+  "measured": "2026-10-22"
  },
  {
   "run": "claude_game_r3",
@@ -401,7 +425,8 @@
   "check_level2": true,
   "check_lives": true,
   "game_ok": true,
-  "check_note": ""
+  "check_note": "",
+  "measured": "2026-10-22"
  },
  {
   "run": "claude_n0_r1",
@@ -415,7 +440,8 @@
   "out": 4,
   "cost": 0.1621,
   "turns": 1,
-  "ok": true
+  "ok": true,
+  "measured": "2026-10-22"
  },
  {
   "run": "claude_n0_r2",
@@ -429,7 +455,8 @@
   "out": 4,
   "cost": 0.1621,
   "turns": 1,
-  "ok": true
+  "ok": true,
+  "measured": "2026-10-22"
  },
  {
   "run": "claude_n10_r1",
@@ -443,7 +470,8 @@
   "out": 4,
   "cost": 0.1632,
   "turns": 1,
-  "ok": true
+  "ok": true,
+  "measured": "2026-10-22"
  },
  {
   "run": "claude_n10_r2",
@@ -457,7 +485,8 @@
   "out": 4,
   "cost": 0.1632,
   "turns": 1,
-  "ok": true
+  "ok": true,
+  "measured": "2026-10-22"
  },
  {
   "run": "claude_n1_r1",
@@ -471,7 +500,8 @@
   "out": 4,
   "cost": 0.1622,
   "turns": 1,
-  "ok": true
+  "ok": true,
+  "measured": "2026-10-22"
  },
  {
   "run": "claude_n1_r2",
@@ -485,7 +515,8 @@
   "out": 4,
   "cost": 0.1622,
   "turns": 1,
-  "ok": true
+  "ok": true,
+  "measured": "2026-10-22"
  },
  {
   "run": "claude_n30_r1",
@@ -499,7 +530,8 @@
   "out": 4,
   "cost": 0.1652,
   "turns": 1,
-  "ok": true
+  "ok": true,
+  "measured": "2026-10-22"
  },
  {
   "run": "claude_n30_r2",
@@ -513,7 +545,8 @@
   "out": 4,
   "cost": 0.1652,
   "turns": 1,
-  "ok": true
+  "ok": true,
+  "measured": "2026-10-22"
  },
  {
   "run": "codex_game_r1",
@@ -531,7 +564,8 @@
   "check_level2": true,
   "check_lives": true,
   "game_ok": true,
-  "check_note": "checker missed scoring (ball hit 32 bricks in a manual hook); lives 3-2-1-0 confirmed"
+  "check_note": "checker missed scoring (ball hit 32 bricks in a manual hook); lives 3-2-1-0 confirmed",
+  "measured": "2026-10-22"
  },
  {
   "run": "codex_game_r2",
@@ -549,7 +583,8 @@
   "check_level2": true,
   "check_lives": false,
   "game_ok": true,
-  "check_note": "checker missed scoring (10 bricks hit in a manual hook); lives 3-2-1-0 confirmed with a moving paddle (scripts/l2.js)"
+  "check_note": "checker missed scoring (10 bricks hit in a manual hook); lives 3-2-1-0 confirmed with a moving paddle (scripts/l2.js)",
+  "measured": "2026-10-22"
  },
  {
   "run": "codex_game_r3",
@@ -567,7 +602,8 @@
   "check_level2": true,
   "check_lives": true,
   "game_ok": true,
-  "check_note": ""
+  "check_note": "",
+  "measured": "2026-10-22"
  },
  {
   "run": "codex_n0_r1",
@@ -579,7 +615,8 @@
   "inp": 15018,
   "cache_read": 7680,
   "out": 5,
-  "reasoning": 0
+  "reasoning": 0,
+  "measured": "2026-10-22"
  },
  {
   "run": "codex_n0_r2",
@@ -591,7 +628,8 @@
   "inp": 14618,
   "cache_read": 0,
   "out": 5,
-  "reasoning": 0
+  "reasoning": 0,
+  "measured": "2026-10-22"
  },
  {
   "run": "codex_n10_r1",
@@ -603,7 +641,8 @@
   "inp": 14618,
   "cache_read": 0,
   "out": 5,
-  "reasoning": 0
+  "reasoning": 0,
+  "measured": "2026-10-22"
  },
  {
   "run": "codex_n10_r2",
@@ -615,7 +654,8 @@
   "inp": 14618,
   "cache_read": 14208,
   "out": 5,
-  "reasoning": 0
+  "reasoning": 0,
+  "measured": "2026-10-22"
  },
  {
   "run": "codex_n1_r1",
@@ -627,7 +667,8 @@
   "inp": 14618,
   "cache_read": 0,
   "out": 5,
-  "reasoning": 0
+  "reasoning": 0,
+  "measured": "2026-10-22"
  },
  {
   "run": "codex_n1_r2",
@@ -639,7 +680,8 @@
   "inp": 14618,
   "cache_read": 7680,
   "out": 5,
-  "reasoning": 0
+  "reasoning": 0,
+  "measured": "2026-10-22"
  },
  {
   "run": "codex_n30_r1",
@@ -651,7 +693,8 @@
   "inp": 14618,
   "cache_read": 7680,
   "out": 5,
-  "reasoning": 0
+  "reasoning": 0,
+  "measured": "2026-10-22"
  },
  {
   "run": "codex_n30_r2",
@@ -663,6 +706,161 @@
   "inp": 14618,
   "cache_read": 0,
   "out": 5,
-  "reasoning": 0
+  "reasoning": 0,
+  "measured": "2026-10-22"
+ },
+ {
+  "run": "claude_game_r4",
+  "tool": "claude",
+  "kind": "game",
+  "n": null,
+  "rep": 4,
+  "seconds": 73,
+  "inp": 123666,
+  "cache_read": 95504,
+  "out": 8537,
+  "lines": 487,
+  "check_score": true,
+  "check_level2": true,
+  "check_lives": true,
+  "game_ok": true,
+  "check_note": "run from 2026-10-18 (dataset claude-code-vs-codex-tokens, same versions); checked there for score, 2 levels and 3 lives",
+  "measured": "2026-10-18",
+  "cost": 0.42
+ },
+ {
+  "run": "claude_game_r5",
+  "tool": "claude",
+  "kind": "game",
+  "n": null,
+  "rep": 5,
+  "seconds": 63,
+  "inp": 79213,
+  "cache_read": 51762,
+  "out": 7870,
+  "lines": 527,
+  "check_score": true,
+  "check_level2": true,
+  "check_lives": true,
+  "game_ok": true,
+  "check_note": "run from 2026-10-18 (dataset claude-code-vs-codex-tokens, same versions); checked there for score, 2 levels and 3 lives",
+  "measured": "2026-10-18",
+  "cost": 0.39
+ },
+ {
+  "run": "codex_game_r4",
+  "tool": "codex",
+  "kind": "game",
+  "n": null,
+  "rep": 4,
+  "seconds": 33,
+  "inp": 47954,
+  "cache_read": 29824,
+  "out": 2872,
+  "lines": 49,
+  "check_score": true,
+  "check_level2": true,
+  "check_lives": true,
+  "game_ok": true,
+  "check_note": "run from 2026-10-18 (dataset claude-code-vs-codex-tokens, same versions); checked there for score, 2 levels and 3 lives",
+  "measured": "2026-10-18"
+ },
+ {
+  "run": "codex_game_r5",
+  "tool": "codex",
+  "kind": "game",
+  "n": null,
+  "rep": 5,
+  "seconds": 41,
+  "inp": 48815,
+  "cache_read": 37504,
+  "out": 3803,
+  "lines": 117,
+  "check_score": true,
+  "check_level2": true,
+  "check_lives": true,
+  "game_ok": true,
+  "check_note": "run from 2026-10-18 (dataset claude-code-vs-codex-tokens, same versions); checked there for score, 2 levels and 3 lives",
+  "measured": "2026-10-18"
+ },
+ {
+  "run": "agyg_game_r4",
+  "tool": "agyg",
+  "kind": "game",
+  "n": null,
+  "rep": 4,
+  "seconds": 66,
+  "inp": 12143,
+  "cache_read": 6795,
+  "out": 5454,
+  "thinking": 0,
+  "status": "SUCCESS",
+  "lines": 520,
+  "check_score": true,
+  "check_level2": true,
+  "check_lives": true,
+  "game_ok": true,
+  "check_note": "",
+  "measured": "2026-10-23"
+ },
+ {
+  "run": "agyg_game_r5",
+  "tool": "agyg",
+  "kind": "game",
+  "n": null,
+  "rep": 5,
+  "seconds": 76,
+  "inp": 13229,
+  "cache_read": 6799,
+  "out": 6537,
+  "thinking": 0,
+  "status": "SUCCESS",
+  "lines": 656,
+  "check_score": true,
+  "check_level2": true,
+  "check_lives": true,
+  "game_ok": true,
+  "check_note": "",
+  "measured": "2026-10-23"
+ },
+ {
+  "run": "agyo_game_r4",
+  "tool": "agyo",
+  "kind": "game",
+  "n": null,
+  "rep": 4,
+  "seconds": 47,
+  "inp": 10121,
+  "cache_read": 15390,
+  "out": 4729,
+  "thinking": 0,
+  "status": "SUCCESS",
+  "lines": 261,
+  "check_score": true,
+  "check_level2": true,
+  "check_lives": true,
+  "game_ok": true,
+  "check_note": "",
+  "measured": "2026-10-23"
+ },
+ {
+  "run": "agyo_game_r5",
+  "tool": "agyo",
+  "kind": "game",
+  "n": null,
+  "rep": 5,
+  "seconds": 43,
+  "inp": 10087,
+  "cache_read": 15530,
+  "out": 4452,
+  "thinking": 0,
+  "status": "SUCCESS",
+  "lines": 254,
+  "check_score": true,
+  "check_level2": true,
+  "check_lives": true,
+  "game_ok": true,
+  "check_note": "",
+  "measured": "2026-10-23"
  }
 ]

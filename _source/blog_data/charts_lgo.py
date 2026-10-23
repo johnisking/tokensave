@@ -23,7 +23,7 @@ ax.tick_params(axis='x', colors=FG, labelsize=11, length=0); ax.tick_params(axis
 for s in ax.spines.values(): s.set_visible(False)
 ax.grid(axis='y', color=GRID); ax.set_axisbelow(True)
 fig.text(0.02, 0.95, "Same code, about 60% more output tokens on Claude", fontsize=17, fontweight='bold', color=FG)
-fig.text(0.02, 0.905, "Output tokens per 1,000 characters of the game each tool wrote · same task in 5 prompt languages · 80 runs · 2026-10-18 to 23 · tokensave.app/data · CC BY 4.0", fontsize=9.5, color=MUTED)
+fig.text(0.02, 0.905, "Output tokens per 1,000 characters of the game each tool wrote · same task in 5 prompt languages · 100 runs · 2026-10-18 to 23 · tokensave.app/data · CC BY 4.0", fontsize=9.5, color=MUTED)
 fig.text(0.02, 0.87, "Bars per tool: English, Korean, Japanese, Spanish, Ukrainian prompt. Big number: average over all languages.", fontsize=9.5, color=MUTED)
 plt.subplots_adjust(left=0.08, right=0.98, top=0.82, bottom=0.12)
 plt.savefig('src/static/output-tokens-per-character-by-model-chart.png', facecolor=BG); plt.close(fig)

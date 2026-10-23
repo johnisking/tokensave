@@ -217,7 +217,7 @@
 },
 "https://tokensave.app/data/": {
 "date": "2026-10-23",
-"hash": "ace70a7210161396"
+"hash": "8b76f13914962070"
 },
 "https://tokensave.app/data/ai-agent-web-search-tokens": {
 "date": "2026-10-23",
@@ -237,7 +237,7 @@
 },
 "https://tokensave.app/data/antigravity-cli-vs-claude-code-vs-codex": {
 "date": "2026-10-23",
-"hash": "b7dbe5dd387c3e7d"
+"hash": "8a1c100014fb58ec"
 },
 "https://tokensave.app/data/blender-mcp-token-cost": {
 "date": "2026-10-23",
@@ -257,11 +257,11 @@
 },
 "https://tokensave.app/data/claude-code-vs-codex-tokens": {
 "date": "2026-10-23",
-"hash": "e9924c5f94cd67fb"
+"hash": "c63abe55c8b8d01f"
 },
 "https://tokensave.app/data/claude-effort-cost": {
 "date": "2026-10-23",
-"hash": "f67e243af3f06cde"
+"hash": "7071ab9fc792848c"
 },
 "https://tokensave.app/data/claude-md-agents-md-size": {
 "date": "2026-10-23",
@@ -285,7 +285,7 @@
 },
 "https://tokensave.app/data/output-tokens-per-character-by-model": {
 "date": "2026-10-23",
-"hash": "a9804030d335d8a0"
+"hash": "4a466ef2c3651c27"
 },
 "https://tokensave.app/data/pdf-token-cost": {
 "date": "2026-10-23",

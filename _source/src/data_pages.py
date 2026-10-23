@@ -227,7 +227,7 @@ def hub_html():
           <span class="block mt-1 text-sm text-zinc-400">PDF pages on Claude and Gemini vs pasting the text: Gemini charges a flat 560 tokens per page. CSV · measured {PDF_MEASURED}</span></a></li>
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{EFF_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(EFF_TITLE)}</span>
-          <span class="block mt-1 text-sm text-zinc-400">One coding task at every Claude effort level: $0.56 at medium, $5.25 at max. CSV · measured {EFF_MEASURED}</span></a></li>
+          <span class="block mt-1 text-sm text-zinc-400">One coding task at every Claude effort level, 3 runs each: $0.26 at medium, $5.33 at max on Opus 5.5. CSV · measured {EFF_MEASURED_NEW}</span></a></li>
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{AGT_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(AGT_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">Startup tokens, MCP tool overhead and the same coding task: Codex used about half the tokens of Claude Code. CSV · measured {AGT_MEASURED}</span></a></li>
@@ -272,10 +272,10 @@ def hub_html():
           <span class="block mt-1 text-sm text-zinc-400">MCP for Blender in Claude Code, 72 runs: everyday tasks $0.16 to $0.23, a racing scene with a chase camera about $0.47; a long property dump $0.87, or $0.17 through tokensave-mcp-diet. CSV · measured {BLM_MEASURED}</span></a></li>
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{AGY_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(AGY_TITLE)}</span>
-          <span class="block mt-1 text-sm text-zinc-400">Google's Antigravity CLI (the Gemini CLI replacement) against Claude Code and Codex, 44 runs: the same Opus 5.5 read 68% to 88% fewer input tokens in Antigravity for the same game, and all 12 games worked. CSV · measured {AGY_MEASURED}</span></a></li>
+          <span class="block mt-1 text-sm text-zinc-400">Google's Antigravity CLI (the Gemini CLI replacement) against Claude Code and Codex, 52 runs: the same Opus 5.5 read 71% to 89% fewer input tokens in Antigravity for the same game, and all 20 games worked. CSV · measured {AGY_MEASURED_SHOW}</span></a></li>
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{LGO_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(LGO_TITLE)}</span>
-          <span class="block mt-1 text-sm text-zinc-400">80 runs of one coding task in Claude Code, Codex and Antigravity CLI, prompted in five languages: Claude Opus 5.5 spent about 60% more output tokens per character of code than Gemini or GPT. CSV · measured {LGO_MEASURED}</span></a></li>
+          <span class="block mt-1 text-sm text-zinc-400">100 runs of one coding task in Claude Code, Codex and Antigravity CLI, prompted in five languages: Claude Opus 5.5 spent about 60% more output tokens per character of code than Gemini or GPT. CSV · measured {LGO_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -1046,8 +1046,9 @@ EFF_MIRRORS = [("Zenodo", "https://zenodo.org/records/23533306"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/effort")]
 EFF_TITLE = "Claude effort levels: tokens, time and cost for the same coding task"
 EFF_UPDATED = "2026-10-21"
-EFF_DESC = ("Dataset: the same coding prompt run in Claude Code at every effort level of Claude Opus 5.5 and Haiku 5.5 (low to max, Haiku 3 runs each) and at medium and high on Sonnet 5.5, "
-            "with time, output tokens, total tokens, API-equivalent cost and lines of code. Opus max used 160,033 output tokens and $5.25 against 6,299 and $0.56 at medium; Haiku max cost about ten times its xhigh. Free CSV, CC BY 4.0.")
+EFF_MEASURED_NEW = "2026-10-23"
+EFF_DESC = ("Dataset: the same coding prompt run in Claude Code 2.1.295 at every effort level of Claude Opus 5.5 and Haiku 5.5 and at medium and high on Sonnet 5.5, 3 runs each, "
+            "with time, output tokens, total tokens, API-equivalent cost and lines of code. Opus cost $0.26 at medium and $5.33 at max on average; low to xhigh cost 40% to 64% less than our first run on an earlier version. Free CSV, CC BY 4.0.")
 
 
 def _eff():
@@ -1066,7 +1067,7 @@ def write_eff_files(dist):
     for r in d["rows"]:
         w.writerow([r["model"], r["effort"], r.get("run", 1), r["seconds"], r["output_tokens"], r["total_tokens"], _usd(r["cost_usd"]).lstrip("$"), r["code_lines"]])
     open(os.path.join(dist, "data", "claude-effort-cost.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
-    meta = dict(title=EFF_TITLE, url=BASE + EFF_PATH, license="CC BY 4.0", measured=EFF_MEASURED, tool=d["tool"], prompt=d["prompt"],
+    meta = dict(title=EFF_TITLE, url=BASE + EFF_PATH, license="CC BY 4.0", measured=f"{EFF_MEASURED} and {EFF_UPDATED} to {EFF_MEASURED_NEW}", tool=d["tool"], prompt=d["prompt"],
                 citation=eff_citation(), rows=d["rows"])
     open(os.path.join(dist, "data", "claude-effort-cost.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
 
@@ -1075,7 +1076,7 @@ def eff_ld():
     return _dataset_ld(EFF_TITLE, EFF_DESC, EFF_PATH, EFF_MEASURED,
                        ["Claude effort", "reasoning effort", "thinking tokens", "Claude Opus 5.5 cost", "Claude Code cost", "LLM cost"],
                        ["time (seconds)", "output tokens", "total tokens", "cost (USD, API prices)", "lines of code"],
-                       "Same prompt run once per effort level in Claude Code; tokens and cost from ccusage at API prices, time from start and end timestamps",
+                       "Same prompt run three times per effort level in Claude Code 2.1.295; tokens and cost from Claude Code's own usage report at list prices, time wall-clock; every game played by a script in a headless browser",
                        EFF_CHART, [("claude-effort-cost.csv", "text/csv"), ("claude-effort-cost.json", "application/json")], doi=EFF_DOI, mirrors=EFF_MIRRORS)
 
 
@@ -1098,49 +1099,88 @@ def _dur(s):
     return f"{s} s" if s < 60 else f"{s // 60} min {s % 60} s"
 
 
+def _eff_avg(d, model, measured="2026-10-23"):
+    out = {}
+    for lv in ["low", "medium", "high", "xhigh", "max"]:
+        rs = [r for r in d["rows"] if r["model_name"] == model and r["effort"] == lv and r.get("measured") == measured]
+        if not rs: continue
+        m = lambda f: statistics.mean(r[f] for r in rs)
+        out[lv] = dict(effort=lv, n=len(rs), cost_usd=m("cost_usd"), output_tokens=round(m("output_tokens")), total_tokens=round(m("total_tokens")),
+                       seconds=round(m("seconds")), code_lines=round(m("code_lines")), turns=m("turns") if all("turns" in r for r in rs) else None,
+                       ok=sum(bool(r.get("plays_ok")) for r in rs))
+    return out
+
+
 def eff_html():
     d = _eff()
-    by = {(r["model_name"], r["effort"]): r for r in d["rows"]}
-    lo, me, hi, xh, mx = (by[("Opus 5.5", k)] for k in ["low", "medium", "high", "xhigh", "max"])
-    sme, shi = by[("Sonnet 5.5", "medium")], by[("Sonnet 5.5", "high")]
+    O, SN = _eff_avg(d, "Opus 5.5"), _eff_avg(d, "Sonnet 5.5")
+    old = {(r["model_name"], r["effort"]): r for r in d["rows"] if r.get("measured") == "2026-10-09"}
+    lo, me, hi, xh, mx = (O[k] for k in ["low", "medium", "high", "xhigh", "max"])
+    sme, shi = SN["medium"], SN["high"]
     H = {x["effort"]: x for x in _haiku_eff(d)}
     pct = lambda a, b: round((a / b - 1) * 100)
+    new_ok = sum(x["ok"] for x in O.values()) + sum(x["ok"] for x in SN.values()); new_n = sum(x["n"] for x in O.values()) + sum(x["n"] for x in SN.values())
+    hmax_vs_lo = pct(H["max"]["cost"], lo["cost_usd"])
+    hmax_txt = (f'Even so, Haiku at max cost {abs(hmax_vs_lo)}% less than Opus 5.5 at low.' if hmax_vs_lo < 0
+                else f'At max, Haiku cost {hmax_vs_lo}% more than Opus 5.5 at low, so its low to xhigh levels are where it saves money.')
+    avg_rows = []
+    for name, A in (("Opus 5.5", O), ("Sonnet 5.5", SN)):
+        for x in A.values():
+            avg_rows.append(f'          <tr><td>{name} · {x["effort"]}</td><td class="text-right tabular-nums">{_usd(x["cost_usd"])}</td><td class="text-right tabular-nums">{x["output_tokens"]:,}</td>'
+                            f'<td class="text-right tabular-nums">{x["total_tokens"]:,}</td><td class="text-right tabular-nums">{_dur(x["seconds"])}</td><td class="text-right tabular-nums">{x["code_lines"]}</td>'
+                            f'<td class="text-right tabular-nums">{x["ok"]}/{x["n"]}</td></tr>')
+    cmp_rows = []
+    for name, A in (("Opus 5.5", O), ("Sonnet 5.5", SN)):
+        for x in A.values():
+            o = old.get((name, x["effort"]))
+            if not o: continue
+            cmp_rows.append(f'          <tr><td>{name} · {x["effort"]}</td><td class="text-right tabular-nums">{_usd(o["cost_usd"])}</td><td class="text-right tabular-nums">{_usd(x["cost_usd"])}</td>'
+                            f'<td class="text-right tabular-nums">{"+" if pct(x["cost_usd"], o["cost_usd"]) >= 0 else "&minus;"}{abs(pct(x["cost_usd"], o["cost_usd"]))}%</td>'
+                            f'<td class="text-right tabular-nums">{o["total_tokens"]:,}</td><td class="text-right tabular-nums">{x["total_tokens"]:,}</td></tr>')
     trs = "\n".join(
-        f'          <tr><td>{esc(r["model_name"])} · {esc(r["effort"])}{" · run " + str(r["run"]) if "run" in r else ""}</td><td class="text-right tabular-nums">{_dur(r["seconds"])}</td>'
+        f'          <tr><td>{esc(r["model_name"])} · {esc(r["effort"])}{" · run " + str(r["run"]) if "run" in r else ""}</td><td>{esc(r.get("measured", EFF_UPDATED))}</td><td class="text-right tabular-nums">{_dur(r["seconds"])}</td>'
         f'<td class="text-right tabular-nums">{r["output_tokens"]:,}</td><td class="text-right tabular-nums">{r["total_tokens"]:,}</td>'
         f'<td class="text-right tabular-nums">{_usd(r["cost_usd"])}</td><td class="text-right tabular-nums">{r["code_lines"]:,}</td></tr>'
         for r in d["rows"])
-    head = ['<th>Model · effort</th>', '<th class="text-right">Time</th>', '<th class="text-right">Output tokens</th>', '<th class="text-right">Total tokens</th>', '<th class="text-right">Cost</th>', '<th class="text-right">Lines of code</th>']
+    head = ['<th>Model · effort</th>', '<th>Measured</th>', '<th class="text-right">Time</th>', '<th class="text-right">Output tokens</th>', '<th class="text-right">Total tokens</th>', '<th class="text-right">Cost</th>', '<th class="text-right">Lines of code</th>']
     return _head("Claude effort levels: what low, medium, high, xhigh and max cost",
-                 f'<strong>The same coding task used {me["output_tokens"]:,} output tokens and ${me["cost_usd"]:.2f} at medium effort on Claude Opus 5.5, and {mx["output_tokens"]:,} tokens and ${mx["cost_usd"]:.2f} at max.</strong> High cost only {pct(hi["cost_usd"], me["cost_usd"])}% more than medium; the jump starts at xhigh.',
-                 f'Measured {EFF_MEASURED}, Haiku 5.5 added {EFF_UPDATED} · Opus 5.5 and Haiku 5.5 at 5 levels, Sonnet 5.5 at 2 · License <a href="{LICENSE}">CC BY 4.0</a> · Write-up: <a href="/blog/claude-opus-5-5-effort">Claude Opus 5.5 effort levels tested</a>',
+                 f'<strong>The same coding task cost ${me["cost_usd"]:.2f} on average at medium effort on Claude Opus 5.5 and ${mx["cost_usd"]:.2f} at max ({mx["output_tokens"]:,} output tokens against {me["output_tokens"]:,}).</strong> High cost {pct(hi["cost_usd"], me["cost_usd"])}% more than medium; the jump starts at xhigh. '
+                 f'Three runs per level in Claude Code 2.1.295; low to xhigh now cost 40% to 64% less than in our first measurement on an earlier version.',
+                 f'Opus and Sonnet measured {EFF_MEASURED_NEW} (3 runs per level; first run {EFF_MEASURED}), Haiku 5.5 {EFF_UPDATED} · Opus 5.5 and Haiku 5.5 at 5 levels, Sonnet 5.5 at 2 · License <a href="{LICENSE}">CC BY 4.0</a> · Write-up: <a href="/blog/claude-opus-5-5-effort">Claude Opus 5.5 effort levels tested</a>',
                  [("claude-effort-cost.csv", "CSV"), ("claude-effort-cost.json", "JSON")],
                  EFF_CHART, "Output tokens and cost for the same task at each Claude effort level", doi=EFF_DOI, mirrors=EFF_MIRRORS) + f'''      <h2>Key findings</h2>
       <ul>
-        <li><strong>Low and medium are close.</strong> Low cost {abs(pct(lo["cost_usd"], me["cost_usd"]))}% less than medium (${lo["cost_usd"]:.2f} vs ${me["cost_usd"]:.2f}) and took {_dur(lo["seconds"])} instead of {_dur(me["seconds"])}, but built the plainest result.</li>
+        <li><strong>Low and medium are close.</strong> Low cost {abs(pct(lo["cost_usd"], me["cost_usd"]))}% less than medium (${lo["cost_usd"]:.2f} vs ${me["cost_usd"]:.2f}) and took {_dur(lo["seconds"])} instead of {_dur(me["seconds"])}, but built the plainest games ({lo["code_lines"]} lines on average against {me["code_lines"]}).</li>
         <li><strong>High is the best value step.</strong> Output tokens rose {pct(hi["output_tokens"], me["output_tokens"])}% ({me["output_tokens"]:,} to {hi["output_tokens"]:,}) but cost only {pct(hi["cost_usd"], me["cost_usd"])}% more, because most of each request is input that does not change.</li>
-        <li><strong>Costs jump from xhigh.</strong> xhigh cost {pct(xh["cost_usd"], me["cost_usd"])}% more than medium and max {pct(mx["cost_usd"], me["cost_usd"])}% more. Max used {mx["output_tokens"]:,} output tokens against {me["output_tokens"]:,} at medium and took {_dur(mx["seconds"])}.</li>
+        <li><strong>Costs jump from xhigh.</strong> xhigh cost {pct(xh["cost_usd"], me["cost_usd"])}% more than medium and max {pct(mx["cost_usd"], me["cost_usd"])}% more. Max used {mx["output_tokens"]:,} output tokens on average and took {_dur(mx["seconds"])}.</li>
         <li><strong>Sonnet 5.5 is cheaper per run, not just per token.</strong> At the same effort it used {abs(pct(sme["output_tokens"], me["output_tokens"]))}% fewer output tokens than Opus 5.5 and cost {abs(pct(sme["cost_usd"], me["cost_usd"]))}% less at medium and {abs(pct(shi["cost_usd"], hi["cost_usd"]))}% less at high.</li>
-        <li><strong>New: Haiku 5.5 at every level, three runs each.</strong> Average cost went from {_usd(H["low"]["cost"])} at low to {_usd(H["xhigh"]["cost"])} at xhigh, then {_usd(H["max"]["cost"])} at max ({pct(H["max"]["cost"], H["xhigh"]["cost"])}% more than xhigh). At max Haiku wrote its own test script and ran it, which took {H["max"]["turns"]:.0f} turns instead of {H["xhigh"]["turns"]:.0f}; each turn re-reads the conversation. Even so, Haiku at max cost {abs(pct(H["max"]["cost"], lo["cost_usd"]))}% less than Opus 5.5 at low.</li>
-        <li><strong>Every Haiku game passed at every level.</strong> We played all 15 with a script: each kept score, reached level 2 and counted down three lives ({sum(x["ok"] for x in H.values())} of {sum(x["n"] for x in H.values())}). Higher effort wrote longer code ({H["low"]["lines"]} lines on average at low, {H["max"]["lines"]} at max), not more working games.</li>
+        <li><strong>Newer Claude Code, lower bills.</strong> Our first Opus and Sonnet runs (2026-10-09, one per level, an earlier Claude Code version, measured with ccusage) cost much more at every level except max; the table below compares them. The fresh runs also carried no MCP servers, which keeps each request smaller.</li>
+        <li><strong>Every game worked.</strong> All {new_ok} of {new_n} new Opus and Sonnet games kept score, reached level 2 and counted three lives down to zero in a scripted headless-browser play.</li>
+        <li><strong>Haiku 5.5 at every level, three runs each.</strong> Average cost went from {_usd(H["low"]["cost"])} at low to {_usd(H["xhigh"]["cost"])} at xhigh, then {_usd(H["max"]["cost"])} at max ({pct(H["max"]["cost"], H["xhigh"]["cost"])}% more than xhigh). At max Haiku wrote its own test script and ran it, which took {H["max"]["turns"]:.0f} turns instead of {H["xhigh"]["turns"]:.0f}; each turn re-reads the conversation. {hmax_txt}</li>
+        <li><strong>Every Haiku game passed at every level</strong> ({sum(x["ok"] for x in H.values())} of {sum(x["n"] for x in H.values())}). Higher effort wrote longer code ({H["low"]["lines"]} lines on average at low, {H["max"]["lines"]} at max), not more working games.</li>
       </ul>
+      <h2>Opus 5.5 and Sonnet 5.5 by effort level (average of 3 runs, {EFF_MEASURED_NEW})</h2>
+{_table(['<th>Model · effort</th>', '<th class="text-right">Cost</th>', '<th class="text-right">Output tokens</th>', '<th class="text-right">Total tokens</th>', '<th class="text-right">Time</th>', '<th class="text-right">Lines</th>', '<th class="text-right">Games passed</th>'], chr(10).join(avg_rows))}
+      <h2>Compared with our first measurement</h2>
+      <p class="text-sm text-zinc-400">First run {EFF_MEASURED} (one per level, an earlier Claude Code version, cost from ccusage) against the average of three runs on {EFF_MEASURED_NEW} (Claude Code 2.1.295, no MCP servers, cost from Claude Code&rsquo;s own report). Same prompt.</p>
+{_table(['<th>Model · effort</th>', f'<th class="text-right">Cost {EFF_MEASURED}</th>', f'<th class="text-right">Cost {EFF_MEASURED_NEW}</th>', '<th class="text-right">Change</th>', '<th class="text-right">Total tokens then</th>', '<th class="text-right">Total tokens now</th>'], chr(10).join(cmp_rows))}
       <h2>Haiku 5.5 by effort level (average of 3 runs)</h2>
 {_table(['<th>Effort</th>', '<th class="text-right">Cost</th>', '<th class="text-right">Output tokens</th>', '<th class="text-right">Time</th>', '<th class="text-right">Turns</th>', '<th class="text-right">Lines</th>', '<th class="text-right">Games passed</th>'], chr(10).join(
         f'          <tr><td>{x["effort"]}</td><td class="text-right tabular-nums">{_usd(x["cost"])}</td><td class="text-right tabular-nums">{x["out"]:,}</td><td class="text-right tabular-nums">{_dur(x["seconds"])}</td><td class="text-right tabular-nums">{x["turns"]:.1f}</td><td class="text-right tabular-nums">{x["lines"]}</td><td class="text-right tabular-nums">{x["ok"]}/{x["n"]}</td></tr>' for x in H.values()))}
       <h2>All runs</h2>
 {_table(head, trs)}      <h2>Method</h2>
       <ul>
-        <li>Prompt, word for word: “{esc(d["prompt"])}”</li>
-        <li>Run once per effort level in Claude Code (<code>claude -p --effort …</code>), each in its own empty folder.</li>
-        <li>Tokens and cost from <a href="https://github.com/ryoppippi/ccusage">ccusage</a> at API prices; time from start and end timestamps; lines counted in the finished <code>index.html</code>.</li>
-        <li>All seven games ran without errors and had every requested feature; screenshots and a review of each are in the <a href="/blog/claude-opus-5-5-effort">write-up</a>.</li>
-        <li>Haiku 5.5 (added {EFF_UPDATED}): Claude Code 2.1.295, <code>claude -p --model claude-haiku-5-5 --effort …</code> with no MCP servers, three runs per level. Tokens and cost from Claude Code&rsquo;s own usage report at list prices. Each game was played by a script in a headless browser to check the score, level 2 and three lives.</li>
+        <li>Prompt, word for word: &ldquo;{esc(d["prompt"])}&rdquo;</li>
+        <li>Opus 5.5 and Sonnet 5.5 ({EFF_MEASURED_NEW}): Claude Code 2.1.295 on Windows 11, <code>claude -p --model &hellip; --effort &hellip; --permission-mode acceptEdits --output-format stream-json --strict-mcp-config</code> with an empty MCP config, each run in its own empty folder, three runs per level. Tokens and cost from Claude Code&rsquo;s own usage report at list prices; time is wall-clock.</li>
+        <li>First measurement ({EFF_MEASURED}): one run per level on an earlier Claude Code version with default settings; tokens and cost from <a href="https://github.com/ryoppippi/ccusage">ccusage</a> at API prices. Kept for comparison.</li>
+        <li>Haiku 5.5 ({EFF_UPDATED}): Claude Code 2.1.295, same settings as above, three runs per level.</li>
+        <li>Every game was played by a script in headless Chromium to check the score, level 2 and three lives. One Opus max game drew its score label and value separately, which the script could not read; reading the game&rsquo;s own score variable showed it rising. Scripts are in the GitHub mirror.</li>
       </ul>
       <h2>Limitations</h2>
       <ul>
-        <li>One run per level for Opus and Sonnet, three for Haiku, and one task. Runs vary, especially at high effort levels; treat the numbers as an order of magnitude, not a fixed price.</li>
+        <li>Three runs per level and one task. Runs vary, especially at xhigh and max; treat the numbers as an order of magnitude, not a fixed price.</li>
         <li>Costs are API-equivalent. On a Pro or Max plan the same runs use up your usage limit instead of money.</li>
-        <li>Max effort tried to run an automated test that needed permission, which added time.</li>
+        <li>The first and the new measurement differ in Claude Code version, MCP setup and how cost was read, so the comparison shows how much the bill moved, not why.</li>
       </ul>
 ''' + _page_tail(eff_citation(), _embed(EFF_PATH, EFF_CHART, "Output tokens and cost for the same task at each Claude effort level", "Claude effort levels"),
                  [("/blog/claude-opus-5-5-effort", "Claude Opus 5.5 effort levels tested (full write-up)"), ("/blog/claude-sonnet-5-5-vs-opus-5-5", "Sonnet 5.5 vs Opus 5.5"), ("/agents", "Coding agent cost calculator")])
@@ -3131,6 +3171,7 @@ def blm_html():
 # ---- Dataset 22: Antigravity CLI vs Claude Code vs Codex (measured 2026-10-22) ----
 AGY_PATH = "/data/antigravity-cli-vs-claude-code-vs-codex"
 AGY_MEASURED = "2026-10-22"
+AGY_MEASURED_SHOW = "2026-10-18 to 2026-10-23"
 AGY_CHART = "/antigravity-cli-vs-claude-code-vs-codex-chart.png"
 AGY_DOI = "10.5281/zenodo.23569397"  # concept DOI
 AGY_MIRRORS = [("Zenodo", "https://zenodo.org/records/23569398"),
@@ -3139,7 +3180,7 @@ AGY_MIRRORS = [("Zenodo", "https://zenodo.org/records/23569398"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/antigravity-cli")]
 AGY_TITLE = "Antigravity CLI vs Claude Code vs Codex: startup tokens, MCP tools and the same coding task"
 AGY_DESC = ("Dataset: input tokens Google's Antigravity CLI (with Gemini 4 Argon and with Claude Opus 5.5), Claude Code and Codex use before any work, what 1 to 30 MCP tools add, "
-            "and tokens, time and output for the same browser-game task. Opus 5.5 used 68% to 88% fewer input tokens in Antigravity than in Claude Code. 44 runs, free CSV, CC BY 4.0.")
+            "and tokens, time and output for the same browser-game task. Opus 5.5 used 71% to 89% fewer input tokens in Antigravity than in Claude Code. 52 runs, free CSV, CC BY 4.0.")
 AGY_TOOLS = [("claude", "Claude Code + Opus 5.5"), ("codex", "Codex + gpt-6-luna"), ("agyg", "Antigravity + Gemini 4 Argon"), ("agyo", "Antigravity + Opus 5.5")]
 AGY_COLS = ["tool", "test", "mcp_tools", "run", "input_tokens_reported", "cache_read_tokens", "output_tokens", "seconds", "api_cost_usd",
             "file_lines", "check_score", "check_level2", "check_lives", "game_ok", "check_note"]
@@ -3165,7 +3206,7 @@ def write_agy_files(dist):
                     r.get("cost", ""), r.get("lines", ""), r.get("check_score", ""), r.get("check_level2", ""), r.get("check_lives", ""),
                     r.get("game_ok", ""), r.get("check_note", ""), lab[r["tool"]]])
     open(os.path.join(dist, "data", "antigravity-cli-vs-claude-code-vs-codex.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
-    meta = dict(title=AGY_TITLE, url=BASE + AGY_PATH, license="CC BY 4.0", citation=agy_citation(), measured=AGY_MEASURED,
+    meta = dict(title=AGY_TITLE, url=BASE + AGY_PATH, license="CC BY 4.0", citation=agy_citation(), measured=AGY_MEASURED_SHOW,
                 setup="Windows 11; Claude Code 2.1.295 (Opus 5.5, Max plan); Codex CLI 0.162.0-alpha.17.2 (gpt-6-luna, ChatGPT plan); Antigravity CLI 1.4.5 "
                       "(gemini-4-argon-medium and claude-opus-5-5-medium, personal Google account)",
                 note=("input_tokens_reported is each CLI's own figure. Claude Code: input + cache creation + cache read. Codex: input including cached input. "
@@ -3179,7 +3220,7 @@ def agy_ld():
     return _dataset_ld(AGY_TITLE, AGY_DESC, AGY_PATH, AGY_MEASURED,
                        ["Antigravity CLI tokens", "Antigravity CLI vs Claude Code", "Gemini CLI replacement", "agy CLI", "Claude Code vs Codex", "AI coding agent tokens", "MCP tools tokens"],
                        ["input tokens before any work", "input tokens added by 1, 10 and 30 MCP tools", "input and output tokens for one coding task", "seconds", "whether the game works"],
-                       "Each CLI run headless on Windows 11 with the same prompts: a one-word reply with 0, 1, 10 and 30 dummy MCP tools (2 runs each) and a brick-breaker game task (3 runs each); every game checked in a headless browser",
+                       "Each CLI run headless on Windows 11 with the same prompts: a one-word reply with 0, 1, 10 and 30 dummy MCP tools (2 runs each) and a brick-breaker game task (5 runs each); every game checked in a headless browser",
                        AGY_CHART, [("antigravity-cli-vs-claude-code-vs-codex.csv", "text/csv"), ("antigravity-cli-vs-claude-code-vs-codex.json", "application/json")],
                        doi=AGY_DOI or None, mirrors=AGY_MIRRORS)
 
@@ -3221,7 +3262,7 @@ def agy_html():
               f'Codex read {f(cx["inp"])} on average ({f(cx["lo"])} to {f(cx["hi"])}) and wrote minified games of about {round(cx["lines"])} lines.</li>')
     li.append(f'<li><strong>MCP tools barely matter any more.</strong> Thirty test tools added {f(agy_add("claude", 30))} tokens in Claude Code, none in Codex (14,618 in seven of its eight startup runs, with or without tools), {f(agy_add("agyg", 30))} in Antigravity with Gemini and {f(agy_add("agyo", 30))} with Opus. '
               f'In Antigravity one tool already added {f(agy_add("agyg", 1))} (Gemini) and {f(agy_add("agyo", 1))} (Opus) and 29 more added little, so all four now seem to load a tool&rsquo;s details only when it is used.</li>')
-    li.append(f'<li><strong>All 12 games worked</strong> in a headless-browser check: the score rises when bricks break, level 2 appears, and lives go 3, 2, 1, 0. '
+    li.append(f'<li><strong>All {sum(g["ok"] for g in G.values())} games worked</strong> in a headless-browser check: the score rises when bricks break, level 2 appears, and lives go 3, 2, 1, 0. '
               'The automatic check could not read the score in two Codex games; a manual check showed bricks breaking and points adding up in both.</li>')
     li.append('<li><strong>Why Antigravity:</strong> Google stopped serving Gemini CLI to personal accounts (Google AI Pro, Ultra and free Code Assist) on 2026-06-18 and pointed them to Antigravity CLI. '
               'Antigravity can also run Claude models, which is what makes the same-model comparison possible.</li>')
@@ -3247,14 +3288,14 @@ def agy_html():
             '      <p class="text-sm text-zinc-400">Input tokens for &ldquo;Reply with the single word OK.&rdquo;, average of two runs. In brackets: Antigravity&rsquo;s separately reported cache reads, and the change against no MCP server.</p>\n'
             + _table(hb, chr(10).join(rb)) +
             '      <h2>The same coding task</h2>\n'
-            '      <p class="text-sm text-zinc-400">&ldquo;Make a brick-breaker game that runs in the browser as a single file named index.html &hellip; 2 levels, a score display and 3 lives &hellip; keyboard and mouse.&rdquo; Average of three runs each, medium effort.</p>\n'
+            '      <p class="text-sm text-zinc-400">&ldquo;Make a brick-breaker game that runs in the browser as a single file named index.html &hellip; 2 levels, a score display and 3 lives &hellip; keyboard and mouse.&rdquo; Average of five runs each, medium effort. Claude Code and Codex runs 4 and 5 are the 2026-10-18 runs of our Claude Code vs Codex dataset (same versions); the Antigravity runs 4 and 5 are from 2026-10-23; one Claude Code run took an extra step and read 123,666 tokens.</p>\n'
             + _table(hg, chr(10).join(rg)) +
             '      <h2>How to read Antigravity&rsquo;s numbers</h2>\n'
             '      <p><code>agy --output-format json</code> reports <code>input_tokens</code>, <code>output_tokens</code>, <code>thinking_tokens</code>, <code>cache_read_tokens</code> and <code>total_tokens</code>, '
             f'where total is input plus output. Its documentation does not say whether cache reads are part of input. In our Opus runs the cache reads ({f(ao["cache"])} on the game task) were larger than the reported input ({f(ao["inp"])}), '
             'so there they cannot be contained in it. We therefore show both: the reported input as the low figure and input plus cache reads as the high one. Even the high figure is far below Claude Code&rsquo;s.</p>\n'
             '      <h2>Method</h2>\n      <ul>\n'
-            f'        <li>Windows 11, {AGY_MEASURED}. Every run in its own empty folder, one after another, with no other MCP servers.</li>\n'
+            f'        <li>Windows 11, {AGY_MEASURED_SHOW}. Every run in its own empty folder, one after another, with no other MCP servers.</li>\n'
             '        <li><strong>Claude Code 2.1.295</strong>, Opus 5.5, Max plan: <code>claude -p --output-format json --mcp-config mcp.json --strict-mcp-config</code>; the game at <code>--effort medium --permission-mode acceptEdits</code>. Input = input + cache creation + cache read.</li>\n'
             '        <li><strong>Codex CLI 0.162.0-alpha.17.2</strong>, gpt-6-luna, ChatGPT plan: <code>codex exec --json</code>, reasoning effort low for startup and medium for the game, MCP server added with <code>-c mcp_servers.&hellip;</code>. Input includes cached input.</li>\n'
             '        <li><strong>Antigravity CLI 1.4.5</strong> (<code>agy</code>), personal Google account: <code>agy -p --output-format json --model gemini-4-argon-medium</code> or <code>claude-opus-5-5-medium</code>; the game with <code>--mode accept-edits</code>. '
@@ -3262,12 +3303,12 @@ def agy_html():
             f'        <li>MCP test server: the same small stdio server as in our <a href="{AGT_PATH}">Claude Code vs Codex dataset</a>, exposing 1, 10 or 30 tracker tools with a one-sentence description and a five-field schema each.</li>\n'
             '        <li>Games were checked in headless Chromium: break bricks and watch the score, clear or skip to level 2, and lose the ball until lives reach zero. Scripts and every log are in the GitHub mirror.</li>\n'
             '      </ul>\n      <h2>Limitations</h2>\n      <ul>\n'
-            '        <li>Two runs per startup test and three per game. One task, one machine, one day.</li>\n'
+            '        <li>Two runs per startup test and five per game, on three days with the same tool versions. One task, one machine.</li>\n'
             '        <li>Token counts are each tool&rsquo;s own report, and the three tools count cache differently (see above). Prices are not compared: Codex and Antigravity show none on a subscription.</li>\n'
             '        <li>We cannot see how Antigravity sets up Opus 5.5 behind its <code>claude-opus-5-5-medium</code> name, so its settings may differ from Claude Code&rsquo;s medium effort.</li>\n'
             '      </ul>\n')
     return (_head(f"Antigravity CLI vs Claude Code vs Codex: the same Opus 5.5 read {g_lo}% to {g_hi}% fewer tokens in Antigravity", lead,
-                  f'Measured {AGY_MEASURED} · {len(R)} runs · Claude Code 2.1.295, Codex CLI 0.162, Antigravity CLI 1.4.5 · License <a href="{LICENSE}">CC BY 4.0</a> · Earlier: <a href="{AGT_PATH}">Claude Code vs Codex</a>',
+                  f'Measured {AGY_MEASURED_SHOW} · {len(R)} runs · Claude Code 2.1.295, Codex CLI 0.162, Antigravity CLI 1.4.5 · License <a href="{LICENSE}">CC BY 4.0</a> · Earlier: <a href="{AGT_PATH}">Claude Code vs Codex</a>',
                   [("antigravity-cli-vs-claude-code-vs-codex.csv", "CSV"), ("antigravity-cli-vs-claude-code-vs-codex.json", "JSON")],
                   AGY_CHART, "Input tokens for the same coding task in Claude Code, Codex and Antigravity CLI", doi=AGY_DOI or None, mirrors=AGY_MIRRORS)
             + body + _page_tail(agy_citation(), _embed(AGY_PATH, AGY_CHART, "Input tokens for the same coding task in Claude Code, Codex and Antigravity CLI", "Antigravity CLI vs Claude Code vs Codex"),
@@ -3284,7 +3325,7 @@ LGO_MIRRORS = [("Zenodo", "https://zenodo.org/records/23585140"),
                ("Kaggle", "https://www.kaggle.com/datasets/johnisking/output-tokens-per-character-claude-gpt-gemini"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/output-tokens-per-character")]
 LGO_TITLE = "Same code, about 60% more output tokens: Claude vs GPT vs Gemini in four coding tools and five languages"
-LGO_DESC = ("Dataset: the same brick-breaker task in Claude Code, Codex and Antigravity CLI (Gemini 4 Argon and Claude Opus 5.5), prompted in English, Korean, Japanese, Spanish and Ukrainian, 80 runs. "
+LGO_DESC = ("Dataset: the same brick-breaker task in Claude Code, Codex and Antigravity CLI (Gemini 4 Argon and Claude Opus 5.5), prompted in English, Korean, Japanese, Spanish and Ukrainian, 100 runs. "
             "Claude Opus 5.5 used about 60% more output tokens per 1,000 characters of game code than Gemini or GPT, in both tools that ran it. Prompt language moved input tokens only a few percent. Free CSV, CC BY 4.0.")
 LGO_TOOLS = [("claude_code", "Claude Code + Opus 5.5"), ("antigravity_opus", "Antigravity + Opus 5.5"), ("antigravity_gemini", "Antigravity + Gemini 4 Argon"), ("codex", "Codex + gpt-6-luna")]
 LGO_LANGS = [("en", "English"), ("ko", "Korean"), ("ja", "Japanese"), ("es", "Spanish"), ("uk", "Ukrainian")]
@@ -3366,7 +3407,7 @@ def lgo_html():
         ri.append(f'          <tr><td>{esc(lab)}</td>' + "".join(f'<td class="text-right tabular-nums">{f(S[(t, l)]["inp"])}</td>' for l, _ in LGO_LANGS) + '</tr>')
     body = ('      <h2>Key findings</h2>\n      <ul>\n' + "\n".join("        " + x for x in li) + '\n      </ul>\n'
             '      <h2>Output tokens per 1,000 characters of code</h2>\n'
-            '      <p class="text-sm text-zinc-400">Output tokens reported by each tool divided by the characters of the index.html it wrote. Average of 5 runs (Claude Code, Codex) or 3 runs (Antigravity) per language.</p>\n'
+            '      <p class="text-sm text-zinc-400">Output tokens reported by each tool divided by the characters of the index.html it wrote. Average of 5 runs per tool and language.</p>\n'
             + _table(hp, chr(10).join(rp)) +
             '      <h2>Input tokens by prompt language</h2>\n'
             '      <p class="text-sm text-zinc-400">Claude Code: input + cache creation + cache read. Codex: input including cached. Antigravity: its reported input_tokens (cache reads are reported separately and are in the CSV). '
@@ -3374,7 +3415,7 @@ def lgo_html():
             + _table(hp, chr(10).join(ri)) +
             '      <h2>Method</h2>\n      <ul>\n'
             '        <li>Task: &ldquo;Make a brick-breaker game that runs in the browser as a single file named index.html &hellip; 2 levels, a score display and 3 lives &hellip; keyboard and mouse&rdquo;, translated into Korean, Japanese, Spanish and Ukrainian. Medium effort everywhere, each run in its own empty folder on Windows 11.</li>\n'
-            f'        <li>Claude Code 2.1.295 and Codex CLI 0.162: the 50 runs of our <a href="{TL_PATH}">prompt-language dataset</a> (2026-10-18 and 19). Antigravity CLI 1.4.5: English from our <a href="{AGY_PATH}">three-way comparison</a> (2026-10-22) and 24 new runs in the other four languages (2026-10-23).</li>\n'
+            f'        <li>Claude Code 2.1.295 and Codex CLI 0.162: the 50 runs of our <a href="{TL_PATH}">prompt-language dataset</a> (2026-10-18 and 19). Antigravity CLI 1.4.5: English runs 1 to 3 from our <a href="{AGY_PATH}">three-way comparison</a> (2026-10-22), the other 44 runs new (2026-10-23; runs 4 and 5 in every language added the same day).</li>\n'
             '        <li>Every game was played in headless Chromium by a script that watches the score, the level and the lives; the check reads the game&rsquo;s own text in all five languages.</li>\n'
             '      </ul>\n      <h2>Limitations</h2>\n      <ul>\n'
             '        <li>Output tokens include the short final reply and the tool-call wrapping around the file, not only the code. Antigravity reported no or few thinking tokens; Claude Code and Codex count any reasoning inside their output figure.</li>\n'
