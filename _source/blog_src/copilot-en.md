@@ -128,13 +128,13 @@ For companies, Copilot Business costs $19 and Enterprise $39 per user per month,
 | Tool | Free | Entry | Middle | Top individual |
 |---|---|---:|---:|---:|
 | GitHub Copilot | Free | Pro $10 | Pro+ $39 | Max $100 |
-| Cursor | Hobby | Pro $20 | Pro+ $60 | Ultra $200 |
+| Cursor | Free | Plus $8 (Grok and Composer only) | Premium $30 / Super $100 | Ultra $200 |
 | Claude (includes Claude Code) | Free, no Claude Code | Pro $20 | Max 5x $100 | Max 20x $200 |
 | ChatGPT (includes Codex) | Free, limited Codex | Plus $20 | Pro 100 $100 | Pro 500 $500 |
 
-- **Copilot is the cheapest way in.** Pro at $10 is half the entry price of the others, and its credits are clearly stated in dollars.
+- **Copilot is the cheapest way in with Claude and GPT.** Pro at $10 is half the entry price of Claude and ChatGPT, and its credits are clearly stated in dollars.
 - **Claude and ChatGPT plans are allowance-based, not credit-based.** They give you usage limits that reset on a schedule rather than a dollar balance, so they're harder to compare directly. Their allowances aren't tied to API prices, so the value per dollar depends on how you use them.
-- **Cursor and Copilot both price usage per token.** Both include a pool of usage with the plan; Cursor adds its own token rate on third-party models, while Copilot charges the list price. See [Cursor pricing](/blog/cursor-pricing) for how Cursor's pools work.
+- **Cursor and Copilot both price usage per token.** Copilot's plans include credits for third-party models at list price. Since mid-October 2026, Cursor's plans include a weekly pool only for its own Grok and Composer models; Claude and GPT are paid separately from prepaid credit at API list price. See [Cursor pricing](/blog/cursor-pricing).
 
 For a fuller comparison of monthly cost by workload, see [Claude Code vs Codex vs Cursor: cost](/blog/claude-code-vs-codex-vs-cursor-cost) or the [coding agent cost calculator](/agents).
 

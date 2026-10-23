@@ -110,7 +110,7 @@ The full comparison is in [Claude Max vs Pro](/blog/claude-max-vs-pro).
 |---|---:|---|---|
 | Claude Pro | $20 | Claude Code | 5-hour and weekly limits |
 | ChatGPT Plus | $20 | Codex | 5-hour window in Codex; weekly limits may apply |
-| Cursor Pro | $20 | Cursor's agent | Monthly usage pool at API prices |
+| Cursor Premium | $30 | Cursor's agent | Weekly pool for Grok and Composer; Claude and GPT extra at API prices |
 | GitHub Copilot Pro | $10 | Copilot agent | $15 of AI credits a month |
 
 - **At $20, Claude Pro and ChatGPT Plus are the direct rivals.** Both include a coding agent and a chat app with shared limits. See [ChatGPT Plus vs Pro](/blog/chatgpt-plus-vs-pro) for OpenAI's side.

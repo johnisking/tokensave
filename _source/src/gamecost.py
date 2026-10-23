@@ -191,7 +191,7 @@ PRICE_ROWS = [
     ("Roblox Assistant (Cube)", "Free in Roblox Studio (/generate_mesh), with daily generation limits", "https://create.roblox.com/docs/assistant/guide"),
     ("Higgsfield", "Starter $15 · Plus $39 · Ultra $99 / month", "https://higgsfield.ai/pricing"),
     ("Claude", "Pro $20 · Max 5× $100 · Max 20× $200 / month", "https://claude.com/pricing"),
-    ("Cursor", "Pro $20 / month", "https://cursor.com/pricing"),
+    ("Cursor", "Plus $8 · Premium $30 · Super $100 · Ultra $200 / month (Claude and GPT billed separately)", "https://cursor.com/pricing"),
     ("ChatGPT (Codex)", "Plus $20 · Pro $100 / $200 / $500 / month", "https://chatgpt.com/pricing"),
     ("Windsurf", "Pro $20 / month", "https://windsurf.com/pricing"),
     ("GitHub Copilot", "Pro $10 · Pro+ $39 / month (agent use draws AI credits)", "https://github.com/features/copilot/plans"),

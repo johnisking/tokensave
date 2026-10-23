@@ -111,7 +111,7 @@ const TOOLS = {
     pro:   { name: 'Claude Pro', monthly: 20, capPerDay: 4e6 },
     max5:  { name: 'Claude Max 5×', monthly: 100, capPerDay: 30e6 },
     max20: { name: 'Claude Max 20×', monthly: 200, capPerDay: 80e6 },
-    cursor:{ name: 'Cursor Pro', monthly: 20, capPerDay: 8e6 },
+    cursor:{ name: 'Cursor Premium', monthly: 30, capPerDay: 8e6 },   // since 2026-10-12: weekly pool for Grok/Composer only; Claude/GPT billed extra at API price
     gemini:{ name: 'Google AI Pro (Gemini)', monthly: 20, capPerDay: 25e6 },
     copilot:{ name: 'GitHub Copilot Pro+', monthly: 39, capPerDay: 10e6 },
     windsurf:{ name: 'Windsurf Pro', monthly: 20, capPerDay: 8e6 },

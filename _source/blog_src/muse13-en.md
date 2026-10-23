@@ -75,7 +75,7 @@ According to Meta, Muse Spark 1.3 is trained for long, multi-step agent work and
 - **On Claude Sonnet 5.5, GPT-6 Sol or Gemini 3.1 Pro for cost:** Muse Spark 1.3 is a lot cheaper per request. Run a small test on your real prompts and compare quality.
 - **On DeepSeek V4 Pro:** the price is about the same, so choose on quality, speed and where your data is processed.
 - **For non-sensitive bulk jobs:** the contributor tier ($0.10 / $0.20) is one of the cheapest options, as long as you are fine with Meta training on that data.
-- **Using it in Cursor:** Cursor lists Muse Spark 1.3 at the same $1.25 / $4.25 in its "other models" pool.
+- **Using it in Cursor:** Cursor lists Muse Spark 1.3 at the same $1.25 / $4.25. Since mid-October 2026, third-party models like this are paid from prepaid credit on Premium and above, outside the plan's included usage.
 
 ## Check your own prompt
 

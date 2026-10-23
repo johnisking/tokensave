@@ -156,13 +156,13 @@ Pro から Pro+ に上げるか迷ったら、次の3つを判断のポイント
 | ツール | 無料 | 入門 | 中間 | 個人向け最上位 |
 |---|---|---:|---:|---:|
 | GitHub Copilot | Free | Pro $10 | Pro+ $39 | Max $100 |
-| Cursor | Hobby | Pro $20 | Pro+ $60 | Ultra $200 |
+| Cursor | 無料 | Plus $8（Grok・Composer のみ） | Premium $30 / Super $100 | Ultra $200 |
 | Claude（Claude Code を含む） | 無料（Claude Code なし） | Pro $20 | Max 5x $100 | Max 20x $200 |
 | ChatGPT（Codex を含む） | 無料（Codex は制限付き） | Plus $20 | Pro 100 $100 | Pro 500 $500 |
 
-- **いちばん安く始められるのは Copilot です。** Pro の$10はほかの入門プランより50%安く、クレジットもドルで明示されています。
+- **Claude・GPT を使えるプランでいちばん安く始められるのは Copilot です。** Pro の$10は Claude・ChatGPT の入門プランより50%安く、クレジットもドルで明示されています。
 - **Claude と ChatGPT のプランは、クレジットではなく利用枠の方式です。** 残高ではなく一定時間ごとにリセットされる上限があり、API 価格とも連動していないので、単純には比べられません。1ドルあたりの価値は使い方しだいです。Claude Code の料金は [Claude Code の料金は月いくら？](/ja/blog/claude-code-ryoukin)、Codex の上限は [Codex の使用量上限まとめ](/ja/blog/codex-shiyouryou-jougen) をご覧ください。
-- **Cursor と Copilot はどちらもトークン単位の課金です。** どちらもプランに使用量が含まれていますが、Cursor は Teams・Enterprise で他社モデルに独自のトークン料金を上乗せし、Copilot は定価のままです。Cursor の仕組みは [Cursor の料金](/blog/cursor-pricing)（英語）で解説しています。
+- **Cursor と Copilot はどちらもトークン単位の課金です。** Copilot はプランのクレジットで他社モデルを定価で使えます。Cursor は2026年10月中旬から、プランの使用量（週ごと）が自社の Grok・Composer だけに使われ、Claude・GPT はプリペイドのクレジットから API 定価で別に支払います。Cursor の仕組みは [Cursor の料金](/blog/cursor-pricing)（英語）で解説しています。
 
 ChatGPT・Gemini を含めたサブスクの円での比較は [生成AIのサブスク料金比較](/ja/blog/ai-subscription-ryoukin-hikaku)、作業量別の月額比較は [Claude Code vs Codex vs Cursor](/blog/claude-code-vs-codex-vs-cursor-cost)（英語）にあります。
 

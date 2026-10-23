@@ -772,11 +772,11 @@ for _d in SONNET55: _d["date"] = "2026-10-10"
 # 2026-10-11: Cursor pricing (en), official prices + free plan test
 CURSOR = [
  _cc("en", "/blog/cursor-pricing", "cursor-en", "Cursor Pricing 2026: Plans, Usage Pools and Real Monthly Cost",
-     "Cursor pricing in 2026: Hobby free, Pro $20, Pro+ $60, Ultra $200. How usage pools work, a free plan test, and what a month of agent use costs per model.",
+     "Cursor pricing 2026: Free, Plus $8, Premium $30, Super $100, Ultra $200 in The X Subscription. Claude and GPT cost extra; a free plan test and monthly costs.",
      "Jonhisking · October 11, 2026", "Enter task size and tasks per day to compare a month on Opus 5.5, Sonnet 5.5 and GPT-6 Sol.", "Open the coding agent cost calculator"),
 ]
 CURSOR.append(_cc("ko", "/ko/blog/cursor-pricing", "cursor-ko", "커서 요금제 2026: 요금 폭탄 피하는 법과 실제 한 달 비용",
-     "커서(Cursor) 요금제 2026: Hobby 무료, Pro $20, Pro+ $60, Ultra $200. 노멀·맥스 모드 이후 바뀐 과금 방식, 무료 플랜 실측, 모델별 한 달 비용과 장단점.",
+     "커서(Cursor) 요금제 2026: 무료·Plus $8·Premium $30·Super $100·Ultra $200(X 구독 통합). Claude·GPT는 이제 별도 과금, 무료 플랜 실측과 모델별 한 달 비용.",
      "Jonhisking · 2026년 10월 11일", "작업 크기와 하루 작업 수를 넣고 오퍼스 5.5·소넷 5.5·GPT-6 Sol의 한 달 비용을 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"))
 for _d in CURSOR: _d["date"] = "2026-10-11"
 
@@ -847,7 +847,7 @@ CPRO.append(_cc("ko", "/ko/blog/claude-yogeumje", "cplan-ko", "클로드 요금�
      "클로드 요금제 2026 총정리: 무료·Pro·Max 가격과 무료 체험·할인·환불까지 Anthropic 공식 기준으로 정리하고 세 요금제를 다 써 본 경험을 담았습니다.",
      "Jonhisking · 2026년 10월 12일", "사용 방식을 넣으면 구독과 API 중 어느 쪽이 더 싼지 알 수 있습니다.", "구독 vs API 비교하기"))
 CURSOR.append(_cc("ja", "/ja/blog/cursor-ryoukin", "cursor-ja", "Cursor の料金プラン2026｜無料版を試した月額の目安",
-     "Cursor の料金を2026年10月の公式情報で解説。Hobby 無料・Pro $20・Pro+ $60・Ultra $200の違い、使用量プールの仕組み、無料プランの実機テスト結果、モデル別の月額試算まで。",
+     "Cursor の料金を2026年10月23日の公式情報で解説。無料・Plus $8・Premium $30・Super $100・Ultra $200（X サブスクに統合）の違い、Claude・GPT が別料金になった仕組み、無料プランの実機テスト、モデル別の月額試算まで。",
      "Jonhisking · 2026年10月12日", "作業の大きさと1日の作業数を入れて、Opus 5.5・Sonnet 5.5・GPT-6 の1か月の費用を比べてみましょう。", "コーディングエージェント費用計算機を開く"))
 COPILOT.append(_cc("ja", "/ja/blog/github-copilot-ryoukin", "copilot-ja", "GitHub Copilot の料金｜Free・Pro・Pro+・Max の違い",
      "GitHub Copilot の料金を解説。Free・Pro $10・Pro+ $39・Max $100の違い、2026年6月開始のAIクレジット、消費税込みの支払額、実測にもとづく各プランのタスク回数の試算まで。",

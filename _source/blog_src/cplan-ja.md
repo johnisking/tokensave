@@ -165,7 +165,7 @@ Pro や Max はトークン単位では課金されず、5時間ごとと週ご�
 |---|---:|---|---|
 | Claude Pro | $20 | Claude Code | 5時間と週の上限 |
 | ChatGPT Plus | $20 | Codex | Codex に5時間枠、週の上限がかかる場合も |
-| Cursor Pro | $20 | Cursor のエージェント | API 価格での月間使用量プール |
+| Cursor Premium | $30 | Cursor のエージェント | Grok・Composer は週ごとの使用量、Claude・GPT は API 価格で別料金 |
 | GitHub Copilot Pro | $10 | Copilot エージェント | 月$15分の AI クレジット |
 
 - **$20で直接競合するのは Claude Pro と ChatGPT Plus** です。どちらもコーディングエージェントとチャットアプリが同じ上限を共有します。
