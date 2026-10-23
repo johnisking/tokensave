@@ -1040,7 +1040,7 @@ EFF_PATH = "/data/claude-effort-cost"
 EFF_MEASURED = "2026-10-09"
 EFF_CHART = "/claude-effort-cost-chart.png"
 EFF_DOI = "10.5281/zenodo.23446567"  # concept DOI
-EFF_MIRRORS = [("Zenodo", "https://zenodo.org/records/23533306"),
+EFF_MIRRORS = [("Zenodo", "https://zenodo.org/records/23589126"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-effort-cost"),
                ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-effort-levels-tokens-time-and-cost"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/effort")]
@@ -1192,7 +1192,7 @@ AGT_MEASURED = "2026-10-18"
 AGT_MEASURED_SHOW = "2026-10-18 and 2026-10-22"
 AGT_CHART = "/claude-code-vs-codex-tokens-chart.png"
 AGT_DOI = "10.5281/zenodo.23448342"  # concept DOI
-AGT_MIRRORS = [("Zenodo", "https://zenodo.org/records/23448343"),
+AGT_MIRRORS = [("Zenodo", "https://zenodo.org/records/23589129"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-code-vs-codex-tokens"),
                ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-code-vs-codex-startup-and-task-tokens"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/agents")]
@@ -3174,7 +3174,7 @@ AGY_MEASURED = "2026-10-22"
 AGY_MEASURED_SHOW = "2026-10-18 to 2026-10-23"
 AGY_CHART = "/antigravity-cli-vs-claude-code-vs-codex-chart.png"
 AGY_DOI = "10.5281/zenodo.23569397"  # concept DOI
-AGY_MIRRORS = [("Zenodo", "https://zenodo.org/records/23569398"),
+AGY_MIRRORS = [("Zenodo", "https://zenodo.org/records/23589130"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/antigravity-cli-vs-claude-code-vs-codex"),
                ("Kaggle", "https://www.kaggle.com/datasets/johnisking/antigravity-cli-vs-claude-code-vs-codex-44-runs"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/antigravity-cli")]
@@ -3320,7 +3320,7 @@ LGO_PATH = "/data/output-tokens-per-character-by-model"
 LGO_MEASURED = "2026-10-23"
 LGO_CHART = "/output-tokens-per-character-by-model-chart.png"
 LGO_DOI = "10.5281/zenodo.23585139"  # concept DOI
-LGO_MIRRORS = [("Zenodo", "https://zenodo.org/records/23585140"),
+LGO_MIRRORS = [("Zenodo", "https://zenodo.org/records/23589133"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/output-tokens-per-character-by-model"),
                ("Kaggle", "https://www.kaggle.com/datasets/johnisking/output-tokens-per-character-claude-gpt-gemini"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/output-tokens-per-character")]
