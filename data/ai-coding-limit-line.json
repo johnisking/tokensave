@@ -2,7 +2,7 @@
  "title": "Where AI coding agents first fail: Haiku, Sonnet, Opus, Codex and Gemini on six levels of coding tasks",
  "url": "https://tokensave.app/data/ai-coding-limit-line",
  "license": "CC BY 4.0",
- "citation": "TokenSave (2026). Where AI coding agents first fail: Haiku, Sonnet, Opus, Codex and Gemini on six levels of coding tasks [Data set]. https://tokensave.app/data/ai-coding-limit-line",
+ "citation": "TokenSave (2026). Where AI coding agents first fail: Haiku, Sonnet, Opus, Codex and Gemini on six levels of coding tasks [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23600477",
  "measured": "2026-10-23 to 2026-10-24",
  "setup": "Windows 11; Claude Code 2.1.295 (effort medium, acceptEdits); Codex CLI 0.162 (gpt-6-luna, medium, workspace-write sandbox); Antigravity CLI 1.4.5 (gemini-4-argon-medium, accept-edits)",
  "tasks": {

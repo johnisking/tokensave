@@ -3438,8 +3438,11 @@ def lgo_html():
 LIM_PATH = "/data/ai-coding-limit-line"
 LIM_MEASURED = "2026-10-24"
 LIM_CHART = "/ai-coding-limit-line-chart.png"
-LIM_DOI = ""
-LIM_MIRRORS = []
+LIM_DOI = "10.5281/zenodo.23600477"  # concept DOI
+LIM_MIRRORS = [("Zenodo", "https://zenodo.org/records/23600478"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/ai-coding-limit-line"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/where-ai-coding-agents-first-fail-136-runs"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/limit-line")]
 LIM_TITLE = "Where AI coding agents first fail: Haiku, Sonnet, Opus, Codex and Gemini on six levels of coding tasks"
 LIM_DESC = ("Dataset: 136 runs of Claude Code (Haiku, Sonnet, Opus 5.5), Codex and Antigravity CLI on tasks from a single-file game to real bugs in the marked Markdown parser. "
             "Every tool passed the spec-driven apps; all failed the hardest real bug. Scores, time, tokens and cost per run. Free CSV, CC BY 4.0.")
