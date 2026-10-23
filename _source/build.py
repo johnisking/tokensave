@@ -141,7 +141,7 @@ PAGES = [
     dict(file="author/jonhisking.html", path="/author/jonhisking", body="author_body.html",
          title="Jonhisking, author of TokenSave",
          desc="Who writes TokenSave: an independent developer in South Korea who measures AI token costs himself and publishes the raw data with DOIs."),
-    dict(file="press.html", path="/press", body="press_body.html",
+    dict(file="press/index.html", path="/press/", body="press_body.html",
          title="Press kit | TokenSave",
          desc="TokenSave press kit: 10 key findings from our AI token cost measurements, charts, founder photo and contact. Free to quote under CC BY 4.0."),
     dict(file="languages.html", path="/languages", body=None,
