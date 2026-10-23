@@ -1,0 +1,57 @@
+    <article class="prose-ts max-w-3xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+      <h1 class="text-3xl font-extrabold text-white">Press kit</h1>
+      <p class="mt-3">TokenSave measures what AI models and coding agents really cost in tokens and publishes the raw data. Everything on this page, including the charts and the photo, is free to quote and reuse under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Please credit <strong>TokenSave (tokensave.app)</strong> and link to the dataset or its DOI.</p>
+
+      <h2>Key findings</h2>
+      <p>Each line links to the dataset page with the method, tool versions, dates, limits and a downloadable CSV.</p>
+      <ol>
+        <li><strong>The same text costs more tokens on Claude.</strong> Across 40 languages, the median extra tokens compared with English is +88% on Claude 5.5, +52% on GPT and +41% on Gemini. <a href="/data/language-tax-index">Language Tax Index</a></li>
+        <li><strong>Claude writes about 60% more output tokens for the same code.</strong> Opus 5.5 used about 60% more output tokens per character of code than Gemini 4 Argon or GPT, in two different coding tools and five prompt languages (80 runs). <a href="/data/output-tokens-per-character-by-model">Output tokens per character</a></li>
+        <li><strong>A coffee break can cost 507% more.</strong> In Claude Code, the next message after a pause of up to 55 minutes cost the same; after 65 minutes the prompt cache had expired and it cost 507% more. <a href="/data/ai-coffee-break-cache-cost">Coffee-break tax</a></li>
+        <li><strong>The agent itself is most of the bill.</strong> Claude Code's own instructions and tools made up 90% of the input tokens on a coding task, and a subagent made the same task cost 128% more. <a href="/data/claude-code-harness-cost">Claude Code harness cost</a></li>
+        <li><strong>A big CLAUDE.md is paid on every request.</strong> A 50 KB CLAUDE.md adds about 16,000 input tokens to each Claude Code request, and Codex silently ignores AGENTS.md text past 32 KiB. <a href="/data/claude-md-agents-md-size">CLAUDE.md and AGENTS.md size</a></li>
+        <li><strong>One web page can fill the context.</strong> One accessibility snapshot of a long Wikipedia article was over 200,000 Claude tokens in both Playwright MCP and Chrome DevTools MCP. Our open-source proxy turned it into a table of contents of about 1,100 tokens. <a href="/data/browser-mcp-token-cost">Browser MCP token cost</a></li>
+        <li><strong>The cheapest Claude model built the same games.</strong> Haiku, Sonnet and Opus 5.5 each built 15 browser games; all 45 passed play tests, and Haiku 5.5 cost about 95% less than Opus. <a href="/data/vibe-coding-by-claude-model">Vibe coding by Claude model</a></li>
+        <li><strong>CSV beats JSON for prompts.</strong> The same table needs about two thirds fewer tokens as CSV than as indented JSON; TOON comes close but does not beat CSV. <a href="/data/token-cost-by-format">Token cost by format</a></li>
+        <li><strong>Image cost varies widely between providers.</strong> Gemini charges a flat ~1,100 tokens per image, while a 12 MP photo costs 14,364 tokens on GPT-6 Astra by default. <a href="/data/image-token-cost">Image token cost</a></li>
+        <li><strong>AI agents search in English.</strong> Asked about AI topics in Korean, Japanese, Spanish or Ukrainian, Claude Code and Codex still searched in English; only local questions (Seoul, Tokyo, Madrid, Kyiv) brought local-language searches. <a href="/data/claude-web-search-by-language">Web search by language</a></li>
+      </ol>
+      <p>All 24 datasets: <a href="/data/">tokensave.app/data</a>. Each has a DOI on Zenodo and mirrors on Hugging Face, Kaggle and GitHub.</p>
+
+      <h2>Charts</h2>
+      <p>Full-size PNG files (1200 px wide). Right-click or long-press to save.</p>
+      <div class="not-prose" style="display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));align-items:start">
+        <a href="/output-tokens-per-character-by-model-chart.png" class="block"><img src="/output-tokens-per-character-by-model-chart.png" alt="Output tokens per 1,000 characters of code by model and tool" loading="lazy" width="1200" height="620" class="rounded-lg border border-zinc-800"></a>
+        <a href="/blog-language-tax-chart-v5.png" class="block"><img src="/blog-language-tax-chart-v5.png" alt="Language Tax Index: extra tokens by language on Claude, Gemini and GPT" loading="lazy" class="rounded-lg border border-zinc-800"></a>
+        <a href="/ai-coffee-break-cache-cost-chart.png" class="block"><img src="/ai-coffee-break-cache-cost-chart.png" alt="Cost of the next Claude Code message after a pause of 0 to 65 minutes" loading="lazy" width="1200" height="620" class="rounded-lg border border-zinc-800"></a>
+        <a href="/claude-code-harness-cost-chart.png" class="block"><img src="/claude-code-harness-cost-chart.png" alt="Claude Code input tokens under 7 harness settings" loading="lazy" class="rounded-lg border border-zinc-800"></a>
+        <a href="/browser-mcp-token-cost-chart.png" class="block"><img src="/browser-mcp-token-cost-chart.png" alt="Browser MCP token cost: Playwright vs Chrome DevTools, with and without the proxy" loading="lazy" class="rounded-lg border border-zinc-800"></a>
+        <a href="/vibe-coding-by-claude-model-chart.png" class="block"><img src="/vibe-coding-by-claude-model-chart.png" alt="Cost of 45 browser games built by Claude Haiku, Sonnet and Opus 5.5" loading="lazy" class="rounded-lg border border-zinc-800"></a>
+      </div>
+
+      <h2>About the founder</h2>
+      <div class="not-prose" style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+        <img src="/press-jaehyun-cho.jpg" alt="Jaehyun Cho, founder of TokenSave" width="200" height="200" class="rounded-xl border border-zinc-800 shrink-0" style="width:180px;height:180px;object-fit:cover;flex:0 0 auto">
+        <div class="text-zinc-300 leading-relaxed" style="flex:1 1 260px;min-width:0">
+          <p><strong class="text-white">Jaehyun Cho</strong>, founder of TokenSave, is an independent developer in Seosan, South Korea, and the only person behind the site and its measurements.</p>
+          <p class="mt-3">He had no coding background and started by building Android games with AI, describing what he wanted to Claude in plain language. Repeatedly running into the usage limits of his AI plans led him to measure tokens himself; TokenSave started as a token counter he built for that.</p>
+          <p class="mt-3">Photo: <a href="/press-jaehyun-cho.jpg" class="underline">square, 800 × 800</a> · <a href="/press-jaehyun-cho-full.jpg" class="underline">full size, 1659 × 2212</a>. Free to use with articles about TokenSave; no credit line needed.</p>
+        </div>
+      </div>
+
+      <h2>How the measurements are made</h2>
+      <ul>
+        <li>Every number comes from tests run on real accounts and the real tools (Claude Code, Codex, Antigravity CLI, Cursor, the providers' token counters), not from numbers copied from other sites.</li>
+        <li>Each dataset page states the tool versions, dates, prompts, number of runs and the limits of the test. Raw logs are published with the CSV.</li>
+        <li>Prices come from each provider's official pricing page, with the date checked.</li>
+        <li>No funding, credits or commercial relationship with Anthropic, OpenAI, Google or any other AI company. Tests run on the founder's own accounts and subscriptions.</li>
+      </ul>
+
+      <h2>In the press</h2>
+      <ul>
+        <li>Let's Data Science, October 2026: <a href="https://letsdatascience.com/news/tokensave-tells-lds-what-45-claude-coding-runs-reveal-0d3335f3">TokenSave tells LDS what 45 Claude coding runs reveal</a></li>
+      </ul>
+
+      <h2>Contact</h2>
+      <p>Jaehyun Cho · <strong>contact@jonhisking.com</strong> (English, Korean). Requests for raw files or extra runs, and interviews by email, are welcome. Time zone: Korea (UTC+9).</p>
+    </article>
