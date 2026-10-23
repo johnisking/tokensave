@@ -70,6 +70,7 @@ def write_files(dist):
     write_blm_files(dist)
     write_agy_files(dist)
     write_lgo_files(dist)
+    write_lim_files(dist)
 
 
 def _write_lang_files(dist):
@@ -276,6 +277,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{LGO_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(LGO_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">100 runs of one coding task in Claude Code, Codex and Antigravity CLI, prompted in five languages: Claude Opus 5.5 spent about 60% more output tokens per character of code than Gemini or GPT. CSV · measured {LGO_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{LIM_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(LIM_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">136 runs from a single-file game to real bugs in the marked parser: with a clear spec, even Haiku 5.5 got full marks every time; on the hardest real bug, no tool passed. Scores, time, tokens and cost. CSV · measured {LIM_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -3430,6 +3434,143 @@ def lgo_html():
                                 [(AGY_PATH, "Antigravity CLI vs Claude Code vs Codex"), (TL_PATH, "Does prompt language change AI coding cost?"), (CODE_PATH, "Token cost by programming language"), ("/", "Count tokens for your own text")]))
 
 
+# ---- Dataset 24: where AI coding agents first fail (limit line, 2026-10-23/24) ----
+LIM_PATH = "/data/ai-coding-limit-line"
+LIM_MEASURED = "2026-10-24"
+LIM_CHART = "/ai-coding-limit-line-chart.png"
+LIM_DOI = ""
+LIM_MIRRORS = []
+LIM_TITLE = "Where AI coding agents first fail: Haiku, Sonnet, Opus, Codex and Gemini on six levels of coding tasks"
+LIM_DESC = ("Dataset: 136 runs of Claude Code (Haiku, Sonnet, Opus 5.5), Codex and Antigravity CLI on tasks from a single-file game to real bugs in the marked Markdown parser. "
+            "Every tool passed the spec-driven apps; all failed the hardest real bug. Scores, time, tokens and cost per run. Free CSV, CC BY 4.0.")
+LIM_TOOLS = [("haiku", "Claude Code + Haiku 5.5"), ("sonnet", "Claude Code + Sonnet 5.5"), ("opus", "Claude Code + Opus 5.5"),
+             ("codex", "Codex + gpt-6-luna"), ("gemini", "Antigravity + Gemini 4 Argon")]
+LIM_TASKS = [("2", "L2 levels + save"), ("3", "L3 multi-file app"), ("4", "L4 5 modules, 3 views"), ("5a", "L5A fix 6 bugs + 3 features"),
+             ("5b", "L5B spreadsheet engine"), ("6t1", "L6 easy real bug"), ("6t2", "L6 medium real bug"), ("6t3", "L6 hard real bug")]
+
+
+def _lim():
+    return json.load(open(os.path.join(ROOT, "blog_data", "limitline", "dataset", "ai-coding-limit-line.json"), encoding="utf-8"))
+
+
+def lim_citation():
+    if LIM_DOI:
+        return f"TokenSave (2026). {LIM_TITLE} [Data set]. Zenodo. https://doi.org/{LIM_DOI}"
+    return f"TokenSave (2026). {LIM_TITLE} [Data set]. {BASE}{LIM_PATH}"
+
+
+def write_lim_files(dist):
+    D = _lim()
+    cols = []
+    for r in D["runs"]:
+        for c in r:
+            if c not in cols: cols.append(c)
+    buf = io.StringIO(); w = csv.writer(buf); w.writerow(cols)
+    for r in D["runs"]:
+        w.writerow(["" if r.get(c) is None else r.get(c) for c in cols])
+    open(os.path.join(dist, "data", "ai-coding-limit-line.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
+    meta = dict(title=LIM_TITLE, url=BASE + LIM_PATH, license="CC BY 4.0", citation=lim_citation(), measured=D["measured"],
+                setup="Windows 11; Claude Code 2.1.295 (effort medium, acceptEdits); Codex CLI 0.162 (gpt-6-luna, medium, workspace-write sandbox); Antigravity CLI 1.4.5 (gemini-4-argon-medium, accept-edits)",
+                tasks=D["tasks"], scoring=D["scoring"], runs=D["runs"])
+    open(os.path.join(dist, "data", "ai-coding-limit-line.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+
+
+def lim_ld():
+    return _dataset_ld(LIM_TITLE, LIM_DESC, LIM_PATH, LIM_MEASURED,
+                       ["AI coding agent benchmark", "Claude Haiku vs Sonnet vs Opus", "Claude Code vs Codex", "Antigravity CLI", "SWE task difficulty", "AI coding cost per task"],
+                       ["hidden-test score", "full marks", "seconds", "input tokens", "output tokens", "API cost"],
+                       "Headless runs of each coding agent on the same prompts; results scored by hidden black-box tests in headless Chromium and, for real bugs, by the project's own spec suite plus the upstream fix's test",
+                       LIM_CHART, [("ai-coding-limit-line.csv", "text/csv"), ("ai-coding-limit-line.json", "application/json")],
+                       doi=LIM_DOI or None, mirrors=LIM_MIRRORS)
+
+
+def lim_stats():
+    D = _lim(); R = [r for r in D["runs"] if not r["excluded"]]; S = {}
+    for t, _ in LIM_TOOLS:
+        for k, _ in LIM_TASKS:
+            rs = [r for r in R if r["tool"] == t and r["task"] == k]
+            cost = [r["api_cost_usd"] for r in rs if r["api_cost_usd"] is not None]
+            S[(t, k)] = dict(n=len(rs), ok=sum(bool(r["full_marks"]) for r in rs), sec=statistics.mean(r["seconds"] for r in rs) if rs else 0,
+                             cost=statistics.mean(cost) if cost else None, cases=[r.get("hidden_cases_passed") for r in rs],
+                             broke=max([r.get("new_test_failures") or 0 for r in rs] or [0]))
+        rs = [r for r in R if r["tool"] == t]
+        cost = [r["api_cost_usd"] for r in rs if r["api_cost_usd"] is not None]
+        S[t] = dict(n=len(rs), ok=sum(bool(r["full_marks"]) for r in rs), cost=statistics.mean(cost) if cost else None)
+    return D, R, S
+
+
+def lim_html():
+    D, R, S = lim_stats()
+    f = lambda v: "{:,}".format(round(v))
+    usd = lambda v: "–" if v is None else ("$%.3f" % v if v < 0.1 else "$%.2f" % v)
+    claude = [t for t in ("haiku", "sonnet", "opus")]
+    spec = ["2", "3", "4", "5a", "5b"]
+    spec_ok = {t: (sum(S[(t, k)]["ok"] for k in spec), sum(S[(t, k)]["n"] for k in spec)) for t, _ in LIM_TOOLS}
+    hard = {t: S[(t, "6t3")] for t, _ in LIM_TOOLS}
+    ratio = round((1 - S["haiku"]["cost"] / S["opus"]["cost"]) * 100)
+    lead = ('<strong>Given a clear spec, almost every run built the apps: Claude Haiku 5.5 got full marks on all '
+            f'{spec_ok["haiku"][1]} runs from a five-level game up to a spreadsheet engine with cycle detection.</strong> '
+            'The first failures came from a real bug in a real project: on the hardest of three bugs fixed in the marked Markdown parser in September and October 2026, '
+            'no tool passed the upstream test, in any run. Haiku, Sonnet and Opus scored the same number of full-mark runs; '
+            f'Haiku cost about {ratio}% less per run than Opus at API prices.')
+    li = []
+    li.append(f'<li><strong>Levels 2 to 5 (apps from a spec, or an existing app to fix):</strong> Haiku, Sonnet and Opus {spec_ok["haiku"][0]}/{spec_ok["haiku"][1]} runs with full marks each, '
+              f'Antigravity + Gemini 4 Argon {spec_ok["gemini"][0]}/{spec_ok["gemini"][1]}, Codex {spec_ok["codex"][0]}/{spec_ok["codex"][1]} '
+              '(one syntax error from literal \\n in a file, one app whose fixed category list and &minus;$ amounts failed three checks, one missed report row).</li>')
+    li.append('<li><strong>Level 5A was a brownfield task:</strong> a 1,032-line budget app with six planted bugs described only by symptoms, plus three features. '
+              'Every Claude run fixed all six bugs, added all three features and kept all 23 earlier tests passing.</li>')
+    li.append('<li><strong>Level 6, real bugs in marked:</strong> the easy one (a one-line regular expression) and the medium one were solved by almost every run, Haiku and Sonnet in 15 to 20 seconds. '
+              f'On the hard one (a backslash at the end of a code span hiding later emphasis), Opus and Sonnet passed {max(c for c in hard["opus"]["cases"] if c is not None)} of the 7 cases in the upstream test, '
+              f'Haiku {max(c for c in hard["haiku"]["cases"] if c is not None)} (and broke {hard["haiku"]["broke"]} other spec tests in one run), Codex and Gemini 3 (the unfixed code also passes 3). '
+              'All of them fixed the examples in the bug report and missed cases it did not mention.</li>')
+    li.append(f'<li><strong>Cost per run at API prices (Claude Code&rsquo;s own figure):</strong> Haiku {usd(S["haiku"]["cost"])}, Sonnet {usd(S["sonnet"]["cost"])}, Opus {usd(S["opus"]["cost"])} on average. '
+              'Codex and Antigravity ran on subscription plans and report no price.</li>')
+    li.append('<li><strong>Antigravity&rsquo;s headless mode ends a turn at the first denied command.</strong> With read-only allow-rules, several Gemini runs stopped before editing (a <code>node -e</code> line with quotes needs an exact rule on Windows). '
+              'With full permissions Gemini solved the easy and medium bugs too, but took 2 to 11 minutes, and one hard run used its whole 30-minute limit without an edit.</li>')
+    hp = ['<th>Tool + model</th>'] + [f'<th class="text-right">{esc(lab)}</th>' for _, lab in LIM_TASKS]
+    rows = []
+    for t, lab in LIM_TOOLS:
+        rows.append(f'          <tr><td>{esc(lab)}</td>' + "".join(f'<td class="text-right tabular-nums">{S[(t, k)]["ok"]}/{S[(t, k)]["n"]}</td>' for k, _ in LIM_TASKS) + '</tr>')
+    hc = ['<th>Tool + model</th>'] + [f'<th class="text-right">{esc(lab)}</th>' for _, lab in LIM_TASKS]
+    rc, rs_ = [], []
+    for t, lab in LIM_TOOLS:
+        rs_.append(f'          <tr><td>{esc(lab)}</td>' + "".join(f'<td class="text-right tabular-nums">{f(S[(t, k)]["sec"]) if S[(t, k)]["n"] else "–"}</td>' for k, _ in LIM_TASKS) + '</tr>')
+        if t in claude:
+            rc.append(f'          <tr><td>{esc(lab)}</td>' + "".join(f'<td class="text-right tabular-nums">{usd(S[(t, k)]["cost"])}</td>' for k, _ in LIM_TASKS) + '</tr>')
+    body = ('      <h2>Key findings</h2>\n      <ul>\n' + "\n".join("        " + x for x in li) + '\n      </ul>\n'
+            '      <h2>Runs with full marks</h2>\n'
+            '      <p class="text-sm text-zinc-400">Full marks = every hidden check passed. Level 6: the upstream fix&rsquo;s test passes and no other marked spec test newly fails. '
+            'Gemini level 6 cells mix allow-rule runs and full-permission re-runs; excluded runs (stopped by the harness or by quota) are in the CSV with a note.</p>\n'
+            + _table(hp, chr(10).join(rows)) +
+            '      <h2>Average seconds per run</h2>\n' + _table(hc, chr(10).join(rs_)) +
+            '      <h2>Average API cost per run (Claude Code)</h2>\n' + _table(hc, chr(10).join(rc)) +
+            '      <h2>The tasks</h2>\n      <ul>\n'
+            '        <li><strong>L2:</strong> a five-level brick game with pause, a level-skip key and saved level and best score (9 checks, played in headless Chromium).</li>\n'
+            '        <li><strong>L3:</strong> a multi-file expense tracker with CSV and summary modules (12 checks).</li>\n'
+            '        <li><strong>L4:</strong> a budget app with five modules (CSV with line breaks, ranges, monthly repeats with month ends, budgets, 50-step undo) and three hash-routed views (23 checks).</li>\n'
+            '        <li><strong>L5A:</strong> the L4 app written by one of the Gemini runs (8 files, 1,032 lines) with six planted bugs reported only as user symptoms, plus three new features (38 checks, including the 23 L4 tests as regression tests). Because Gemini wrote the starting code, it may have had a small advantage.</li>\n'
+            '        <li><strong>L5B:</strong> a spreadsheet engine and page: precedence with unary minus and right-associative ^, eight functions, six error values, cycle detection and recovery, relative and $absolute copy, undo, CSV (38 checks, 32 of them calling the engine directly).</li>\n'
+            '        <li><strong>L6:</strong> three bugs fixed in <a href="https://github.com/markedjs/marked">marked</a> in September and October 2026 (commits 123ce04b, cc07bb9c and 6a57018f). Each run started from the commit before the fix with a symptom-only bug report; '
+            'we copied back only its src/ folder, then ran the upstream fix&rsquo;s spec file and marked&rsquo;s full spec suite (about 1,900 checks).</li>\n'
+            '      </ul>\n'
+            '      <h2>Method</h2>\n      <ul>\n'
+            '        <li>One Windows 11 laptop, each run in a fresh folder. Claude Code 2.1.295 (<code>-p</code>, effort medium, acceptEdits), Codex CLI 0.162 (<code>exec</code>, medium, workspace-write sandbox), Antigravity CLI 1.4.5 (<code>-p</code>, gemini-4-argon-medium, accept-edits with read-only allow-rules; full permissions for the level 6 re-run).</li>\n'
+            '        <li>Every checker was validated before the runs: a reference solution scores full marks and deliberately broken versions lose exactly their target checks. Runs were scored twice where a check depends on timing.</li>\n'
+            '        <li>We stopped L5A after 4 rounds and L5B after 2 because every run scored full marks; L6 has 2 runs per tool and task.</li>\n'
+            '      </ul>\n      <h2>Limitations</h2>\n      <ul>\n'
+            '        <li>Few runs per cell at the higher levels (1 to 5). The level 6 result rests on three bugs from one project.</li>\n'
+            '        <li>The prompts list every element id and function name the tests use, which makes levels 2 to 5 easier than real work.</li>\n'
+            '        <li>The tools differ in more than the model: Codex can run commands in its sandbox, Claude Code in acceptEdits cannot run shell commands, Antigravity stops on a denied command.</li>\n'
+            '        <li>The agents could not install packages, so none of them could run marked&rsquo;s tests while fixing it.</li>\n'
+            '      </ul>\n')
+    return (_head(esc(LIM_TITLE), lead,
+                  f'Measured 2026-10-23 to {LIM_MEASURED} · {len(R)} runs (+{len(D["runs"]) - len(R)} excluded) · Claude Code 2.1.295, Codex CLI 0.162, Antigravity CLI 1.4.5 · License <a href="{LICENSE}">CC BY 4.0</a>',
+                  [("ai-coding-limit-line.csv", "CSV"), ("ai-coding-limit-line.json", "JSON")],
+                  LIM_CHART, "Runs with full marks by tool and task level, from a single-file game to real bugs in marked", doi=LIM_DOI or None, mirrors=LIM_MIRRORS)
+            + body + _page_tail(lim_citation(), _embed(LIM_PATH, LIM_CHART, "Where AI coding agents first fail", "where AI coding agents first fail"),
+                                [(VIB_PATH, "Vibe coding by Claude model"), (EFF_PATH, "Claude effort levels: tokens, time and cost"), (AGY_PATH, "Antigravity CLI vs Claude Code vs Codex"), ("/agents", "Estimate your own Claude Code or Codex bill")]))
+
+
 # ---- "Try it yourself" box near the top of every dataset page (2026-10-22) ----
 _CTA = {
     "/": ("Count the tokens in your own text", "Paste your prompt and see tokens, characters and API cost on GPT, Claude and Gemini. Free and private: it runs in your browser."),
@@ -3440,7 +3581,7 @@ _CTA_MAP = {LANG_PATH: "/", MULTI_PATH: "/", FMT_PATH: "/", CODE_PATH: "/", PDF_
             IMG_PATH: "/", TAI_PATH: "/",
             EFF_PATH: "/agents", AGT_PATH: "/agents", AGS_PATH: "/agents", AGL_PATH: "/agents", AMD_PATH: "/agents", HAR_PATH: "/agents",
             VIB_PATH: "/agents", CCV_PATH: "/claude-code-usage",
-            LNG_PATH: "/claude-code-usage", COF_PATH: "/claude-code-usage", BMC_PATH: "/agents", BLM_PATH: "/agents", AGY_PATH: "/agents", LGO_PATH: "/"}
+            LNG_PATH: "/claude-code-usage", COF_PATH: "/claude-code-usage", BMC_PATH: "/agents", BLM_PATH: "/agents", AGY_PATH: "/agents", LGO_PATH: "/", LIM_PATH: "/agents"}
 
 
 def add_cta(path, body):
