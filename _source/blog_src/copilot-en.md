@@ -90,6 +90,8 @@ Because Copilot charges list API prices, you can estimate a plan's capacity from
 | Opus 5.5, medium | $0.56 | about 27 | about 125 | about 357 |
 | Opus 5.5, high | $0.75 | about 20 | about 93 | about 267 |
 
+> **Update (October 23, 2026):** re-run three times each on Claude Code 2.1.295, the same tasks cost $0.10, $0.12, $0.26 and $0.35 on average, 53% to 61% less than the October 9 runs above, so each plan would cover roughly 110% to 160% more tasks than this table shows. See the [effort dataset](/data/claude-effort-cost).
+
 These are our estimates, and they come with real caveats:
 
 - **The runs were in Claude Code, not Copilot.** Copilot's agent sends its own instructions and context, so the same task will not use exactly the same tokens.

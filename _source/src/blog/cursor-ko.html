@@ -231,33 +231,33 @@
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
-<th>모델 · effort (Claude Code, API 가격 환산)</th>
+<th>모델 · effort (Claude Code 2.1.295, API 가격 환산, 3회 평균)</th>
 <th style="text-align: right;">1회 비용</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>소넷 5.5 · medium</td>
-<td style="text-align: right;">$0.25</td>
+<td style="text-align: right;">$0.10</td>
 </tr>
 <tr>
 <td>소넷 5.5 · high</td>
-<td style="text-align: right;">$0.30</td>
+<td style="text-align: right;">$0.12</td>
 </tr>
 <tr>
 <td>오퍼스 5.5 · medium</td>
-<td style="text-align: right;">$0.56</td>
+<td style="text-align: right;">$0.26</td>
 </tr>
 <tr>
 <td>오퍼스 5.5 · high</td>
-<td style="text-align: right;">$0.75</td>
+<td style="text-align: right;">$0.35</td>
 </tr>
 </tbody>
 </table></div>
 <p>이 크기의 작업을 하루 10번, 한 달 22일(220번) 한다고 단순 계산하면 이렇습니다.</p>
 <ul>
-<li><strong>커서에서 소넷 5.5 high:</strong> 선불 크레딧 약 $66에 Premium 최소 $30을 더해 한 달 약 <strong>$96 (약 12만 9천원)</strong></li>
-<li><strong>커서에서 오퍼스 5.5 high:</strong> 크레딧 약 $165에 $30을 더해 한 달 약 <strong>$195 (약 26만 2천원)</strong></li>
+<li><strong>커서에서 소넷 5.5 high:</strong> 선불 크레딧 약 $26에 Premium 최소 $30을 더해 한 달 약 <strong>$56 (약 7만 5천원)</strong></li>
+<li><strong>커서에서 오퍼스 5.5 high:</strong> 크레딧 약 $77에 $30을 더해 한 달 약 <strong>$107 (약 14만 4천원)</strong></li>
 <li><strong>Grok이나 Composer:</strong> 주간 주머니를 다 쓰기 전까지는 포함되므로 요금제 가격만 낼 수도 있습니다.</li>
 </ul>
 <p>다만 커서는 자체 지시문과 맥락을 붙여 보내서 Claude Code와 토큰 수가 똑같지 않고, 실제 작업 크기도 제각각이라 대략적인 값으로 보셔야 합니다.</p>
@@ -360,7 +360,7 @@
 <p>Claude를 쓰는 게 목적이라면, 커서에 돈을 내기 전에 Claude Code와 먼저 비교해 보세요.</p>
 <ul>
 <li><strong>토큰 가격은 같고, 포함 범위가 다릅니다.</strong> 커서는 Claude를 Anthropic API 가격으로 청구하고, 10월부터는 그중 어느 것도 요금제에 포함되지 않습니다. Claude 요금제는 사용 한도 안에서 Claude Code 사용이 포함됩니다.</li>
-<li><strong>대략 비교하면:</strong> 위 예시의 월 $66어치 소넷 사용은 커서에서 요금제 가격에 $66을 그대로 더해 냅니다. Claude 요금제에서는 사용 한도 안에 들어가는 한 월 $20~200 정액입니다. 요금제별 숫자는 <a href="/ko/blog/claude-code-yogeum">클로드 코드 요금 정리</a>와 <a href="/ko/blog/claude-code-vs-codex">클로드 코드 vs 코덱스 비교</a>에 정리돼 있습니다.</li>
+<li><strong>대략 비교하면:</strong> 위 예시의 월 $26어치 소넷 사용은 커서에서 요금제 가격에 $26을 그대로 더해 냅니다. Claude 요금제에서는 사용 한도 안에 들어가는 한 월 $20~200 정액입니다. 요금제별 숫자는 <a href="/ko/blog/claude-code-yogeum">클로드 코드 요금 정리</a>와 <a href="/ko/blog/claude-code-vs-codex">클로드 코드 vs 코덱스 비교</a>에 정리돼 있습니다.</li>
 <li><strong>커서가 더해 주는 것:</strong> 자동완성(Tab)이 있는 편집기, 포함 주머니로 쓰는 Grok과 Composer, 그리고 Claude·GPT·Gemini·Grok을 한곳에서 바꿔 쓸 수 있다는 점입니다.</li>
 </ul>
 <h2>커서 장단점 (Claude Code와 비교)</h2>
@@ -390,7 +390,7 @@
 <ul>
 <li><strong>Grok과 Composer라면 커서가 이제 쌉니다.</strong> Plus $8로 쓸 수 있고, 매일 에이전트를 쓴다면 커서는 Super $100을 추천합니다.</li>
 <li><strong>Claude라면 커서가 이제 비싼 길입니다.</strong> Claude 토큰은 전부 요금제 위에 API 가격으로 붙지만, Claude Pro와 Max에는 Claude Code 사용이 포함됩니다.</li>
-<li><strong>요금제보다 모델 선택이 더 중요합니다.</strong> 실측에서 오퍼스 5.5 high는 소넷 5.5 high보다 1회 비용이 150% 많았고($0.75 vs $0.30), Grok과 Composer는 포함 주머니에서 차감됩니다.</li>
+<li><strong>요금제보다 모델 선택이 더 중요합니다.</strong> 실측에서 오퍼스 5.5 high는 소넷 5.5 high보다 1회 비용이 약 200% 많았고($0.35 vs $0.12), Grok과 Composer는 포함 주머니에서 차감됩니다.</li>
 </ul>
 <h2>자주 묻는 질문</h2>
 <p><strong>커서는 무료인가요?</strong>

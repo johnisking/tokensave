@@ -83,6 +83,8 @@ The per-message math above assumes simple chat. Agents such as Claude Code work 
 | Opus 5.5, medium | 6,299 | 53,002 | 74,123 | 133,428 | $0.56 |
 | Opus 5.5, high | 12,376 | 59,146 | 151,326 | 222,854 | $0.75 |
 
+> **Update (October 23, 2026):** re-run three times each on Claude Code 2.1.295 with no MCP servers, the same task cost $0.10 (Sonnet 5.5 medium), $0.12 (Sonnet high), $0.26 (Opus 5.5 medium) and $0.35 (Opus high) on average, 53% to 61% less than the October 9 runs in this table. See the [effort dataset](/data/claude-effort-cost).
+
 Fresh input was only 4 to 6 tokens per run, so it is left out of the table. We split each run's cost by token type using Anthropic's prices:
 
 | Run | Output share of cost | Cache write share | Cache read share | Average cost per 1M tokens |

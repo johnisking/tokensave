@@ -100,17 +100,17 @@ For comparison, the same prompt in Claude Code took 37 seconds with Sonnet 5.5 a
 
 Cursor now bills Claude entirely at API rates, so my Claude Code measurements give a direct reference point. The same game prompt cost:
 
-| Model · effort (Claude Code, API prices) | Cost per run |
+| Model · effort (Claude Code 2.1.295, API prices, average of 3 runs) | Cost per run |
 |---|---:|
-| Sonnet 5.5 · medium | $0.25 |
-| Sonnet 5.5 · high | $0.30 |
-| Opus 5.5 · medium | $0.56 |
-| Opus 5.5 · high | $0.75 |
+| Sonnet 5.5 · medium | $0.10 |
+| Sonnet 5.5 · high | $0.12 |
+| Opus 5.5 · medium | $0.26 |
+| Opus 5.5 · high | $0.35 |
 
 As a simple example, take 10 tasks of this size per working day, 22 days a month (220 tasks):
 
-- **Sonnet 5.5 high in Cursor:** about $66 of prepaid credit, plus at least $30 for Premium, so about **$96 a month**
-- **Opus 5.5 high in Cursor:** about $165 of credit plus $30, so about **$195 a month**
+- **Sonnet 5.5 high in Cursor:** about $26 of prepaid credit, plus at least $30 for Premium, so about **$56 a month**
+- **Opus 5.5 high in Cursor:** about $77 of credit plus $30, so about **$107 a month**
 - **Grok or Composer:** covered by the weekly pool until it runs out, so the plan price may be all you pay
 
 Treat these as ballpark figures: Cursor's agent sends its own instructions and context, so it won't use exactly the same number of tokens as Claude Code, and real tasks vary in size.
@@ -150,7 +150,7 @@ Monthly prices before tax, from each company's official pricing page (Cursor che
 If Claude is the model you want, compare with Claude Code before paying for Cursor.
 
 - **Same per-token price, different coverage:** Cursor charges Claude at Anthropic's API rates, and since October none of that is included in the plan. A Claude subscription includes Claude Code usage up to its limits.
-- **A rough comparison:** for the $66 a month of Sonnet usage in the example above, Cursor costs the plan plus the full $66. On a Claude plan the same work is a flat $20 to $200, as long as it fits the plan's usage limits. See [Claude Code vs Codex vs Cursor](/blog/claude-code-vs-codex-vs-cursor-cost) and [Claude Code cost per month](/blog/claude-code-cost-per-month) for the plan-by-plan numbers.
+- **A rough comparison:** for the $26 a month of Sonnet usage in the example above, Cursor costs the plan plus the full $26. On a Claude plan the same work is a flat $20 to $200, as long as it fits the plan's usage limits. See [Claude Code vs Codex vs Cursor](/blog/claude-code-vs-codex-vs-cursor-cost) and [Claude Code cost per month](/blog/claude-code-cost-per-month) for the plan-by-plan numbers.
 - **What Cursor adds:** an editor with Tab completions, Grok and Composer in the included pool, and the option to switch between Claude, GPT, Gemini and Grok in one place.
 
 ## Cursor pros and cons vs Claude Code
@@ -182,7 +182,7 @@ Based on Cursor's docs and my own test.
 
 - **For Grok and Composer, Cursor is now cheap.** Plus at $8 covers them, and Super at $100 is Cursor's pick for daily agent work.
 - **For Claude, Cursor is now the expensive route.** Every Claude token is paid at API price on top of the plan, while Claude Pro and Max include Claude Code usage.
-- **The model matters more than the plan.** Claude Opus 5.5 cost 150% more per task than Sonnet 5.5 at high effort in my test ($0.75 vs $0.30), and Grok and Composer come out of the included pool.
+- **The model matters more than the plan.** Claude Opus 5.5 cost about 200% more per task than Sonnet 5.5 at high effort in our tests ($0.35 vs $0.12), and Grok and Composer come out of the included pool.
 
 ## FAQ
 

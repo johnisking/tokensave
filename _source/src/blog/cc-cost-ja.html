@@ -1,5 +1,5 @@
 <p><img fetchpriority="high" width="1200" height="630" alt="Claude Code の料金【2026】月$20〜$200とAPI実費" src="/claude-code-ryoukin-ja.jpg" /></p>
-<p><strong>Claude Code の料金をひとことで言うと：</strong> Claude Code（クロードコード）は Claude のすべての有料プランに含まれていて、<strong>Pro は月$20</strong>（年払いなら月$17）、<strong>Max 5x は月$100</strong>、<strong>Max 20x は月$200</strong> です。プランを使わずに API の従量課金でトークン単位で払うこともでき、私たちのテストでは小さなタスク1つが <strong>Sonnet 5.5 で$0.25、Opus 5.5 で$0.56〜0.75</strong> でした。無料の Free プランには Claude Code は含まれません。価格は米ドル・税抜で、日本では2026年4月1日から消費税10%が加わるため、Pro の月払いは$22になります（私たちの計算）。以下の価格はすべて、2026年10月12日に Anthropic の料金ページで確認したものです。</p>
+<p><strong>Claude Code の料金をひとことで言うと：</strong> Claude Code（クロードコード）は Claude のすべての有料プランに含まれていて、<strong>Pro は月$20</strong>（年払いなら月$17）、<strong>Max 5x は月$100</strong>、<strong>Max 20x は月$200</strong> です。プランを使わずに API の従量課金でトークン単位で払うこともでき、私たちのテストでは小さなタスク1つが <strong>Sonnet 5.5 で$0.10〜0.12、Opus 5.5 で$0.26〜0.35</strong> でした（Claude Code 2.1.295、3回平均）。無料の Free プランには Claude Code は含まれません。価格は米ドル・税抜で、日本では2026年4月1日から消費税10%が加わるため、Pro の月払いは$22になります（私たちの計算）。以下の価格はすべて、2026年10月12日に Anthropic の料金ページで確認したものです。</p>
 <p>「Claude Code の値段はいくらか」の答えは、使う量しだいで変わります。この記事では、各プランに含まれるもの、API で1タスクに実際いくらかかるか（実測）、4つの使い方での1か月の費用、そしてプランが API より安くなる境目をまとめました。</p>
 <h2>Claude Code の料金早見表（2026年）</h2>
 <p><img loading="lazy" width="1200" height="788" alt="Claude Code の料金早見表（2026年）: プラン, 料金, Claude Code, 5時間あたりの使用量" src="/claude-code-ryoukin-claude-code-2026-ja.jpg" /></p>
@@ -186,6 +186,9 @@
 </tr>
 </tbody>
 </table></div>
+<blockquote>
+<p><strong>更新（2026年10月23日）：</strong> Claude Code 2.1.295 で MCP サーバーなしに3回ずつ測り直すと、同じタスクは平均 $0.10（Sonnet 5.5 medium）、$0.12（Sonnet high）、$0.26（Opus 5.5 medium）、$0.35（Opus high）で、この表の10月9日の値より53〜61%安くなりました。<a href="/data/claude-effort-cost">effort データセット</a>を参照。</p>
+</blockquote>
 <ul>
 <li><strong>4回とも、ちゃんと動くゲームができました。</strong> effort を上げたり Opus を使ったりして増えたのは仕上がりの細かさで、動くか動かないかの差ではありませんでした。</li>
 <li><strong>費用の63〜81%はキャッシュ書き込みでした。</strong> ゲームのコードそのもの（出力）は17〜33%です。キャッシュ読み込みはトークン数では最も多かったものの、費用では2〜4%にすぎませんでした。</li>

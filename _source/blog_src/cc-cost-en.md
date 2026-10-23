@@ -1,6 +1,6 @@
 ![Claude Code Pricing 2026: $20, $100 or $200 a Month, or the API](/claude-code-cost-per-month-en.jpg)
 
-**Claude Code pricing in one line:** Claude Code is included in every paid Claude plan: **Pro at $20 a month** ($17 a month billed annually), **Max 5x at $100** and **Max 20x at $200**. You can also skip the plans and pay per token on the API, where one small task cost **$0.25 on Sonnet 5.5 and $0.56 to $0.75 on Opus 5.5** in our tests. The Free plan doesn't include Claude Code. All prices below are from Anthropic's pricing pages, checked October 12, 2026.
+**Claude Code pricing in one line:** Claude Code is included in every paid Claude plan: **Pro at $20 a month** ($17 a month billed annually), **Max 5x at $100** and **Max 20x at $200**. You can also skip the plans and pay per token on the API, where one small task cost **$0.10 to $0.12 on Sonnet 5.5 and $0.26 to $0.35 on Opus 5.5** in our tests (average of three runs, Claude Code 2.1.295). The Free plan doesn't include Claude Code. All prices below are from Anthropic's pricing pages, checked October 12, 2026.
 
 Which option is cheapest depends on how much you use it. This page covers what each plan includes, what one task really costs on the API (measured), what a month costs at four levels of use, and the point where a plan beats paying per token.
 
@@ -59,6 +59,8 @@ On October 9, 2026 we gave Claude Code the same prompt four times: build a brick
 | Sonnet 5.5 · high | 58 s | 398 lines | $0.30 |
 | Opus 5.5 · medium | 52 s | 358 lines | $0.56 |
 | Opus 5.5 · high | 1 min 50 s | 523 lines | $0.75 |
+
+> **Update (October 23, 2026):** re-run three times each on Claude Code 2.1.295 with no MCP servers, the same task cost $0.10 (Sonnet 5.5 medium), $0.12 (Sonnet high), $0.26 (Opus 5.5 medium) and $0.35 (Opus high) on average, 53% to 61% less than the October 9 runs in this table. See the [effort dataset](/data/claude-effort-cost).
 
 - **Every run produced a working game.** Higher effort and Opus bought more polish, not a working-or-broken difference.
 - **Cache writes were 63% to 81% of the cost.** The game code itself (output) was 17% to 33%. Cache reads were the most tokens but only 2% to 4% of the cost.

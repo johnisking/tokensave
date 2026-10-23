@@ -2,6 +2,8 @@
 
 **Claude Opus 5.5** ma ustawienie **effort**, które decyduje o tym, jak głęboko model myśli. Poziomów jest pięć: low, medium, high, xhigh i max. Wyższe poziomy mają dawać lepsze wyniki, ale oficjalna dokumentacja nie podaje żadnych liczb, ile dodatkowego czasu i pieniędzy kosztuje każdy z nich. Dlatego 9 października 2026 roku wysłaliśmy to samo polecenie zbudowania gry na każdym poziomie i porównaliśmy czas, tokeny, koszt i efekt. Najszybszy poziom potrzebował 32 sekund, najwolniejszy 22 minut. Poniżej opisujemy, co zmieniało się na każdym poziomie i który poziom wybrać do jakiego zadania, a do tego dzielimy się doświadczeniem z codziennej pracy.
 
+> **Aktualizacja (23 października 2026):** zmierzyliśmy każdy poziom ponownie po trzy razy w Claude Code 2.1.295 bez serwerów MCP i to samo zadanie kosztuje teraz znacznie mniej: Opus 5.5 $0.17 na low, $0.26 na medium, $0.35 na high, $0.82 na xhigh i $5.33 na max; Sonnet 5.5 $0.10 na medium i $0.12 na high. Wszystkie 21 gier działały. Kolejność poziomów i skok od xhigh pozostają bez zmian. Pojedyncze przebiegi poniżej pochodzą z 9 października, ze starszej wersji Claude Code. Pełne dane: [zbiór danych o poziomach effort](/data/claude-effort-cost)
+
 ## Czym jest effort
 
 - **Określa, ile model myśli.** W Opus 5.5 myślenia nie da się wyłączyć; effort reguluje jego głębokość. Tokeny myślenia są rozliczane jako tokeny wyjściowe.

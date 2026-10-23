@@ -2,6 +2,8 @@
 
 **Claude Opus 5.5** dispose d'un réglage **effort** qui détermine la profondeur de sa réflexion, avec cinq niveaux : low, medium, high, xhigh et max. Plus le niveau est élevé, meilleur le résultat est censé être, mais la documentation officielle ne chiffre ni le temps ni l'argent supplémentaires qu'exige chaque niveau. Le 9 octobre 2026, nous avons donc lancé la même demande de création de jeu à chaque niveau, avec un seul essai par niveau, puis comparé le temps, les tokens, le coût et le résultat. Le niveau le plus rapide a pris 32 secondes, le plus lent 22 minutes. Voici ce qui change d'un niveau à l'autre et quel niveau choisir selon la tâche, avec en prime un retour d'expérience.
 
+> **Mise à jour (23 octobre 2026) :** nous avons refait chaque niveau trois fois dans Claude Code 2.1.295 sans serveur MCP, et la même tâche coûte maintenant beaucoup moins : Opus 5.5 $0.17 en low, $0.26 en medium, $0.35 en high, $0.82 en xhigh et $5.33 en max ; Sonnet 5.5 $0.10 en medium et $0.12 en high. Les 21 jeux ont fonctionné. L'ordre des niveaux et le saut à partir de xhigh restent valables. Les essais uniques ci-dessous datent du 9 octobre, sur une version antérieure de Claude Code. Données complètes : [jeu de données sur les niveaux d'effort](/data/claude-effort-cost)
+
 ## Ce qu'est l'effort
 
 - **Il règle la quantité de réflexion du modèle.** Sur Opus 5.5, la réflexion ne peut pas être désactivée ; l'effort en contrôle la profondeur. Les tokens de réflexion sont facturés comme des tokens de sortie.

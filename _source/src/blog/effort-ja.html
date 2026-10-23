@@ -1,5 +1,8 @@
 <p><img fetchpriority="high" width="1200" height="630" alt="Claude Opus 5.5 の effort 比較：low〜max を実測" src="/claude-opus-5-5-effort-ja.jpg" /></p>
 <p>Claude <strong>Opus 5.5</strong> には、どれだけ深く考えるかを決める <strong>effort</strong> 設定が low、medium、high、xhigh、max の5段階あります。段階を上げるほど結果は良くなるとされていますが、時間と費用がどれだけ増えるのかは公式資料に数字がありません。そこで2026年10月9日、同じゲーム制作の依頼を5段階で1回ずつ実行し、時間、トークン、費用、出来上がったものを直接比べました。最も速い段階と最も遅い段階の差は32秒と22分でした。段階ごとに何が変わったのか、どの作業にどの段階を使えばよいのかを、実際に使ってきた感想とあわせてまとめました。</p>
+<blockquote>
+<p><strong>更新（2026年10月23日）：</strong> Claude Code 2.1.295 で MCP サーバーなしに各レベルを3回ずつ測り直したところ、同じタスクの費用は大きく下がりました。Opus 5.5 は low $0.17、medium $0.26、high $0.35、xhigh $0.82、max $5.33、Sonnet 5.5 は medium $0.10、high $0.12 です。ゲーム21本はすべて動作しました。レベルの順番と xhigh からの跳ね上がりは変わりません。以下の本文は10月9日に以前のバージョンで1回ずつ測った結果です。全データ：<a href="/data/claude-effort-cost">Claude effort データセット</a></p>
+</blockquote>
 <h2>effort とは</h2>
 <ul>
 <li><strong>考える量を決める設定です。</strong> Opus 5.5 は thinking をオフにできず、effort でどれだけ深く考えるかを調整します。考えたトークンにも出力トークンとして料金がかかります。</li>

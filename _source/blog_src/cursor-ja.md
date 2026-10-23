@@ -109,19 +109,19 @@ Cursor のドキュメントに載っている100万トークンあたりの価�
 
 今の Cursor は Claude を全額 API 価格で請求するので、Claude Code での実測コストがそのまま目安になります。同じゲームのプロンプトのコストは次のとおりでした（Claude Code、API 価格で換算）。
 
-| モデル・effort | 1回あたり |
+| モデル・effort（Claude Code 2.1.295、API 価格換算、3回平均） | 1回あたり |
 |---|---:|
-| Sonnet 5.5・medium | $0.25 |
-| Sonnet 5.5・high | $0.30 |
-| Opus 5.5・medium | $0.56 |
-| Opus 5.5・high | $0.75 |
+| Sonnet 5.5・medium | $0.10 |
+| Sonnet 5.5・high | $0.12 |
+| Opus 5.5・medium | $0.26 |
+| Opus 5.5・high | $0.35 |
 
 effort（推論の深さ）の違いについては [Claude Opus 5.5 の effort 設定](/ja/blog/claude-opus-5-5-effort)で解説しています。
 
 この規模の作業を1日10回、月22日（合計220回）行うとして単純に計算すると、次のようになります（当サイトの試算）。
 
-- **Cursor で Sonnet 5.5・high:** 前払いクレジットが約$66、これに Premium の$30以上が加わるので、**月 約$96**
-- **Cursor で Opus 5.5・high:** クレジットが約$165、これに$30が加わるので、**月 約$195**
+- **Cursor で Sonnet 5.5・high:** 前払いクレジットが約$26、これに Premium の$30以上が加わるので、**月 約$56**
+- **Cursor で Opus 5.5・high:** クレジットが約$77、これに$30が加わるので、**月 約$107**
 - **Grok や Composer:** 週のプールを使い切るまではプランに含まれるので、プランの月額だけで済む可能性があります
 
 おおよその目安としてご覧ください。Cursor のエージェントは独自の指示とコンテキストを付けて送るので、Claude Code とまったく同じトークン数にはなりません。実際の作業の大きさもまちまちです。
@@ -163,7 +163,7 @@ ChatGPT・Gemini も含めたサブスクの比較は [生成AIのサブスク�
 使いたいモデルが Claude なら、Cursor にお金を払う前に Claude Code と比べてみてください。
 
 - **トークン単価は同じでも、含まれる範囲が違います。** Cursor は Claude を Anthropic の API 価格で請求し、10月からはその分がプランに一切含まれません。Claude のサブスクには、上限の範囲で Claude Code の利用が含まれます。
-- **ざっくり比べると:** 上の試算の Sonnet 月約$66分の作業は、Cursor ではプランの月額に$66がまるごと加わります。Claude のプランなら、利用上限に収まる限り月$20〜$200の定額です。プラン別の数字は [Claude Code vs Codex vs Cursor](/blog/claude-code-vs-codex-vs-cursor-cost)（英語）と [Claude Code の料金は月いくら？](/ja/blog/claude-code-ryoukin) にまとめています。
+- **ざっくり比べると:** 上の試算の Sonnet 月約$26分の作業は、Cursor ではプランの月額に$26がまるごと加わります。Claude のプランなら、利用上限に収まる限り月$20〜$200の定額です。プラン別の数字は [Claude Code vs Codex vs Cursor](/blog/claude-code-vs-codex-vs-cursor-cost)（英語）と [Claude Code の料金は月いくら？](/ja/blog/claude-code-ryoukin) にまとめています。
 - **Cursor ならではの点:** Tab 補完のあるエディタ、プランに含まれる Grok と Composer、Claude・GPT・Gemini・Grok を1か所で切り替えられることです。
 
 ## Cursor のメリット・デメリット（Claude Code と比べて）
@@ -196,7 +196,7 @@ Cursor のドキュメントと、自分で試した結果をもとにまとめ�
 
 - **Grok と Composer を使うなら、Cursor は安くなりました。** Plus の$8で使え、エージェントを毎日使うなら Cursor は Super（$100）を勧めています。
 - **Claude を使うなら、Cursor は高くつく選択肢になりました。** Claude のトークンはすべてプランの月額とは別に API 価格で支払いますが、Claude の Pro と Max には Claude Code の利用が含まれます。
-- **プランよりモデル選びのほうが料金に効きます。** 私の実測では Opus 5.5・high の1回あたりのコストは Sonnet 5.5・high より150%高く（$0.75と$0.30）、Grok と Composer はプランに含まれるプールから差し引かれます。
+- **プランよりモデル選びのほうが料金に効きます。** 私たちの実測では Opus 5.5・high の1回あたりのコストは Sonnet 5.5・high より約200%高く（$0.35と$0.12）、Grok と Composer はプランに含まれるプールから差し引かれます。
 - **料金はドル建て・税抜き表示です。** 円での支払額は為替とカードの手数料で変わります。
 
 ## よくある質問

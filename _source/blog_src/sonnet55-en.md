@@ -2,6 +2,8 @@
 
 Claude **Sonnet 5.5** costs 50% less per token than Opus 5.5. Does a cheaper price mean a worse result? On October 9, 2026, I gave Sonnet 5.5 the exact brick-breaker prompt from my [Opus 5.5 effort test](/blog/claude-opus-5-5-effort), once at medium and once at high, and compared time, tokens, cost and the finished game one-to-one against **Opus 5.5**. The cheapest run took 37 seconds and $0.25; the most expensive took 1 min 50 s and $0.75. I also played all four games and added what I've found using both models day to day.
 
+> **Update (October 23, 2026):** re-run three times per level on Claude Code 2.1.295, the same task cost $0.10 (medium) and $0.12 (high) on Sonnet 5.5 against $0.26 and $0.35 on Opus 5.5, so Sonnet was still 62% and 67% cheaper. All 12 games worked. The single runs below are from October 9 on an earlier Claude Code version. Full data: [Claude effort levels dataset](/data/claude-effort-cost).
+
 ## How much cheaper is Sonnet than Opus?
 
 Prices per million tokens, from Anthropic's official pricing page.

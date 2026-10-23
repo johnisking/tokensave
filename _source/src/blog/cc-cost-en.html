@@ -1,5 +1,5 @@
 <p><img fetchpriority="high" width="1200" height="630" alt="Claude Code Pricing 2026: $20, $100 or $200 a Month, or the API" src="/claude-code-cost-per-month-en.jpg" /></p>
-<p><strong>Claude Code pricing in one line:</strong> Claude Code is included in every paid Claude plan: <strong>Pro at $20 a month</strong> ($17 a month billed annually), <strong>Max 5x at $100</strong> and <strong>Max 20x at $200</strong>. You can also skip the plans and pay per token on the API, where one small task cost <strong>$0.25 on Sonnet 5.5 and $0.56 to $0.75 on Opus 5.5</strong> in our tests. The Free plan doesn't include Claude Code. All prices below are from Anthropic's pricing pages, checked October 12, 2026.</p>
+<p><strong>Claude Code pricing in one line:</strong> Claude Code is included in every paid Claude plan: <strong>Pro at $20 a month</strong> ($17 a month billed annually), <strong>Max 5x at $100</strong> and <strong>Max 20x at $200</strong>. You can also skip the plans and pay per token on the API, where one small task cost <strong>$0.10 to $0.12 on Sonnet 5.5 and $0.26 to $0.35 on Opus 5.5</strong> in our tests (average of three runs, Claude Code 2.1.295). The Free plan doesn't include Claude Code. All prices below are from Anthropic's pricing pages, checked October 12, 2026.</p>
 <p>Which option is cheapest depends on how much you use it. This page covers what each plan includes, what one task really costs on the API (measured), what a month costs at four levels of use, and the point where a plan beats paying per token.</p>
 <h2>Claude Code pricing at a glance (2026)</h2>
 <p><img loading="lazy" width="1200" height="766" alt="Claude Code pricing at a glance (2026): Plan, Price, Claude Code, Usage per 5-hour session" src="/claude-code-cost-per-month-claude-code-pricing-at-a-glance-2026-en.jpg" /></p>
@@ -147,6 +147,9 @@
 </tr>
 </tbody>
 </table></div>
+<blockquote>
+<p><strong>Update (October 23, 2026):</strong> re-run three times each on Claude Code 2.1.295 with no MCP servers, the same task cost $0.10 (Sonnet 5.5 medium), $0.12 (Sonnet high), $0.26 (Opus 5.5 medium) and $0.35 (Opus high) on average, 53% to 61% less than the October 9 runs in this table. See the <a href="/data/claude-effort-cost">effort dataset</a>.</p>
+</blockquote>
 <ul>
 <li><strong>Every run produced a working game.</strong> Higher effort and Opus bought more polish, not a working-or-broken difference.</li>
 <li><strong>Cache writes were 63% to 81% of the cost.</strong> The game code itself (output) was 17% to 33%. Cache reads were the most tokens but only 2% to 4% of the cost.</li>

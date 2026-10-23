@@ -75,6 +75,8 @@ Plans and benchmarks only go so far, so we gave each tool the same task between 
 | Codex · GPT-6 Luna · extra high | Free | 39 s | 273 lines | (included above) |
 | Cursor · Auto (Grok 4.6) | Free (Hobby) | 1 min 31 s | 398 lines | 15% of the monthly free usage |
 
+> **Update (October 23, 2026):** re-run three times each on Claude Code 2.1.295 with no MCP servers, the same task cost $0.10 (Sonnet 5.5 medium), $0.12 (Sonnet high), $0.26 (Opus 5.5 medium) and $0.35 (Opus high) on average, 53% to 61% less than the October 9 runs in this table. See the [effort dataset](/data/claude-effort-cost).
+
 Every run produced a working game that met the prompt: two levels, a score, three lives, and keyboard and mouse controls. The Claude Code costs were measured with ccusage and converted at API prices. The Codex and Cursor figures are what each app's usage meter showed.
 
 ### What the games were like

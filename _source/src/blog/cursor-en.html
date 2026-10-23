@@ -222,33 +222,33 @@
 <div class="overflow-x-auto"><table>
 <thead>
 <tr>
-<th>Model · effort (Claude Code, API prices)</th>
+<th>Model · effort (Claude Code 2.1.295, API prices, average of 3 runs)</th>
 <th style="text-align: right;">Cost per run</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Sonnet 5.5 · medium</td>
-<td style="text-align: right;">$0.25</td>
+<td style="text-align: right;">$0.10</td>
 </tr>
 <tr>
 <td>Sonnet 5.5 · high</td>
-<td style="text-align: right;">$0.30</td>
+<td style="text-align: right;">$0.12</td>
 </tr>
 <tr>
 <td>Opus 5.5 · medium</td>
-<td style="text-align: right;">$0.56</td>
+<td style="text-align: right;">$0.26</td>
 </tr>
 <tr>
 <td>Opus 5.5 · high</td>
-<td style="text-align: right;">$0.75</td>
+<td style="text-align: right;">$0.35</td>
 </tr>
 </tbody>
 </table></div>
 <p>As a simple example, take 10 tasks of this size per working day, 22 days a month (220 tasks):</p>
 <ul>
-<li><strong>Sonnet 5.5 high in Cursor:</strong> about $66 of prepaid credit, plus at least $30 for Premium, so about <strong>$96 a month</strong></li>
-<li><strong>Opus 5.5 high in Cursor:</strong> about $165 of credit plus $30, so about <strong>$195 a month</strong></li>
+<li><strong>Sonnet 5.5 high in Cursor:</strong> about $26 of prepaid credit, plus at least $30 for Premium, so about <strong>$56 a month</strong></li>
+<li><strong>Opus 5.5 high in Cursor:</strong> about $77 of credit plus $30, so about <strong>$107 a month</strong></li>
 <li><strong>Grok or Composer:</strong> covered by the weekly pool until it runs out, so the plan price may be all you pay</li>
 </ul>
 <p>Treat these as ballpark figures: Cursor's agent sends its own instructions and context, so it won't use exactly the same number of tokens as Claude Code, and real tasks vary in size.</p>
@@ -351,7 +351,7 @@
 <p>If Claude is the model you want, compare with Claude Code before paying for Cursor.</p>
 <ul>
 <li><strong>Same per-token price, different coverage:</strong> Cursor charges Claude at Anthropic's API rates, and since October none of that is included in the plan. A Claude subscription includes Claude Code usage up to its limits.</li>
-<li><strong>A rough comparison:</strong> for the $66 a month of Sonnet usage in the example above, Cursor costs the plan plus the full $66. On a Claude plan the same work is a flat $20 to $200, as long as it fits the plan's usage limits. See <a href="/blog/claude-code-vs-codex-vs-cursor-cost">Claude Code vs Codex vs Cursor</a> and <a href="/blog/claude-code-cost-per-month">Claude Code cost per month</a> for the plan-by-plan numbers.</li>
+<li><strong>A rough comparison:</strong> for the $26 a month of Sonnet usage in the example above, Cursor costs the plan plus the full $26. On a Claude plan the same work is a flat $20 to $200, as long as it fits the plan's usage limits. See <a href="/blog/claude-code-vs-codex-vs-cursor-cost">Claude Code vs Codex vs Cursor</a> and <a href="/blog/claude-code-cost-per-month">Claude Code cost per month</a> for the plan-by-plan numbers.</li>
 <li><strong>What Cursor adds:</strong> an editor with Tab completions, Grok and Composer in the included pool, and the option to switch between Claude, GPT, Gemini and Grok in one place.</li>
 </ul>
 <h2>Cursor pros and cons vs Claude Code</h2>
@@ -381,7 +381,7 @@
 <ul>
 <li><strong>For Grok and Composer, Cursor is now cheap.</strong> Plus at $8 covers them, and Super at $100 is Cursor's pick for daily agent work.</li>
 <li><strong>For Claude, Cursor is now the expensive route.</strong> Every Claude token is paid at API price on top of the plan, while Claude Pro and Max include Claude Code usage.</li>
-<li><strong>The model matters more than the plan.</strong> Claude Opus 5.5 cost 150% more per task than Sonnet 5.5 at high effort in my test ($0.75 vs $0.30), and Grok and Composer come out of the included pool.</li>
+<li><strong>The model matters more than the plan.</strong> Claude Opus 5.5 cost about 200% more per task than Sonnet 5.5 at high effort in our tests ($0.35 vs $0.12), and Grok and Composer come out of the included pool.</li>
 </ul>
 <h2>FAQ</h2>
 <p><strong>Is Cursor free?</strong>
