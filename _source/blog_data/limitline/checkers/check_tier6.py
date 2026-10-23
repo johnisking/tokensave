@@ -10,6 +10,7 @@ usage: python3 check_tier6.py <runs_dir> <marked_git_dir> <scorer_dir> > tier6.j
 """
 import io, json, os, re, shutil, subprocess, sys, tarfile, tempfile
 
+HERE = os.path.dirname(os.path.abspath(__file__))
 FIX = {'t1': '123ce04b', 't2': 'cc07bb9c', 't3': '6a57018f'}
 
 
@@ -69,8 +70,13 @@ def main():
         else:
             res.update(solved=False, regressions=[], points=0, build_error=r.get('build_error'))
         res['diff'] = diffstat(clean_src, src)
+        if r['build']:  # cases of the hidden spec passed one by one (the spec file counts as one test above)
+            md = [f for f in os.listdir(hid) if f.endswith('.md')][0]
+            pr = subprocess.run(['node', os.path.join(HERE, 't6_partial.mjs'), os.path.join(repo, 'lib', 'marked.esm.js'),
+                                 os.path.join(hid, md), os.path.join(hid, md[:-3] + '.html')], capture_output=True, text=True)
+            res['cases'] = pr.stdout.strip()
         out[d] = res
-        print(d, res['points'], 'solved', res['solved'], 'regressions', len(res['regressions']), res['diff'], file=sys.stderr, flush=True)
+        print(d, res['points'], 'solved', res['solved'], 'regressions', len(res['regressions']), res.get('cases'), res['diff'], file=sys.stderr, flush=True)
     print(json.dumps(out, indent=1))
 
 
