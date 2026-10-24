@@ -3335,7 +3335,7 @@ LGO_MIRRORS = [("Zenodo", "https://zenodo.org/records/23589133"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/output-tokens-per-character")]
 LGO_TITLE = "Same code, about 60% more output tokens: Claude vs GPT vs Gemini in four coding tools and five languages"
 LGO_DESC = ("Dataset: the same brick-breaker task in Claude Code, Codex and Antigravity CLI (Gemini 4 Argon and Claude Opus 5.5), prompted in English, Korean, Japanese, Spanish and Ukrainian, 100 runs. "
-            "Claude Opus 5.5 used about 60% more output tokens per 1,000 characters of game code than Gemini or GPT, in both tools that ran it. Prompt language moved input tokens only a few percent. Free CSV, CC BY 4.0.")
+            "Claude Opus 5.5 used about 60% more output tokens per 1,000 characters of game code than Gemini or GPT, in both tools that ran it. Counting the same 76 files with all three tokenizers: Claude's needs 55% more tokens than GPT's and 29% more than Gemini's. Prompt language moved input tokens only a few percent. Free CSV, CC BY 4.0.")
 LGO_TOOLS = [("claude_code", "Claude Code + Opus 5.5"), ("antigravity_opus", "Antigravity + Opus 5.5"), ("antigravity_gemini", "Antigravity + Gemini 4 Argon"), ("codex", "Codex + gpt-6-luna")]
 LGO_LANGS = [("en", "English"), ("ko", "Korean"), ("ja", "Japanese"), ("es", "Spanish"), ("uk", "Ukrainian")]
 LGO_COLS = ["tool", "lang", "run", "measured", "input_tokens", "cache_read_reported_separately", "output_tokens", "seconds", "file_chars", "file_lines",
@@ -3344,6 +3344,10 @@ LGO_COLS = ["tool", "lang", "run", "measured", "input_tokens", "cache_read_repor
 
 def _lgo():
     return json.load(open(os.path.join(ROOT, "blog_data", "agylang", "rows.json"), encoding="utf-8"))
+
+
+def _lgo_tok():
+    return json.load(open(os.path.join(ROOT, "blog_data", "agylang", "tokenizer_check.json"), encoding="utf-8"))
 
 
 def lgo_citation():
@@ -3364,6 +3368,11 @@ def write_lgo_files(dist):
                       "Claude Code and Codex rows are the runs of our dataset 'ai-coding-prompt-language' (same versions); Antigravity English rows are from 'antigravity-cli-vs-claude-code-vs-codex'."),
                 tools=dict(LGO_TOOLS), rows=R)
     open(os.path.join(dist, "data", "output-tokens-per-character-by-model.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+    T = _lgo_tok()
+    buf = io.StringIO(); w = csv.writer(buf); cols = list(T["rows"][0].keys()); w.writerow(cols)
+    for r in T["rows"]:
+        w.writerow([r[c] for c in cols])
+    open(os.path.join(dist, "data", "output-tokens-per-character-tokenizer-check.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
 
 
 def lgo_ld():
@@ -3396,8 +3405,25 @@ def lgo_html():
     op, cc, gm, cx = S["antigravity_opus"], S["claude_code"], S["antigravity_gemini"], S["codex"]
     vs_g, vs_x = pct(gm["per"], op["per"]), pct(cx["per"], cc["per"])
     nok = sum(S[t]["ok"] for t, _ in LGO_TOOLS)
+    TK = _lgo_tok()["rows"]
+    per = lambda rs, k: statistics.median(r[k] / r["chars"] * 1000 for r in rs)
+    K3 = [("claude", "claude_5_5_tokens", "Claude 5.5"), ("gemini", "gemini_4_argon_tokens", "Gemini 4 Argon"), ("gpt", "gpt_o200k_tokens", "GPT (o200k)")]
+    tk_all = {k: per(TK, col) for k, col, _ in K3}
+    rat = lambda a, b: [r[a] / r[b] for r in TK]
+    cg, cm = rat("claude_5_5_tokens", "gpt_o200k_tokens"), rat("claude_5_5_tokens", "gemini_4_argon_tokens")
+    own = {"claude_code": "claude_5_5_tokens", "antigravity_opus": "claude_5_5_tokens", "codex": "gpt_o200k_tokens", "antigravity_gemini": "gemini_4_argon_tokens"}
+    tk_rows = []
+    for t, lab in LGO_TOOLS:
+        rs = [r for r in TK if r["tool"] == t]
+        ov = statistics.median(r["reported_output_tokens"] / r[own[t]] for r in rs)
+        tk_rows.append(f'          <tr><td>{esc(lab)} ({len(rs)} files)</td>' + "".join(f'<td class="text-right tabular-nums">{f(per(rs, col))}</td>' for _, col, _ in K3)
+                       + f'<td class="text-right tabular-nums">{f(per(rs, "reported_output_tokens"))}</td><td class="text-right tabular-nums">+{round((ov - 1) * 100)}%</td></tr>')
+    tk_head = ['<th>Code written by</th>'] + [f'<th class="text-right">{n} tokenizer</th>' for _, _, n in K3] + ['<th class="text-right">Reported output</th>', '<th class="text-right">Output beyond the code</th>']
+    gem_files = [r for r in TK if r["tool"] == "antigravity_gemini"]; other = [r for r in TK if r["tool"] != "antigravity_gemini"]
+    dens = [round((1 - per(gem_files, col) / per(other, col)) * 100) for _, col, _ in K3]
     lead = (f'<strong>To write the same kind of game, Claude Opus 5.5 spent about {vs_g}% more output tokens per character of code than Gemini 4 Argon, and about {vs_x}% more than GPT.</strong> '
-            f'Opus came out the same in Claude Code ({f(cc["per"])} tokens per 1,000 characters) and in Google&rsquo;s Antigravity CLI ({f(op["per"])}), so it is the model&rsquo;s tokenizer, not the tool. '
+            f'Opus came out the same in Claude Code ({f(cc["per"])} tokens per 1,000 characters) and in Google&rsquo;s Antigravity CLI ({f(op["per"])}), so it is the model, not the tool. '
+            f'Counting the same {len(TK)} game files with all three tokenizers shows why: Claude&rsquo;s tokenizer needs {pct(tk_all["gpt"], tk_all["claude"])}% more tokens than GPT&rsquo;s for the same code and {pct(tk_all["gemini"], tk_all["claude"])}% more than Gemini&rsquo;s. '
             'Writing the prompt in Korean, Japanese, Spanish or Ukrainian instead of English changed input tokens by only a few percent.')
     li = []
     li.append(f'<li><strong>Output tokens per 1,000 characters of game code:</strong> Opus 5.5 {f(cc["per"])} in Claude Code and {f(op["per"])} in Antigravity, Gemini 4 Argon {f(gm["per"])}, gpt-6-luna {f(cx["per"])} in Codex. '
@@ -3415,6 +3441,14 @@ def lgo_html():
         rp.append(f'          <tr><td>{esc(lab)}</td>' + "".join(f'<td class="text-right tabular-nums">{f(S[(t, l)]["per"])}</td>' for l, _ in LGO_LANGS) + '</tr>')
         ri.append(f'          <tr><td>{esc(lab)}</td>' + "".join(f'<td class="text-right tabular-nums">{f(S[(t, l)]["inp"])}</td>' for l, _ in LGO_LANGS) + '</tr>')
     body = ('      <h2>Key findings</h2>\n      <ul>\n' + "\n".join("        " + x for x in li) + '\n      </ul>\n'
+            '      <h2>Tokenizer check: the same files, three tokenizers (v1.2)</h2>\n'
+            f'      <p>On 2026-10-24 we counted {len(TK)} of the game files with each company&rsquo;s own tokenizer, regardless of which model wrote them. Tokens per 1,000 characters, median per group. &ldquo;Output beyond the code&rdquo; = reported output tokens divided by the file counted with the writing model&rsquo;s own tokenizer (the final reply and tool-call wrapping).</p>\n'
+            + _table(tk_head, chr(10).join(tk_rows)) +
+            '      <ul>\n'
+            f'        <li><strong>Same code, different counts.</strong> Across all {len(TK)} files Claude&rsquo;s tokenizer needed {pct(tk_all["gpt"], tk_all["claude"])}% more tokens than GPT&rsquo;s (every file between +{round((min(cg) - 1) * 100)}% and +{round((max(cg) - 1) * 100)}%) and {pct(tk_all["gemini"], tk_all["claude"])}% more than Gemini&rsquo;s (+{round((min(cm) - 1) * 100)}% to +{round((max(cm) - 1) * 100)}%).</li>\n'
+            '        <li><strong>Against GPT, the gap is the tokenizer.</strong> Opus and GPT wrote code of about the same token density and added a similar amount beyond the code, so almost all of the difference in output per character comes from how Claude splits text.</li>\n'
+            f'        <li><strong>Against Gemini, the tokenizer explains about half.</strong> The rest: Gemini&rsquo;s own code needed {min(dens)}% to {max(dens)}% fewer tokens per character than the other models&rsquo; code under all three tokenizers, and it added less beyond the code.</li>\n'
+            '      </ul>\n'
             '      <h2>Output tokens per 1,000 characters of code</h2>\n'
             '      <p class="text-sm text-zinc-400">Output tokens reported by each tool divided by the characters of the index.html it wrote. Average of 5 runs per tool and language.</p>\n'
             + _table(hp, chr(10).join(rp)) +
@@ -3426,6 +3460,7 @@ def lgo_html():
             '        <li>Task: &ldquo;Make a brick-breaker game that runs in the browser as a single file named index.html &hellip; 2 levels, a score display and 3 lives &hellip; keyboard and mouse&rdquo;, translated into Korean, Japanese, Spanish and Ukrainian. Medium effort everywhere, each run in its own empty folder on Windows 11.</li>\n'
             f'        <li>Claude Code 2.1.295 and Codex CLI 0.162: the 50 runs of our <a href="{TL_PATH}">prompt-language dataset</a> (2026-10-18 and 19). Antigravity CLI 1.4.5: English runs 1 to 3 from our <a href="{AGY_PATH}">three-way comparison</a> (2026-10-22), the other 44 runs new (2026-10-23; runs 4 and 5 in every language added the same day).</li>\n'
             '        <li>Every game was played in headless Chromium by a script that watches the score, the level and the lives; the check reads the game&rsquo;s own text in all five languages.</li>\n'
+            '        <li>Tokenizer check: Claude 5.5 counted with Claude Code (<code>claude -p</code>, Haiku 5.5, which shares Opus 5.5&rsquo;s tokenizer; no tools, no MCP; minus the same call with &ldquo;a&rdquo;), Gemini 4 Argon with the Google AI Studio token counter (minus 31, the count for &ldquo;a&rdquo; is 32), GPT with o200k locally. Repeating the first file gave identical counts. The 76 files are the runs whose game files are stored in our repository. Per-file counts: <a href="/data/output-tokens-per-character-tokenizer-check.csv">tokenizer check CSV</a>.</li>\n'
             '      </ul>\n      <h2>Limitations</h2>\n      <ul>\n'
             '        <li>Output tokens include the short final reply and the tool-call wrapping around the file, not only the code. Antigravity reported no or few thinking tokens; Claude Code and Codex count any reasoning inside their output figure.</li>\n'
             '        <li>One task (a browser game in HTML, CSS and JavaScript). Other kinds of code may tokenize differently.</li>\n'
