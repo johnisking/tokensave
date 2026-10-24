@@ -3526,8 +3526,8 @@ def lim_html():
             f'{spec_ok["haiku"][1]} runs each, from a five-level game to a spreadsheet engine with cycle detection.</strong> '
             'The gap showed up on a real bug in the marked Markdown parser. No run fixed it completely, but '
             f'Sonnet passed 6 of the maintainers&rsquo; 7 test cases in {six["sonnet"]} of {len(both["sonnet"])} runs and Opus in {six["opus"]} of {len(both["opus"])}, Haiku in {six["haiku"]} of {len(both["haiku"])}. '
-            'Letting the agents run the test suite did not change that; it stopped them breaking other code '
-            f'({broke_nt} of {n_nt} Claude runs without tests broke other spec tests, {broke_d} of {n_d} with tests). '
+            'Letting the agents run the test suite did not change that. Fewer runs broke other code with tests '
+            f'({broke_nt} of {n_nt} without, {broke_d} of {n_d} with), but that gap is too small to rule out chance. '
             f'Haiku cost about {ratio}% less per run than Opus at API prices.')
     def cl(rs):
         return ", ".join("marked no longer loads" if (r.get("hidden_cases_passed") == 0 and (r.get("new_test_failures") or 0) > 0) else str(r.get("hidden_cases_passed")) for r in rs)
@@ -3544,11 +3544,11 @@ def lim_html():
               f'Codex {cl(S[("codex", "6t3")]["runs"])}; Gemini {cl(S[("gemini", "6t3")]["runs"])} (the unfixed code passes 3).</li>')
     li.append(f'<li><strong>Running the tests did not close the gap.</strong> In {n_d} more Claude runs the dependencies were installed and the prompt allowed running node and marked&rsquo;s spec suite; every one of them ran the suite and checked its own examples. '
               f'Cases passed: Haiku {cl(S[("haiku", "6t3d")]["runs"])}; Sonnet {cl(S[("sonnet", "6t3d")]["runs"])}; Opus {cl(S[("opus", "6t3d")]["runs"])}. '
-              f'What changed was damage: without tests one Haiku run broke {S[("haiku", "6t3")]["broke"]} other spec tests and one Opus run left an invalid regular expression that stopped marked from loading at all; with tests no run broke anything.</li>')
+              f'The only visible difference was damage: without tests one Haiku run broke {S[("haiku", "6t3")]["broke"]} other spec tests and one Opus run left an invalid regular expression that stopped marked from loading at all; with tests no run broke anything. With 15 runs each, that could be chance.</li>')
     li.append('<li><strong>What this means in practice:</strong> with a clear spec, Haiku is enough (same full marks as Opus at about '
               f'{ratio}% less per run). For a real bug whose report leaves cases out, Sonnet or Opus caught the extra edge case far more often '
               f'({six["sonnet"]} and {six["opus"]} of 10 runs vs {six["haiku"]} of 10); on this bug Sonnet did best and cost less than Opus, but with 10 runs each that gap could be chance. '
-              'Whatever the model, let it run the tests: no run broke other code once tests were allowed. And still review edge cases yourself: no model fixed the bug completely.</li>')
+              'Running tests did not find the missing case; no run with tests broke other code, but there are too few runs to credit the tests for that. And still review edge cases yourself: no model fixed the bug completely.</li>')
     li.append(f'<li><strong>Cost per run at API prices (Claude Code&rsquo;s own figure):</strong> Haiku {usd(S["haiku"]["cost"])}, Sonnet {usd(S["sonnet"]["cost"])}, Opus {usd(S["opus"]["cost"])} on average over all levels. '
               'Codex and Antigravity ran on subscription plans and report no price.</li>')
     li.append('<li><strong>Antigravity&rsquo;s headless mode ends a turn at the first denied command.</strong> With read-only allow-rules, several Gemini runs stopped before editing (a <code>node -e</code> line with quotes needs an exact rule on Windows). '
