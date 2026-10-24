@@ -3624,7 +3624,8 @@ BUG_CHART = "/claude-haiku-vs-opus-real-bugs-chart.png"
 BUG_DOI = "10.5281/zenodo.23619927"  # concept DOI
 BUG_MIRRORS = [("Zenodo", "https://zenodo.org/records/23619928"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-haiku-vs-opus-real-bugs"),
-               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-haiku-vs-sonnet-vs-opus-on-25-real-bugs")]
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-haiku-vs-sonnet-vs-opus-on-25-real-bugs"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-real-bugs")]
 BUG_TITLE = "Claude Haiku vs Sonnet vs Opus on 25 real bugs: 225 runs scored by the maintainers' tests"
 BUG_DESC = ("Dataset: 225 Claude Code runs on 25 real bugs fixed in 13 open-source projects between August and October 2026, 3 runs per bug for Haiku, Sonnet and Opus 5.5. "
             "Scored by the maintainers' own tests. Haiku fixed as many bugs cleanly as Opus at about 95% less cost; Opus was ahead on two multi-place bugs; no model found cases the bug report left out. Free CSV, CC BY 4.0.")
