@@ -89,7 +89,7 @@ To be honest about Wikipedia: inside Claude Code the proxy lost money. Where Cla
 
 - In Claude Code, most of the browser-MCP bill is the number of steps, not the pages. Saying clearly what you want, so the agent finishes in fewer steps, helps most.
 - The expensive request is "read the whole page". Ask for a specific element, a search or a short script instead.
-- If your client passes large tool results straight through, put a proxy like tokensave-mcp-diet in front, or turn on a server option that saves snapshots to files.
+- If your client passes large tool results straight through, put a proxy like tokensave-mcp-diet in front, or have the model save snapshots to a file: Chrome DevTools MCP's `take_snapshot` and `evaluate_script` take a `filePath` parameter (in 3 of my 5 full-snapshot runs, Opus used it without being asked).
 
 ## Limits
 

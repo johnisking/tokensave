@@ -156,7 +156,7 @@
       <ul>
         <li>If an agent works through browser MCP in Claude Code, most of the bill is Claude Code&rsquo;s fixed per-request overhead and the number of steps, not the pages.</li>
         <li>The expensive case is a full snapshot of a long page. Ask for a specific element, a search or a script instead of &ldquo;read the page&rdquo;.</li>
-        <li>In clients that pass large tool results straight through, one long page can add more than 200,000 tokens to the context. A proxy like tokensave-mcp-diet, or a server option that saves snapshots to files, keeps that out of the context.</li>
+        <li>In clients that pass large tool results straight through, one long page can add more than 200,000 tokens to the context. Two things keep that out: a proxy like tokensave-mcp-diet, or saving the result to a file. Chrome DevTools MCP&rsquo;s <code>take_snapshot</code> and <code>evaluate_script</code> accept a <code>filePath</code> parameter for this (added in PRs #463 and #2054), and in 3 of our 5 Chrome DevTools full-snapshot runs the model passed it on its own.</li>
       </ul>
       <h2>Method</h2>
       <ul>
