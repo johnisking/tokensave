@@ -537,6 +537,43 @@ AUTHOR = {"@type": "Person", "@id": BASE + "/author/jonhisking#person", "name": 
 
 AUTHOR_REF = {k: AUTHOR[k] for k in ("@type", "@id", "name", "url")}  # articles point to the author; press mentions stay on the author page
 
+# Disclosure line under every article and data page (2026-10-24, E-E-A-T). Wrapped in <footer> so seo_lastmod's text hash ignores it.
+DISCLOSE = {
+    "en": "Disclosure: TokenSave gets no funding, credits or sponsorship from AI companies. All measurements use our own paid subscriptions.",
+    "ko": "밝혀 둡니다: TokenSave는 AI 회사로부터 지원금·크레딧·후원을 받지 않습니다. 모든 측정은 직접 비용을 낸 구독으로 했습니다.",
+    "ja": "開示：TokenSaveはAI企業から資金・クレジット・スポンサーを受けていません。測定はすべて自費の有料プランで行っています。",
+    "es": "Transparencia: TokenSave no recibe financiación, créditos ni patrocinio de empresas de IA. Todas las mediciones usan nuestras propias suscripciones de pago.",
+    "tr": "Açıklama: TokenSave yapay zekâ şirketlerinden fon, kredi veya sponsorluk almaz. Tüm ölçümler kendi ücretli aboneliklerimizle yapılır.",
+    "de": "Offenlegung: TokenSave erhält keine Förderung, Credits oder Sponsoring von KI-Unternehmen. Alle Messungen laufen über unsere eigenen bezahlten Abos.",
+    "fr": "Transparence : TokenSave ne reçoit ni financement, ni crédits, ni parrainage d'entreprises d'IA. Toutes les mesures utilisent nos propres abonnements payants.",
+    "pt": "Transparência: o TokenSave não recebe financiamento, créditos nem patrocínio de empresas de IA. Todas as medições usam nossas próprias assinaturas pagas.",
+    "uk": "Розкриття: TokenSave не отримує фінансування, кредитів чи спонсорства від ШІ-компаній. Усі вимірювання зроблено на наших власних платних підписках.",
+    "ru": "Раскрытие: TokenSave не получает финансирования, кредитов или спонсорства от ИИ-компаний. Все измерения сделаны на наших собственных платных подписках.",
+    "nl": "Openheid: TokenSave krijgt geen financiering, credits of sponsoring van AI-bedrijven. Alle metingen gebruiken onze eigen betaalde abonnementen.",
+    "da": "Oplysning: TokenSave modtager ingen finansiering, kreditter eller sponsorater fra AI-virksomheder. Alle målinger bruger vores egne betalte abonnementer.",
+    "no": "Opplysning: TokenSave får ingen finansiering, kreditter eller sponsing fra AI-selskaper. Alle målinger bruker våre egne betalte abonnementer.",
+    "cs": "Transparentnost: TokenSave nedostává od AI firem žádné financování, kredity ani sponzorství. Všechna měření běží na našich vlastních placených předplatných.",
+    "fil": "Paglalahad: Walang natatanggap na pondo, credits o sponsorship ang TokenSave mula sa mga AI company. Lahat ng sukat ay gamit ang sarili naming bayad na subscription.",
+    "pl": "Ujawnienie: TokenSave nie otrzymuje finansowania, kredytów ani sponsoringu od firm AI. Wszystkie pomiary robimy na własnych płatnych subskrypcjach.",
+}
+
+
+def disclose_html(tag):
+    return f'<footer class="not-prose mt-6 text-xs text-zinc-500">{esc(DISCLOSE.get(tag, DISCLOSE["en"]))}</footer>'
+
+
+def data_ld_people(ld):
+    """Dataset JSON-LD: the author as a Person next to the organization, and a dateModified filled in by seo_lastmod."""
+    for node in ld.get("@graph", [ld]):
+        if node.get("@type") == "Dataset":
+            node["creator"] = [AUTHOR_REF, {"@type": "Organization", "@id": BASE + "/#org", "name": "TokenSave", "url": BASE + "/"}]
+            node.setdefault("dateModified", "__DATA_UPDATED__")
+    return ld
+
+
+DATA_BYLINE = ('<footer class="mt-2 text-xs text-zinc-500">Measured and written by <a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a>'
+               ' · Updated <time datetime="__DATA_UPDATED__">__DATA_UPDATED__</time>. ' + DISCLOSE["en"] + '</footer>')
+
 
 def brand_title(out, home=False):
     m = re.search(r"<title>(.*?)</title>", out, re.S)
@@ -681,13 +718,15 @@ def build():
         body = getattr(DP, pg["fn"])() if pg.get("fn") else languages_html() if pg["path"] == "/languages" else blog_index_html() if pg["path"] == "/blog/" else __import__("tokens_words").body(LANG_RATIOS) if pg["path"] == "/tokens-to-words" else open(os.path.join(SRC, pg["body"]), encoding="utf-8").read()
         if (pg.get("path") or "").startswith("/data/"):
             body = DP.add_cta(pg["path"], body)
+            if pg["path"] != "/data/" and "</h1>" in body:
+                body = body.replace("</h1>", "</h1>\n      " + DATA_BYLINE, 1)
         url = BASE + (pg["path"] or "/404")
         values = dict(
             htmlLang="en", dir="ltr", url=url, ogLocale="en_US", ogImage=f"{BASE}/og-token.jpg",
             title=esc(pg["title"]), desc=esc(pg["desc"]), lang=esc(S["en"]["lang"]),
             homeUrl="/", hreflang=(BLOG_ALTS_EN if pg["path"] == "/blog/" else ""), langOptions=en_opts, langAll=en_all, toolNav=en_nav, ver=ver, adsHead=extras, faq="", guide="",
             f1="", f2="", fAbout=esc(SITE["en"]["fAbout"]), fPrivacy=esc(SITE["en"]["fPrivacy"]),
-            ldjson=js(getattr(DP, pg["ld"])() if pg.get("ld") else {"@context": "https://schema.org", "@type": "ProfilePage", "name": pg["title"], "url": url, "mainEntity": AUTHOR} if pg["path"] == "/author/jonhisking" else {"@context": "https://schema.org", "@type": "WebPage", "name": pg["title"], "url": url}),
+            ldjson=js((data_ld_people(getattr(DP, pg["ld"])()) if (pg.get("path") or "").startswith("/data/") else getattr(DP, pg["ld"])()) if pg.get("ld") else {"@context": "https://schema.org", "@type": "ProfilePage", "name": pg["title"], "url": url, "mainEntity": AUTHOR} if pg["path"] == "/author/jonhisking" else {"@context": "https://schema.org", "@type": "WebPage", "name": pg["title"], "url": url}),
             tjson=js({"static": True}),
             scriptTag=f'<script type="module" src="/common.js?v={ver}"></script>',
         )
@@ -957,6 +996,7 @@ def build():
         <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-snug" style="overflow-wrap:anywhere">{esc(b["title"])}</h1>
         <p class="mt-2 text-xs text-zinc-500">{esc(byline(b)).replace("Jonhisking", '<a href="/author/jonhisking" class="text-zinc-400 underline" rel="author">Jonhisking</a>', 1)}</p>
   {article}{related_html(b)}
+        {disclose_html(tag)}
         <div class="not-prose mt-8 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 text-center">
           <p class="text-zinc-200">{esc(b["cta"])}</p>
           <a href="{cta_url}" class="mt-3 inline-block tab-active rounded-lg px-4 py-2 font-semibold no-underline" style="text-decoration:none">{esc(b["ctaBtn"])} →</a>

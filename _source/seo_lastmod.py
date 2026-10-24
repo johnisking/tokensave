@@ -65,6 +65,15 @@ def apply(dist, today=None):
 
     sm = re.sub(r"<loc>([^<]+)</loc>\s*<lastmod>([^<]+)</lastmod>", fix, sm)
     open(path, "w", encoding="utf-8").write(sm)
+    # data pages: fill the "Updated" date and JSON-LD dateModified (placeholder kept out of the hash, see build.DATA_BYLINE)
+    for f in sorted(os.listdir(os.path.join(dist, "data"))):
+        if not f.endswith(".html"):
+            continue
+        fp = os.path.join(dist, "data", f)
+        src = open(fp, encoding="utf-8").read()
+        if "__DATA_UPDATED__" in src:
+            e = man.get(f"{BASE}/data/{f[:-5]}")
+            open(fp, "w", encoding="utf-8").write(src.replace("__DATA_UPDATED__", e["date"] if e else today))
     json.dump(man, open(MANIFEST, "w", encoding="utf-8"), indent=0, sort_keys=True)
 
 
