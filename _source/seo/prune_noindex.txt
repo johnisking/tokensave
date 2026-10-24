@@ -256,3 +256,6 @@
 /ko/video
 /ko/image
 /ko/plans
+# 2026-10-24 E-E-A-T audit: plan/price summaries with no first-hand data and no search traffic in 3 months (0 clicks, <10 impressions)
+/ja/blog/chatgpt-muryou-yuuryou-chigai
+/tr/blog/chatgpt-pro-100-200-500-fiyat
