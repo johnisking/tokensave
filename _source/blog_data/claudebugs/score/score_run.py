@@ -73,14 +73,23 @@ def main(run):
     tmp = f'/tmp/b15score/{name}'
     shutil.rmtree(tmp, ignore_errors=True)
     shutil.copytree(os.path.join(W, bug), tmp, symlinks=True, ignore=shutil.ignore_patterns('.git'))
-    diff = open(os.path.join(run, 'changes.diff'), encoding='utf-8', errors='replace').read()
+    raw = os.path.join(run, 'changes_raw.diff')
+    diff = open(raw if os.path.exists(raw) else os.path.join(run, 'changes.diff'), encoding='utf-8', errors='surrogateescape').read()
     sd = filter_diff(diff, SRC[kind])
     applied = True
     if sd.strip():
-        open(f'{tmp}.diff', 'w', encoding='utf-8').write(sd)
+        open(f'{tmp}.diff', 'w', encoding='utf-8', errors='surrogateescape', newline='').write(sd)
         rc, out = sh(f'git apply --whitespace=nowarn {tmp}.diff', tmp)
         if rc != 0:
             rc, out = sh(f'patch -p1 -s --binary < {tmp}.diff', tmp); applied = rc == 0
+    ut = os.path.join(run, 'untracked')
+    new_src = []
+    for root, _, files in os.walk(ut):
+        for fn in files:
+            rel = os.path.relpath(os.path.join(root, fn), ut).replace(os.sep, '/')
+            if any(rel.startswith(p) for p in SRC[kind]):
+                os.makedirs(os.path.dirname(os.path.join(tmp, rel)), exist_ok=True)
+                shutil.copy(os.path.join(root, fn), os.path.join(tmp, rel)); new_src.append(rel)
     sh(f'{HERE}/build.sh {bug} {tmp}', HERE)
     if kind in 'hti':
         if kind == 'h':
@@ -94,7 +103,7 @@ def main(run):
         cases = {'passed': 0, 'total': None, 'cases': [], 'error': out[-300:]}
     rc, out = sh(SUITE[kind], tmp)
     fails = failures(kind, out)
-    res = dict(run=name, tool=tool, bug=bug, rep=int(rep[1:]), src_changed=bool(sd.strip()), applied=applied,
+    res = dict(run=name, tool=tool, bug=bug, rep=int(rep[1:]), src_changed=bool(sd.strip()) or bool(new_src), new_src_files=new_src, applied=applied,
                hidden_passed=cases.get('passed'), hidden_total=cases.get('total'),
                hidden_failed=[c['name'] for c in cases.get('cases', []) if not c['ok']],
                suite_failures=fails, suite_failed_names=fail_names(kind, out)[:50])
