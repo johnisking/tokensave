@@ -3545,6 +3545,10 @@ def lim_html():
     li.append(f'<li><strong>Running the tests did not close the gap.</strong> In {n_d} more Claude runs the dependencies were installed and the prompt allowed running node and marked&rsquo;s spec suite; every one of them ran the suite and checked its own examples. '
               f'Cases passed: Haiku {cl(S[("haiku", "6t3d")]["runs"])}; Sonnet {cl(S[("sonnet", "6t3d")]["runs"])}; Opus {cl(S[("opus", "6t3d")]["runs"])}. '
               f'What changed was damage: without tests one Haiku run broke {S[("haiku", "6t3")]["broke"]} other spec tests and one Opus run left an invalid regular expression that stopped marked from loading at all; with tests no run broke anything.</li>')
+    li.append('<li><strong>What this means in practice:</strong> with a clear spec, Haiku is enough (same full marks as Opus at about '
+              f'{ratio}% less per run). For a real bug whose report leaves cases out, Sonnet or Opus caught the extra edge case far more often '
+              f'({six["sonnet"]} and {six["opus"]} of 10 runs vs {six["haiku"]} of 10); on this bug Sonnet did best and cost less than Opus, but with 10 runs each that gap could be chance. '
+              'Whatever the model, let it run the tests: no run broke other code once tests were allowed. And still review edge cases yourself: no model fixed the bug completely.</li>')
     li.append(f'<li><strong>Cost per run at API prices (Claude Code&rsquo;s own figure):</strong> Haiku {usd(S["haiku"]["cost"])}, Sonnet {usd(S["sonnet"]["cost"])}, Opus {usd(S["opus"]["cost"])} on average over all levels. '
               'Codex and Antigravity ran on subscription plans and report no price.</li>')
     li.append('<li><strong>Antigravity&rsquo;s headless mode ends a turn at the first denied command.</strong> With read-only allow-rules, several Gemini runs stopped before editing (a <code>node -e</code> line with quotes needs an exact rule on Windows). '
