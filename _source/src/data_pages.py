@@ -2762,7 +2762,7 @@ def tai_html():
 
 # ---- Dataset 19: Claude Code baseline tokens by version (measured 2026-10-21) ----
 CCV_PATH = "/data/claude-code-baseline-tokens-by-version"
-CCV_MEASURED = "2026-10-21"
+CCV_MEASURED = "2026-10-24"
 CCV_CHART = "/claude-code-baseline-tokens-chart.png"
 CCV_DOI = "10.5281/zenodo.23527278"  # concept DOI
 CCV_MIRRORS = [("Zenodo", "https://zenodo.org/records/23527279"),
@@ -2771,7 +2771,7 @@ CCV_MIRRORS = [("Zenodo", "https://zenodo.org/records/23527279"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-code-versions")]
 CCV_TITLE = "Claude Code baseline tokens by version: what every request carries before you type"
 CCV_DESC = ("Dataset: the input tokens of Claude Code's first request for the one-letter prompt \"a\", measured on {n} versions from July 2025 to October 2026, "
-            "with MCP off and with 16 claude.ai connectors on. The baseline rose 86% to a peak in May 2026, then fell back to half that by October. Free CSV, CC BY 4.0.")
+            "with MCP off and with 13 claude.ai connectors on. The baseline rose 86% to a peak in May 2026, fell back to half that on October 7, and has crept up slightly since. Free CSV, CC BY 4.0.")
 CCV_COLS = ["version", "released", "arm", "runs", "first_request_input_tokens", "min", "max", "tools", "builtin_tools", "mcp_tools", "connected_servers", "cache_write_1h"]
 
 
@@ -2811,6 +2811,10 @@ def ccv_ld():
                        CCV_CHART, [("claude-code-baseline-tokens-by-version.csv", "text/csv"), ("claude-code-baseline-tokens-by-version.json", "application/json")], doi=CCV_DOI, mirrors=CCV_MIRRORS)
 
 
+def _k(v):
+    return tuple(map(int, v.split(".")))
+
+
 def ccv_html():
     d = _ccv(); C, K = _ccv_clean(d)
     f = lambda v: "{:,}".format(round(v))
@@ -2845,6 +2849,7 @@ def ccv_html():
       <ul>
         <li><strong>Ten months of growth.</strong> Version {first["version"]} ({first["released"]}) sent {f(tok(first))} tokens with the prompt &ldquo;a&rdquo;. By {peak["version"]} ({peak["released"]}) it was {f(tok(peak))} ({_pct(pct(tok(first), tok(peak)))}). Built-in tools went from {first["builtin_tools"]} to {peak["builtin_tools"]} along the way: plan mode, task lists, scheduled tasks, worktrees and more.</li>
         <li><strong>The biggest single change was a cut.</strong> Between {big[0]["version"]} ({big[0]["released"]}) and {big[1]["version"]} ({big[1]["released"]}) the baseline fell from {f(tok(big[0]))} to {f(tok(big[1]))} tokens ({_pct(pct(tok(big[0]), tok(big[1])))}), with the same number of tools. Today&rsquo;s {f(tok(last))} is about where it was in mid-2025.</li>
+        <li><strong>Since the cut, it is creeping back up.</strong> Over the {len([r for r in C if _k(r["version"]) > _k(big[1]["version"])])} releases after {big[1]["version"]}, the baseline went from {f(tok(big[1]))} to {f(tok(last))} ({_pct(pct(tok(big[1]), tok(last)))}) in small steps of 100 to 400 tokens. {last["version"]} also added a {last["builtin_tools"]}th built-in tool (Monitor).</li>
         <li><strong>Connected apps once came along in full.</strong> Apps connected to a claude.ai account (connectors) are also available in Claude Code. In versions {on[0]["version"]} to {on[-1]["version"]} ({on[0]["released"]} to {on[-1]["released"]}), all of their tools were sent with every request: with the {srv} connected apps on our account that was {min(on_tool for on_tool in on_tools)}&ndash;{max(on_tools)} extra tools and about {f(statistics.mean(on_tok))} tokens for the prompt &ldquo;a&rdquo;, roughly {round(statistics.mean(on_tok) / statistics.mean(tok(r) for r in on))} times the baseline. {before_on[-1]["version"]} and earlier did not load them; by {after_on[0]["version"]} they were loaded only when needed, and the baseline is now the same with them on or off.</li>
         <li><strong>The numbers are exact and repeatable.</strong> Three runs of the same version gave the same count every time.</li>
       </ul>
@@ -2860,7 +2865,7 @@ def ccv_html():
       <ul>
         <li>Each version was installed with <code>npm install @anthropic-ai/claude-code@&lt;version&gt;</code> into its own folder on one Windows laptop and run as <code>claude -p "a" --model claude-haiku-5-5 --output-format stream-json --verbose</code>, in an empty folder, with auto-update off and a fresh config folder holding only the login (no user settings, CLAUDE.md, plugins or skills). MCP was off (<code>--strict-mcp-config</code> with an empty config, <code>ENABLE_CLAUDEAI_MCP_SERVERS=false</code>); the second set left our account&rsquo;s claude.ai connectors on.</li>
         <li>We count the usage of the first assistant message in the log, because some older versions made a second request for the same prompt and their final total counts both.</li>
-        <li>Release dates are npm publish dates. Three runs per version with MCP off, one with connectors on, on {CCV_MEASURED}.</li>
+        <li>Release dates are npm publish dates. Three runs per version with MCP off, one with connectors on: versions up to 2.1.295 and 2.1.306 on 2026-10-21, versions 2.1.296 to 2.1.310 on 2026-10-24 with the same script, login and settings (2.1.297 and 2.1.298 were never published).</li>
       </ul>
       <h2>Limitations</h2>
       <ul>

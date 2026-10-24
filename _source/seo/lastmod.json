@@ -217,7 +217,7 @@
 },
 "https://tokensave.app/data/": {
 "date": "2026-10-24",
-"hash": "e2f15b1e48fd5243"
+"hash": "667acc24b998665a"
 },
 "https://tokensave.app/data/ai-agent-web-search-tokens": {
 "date": "2026-10-23",
@@ -252,8 +252,8 @@
 "hash": "ffc3ee13914a84bd"
 },
 "https://tokensave.app/data/claude-code-baseline-tokens-by-version": {
-"date": "2026-10-23",
-"hash": "878c5188c813c3b3"
+"date": "2026-10-24",
+"hash": "0c1eea863b8b599d"
 },
 "https://tokensave.app/data/claude-code-harness-cost": {
 "date": "2026-10-23",
