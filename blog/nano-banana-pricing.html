@@ -6,11 +6,13 @@
   <script>/* shared text lives in the #fragment: take it out of the URL before any third-party script can read it */if(/[#&]t=/.test(location.hash)){window.__share=location.hash.slice(1);history.replaceState(null,"",location.pathname+location.search)}</script>
   <!-- Google Tag Manager (loaded after the line above, so a shared text in the #fragment never reaches it) -->
   <script>/* owner opt-out: open any page once with ?notrack=1 (undo with ?notrack=0) and this browser is never counted in analytics */var __nt=false;try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem('ts_notrack','1');if(/[?&]notrack=0/.test(location.search))localStorage.removeItem('ts_notrack');__nt=localStorage.getItem('ts_notrack')==='1'}catch(e){}
-  if(!__nt)(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  /* GTM and AdSense start after the page has loaded (or on the first tap/scroll/key), so they do not compete with the first paint */
+  window.__late=function(fn){var done=false,go=function(){if(done)return;done=true;fn()};['pointerdown','keydown','scroll','touchstart'].forEach(function(t){addEventListener(t,go,{once:true,passive:true})});if(document.readyState==='complete')setTimeout(go,1500);else addEventListener('load',function(){setTimeout(go,1500)})};
+  if(!__nt)__late(function(){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KCGSDH87');</script>
+  })(window,document,'script','dataLayer','GTM-KCGSDH87')});</script>
   <!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nano Banana Pricing &amp; Free Limits (2026) | TokenSave</title>
@@ -41,13 +43,14 @@
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Nano Banana Pricing & Free Limits (2026)", "description": "Nano Banana API cost per image for 2.1, 2, Lite and Pro, Batch discounts, free Gemini app limits, and a free vs 2.1 vs Pro image test.", "inLanguage": "en", "url": "https://tokensave.app/blog/nano-banana-pricing", "mainEntityOfPage": "https://tokensave.app/blog/nano-banana-pricing", "datePublished": "2026-10-15", "dateModified": "2026-10-15", "image": "https://tokensave.app/nano-banana-pricing-en.jpg", "author": {"@type": "Person", "@id": "https://tokensave.app/author/jonhisking#person", "name": "Jonhisking", "url": "https://tokensave.app/author/jonhisking"}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Nano Banana Pricing & Free Limits (2026)", "item": "https://tokensave.app/blog/nano-banana-pricing"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many Nano Banana models are there?", "acceptedAnswer": {"@type": "Answer", "text": "As of October 14, 2026, four image models are sold under the Nano Banana name in the Gemini API."}}, {"@type": "Question", "name": "Is the Nano Banana API free?", "acceptedAnswer": {"@type": "Answer", "text": "No. On Google's pricing page, the Free tier column reads \"Not available\" for Nano Banana 2.1, 2, 2 Lite and Pro alike. Unlike the text models, getting an API key is not enough to generate images at no cost. You can only call the image models from a paid-tier project with billing turned on. The trade-off is that, on the paid tier, Google does not use your prompts and outputs to improve its products."}}, {"@type": "Question", "name": "Is Nano Banana expensive compared with other image AIs?", "acceptedAnswer": {"@type": "Answer", "text": "At $0.0336 for a 1K image, Nano Banana 2.1 sits at the cheaper end of the market. OpenAI's GPT Image prices vary widely with the quality setting, from about one cent to nearly 30 cents an image, and even within Google's lineup, Pro costs about 300% more than 2.1 at 1K. To compare per-image prices across models and resolutions side by side, try the AI image generation cost calculator. If you want the full cross-vendor table, see AI image generation cost per image, compared, and to estimate what your prompts cost in input tokens, paste them into the token counter."}}, {"@type": "Question", "name": "What do you need to use Nano Banana through the API?", "acceptedAnswer": {"@type": "Answer", "text": "You need an API key even if you never write code yourself, because that is how other apps and automation tools connect to Nano Banana. The setup is short."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=b22f01f5" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+  <link rel="stylesheet" href="/styles.css?v=3db9e6e9" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
   <meta name="google-adsense-account" content="ca-pub-6520495092767533" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6520495092767533" crossorigin="anonymous"></script>
+  <script>__late(function(){var s=document.createElement("script");s.async=true;s.crossOrigin="anonymous";s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6520495092767533";document.head.appendChild(s)})</script>
   <!-- Cloudflare Web Analytics (cookieless). Only page views are sent — never what you type. -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "553cc8f2baba4297bd3b81f73b138536"}'></script>
 </head>
@@ -499,6 +502,6 @@
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=b22f01f5"></script>
+  <script type="module" src="/common.js?v=3db9e6e9"></script>
 </body>
 </html>

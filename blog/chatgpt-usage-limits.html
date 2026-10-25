@@ -6,11 +6,13 @@
   <script>/* shared text lives in the #fragment: take it out of the URL before any third-party script can read it */if(/[#&]t=/.test(location.hash)){window.__share=location.hash.slice(1);history.replaceState(null,"",location.pathname+location.search)}</script>
   <!-- Google Tag Manager (loaded after the line above, so a shared text in the #fragment never reaches it) -->
   <script>/* owner opt-out: open any page once with ?notrack=1 (undo with ?notrack=0) and this browser is never counted in analytics */var __nt=false;try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem('ts_notrack','1');if(/[?&]notrack=0/.test(location.search))localStorage.removeItem('ts_notrack');__nt=localStorage.getItem('ts_notrack')==='1'}catch(e){}
-  if(!__nt)(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  /* GTM and AdSense start after the page has loaded (or on the first tap/scroll/key), so they do not compete with the first paint */
+  window.__late=function(fn){var done=false,go=function(){if(done)return;done=true;fn()};['pointerdown','keydown','scroll','touchstart'].forEach(function(t){addEventListener(t,go,{once:true,passive:true})});if(document.readyState==='complete')setTimeout(go,1500);else addEventListener('load',function(){setTimeout(go,1500)})};
+  if(!__nt)__late(function(){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KCGSDH87');</script>
+  })(window,document,'script','dataLayer','GTM-KCGSDH87')});</script>
   <!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ChatGPT Usage Limits (Oct 2026): What&#x27;s Unlimited, 5-Hour Reset</title>
@@ -41,13 +43,14 @@
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "ChatGPT Usage Limits (Oct 2026): What's Unlimited, 5-Hour Reset", "description": "Text chat is unlimited on every ChatGPT plan. The caps: thinking, GPT-6 Pro, tools and the Codex 5-hour window (Plus: Astra 5–45). Every plan and reset.", "inLanguage": "en", "url": "https://tokensave.app/blog/chatgpt-usage-limits", "mainEntityOfPage": "https://tokensave.app/blog/chatgpt-usage-limits", "datePublished": "2026-10-13", "dateModified": "2026-10-19", "image": "https://tokensave.app/chatgpt-usage-limits-en.jpg", "author": {"@type": "Person", "@id": "https://tokensave.app/author/jonhisking#person", "name": "Jonhisking", "url": "https://tokensave.app/author/jonhisking"}, "publisher": {"@type": "Organization", "@id": "https://tokensave.app/#org", "name": "TokenSave", "url": "https://tokensave.app/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "ChatGPT Usage Limits (Oct 2026): What's Unlimited, 5-Hour Reset", "item": "https://tokensave.app/blog/chatgpt-usage-limits"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is there a limit to how much you can use ChatGPT?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, but not where most people expect. There are now three separate kinds of limits, and they do not draw from each other:"}}, {"@type": "Question", "name": "How to check your usage\n\nChatGPT: open Settings → Usage. It shows your remaining Work and Codex allowance, which window you are in and when each resets, plus any saved resets and your credit balance.\nCodex CLI: type /status during a session to see your remaining limits.\nIn Chat: when a model allowance runs out, ChatGPT shows the reset time when that information is available.\n\nOpenAI suggests checking the dashboard every week or two to learn your own pace.\n\nThis is the screen on a ChatGPT Free account in the Windows desktop app on October 13, 2026, where the menu is called Usage &amp; billing. Three things stand out. It says Codex, Work, workspace agents and ChatGPT for Excel share one allowance, and that Chat conversations are not counted. Free shows a single monthly bar instead of five-hour and weekly meters; ours had 99% left with the reset 27 days away. And there is a switch that lets Codex spend a saved usage reset, but only when you ask for it in a conversation and less than 10% of your limit is left; resets are never used on their own. The Usage limit resets section below shows how many resets you hold (0 on this account) and what one restores: the five-hour limit, the weekly limit or both.\nWhich limit did I hit?", "acceptedAnswer": {"@type": "Answer", "text": "Because the meters are separate, the fastest way to fix a limit is to work out which one you reached. A quick guide:"}}, {"@type": "Question", "name": "Which plan avoids the limits you hit?\n\nYou only chat and sometimes upload a file: Free or Go. Text chat is unlimited; Go raises the upload, image and voice limits.\nYou hit limits on Thinking or image generation: Plus. It adds Medium and High thinking and expanded tool limits.\nYou hit the five-hour Work or Codex window most days: Pro 100. It removes the five-hour window and enlarges the allowance.\nYou run out of GPT-6 Pro or the Pro 100 allowance every week: Pro 200.\nYou run agents all day or need Ultrafast: Pro 500, the only Pro tier with Ultrafast.\nYou manage a team: Business Standard for normal use, Premium for people who live in Codex.\n\nPlan or API?", "acceptedAnswer": {"@type": "Answer", "text": "If most of your use is chat, the unlimited text change makes the subscription hard to beat. If you use Codex or GPT-6 Astra heavily, compare the plan price with what the same work would cost on the API. GPT-6 Astra costs $10 per million input tokens and $50 per million output tokens on the API; see GPT-6 API pricing. Enter your own usage in the subscription vs API calculator, or use the coding agent calculator for Codex and Claude Code."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=b22f01f5" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+  <link rel="stylesheet" href="/styles.css?v=3db9e6e9" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
   <meta name="google-adsense-account" content="ca-pub-6520495092767533" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6520495092767533" crossorigin="anonymous"></script>
+  <script>__late(function(){var s=document.createElement("script");s.async=true;s.crossOrigin="anonymous";s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6520495092767533";document.head.appendChild(s)})</script>
   <!-- Cloudflare Web Analytics (cookieless). Only page views are sent — never what you type. -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "553cc8f2baba4297bd3b81f73b138536"}'></script>
 </head>
@@ -579,6 +582,6 @@ No. Support can investigate if usage was counted incorrectly, but it does not re
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=b22f01f5"></script>
+  <script type="module" src="/common.js?v=3db9e6e9"></script>
 </body>
 </html>

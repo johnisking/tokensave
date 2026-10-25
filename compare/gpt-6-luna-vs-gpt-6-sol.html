@@ -6,11 +6,13 @@
   <script>/* shared text lives in the #fragment: take it out of the URL before any third-party script can read it */if(/[#&]t=/.test(location.hash)){window.__share=location.hash.slice(1);history.replaceState(null,"",location.pathname+location.search)}</script>
   <!-- Google Tag Manager (loaded after the line above, so a shared text in the #fragment never reaches it) -->
   <script>/* owner opt-out: open any page once with ?notrack=1 (undo with ?notrack=0) and this browser is never counted in analytics */var __nt=false;try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem('ts_notrack','1');if(/[?&]notrack=0/.test(location.search))localStorage.removeItem('ts_notrack');__nt=localStorage.getItem('ts_notrack')==='1'}catch(e){}
-  if(!__nt)(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  /* GTM and AdSense start after the page has loaded (or on the first tap/scroll/key), so they do not compete with the first paint */
+  window.__late=function(fn){var done=false,go=function(){if(done)return;done=true;fn()};['pointerdown','keydown','scroll','touchstart'].forEach(function(t){addEventListener(t,go,{once:true,passive:true})});if(document.readyState==='complete')setTimeout(go,1500);else addEventListener('load',function(){setTimeout(go,1500)})};
+  if(!__nt)__late(function(){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KCGSDH87');</script>
+  })(window,document,'script','dataLayer','GTM-KCGSDH87')});</script>
   <!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GPT-6 Luna vs GPT-6 Sol: API Cost Comparison | TokenSave</title>
@@ -38,13 +40,14 @@
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "name": "GPT-6 Luna vs GPT-6 Sol: API Cost Comparison", "url": "https://tokensave.app/compare/gpt-6-luna-vs-gpt-6-sol", "description": "GPT-6 Luna vs GPT-6 Sol API prices per 1M tokens, cost per request for chat, RAG, coding agents and writing, and which is cheaper. Updated 2026-10-14.", "dateModified": "2026-10-14", "primaryImageOfPage": {"@type": "ImageObject", "url": "https://tokensave.app/img/compare/gpt-6-luna-vs-gpt-6-sol-api-cost.svg", "caption": "GPT-6 Luna vs GPT-6 Sol API cost per 1,000 requests"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "TokenSave", "item": "https://tokensave.app/"}, {"@type": "ListItem", "position": 2, "name": "Compare", "item": "https://tokensave.app/compare/"}, {"@type": "ListItem", "position": 3, "name": "GPT-6 Luna vs GPT-6 Sol: API Cost Comparison", "item": "https://tokensave.app/compare/gpt-6-luna-vs-gpt-6-sol"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which is cheaper, GPT-6 Luna or GPT-6 Sol?", "acceptedAnswer": {"@type": "Answer", "text": "For a typical chatbot reply (1,500 input and 400 output tokens), GPT-6 Luna costs $0.0003 and GPT-6 Sol costs $0.0070 per request, so GPT-6 Luna is 95% cheaper. GPT-6 Luna is cheaper in every workload below."}}, {"@type": "Question", "name": "How much do GPT-6 Luna and GPT-6 Sol cost per million tokens?", "acceptedAnswer": {"@type": "Answer", "text": "GPT-6 Luna costs $0.1 per 1M input tokens and $0.5 per 1M output tokens. GPT-6 Sol costs $2 input and $10 output. Prices checked 2026-10-14."}}, {"@type": "Question", "name": "Do both models count the same text as the same number of tokens?", "acceptedAnswer": {"@type": "Answer", "text": "No. Each model family has its own tokenizer, so the same text can be a different number of tokens. The costs on this page already include that difference (estimated from GPT's tokenizer)."}}]}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=b22f01f5" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+  <link rel="stylesheet" href="/styles.css?v=3db9e6e9" />
   <meta name="naver-site-verification" content="131662d11b92d5ad870f190a7d06d1d96c50a225" />
   <meta name="msvalidate.01" content="575FA911DCD5006EA2DA8F4A4EE835AA" />
   <meta name="seznam-wmt" content="m6Gmw0zFrG6YmBXyMKJZ9VEh6991V35s" />
   <meta name="google-adsense-account" content="ca-pub-6520495092767533" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6520495092767533" crossorigin="anonymous"></script>
+  <script>__late(function(){var s=document.createElement("script");s.async=true;s.crossOrigin="anonymous";s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6520495092767533";document.head.appendChild(s)})</script>
   <!-- Cloudflare Web Analytics (cookieless). Only page views are sent — never what you type. -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "553cc8f2baba4297bd3b81f73b138536"}'></script>
 </head>
@@ -158,6 +161,6 @@ $('cmpR').innerHTML=[D.a,D.b].map(function(m,k){var best=c[k]===lo&&c[0]!==c[1];
   <!-- ===== AD PLACEHOLDER: Mobile sticky footer (320x50) ===== -->
 
   <script>window.T = {"static": true};</script>
-  <script type="module" src="/common.js?v=b22f01f5"></script>
+  <script type="module" src="/common.js?v=3db9e6e9"></script>
 </body>
 </html>
