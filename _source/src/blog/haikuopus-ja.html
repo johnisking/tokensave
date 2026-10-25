@@ -1,0 +1,194 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="Claude Haiku vs Opus コーディング比較：330回実測" src="/claude-haiku-vs-opus-ja.jpg" /></p>
+<p>Claude Haiku と Opus のどちらでコーディングするかは、Claude Code を使う人が毎日のように迷うところです。Haiku 5.5 の API 料金は Opus 5.5 の2.5%（入力100万トークンあたり約16円（$0.10）対 約640円（$4）、プロンプト10万トークン以下の場合）ですが、「安いモデルは結局ミスが多い」という声もよく聞きます。Claude Haiku と Opus の比較記事は多いものの、ほとんどは各社が発表したベンチマークの数字を並べたもので、自分の作業でどうなるかはわかりません。</p>
+<p>そこで実際に動かしてみました。2026年10月23〜24日、Windows ノートパソコン1台で、Claude Code から Haiku 5.5、Sonnet 5.5、Opus 5.5 を合計330回実行しました。仕様どおりにアプリを作る課題が63回、Markdown パーサー marked の実際のバグが42回、そしてオープンソースで2026年8〜10月に実際に修正されたバグ25件を、モデルごとに3回ずつ直させた225回です。採点はモデルから見えない隠しテストと、メンテナーがそのバグの修正と一緒に入れたテストで行いました。</p>
+<p>この記事では2つの実測をまとめて、「Haiku で十分な仕事」と「Opus が必要な仕事」を分けてみます。数字はすべて公開したデータからそのまま引いています。円は1ドル＝160円で換算しました。</p>
+<h2>測定方法</h2>
+<p><img loading="lazy" width="1200" height="661" alt="測定方法: 課題, 内容, モデルごとの実行数, 採点" src="/claude-haiku-vs-opus-ja-2.jpg" /></p>
+<p>すべての実行を同じ条件で行いました。</p>
+<ul>
+<li>Claude Code 2.1.295 をヘッドレスモード（-p）で実行し、思考の強さ（effort）は medium です。</li>
+<li>実行ごとに空のフォルダから始め、パッケージのインストールとネットワークは禁止しました。</li>
+<li>コストは Claude Code が実行ごとに出す API 定価換算の金額です。実際にはサブスクリプションで実行しました。</li>
+</ul>
+<p>課題は2種類です。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>課題</th>
+<th>内容</th>
+<th style="text-align: right;">モデルごとの実行数</th>
+<th>採点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仕様どおりに作る</td>
+<td>ブロック崩し、複数ファイルの家計簿、5モジュールのアプリ、1,032行のアプリのバグ6件修正と機能3件追加、スプレッドシートエンジン</td>
+<td style="text-align: right;">21回</td>
+<td>隠しチェック9〜38個</td>
+</tr>
+<tr>
+<td>実際のバグを直す</td>
+<td>js-yaml、marked、zod、cachetools など13プロジェクトのバグ25件</td>
+<td style="text-align: right;">75回</td>
+<td>メンテナーが修正と一緒に入れたテスト</td>
+</tr>
+</tbody>
+</table></div>
+<p>バグの課題は修正直前のコードから始め、ユーザーの報告から原因の分析と修正案を消して、症状だけを渡しました。採点ではモデルが直したライブラリのソースだけを取り出したので、テストファイルを書き換えて通すことはできません。</p>
+<h2>結果1：仕様がはっきりしていれば Haiku も満点</h2>
+<p><img loading="lazy" width="1200" height="568" alt="結果1：仕様がはっきりしていれば Haiku も満点: モデル, 仕様どおりに作る（満点の回数）, 1回あたりの平均コスト" src="/claude-haiku-vs-opus-1-haiku-ja.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>モデル</th>
+<th style="text-align: right;">仕様どおりに作る（満点の回数）</th>
+<th style="text-align: right;">1回あたりの平均コスト</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Haiku 5.5</td>
+<td style="text-align: right;">21/21</td>
+<td style="text-align: right;">約4.2円（$0.026）</td>
+</tr>
+<tr>
+<td>Sonnet 5.5</td>
+<td style="text-align: right;">21/21</td>
+<td style="text-align: right;">約30円（$0.19）</td>
+</tr>
+<tr>
+<td>Opus 5.5</td>
+<td style="text-align: right;">21/21</td>
+<td style="text-align: right;">約72円（$0.45）</td>
+</tr>
+</tbody>
+</table></div>
+<p>要件がはっきりした課題では、Haiku は一度も失敗しませんでした。循環参照を検出するスプレッドシートエンジンを作り、他人が書いた1,032行のアプリでは症状だけからバグ6件を見つけて直し、機能を3つ足しながら既存のテスト23個を1つも壊しませんでした。コストは Opus より1回あたり約94%少なく済みました。</p>
+<h2>結果2：実際のバグ25件でもほぼ同じ</h2>
+<p>「きれいな修正」とは、メンテナーのテストケースをすべて通し、他のテストを1つも壊さなかった場合です。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>モデル</th>
+<th style="text-align: right;">きれいな修正（易しいバグ15件）</th>
+<th style="text-align: right;">きれいな修正（難しいバグ10件）</th>
+<th style="text-align: right;">全体</th>
+<th style="text-align: right;">1回あたりのコスト</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Haiku 5.5</td>
+<td style="text-align: right;">40/45</td>
+<td style="text-align: right;">12/30</td>
+<td style="text-align: right;">52/75</td>
+<td style="text-align: right;">約3円（$0.019）</td>
+</tr>
+<tr>
+<td>Sonnet 5.5</td>
+<td style="text-align: right;">35/45</td>
+<td style="text-align: right;">14/30</td>
+<td style="text-align: right;">49/75</td>
+<td style="text-align: right;">約22円（$0.14）</td>
+</tr>
+<tr>
+<td>Opus 5.5</td>
+<td style="text-align: right;">38/45</td>
+<td style="text-align: right;">16/30</td>
+<td style="text-align: right;">54/75</td>
+<td style="text-align: right;">約61円（$0.38）</td>
+</tr>
+</tbody>
+</table></div>
+<p>全体では Haiku と Opus は75回中52回と54回でほぼ同じで、コストは Haiku のほうが約95%少なく済みました。25件のうち22件では、2つのモデルのきれいな修正の回数がまったく同じでした。75回すべての合計は Haiku が約226円（$1.41）、Opus が約4,565円（$28.53）です。</p>
+<p>易しいバグは原因と症状が近いものです。たとえば「PapaParse が空のセルで止まる」「humanize が有効数字を1桁多く表示する」といったものです。難しいバグは報告に症状しかなく、原因が別のファイルや複数の場所にあることが多いものでした。</p>
+<h2>Opus が勝ったところ：複数箇所を直すバグ</h2>
+<p>難しいバグでは Opus が少し上回りました。差は主に「他のテストを壊す回数が少なかった」ことから来ています。</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>難しいバグ10件</th>
+<th style="text-align: right;">Haiku 5.5</th>
+<th style="text-align: right;">Sonnet 5.5</th>
+<th style="text-align: right;">Opus 5.5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>きれいな修正</td>
+<td style="text-align: right;">12/30</td>
+<td style="text-align: right;">14/30</td>
+<td style="text-align: right;">16/30</td>
+</tr>
+<tr>
+<td>他のテストを壊した実行</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>通過したテストケース</td>
+<td style="text-align: right;">72%</td>
+<td style="text-align: right;">69%</td>
+<td style="text-align: right;">82%</td>
+</tr>
+</tbody>
+</table></div>
+<p>具体的には次のようなバグでした。</p>
+<ul>
+<li><strong>marked、リンクテキストの中のリンク：</strong> Opus は3回中2回きれいに直し、Haiku は0回でした。Haiku は3回とも、まさにその例のスペックテストを壊しました。</li>
+<li><strong>markdown-it、閉じていないリンクの括弧がコードスパンを隠すバグ：</strong> Opus は3回中3回、Haiku は1回です。Haiku の2回はバグを直したものの、隣のテストを2つ壊しました。</li>
+<li><strong>zod、数値キーのレコードを JSON Schema に変換するバグ：</strong> 複数箇所を直す必要があり、完全に直した実行はありませんでしたが、3回合計でテストケース24個中 Opus が14個、Haiku が9個、Sonnet が5個を通しました。</li>
+</ul>
+<p>逆に Haiku が勝ったバグもありました。js-yaml の空白だけのブロックスカラーのバグは、Haiku が3回中3回、Opus が1回、Sonnet が0回きれいに直しました。</p>
+<h2>どのモデルもできなかったこと：報告にないケース</h2>
+<p><img loading="lazy" width="1200" height="808" alt="どのモデルもできなかったこと：報告にないケース: cachetools、js-yaml、Python-Markdown" src="/claude-haiku-vs-opus-ja-4.jpg" /></p>
+<p>今回いちばん役に立つ結果は、モデル同士の差ではなく、3モデルがそろって止まった場所でした。</p>
+<ul>
+<li><strong>cachetools：</strong> 報告はデコレーターをクラス経由で呼ぶ方法を1つだけ示していました。メンテナーは他の変種もすべてテストしていて、それを扱えた実行は1つもありませんでした。</li>
+<li><strong>js-yaml：</strong> 報告はファイル先頭の BOM の問題でした。メンテナーは複数ドキュメントのストリームで各ドキュメントの前に付く BOM もテストしていて、やはり扱えた実行はありませんでした。</li>
+<li><strong>Python-Markdown：</strong> すべての実行が報告された HTML コメントの問題は直しましたが、他のインライン HTML の後に来るコメントについてのメンテナーのテストを3〜5個ずつ壊しました。</li>
+</ul>
+<p>前回の実測（marked の難しいバグ1件）では、Sonnet と Opus がこの種の抜けたケースを Haiku よりずっとよく拾いました。Sonnet は10回中8回、Opus は6回、Haiku は1回です。ところがバグを25件に広げると、この傾向は続きませんでした。大きいモデルにお金を払っても、報告から抜けたケースは出てきませんでした。</p>
+<h2>この差は信頼できるか</h2>
+<p>慎重に見る必要があります。バグとモデルごとに3回しか実行していないためです。</p>
+<ul>
+<li>Haiku と Opus のきれいな修正の割合の差は、フィッシャーの正確検定で p = 0.86 です。差がなくても普通に出る範囲です。</li>
+<li>バグ単位でリサンプリングした95%区間は、Haiku から Opus を引いた差が −11 から +5 ポイントです。Opus のほうがよく直すという証拠はありませんが、10ポイント程度の差まで否定はできません。</li>
+<li>難しいバグだけだと区間は −33 から 0 ポイントで、この種のバグでは Opus が本当に上かもしれません。</li>
+</ul>
+<p>正確に言えば「Haiku と Opus は同じ」ではなく、「バグ25件では Opus が上だという証拠は見つからなかった」です。同じ方法でバグを増やしていく予定です。</p>
+<h2>Claude Code でモデルを切り替える方法</h2>
+<p>Claude Code では会話中に <code>/model haiku</code>、<code>/model sonnet</code>、<code>/model opus</code> ですぐ切り替えられ、起動時に <code>claude --model haiku</code> のように指定することもできます。<code>opusplan</code> を選ぶと、計画モードでは Opus、実行では Sonnet を使います。Haiku を基本にして、次のようなサインが見えたときだけ Opus に上げる使い方をおすすめします。今回のデータで Haiku が崩れたのは、どれもこの形でした。</p>
+<ul>
+<li><strong>修正が複数のファイルや関数にまたがる：</strong> zod のように、1か所直すと別の場所も合わせて直す必要があるバグ。</li>
+<li><strong>Haiku の修正で既存のテストが落ちた：</strong> marked や markdown-it のように、直したつもりで隣の動作を壊すケース。難しいバグで Haiku はこれが30回中10回ありました。</li>
+<li><strong>大きなコードベースで、壊したときの手戻りが大きい：</strong> レビューの手間を考えると、1回あたり数十円の差より壊さないことのほうが安く済みます。</li>
+</ul>
+<p>逆に、どちらのモデルを使っても報告にない境界ケースは見つからなかったので、そこはモデルを上げるより、自分で例を足して頼むほうが確実です。</p>
+<p>自分の使い方で月にいくらかかるかは、<a href="/ja/agents">コーディングエージェント費用計算機</a>にタスク数と大きさを入れて比べられます。</p>
+<h2>よくある質問</h2>
+<p><strong>Claude Haiku でコーディングしても大丈夫？</strong>
+要件がはっきりした作業や、原因が症状の近くにあるバグなら大丈夫です。今回の実測では、仕様どおりに作る課題21回はすべて満点で、易しいバグ45回のうち40回をきれいに直しました。</p>
+<p><strong>Opus はいつ使うべき？</strong>
+複数のファイルや箇所をまとめて直す必要があるバグや、既存のテストを壊してはいけない大きなコードベースで使います。難しいバグで他のテストを壊した実行は、Opus が5回、Haiku が10回でした。</p>
+<p><strong>Sonnet はどう？</strong>
+今回のバグの実測では、Sonnet は Haiku より良くありませんでした。全体のテストケース通過率も Opus より低い結果です（対応のある並べ替え検定 p = 0.006）。Sonnet と Opus の詳しい比較は <a href="/ja/blog/claude-sonnet-5-5-vs-opus-5-5">Sonnet 5.5 vs Opus 5.5 の実測</a>にあります。</p>
+<p><strong>テストを実行させれば Haiku も良くなる？</strong>
+今回のバグの実測では、すべての実行がプロジェクトのテストを実行できました。それでも報告にないケースはどのモデルも見つけられませんでした。</p>
+<h2>まとめ：Haiku を基本に、Opus は選んで使う</h2>
+<ul>
+<li><strong>仕様がはっきりした作業と、原因が近いバグは Haiku で十分です。</strong> 結果は Opus と同じで、コストは約95%少なく済みました。</li>
+<li><strong>複数箇所を直すバグは Opus のほうが安全です。</strong> 他のテストを壊した実行が Haiku の半分でした。</li>
+<li><strong>報告から抜けたケースはモデルが見つけてくれません。</strong> 難しいバグでは、どのモデルでも実行の47〜60%がきれいな修正ではありませんでした。どのモデルを使っても、境界ケースの確認は人がする必要があります。</li>
+</ul>
+<p>生データ（実行ごとの点数、失敗したテスト、時間、コスト）はすべて CC BY 4.0 で公開しています：<a href="/data/claude-haiku-vs-opus-real-bugs">実際のバグ25件のデータ</a>、<a href="/data/ai-coding-limit-line">仕様の課題と marked のバグのデータ</a>。</p>
+<h2>出典</h2>
+<ul>
+<li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude の料金（Anthropic、2026年10月25日確認）</a></li>
+<li><a href="https://code.claude.com/docs/en/model-config" target="_blank" rel="noopener">Claude Code のモデル設定ドキュメント</a></li>
+<li><a href="https://doi.org/10.5281/zenodo.23619927" target="_blank" rel="noopener">実測データ：実際のバグ25件、225回（DOI 10.5281/zenodo.23619927）</a></li>
+<li><a href="https://doi.org/10.5281/zenodo.23600477" target="_blank" rel="noopener">実測データ：コーディング課題6段階、163回（DOI 10.5281/zenodo.23600477）</a></li>
+</ul>
+<!-- autoimg -->

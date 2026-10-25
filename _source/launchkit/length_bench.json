@@ -458,5 +458,35 @@
    "pub.towardsai.net": 750,
    "wmedia.es": 1600
   }
+ },
+ "haikuopus-en": {
+  "keyword": "claude haiku vs opus coding",
+  "checked": "2026-10-25",
+  "median": 1400,
+  "note": "estimated from WebFetch summaries, ±30%",
+  "samples": {
+   "morphllm.com coding comparison": 5000,
+   "haimaker.ai": 1400,
+   "blog.vincentqiao.com": 700
+  }
+ },
+ "haikuopus-ko": {
+  "keyword": "클로드 하이쿠 오퍼스 비교",
+  "checked": "2026-10-25",
+  "median": 3300,
+  "note": "estimated from WebFetch summaries, ±30%; few Korean results",
+  "samples": {
+   "tilnote.io": 3300
+  }
+ },
+ "haikuopus-ja": {
+  "keyword": "Claude Haiku Opus 比較",
+  "checked": "2026-10-25",
+  "median": 5100,
+  "note": "estimated from WebFetch summaries, ±30%",
+  "samples": {
+   "hatenabase.jp": 7500,
+   "library.libecity.com": 2750
+  }
  }
 }

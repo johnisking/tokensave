@@ -1,0 +1,194 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="Claude Haiku vs Opus for Coding: 330 Measured Runs" src="/claude-haiku-vs-opus-en.jpg" /></p>
+<p>Claude Haiku vs Opus for coding is a choice every Claude Code user makes many times a day. On the API, Haiku 5.5 costs 2.5% of what Opus 5.5 does per input token ($0.10 against $4 per million, for prompts up to 100K tokens), but the usual advice is that the cheap model makes more mistakes. Most comparisons repeat the vendor's benchmark scores, which say little about your own repository.</p>
+<p>So I measured it. On October 23 and 24, 2026, on one Windows laptop, I made 330 Claude Code runs with Haiku 5.5, Sonnet 5.5 and Opus 5.5: 63 runs building apps from a spec, 42 runs on real bugs in the marked Markdown parser, and 225 runs on 25 real bugs fixed in open-source projects between August and October 2026, three runs per bug and model. Every run was scored by tests the model could not see, and for real bugs by the tests the maintainers added with their fix.</p>
+<p>This post puts the two studies together to answer one question: which coding jobs is Haiku enough for, and when is Opus worth paying for?</p>
+<h2>How I measured</h2>
+<p><img loading="lazy" width="1200" height="577" alt="How I measured: Task, What it was, Runs per model, Scored by" src="/claude-haiku-vs-opus-how-i-measured-en.jpg" /></p>
+<p>Every run used the same setup:</p>
+<ul>
+<li>Claude Code 2.1.295 in headless mode (<code>-p</code>), effort medium.</li>
+<li>A fresh folder for every run. Package installs and the network were blocked.</li>
+<li>Cost is Claude Code's own per-run figure at API prices; the runs were made on a subscription.</li>
+</ul>
+<p>There were two kinds of task:</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>What it was</th>
+<th style="text-align: right;">Runs per model</th>
+<th>Scored by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Build from a spec</td>
+<td>A brick game, a multi-file expense tracker, a 5-module app, a 1,032-line app with 6 planted bugs plus 3 features, a spreadsheet engine</td>
+<td style="text-align: right;">21</td>
+<td>9 to 38 hidden checks</td>
+</tr>
+<tr>
+<td>Fix a real bug</td>
+<td>25 bugs from 13 projects (js-yaml, marked, zod, cachetools, Python-Markdown and others)</td>
+<td style="text-align: right;">75</td>
+<td>The maintainers' tests for the fix</td>
+</tr>
+</tbody>
+</table></div>
+<p>For real bugs, each run started from the commit before the fix and got the user's bug report with the cause analysis and suggested fix removed, so only the symptom was left. When scoring, I kept only the run's changes to the library source. Editing the tests could not help.</p>
+<h2>Result 1: with a clear spec, Haiku scored full marks</h2>
+<p><img loading="lazy" width="1200" height="560" alt="Result 1: with a clear spec, Haiku scored full marks: Model, Full marks, build from a spec, Average cost per run" src="/claude-haiku-vs-opus-result-1-with-a-clear-spec-haiku-scored-en.jpg" /></p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">Full marks, build from a spec</th>
+<th style="text-align: right;">Average cost per run</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Haiku 5.5</td>
+<td style="text-align: right;">21/21</td>
+<td style="text-align: right;">$0.026</td>
+</tr>
+<tr>
+<td>Sonnet 5.5</td>
+<td style="text-align: right;">21/21</td>
+<td style="text-align: right;">$0.19</td>
+</tr>
+<tr>
+<td>Opus 5.5</td>
+<td style="text-align: right;">21/21</td>
+<td style="text-align: right;">$0.45</td>
+</tr>
+</tbody>
+</table></div>
+<p>When the requirements were clear, Haiku never failed. It built a spreadsheet engine with cycle detection. In someone else's 1,032-line app it found and fixed six bugs from their symptoms alone, added three features and kept all 23 earlier tests passing. Each run cost about 94% less than an Opus run.</p>
+<h2>Result 2: on 25 real bugs, almost the same</h2>
+<p>A "clean fix" means every maintainer test case for the fix passes and no other test breaks.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">Clean fixes, 15 easier bugs</th>
+<th style="text-align: right;">Clean fixes, 10 harder bugs</th>
+<th style="text-align: right;">All</th>
+<th style="text-align: right;">Cost per run</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Haiku 5.5</td>
+<td style="text-align: right;">40/45</td>
+<td style="text-align: right;">12/30</td>
+<td style="text-align: right;">52/75</td>
+<td style="text-align: right;">$0.019</td>
+</tr>
+<tr>
+<td>Sonnet 5.5</td>
+<td style="text-align: right;">35/45</td>
+<td style="text-align: right;">14/30</td>
+<td style="text-align: right;">49/75</td>
+<td style="text-align: right;">$0.14</td>
+</tr>
+<tr>
+<td>Opus 5.5</td>
+<td style="text-align: right;">38/45</td>
+<td style="text-align: right;">16/30</td>
+<td style="text-align: right;">54/75</td>
+<td style="text-align: right;">$0.38</td>
+</tr>
+</tbody>
+</table></div>
+<p>Haiku and Opus fixed almost the same number of bugs cleanly, 52 and 54 of 75 runs, and Haiku cost about 95% less. On 22 of the 25 bugs the two models had exactly the same number of clean fixes. All 75 Haiku runs together cost $1.41; the 75 Opus runs cost $28.53.</p>
+<p>The easier bugs had the cause close to the symptom: PapaParse crashing on an empty cell, humanize showing one significant figure too many. The harder bugs came with a symptom-only report, and the cause was often in another file or spread over several places.</p>
+<h2>Where Opus won: bugs that touch several places</h2>
+<p>On the harder bugs Opus was ahead, mostly because it broke other tests less often.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>10 harder bugs</th>
+<th style="text-align: right;">Haiku 5.5</th>
+<th style="text-align: right;">Sonnet 5.5</th>
+<th style="text-align: right;">Opus 5.5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clean fixes</td>
+<td style="text-align: right;">12/30</td>
+<td style="text-align: right;">14/30</td>
+<td style="text-align: right;">16/30</td>
+</tr>
+<tr>
+<td>Runs that broke other tests</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>Test cases passed</td>
+<td style="text-align: right;">72%</td>
+<td style="text-align: right;">69%</td>
+<td style="text-align: right;">82%</td>
+</tr>
+</tbody>
+</table></div>
+<p>The bugs where it showed:</p>
+<ul>
+<li><strong>marked, a link inside link text:</strong> Opus fixed it cleanly in 2 of 3 runs, Haiku in none. Every Haiku run broke the spec test for that exact example.</li>
+<li><strong>markdown-it, an unclosed link label hiding a later code span:</strong> Opus 3 of 3, Haiku 1 of 3. Two Haiku runs fixed the bug but broke two neighbouring tests.</li>
+<li><strong>zod, numeric record keys in JSON Schema output:</strong> the fix needed changes in several places and no run got all of it, but over three runs Opus passed 14 of 24 cases, Haiku 9 and Sonnet 5.</li>
+</ul>
+<p>It went the other way too. On a js-yaml bug with a whitespace-only block scalar, Haiku fixed it cleanly in all 3 runs, Opus in 1 and Sonnet in none.</p>
+<h2>What no model did: the case the report left out</h2>
+<p><img loading="lazy" width="1200" height="654" alt="What no model did: the case the report left out: cachetools; js-yaml; Python-Markdown" src="/claude-haiku-vs-opus-what-no-model-did-the-case-the-report-le-en.jpg" /></p>
+<p>The most useful result was not a difference between models. It was the place where all three got stuck the same way.</p>
+<ul>
+<li><strong>cachetools:</strong> the report showed one way of calling a cached method through its class. The maintainers also tested every other variant of the decorator. No run handled them.</li>
+<li><strong>js-yaml:</strong> the report was about a BOM at the start of a file. The maintainers also tested a BOM before each document in a multi-document stream. No run handled it.</li>
+<li><strong>Python-Markdown:</strong> every run fixed the reported HTML comment and broke 3 to 5 of the maintainers' tests for comments after other inline HTML.</li>
+</ul>
+<p>In my earlier study of one hard marked bug, Sonnet and Opus found the missing edge case far more often than Haiku (8 and 6 of 10 runs against 1 of 10). Across 25 bugs that pattern did not hold. Paying for a bigger model did not buy the case the report left out.</p>
+<h2>Is the difference real?</h2>
+<p>Treat the numbers with care: there were three runs per bug and model.</p>
+<ul>
+<li>Haiku vs Opus on clean fixes: Fisher's exact test p = 0.86, well within chance.</li>
+<li>Resampling whole bugs, the 95% interval for Haiku minus Opus is −11 to +5 percentage points. There is no evidence that Opus fixes more bugs, but a gap of around 10 points cannot be ruled out.</li>
+<li>On the harder bugs alone the interval is −33 to 0 points, so Opus may really be better on bugs like these.</li>
+</ul>
+<p>The honest summary is not "Haiku equals Opus" but "25 bugs showed no evidence that Opus fixes more". I will keep adding bugs with the same method.</p>
+<h2>Switching models in Claude Code</h2>
+<p>In Claude Code you can switch during a session with <code>/model haiku</code>, <code>/model sonnet</code> or <code>/model opus</code>, or start with <code>claude --model haiku</code>. The <code>opusplan</code> alias uses Opus in plan mode and Sonnet for execution. A practical setup is Haiku as the default and Opus only when you see one of these signs. Every case where Haiku fell behind in this data looked like one of them.</p>
+<ul>
+<li><strong>The fix spans several files or functions:</strong> like the zod bug, where changing one place means changing others to match.</li>
+<li><strong>Haiku's fix broke an existing test:</strong> like marked and markdown-it, where the fix looked right but broke the behaviour next to it. On the harder bugs this happened in 10 of 30 Haiku runs.</li>
+<li><strong>A large codebase where breakage is expensive:</strong> once you count review time, not breaking things is cheaper than the roughly 36 cents a run you save.</li>
+</ul>
+<p>And since no model found the edge cases the report left out, adding those examples to your request yourself works better than switching models.</p>
+<p>To see what your own usage would cost per month on the API or a plan, put your task size and tasks per day into the <a href="/agents">coding agent cost calculator</a>.</p>
+<h2>FAQ</h2>
+<p><strong>Is Claude Haiku good enough for coding?</strong>
+For tasks with clear requirements and bugs whose cause sits near the symptom, yes. In these runs Haiku scored full marks on all 21 spec tasks and fixed 40 of 45 easier bugs cleanly.</p>
+<p><strong>When should I use Opus instead?</strong>
+For bugs that need changes in several files or places, and in large codebases where breaking existing tests is costly. On the harder bugs, 5 Opus runs broke other tests against 10 Haiku runs.</p>
+<p><strong>What about Sonnet?</strong>
+On these bugs Sonnet did not beat Haiku, and it passed a smaller share of test cases than Opus (paired permutation test p = 0.006). For Sonnet against Opus on a build task, see <a href="/blog/claude-sonnet-5-5-vs-opus-5-5">Claude Sonnet vs Opus 5.5 for coding</a>.</p>
+<p><strong>Does letting Haiku run the tests help?</strong>
+Every bug run here could run the project's tests. No model found the cases the report left out anyway.</p>
+<h2>Conclusion: default to Haiku, pick Opus on purpose</h2>
+<ul>
+<li><strong>For clear specs and bugs with the cause near the symptom, Haiku is enough.</strong> Same results as Opus at about 95% less cost.</li>
+<li><strong>For bugs that touch several places, Opus is the safer pick.</strong> It broke other tests in half as many runs.</li>
+<li><strong>No model finds what the bug report leaves out.</strong> On the harder bugs, 47% to 60% of each model's runs were not clean fixes. Whatever model you use, a human still has to check the edge cases.</li>
+</ul>
+<p>All raw data (per-run scores, failing tests, time and cost) is public under CC BY 4.0: <a href="/data/claude-haiku-vs-opus-real-bugs">25 real bugs dataset</a> and <a href="/data/ai-coding-limit-line">spec tasks and marked bug dataset</a>.</p>
+<h2>Sources</h2>
+<ul>
+<li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude pricing (Anthropic, checked October 25, 2026)</a></li>
+<li><a href="https://code.claude.com/docs/en/model-config" target="_blank" rel="noopener">Claude Code model configuration docs</a></li>
+<li><a href="https://doi.org/10.5281/zenodo.23619927" target="_blank" rel="noopener">Dataset: 25 real bugs, 225 runs (DOI 10.5281/zenodo.23619927)</a></li>
+<li><a href="https://doi.org/10.5281/zenodo.23600477" target="_blank" rel="noopener">Dataset: six levels of coding tasks, 163 runs (DOI 10.5281/zenodo.23600477)</a></li>
+</ul>
+<!-- autoimg -->

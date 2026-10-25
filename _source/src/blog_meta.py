@@ -998,3 +998,18 @@ COFFEE = [
 ]
 for _b in COFFEE:
     _b["date"] = "2026-10-20"
+
+# 2026-10-25 Haiku vs Opus for coding (en, ko, ja): datasets 24 and 25 together (330 Claude Code runs)
+HAIKUOPUS = [
+ _cc("en", "/blog/claude-haiku-vs-opus", "haikuopus-en", "Claude Haiku vs Opus for Coding: 330 Measured Runs",
+     "Claude Haiku 5.5 vs Opus 5.5 in Claude Code, 330 runs: Haiku fixed 52 of 75 real bugs cleanly, Opus 54, at 95% less cost. Where Opus wins, and what none find.",
+     "Jonhisking · October 25, 2026", "Set task size and tasks per day to compare Claude Code's API cost with Pro and Max.", "Open the agent cost calculator"),
+ _cc("ko", "/ko/blog/claude-haiku-vs-opus", "haikuopus-ko", "클로드 하이쿠 vs 오퍼스 코딩 비교: 330회 실측",
+     "클로드 코드로 하이쿠 5.5와 오퍼스 5.5를 330번 실측: 실제 버그 75번 중 깔끔한 수정 52 대 54, 비용은 95% 적게. 오퍼스가 나은 버그와 어떤 모델도 못 찾은 경우까지.",
+     "Jonhisking · 2026년 10월 25일", "하루 작업 수와 크기를 넣고 클로드 코드의 API 비용을 Pro·Max와 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"),
+ _cc("ja", "/ja/blog/claude-haiku-vs-opus", "haikuopus-ja", "Claude Haiku vs Opus コーディング比較：330回実測",
+     "Claude Code で Haiku 5.5 と Opus 5.5 を330回実測：実際のバグ75回できれいな修正は52対54、コストは約95%減。Opus が勝ったバグと、どのモデルも見つけられなかったケース。",
+     "Jonhisking · 2026年10月25日", "1日のタスク数と大きさを入れて、Claude Code の API 費用を Pro・Max と比べてみましょう。", "エージェント費用計算機を開く"),
+]
+for _b in HAIKUOPUS:
+    _b["date"] = "2026-10-25"
