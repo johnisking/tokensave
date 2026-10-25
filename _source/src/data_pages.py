@@ -3808,6 +3808,7 @@ def bug_html():
             '        <li><strong>Starting point:</strong> the source at the commit before the fix, with dependencies installed and a fresh git history, so the fix could not be read from git. The prompt was the bug report reduced to the symptom, the reproduction and the expected result; cause analysis and proposed fixes were removed.</li>\n'
             '        <li><strong>Agent:</strong> Claude Code 2.1.295 on one Windows 11 laptop, headless (<code>-p</code>), effort medium, acceptEdits, with read-only shell commands, the project&rsquo;s test runner and its build allowed; package installs, network and web tools denied. 3 runs per bug and model, each in a fresh folder.</li>\n'
             '        <li><strong>Scoring:</strong> only the run&rsquo;s changes to the library source were kept (tests it wrote or edited were dropped), then the maintainers&rsquo; tests for the fix were run against it. Easy round: hidden cases written from those tests plus the project&rsquo;s full test suite. Hard round: the fix&rsquo;s test files, comparing every test before and after the fix.</li>\n'
+            '        <li><strong>One attempt per run, no external retries.</strong> Inside a run the agent could run the project&rsquo;s tests and change its fix as often as it liked; whatever it left at the end was scored once.</li>\n'
             '        <li><strong>Cost</strong> is Claude Code&rsquo;s own per-run figure at API prices; the runs were made on a subscription.</li>\n'
             '      </ul>\n      <h2>Limitations</h2>\n      <ul>\n'
             '        <li>3 runs per bug and model, 25 bugs. The differences between models are within chance; see the intervals above.</li>\n'
@@ -3818,6 +3819,8 @@ def bug_html():
             '        <li>In the hard round, &ldquo;broke other tests&rdquo; means tests the maintainers added or kept in the fix&rsquo;s test files, many of them edge cases near the bug that the run could not see.</li>\n'
             '        <li>The projects are public, so the models may have seen similar code in training. All fixes are from August to October 2026.</li>\n'
             '        <li>Most easy-round bugs are small: a few lines in one function.</li>\n'
+            '        <li>A fix that ignores an invariant counts against a run only when the maintainers&rsquo; tests cover it. Anything their tests do not check is not scored.</li>\n'
+            '        <li>The bugs come from parsers, serializers and data libraries. None involves concurrency, shared state or retry logic, where the gap between models may be larger.</li>\n'
             '      </ul>\n')
     return (_head(esc(BUG_TITLE), lead,
                   f'Measured {BUG_MEASURED} · {len(R)} runs · 25 bugs · 13 projects · Claude Code 2.1.295 · License <a href="{LICENSE}">CC BY 4.0</a>',
