@@ -216,16 +216,16 @@
 "hash": "952d603727f71d7a"
 },
 "https://tokensave.app/data/": {
-"date": "2026-10-24",
-"hash": "667acc24b998665a"
+"date": "2026-10-25",
+"hash": "d7109bce1673555b"
 },
 "https://tokensave.app/data/ai-agent-web-search-tokens": {
 "date": "2026-10-23",
 "hash": "4ee76f46130afb3e"
 },
 "https://tokensave.app/data/ai-coding-limit-line": {
-"date": "2026-10-24",
-"hash": "29e4faf97b55eec7"
+"date": "2026-10-25",
+"hash": "03327e2cb077fe62"
 },
 "https://tokensave.app/data/ai-coding-prompt-language": {
 "date": "2026-10-23",
@@ -266,6 +266,10 @@
 "https://tokensave.app/data/claude-effort-cost": {
 "date": "2026-10-23",
 "hash": "7071ab9fc792848c"
+},
+"https://tokensave.app/data/claude-haiku-vs-opus-real-bugs": {
+"date": "2026-10-02",
+"hash": "b57dbba045627668"
 },
 "https://tokensave.app/data/claude-md-agents-md-size": {
 "date": "2026-10-23",

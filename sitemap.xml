@@ -568,7 +568,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/data/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-25</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/language-tax-index</loc>
@@ -620,7 +620,11 @@
   </url>
   <url>
     <loc>https://tokensave.app/data/ai-coding-limit-line</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-25</lastmod>
+  </url>
+  <url>
+    <loc>https://tokensave.app/data/claude-haiku-vs-opus-real-bugs</loc>
+    <lastmod>2026-10-02</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/output-tokens-per-character-by-model</loc>
