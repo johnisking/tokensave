@@ -1,0 +1,398 @@
+{
+ "0.155.0": {
+  "runs": [
+   {
+    "input_tokens": 13147,
+    "cached": 0,
+    "output": 11,
+    "secs": 4.9
+   },
+   {
+    "input_tokens": 13147,
+    "cached": 0,
+    "output": 20,
+    "secs": 4.8
+   },
+   {
+    "input_tokens": 13559,
+    "cached": 0,
+    "output": 11,
+    "secs": 7.5
+   }
+  ]
+ },
+ "0.155.1": {
+  "runs": [
+   {
+    "input_tokens": 13147,
+    "cached": 0,
+    "output": 13,
+    "secs": 5.4
+   },
+   {
+    "input_tokens": 13147,
+    "cached": 0,
+    "output": 20,
+    "secs": 4.8
+   },
+   {
+    "input_tokens": 13147,
+    "cached": 0,
+    "output": 11,
+    "secs": 5.6
+   }
+  ]
+ },
+ "0.156.0": {
+  "runs": [
+   {
+    "input_tokens": 13123,
+    "cached": 0,
+    "output": 11,
+    "secs": 5.8
+   },
+   {
+    "input_tokens": 13123,
+    "cached": 0,
+    "output": 11,
+    "secs": 5.5
+   },
+   {
+    "input_tokens": 13123,
+    "cached": 12928,
+    "output": 11,
+    "secs": 4.6
+   }
+  ]
+ },
+ "0.156.1": {
+  "runs": [
+   {
+    "input_tokens": 13123,
+    "cached": 12928,
+    "output": 11,
+    "secs": 5.7
+   },
+   {
+    "input_tokens": 13123,
+    "cached": 0,
+    "output": 11,
+    "secs": 4.5
+   },
+   {
+    "input_tokens": 13123,
+    "cached": 12928,
+    "output": 11,
+    "secs": 4.2
+   }
+  ]
+ },
+ "0.157.0": {
+  "runs": [
+   {
+    "input_tokens": 13123,
+    "cached": 12928,
+    "output": 11,
+    "secs": 4.1
+   },
+   {
+    "input_tokens": 13123,
+    "cached": 0,
+    "output": 25,
+    "secs": 4.5
+   },
+   {
+    "input_tokens": 13123,
+    "cached": 0,
+    "output": 11,
+    "secs": 5.2
+   }
+  ]
+ },
+ "0.157.1": {
+  "runs": [
+   {
+    "input_tokens": 13123,
+    "cached": 0,
+    "output": 11,
+    "secs": 4.9
+   },
+   {
+    "input_tokens": 13123,
+    "cached": 0,
+    "output": 13,
+    "secs": 4.0
+   },
+   {
+    "input_tokens": 13123,
+    "cached": 11136,
+    "output": 18,
+    "secs": 4.3
+   }
+  ]
+ },
+ "0.158.0": {
+  "runs": [
+   {
+    "input_tokens": 13123,
+    "cached": 12928,
+    "output": 11,
+    "secs": 4.9
+   },
+   {
+    "input_tokens": 13123,
+    "cached": 0,
+    "output": 11,
+    "secs": 4.1
+   },
+   {
+    "input_tokens": 13123,
+    "cached": 0,
+    "output": 11,
+    "secs": 7.0
+   }
+  ]
+ },
+ "0.159.0": {
+  "runs": [
+   {
+    "input_tokens": 13023,
+    "cached": 11136,
+    "output": 15,
+    "secs": 4.7
+   },
+   {
+    "input_tokens": 13023,
+    "cached": 0,
+    "output": 11,
+    "secs": 4.3
+   },
+   {
+    "input_tokens": 13023,
+    "cached": 0,
+    "output": 11,
+    "secs": 4.7
+   }
+  ]
+ },
+ "0.159.1": {
+  "runs": [
+   {
+    "input_tokens": 13023,
+    "cached": 11136,
+    "output": 11,
+    "secs": 5.1
+   },
+   {
+    "input_tokens": 13023,
+    "cached": 0,
+    "output": 12,
+    "secs": 3.6
+   },
+   {
+    "input_tokens": 13023,
+    "cached": 11136,
+    "output": 11,
+    "secs": 3.5
+   }
+  ]
+ },
+ "0.159.2": {
+  "runs": [
+   {
+    "input_tokens": 13023,
+    "cached": 11136,
+    "output": 11,
+    "secs": 4.5
+   },
+   {
+    "input_tokens": 13023,
+    "cached": 11136,
+    "output": 11,
+    "secs": 4.1
+   },
+   {
+    "input_tokens": 13023,
+    "cached": 0,
+    "output": 11,
+    "secs": 3.8
+   }
+  ]
+ },
+ "0.159.3": {
+  "runs": [
+   {
+    "input_tokens": 13023,
+    "cached": 11136,
+    "output": 11,
+    "secs": 7.7
+   },
+   {
+    "input_tokens": 13023,
+    "cached": 12800,
+    "output": 13,
+    "secs": 4.5
+   },
+   {
+    "input_tokens": 13023,
+    "cached": 0,
+    "output": 11,
+    "secs": 4.6
+   }
+  ]
+ },
+ "0.160.0": {
+  "runs": [
+   {
+    "input_tokens": 13023,
+    "cached": 12800,
+    "output": 11,
+    "secs": 7.1
+   },
+   {
+    "input_tokens": 13023,
+    "cached": 12800,
+    "output": 11,
+    "secs": 5.2
+   },
+   {
+    "input_tokens": 13023,
+    "cached": 12800,
+    "output": 11,
+    "secs": 5.0
+   }
+  ]
+ },
+ "0.160.1": {
+  "runs": [
+   {
+    "input_tokens": 13023,
+    "cached": 12800,
+    "output": 11,
+    "secs": 8.4
+   },
+   {
+    "input_tokens": 13023,
+    "cached": 0,
+    "output": 11,
+    "secs": 4.6
+   },
+   {
+    "input_tokens": 13023,
+    "cached": 0,
+    "output": 11,
+    "secs": 4.2
+   }
+  ]
+ },
+ "0.161.0": {
+  "runs": [
+   {
+    "input_tokens": 13023,
+    "cached": 12800,
+    "output": 18,
+    "secs": 6.2
+   },
+   {
+    "input_tokens": 13023,
+    "cached": 12800,
+    "output": 11,
+    "secs": 3.8
+   },
+   {
+    "input_tokens": 13023,
+    "cached": 12800,
+    "output": 11,
+    "secs": 4.5
+   }
+  ]
+ },
+ "0.162.0": {
+  "runs": [
+   {
+    "input_tokens": 13019,
+    "cached": 11136,
+    "output": 18,
+    "secs": 6.6
+   },
+   {
+    "input_tokens": 13019,
+    "cached": 11136,
+    "output": 11,
+    "secs": 4.6
+   },
+   {
+    "input_tokens": 13019,
+    "cached": 11136,
+    "output": 11,
+    "secs": 3.8
+   }
+  ]
+ },
+ "0.162.1": {
+  "runs": [
+   {
+    "input_tokens": 13019,
+    "cached": 11136,
+    "output": 11,
+    "secs": 5.4
+   },
+   {
+    "input_tokens": 13019,
+    "cached": 11136,
+    "output": 11,
+    "secs": 3.9
+   },
+   {
+    "input_tokens": 13019,
+    "cached": 12800,
+    "output": 20,
+    "secs": 4.3
+   }
+  ]
+ },
+ "0.163.0": {
+  "runs": [
+   {
+    "input_tokens": 13019,
+    "cached": 12800,
+    "output": 13,
+    "secs": 5.2
+   },
+   {
+    "input_tokens": 13019,
+    "cached": 11136,
+    "output": 11,
+    "secs": 4.4
+   },
+   {
+    "input_tokens": 13019,
+    "cached": 0,
+    "output": 11,
+    "secs": 4.7
+   }
+  ]
+ },
+ "0.164.0": {
+  "runs": [
+   {
+    "input_tokens": 13019,
+    "cached": 11136,
+    "output": 11,
+    "secs": 6.1
+   },
+   {
+    "input_tokens": 13019,
+    "cached": 12800,
+    "output": 20,
+    "secs": 4.8
+   },
+   {
+    "input_tokens": 13019,
+    "cached": 11136,
+    "output": 11,
+    "secs": 4.9
+   }
+  ]
+ }
+}

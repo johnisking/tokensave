@@ -2766,7 +2766,7 @@ def tai_html():
 
 # ---- Dataset 19: Claude Code baseline tokens by version (measured 2026-10-21) ----
 CCV_PATH = "/data/claude-code-baseline-tokens-by-version"
-CCV_MEASURED = "2026-10-24"
+CCV_MEASURED = "2026-10-25"
 CCV_CHART = "/claude-code-baseline-tokens-chart.png"
 CCV_DOI = "10.5281/zenodo.23527278"  # concept DOI
 CCV_MIRRORS = [("Zenodo", "https://zenodo.org/records/23527279"),
@@ -2781,6 +2781,13 @@ CCV_COLS = ["version", "released", "arm", "runs", "first_request_input_tokens", 
 
 def _ccv():
     return json.load(open(os.path.join(ROOT, "blog_data", "ccversions", "combined.json"), encoding="utf-8"))
+
+
+def _cdx():
+    return json.load(open(os.path.join(ROOT, "blog_data", "codexversions", "combined.json"), encoding="utf-8"))
+
+
+CDX_COLS = ["version", "released", "runs", "input_tokens", "min", "max"]
 
 
 def ccv_citation():
@@ -2798,6 +2805,11 @@ def write_ccv_files(dist):
     meta = dict(title=CCV_TITLE, url=BASE + CCV_PATH, license="CC BY 4.0", measured=CCV_MEASURED, citation=ccv_citation(),
                 model=d["model"], prompt=d["prompt"], rows=d["rows"], not_measured=d["not_measured"])
     open(os.path.join(dist, "data", "claude-code-baseline-tokens-by-version.json"), "w", encoding="utf-8").write(json.dumps(meta, ensure_ascii=False, indent=1))
+    x = _cdx()
+    buf = io.StringIO(); w = csv.writer(buf); w.writerow(CDX_COLS)
+    for r in x["rows"]:
+        w.writerow([r.get(c) for c in CDX_COLS])
+    open(os.path.join(dist, "data", "codex-cli-baseline-tokens-by-version.csv"), "w", encoding="utf-8", newline="").write(buf.getvalue())
 
 
 def _ccv_clean(d=None):
@@ -2817,6 +2829,31 @@ def ccv_ld():
 
 def _k(v):
     return tuple(map(int, v.split(".")))
+
+
+def _cdx_section(C):
+    x = _cdx(); R = x["rows"]; f = lambda v: "{:,}".format(round(v))
+    a, b = R[0], R[-1]
+    cc = [r for r in C if a["released"] <= r["released"] <= b["released"]]
+    ca, cb = cc[0], cc[-1]
+    pct = lambda p, q: round((q / p - 1) * 100)
+    chg = sum(1 for p, q in zip(R, R[1:]) if p["input_tokens"] != q["input_tokens"])
+    chg_c = sum(1 for p, q in zip(cc, cc[1:]) if p["first_request_input_tokens"] != q["first_request_input_tokens"])
+    prev = None; trs = []
+    for r in R:
+        ch = "" if prev is None or prev["input_tokens"] == r["input_tokens"] else "{:+,}".format(r["input_tokens"] - prev["input_tokens"])
+        trs.append('          <tr><td class="tabular-nums">%s</td><td class="tabular-nums">%s</td><td class="text-right tabular-nums">%s</td><td class="text-right tabular-nums">%s</td></tr>' % (r["version"], r["released"], f(r["input_tokens"]), ch))
+        prev = r
+    head = ['<th>Codex version</th>', '<th>Released</th>', '<th class="text-right">Baseline tokens</th>', '<th class="text-right">Change</th>']
+    return f'''      <h2>Codex CLI over the same weeks</h2>
+      <p>We ran the same test on OpenAI&rsquo;s Codex CLI: all {len(R)} releases from {a["version"]} ({a["released"]}) to {b["version"]} ({b["released"]}), the prompt &ldquo;a&rdquo; with <code>codex exec</code>, gpt-6-luna, reasoning effort low, 3 runs each (<a href="/data/codex-cli-baseline-tokens-by-version.csv">CSV</a>).</p>
+      <ul>
+        <li><strong>Codex barely moved.</strong> {f(a["input_tokens"])} tokens in {a["version"]}, {f(b["input_tokens"])} in {b["version"]} ({_pct(pct(a["input_tokens"], b["input_tokens"]))}). It changed in {chg} of the {len(R) - 1} releases after {a["version"]}, by {min(abs(p['input_tokens']-q['input_tokens']) for p, q in zip(R, R[1:]) if p['input_tokens'] != q['input_tokens'])} to {max(abs(p['input_tokens']-q['input_tokens']) for p, q in zip(R, R[1:]))} tokens each time.</li>
+        <li><strong>Claude Code moved a lot in the same weeks.</strong> From {ca["version"]} ({ca["released"]}) to {cb["version"]} ({cb["released"]}) it went from {f(ca["first_request_input_tokens"])} to {f(cb["first_request_input_tokens"])} ({_pct(pct(ca["first_request_input_tokens"], cb["first_request_input_tokens"]))}), changing at {chg_c} of the {len(cc) - 1} steps between the versions we measured.</li>
+        <li><strong>Do not compare the two totals directly.</strong> They are counted with different tokenizers on different models; for the same code, Claude&rsquo;s tokenizer gives about 55% more tokens than OpenAI&rsquo;s (see our <a href="{LGO_PATH}">tokenizer check</a>). The point is how each one changes from release to release.</li>
+      </ul>
+{_table(head, chr(10).join(trs))}      <p class="text-sm text-zinc-400">Older Codex versions could not be measured: with a ChatGPT plan login the server refuses every model they can use (&ldquo;not supported when using Codex with a ChatGPT account&rdquo;), so the Codex series starts in September 2026. Each run used an empty folder and a fresh Codex home holding only the login. Input tokens include cached input. One run of {a["version"]} gave {f(max(a["min"], a["max"]))}; the table shows the value 2 of 3 runs gave.</p>
+'''
 
 
 def ccv_html():
@@ -2859,7 +2896,7 @@ def ccv_html():
       </ul>
       <h2>Baseline by version</h2>
       <p class="text-sm text-zinc-400">Input tokens of the first model request (uncached + cache read + cache write) for the prompt &ldquo;a&rdquo;, Claude Haiku 5.5, MCP off. &ldquo;With connectors on&rdquo; is the same request with the {srv} connected claude.ai apps of our account enabled (one run). Change is against the previous row.</p>
-{_table(head, chr(10).join(trs))}      <h2>What to take from it</h2>
+{_table(head, chr(10).join(trs))}{_cdx_section(C)}      <h2>What to take from it</h2>
       <ul>
         <li>The baseline is paid on every request, but after the first one it is usually read from the prompt cache at a tenth of the input price or less. It matters most for short sessions, subagents (each starts with its own copy) and after the cache expires (see our <a href="/data/ai-coffee-break-cache-cost">coffee-break measurement</a>).</li>
         <li>If you used Claude Code between late March and May 2026 with many apps connected on claude.ai, sessions started with hundreds of thousands of tokens. Updating removes that cost.</li>
@@ -2869,7 +2906,7 @@ def ccv_html():
       <ul>
         <li>Each version was installed with <code>npm install @anthropic-ai/claude-code@&lt;version&gt;</code> into its own folder on one Windows laptop and run as <code>claude -p "a" --model claude-haiku-5-5 --output-format stream-json --verbose</code>, in an empty folder, with auto-update off and a fresh config folder holding only the login (no user settings, CLAUDE.md, plugins or skills). MCP was off (<code>--strict-mcp-config</code> with an empty config, <code>ENABLE_CLAUDEAI_MCP_SERVERS=false</code>); the second set left our account&rsquo;s claude.ai connectors on.</li>
         <li>We count the usage of the first assistant message in the log, because some older versions made a second request for the same prompt and their final total counts both.</li>
-        <li>Release dates are npm publish dates. Three runs per version with MCP off, one with connectors on: versions up to 2.1.295 and 2.1.306 on 2026-10-21, versions 2.1.296 to 2.1.310 on 2026-10-24 with the same script, login and settings (2.1.297 and 2.1.298 were never published).</li>
+        <li>Release dates are npm publish dates. Three runs per version with MCP off, one with connectors on: versions up to 2.1.295 and 2.1.306 on 2026-10-21, versions 2.1.296 to 2.1.310 on 2026-10-24 with the same script, login and settings (2.1.297 and 2.1.298 were never published). Codex CLI on 2026-10-25.</li>
       </ul>
       <h2>Limitations</h2>
       <ul>
@@ -2881,7 +2918,7 @@ def ccv_html():
 '''
     return (_head("What Claude Code sends before you type: baseline tokens by version", lead,
                   f'Measured {CCV_MEASURED} · {len(C)} versions, {C[0]["released"][:7]} to {C[-1]["released"][:7]} · Claude Haiku 5.5 · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{HAR_PATH}">Claude Code harness cost</a>',
-                  [("claude-code-baseline-tokens-by-version.csv", "CSV"), ("claude-code-baseline-tokens-by-version.json", "JSON")],
+                  [("claude-code-baseline-tokens-by-version.csv", "CSV"), ("claude-code-baseline-tokens-by-version.json", "JSON"), ("codex-cli-baseline-tokens-by-version.csv", "Codex CSV")],
                   CCV_CHART, "Claude Code baseline input tokens by version, and with claude.ai connectors on", doi=CCV_DOI, mirrors=CCV_MIRRORS)
             + body + _page_tail(ccv_citation(), _embed(CCV_PATH, CCV_CHART, "Claude Code baseline tokens by version", "Claude Code baseline tokens by version"),
                                 [(HAR_PATH, "What the Claude Code harness costs"), (AMD_PATH, "CLAUDE.md and AGENTS.md size"), ("/data/ai-coffee-break-cache-cost", "The coffee-break tax")]))
