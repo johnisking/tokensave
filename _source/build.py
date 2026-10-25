@@ -348,7 +348,7 @@ def head_extras():
     if ADSENSE_PUB:
         out.append(f'  <meta name="google-adsense-account" content="{ADSENSE_PUB}" />')
         out.append('  <script>__late(function(){var s=document.createElement("script");s.async=true;s.crossOrigin="anonymous";'
-                   f's.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_PUB}";document.head.appendChild(s)}})</script>')
+                   f's.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_PUB}";document.head.appendChild(s)}},6000)</script>')
     return "\n".join(out)
 
 def faq_html(s):
