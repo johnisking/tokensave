@@ -75,4 +75,6 @@
 
 데이터(225회, 실행별 통과 사례·깨뜨린 테스트·시간·비용, CSV·JSON, CC BY 4.0): https://tokensave.app/data/claude-haiku-vs-opus-real-bugs
 
+DOI: [10.5281/zenodo.23619927](https://doi.org/10.5281/zenodo.23619927) (Hugging Face·Kaggle·GitHub에도 있습니다)
+
 밝혀 둡니다: 이 측정을 공개하는 TokenSave를 제가 운영합니다. Anthropic으로부터 받은 지원이나 크레딧은 없습니다.

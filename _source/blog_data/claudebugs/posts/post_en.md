@@ -75,4 +75,6 @@ To show that two models are equal within ±10 points would take several hundred 
 
 Data (225 runs: cases passed, tests broken, time and cost per run; CSV and JSON, CC BY 4.0): https://tokensave.app/data/claude-haiku-vs-opus-real-bugs
 
+DOI: [10.5281/zenodo.23619927](https://doi.org/10.5281/zenodo.23619927) (also on Hugging Face, Kaggle and GitHub)
+
 Disclosure: I run TokenSave, which publishes these measurements. No support or credits from Anthropic.
