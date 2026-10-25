@@ -2,7 +2,7 @@
  "title": "Claude Code baseline tokens by version: what every request carries before you type",
  "url": "https://tokensave.app/data/claude-code-baseline-tokens-by-version",
  "license": "CC BY 4.0",
- "measured": "2026-10-24",
+ "measured": "2026-10-25",
  "citation": "TokenSave (2026). Claude Code baseline tokens by version: what every request carries before you type [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23527278",
  "model": "claude-haiku-5-5",
  "prompt": "a",
