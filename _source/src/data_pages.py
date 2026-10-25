@@ -71,6 +71,7 @@ def write_files(dist):
     write_agy_files(dist)
     write_lgo_files(dist)
     write_lim_files(dist)
+    write_bug_files(dist)
 
 
 def _write_lang_files(dist):
@@ -280,6 +281,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{LIM_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(LIM_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">163 runs from a single-file game to real bugs in the marked parser: with a clear spec, Haiku 5.5 matched Opus every time; on a hard real bug, Sonnet and Opus caught one more edge case, tests or not. Scores, time, tokens and cost. CSV · measured {LIM_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{BUG_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(BUG_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">225 Claude Code runs on 25 real bugs from 13 open-source projects, scored by the maintainers' tests: Haiku 5.5 fixed as many cleanly as Opus at about 95% less cost; Opus broke other tests less often on the hard bugs, and no model found the cases a bug report left out. CSV · measured {BUG_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -3650,7 +3654,141 @@ def lim_html():
                   [("ai-coding-limit-line.csv", "CSV"), ("ai-coding-limit-line.json", "JSON")],
                   LIM_CHART, "Test cases passed per run on a hard real bug in marked, by model, with and without running tests", doi=LIM_DOI or None, mirrors=LIM_MIRRORS)
             + body + _page_tail(lim_citation(), _embed(LIM_PATH, LIM_CHART, "Where Claude Haiku falls behind Opus", "where Claude Haiku falls behind Opus"),
-                                [(VIB_PATH, "Vibe coding by Claude model"), (EFF_PATH, "Claude effort levels: tokens, time and cost"), (AGY_PATH, "Antigravity CLI vs Claude Code vs Codex"), ("/agents", "Estimate your own Claude Code or Codex bill")]))
+                                [(BUG_PATH, "Claude Haiku vs Opus on 25 real bugs (dataset 25)"), (VIB_PATH, "Vibe coding by Claude model"), (EFF_PATH, "Claude effort levels: tokens, time and cost"), (AGY_PATH, "Antigravity CLI vs Claude Code vs Codex"), ("/agents", "Estimate your own Claude Code or Codex bill")]))
+
+
+# ---- Dataset 25: Claude Haiku vs Sonnet vs Opus on 25 real bugs (2026-10-24) ----
+BUG_PATH = "/data/claude-haiku-vs-opus-real-bugs"
+BUG_MEASURED = "2026-10-24"
+BUG_CHART = "/claude-haiku-vs-opus-real-bugs-chart.png"
+BUG_DOI = "10.5281/zenodo.23619927"  # concept DOI
+BUG_MIRRORS = [("Zenodo", "https://zenodo.org/records/23619928"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-haiku-vs-opus-real-bugs"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-haiku-vs-sonnet-vs-opus-on-25-real-bugs"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-real-bugs")]
+BUG_TITLE = "Claude Haiku vs Sonnet vs Opus on 25 real bugs: 225 runs scored by the maintainers' tests"
+BUG_DESC = ("Dataset: 225 Claude Code runs on 25 real bugs fixed in 13 open-source projects between August and October 2026, 3 runs per bug for Haiku, Sonnet and Opus 5.5. "
+            "Scored by the maintainers' own tests. Haiku fixed as many bugs cleanly as Opus at about 95% less cost; Opus was ahead on two multi-place bugs; no model found cases the bug report left out. Free CSV, CC BY 4.0.")
+BUG_M = [("claude-haiku-5-5", "Haiku 5.5"), ("claude-sonnet-5-5", "Sonnet 5.5"), ("claude-opus-5-5", "Opus 5.5")]
+
+
+def _bugd():
+    return json.load(open(os.path.join(ROOT, "blog_data", "claudebugs", "dataset", "claude-haiku-vs-opus-real-bugs.json"), encoding="utf-8"))
+
+
+def bug_citation():
+    if BUG_DOI:
+        return f"TokenSave (2026). {BUG_TITLE} [Data set]. Zenodo. https://doi.org/{BUG_DOI}"
+    return f"TokenSave (2026). {BUG_TITLE} [Data set]. {BASE}{BUG_PATH}"
+
+
+def write_bug_files(dist):
+    for ext in ("csv", "json"):
+        src = os.path.join(ROOT, "blog_data", "claudebugs", "dataset", "claude-haiku-vs-opus-real-bugs." + ext)
+        open(os.path.join(dist, "data", "claude-haiku-vs-opus-real-bugs." + ext), "w", encoding="utf-8", newline="").write(open(src, encoding="utf-8").read())
+
+
+def bug_ld():
+    return _dataset_ld(BUG_TITLE, BUG_DESC, BUG_PATH, BUG_MEASURED,
+                       ["Claude Haiku vs Opus", "Claude Haiku vs Sonnet", "AI bug fixing benchmark", "Claude Code", "real-world bugs", "AI coding cost per task"],
+                       ["test cases passed", "full fix", "tests broken", "seconds", "API cost"],
+                       "Headless Claude Code runs from the commit before each upstream fix with a symptom-only bug report; only the run's source changes are kept and scored by the maintainers' tests for the fix and the project's test suite",
+                       BUG_CHART, [("claude-haiku-vs-opus-real-bugs.csv", "text/csv"), ("claude-haiku-vs-opus-real-bugs.json", "application/json")],
+                       doi=BUG_DOI or None, mirrors=BUG_MIRRORS)
+
+
+def bug_html():
+    D = _bugd(); R = D["runs"]; ST = D["stats"]
+    pc = lambda v: f"{round(v * 100)}%"
+    usd = lambda v: "$%.3f" % v if v < 0.1 else "$%.2f" % v
+    A, H, E = ST["all"]["models"], ST["hard"]["models"], ST["easy"]["models"]
+    h, s, o = (m for m, _ in BUG_M)
+    pt = lambda v: "0" if round(v * 100) == 0 else f"{round(v * 100):+d}".replace("-", "&minus;")
+    save = round((1 - A[h]["mean_cost_usd"] / A[o]["mean_cost_usd"]) * 100)
+    t_all = ST["all"]["tests"][f"{h} vs {o}"]; t_hard = ST["hard"]["tests"][f"{h} vs {o}"]
+    ci = t_all["clean_rate_diff_ci95_bug_bootstrap"]; cih = t_hard["clean_rate_diff_ci95_bug_bootstrap"]
+    def cells(b, m):
+        rs = sorted([r for r in R if r["bug"] == b and r["model"] == m], key=lambda r: r["rep"])
+        return ", ".join(f'{r["cases_passed"]}' + (f'<sup class="text-red-400">!{r["tests_broken"]}</sup>' if r["tests_broken"] else "") for r in rs)
+    lead = (f'<strong>On 25 real bugs from 13 open-source projects, Claude Haiku 5.5 fixed as many cleanly as Opus 5.5 '
+            f'({A[h]["clean_fix"]} and {A[o]["clean_fix"]} of {A[h]["runs"]} runs) at about {save}% less cost per run.</strong> '
+            f'Opus pulled ahead on the hard bugs ({H[o]["clean_fix"]} of {H[o]["runs"]} clean fixes against Haiku&rsquo;s {H[h]["clean_fix"]}), '
+            'mainly because it broke other tests in fewer runs. None of the differences between Haiku and Opus is statistically significant with 3 runs per bug. '
+            'Where the bug report left a case out, every model missed it.')
+    li = [
+        f'<li><strong>Overall, Haiku matched Opus.</strong> Clean fixes (every maintainer test case passes and nothing else breaks): Haiku {A[h]["clean_fix"]}/{A[h]["runs"]}, Sonnet {A[s]["clean_fix"]}/{A[s]["runs"]}, Opus {A[o]["clean_fix"]}/{A[o]["runs"]}. '
+        f'Resampling by bug, the 95% interval for Haiku minus Opus is {pt(ci[0])} to {pt(ci[1])} percentage points: no evidence that Opus fixes more bugs, though a gap of about 10 points cannot be ruled out.</li>',
+        f'<li><strong>Cost per run at API prices:</strong> Haiku {usd(A[h]["mean_cost_usd"])}, Sonnet {usd(A[s]["mean_cost_usd"])}, Opus {usd(A[o]["mean_cost_usd"])}. All 75 Haiku runs cost ${A[h]["total_cost_usd"]:.2f} together; the 75 Opus runs ${A[o]["total_cost_usd"]:.2f}.</li>',
+        f'<li><strong>Easy round (15 bugs where cause and symptom sit close together):</strong> clean fixes Haiku {E[h]["clean_fix"]}/45, Sonnet {E[s]["clean_fix"]}/45, Opus {E[o]["clean_fix"]}/45, and no run broke the project&rsquo;s own test suite.</li>',
+        f'<li><strong>Hard round (10 bugs with symptom-only reports, many with the cause away from the symptom):</strong> clean fixes Haiku {H[h]["clean_fix"]}/30, Sonnet {H[s]["clean_fix"]}/30, Opus {H[o]["clean_fix"]}/30; '
+        f'runs that broke other maintainer tests: {H[h]["runs_with_broken_tests"]}, {H[s]["runs_with_broken_tests"]} and {H[o]["runs_with_broken_tests"]}. Here the interval for Haiku minus Opus is {pt(cih[0])} to {pt(cih[1])} points, so Opus may well be better on bugs like these.</li>',
+        '<li><strong>Bug by bug, Haiku and Opus had the same number of clean fixes on 22 of the 25 bugs.</strong> Opus had more on nested links in marked (2 of 3 against 0; every Haiku run broke the spec test for that example) '
+        'and on a markdown-it code-span bug (3 against 1; two Haiku runs broke other tests). Haiku had more on a js-yaml block scalar bug (3 against 1; Sonnet 0). '
+        'On a zod bug that needed numeric record keys handled in several places, no run fixed everything, but Opus passed 14 of the 24 cases over its 3 runs, Haiku 9 and Sonnet 5.</li>',
+        '<li><strong>What no model found:</strong> on three hard bugs every run fixed the reported example and missed the same unreported case: cachetools (a second maintainer test that calls every variant of the decorator through the class), js-yaml (a BOM before each document in a stream, not only the first) and Python-Markdown (every run broke 3 to 5 of the maintainers&rsquo; tests for comments after other inline HTML). On the tomlkit underscore bug every run passed the same 20 of 29 cases. Model size did not help.</li>',
+        f'<li><strong>Speed:</strong> median seconds per run Haiku {A[h]["median_seconds"]:g}, Sonnet {A[s]["median_seconds"]:g}, Opus {A[o]["median_seconds"]:g}.</li>',
+        f'<li><strong>This updates our <a href="{LIM_PATH}">previous dataset</a>.</strong> There, on one hard bug in marked, Sonnet and Opus caught an unreported edge case far more often than Haiku. Across 25 bugs that pattern did not hold: the unreported cases here were missed by every model alike.</li>',
+    ]
+    th = ['<th>Project · bug</th>'] + [f'<th class="text-right">{lab}</th>' for _, lab in BUG_M] + ['<th class="text-right">Cases</th>']
+    sections = []
+    for rnd, head, note in (("hard", "Hard round: test cases passed per run", "Target cases = the maintainers&rsquo; tests for the fix that fail before it and pass after it. A red !n means the run broke n other tests in the same test files that pass both before and after the fix."),
+                            ("easy", "Easy round: test cases passed per run", "Cases written from the maintainers&rsquo; tests for the fix. No run broke the project&rsquo;s own test suite.")):
+        bugs = sorted([b for b, v in D["bugs"].items() if v["round"] == rnd], key=lambda b: (D["bugs"][b]["project"].lower(), b))
+        rows = []
+        for b in bugs:
+            v = D["bugs"][b]; tot = next(r["cases_total"] for r in R if r["bug"] == b)
+            repo = next(r["repo"] for r in R if r["bug"] == b)
+            rows.append(f'          <tr><td><a href="{repo}">{esc(v["project"])}</a> · {esc(v["title"])}</td>' +
+                        "".join(f'<td class="text-right tabular-nums whitespace-nowrap">{cells(b, m)}</td>' for m, _ in BUG_M) + f'<td class="text-right tabular-nums">{tot}</td></tr>')
+        sections.append(f'      <h2>{head}</h2>\n      <p class="text-sm text-zinc-400">{note}</p>\n' + _table(th, chr(10).join(rows)))
+    sh = ['<th>Model</th>', '<th class="text-right">Runs</th>', '<th class="text-right">Cases passed</th>', '<th class="text-right">Full fix</th>', '<th class="text-right">Clean fix</th>', '<th class="text-right">Runs that broke tests</th>', '<th class="text-right">Cost/run</th>', '<th class="text-right">Median s</th>']
+    srows = []
+    for scope, lab in (("easy", "Easy"), ("hard", "Hard"), ("all", "All")):
+        for m, ml in BUG_M:
+            x = ST[scope]["models"][m]
+            srows.append(f'          <tr><td>{lab} · {ml}</td><td class="text-right tabular-nums">{x["runs"]}</td><td class="text-right tabular-nums">{pc(x["cases_passed"] / x["cases_total"])}</td>'
+                         f'<td class="text-right tabular-nums">{x["full_fix"]}</td><td class="text-right tabular-nums">{x["clean_fix"]}</td><td class="text-right tabular-nums">{x["runs_with_broken_tests"]}</td>'
+                         f'<td class="text-right tabular-nums">{usd(x["mean_cost_usd"])}</td><td class="text-right tabular-nums">{x["median_seconds"]:g}</td></tr>')
+    th2 = ['<th>Comparison</th>', '<th class="text-right">Clean fix, Fisher p</th>', '<th class="text-right">Cases, paired p</th>', '<th class="text-right">Clean-fix difference, 95% interval</th>']
+    trows = []
+    for scope, lab in (("easy", "Easy"), ("hard", "Hard"), ("all", "All")):
+        for k, t in ST[scope]["tests"].items():
+            a, b = (x.replace("claude-", "").replace("-5-5", "").capitalize() for x in k.split(" vs "))
+            c = t["clean_rate_diff_ci95_bug_bootstrap"]
+            trows.append(f'          <tr><td>{lab} · {a} vs {b}</td><td class="text-right tabular-nums">{t["fisher_clean_fix_p"]:.2f}</td><td class="text-right tabular-nums">{t["paired_case_share_p"]:.3f}</td>'
+                         f'<td class="text-right tabular-nums">{pt(c[0])} to {pt(c[1])} pts</td></tr>')
+    body = ('      <h2>Key findings</h2>\n      <ul>\n' + "\n".join("        " + x for x in li) + '\n      </ul>\n'
+            + sections[0] + sections[1] +
+            '      <h2>Totals by round and model</h2>\n'
+            '      <p class="text-sm text-zinc-400">Full fix = every target case passes. Clean fix = full fix and no other test broken. Cases passed = share of all target cases over all runs.</p>\n'
+            + _table(sh, chr(10).join(srows)) +
+            '      <h2>Statistical tests</h2>\n'
+            '      <p class="text-sm text-zinc-400">Fisher&rsquo;s exact test on clean fixes per run; a paired sign-flip permutation test on the share of cases passed, pairing runs of the same bug and repetition; and a 95% interval for the difference in clean-fix rate from resampling whole bugs, because runs on the same bug are not independent. '
+            'With 25 bugs, a real 10-point difference would usually go undetected; showing that two models are equal within &plusmn;10 points would take several hundred runs per model.</p>\n'
+            + _table(th2, chr(10).join(trows)) +
+            '      <h2>Method</h2>\n      <ul>\n'
+            '        <li><strong>Bugs:</strong> 25 bugs fixed upstream between 12 August and 20 October 2026 in js-yaml, jsdiff, qs, PapaParse, markdown-it, marked, zod (JavaScript and TypeScript), humanize, tomlkit, more-itertools, cachetools, Python-Markdown and pyparsing (Python). The commit before each fix is in the CSV.</li>\n'
+            '        <li><strong>Starting point:</strong> the source at the commit before the fix, with dependencies installed and a fresh git history, so the fix could not be read from git. The prompt was the bug report reduced to the symptom, the reproduction and the expected result; cause analysis and proposed fixes were removed.</li>\n'
+            '        <li><strong>Agent:</strong> Claude Code 2.1.295 on one Windows 11 laptop, headless (<code>-p</code>), effort medium, acceptEdits, with read-only shell commands, the project&rsquo;s test runner and its build allowed; package installs, network and web tools denied. 3 runs per bug and model, each in a fresh folder.</li>\n'
+            '        <li><strong>Scoring:</strong> only the run&rsquo;s changes to the library source were kept (tests it wrote or edited were dropped), then the maintainers&rsquo; tests for the fix were run against it. Easy round: hidden cases written from those tests plus the project&rsquo;s full test suite. Hard round: the fix&rsquo;s test files, comparing every test before and after the fix.</li>\n'
+            '        <li><strong>Cost</strong> is Claude Code&rsquo;s own per-run figure at API prices; the runs were made on a subscription.</li>\n'
+            '      </ul>\n      <h2>Limitations</h2>\n      <ul>\n'
+            '        <li>3 runs per bug and model, 25 bugs. The differences between models are within chance; see the intervals above.</li>\n'
+            f'        <li>The permissions differ from <a href="{LIM_PATH}">dataset 24</a>: here every run could run the project&rsquo;s tests.</li>\n'
+            '        <li>The tomlkit underscore report was written by us from the upstream issue, which had no reproduction.</li>\n'
+            '        <li>On Windows, zod&rsquo;s CLAUDE.md (a symlink) did not extract, so the zod runs had no project instructions.</li>\n'
+            '        <li>Timing tests (quadratic, linear, performance) were not counted as broken, because they fail at random under load.</li>\n'
+            '        <li>In the hard round, &ldquo;broke other tests&rdquo; means tests the maintainers added or kept in the fix&rsquo;s test files, many of them edge cases near the bug that the run could not see.</li>\n'
+            '        <li>The projects are public, so the models may have seen similar code in training. All fixes are from August to October 2026.</li>\n'
+            '        <li>Most easy-round bugs are small: a few lines in one function.</li>\n'
+            '      </ul>\n')
+    return (_head(esc(BUG_TITLE), lead,
+                  f'Measured {BUG_MEASURED} · {len(R)} runs · 25 bugs · 13 projects · Claude Code 2.1.295 · License <a href="{LICENSE}">CC BY 4.0</a>',
+                  [("claude-haiku-vs-opus-real-bugs.csv", "CSV"), ("claude-haiku-vs-opus-real-bugs.json", "JSON")],
+                  BUG_CHART, "One square per run: 25 real bugs by Claude Haiku, Sonnet and Opus 5.5, colored by whether the run fixed the bug and broke other tests", doi=BUG_DOI or None, mirrors=BUG_MIRRORS)
+            + body + _page_tail(bug_citation(), _embed(BUG_PATH, BUG_CHART, "Claude Haiku vs Sonnet vs Opus on 25 real bugs", "Claude Haiku vs Opus on 25 real bugs"),
+                                [(LIM_PATH, "Where Claude Haiku falls behind Opus (dataset 24)"), (VIB_PATH, "Vibe coding by Claude model"), (EFF_PATH, "Claude effort levels: tokens, time and cost"), ("/agents", "Estimate your own Claude Code or Codex bill")]))
+
 
 
 # ---- "Try it yourself" box near the top of every dataset page (2026-10-22) ----
@@ -3663,7 +3801,7 @@ _CTA_MAP = {LANG_PATH: "/", MULTI_PATH: "/", FMT_PATH: "/", CODE_PATH: "/", PDF_
             IMG_PATH: "/", TAI_PATH: "/",
             EFF_PATH: "/agents", AGT_PATH: "/agents", AGS_PATH: "/agents", AGL_PATH: "/agents", AMD_PATH: "/agents", HAR_PATH: "/agents",
             VIB_PATH: "/agents", CCV_PATH: "/claude-code-usage",
-            LNG_PATH: "/claude-code-usage", COF_PATH: "/claude-code-usage", BMC_PATH: "/agents", BLM_PATH: "/agents", AGY_PATH: "/agents", LGO_PATH: "/", LIM_PATH: "/agents"}
+            LNG_PATH: "/claude-code-usage", COF_PATH: "/claude-code-usage", BMC_PATH: "/agents", BLM_PATH: "/agents", AGY_PATH: "/agents", LGO_PATH: "/", LIM_PATH: "/agents", BUG_PATH: "/agents"}
 
 
 def add_cta(path, body):

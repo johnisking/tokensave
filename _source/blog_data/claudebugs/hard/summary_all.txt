@@ -1,0 +1,46 @@
+===== EASY runs=135
+d699       h:2,2,2/2  s:2,2,2/2  o:2,2,2/2
+d701       h:5,5,5/5  s:3,5,3/5  o:5,5,5/5
+d707       h:2,2,2/2  s:2,2,2/2  o:2,2,2/2
+h359       h:6,6,6/6  s:6,6,6/6  o:6,6,6/6
+i1268      h:3,3,3/3  s:3,3,3/3  o:3,3,3/3
+i1304      h:3,3,3/3  s:3,3,3/3  o:3,3,3/3
+m1204      h:3,3,3/3  s:3,3,3/3  o:3,3,3/3
+p1163      h:4,4,4/4  s:4,4,4/4  o:4,4,4/4
+q624       h:19,19,19/19  s:19,19,19/19  o:19,19,19/19
+q629       h:11,11,12/12  s:11,11,12/12  o:11,12,11/12
+t336       h:20,20,20/29  s:20,20,20/29  o:20,20,20/29
+t599       h:3,3,3/3  s:3,3,3/3  o:3,3,3/3
+t642       h:3,3,3/3  s:3,3,3/3  o:3,3,3/3
+y798       h:7,7,7/7  s:7,7,7/7  o:7,7,7/7
+y802       h:3,3,3/3  s:2,2,2/3  o:3,2,2/3
+haiku   n=45 case=0.907 case_bugavg=0.976 full=40 clean=40 broke_runs=0 cost_mean=$0.011 cost_sum=$0.51 sec_median=48
+sonnet  n=45 case=0.885 case_bugavg=0.936 full=35 clean=35 broke_runs=0 cost_mean=$0.095 cost_sum=$4.28 sec_median=27
+opus    n=45 case=0.901 case_bugavg=0.961 full=38 clean=38 broke_runs=0 cost_mean=$0.255 cost_sum=$11.49 sec_median=47
+  haiku vs opus: Fisher full p=0.758 clean p=0.758 | paired perm case diff=+0.015 p=0.376 clean diff=+0.044 p=0.626 (pairs 45)
+  haiku vs sonnet: Fisher full p=0.258 clean p=0.258 | paired perm case diff=+0.040 p=0.063 clean diff=+0.111 p=0.063 (pairs 45)
+  sonnet vs opus: Fisher full p=0.591 clean p=0.591 | paired perm case diff=-0.025 p=0.185 clean diff=-0.067 p=0.373 (pairs 45)
+===== HARD runs=90
+ct435      h:1,1!1,1/2  s:1,1,1/2  o:1,1,1/2
+jy791      h:1,1,1/2  s:1,1,1/2  o:1,1,1/2
+mdit1201   h:2!2,2,2!2/2  s:2,2!2,2/2  o:2,2,2/2
+mit        h:2,2,2/2  s:2,2,2/2  o:2,2,2/2
+mk4051     h:3!1,3!1,3!1/4  s:3!1,4!1,3!1/4  o:4,4!1,4/4
+mk4059     h:2,2,2/2  s:2,2,2/2  o:2,2,2/2
+pm1643     h:2!4,2!4,2!5/2  s:2!4,2!3,2!4/2  o:2!3,2!3,2!4/2
+pp653      h:2,2,2/2  s:2,2,2/2  o:2,2,2/2
+z6495      h:3,3!1,3/3  s:3,3,3/3  o:3!1,3,3/3
+z6496      h:3,0,6/8  s:2,3,0/8  o:4,5,5/8
+haiku   n=30 case=0.724 case_bugavg=0.812 full=18 clean=12 broke_runs=10 cost_mean=$0.030 cost_sum=$0.89 sec_median=154.5
+sonnet  n=30 case=0.690 case_bugavg=0.804 full=19 clean=14 broke_runs=7 cost_mean=$0.218 cost_sum=$6.54 sec_median=76.5
+opus    n=30 case=0.816 case_bugavg=0.858 full=21 clean=16 broke_runs=5 cost_mean=$0.568 cost_sum=$17.03 sec_median=167.5
+  haiku vs opus: Fisher full p=0.589 clean p=0.438 | paired perm case diff=-0.046 p=0.092 clean diff=-0.133 p=0.218 (pairs 30)
+  haiku vs sonnet: Fisher full p=1.000 clean p=0.795 | paired perm case diff=+0.008 p=0.870 clean diff=-0.067 p=0.629 (pairs 30)
+  sonnet vs opus: Fisher full p=0.785 clean p=0.797 | paired perm case diff=-0.054 p=0.061 clean diff=-0.067 p=0.627 (pairs 30)
+===== ALL runs=225
+haiku   n=75 case=0.867 case_bugavg=0.910 full=58 clean=52 broke_runs=10 cost_mean=$0.019 cost_sum=$1.41 sec_median=66
+sonnet  n=75 case=0.842 case_bugavg=0.883 full=54 clean=49 broke_runs=7 cost_mean=$0.144 cost_sum=$10.83 sec_median=34
+opus    n=75 case=0.882 case_bugavg=0.920 full=59 clean=54 broke_runs=5 cost_mean=$0.380 cost_sum=$28.53 sec_median=84
+  haiku vs opus: Fisher full p=1.000 clean p=0.858 | paired perm case diff=-0.009 p=0.497 clean diff=-0.027 p=0.758 (pairs 75)
+  haiku vs sonnet: Fisher full p=0.574 clean p=0.728 | paired perm case diff=+0.027 p=0.078 clean diff=+0.040 p=0.519 (pairs 75)
+  sonnet vs opus: Fisher full p=0.449 clean p=0.482 | paired perm case diff=-0.037 p=0.006 clean diff=-0.067 p=0.180 (pairs 75)
