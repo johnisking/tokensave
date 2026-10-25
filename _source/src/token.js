@@ -487,6 +487,7 @@ els.select.addEventListener('change', () => {
 
 // Optimize: collapse repeated spaces/tabs, trim line edges, remove blank lines
 $('btnOptimize').addEventListener('click', () => {
+  window.tsEvent && tsEvent('tc_optimize');
   const before = measure().tokens;
   if (mode === 'chat') {
     const c = parseChat(els.input.value);
@@ -659,6 +660,7 @@ async function translateToEnglish(text, onlyComments = false) {
 }
 
 trBtn.addEventListener('click', async () => {
+  window.tsEvent && tsEvent('tc_translate', { undo: original !== null });
   if (original !== null) {
     els.input.value = original;
     original = null;
@@ -703,6 +705,7 @@ trBtn.addEventListener('click', async () => {
 });
 
 $('btnCopy').addEventListener('click', async () => {
+  window.tsEvent && tsEvent('tc_copy');
   if (!els.input.value) return toast(tr('tNothing'));
   try { await navigator.clipboard.writeText(els.input.value); }
   catch { els.input.select(); document.execCommand('copy'); }
@@ -762,6 +765,7 @@ async function unpack(s) {
 }
 const SHARE_MAX = 16000; // URL length that chat apps and browsers handle reliably
 $('btnShare').addEventListener('click', async () => {
+  window.tsEvent && tsEvent('tc_share');
   if (!els.input.value) return toast(tr('tNothing'));
   const q = new URLSearchParams({ t: await pack(els.input.value) });
   if (mode !== 'text') q.set('m', mode);
@@ -861,6 +865,7 @@ function renderPages(text) {
 
 let imgPages = [];
 $('btnImg').addEventListener('click', () => {
+  window.tsEvent && tsEvent('tc_text_to_image_open');
   const text = els.input.value;
   if (!text.trim()) return toast(IL.empty);
   if (pageTokens(100, 100) === null) return toast(IL.na);

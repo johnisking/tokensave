@@ -3849,7 +3849,7 @@ def add_cta(path, body):
     if not tool:
         return body
     head, text = _CTA[tool]
-    box = (f'      <a href="{tool}" class="not-prose block no-underline my-5 rounded-xl border border-violet-500/50 bg-violet-500/10 hover:bg-violet-500/20 p-4" '
+    box = (f'      <a href="{tool}?from=data-top" class="not-prose block no-underline my-5 rounded-xl border border-violet-500/50 bg-violet-500/10 hover:bg-violet-500/20 p-4" '
            f'style="text-decoration:none" data-cta="data-top">\n'
            f'        <span class="block text-base font-bold text-white">{esc(head)} &rarr;</span>\n'
            f'        <span class="block mt-1 text-sm text-zinc-300">{esc(text)}</span>\n      </a>\n')

@@ -108,6 +108,7 @@ sizeBtns.forEach(x => x.classList.toggle('tab-active', x.dataset.size === state.
 const patBtns = document.querySelectorAll('#pPattern button');
 patBtns.forEach(b => b.addEventListener('click', () => {
   state.pat = b.dataset.pat;
+  window.tsEvent && tsEvent('plans_pattern', { pattern: state.pat });
   patBtns.forEach(x => x.classList.toggle('tab-active', x === b));
   render();
 }));
