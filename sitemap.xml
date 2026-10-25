@@ -560,7 +560,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/blog/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-25</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/tokens-to-words</loc>
@@ -3742,6 +3742,66 @@
     </image:image>
   </url>
   <url>
+    <loc>https://tokensave.app/blog/claude-haiku-vs-opus</loc>
+    <lastmod>2026-10-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-haiku-vs-opus"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-haiku-vs-opus"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-haiku-vs-opus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-haiku-vs-opus"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-haiku-vs-opus-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-haiku-vs-opus-how-i-measured-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-haiku-vs-opus-result-1-with-a-clear-spec-haiku-scored-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-haiku-vs-opus-what-no-model-did-the-case-the-report-le-en.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ko/blog/claude-haiku-vs-opus</loc>
+    <lastmod>2026-10-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-haiku-vs-opus"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-haiku-vs-opus"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-haiku-vs-opus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-haiku-vs-opus"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-haiku-vs-opus-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-haiku-vs-opus-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-haiku-vs-opus-ko-3.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-haiku-vs-opus-ko-4.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/ja/blog/claude-haiku-vs-opus</loc>
+    <lastmod>2026-10-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-haiku-vs-opus"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-haiku-vs-opus"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/blog/claude-haiku-vs-opus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-haiku-vs-opus"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-haiku-vs-opus-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-haiku-vs-opus-ja-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-haiku-vs-opus-1-haiku-ja.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-haiku-vs-opus-ja-4.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens</loc>
     <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens"/>
@@ -3968,11 +4028,11 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-25</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-25</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/es/blog/</loc>

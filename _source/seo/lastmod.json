@@ -20,8 +20,8 @@
 "hash": "7f7d6ede9667cf71"
 },
 "https://tokensave.app/blog/": {
-"date": "2026-10-23",
-"hash": "5ef27bdbed5a0d74"
+"date": "2026-10-25",
+"hash": "cd1948644980671d"
 },
 "https://tokensave.app/blog/chatgpt-free-vs-paid": {
 "date": "2026-10-16",
@@ -66,6 +66,10 @@
 "https://tokensave.app/blog/claude-code-vs-codex-vs-cursor-cost": {
 "date": "2026-10-23",
 "hash": "60ae1e1f3c1e2eb6"
+},
+"https://tokensave.app/blog/claude-haiku-vs-opus": {
+"date": "2026-10-25",
+"hash": "8d1dec3fb514713c"
 },
 "https://tokensave.app/blog/claude-opus-5-5-effort": {
 "date": "2026-10-23",
@@ -436,8 +440,8 @@
 "hash": "4308ce63d59c7cc8"
 },
 "https://tokensave.app/ja/blog/": {
-"date": "2026-10-23",
-"hash": "abc2b6351bacacb4"
+"date": "2026-10-25",
+"hash": "40a6c6b54a23cd0e"
 },
 "https://tokensave.app/ja/blog/ai-game-tsukurikata": {
 "date": "2026-10-16",
@@ -478,6 +482,10 @@
 "https://tokensave.app/ja/blog/claude-code-tsukaikata": {
 "date": "2026-10-16",
 "hash": "a7bfee5687fc9c9a"
+},
+"https://tokensave.app/ja/blog/claude-haiku-vs-opus": {
+"date": "2026-10-25",
+"hash": "d07dc778190d463a"
 },
 "https://tokensave.app/ja/blog/claude-nihongo-token": {
 "date": "2026-10-16",
@@ -592,8 +600,8 @@
 "hash": "f2038735cefc768c"
 },
 "https://tokensave.app/ko/blog/": {
-"date": "2026-10-23",
-"hash": "45f034392ea1d28d"
+"date": "2026-10-25",
+"hash": "2a19635aae5fdd0b"
 },
 "https://tokensave.app/ko/blog/chatgpt-muryo-yuryo-chai": {
 "date": "2026-10-16",
@@ -638,6 +646,10 @@
 "https://tokensave.app/ko/blog/claude-code-yogeum": {
 "date": "2026-10-23",
 "hash": "35dd7364e7e26593"
+},
+"https://tokensave.app/ko/blog/claude-haiku-vs-opus": {
+"date": "2026-10-25",
+"hash": "5705523cf5dec282"
 },
 "https://tokensave.app/ko/blog/claude-hangugeo-token": {
 "date": "2026-10-19",

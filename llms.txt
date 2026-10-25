@@ -39,6 +39,7 @@ contact@jonhisking.com
 
 ## Latest articles (English; Korean, Japanese and other versions are linked from each page)
 
+- [Claude Haiku vs Opus for Coding: 330 Measured Runs](https://tokensave.app/blog/claude-haiku-vs-opus) (2026-10-25): Claude Haiku 5.5 vs Opus 5.5 in Claude Code, 330 runs: Haiku fixed 52 of 75 real bugs cleanly, Opus 54, at 95% less cost. Where Opus wins, and what none find.
 - [Claude Code Cache Lasts 1 Hour: What a Break Costs (Measured)](https://tokensave.app/blog/claude-code-cache-break-cost) (2026-10-20): We paused Claude Code 0 to 65 minutes: up to 55 minutes the next message cost the same; after 65 the cache expired and it cost 507% more. TTL rules and fixes.
 - [Claude Usage Limits 2026: 5-Hour and Weekly Resets Explained](https://tokensave.app/blog/claude-usage-limits) (2026-10-16): Claude has a 5-hour session limit and a weekly limit at the same time. When each resets, how to check usage, the new Reset for free button and usage credits.
 - [Nano Banana Pricing & Free Limits (2026)](https://tokensave.app/blog/nano-banana-pricing) (2026-10-15): Nano Banana API cost per image for 2.1, 2, Lite and Pro, Batch discounts, free Gemini app limits, and a free vs 2.1 vs Pro image test.
@@ -78,4 +79,3 @@ contact@jonhisking.com
 - [Same prompt, 41 languages: GPT token cost compared](https://tokensave.app/blog/token-cost-by-language) (2026-10-02): One prompt in 41 languages on GPT's o200k tokenizer: from 3% (Chinese) to 144% more tokens than English.
 - [Claude Code Pricing 2026: $20, $100 or $200 a Month, or the API](https://tokensave.app/blog/claude-code-cost-per-month) (2026-10-12): Claude Code costs $20 a month on Pro, $100 or $200 on Max, or pay per token on the API. Measured task costs, monthly cost by usage, and which to pick.
 - [Claude Code Usage Limits Explained: 5-Hour and Weekly Caps](https://tokensave.app/blog/claude-code-usage-limits) (2026-10-02): How Claude Code's 5-hour and weekly limits work on Pro and Max, what changed in 2026, how to check usage and what to do at the limit.
-- [How to Save Tokens in Claude Code (2026): 9 Habits That Work](https://tokensave.app/blog/claude-code-save-tokens) (2026-10-02): Why Claude Code uses so many tokens and 9 practical ways to cut them, from /clear and /compact to a shorter CLAUDE.md.
