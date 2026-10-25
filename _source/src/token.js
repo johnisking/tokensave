@@ -73,15 +73,25 @@ let enc = null;
 // =========================================================
 // 2) Load o200k tokenizer from CDN (non-blocking; heuristic until ready)
 // =========================================================
-(async () => {
-  try {
-    const mod = await import('https://cdn.jsdelivr.net/npm/js-tiktoken@1/+esm');
-    enc = mod.getEncoding('o200k_base');
-    update();
-  } catch (e) {
-    console.warn('js-tiktoken failed to load, using heuristic.', e);
-  }
-})();
+// Loaded on the first interaction (or at once for a shared link), not at page load: the tokenizer is several MB
+// and building it blocked the main thread for about 2 s on first paint (PageSpeed, 2026-10-25).
+let encLoading = null;
+function loadEnc() {
+  if (encLoading) return encLoading;
+  ['pointerdown', 'keydown', 'touchstart', 'focusin'].forEach(t => window.removeEventListener(t, loadEnc, true));
+  encLoading = (async () => {
+    try {
+      const mod = await import('https://cdn.jsdelivr.net/npm/js-tiktoken@1/+esm');
+      enc = mod.getEncoding('o200k_base');
+      update();
+    } catch (e) {
+      console.warn('js-tiktoken failed to load, using heuristic.', e);
+    }
+  })();
+  return encLoading;
+}
+['pointerdown', 'keydown', 'touchstart', 'focusin'].forEach(t => window.addEventListener(t, loadEnc, { capture: true, passive: true }));
+if (window.__share || /(^|[#&])t=/.test(location.hash)) loadEnc();
 
 // =========================================================
 // 3) Heuristic tokenizer (weighted by script)

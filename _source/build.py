@@ -347,7 +347,8 @@ def head_extras():
     out = [f'  <meta name="{k}" content="{esc(v)}" />' for k, v in VERIFY.items() if v]
     if ADSENSE_PUB:
         out.append(f'  <meta name="google-adsense-account" content="{ADSENSE_PUB}" />')
-        out.append(f'  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_PUB}" crossorigin="anonymous"></script>')
+        out.append('  <script>__late(function(){var s=document.createElement("script");s.async=true;s.crossOrigin="anonymous";'
+                   f's.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_PUB}";document.head.appendChild(s)}})</script>')
     return "\n".join(out)
 
 def faq_html(s):

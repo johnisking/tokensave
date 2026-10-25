@@ -6,11 +6,13 @@
   <script>/* shared text lives in the #fragment: take it out of the URL before any third-party script can read it */if(/[#&]t=/.test(location.hash)){window.__share=location.hash.slice(1);history.replaceState(null,"",location.pathname+location.search)}</script>
   <!-- Google Tag Manager (loaded after the line above, so a shared text in the #fragment never reaches it) -->
   <script>/* owner opt-out: open any page once with ?notrack=1 (undo with ?notrack=0) and this browser is never counted in analytics */var __nt=false;try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem('ts_notrack','1');if(/[?&]notrack=0/.test(location.search))localStorage.removeItem('ts_notrack');__nt=localStorage.getItem('ts_notrack')==='1'}catch(e){}
-  if(!__nt)(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  /* GTM and AdSense start after the page has loaded (or on the first tap/scroll/key), so they do not compete with the first paint */
+  window.__late=function(fn){var done=false,go=function(){if(done)return;done=true;fn()};['pointerdown','keydown','scroll','touchstart'].forEach(function(t){addEventListener(t,go,{once:true,passive:true})});if(document.readyState==='complete')setTimeout(go,1500);else addEventListener('load',function(){setTimeout(go,1500)})};
+  if(!__nt)__late(function(){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KCGSDH87');</script>
+  })(window,document,'script','dataLayer','GTM-KCGSDH87')});</script>
   <!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{title}}</title>
@@ -38,7 +40,8 @@
   <script type="application/ld+json">{{ldjson}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="/styles.css?v={{ver}}" />
 {{adsHead}}
   <!-- Cloudflare Web Analytics (cookieless). Only page views are sent — never what you type. -->
