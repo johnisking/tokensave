@@ -95,7 +95,7 @@ def guide_and_faq(tag, llm, spec=None):
     return guide, faq
 
 
-OPENAI_IDS = ["gpt-6-astra", "gpt-6-1-sol", "gpt-6-sol", "gpt-6-luna", "gpt-5-mini", "gpt-4o"]
+OPENAI_IDS = ["gpt-6-astra", "gpt-6-1-sol", "gpt-6-1-terra", "gpt-6-sol", "gpt-6-luna", "gpt-5-mini", "gpt-4o"]
 GEMINI_IDS = ["gemini-4-argon", "gemini-3-1-pro", "gemini-3-8-flash", "gemini-3-5-flash-lite", "gemini-3-1-flash-lite"]
 
 OPENAI_TXT = {"en": dict(

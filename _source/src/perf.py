@@ -16,7 +16,7 @@ CREDIT = ('Capability scores: <a href="https://epoch.ai/eci" rel="noopener" targ
           'by Epoch AI, used under <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a>.')
 
 ECI_MAP = {
-    "gpt-6-astra": r"GPT-6 Astra", "gpt-6-1-sol": r"GPT-6\.1 Sol", "gpt-6-sol": r"GPT-6 Sol", "gpt-6-luna": r"GPT-6 Luna",
+    "gpt-6-astra": r"GPT-6 Astra", "gpt-6-1-sol": r"GPT-6\.1 Sol", "gpt-6-1-terra": r"GPT-6\.1 Terra", "gpt-6-sol": r"GPT-6 Sol", "gpt-6-luna": r"GPT-6 Luna",
     "gpt-5-5": r"GPT-5\.5", "gpt-5-mini": r"GPT-5 mini", "gpt-5-nano": r"GPT-5 nano",
     "gpt-4-1": r"GPT-4\.1", "gpt-4-1-mini": r"GPT-4\.1 mini", "gpt-4o": r"GPT-4o( \([A-Za-z]+ \d{4}\))?", "gpt-4o-mini": r"GPT-4o mini",
     "claude-fable-5-1": r"Claude Fable 5\.1", "claude-opus-5-5": r"Claude Opus 5\.5",
