@@ -70,7 +70,7 @@ const TOOL_NAME = { claude: 'Claude Code', codex: 'Codex', cursor: 'Cursor' };
 
 // ---- OpenAI prices per 1M tokens for Codex: [input, cached input, cache write or null, output] (short context) ----
 const OP = {
-  'gpt-6-astra': [10, 1, 12.5, 50], 'gpt-6.1-sol': [2, 0.10, 2.5, 10], 'gpt-6-sol': [2, 0.20, 2.5, 10], 'gpt-6-luna': [0.10, 0.01, 0.125, 0.50],
+  'gpt-6-astra': [10, 1, 12.5, 50], 'gpt-6.1-sol': [2, 0.10, 2.5, 10], 'gpt-6.1-terra': [1, 0.05, 1.25, 5], 'gpt-6-sol': [2, 0.20, 2.5, 10], 'gpt-6-luna': [0.10, 0.01, 0.125, 0.50],
   'gpt-5.6-sol': [4, 0.40, 5, 20], 'gpt-5.6-terra': [2, 0.20, 2.5, 12], 'gpt-5.6-luna': [0.20, 0.02, 0.25, 1.20],
   'gpt-5.5': [5, 0.50, null, 30], 'gpt-5.4': [2.5, 0.25, null, 15], 'gpt-5.4-mini': [0.75, 0.075, null, 4.5], 'gpt-5.4-nano': [0.20, 0.02, null, 1.25],
   'gpt-5.3-codex': [1.75, 0.175, null, 14], 'gpt-5.2': [1.75, 0.175, null, 14], 'gpt-5.1': [1.25, 0.125, null, 10], 'gpt-5': [1.25, 0.125, null, 10],

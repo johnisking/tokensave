@@ -9,8 +9,8 @@ import { T, tr, fx } from './common.js';
 const PRICES = T.prices || {};
 const CACHE_RATE = 0.1;   // cached input billed at ~10% of the normal input price
 // Anthropic: cache reads on Opus 5.5 / Sonnet 5.5 are 0.05 of base input (platform.claude.com pricing, checked 2026-10-09)
-// OpenAI: GPT-6.1 Sol cached input is $0.10 on $2 (0.05); GPT-6 Sol, Astra and Luna are 0.1 (developers.openai.com pricing, checked 2026-10-14)
-const CACHE_RATE_BY = { 'claude-opus-5-5': 0.05, 'claude-sonnet-5-5': 0.05, 'gpt-6-1-sol': 0.05 };
+// OpenAI: GPT-6.1 Sol cached input is $0.10 on $2 (0.05), GPT-6.1 Terra $0.05 on $1 (0.05, checked 2026-10-27); GPT-6 Sol, Astra and Luna are 0.1 (developers.openai.com pricing, checked 2026-10-14)
+const CACHE_RATE_BY = { 'claude-opus-5-5': 0.05, 'claude-sonnet-5-5': 0.05, 'gpt-6-1-sol': 0.05, 'gpt-6-1-terra': 0.05 };
 // Long-prompt pricing: a request whose prompt is over `over` tokens is billed at these rates instead
 // (Claude Haiku 5.5: $0.10/$0.50 up to 100K, $0.50/$2.50 above; platform.claude.com pricing, checked 2026-10-14)
 const TIER = { 'claude-haiku-5-5': { over: 100000, in: 0.5, out: 2.5 } };
@@ -28,7 +28,7 @@ const GROUPS = [
     models: [['claude-sonnet-5-5', 'Claude Sonnet 5.5'], ['claude-opus-5-5', 'Claude Opus 5.5'], ['claude-haiku-5-5', 'Claude Haiku 5.5'], ['claude-haiku-4-5', 'Claude Haiku 4.5']],
     plans: [['Claude Pro', 20], ['Claude Max 5×', 100], ['Claude Max 20×', 200]] },
   { name: 'OpenAI', tool: 'Codex', main: 'gpt-6-1-sol',
-    models: [['gpt-6-1-sol', 'GPT-6.1 Sol'], ['gpt-6-sol', 'GPT-6 Sol'], ['gpt-6-astra', 'GPT-6 Astra'], ['gpt-6-luna', 'GPT-6 Luna']],
+    models: [['gpt-6-1-sol', 'GPT-6.1 Sol'], ['gpt-6-1-terra', 'GPT-6.1 Terra'], ['gpt-6-sol', 'GPT-6 Sol'], ['gpt-6-astra', 'GPT-6 Astra'], ['gpt-6-luna', 'GPT-6 Luna']],
     plans: [['ChatGPT Plus', 20], ['ChatGPT Pro 100', 100], ['ChatGPT Pro 200', 200], ['ChatGPT Pro 500', 500]] },
   { name: 'Gemini · DeepSeek · Grok', tool: 'Gemini CLI · Cline · Aider', main: 'gemini-3-1-pro',
     models: [['gemini-3-1-pro', 'Gemini 3.1 Pro'], ['gemini-4-argon', 'Gemini 4 Argon'], ['gemini-3-8-flash', 'Gemini 3.8 Flash'], ['deepseek-v4-pro', 'DeepSeek V4 Pro'], ['grok-code-fast-1', 'Grok Code Fast 1']],
