@@ -1013,3 +1013,11 @@ HAIKUOPUS = [
 ]
 for _b in HAIKUOPUS:
     _b["date"] = "2026-10-25"
+
+EDGECASE = [
+ _cc("ko", "/ko/blog/claude-code-edge-case-prompt", "edgecase-ko", "클로드 코드에 '엣지 케이스 챙겨' 한 줄, 비용만 134% 올랐다",
+     "클로드 코드 504회 실측: '엣지 케이스도 챙겨' 프롬프트와 effort high는 신고문에 없는 경우 통과율을 4점도 못 올렸고 1회 비용만 22~134% 올렸습니다. 하이쿠는 오퍼스보다 87% 싸게 비슷한 결과.",
+     "Jonhisking · 2026년 10월 30일", "하루 작업 수와 크기를 넣고 클로드 코드의 API 비용을 Pro·Max와 비교해 보세요.", "코딩 에이전트 비용 계산기 열기"),
+]
+for _b in EDGECASE:
+    _b["date"] = "2026-10-30"

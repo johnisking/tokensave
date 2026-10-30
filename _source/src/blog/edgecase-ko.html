@@ -1,0 +1,161 @@
+<p><img fetchpriority="high" width="1200" height="630" alt="클로드 코드에 엣지 케이스 프롬프트를 넣었을 때 통과율과 비용" src="/claude-edge-case-prompt-ko.jpg" /></p>
+<p>클로드 코드로 버그를 고칠 때 이런 말을 붙이는 사람이 많습니다. "엣지 케이스도 다 챙겨 줘." "테스트부터 먼저 써." 아니면 effort를 high로 올립니다. 더 꼼꼼하게 시키면 더 꼼꼼하게 고칠 거라고 믿기 때문입니다.</p>
+<p>504번 돌려 봤습니다. 결과는 단순합니다. 통과율은 그대로였고 비용만 올랐습니다. 하이쿠 5.5는 엣지 케이스 프롬프트에 "기존 테스트부터 읽어"를 더하자 1회 비용이 134% 올랐습니다. 오퍼스 5.5는 엣지 케이스 프롬프트만으로 60% 올랐습니다. 그런데 버그 신고문이 빠뜨린 경우를 통과한 비율은 어느 쪽도 4점 넘게 움직이지 않았습니다.</p>
+<p>이 글의 숫자는 모두 직접 잰 값입니다. 원자료와 측정 방법은 <a href="/data/claude-edge-case-prompts">데이터 페이지</a>에 공개했습니다.</p>
+<h2>무엇을 쟀나</h2>
+<p>지난번 실측에서 이상한 점을 하나 발견했습니다. 실제 버그 25개를 하이쿠와 소넷과 오퍼스에게 고치게 했더니 신고문에 없는 경우는 세 모델 모두 똑같이 놓쳤습니다. 큰 모델에 돈을 더 내도 소용이 없었습니다. 자세한 내용은 <a href="/ko/blog/claude-haiku-vs-opus">클로드 하이쿠 vs 오퍼스 코딩 비교</a>에 있습니다.</p>
+<p>그렇다면 모델 대신 시키는 말을 바꾸면 어떨까. 이번에는 이걸 쟀습니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>조건</th>
+<th>바꾼 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>기본</td>
+<td>증상과 재현 방법만 남긴 버그 신고문, effort medium</td>
+</tr>
+<tr>
+<td>effort high</td>
+<td>같은 신고문, effort만 high</td>
+</tr>
+<tr>
+<td>엣지 케이스 프롬프트</td>
+<td>신고문 뒤에 "고치기 전에 이 신고문이 말하지 않았지만 같이 처리해야 할 입력과 변형을 적어라. 그 테스트를 먼저 쓰고 고쳐라"를 붙임</td>
+</tr>
+<tr>
+<td>엣지 케이스 + 테스트 읽기</td>
+<td>위 문장에 "고칠 코드의 기존 테스트부터 읽어라"를 더함</td>
+</tr>
+</tbody>
+</table></div>
+<p>버그는 2026년 8~10월에 실제로 고쳐진 21개입니다. cachetools, zod, marked, js-yaml, anyio, undici, fastify 같은 12개 오픈소스 프로젝트에서 골랐습니다. 하이쿠 5.5와 오퍼스 5.5로 조건마다 3번씩 돌려서 모두 504번입니다. 클로드 코드 2.1.295로 윈도우 노트북 한 대에서 10월 25~29일에 실행했습니다.</p>
+<p>채점은 그 버그를 고친 관리자들이 넣은 테스트로 했습니다. 테스트 사례 하나하나를 "신고문에 나온 경우"와 "신고문에 없는 경우"로 미리 나눴습니다. 이 구분과 판정 기준은 첫 실행 전에 <a href="https://github.com/johnisking/token-cost-by-language/blob/main/claude-report-edge-cases/PREREG.md" target="_blank" rel="noopener">사전 등록</a>으로 공개해 뒀습니다. 결과를 보고 기준을 바꾸지 않으려고요. 효과로 인정하는 기준은 기본 조건보다 20점 이상 높고 통계적으로도 확실한 경우였습니다.</p>
+<h2>결과: 통과율은 제자리</h2>
+<p><img loading="lazy" width="1200" height="630" alt="조건별 신고문에 없는 경우 통과율: 하이쿠와 오퍼스" src="/claude-edge-case-prompt-ko-2.jpg" /></p>
+<p>신고문에 없는 테스트 사례를 통과한 비율입니다. 버그마다 평균을 낸 값입니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>조건</th>
+<th style="text-align: right;">하이쿠 5.5</th>
+<th style="text-align: right;">오퍼스 5.5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>기본</td>
+<td style="text-align: right;">84%</td>
+<td style="text-align: right;">88%</td>
+</tr>
+<tr>
+<td>effort high</td>
+<td style="text-align: right;">82%</td>
+<td style="text-align: right;">86%</td>
+</tr>
+<tr>
+<td>엣지 케이스 프롬프트</td>
+<td style="text-align: right;">84%</td>
+<td style="text-align: right;">91%</td>
+</tr>
+<tr>
+<td>엣지 케이스 + 테스트 읽기</td>
+<td style="text-align: right;">86%</td>
+<td style="text-align: right;">84%</td>
+</tr>
+</tbody>
+</table></div>
+<p>가장 크게 움직인 것이 오퍼스 엣지 케이스 프롬프트의 3점입니다. 하이쿠는 테스트 읽기를 더했을 때 2점 올랐습니다. 사전에 정한 20점에는 어느 것도 근처에도 가지 못했습니다. effort high는 두 모델 모두 오히려 조금 떨어졌습니다.</p>
+<p>관리자 테스트를 모두 통과하고 다른 테스트도 깨뜨리지 않은 "깔끔한 수정"도 거의 같았습니다. 63번 중 하이쿠는 34, 33, 36, 37번이었고 오퍼스는 38, 38, 39, 37번이었습니다.</p>
+<h2>비용은 확실하게 올랐다</h2>
+<p><img loading="lazy" width="1200" height="630" alt="조건별 1회 API 비용: 하이쿠와 오퍼스" src="/claude-edge-case-prompt-ko-3.jpg" /></p>
+<p>통과율과 달리 비용은 분명하게 움직였습니다. 클로드 코드가 실행마다 알려 주는 API 정가 환산 금액입니다.</p>
+<div class="overflow-x-auto"><table>
+<thead>
+<tr>
+<th>조건</th>
+<th style="text-align: right;">하이쿠 1회</th>
+<th style="text-align: right;">기본 대비</th>
+<th style="text-align: right;">오퍼스 1회</th>
+<th style="text-align: right;">기본 대비</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>기본</td>
+<td style="text-align: right;">$0.050</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">$0.51</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr>
+<td>effort high</td>
+<td style="text-align: right;">$0.081</td>
+<td style="text-align: right;">+60%</td>
+<td style="text-align: right;">$0.62</td>
+<td style="text-align: right;">+22%</td>
+</tr>
+<tr>
+<td>엣지 케이스 프롬프트</td>
+<td style="text-align: right;">$0.10</td>
+<td style="text-align: right;">+108%</td>
+<td style="text-align: right;">$0.82</td>
+<td style="text-align: right;">+60%</td>
+</tr>
+<tr>
+<td>엣지 케이스 + 테스트 읽기</td>
+<td style="text-align: right;">$0.12</td>
+<td style="text-align: right;">+134%</td>
+<td style="text-align: right;">$0.81</td>
+<td style="text-align: right;">+58%</td>
+</tr>
+</tbody>
+</table></div>
+<p>시간도 늘었습니다. 1회 실행 시간의 중앙값이 하이쿠는 121초에서 299초로, 오퍼스는 120초에서 271초로 두 배 넘게 길어졌습니다. 모델이 시킨 대로 경우를 나열하고 테스트를 쓰느라 일을 많이 한 겁니다. 문제는 그 일이 결과로 이어지지 않았다는 점입니다.</p>
+<h2>왜 효과가 없었나</h2>
+<p>버그별로 보면 이유가 보입니다. 결과를 가른 건 프롬프트가 아니라 버그였습니다.</p>
+<ul>
+<li><strong>쉬운 버그는 시키지 않아도 챙겼습니다.</strong> 21개 중 12개는 두 모델이 어느 조건에서든 신고문에 없는 경우까지 모두 통과했습니다. 올라갈 자리가 없었습니다.</li>
+<li><strong>어려운 버그는 시켜도 못 챙겼습니다.</strong> js-yaml에서 여러 문서가 이어진 스트림의 문서마다 BOM이 붙는 경우는 504번 중 한 번도 통과하지 못했습니다. 신고문은 파일 맨 앞의 BOM만 말했습니다. "말하지 않은 변형을 적어라"라고 시켜도 모델은 그 변형을 떠올리지 못했습니다.</li>
+<li><strong>중간 난이도에서는 들쭉날쭉했습니다.</strong> marked의 링크 안 링크 버그에서 오퍼스는 조건에 따라 3번 중 2번, 0번, 3번, 1번을 통과했습니다. 3번씩 돌린 것으로는 운과 효과를 가를 수 없는 수준입니다.</li>
+</ul>
+<p>딱 한 곳에서 효과처럼 보이는 숫자가 있었습니다. 지난번에 썼던 어려운 버그 8개만 보면 오퍼스는 엣지 케이스 프롬프트로 74%에서 83%로 올랐습니다. 그런데 같은 오퍼스에 테스트 읽기를 더하자 75%로 돌아갔습니다. 시키는 말을 더 했는데 결과가 나빠진 겁니다. 이건 효과라기보다 우연으로 봅니다.</p>
+<p>오히려 테스트 읽기가 해가 된 경우도 있었습니다. Python-Markdown의 백틱 버그에서 오퍼스는 기본 조건에서 3번 중 2번 통과했는데 테스트 읽기를 시키자 3번 모두 실패했습니다.</p>
+<h2>하이쿠와 오퍼스, 그리고 돈</h2>
+<p>이번에도 하이쿠의 가성비가 두드러졌습니다. 252번씩 돌린 전체 평균으로 1회 비용은 하이쿠 $0.088, 오퍼스 $0.69였습니다. 하이쿠가 87% 쌉니다. 깔끔한 수정은 하이쿠 140번, 오퍼스 152번이었습니다.</p>
+<p>그렇다고 오퍼스가 쓸모없다는 뜻은 아닙니다. 오퍼스는 대부분의 조건에서 몇 점 앞섰고 다른 테스트를 깨뜨린 실행도 적었습니다. 하이쿠는 조건마다 9, 8, 7, 5번이었고 오퍼스는 5, 3, 6, 4번이었습니다. 여러 곳을 함께 고쳐야 하는 큰 코드베이스라면 오퍼스 값을 합니다.</p>
+<p>정리하면 돈을 아끼는 순서는 이렇습니다. 프롬프트에 꼼꼼하게를 붙이는 돈이 제일 아깝습니다. 그다음이 effort high입니다. 모델을 고르는 돈은 어려운 버그에서만 값을 합니다. 내 작업량으로 한 달에 얼마가 드는지는 <a href="/ko/agents">코딩 에이전트 비용 계산기</a>에서 바로 계산해 볼 수 있습니다.</p>
+<h2>그럼 엣지 케이스는 어떻게 챙기나</h2>
+<p>이번 데이터가 말하는 건 "모델에게 알아서 찾으라고 시켜도 안 찾는다"입니다. 그래서 방향을 바꿔야 합니다.</p>
+<ul>
+<li><strong>빠진 경우를 직접 예시로 주세요.</strong> "엣지 케이스 챙겨" 대신 "여러 문서가 이어진 스트림에서도 확인해"처럼 구체적인 입력을 적으면 그건 모델이 처리합니다. 신고문에 나온 경우는 두 모델 모두 거의 다 통과했습니다.</li>
+<li><strong>effort는 기본으로 두세요.</strong> 이번 버그 고치기에서 effort high는 비용만 올렸습니다. effort별 토큰과 시간은 <a href="/data/claude-effort-cost">effort 실측 데이터</a>에 따로 정리했습니다.</li>
+<li><strong>어려운 버그는 사람이 검토하세요.</strong> 원인이 여러 곳에 퍼진 버그에서는 어떤 모델과 프롬프트 조합도 빠진 경우를 안정적으로 찾지 못했습니다.</li>
+</ul>
+<h2>이 결과의 한계</h2>
+<ul>
+<li>버그 21개, 조건마다 3번입니다. 20점짜리 효과는 없다고 말할 수 있지만 몇 점짜리 작은 효과까지 없다고는 못 합니다.</li>
+<li>프롬프트 문장은 조건마다 하나만 써 봤습니다. 다른 문장이나 다른 에이전트라면 결과가 다를 수 있습니다.</li>
+<li>새 버그 상당수가 쉬워서 올라갈 여지가 처음부터 적었습니다. 아주 어려운 버그에 대해서는 이번 데이터가 말해 주는 게 적습니다.</li>
+<li>실험 도중 클라우드 작업 공간이 초기화돼 채점 환경을 다시 만들었습니다. 초기화 전에 채점한 하이쿠 228번을 다시 채점해 같은 숫자가 나오는 것을 확인했습니다.</li>
+</ul>
+<h2>자주 묻는 질문</h2>
+<p><strong>클로드 코드 effort를 high로 올리면 버그를 더 잘 고치나요?</strong>
+이번 실측에서는 아니었습니다. 신고문에 없는 경우 통과율이 하이쿠 84%에서 82%로, 오퍼스 88%에서 86%로 오히려 조금 떨어졌고 비용은 하이쿠 60%, 오퍼스 22% 올랐습니다.</p>
+<p><strong>"엣지 케이스도 챙겨"라고 쓰면 손해인가요?</strong>
+결과는 거의 그대로인데 비용이 60~134% 오르고 시간이 두 배 넘게 걸렸습니다. 그 문장 대신 챙길 경우를 구체적으로 적는 편이 낫습니다.</p>
+<p><strong>하이쿠로 충분한가요?</strong>
+이번 21개 버그에서는 하이쿠가 오퍼스보다 몇 점 낮았지만 비용은 87% 적었습니다. 쉬운 버그는 하이쿠로 충분했고 다른 테스트를 깨뜨리면 곤란한 큰 작업에서는 오퍼스가 더 안전했습니다.</p>
+<p><strong>데이터를 직접 볼 수 있나요?</strong>
+504번의 실행별 점수와 비용과 시간을 CSV와 JSON으로 <a href="/data/claude-edge-case-prompts">데이터 페이지</a>에 공개했습니다. 채점 코드도 <a href="https://github.com/johnisking/token-cost-by-language/tree/ds26-scoring/claude-report-edge-cases" target="_blank" rel="noopener">GitHub</a>에 있습니다. CC BY 4.0이라 출처만 밝히면 자유롭게 쓸 수 있습니다.</p>
+<h2>결론</h2>
+<p>"엣지 케이스도 챙겨"는 이번 실측에서 효과가 없었고 비용만 올렸습니다. effort high도 마찬가지였습니다. 결과를 가른 건 프롬프트가 아니라 버그의 난이도였습니다. 쉬운 버그는 시키지 않아도 챙겼고 어려운 버그는 시켜도 못 챙겼습니다. 꼼꼼하게 시키는 데 돈을 쓰기보다 빠진 경우를 직접 알려 주고 어려운 버그는 사람이 검토하는 쪽이 싸고 확실합니다.</p>
+<h2>출처</h2>
+<ul>
+<li><a href="/data/claude-edge-case-prompts">TokenSave 데이터: Claude 엣지 케이스 프롬프트와 effort, 504회</a> (2026년 10월 측정)</li>
+<li><a href="https://github.com/johnisking/token-cost-by-language/blob/main/claude-report-edge-cases/PREREG.md" target="_blank" rel="noopener">사전 등록 문서 PREREG.md</a></li>
+<li><a href="https://docs.claude.com/en/docs/claude-code/model-config" target="_blank" rel="noopener">Claude Code 모델 설정 문서 (effort)</a></li>
+<li><a href="/data/claude-haiku-vs-opus-real-bugs">TokenSave 데이터: 실제 버그 25개로 본 하이쿠 vs 오퍼스</a></li>
+</ul>

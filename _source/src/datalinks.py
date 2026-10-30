@@ -34,6 +34,7 @@ DATASETS = [
     ("/data/blender-mcp-token-cost", "Blender MCP token cost: 72 runs", "blender mcp 3d game scene 블렌더"),
     ("/data/output-tokens-per-character-by-model", "Output tokens per character by model", "output tokens gpt gemini claude code 출력"),
     ("/data/ai-coding-limit-line", "Where Claude Haiku falls behind Opus", "haiku opus limit coding bug test 하이쿠 오퍼스 한도 limit usage"),
+    ("/data/claude-edge-case-prompts", "Edge-case prompts and effort: 504 Claude runs", "edge case effort prompt haiku opus bug test 엣지 effort プロンプト"),
     ("/data/claude-haiku-vs-opus-real-bugs", "Haiku vs Sonnet vs Opus on 25 real bugs", "haiku sonnet opus bug fix coding model 버그 하이쿠 오퍼스 バグ"),
 ]
 HEAD = {"en": "Measured data", "ko": "직접 잰 데이터 (영문)", "ja": "実測データ（英語）"}
@@ -75,7 +76,7 @@ CLUSTERS = [
     ["language-tax-index", "token-cost-by-language-claude-gemini", "token-cost-by-language", "ai-coding-prompt-language", "claude-web-search-by-language", "ai-politeness-token-cost"],
     ["token-cost-by-format", "image-token-cost", "pdf-token-cost", "token-cost-by-programming-language", "text-as-image-token-cost"],
     ["claude-code-vs-codex-tokens", "antigravity-cli-vs-claude-code-vs-codex", "claude-code-harness-cost", "claude-code-baseline-tokens-by-version", "claude-md-agents-md-size", "ai-agent-web-search-tokens", "browser-mcp-token-cost", "blender-mcp-token-cost"],
-    ["claude-effort-cost", "vibe-coding-by-claude-model", "ai-coding-limit-line", "claude-haiku-vs-opus-real-bugs", "output-tokens-per-character-by-model"],
+    ["claude-effort-cost", "vibe-coding-by-claude-model", "ai-coding-limit-line", "claude-haiku-vs-opus-real-bugs", "claude-edge-case-prompts", "output-tokens-per-character-by-model"],
     ["long-chat-vs-new-chat-cost", "ai-coffee-break-cache-cost", "claude-code-harness-cost", "claude-md-agents-md-size"],
 ]
 TITLE = {p: t for p, t, _ in DATASETS}
