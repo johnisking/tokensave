@@ -72,6 +72,7 @@ def write_files(dist):
     write_lgo_files(dist)
     write_lim_files(dist)
     write_bug_files(dist)
+    write_edg_files(dist)
 
 
 def _write_lang_files(dist):
@@ -284,6 +285,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{BUG_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(BUG_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">225 Claude Code runs on 25 real bugs from 13 open-source projects, scored by the maintainers' tests: Haiku 5.5 fixed as many cleanly as Opus at about 95% less cost; Opus broke other tests less often on the hard bugs, and no model found the cases a bug report left out. CSV · measured {BUG_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{EDG_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(EDG_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">504 pre-registered Claude Code runs on 21 real bugs: an edge-case prompt or effort high did not make Haiku 5.5 or Opus 5.5 pass more of the cases a bug report left out, but raised the cost per run by up to 134%. CSV · measured {EDG_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -3859,3 +3863,132 @@ def add_cta(path, body):
         return body
     j += len('</div>') + 1
     return body[:j] + box + body[j:]
+
+
+# ---- dataset 26: edge-case prompts and effort (2026-10-30) ----
+EDG_PATH = "/data/claude-edge-case-prompts"
+EDG_MEASURED = "2026-10-29"
+EDG_CHART = "/claude-edge-case-prompts-chart.png"
+EDG_DOI = ""
+EDG_MIRRORS = [("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-report-edge-cases")]
+EDG_TITLE = "Raising effort didn't catch more edge cases, and Haiku got nearly the same result for 87% less: 504 Claude Code runs on 21 real bugs"
+EDG_DESC = ("Dataset: 504 Claude Code runs on 21 real bugs, Haiku 5.5 and Opus 5.5, four conditions (baseline, effort high, an edge-case prompt, edge-case prompt plus reading the tests). "
+            "Scored on the maintainer test cases the bug report left out. No condition moved the pass rate by more than 4 points; the edge-case prompt raised cost by 60% to 134%. Free CSV, CC BY 4.0.")
+EDG_M = [("claude-haiku-5-5", "Haiku 5.5"), ("claude-opus-5-5", "Opus 5.5")]
+EDG_C = [("C0", "Baseline"), ("C1", "Effort high"), ("C2", "Edge-case prompt"), ("C3", "Edge-case prompt + read tests")]
+
+
+def _edgd():
+    return json.load(open(os.path.join(ROOT, "blog_data", "edgecases", "dataset", "claude-edge-case-prompts.json"), encoding="utf-8"))
+
+
+def edg_citation():
+    if EDG_DOI:
+        return f"TokenSave (2026). {EDG_TITLE} [Data set]. Zenodo. https://doi.org/{EDG_DOI}"
+    return f"TokenSave (2026). {EDG_TITLE} [Data set]. {BASE}{EDG_PATH}"
+
+
+def write_edg_files(dist):
+    for ext in ("csv", "json"):
+        src = os.path.join(ROOT, "blog_data", "edgecases", "dataset", "claude-edge-case-prompts." + ext)
+        open(os.path.join(dist, "data", "claude-edge-case-prompts." + ext), "w", encoding="utf-8", newline="").write(open(src, encoding="utf-8").read())
+
+
+def edg_ld():
+    return _dataset_ld(EDG_TITLE, EDG_DESC, EDG_PATH, EDG_MEASURED,
+                       ["Claude Code effort", "edge cases", "prompt engineering", "Claude Haiku vs Opus", "AI bug fixing benchmark", "real-world bugs", "AI coding cost"],
+                       ["unreported test cases passed", "clean fix", "tests broken", "API cost", "seconds", "output tokens"],
+                       "Headless Claude Code runs from the commit before each upstream fix with a symptom-only bug report, in four pre-registered conditions; only the run's source changes are kept and scored by the maintainers' tests, split into cases the report shows and cases it leaves out",
+                       EDG_CHART, [("claude-edge-case-prompts.csv", "text/csv"), ("claude-edge-case-prompts.json", "application/json")],
+                       doi=EDG_DOI or None, mirrors=EDG_MIRRORS)
+
+
+def edg_html():
+    D = _edgd(); R = D["runs"]; ST = D["stats"]; S = ST["all"]; T = D["totals"]
+    pc = lambda v: f"{round(v * 100)}%"
+    usd = lambda v: "$%.3f" % v if v < 0.1 else "$%.2f" % v
+    pt = lambda v: "0" if round(v * 100) == 0 else f"{round(v * 100):+d}".replace("-", "&minus;")
+    ci = lambda x: f'{pt(x["diff_vs_C0_ci95_bug_bootstrap"][0])} to {pt(x["diff_vs_C0_ci95_bug_bootstrap"][1])}'
+    h, o = (m for m, _ in EDG_M)
+    save = round((1 - T[h]["mean_cost_usd"] / T[o]["mean_cost_usd"]) * 100)
+    dmax = max(abs(S[m][c]["diff_vs_C0"]) for m, _ in EDG_M for c, _ in EDG_C[1:])
+    up = lambda m, c: round(S[m][c]["cost_change_vs_C0"] * 100)
+    lead = (f'<strong>Telling Claude to think about the cases a bug report leaves out, or raising effort to high, did not make it pass more of those cases.</strong> '
+            f'Across 504 Claude Code runs on 21 real bugs, no condition moved the share of unreported maintainer test cases passed by more than {round(dmax * 100)} points '
+            f'(pre-registered threshold: 20). The edge-case prompt did raise the cost per run, by {up(o, "C2")}% for Opus and {up(h, "C3")}% for Haiku with the test-reading line. '
+            f'Haiku 5.5 passed {pc(S[h]["C0"]["unreported_pass_rate"])} of the unreported cases against Opus&rsquo;s {pc(S[o]["C0"]["unreported_pass_rate"])} at about {save}% less cost per run.')
+    li = [
+        '<li><strong>The prompt and effort did not help.</strong> Share of unreported cases passed (mean per bug), baseline / effort high / edge-case prompt / edge-case prompt + read tests: '
+        + "; ".join(f'{lab} ' + " / ".join(pc(S[m][c]["unreported_pass_rate"]) for c, _ in EDG_C) for m, lab in EDG_M) + '. '
+        f'The 95% intervals from resampling bugs: Haiku effort high {ci(S[h]["C1"])} points, edge-case prompt {ci(S[h]["C2"])}, with test reading {ci(S[h]["C3"])}; '
+        f'Opus {ci(S[o]["C1"])}, {ci(S[o]["C2"])} and {ci(S[o]["C3"])}. None reaches the 20-point threshold set before the runs; small effects of a few points cannot be ruled out.</li>',
+        f'<li><strong>But they cost more.</strong> Mean API cost per run, same order: Haiku ' + " / ".join(usd(S[h][c]["mean_cost_usd"]) for c, _ in EDG_C)
+        + f' (up to +{up(h, "C3")}%); Opus ' + " / ".join(usd(S[o][c]["mean_cost_usd"]) for c, _ in EDG_C) + f' (up to +{up(o, "C2")}%). '
+        f'Effort high alone added {up(h, "C1")}% for Haiku and {up(o, "C1")}% for Opus. Median time per run more than doubled with the edge-case prompt: Haiku {S[h]["C0"]["median_seconds"]}s to {S[h]["C2"]["median_seconds"]}s, Opus {S[o]["C0"]["median_seconds"]}s to {S[o]["C2"]["median_seconds"]}s.</li>',
+        '<li><strong>Clean fixes barely moved.</strong> Runs where every maintainer case passed and nothing else broke, out of 63 per cell: Haiku '
+        + ", ".join(str(S[h][c]["clean_fix"]) for c, _ in EDG_C) + '; Opus ' + ", ".join(str(S[o][c]["clean_fix"]) for c, _ in EDG_C)
+        + '. Runs that broke other maintainer tests: Haiku ' + ", ".join(str(S[h][c]["runs_with_broken_tests"]) for c, _ in EDG_C)
+        + '; Opus ' + ", ".join(str(S[o][c]["runs_with_broken_tests"]) for c, _ in EDG_C) + '.</li>',
+        f'<li><strong>Haiku against Opus.</strong> Over all 252 runs each, Haiku cost {usd(T[h]["mean_cost_usd"])} per run and Opus {usd(T[o]["mean_cost_usd"])}; clean fixes {T[h]["clean_fix"]} and {T[o]["clean_fix"]}. '
+        'Opus was ahead by a few points in most cells and broke other tests in fewer runs; Haiku did it for about 13% of the cost.</li>',
+        f'<li><strong>The one hint of an effect:</strong> on the 8 harder bugs carried over from <a href="{BUG_PATH}">dataset 25</a>, Opus with the edge-case prompt passed {pc(ST["K"][o]["C2"]["unreported_pass_rate"])} of unreported cases against {pc(ST["K"][o]["C0"]["unreported_pass_rate"])} at baseline '
+        f'(interval {ci(ST["K"][o]["C2"])} points). Adding &ldquo;read the existing tests first&rdquo; took it back to {pc(ST["K"][o]["C3"]["unreported_pass_rate"])}. We read this as noise until it repeats.</li>',
+        '<li><strong>What decided the result was the bug, not the prompt.</strong> On a js-yaml bug (a BOM before every document in a stream) no run in any condition passed the unreported case. On 12 of the 21 bugs every condition passed every unreported case for both models. '
+        'Most of the movement came from a few bugs: a zod JSON Schema bug, where Haiku rose from 73% to 89% with the edge-case prompt and test reading, and a marked nested-link bug, where Opus went 2, 0, 3 and 1 out of 3 across the four conditions.</li>',
+        '<li><strong>Test reading sometimes hurt.</strong> With &ldquo;read the existing tests first&rdquo;, Opus failed the unreported case on a Python-Markdown backtick bug in all 3 runs (2 of 3 passed at baseline) and missed one on a cachetools mock bug it otherwise always passed.</li>',
+    ]
+    th = ['<th>Project · bug</th>', '<th class="text-right">Cases R/U</th>'] + [f'<th class="text-right">{ml} {c}</th>' for m, ml in EDG_M for c, _ in EDG_C]
+    rows = []
+    for grp, glab in (("K", "Carried over from dataset 25 (8 bugs)"), ("N", "New bugs (8)"), ("H", "New hard bugs: several files, concurrency or caching (5)")):
+        rows.append(f'          <tr><td colspan="10" class="text-zinc-400 text-xs uppercase tracking-wide pt-4">{glab}</td></tr>')
+        for b in sorted([b for b, v in D["bugs"].items() if v["group"] == grp], key=lambda b: (D["bugs"][b]["project"].lower(), b)):
+            v = D["bugs"][b]; pb = D["per_bug"][b]
+            cell = lambda x: "&ndash;" if x["unreported_pass_rate"] is None else pc(x["unreported_pass_rate"])
+            rows.append(f'          <tr><td><a href="{v["repo"]}">{esc(v["project"])}</a> · {esc(v["title"])}</td><td class="text-right tabular-nums">{v["reported_cases"]}/{v["unreported_cases"]}</td>'
+                        + "".join(f'<td class="text-right tabular-nums">{cell(pb[m][c])}</td>' for m, _ in EDG_M for c, _ in EDG_C) + '</tr>')
+    sh = ['<th>Model · condition</th>', '<th class="text-right">Unreported passed</th>', '<th class="text-right">Unreported targets</th>', '<th class="text-right">vs baseline, 95% interval</th>',
+          '<th class="text-right">Clean fix</th>', '<th class="text-right">Broke tests</th>', '<th class="text-right">Cost/run</th>', '<th class="text-right">Median s</th>']
+    srows = []
+    for m, ml in EDG_M:
+        for c, cl in EDG_C:
+            x = S[m][c]
+            d = f'{pt(x["diff_vs_C0"])} ({ci(x)})' if c != "C0" else "&ndash;"
+            srows.append(f'          <tr><td>{ml} · {cl}</td><td class="text-right tabular-nums">{pc(x["unreported_pass_rate"])}</td><td class="text-right tabular-nums">{pc(x["unreported_target_pass_rate"])}</td>'
+                         f'<td class="text-right tabular-nums whitespace-nowrap">{d}</td><td class="text-right tabular-nums">{x["clean_fix"]}/{x["runs"]}</td><td class="text-right tabular-nums">{x["runs_with_broken_tests"]}</td>'
+                         f'<td class="text-right tabular-nums">{usd(x["mean_cost_usd"])}</td><td class="text-right tabular-nums">{x["median_seconds"]}</td></tr>')
+    body = ('      <h2>Key findings</h2>\n      <ul>\n' + "\n".join("        " + x for x in li) + '\n      </ul>\n'
+            '      <h2>Totals by model and condition</h2>\n'
+            '      <p class="text-sm text-zinc-400">Unreported passed = share of the maintainer test cases the bug report does not show, averaged per bug (the pre-registered primary outcome). It includes cases that already pass before the fix, which a careless fix can break. Unreported targets = only the unreported cases that fail before the fix. Interval: 95%, from resampling whole bugs.</p>\n'
+            + _table(sh, chr(10).join(srows)) +
+            '      <h2>Bug by bug: unreported cases passed</h2>\n'
+            '      <p class="text-sm text-zinc-400">C0 baseline, C1 effort high, C2 edge-case prompt, C3 edge-case prompt + read tests. 3 runs per cell. Cases R/U = test cases the report shows / leaves out.</p>\n'
+            + _table(th, chr(10).join(rows)) +
+            '      <h2>The four conditions</h2>\n      <ul>\n'
+            '        <li><strong>Baseline:</strong> the bug report cut down to symptom, reproduction and expected result, effort medium. Same prompts as dataset 25 for the 8 carried-over bugs.</li>\n'
+            '        <li><strong>Effort high:</strong> the same prompt with <code>--effort high</code>.</li>\n'
+            '        <li><strong>Edge-case prompt:</strong> the report plus &ldquo;Before changing code, list the inputs and variants this report does not mention but the fix must also handle. Write tests for them first, then fix.&rdquo;</li>\n'
+            '        <li><strong>Edge-case prompt + read tests:</strong> the above plus &ldquo;Read the existing tests for the code you change before you start.&rdquo;</li>\n'
+            '      </ul>\n'
+            '      <h2>Method</h2>\n      <ul>\n'
+            '        <li><strong>Pre-registered</strong> on 2026-10-25 before any run, with four dated amendments, all before the first run: <a href="https://github.com/johnisking/token-cost-by-language/blob/main/claude-report-edge-cases/PREREG.md">PREREG.md</a>. The case labels (reported or not) and the check files were frozen with sha256 hashes.</li>\n'
+            '        <li><strong>Bugs:</strong> 21 bugs fixed upstream between August and October 2026 in cachetools, Python-Markdown, anyio, python-dateutil, zod, fastify, p-queue, undici, js-yaml, marked, qs and tomlkit. Each has at least one maintainer test case the report does not show. Parent and fix commits are in the CSV.</li>\n'
+            '        <li><strong>Agent:</strong> Claude Code 2.1.295 on one Windows 11 laptop, headless (<code>-p</code>), acceptEdits, the project&rsquo;s own tests allowed, package installs and network denied. 3 runs per bug, model and condition, each from a fresh copy.</li>\n'
+            '        <li><strong>Scoring:</strong> only the run&rsquo;s changes to library source were kept; tests it wrote were dropped. The maintainers&rsquo; tests for the fix were run 5 times before and after the fix, and any test that changed between repeats was dropped. Each remaining test case was labelled reported or unreported before any run.</li>\n'
+            '        <li><strong>Cost</strong> is Claude Code&rsquo;s own per-run figure at API prices; the runs were made on a subscription.</li>\n'
+            '      </ul>\n      <h2>Limitations</h2>\n      <ul>\n'
+            '        <li>Many new bugs were easy for both models: 12 of 21 bugs had every unreported case passed in every condition. That leaves little room for a prompt to help, so the result applies to bugs like these and says less about very hard ones.</li>\n'
+            '        <li>3 runs per cell and 21 bugs. Effects of a few points cannot be ruled out; effects of 20 points can.</li>\n'
+            '        <li>One prompt wording per condition. A different wording, or a different agent, might do better.</li>\n'
+            '        <li>The anyio bugs were scored on Windows and the rest on Linux, with the same scorer and the same pre-fix test baseline method.</li>\n'
+            '        <li>The scoring setup was rebuilt from the published code after our cloud workspace was reset; re-scoring the 228 Haiku runs scored before the reset gave identical numbers.</li>\n'
+            '        <li>The projects are public, so the models may have seen similar code. All fixes are from August to October 2026.</li>\n'
+            '      </ul>\n')
+    return (_head(esc(EDG_TITLE), lead,
+                  f'Measured {EDG_MEASURED} · {len(R)} runs · 21 bugs · 12 projects · Claude Code 2.1.295 · License <a href="{LICENSE}">CC BY 4.0</a>',
+                  [("claude-edge-case-prompts.csv", "CSV"), ("claude-edge-case-prompts.json", "JSON")],
+                  EDG_CHART, "Bar charts: share of unreported test cases passed and API cost per run for Claude Haiku 5.5 and Opus 5.5 under four conditions", doi=EDG_DOI or None, mirrors=EDG_MIRRORS)
+            + body + _page_tail(edg_citation(), _embed(EDG_PATH, EDG_CHART, "Asking Claude for edge cases raised the cost, not the pass rate", "Claude edge-case prompts and effort"),
+                                [(BUG_PATH, "Claude Haiku vs Opus on 25 real bugs (dataset 25)"), (EFF_PATH, "Claude effort levels: tokens, time and cost"), (LIM_PATH, "Where Claude Haiku falls behind Opus"), ("/agents", "Estimate your own Claude Code or Codex bill")]))
+
+
+_CTA_MAP[EDG_PATH] = "/agents"

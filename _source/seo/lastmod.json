@@ -220,8 +220,8 @@
 "hash": "952d603727f71d7a"
 },
 "https://tokensave.app/data/": {
-"date": "2026-10-25",
-"hash": "b0441e1cc0e2adee"
+"date": "2026-10-30",
+"hash": "f3a5374a83e8a149"
 },
 "https://tokensave.app/data/ai-agent-web-search-tokens": {
 "date": "2026-10-23",
@@ -266,6 +266,10 @@
 "https://tokensave.app/data/claude-code-vs-codex-tokens": {
 "date": "2026-10-23",
 "hash": "c63abe55c8b8d01f"
+},
+"https://tokensave.app/data/claude-edge-case-prompts": {
+"date": "2026-10-30",
+"hash": "febf24cdc1bd5fcb"
 },
 "https://tokensave.app/data/claude-effort-cost": {
 "date": "2026-10-23",
