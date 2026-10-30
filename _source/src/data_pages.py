@@ -3869,8 +3869,11 @@ def add_cta(path, body):
 EDG_PATH = "/data/claude-edge-case-prompts"
 EDG_MEASURED = "2026-10-29"
 EDG_CHART = "/claude-edge-case-prompts-chart.png"
-EDG_DOI = ""
-EDG_MIRRORS = [("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-report-edge-cases")]
+EDG_DOI = "10.5281/zenodo.23796306"  # concept DOI
+EDG_MIRRORS = [("Zenodo", "https://zenodo.org/records/23796307"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-edge-case-prompts"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-edge-case-prompts-and-effort-504-runs"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-report-edge-cases")]
 EDG_TITLE = "Raising effort didn't catch more edge cases, and Haiku got nearly the same result for 87% less: 504 Claude Code runs on 21 real bugs"
 EDG_DESC = ("Dataset: 504 Claude Code runs on 21 real bugs, Haiku 5.5 and Opus 5.5, four conditions (baseline, effort high, an edge-case prompt, edge-case prompt plus reading the tests). "
             "Scored on the maintainer test cases the bug report left out. No condition moved the pass rate by more than 4 points; the edge-case prompt raised cost by 60% to 134%. Free CSV, CC BY 4.0.")
