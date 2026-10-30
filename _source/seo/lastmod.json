@@ -20,8 +20,8 @@
 "hash": "1da58edb152bf013"
 },
 "https://tokensave.app/blog/": {
-"date": "2026-10-25",
-"hash": "cd1948644980671d"
+"date": "2026-10-30",
+"hash": "e6b16daa3cca3ae2"
 },
 "https://tokensave.app/blog/chatgpt-free-vs-paid": {
 "date": "2026-10-16",
@@ -604,8 +604,8 @@
 "hash": "f2038735cefc768c"
 },
 "https://tokensave.app/ko/blog/": {
-"date": "2026-10-25",
-"hash": "2a19635aae5fdd0b"
+"date": "2026-10-30",
+"hash": "a97f35dc7785f133"
 },
 "https://tokensave.app/ko/blog/chatgpt-muryo-yuryo-chai": {
 "date": "2026-10-16",
@@ -630,6 +630,10 @@
 "https://tokensave.app/ko/blog/claude-code-cache-1sigan": {
 "date": "2026-10-20",
 "hash": "086dd77c5abfecbf"
+},
+"https://tokensave.app/ko/blog/claude-code-edge-case-prompt": {
+"date": "2026-10-30",
+"hash": "306ea14eea4f68d7"
 },
 "https://tokensave.app/ko/blog/claude-code-sayongbeop": {
 "date": "2026-10-16",

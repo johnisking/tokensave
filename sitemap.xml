@@ -100,7 +100,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/blog/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/tokens-to-words</loc>
@@ -108,7 +108,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/data/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/language-tax-index</loc>
@@ -165,6 +165,10 @@
   <url>
     <loc>https://tokensave.app/data/claude-haiku-vs-opus-real-bugs</loc>
     <lastmod>2026-10-26</lastmod>
+  </url>
+  <url>
+    <loc>https://tokensave.app/data/claude-edge-case-prompts</loc>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/data/output-tokens-per-character-by-model</loc>
@@ -1510,6 +1514,20 @@
     </image:image>
   </url>
   <url>
+    <loc>https://tokensave.app/ko/blog/claude-code-edge-case-prompt</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-code-edge-case-prompt"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-edge-case-prompt-ko.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-edge-case-prompt-ko-2.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-edge-case-prompt-ko-3.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens</loc>
     <lastmod>2026-10-16</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/json-vs-yaml-vs-csv-tokens"/>
@@ -1649,7 +1667,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/blog/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://tokensave.app/ja/blog/</loc>
