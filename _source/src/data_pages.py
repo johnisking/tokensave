@@ -73,6 +73,7 @@ def write_files(dist):
     write_lim_files(dist)
     write_bug_files(dist)
     write_edg_files(dist)
+    write_sub_files(dist)
 
 
 def _write_lang_files(dist):
@@ -288,6 +289,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{EDG_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(EDG_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">504 pre-registered Claude Code runs on 21 real bugs: an edge-case prompt or effort high did not make Haiku 5.5 or Opus 5.5 pass more of the cases a bug report left out, but raised the cost per run by up to 134%. CSV · measured {EDG_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{SUB_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(SUB_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">288 pre-registered Claude Code 2.1.318 runs on 12 code-search questions: telling it to use subagents, at any subagent effort, found no more than no instruction, but raised the cost per run by up to 221%. Subagents always ran on the main model. CSV · measured {SUB_MEASURED}</span></a></li>
       </ul>
       <p class="mt-6 text-sm text-zinc-400">More datasets are on the way. Using our data in an article or paper? We'd love to hear about it: <a href="mailto:contact@jonhisking.com">contact@jonhisking.com</a></p>
     </article>'''
@@ -3995,3 +3999,128 @@ def edg_html():
 
 
 _CTA_MAP[EDG_PATH] = "/agents"
+
+
+# ---- dataset 27: subagent effort (2026-11-06) ----
+SUB_PATH = "/data/claude-subagent-effort"
+SUB_MEASURED = "2026-11-06"
+SUB_CHART = "/claude-subagent-effort-chart.png"
+SUB_DOI = ""  # concept DOI, set after Zenodo
+SUB_MIRRORS = [("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-subagent-effort")]
+SUB_TITLE = "Telling Claude Code to use subagents found nothing more and cost up to 221% more: 288 runs on subagent effort"
+SUB_DESC = ("Dataset: 288 Claude Code 2.1.318 runs on 12 code-search questions in 6 open-source repos, Haiku 5.5 and Opus 5.5, with no instruction or with an instruction to use subagents at subagent effort low, medium or high. "
+            "Recall stayed at 97% to 100% in every condition; cost per run rose 74% to 116% for Haiku and 143% to 221% for Opus. Free CSV, CC BY 4.0.")
+SUB_M = [("claude-haiku-5-5", "Haiku 5.5"), ("claude-opus-5-5", "Opus 5.5")]
+SUB_C = [("C0", "No instruction"), ("C1", "Subagents, effort low"), ("C2", "Subagents, effort medium"), ("C3", "Subagents, effort high")]
+
+
+def _subd():
+    return json.load(open(os.path.join(ROOT, "blog_data", "subagent", "dataset", "claude-subagent-effort.json"), encoding="utf-8"))
+
+
+def sub_citation():
+    if SUB_DOI:
+        return f"TokenSave (2026). {SUB_TITLE} [Data set]. Zenodo. https://doi.org/{SUB_DOI}"
+    return f"TokenSave (2026). {SUB_TITLE} [Data set]. {BASE}{SUB_PATH}"
+
+
+def write_sub_files(dist):
+    for ext in ("csv", "json"):
+        src = os.path.join(ROOT, "blog_data", "subagent", "dataset", "claude-subagent-effort." + ext)
+        open(os.path.join(dist, "data", "claude-subagent-effort." + ext), "w", encoding="utf-8", newline="").write(open(src, encoding="utf-8").read())
+
+
+def sub_ld():
+    return _dataset_ld(SUB_TITLE, SUB_DESC, SUB_PATH, SUB_MEASURED,
+                       ["Claude Code subagents", "subagent effort", "Explore agent", "Claude Haiku vs Opus", "AI coding cost", "code search", "headless Claude Code"],
+                       ["recall", "API cost", "seconds", "subagent calls", "subagent model", "result events"],
+                       "Pre-registered headless Claude Code runs on code-search questions with a regex-and-parser answer key; four conditions, the main agent's model fixed per run",
+                       SUB_CHART, [("claude-subagent-effort.csv", "text/csv"), ("claude-subagent-effort.json", "application/json")],
+                       doi=SUB_DOI or None, mirrors=SUB_MIRRORS)
+
+
+def sub_html():
+    D = _subd(); R = D["runs"]; S = D["summary"]
+    key = lambda m, c: S[("haiku" if "haiku" in m else "opus") + "_" + c]
+    pc = lambda v: f"{v:.0f}%"
+    usd = lambda v: "$%.4f" % v if v < 0.01 else ("$%.3f" % v if v < 0.1 else "$%.2f" % v)
+    h, o = (m for m, _ in SUB_M)
+    sub_runs = [r for r in R if r["condition"] != "C0"]
+    first_empty = sum(1 for r in sub_runs if r["recall_first_result_only"] < 0.5)
+    multi = sum(1 for r in sub_runs if r["result_events"] > 1)
+    unasked = sum(1 for r in R if r["condition"] == "C0" and r["subagent_calls"] > 0)
+    nC0 = sum(1 for r in R if r["condition"] == "C0")
+    tos = sum(1 for r in R if r["timed_out"])
+    dmax = max(abs(key(m, c)["diff_vs_C0_pts"]) for m, _ in SUB_M for c, _ in SUB_C[1:])
+    lead = (f'<strong>Telling Claude Code to search with subagents did not find more of the answer, at any subagent effort.</strong> '
+            f'Across 288 runs on 12 &ldquo;find every place&rdquo; questions, the share of right answers found stayed between 97% and 100% in every condition; no condition moved it by as much as {int(dmax) + 1} points '
+            f'(pre-registered threshold: 15). The cost per run rose by {key(h,"C1")["cost_change_pct"]}% to {key(h,"C3")["cost_change_pct"]}% for Haiku 5.5 and by {key(o,"C1")["cost_change_pct"]}% to {key(o,"C2")["cost_change_pct"]}% for Opus 5.5, '
+            f'and every subagent ran on the same model as the main agent.')
+    li = [
+        '<li><strong>Subagents found nothing more.</strong> Share of the right answers found (mean per question), no instruction / subagents at effort low / medium / high: '
+        + "; ".join(f'{lab} ' + " / ".join(pc(key(m, c)["recall_pct"]) for c, _ in SUB_C) for m, lab in SUB_M) + '. '
+        'Both models were near the ceiling without any instruction, so there was little room to gain.</li>',
+        '<li><strong>They cost more.</strong> Mean API cost per run, same order: Haiku ' + " / ".join(usd(key(h, c)["cost_usd"]) for c, _ in SUB_C)
+        + f' (+{key(h,"C1")["cost_change_pct"]}%, +{key(h,"C2")["cost_change_pct"]}%, +{key(h,"C3")["cost_change_pct"]}%); Opus ' + " / ".join(usd(key(o, c)["cost_usd"]) for c, _ in SUB_C)
+        + f' (+{key(o,"C1")["cost_change_pct"]}%, +{key(o,"C2")["cost_change_pct"]}%, +{key(o,"C3")["cost_change_pct"]}%). Median time per run: Haiku {key(h,"C0")["median_seconds"]:.0f}s to {key(h,"C1")["median_seconds"]:.0f}&ndash;{key(h,"C3")["median_seconds"]:.0f}s, Opus {key(o,"C0")["median_seconds"]:.0f}s to {key(o,"C1")["median_seconds"]:.0f}&ndash;{key(o,"C3")["median_seconds"]:.0f}s.</li>',
+        '<li><strong>Higher subagent effort did not mean better searches.</strong> For Opus, medium cost more than high; for both models, recall at high was within a point of low. The effort setting changed the bill more than the result.</li>',
+        '<li><strong>The Explore subagent ran on the main model.</strong> Every subagent call in every run used the same model as the main agent: Haiku called Haiku and Opus called Opus. On Opus, &ldquo;use subagents&rdquo; means paying Opus prices twice.</li>',
+        f'<li><strong>Nobody used subagents unasked.</strong> With no instruction, {unasked} of {nC0} runs called a subagent (and 0 of 504 runs in <a href="{EDG_PATH}">dataset 26</a>).</li>',
+        f'<li><strong>Headless runs answer late.</strong> In 2.1.318 the Explore agent runs in the background, so a headless run emits several <code>result</code> events: first a note that the agent is still searching, then the answer, sometimes a final &ldquo;stopped the autonomous loop&rdquo; note. '
+        f'{multi} of {len(sub_runs)} subagent runs had more than one <code>result</code>, and in {first_empty} of them the first one held no answer. A script that reads only the first result would have found {pc(key(h,"C1")["recall_first_only_pct"])}&ndash;{pc(key(h,"C2")["recall_first_only_pct"])} of the answers for Haiku and {pc(key(o,"C1")["recall_first_only_pct"])}&ndash;{pc(key(o,"C2")["recall_first_only_pct"])} for Opus. '
+        f'{tos} Haiku runs gave the answer and then never exited (20-minute timeout).</li>',
+    ]
+    sh = ['<th>Model · condition</th>', '<th class="text-right">Found</th>', '<th class="text-right">vs none, 95% interval</th>', '<th class="text-right">Last result only</th>',
+          '<th class="text-right">First result only</th>', '<th class="text-right">Subagent calls</th>', '<th class="text-right">Cost/run</th>', '<th class="text-right">Cost change</th>', '<th class="text-right">Median s</th>']
+    srows = []
+    for m, ml in SUB_M:
+        for c, cl in SUB_C:
+            x = key(m, c)
+            d = "&ndash;" if c == "C0" else f'{x["diff_vs_C0_pts"]:+.1f} ({x["ci95_pts"][0]:+.1f} to {x["ci95_pts"][1]:+.1f})'.replace("-", "&minus;")
+            cc = "&ndash;" if c == "C0" else f'+{x["cost_change_pct"]}%'
+            srows.append(f'          <tr><td>{ml} · {cl}</td><td class="text-right tabular-nums">{pc(x["recall_pct"])}</td><td class="text-right tabular-nums whitespace-nowrap">{d}</td>'
+                         f'<td class="text-right tabular-nums">{pc(x["recall_last_only_pct"])}</td><td class="text-right tabular-nums">{pc(x["recall_first_only_pct"])}</td>'
+                         f'<td class="text-right tabular-nums">{x["subagent_calls_mean"]:.1f}</td><td class="text-right tabular-nums">{usd(x["cost_usd"])}</td>'
+                         f'<td class="text-right tabular-nums">{cc}</td><td class="text-right tabular-nums">{x["median_seconds"]:.0f}</td></tr>')
+    qh = ['<th>Repo · question</th>', '<th class="text-right">Items</th>'] + [f'<th class="text-right">{ml[:5]} {c}</th>' for m, ml in SUB_M for c, _ in SUB_C]
+    qrows = []
+    for q in D["questions"]:
+        cells = []
+        for m, _ in SUB_M:
+            for c, _ in SUB_C:
+                v = [r["recall"] for r in R if r["question"] == q["id"] and r["model"] == m and r["condition"] == c]
+                cells.append(f'<td class="text-right tabular-nums">{round(100 * sum(v) / len(v))}%</td>')
+        qtxt = q["q"].split(". For each")[0].split(". Give")[0]
+        qrows.append(f'          <tr><td>{esc(q["repo"])} · {esc(qtxt)}</td><td class="text-right tabular-nums">{q["key_items"]}</td>' + "".join(cells) + '</tr>')
+    body = ('      <h2>Key findings</h2>\n      <ul>\n' + "\n".join("        " + x for x in li) + '\n      </ul>\n'
+            '      <h2>Totals by model and condition</h2>\n'
+            '      <p class="text-sm text-zinc-400">Found = share of the answer key named in the answer, averaged per question (the pre-registered outcome, with amendment 2). Interval: 95%, from resampling questions. Last result only = the original pre-registered reading. First result only = what a script reading the first <code>result</code> event would get. 36 runs per row.</p>\n'
+            + _table(sh, chr(10).join(srows)) +
+            '      <h2>Question by question</h2>\n'
+            '      <p class="text-sm text-zinc-400">C0 no instruction, C1&ndash;C3 subagents at effort low, medium, high. 3 runs per cell. Items = entries in the answer key.</p>\n'
+            + _table(qh, chr(10).join(qrows)) +
+            '      <h2>The four conditions</h2>\n      <ul>\n'
+            '        <li><strong>No instruction:</strong> the question only.</li>\n'
+            '        <li><strong>Subagents, effort low / medium / high:</strong> the question plus &ldquo;Use subagents (the Explore agent) for the searching, in parallel where it helps, and write the final answer yourself.&rdquo;, with <code>CLAUDE_CODE_SUBAGENT_EFFORT</code> set to low, medium or high. The main agent stayed at its default effort.</li>\n'
+            '      </ul>\n'
+            '      <h2>Method</h2>\n      <ul>\n'
+            '        <li><strong>Pre-registered</strong> on 2026-11-06 before the first scored run: <a href="https://github.com/johnisking/token-cost-by-language/blob/main/claude-subagent-effort/PREREG.md">PREREG.md</a>, with the answer key&rsquo;s sha256. Two amendments are dated in the file; the second was made after the condition table had been seen, so both readings are published.</li>\n'
+            '        <li><strong>Questions:</strong> 12 &ldquo;find every place&rdquo; searches, 2 each in undici, fastify, cachetools, Python-Markdown, anyio and zod at fixed commits. The answer key came from a regex over the source and a parser for the enclosing function or class: 151 items, 3 to 28 per question.</li>\n'
+            '        <li><strong>Agent:</strong> Claude Code 2.1.318 on one Windows 11 laptop, headless (<code>-p</code>), read and search tools only (Edit, Write, Bash, WebFetch and WebSearch disallowed), no MCP servers. 3 runs per question, model and condition, in a shuffled order, 2 at a time.</li>\n'
+            '        <li><strong>Scoring:</strong> an item counts when the answer names its file and its function or class. The answer is the text of all <code>result</code> events of the run.</li>\n'
+            '        <li><strong>Cost</strong> is Claude Code&rsquo;s own per-run figure at API prices; the runs were made on a subscription. 40 runs first hit the subscription&rsquo;s 5-hour limit and a login expiry; they gave no answer and were re-run.</li>\n'
+            '      </ul>\n      <h2>Limitations</h2>\n      <ul>\n'
+            '        <li>Both models found almost everything with no instruction. A gain had little room; on harder searches subagents might help.</li>\n'
+            '        <li>The repos are mid-sized. In a large monorepo, parallel subagents might save context or time.</li>\n'
+            '        <li>One prompt wording, one Claude Code version (2.1.318), 3 runs per cell and 12 questions.</li>\n'
+            '        <li>The key is regex-based: a correct item the regex missed is not credited, and an extra item in the answer is not penalised.</li>\n'
+            '      </ul>\n')
+    return (_head(esc(SUB_TITLE), lead,
+                  f'Measured {SUB_MEASURED} · {len(R)} runs · 12 questions · 6 repos · Claude Code 2.1.318 · License <a href="{LICENSE}">CC BY 4.0</a>',
+                  [("claude-subagent-effort.csv", "CSV"), ("claude-subagent-effort.json", "JSON")],
+                  SUB_CHART, "Bar charts: share of right answers found and API cost per run for Claude Haiku 5.5 and Opus 5.5, with no instruction and with subagents at three effort levels", doi=SUB_DOI or None, mirrors=SUB_MIRRORS)
+            + body + _page_tail(sub_citation(), _embed(SUB_PATH, SUB_CHART, "Subagents in Claude Code raised the cost, not what it found", "Claude Code subagent effort"),
+                                [(EDG_PATH, "Edge-case prompts and effort: 504 runs (dataset 26)"), (EFF_PATH, "Claude effort levels: tokens, time and cost"), (BUG_PATH, "Claude Haiku vs Opus on 25 real bugs"), ("/agents", "Estimate your own Claude Code or Codex bill")]))
+
+
+_CTA_MAP[SUB_PATH] = "/agents"
