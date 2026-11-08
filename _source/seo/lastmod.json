@@ -17,7 +17,7 @@
 },
 "https://tokensave.app/author/jonhisking": {
 "date": "2026-11-08",
-"hash": "4a635cd05291e79d"
+"hash": "0aa6f513084d9184"
 },
 "https://tokensave.app/blog/": {
 "date": "2026-10-30",
@@ -288,8 +288,8 @@
 "hash": "193e81c9640f4360"
 },
 "https://tokensave.app/data/claude-subagent-model-by-version": {
-"date": "2026-10-02",
-"hash": "090f73c8a0976702"
+"date": "2026-11-08",
+"hash": "cf59e28b9dd408d9"
 },
 "https://tokensave.app/data/claude-web-search-by-language": {
 "date": "2026-10-23",

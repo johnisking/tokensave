@@ -4137,8 +4137,11 @@ _CTA_MAP[SUB_PATH] = "/agents"
 SMV_PATH = "/data/claude-subagent-model-by-version"
 SMV_MEASURED = "2026-11-08"
 SMV_CHART = "/claude-subagent-model-by-version-chart.png"
-SMV_DOI = ""
-SMV_MIRRORS = [("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-subagent-model-by-version")]
+SMV_DOI = "10.5281/zenodo.24048094"
+SMV_MIRRORS = [("Zenodo", "https://zenodo.org/records/24048095"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-subagent-model-by-version"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-code-explore-subagent-model-by-version"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-subagent-model-by-version")]
 SMV_TITLE = "Claude Code's Explore subagent stopped using Haiku in 2.1.198, and two settings cut the cost by 60%: 205 runs"
 SMV_DESC = ("Dataset: 205 headless Claude Code runs across 26 versions. The built-in Explore subagent ran on Haiku up to 2.1.197 and on the main model from 2.1.198, doubling the cost of a delegated search on Opus. "
             "On 2.1.318, CLAUDE_CODE_SUBAGENT_MODEL=haiku plus CLAUDE_CODE_SUBAGENT_MODEL_FORCE=1 moved Explore back to Haiku and cut cost per run by 60% with the same answers found. Free CSV, CC BY 4.0.")
