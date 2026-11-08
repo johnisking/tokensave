@@ -4012,6 +4012,7 @@ SUB_CHART = "/claude-subagent-effort-chart.png"
 SUB_DOI = "10.5281/zenodo.24014489"  # concept DOI
 SUB_MIRRORS = [("Zenodo", "https://zenodo.org/records/24014490"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-subagent-effort"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-code-subagent-effort-288-runs"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-subagent-effort")]
 SUB_TITLE = "Telling Claude Code to use subagents found nothing more and cost up to 221% more: 288 runs on subagent effort"
 SUB_DESC = ("Dataset: 288 Claude Code 2.1.318 runs on 12 code-search questions in 6 open-source repos, Haiku 5.5 and Opus 5.5, with no instruction or with an instruction to use subagents at subagent effort low, medium or high. "
