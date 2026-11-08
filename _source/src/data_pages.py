@@ -74,6 +74,7 @@ def write_files(dist):
     write_bug_files(dist)
     write_edg_files(dist)
     write_sub_files(dist)
+    write_smv_files(dist)
 
 
 def _write_lang_files(dist):
@@ -289,6 +290,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{EDG_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(EDG_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">504 pre-registered Claude Code runs on 21 real bugs: an edge-case prompt or effort high did not make Haiku 5.5 or Opus 5.5 pass more of the cases a bug report left out, but raised the cost per run by up to 134%. CSV · measured {EDG_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{SMV_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(SMV_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">205 Claude Code runs across 26 versions: the Explore subagent ran on Haiku up to 2.1.197 and on the main model from 2.1.198. Two environment settings put it back on Haiku for 60% less with the same answers found. CSV · measured {SMV_MEASURED}</span></a></li>
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{SUB_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(SUB_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">288 pre-registered Claude Code 2.1.318 runs on 12 code-search questions: telling it to use subagents, at any subagent effort, found no more than no instruction, but raised the cost per run by up to 221%. Subagents always ran on the main model. CSV · measured {SUB_MEASURED}</span></a></li>
@@ -4126,3 +4130,93 @@ def sub_html():
 
 
 _CTA_MAP[SUB_PATH] = "/agents"
+
+
+# ---- dataset 28: Explore subagent model by Claude Code version (2026-11-08) ----
+SMV_PATH = "/data/claude-subagent-model-by-version"
+SMV_MEASURED = "2026-11-08"
+SMV_CHART = "/claude-subagent-model-by-version-chart.png"
+SMV_DOI = ""
+SMV_MIRRORS = [("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-subagent-model-by-version")]
+SMV_TITLE = "Claude Code's Explore subagent stopped using Haiku in 2.1.198, and two settings cut the cost by 60%: 205 runs"
+SMV_DESC = ("Dataset: 205 headless Claude Code runs across 26 versions. The built-in Explore subagent ran on Haiku up to 2.1.197 and on the main model from 2.1.198, doubling the cost of a delegated search on Opus. "
+            "On 2.1.318, CLAUDE_CODE_SUBAGENT_MODEL=haiku plus CLAUDE_CODE_SUBAGENT_MODEL_FORCE=1 moved Explore back to Haiku and cut cost per run by 60% with the same answers found. Free CSV, CC BY 4.0.")
+
+
+def _smvd():
+    return json.load(open(os.path.join(ROOT, "blog_data", "subagent_model", "dataset", "claude-subagent-model-by-version.json"), encoding="utf-8"))
+
+
+def smv_citation():
+    if SMV_DOI:
+        return f"TokenSave (2026). {SMV_TITLE} [Data set]. Zenodo. https://doi.org/{SMV_DOI}"
+    return f"TokenSave (2026). {SMV_TITLE} [Data set]. {BASE}{SMV_PATH}"
+
+
+def write_smv_files(dist):
+    for ext in ("csv", "json"):
+        src = os.path.join(ROOT, "blog_data", "subagent_model", "dataset", "claude-subagent-model-by-version." + ext)
+        open(os.path.join(dist, "data", "claude-subagent-model-by-version." + ext), "w", encoding="utf-8", newline="").write(open(src, encoding="utf-8").read())
+
+
+def smv_ld():
+    return _dataset_ld(SMV_TITLE, SMV_DESC, SMV_PATH, SMV_MEASURED,
+                       ["Claude Code Explore subagent", "subagent model", "CLAUDE_CODE_SUBAGENT_MODEL", "CLAUDE_CODE_SUBAGENT_MODEL_FORCE", "Claude Haiku", "Claude Opus", "AI coding cost"],
+                       ["Claude Code version", "Explore model", "API cost", "recall", "seconds"],
+                       "Pre-registered headless Claude Code runs across versions and settings; the subagent model is read from subagent messages and the per-model cost split",
+                       SMV_CHART, [("claude-subagent-model-by-version.csv", "text/csv"), ("claude-subagent-model-by-version.json", "application/json")],
+                       doi=SMV_DOI or None, mirrors=SMV_MIRRORS)
+
+
+def smv_html():
+    D = _smvd(); S = D["summary"]; R = D["runs"]
+    A = S["partA"]; bi = S["partB_inherit"]; bm = S["partB_model_only"]; df = S["partD_force"]
+    usd = lambda v: "$%.2f" % v
+    lead = (f'<strong>Up to Claude Code 2.1.197, the built-in Explore subagent ran on Haiku. From 2.1.198 it runs on whatever model the main conversation uses.</strong> '
+            f'With Opus as the main model, that took a delegated code search from {usd(A["haiku_era"]["cost_usd"])} to {usd(A["main_model_era"]["cost_usd"])} per run (+{S["partA"]["cost_change_pct"]}%). '
+            f'On 2.1.318 with Opus 5.5, setting <code>CLAUDE_CODE_SUBAGENT_MODEL=haiku</code> together with <code>CLAUDE_CODE_SUBAGENT_MODEL_FORCE=1</code> put Explore back on Haiku and cut the cost per run by {-S["partD_vs_inherit"]["cost_change_pct"]}%, with the same share of answers found.')
+    li = [
+        f'<li><strong>The switch is 2.1.198.</strong> With the main model fixed to Opus 4.5, Explore ran on Haiku 4.5 in every run from 2.1.0 to 2.1.197 and on Opus 4.5 in every run from 2.1.198 to 2.1.318. A February 2026 post saying Explore is &ldquo;hard-coded to Haiku&rdquo; was right at the time.</li>',
+        f'<li><strong>It doubled the cost of a delegated search.</strong> Same prompt and questions: {usd(A["haiku_era"]["cost_usd"])} per run while Explore was Haiku ({A["haiku_era"]["runs"]} runs), {usd(A["main_model_era"]["cost_usd"])} after ({A["main_model_era"]["runs"]} runs). Share of right answers found: {A["haiku_era"]["recall_pct"]:.0f}% before, {A["main_model_era"]["recall_pct"]:.0f}% after, on 2 questions per version, so read that gap as small.</li>',
+        f'<li><strong><code>CLAUDE_CODE_SUBAGENT_MODEL</code> alone does nothing for Explore.</strong> On 2.1.318 with Opus 5.5, setting it to <code>claude-haiku-5-5</code> left Explore on Opus 5.5 in all {bm["runs"]} runs: {usd(bm["cost_usd"])} per run vs {usd(bi["cost_usd"])} by default.</li>',
+        f'<li><strong>Add <code>CLAUDE_CODE_SUBAGENT_MODEL_FORCE=1</code> and it works.</strong> Explore ran on Haiku 5.5 in all {df["runs"]} runs. Answers found: {df["recall_pct"]:.0f}% vs {bi["recall_pct"]:.0f}% by default on the same 12 questions × 3 runs. Cost per run: {usd(bi["cost_usd"])} → {usd(df["cost_usd"])} ({S["partD_vs_inherit"]["cost_change_pct"]}%).</li>',
+        '<li><strong>This matches the docs.</strong> The <a href="https://code.claude.com/docs/en/sub-agents">sub-agents page</a> says Explore runs on the main conversation&rsquo;s model, that <code>CLAUDE_CODE_SUBAGENT_MODEL</code> alone does not change Explore, and that the FORCE flag (v2.1.257+) applies it to every subagent. It also says a project subagent named <code>Explore</code> with <code>model: haiku</code> overrides the built-in; we did not test that route. What the data adds is when the default changed and what each choice costs.</li>',
+    ]
+    bv = S["by_version"]
+    vk = lambda v: tuple(int(x) for x in v.split("."))
+    vrows = []
+    for v in sorted(bv, key=vk):
+        x = bv[v]; m = "Haiku 4.5" if "haiku" in x["explore_model"] else "Opus 4.5 (main)"
+        vrows.append(f'          <tr><td>{v}</td><td>{m}</td><td class="text-right tabular-nums">{x["runs"]}</td><td class="text-right tabular-nums">{usd(x["cost_usd"])}</td><td class="text-right tabular-nums">{x["recall_pct"]:.0f}%</td></tr>')
+    srows = []
+    for lab, c in (("Default", bi), ("CLAUDE_CODE_SUBAGENT_MODEL=claude-haiku-5-5", bm), ("CLAUDE_CODE_SUBAGENT_MODEL=haiku + CLAUDE_CODE_SUBAGENT_MODEL_FORCE=1", df)):
+        srows.append(f'          <tr><td><code>{esc(lab)}</code></td><td>{"Haiku 5.5" if "haiku" in c["explore_model"] else "Opus 5.5"}</td><td class="text-right tabular-nums">{c["runs"]}</td><td class="text-right tabular-nums">{c["recall_pct"]:.0f}%</td><td class="text-right tabular-nums">{usd(c["cost_usd"])}</td><td class="text-right tabular-nums">{c["median_seconds"]:.0f}</td></tr>')
+    body = ('      <h2>Key findings</h2>\n      <ul>\n' + "\n".join("        " + x for x in li) + '\n      </ul>\n'
+            '      <h2>How to get Haiku back for Explore</h2>\n'
+            '      <p>Put both lines in your environment or in <code>settings.json</code> under <code>env</code>. The FORCE flag needs Claude Code 2.1.257 or later, and it applies the model to every subagent, not only Explore.</p>\n'
+            '      <pre class="text-sm overflow-x-auto"><code>CLAUDE_CODE_SUBAGENT_MODEL=haiku\nCLAUDE_CODE_SUBAGENT_MODEL_FORCE=1</code></pre>\n'
+            '      <h2>2.1.318 with Opus 5.5: three settings</h2>\n'
+            '      <p class="text-sm text-zinc-400">Same prompt (&ldquo;use subagents (the Explore agent)&rdquo;) on dataset 27&rsquo;s 12 code-search questions, 3 runs each. Found = share of the answer key named in the answer, mean per question.</p>\n'
+            + _table(['<th>Setting</th>', '<th>Explore ran on</th>', '<th class="text-right">Runs</th>', '<th class="text-right">Found</th>', '<th class="text-right">Cost/run</th>', '<th class="text-right">Median s</th>'], chr(10).join(srows)) +
+            '      <h2>Version by version</h2>\n'
+            '      <p class="text-sm text-zinc-400">Main model Opus 4.5 (Opus 5.5 is refused below 2.1.280). Questions M1 and U1 from dataset 27, 2 runs each; versions with 1 run are bisection probes on M1.</p>\n'
+            + _table(['<th>Claude Code</th>', '<th>Explore ran on</th>', '<th class="text-right">Runs</th>', '<th class="text-right">Cost/run</th>', '<th class="text-right">Found</th>'], chr(10).join(vrows)) +
+            '      <h2>Method</h2>\n      <ul>\n'
+            '        <li><strong>Pre-registered</strong> on 2026-11-07: <a href="https://github.com/johnisking/token-cost-by-language/blob/main/claude-subagent-model-by-version/PREREG.md">PREREG.md</a>, with two dated amendments.</li>\n'
+            '        <li><strong>Prompt and scoring</strong> from <a href="' + SUB_PATH + '">dataset 27</a>: a &ldquo;find every place&rdquo; question plus an instruction to use the Explore subagent, scored against a regex-and-parser answer key.</li>\n'
+            '        <li><strong>Agent:</strong> headless <code>claude -p</code>, read and search tools only, no MCP servers, Windows 11, a separate config directory. The Explore model is read from the subagent&rsquo;s own messages and checked against the per-model cost split.</li>\n'
+            '        <li><strong>Incidents:</strong> 21 runs hit the subscription&rsquo;s 5-hour limit and were re-run. The first bisection used a regex that never matched a Haiku entry and wrongly put the switch at 2.1.176; the raw logs showed Haiku through 2.1.186, and the bisection was re-run (amendment 2).</li>\n'
+            '        <li><strong>Cost</strong> is Claude Code&rsquo;s own per-run figure at API prices; the runs were made on a subscription.</li>\n'
+            '      </ul>\n      <h2>Limitations</h2>\n      <ul>\n'
+            '        <li>Two questions per version: the history shows which model ran, not how good it was.</li>\n'
+            '        <li>One machine, one account, one prompt wording. Defaults may change again.</li>\n'
+            '      </ul>\n')
+    return (_head(esc(SMV_TITLE), lead,
+                  f'Measured {SMV_MEASURED} · {len(R)} runs · 26 Claude Code versions · License <a href="{LICENSE}">CC BY 4.0</a>',
+                  [("claude-subagent-model-by-version.csv", "CSV"), ("claude-subagent-model-by-version.json", "JSON")],
+                  SMV_CHART, "Bar charts: API cost per run by Claude Code version, colored by the model the Explore subagent ran on, and three settings on 2.1.318", doi=SMV_DOI or None, mirrors=SMV_MIRRORS)
+            + body + _page_tail(smv_citation(), _embed(SMV_PATH, SMV_CHART, "Claude Code's Explore subagent stopped using Haiku in 2.1.198", "Claude Code Explore subagent model"),
+                                [(SUB_PATH, "Subagent effort in Claude Code: 288 runs (dataset 27)"), (EDG_PATH, "Edge-case prompts and effort: 504 runs (dataset 26)"), ("/agents", "Estimate your own Claude Code or Codex bill")]))
+
+
+_CTA_MAP[SMV_PATH] = "/agents"

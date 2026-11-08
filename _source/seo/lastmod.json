@@ -16,8 +16,8 @@
 "hash": "98b1ece49ee0316d"
 },
 "https://tokensave.app/author/jonhisking": {
-"date": "2026-11-07",
-"hash": "9ff07c17e2bc7e87"
+"date": "2026-11-08",
+"hash": "4a635cd05291e79d"
 },
 "https://tokensave.app/blog/": {
 "date": "2026-10-30",
@@ -220,8 +220,8 @@
 "hash": "952d603727f71d7a"
 },
 "https://tokensave.app/data/": {
-"date": "2026-11-06",
-"hash": "c6494c16ba3e2bbe"
+"date": "2026-11-08",
+"hash": "6f8de45273b58518"
 },
 "https://tokensave.app/data/ai-agent-web-search-tokens": {
 "date": "2026-10-23",
@@ -286,6 +286,10 @@
 "https://tokensave.app/data/claude-subagent-effort": {
 "date": "2026-11-07",
 "hash": "12c897fdbdb0061c"
+},
+"https://tokensave.app/data/claude-subagent-model-by-version": {
+"date": "2026-10-02",
+"hash": "090f73c8a0976702"
 },
 "https://tokensave.app/data/claude-web-search-by-language": {
 "date": "2026-10-23",
