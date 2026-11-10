@@ -19,7 +19,7 @@ ECI_MAP = {
     "gpt-6-astra": r"GPT-6 Astra", "gpt-6-1-sol": r"GPT-6\.1 Sol", "gpt-6-1-terra": r"GPT-6\.1 Terra", "gpt-6-sol": r"GPT-6 Sol", "gpt-6-luna": r"GPT-6 Luna",
     "gpt-5-5": r"GPT-5\.5", "gpt-5-mini": r"GPT-5 mini", "gpt-5-nano": r"GPT-5 nano",
     "gpt-4-1": r"GPT-4\.1", "gpt-4-1-mini": r"GPT-4\.1 mini", "gpt-4o": r"GPT-4o( \([A-Za-z]+ \d{4}\))?", "gpt-4o-mini": r"GPT-4o mini",
-    "claude-fable-5-1": r"Claude Fable 5\.1", "claude-opus-5-5": r"Claude Opus 5\.5",
+    "claude-fable-5-2": r"Claude Fable 5\.2", "claude-fable-5-1": r"Claude Fable 5\.1", "claude-opus-5-5": r"Claude Opus 5\.5",
     "claude-sonnet-5-5": r"Claude Sonnet 5\.5", "claude-haiku-4-5": r"Claude Haiku 4\.5",
     "gemini-4-argon": r"Gemini 4 Argon", "gemini-3-1-pro": r"Gemini 3\.1 Pro", "gemini-3-8-flash": r"Gemini 3\.8 Flash",
     "gemini-3-5-flash-lite": r"Gemini 3\.5 Flash-Lite", "gemini-3-1-flash-lite": r"Gemini 3\.1 Flash-Lite",

@@ -25,7 +25,8 @@ SEG_BTN = "tab py-1.5 px-2.5 rounded-md text-xs font-semibold text-zinc-400"
 
 # (model, input, output, 5m write, 1h write, cache read) per 1M tokens, from the official pricing page
 PRICE_ROWS = [
-    ("Claude Fable 5.1 / Mythos 5.1", 10, 50, 12.5, 20, 0.25),
+    ("Claude Fable 5.2", 8, 40, 10, 16, 0.20),
+    ("Claude Fable 5.1 / Mythos 5.1 (legacy)", 10, 50, 12.5, 20, 0.25),
     ("Claude Fable 5 / Mythos 5", 10, 50, 12.5, 20, 1),
     ("Claude Opus 5.5", 4, 20, 5, 8, 0.20),
     ("Claude Opus 5 · 4.8 · 4.7 · 4.6 · 4.5", 5, 25, 6.25, 10, 0.50),

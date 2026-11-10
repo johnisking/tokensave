@@ -9,7 +9,7 @@ import html
 import compare
 
 esc = lambda s: html.escape(str(s), quote=True)
-CLAUDE_IDS = ["claude-fable-5-1", "claude-opus-5-5", "claude-sonnet-5-5", "claude-haiku-4-5"]
+CLAUDE_IDS = ["claude-fable-5-2", "claude-fable-5-1", "claude-opus-5-5", "claude-sonnet-5-5", "claude-haiku-4-5"]
 PATHS = {"en": "/claude-token-counter", "ko": "/ko/claude-token-counter", "ja": "/ja/claude-token-counter"}
 
 TXT = {
