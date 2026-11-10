@@ -184,28 +184,44 @@
 "hash": "c9c2b18434787233"
 },
 "https://tokensave.app/claude-code-usage": {
-"date": "2026-10-23",
-"hash": "09ce41b668afc6bb"
+"date": "2026-11-10",
+"hash": "35b41735ba05ad1f"
 },
 "https://tokensave.app/claude-token-counter": {
-"date": "2026-10-21",
-"hash": "c8b696c9e485db0e"
+"date": "2026-11-10",
+"hash": "0a0be6e34d8d9c91"
 },
 "https://tokensave.app/compare/": {
-"date": "2026-10-15",
-"hash": "01357b5ba1411f02"
+"date": "2026-11-10",
+"hash": "20e9e0bbced95102"
+},
+"https://tokensave.app/compare/claude-fable-5-1-vs-claude-fable-5-2": {
+"date": "2026-10-14",
+"hash": "abfb391ba834d509"
+},
+"https://tokensave.app/compare/claude-opus-5-5-vs-claude-fable-5-2": {
+"date": "2026-10-14",
+"hash": "80fd8725794f4450"
+},
+"https://tokensave.app/compare/gemini-4-argon-vs-claude-fable-5-2": {
+"date": "2026-10-14",
+"hash": "32f3bcfeca2fbc65"
 },
 "https://tokensave.app/compare/gemini-4-argon-vs-gemini-3-1-pro": {
-"date": "2026-11-05",
-"hash": "ff96a9e1d0aa7d27"
+"date": "2026-11-10",
+"hash": "7abf715a17854a9e"
+},
+"https://tokensave.app/compare/gpt-6-astra-vs-claude-fable-5-2": {
+"date": "2026-10-14",
+"hash": "2f3f72d4af4c7987"
 },
 "https://tokensave.app/compare/gpt-6-luna-vs-claude-haiku-4-5": {
 "date": "2026-11-05",
 "hash": "e7a5588145ccbdb1"
 },
 "https://tokensave.app/compare/gpt-6-sol-vs-gpt-6-astra": {
-"date": "2026-11-05",
-"hash": "9bc52823bc973d15"
+"date": "2026-11-10",
+"hash": "d7436f52b7ac2cc7"
 },
 "https://tokensave.app/contact": {
 "date": "2026-10-02",
@@ -576,12 +592,12 @@
 "hash": "af11c4907af4a9b8"
 },
 "https://tokensave.app/ja/claude-code-usage": {
-"date": "2026-10-23",
-"hash": "17bdb4efd01840c5"
+"date": "2026-11-10",
+"hash": "6be661344ac0a3f3"
 },
 "https://tokensave.app/ja/claude-token-counter": {
-"date": "2026-10-21",
-"hash": "e8560d35c1501b2a"
+"date": "2026-11-10",
+"hash": "73537735381bc639"
 },
 "https://tokensave.app/ja/image": {
 "date": "2026-10-09",
@@ -752,12 +768,12 @@
 "hash": "d6a8591bc52467b5"
 },
 "https://tokensave.app/ko/claude-code-usage": {
-"date": "2026-10-23",
-"hash": "9d5472414729f1b2"
+"date": "2026-11-10",
+"hash": "4f0f6ed53eda3d54"
 },
 "https://tokensave.app/ko/claude-token-counter": {
-"date": "2026-10-21",
-"hash": "eb8ec777323194ae"
+"date": "2026-11-10",
+"hash": "644b0a83bf225451"
 },
 "https://tokensave.app/ko/image": {
 "date": "2026-10-11",
