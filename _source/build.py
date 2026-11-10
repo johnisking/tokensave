@@ -1165,6 +1165,14 @@ def thin_noindex():
     sm = re.sub(r'\n    <xhtml:link rel="alternate" hreflang="[^"]+" href="' + re.escape(BASE) + r'(/[^"]+)"/>',
                 lambda m: "" if norm(m.group(1)) in paths else m.group(0), sm)
     open(sm_path, "w", encoding="utf-8").write(sm)
+    # Temporary sitemap of the noindexed pages, submitted in Search Console so Google recrawls them and
+    # sees the noindex sooner (2026-11-10). Not listed in robots.txt. Delete once Search Console's
+    # "Excluded by noindex" count has caught up.
+    open(os.path.join(DIST, "sitemap-noindex.xml"), "w", encoding="utf-8").write(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "".join(f"  <url><loc>{BASE}{p}</loc></url>\n" for p in sorted(paths)
+                  if os.path.exists(os.path.join(DIST, p.strip("/") + ".html")) or os.path.exists(os.path.join(DIST, p.strip("/"), "index.html")))
+        + "</urlset>\n")
 
 if __name__ == "__main__":
     build()

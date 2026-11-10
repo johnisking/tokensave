@@ -362,3 +362,11 @@
 /zh-tw
 /zh-tw/plans
 /zh-tw/video
+# 2026-11-10: remaining model comparison pages (auto-generated from the price table)
+/compare
+/compare/claude-fable-5-1-vs-claude-fable-5-2
+/compare/gpt-6-astra-vs-claude-fable-5-2
+/compare/gemini-4-argon-vs-claude-fable-5-2
+/compare/claude-opus-5-5-vs-claude-fable-5-2
+/compare/gemini-4-argon-vs-gemini-3-1-pro
+/compare/gpt-6-sol-vs-gpt-6-astra
