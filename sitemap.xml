@@ -1573,18 +1573,46 @@
   </url>
   <url>
     <loc>https://tokensave.app/compare/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://tokensave.app/compare/claude-fable-5-1-vs-claude-fable-5-2</loc>
+    <lastmod>2026-10-14</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/claude-fable-5-1-vs-claude-fable-5-2-api-cost.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/compare/gpt-6-astra-vs-claude-fable-5-2</loc>
+    <lastmod>2026-10-14</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gpt-6-astra-vs-claude-fable-5-2-api-cost.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/compare/gemini-4-argon-vs-claude-fable-5-2</loc>
+    <lastmod>2026-10-14</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/gemini-4-argon-vs-claude-fable-5-2-api-cost.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/compare/claude-opus-5-5-vs-claude-fable-5-2</loc>
+    <lastmod>2026-10-14</lastmod>
+    <image:image>
+      <image:loc>https://tokensave.app/img/compare/claude-opus-5-5-vs-claude-fable-5-2-api-cost.svg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gemini-4-argon-vs-gemini-3-1-pro</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <image:image>
       <image:loc>https://tokensave.app/img/compare/gemini-4-argon-vs-gemini-3-1-pro-api-cost.svg</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://tokensave.app/compare/gpt-6-sol-vs-gpt-6-astra</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <image:image>
       <image:loc>https://tokensave.app/img/compare/gpt-6-sol-vs-gpt-6-astra-api-cost.svg</image:loc>
     </image:image>
@@ -1598,21 +1626,21 @@
   </url>
   <url>
     <loc>https://tokensave.app/claude-token-counter</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/claude-token-counter"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/claude-token-counter"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/claude-token-counter"/>
   </url>
   <url>
     <loc>https://tokensave.app/ko/claude-token-counter</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/claude-token-counter"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/claude-token-counter"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/claude-token-counter"/>
   </url>
   <url>
     <loc>https://tokensave.app/ja/claude-token-counter</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/claude-token-counter"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/claude-token-counter"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/claude-token-counter"/>
@@ -1651,7 +1679,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/claude-code-usage</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/claude-code-usage"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/claude-code-usage"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/claude-code-usage"/>
@@ -1659,7 +1687,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ko/claude-code-usage</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/claude-code-usage"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/claude-code-usage"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/claude-code-usage"/>
@@ -1667,7 +1695,7 @@
   </url>
   <url>
     <loc>https://tokensave.app/ja/claude-code-usage</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/claude-code-usage"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/claude-code-usage"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/claude-code-usage"/>

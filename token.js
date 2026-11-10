@@ -29,7 +29,9 @@ const PROVIDERS = {
   ],
   claude: [
     // Claude 4.7+ uses a newer tokenizer. fam = column of MEASURED below (our own test, 2026-10-17)
-    { id: 'claude-fable-5-1',  name: 'Claude Fable 5.1',  in: 10.00, out: 50.00, ratio: 1.38, fam: 0 },
+    // Fable 5.2 (2026-11): $8/$40 (claude.com/pricing, checked 2026-11-10). Fable 5.1 is now legacy.
+    { id: 'claude-fable-5-2',  name: 'Claude Fable 5.2',  in: 8.00,  out: 40.00, ratio: 1.38, fam: 0 },
+    { id: 'claude-fable-5-1',  name: 'Claude Fable 5.1 (legacy)',  in: 10.00, out: 50.00, ratio: 1.38, fam: 0 },
     { id: 'claude-opus-5-5',   name: 'Claude Opus 5.5',   in: 4.00,  out: 20.00, ratio: 1.38, fam: 0 },
     { id: 'claude-sonnet-5-5', name: 'Claude Sonnet 5.5', in: 2.00,  out: 10.00, ratio: 1.38, fam: 0 },
     // Haiku 5.5 (2026-10-07): $0.10/$0.50 up to a 100K-token prompt, $0.50/$2.50 above (platform.claude.com, checked 2026-10-14)

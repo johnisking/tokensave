@@ -9,7 +9,7 @@ const LANG = document.documentElement.lang;
 // ---- Prices per 1M tokens: [input, output, cache read, fast input, fast output] ----
 // Cache writes are 1.25× (5 min) and 2× (1 h) of the input price; geo = US-only inference costs 1.1× (Claude 4.6+).
 const P = {
-  'fable-5-1': [10, 50, 0.25], 'mythos-5-1': [10, 50, 0.25], 'fable-5': [10, 50, 1], 'mythos-5': [10, 50, 1],
+  'fable-5-2': [8, 40, 0.20], 'fable-5-1': [10, 50, 0.25], 'mythos-5-1': [10, 50, 0.25], 'fable-5': [10, 50, 1], 'mythos-5': [10, 50, 1],
   'opus-5-5': [4, 20, 0.20, 8, 40], 'opus-5': [5, 25, 0.50, 10, 50], 'opus-4-8': [5, 25, 0.50, 10, 50],
   'opus-4-7': [5, 25, 0.50], 'opus-4-6': [5, 25, 0.50], 'opus-4-5': [5, 25, 0.50], 'opus-4-1': [15, 75, 1.50], 'opus-4': [15, 75, 1.50],
   'sonnet-5-5': [2, 10, 0.10], 'sonnet-5': [2, 10, 0.20], 'sonnet-4-6': [3, 15, 0.30], 'sonnet-4-5': [3, 15, 0.30], 'sonnet-4': [3, 15, 0.30],
