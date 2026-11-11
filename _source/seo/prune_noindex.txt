@@ -263,9 +263,7 @@
 # in the last 90 days or our own measurements, and other-language pages with 30+ impressions; everything else here.
 /blog/chatgpt-free-vs-paid
 /blog/chatgpt-plus-vs-pro
-/blog/check-claude-code-usage
 /blog/claude-code-vs-codex-vs-cursor-cost
-/blog/claude-usage-limits
 /blog/codex-pricing
 /blog/github-copilot-pricing
 /blog/google-play-closed-testing-14-days
@@ -357,7 +355,6 @@
 /uk
 /uk/blog/chatgpt-bezkoshtovno-chy-platno
 /zh-cn
-/zh-cn/ai-game-cost-calculator
 /zh-cn/video
 /zh-tw
 /zh-tw/plans
