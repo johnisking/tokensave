@@ -1366,6 +1366,30 @@
     </image:image>
   </url>
   <url>
+    <loc>https://tokensave.app/blog/check-claude-code-usage</loc>
+    <lastmod>2026-10-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/check-claude-code-usage"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/check-claude-code-usage"/>
+    <image:image>
+      <image:loc>https://tokensave.app/check-claude-code-usage-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/check-claude-code-usage-four-ways-to-check-claude-code-usage-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/check-claude-code-usage-four-ways-to-check-claude-code-usage-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-usage-analyzer-pick-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-usage-analyzer-result-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-code-usage-analyzer-plan-en.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://tokensave.app/ko/blog/claude-hangugeo-token</loc>
     <lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/blog/claude-hangugeo-token"/>
@@ -1399,6 +1423,24 @@
     </image:image>
     <image:image>
       <image:loc>https://tokensave.app/claude-vs-gpt-japanese-token-ja.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tokensave.app/blog/claude-usage-limits</loc>
+    <lastmod>2026-10-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/blog/claude-usage-limits"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/blog/claude-usage-limits"/>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-usage-limits-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-usage-limits-claude-usage-limits-by-plan-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-usage-limits-when-does-the-claude-usage-limit-reset-en.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tokensave.app/claude-usage-limits-how-to-check-your-claude-usage-en.jpg</image:loc>
     </image:image>
   </url>
   <url>
@@ -1613,6 +1655,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -1621,6 +1664,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
@@ -1629,6 +1673,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
+  </url>
+  <url>
+    <loc>https://tokensave.app/zh-cn/ai-game-cost-calculator</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tokensave.app/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://tokensave.app/ko/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://tokensave.app/ja/ai-game-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://tokensave.app/zh-cn/ai-game-cost-calculator"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tokensave.app/ai-game-cost-calculator"/>
   </url>
   <url>
