@@ -34,6 +34,7 @@ DATASETS = [
     ("/data/blender-mcp-token-cost", "Blender MCP token cost: 72 runs", "blender mcp 3d game scene 블렌더"),
     ("/data/output-tokens-per-character-by-model", "Output tokens per character by model", "output tokens gpt gemini claude code 출력"),
     ("/data/ai-coding-limit-line", "Where Claude Haiku falls behind Opus", "haiku opus limit coding bug test 하이쿠 오퍼스 한도 limit usage"),
+    ("/data/claude-fable-5-2-real-bugs", "Claude Fable 5.2 vs 5.1 vs Opus 5.5 on 25 real bugs", "fable 5.2 fable 5.1 opus 5.5 real bugs cost 페이블 오퍼스 フェイブル"),
     ("/data/claude-subagent-model-by-version", "Which model Claude Code's Explore subagent runs on, by version", "explore subagent haiku opus model force 서브에이전트 하이쿠 サブエージェント"),
     ("/data/claude-subagent-effort", "Subagent effort in Claude Code: 288 runs", "subagent explore agent effort haiku opus 서브에이전트 サブエージェント"),
     ("/data/claude-edge-case-prompts", "Edge-case prompts and effort: 504 Claude runs", "edge case effort prompt haiku opus bug test 엣지 effort プロンプト"),

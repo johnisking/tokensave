@@ -75,6 +75,7 @@ def write_files(dist):
     write_edg_files(dist)
     write_sub_files(dist)
     write_smv_files(dist)
+    write_f52_files(dist)
 
 
 def _write_lang_files(dist):
@@ -290,6 +291,9 @@ def hub_html():
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{EDG_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(EDG_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">504 pre-registered Claude Code runs on 21 real bugs: an edge-case prompt or effort high did not make Haiku 5.5 or Opus 5.5 pass more of the cases a bug report left out, but raised the cost per run by up to 134%. CSV · measured {EDG_MEASURED}</span></a></li>
+        <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{F52_PATH}" class="block no-underline" style="text-decoration:none">
+          <span class="block font-semibold text-zinc-100">{esc(F52_TITLE)}</span>
+          <span class="block mt-1 text-sm text-zinc-400">125 pre-registered Claude Code runs on 25 real bugs, scored by the maintainers' tests: Fable 5.2 cost 40% less per run than Fable 5.1 and fixed as many bugs as Opus 5.5 (37 of 50 each), but at 83% more cost. CSV · measured {F52_MEASURED}</span></a></li>
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{SMV_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(SMV_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">205 Claude Code runs across 26 versions: the Explore subagent ran on Haiku up to 2.1.197 and on the main model from 2.1.198. Two environment settings put it back on Haiku for 60% less with the same answers found. CSV · measured {SMV_MEASURED}</span></a></li>
@@ -4224,3 +4228,88 @@ def smv_html():
 
 
 _CTA_MAP[SMV_PATH] = "/agents"
+
+
+# ---- dataset 29: Claude Fable 5.2 vs Fable 5.1 vs Opus 5.5 on 25 real bugs (2026-11-13) ----
+F52_PATH = "/data/claude-fable-5-2-real-bugs"
+F52_MEASURED = "2026-11-13"
+F52_CHART = "/claude-fable-5-2-real-bugs-chart.png"
+F52_DOI = ""
+F52_MIRRORS = [("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-fable-5-2-real-bugs")]
+F52_TITLE = "Claude Fable 5.2 costs 40% less than 5.1 per run, not 20%, and fixed the same bugs as Opus 5.5 at 83% more: 125 runs"
+F52_DESC = ("Dataset: 135 Claude Code runs (125 pre-registered) on 25 real bugs, scored by the maintainers' tests. Fable 5.2 cost 40% less per run than Fable 5.1 against a 20% list-price cut, "
+            "and fixed exactly as many bugs cleanly as Opus 5.5 (37 of 50 each) at 83% higher cost. Free CSV, CC BY 4.0.")
+
+
+def _f52d():
+    return json.load(open(os.path.join(ROOT, "blog_data", "fable52", "dataset", "claude-fable-5-2-real-bugs.json"), encoding="utf-8"))
+
+
+def f52_citation():
+    if F52_DOI:
+        return f"TokenSave (2026). {F52_TITLE} [Data set]. Zenodo. https://doi.org/{F52_DOI}"
+    return f"TokenSave (2026). {F52_TITLE} [Data set]. {BASE}{F52_PATH}"
+
+
+def write_f52_files(dist):
+    for ext in ("csv", "json"):
+        src = os.path.join(ROOT, "blog_data", "fable52", "dataset", "claude-fable-5-2-real-bugs." + ext)
+        open(os.path.join(dist, "data", "claude-fable-5-2-real-bugs." + ext), "w", encoding="utf-8", newline="").write(open(src, encoding="utf-8").read())
+
+
+def f52_ld():
+    return _dataset_ld(F52_TITLE, F52_DESC, F52_PATH, F52_MEASURED,
+                       ["Claude Fable 5.2", "Claude Fable 5.1", "Claude Opus 5.5", "Claude Code", "real bugs", "AI coding cost", "LLM evaluation"],
+                       ["model", "bug", "clean fix", "API cost", "output tokens", "cache reads", "turns", "seconds"],
+                       "Pre-registered headless Claude Code runs on 25 real bugs at the commit before the upstream fix, scored with the maintainers' tests",
+                       F52_CHART, [("claude-fable-5-2-real-bugs.csv", "text/csv"), ("claude-fable-5-2-real-bugs.json", "application/json")],
+                       doi=F52_DOI or None, mirrors=F52_MIRRORS)
+
+
+def f52_html():
+    D = _f52d(); S = D["summary"]; A = S["arms"]
+    usd = lambda v: "$%.2f" % v
+    f, g, o = A["f52"], A["f51"], A["opus"]
+    pc = S["primary_cost_f52_vs_f51"]; pd = S["primary_clean_f52_minus_opus"]; co = S["cost_f52_vs_opus"]
+    lead = (f'<strong>Claude Fable 5.2 cost {-pc["pct"]:.0f}% less per run than Fable 5.1 ({usd(f["cost_usd"])} vs {usd(g["cost_usd"])}), twice its 20% list-price cut.</strong> '
+            f'It also fixed exactly as many of 25 real bugs cleanly as Opus 5.5: {f["clean"]} of {f["runs"]} runs each. But Opus 5.5 did it at {usd(o["cost_usd"])} a run, so Fable 5.2 cost {co["pct"]:.0f}% more for the same fixes.')
+    li = [
+        f'<li><strong>Fable 5.2 vs 5.1, cost: {pc["pct"]:+.1f}% per run</strong> (95% bug-level interval {pc["ci95"][0]:+.1f}% to {pc["ci95"][1]:+.1f}%), against a list-price change of {pc["list_price_pct"]}%. Fable 5.2 wrote {round(100 - 100 * f["output_tokens"] / g["output_tokens"])}% fewer output tokens, read {round(100 - 100 * f["cache_read"] / g["cache_read"])}% less cache, took {f["turns"]} turns instead of {g["turns"]}, and finished in a median {f["median_seconds"]:.0f} s instead of {g["median_seconds"]:.0f} s.</li>',
+        f'<li><strong>Fable 5.2 vs Opus 5.5, fixes: {pd["pts"]:+.0f} points</strong> (95% interval {pd["ci95"][0]:+.0f} to {pd["ci95"][1]:+.0f}; pre-registered threshold {pd["threshold"]} points). Both had {f["clean"]} clean fixes in {f["runs"]} runs: {f["easy_clean"]}/{f["easy_runs"]} on the easy bugs and {f["hard_clean"]}/{f["hard_runs"]} on the hard ones.</li>',
+        f'<li><strong>Cost per clean fix:</strong> Opus 5.5 {usd(o["cost_per_clean"])}, Fable 5.2 {usd(f["cost_per_clean"])}, Fable 5.1 {usd(g["cost_per_clean"])}.</li>',
+        f'<li><strong>Fable 5.1</strong> fixed {g["clean"]} of {g["runs"]} cleanly (1 run per bug), close to Fable 5.2.</li>',
+        '<li><strong>All three missed the same four bugs</strong> (cachetools class access, js-yaml BOM, tomlkit underscores, zod numeric keys). None found what the report left out.</li>',
+    ]
+    arows = []
+    for lab, x in (("Fable 5.2", f), ("Fable 5.1", g), ("Opus 5.5", o)):
+        arows.append(f'          <tr><td>{lab}</td><td class="text-right tabular-nums">{x["clean"]}/{x["runs"]} ({x["clean_pct"]:.0f}%)</td><td class="text-right tabular-nums">{usd(x["cost_usd"])}</td><td class="text-right tabular-nums">{usd(x["cost_per_clean"])}</td>'
+                     f'<td class="text-right tabular-nums">{x["output_tokens"]:,}</td><td class="text-right tabular-nums">{x["cache_read"]/1000:,.0f}K</td><td class="text-right tabular-nums">{x["turns"]}</td><td class="text-right tabular-nums">{x["median_seconds"]:.0f}</td></tr>')
+    brows = []
+    for b, v in sorted(S["per_bug"].items()):
+        brows.append(f'          <tr><td>{esc(b)}</td>' + ''.join(f'<td class="text-right tabular-nums">{v[m][0]}/{v[m][1]}</td>' for m in ("f52", "f51", "opus")) + '</tr>')
+    body = ('      <h2>Key findings</h2>\n      <ul>\n' + "\n".join("        " + x for x in li) + '\n      </ul>\n'
+            '      <h2>Results (125 runs in the plan)</h2>\n'
+            '      <p class="text-sm text-zinc-400">Clean fix = every maintainer test for the fix passes and no other test breaks. Cost is Claude Code&rsquo;s own per-run figure at API list prices.</p>\n'
+            + _table(['<th>Model</th>', '<th class="text-right">Clean fixes</th>', '<th class="text-right">Cost/run</th>', '<th class="text-right">Per clean fix</th>', '<th class="text-right">Output tokens</th>', '<th class="text-right">Cache reads</th>', '<th class="text-right">Turns</th>', '<th class="text-right">Median s</th>'], chr(10).join(arows)) +
+            f'      <p class="text-sm text-zinc-400">Easy bugs: Fable 5.2 {usd(f["easy_cost"])}, Fable 5.1 {usd(g["easy_cost"])}, Opus 5.5 {usd(o["easy_cost"])} per run. Hard bugs: {usd(f["hard_cost"])}, {usd(g["hard_cost"])}, {usd(o["hard_cost"])}.</p>\n'
+            '      <h2>Bug by bug</h2>\n'
+            + _table(['<th>Bug</th>', '<th class="text-right">Fable 5.2</th>', '<th class="text-right">Fable 5.1</th>', '<th class="text-right">Opus 5.5</th>'], chr(10).join(brows)) +
+            '      <h2>Method</h2>\n      <ul>\n'
+            '        <li><strong>Pre-registered</strong> on 2026-11-13: <a href="https://github.com/johnisking/token-cost-by-language/blob/main/claude-fable-5-2-real-bugs/PREREG.md">PREREG.md</a>, with one dated amendment.</li>\n'
+            f'        <li><strong>Bugs and scoring</strong> from <a href="{BUG_PATH}">dataset 25</a>: 25 real bugs fixed upstream in August to October 2026 in 13 open-source projects (15 easy, 10 hard), each run starting at the commit before the fix, scored with the maintainers&rsquo; tests by the unchanged dataset 25 scorers.</li>\n'
+            '        <li><strong>Agent:</strong> Claude Code 2.1.322, headless <code>claude -p</code>, effort medium, acceptEdits, tests and builds allowed, no installs, no network, no web tools, Windows 11.</li>\n'
+            '        <li><strong>Amendment 1:</strong> the first 21 runs used the subscription&rsquo;s whole 5-hour window in 34 minutes, so before any scoring the plan was cut from 175 to 125 runs (Fable 5.2 &times; 2, Fable 5.1 &times; 1, Opus 5.5 &times; 2 per bug). Ten runs already finished in the dropped cells are published but left out of the analysis.</li>\n'
+            '        <li><strong>Incidents:</strong> 6 runs cut off by the 5-hour limit and 2 by a desktop-app restart were re-run; the cut-off attempts are not scored.</li>\n'
+            '      </ul>\n      <h2>Limitations</h2>\n      <ul>\n'
+            '        <li>25 bugs, 2 runs per bug for Fable 5.2 and Opus 5.5 and 1 for Fable 5.1, so the Fable 5.1 fix rate is the least certain number.</li>\n'
+            '        <li>One machine, one prompt style, effort medium only. Bounded single-issue bugs; larger multi-file work may separate the models.</li>\n'
+            '      </ul>\n')
+    return (_head(esc(F52_TITLE), lead,
+                  f'Measured {F52_MEASURED} · 125 runs in the plan (135 published) · 25 real bugs · License <a href="{LICENSE}">CC BY 4.0</a>',
+                  [("claude-fable-5-2-real-bugs.csv", "CSV"), ("claude-fable-5-2-real-bugs.json", "JSON")],
+                  F52_CHART, "Bar charts: clean-fix rate, API cost per run and cost per clean fix for Claude Fable 5.2, Fable 5.1 and Opus 5.5", doi=F52_DOI or None, mirrors=F52_MIRRORS)
+            + body + _page_tail(f52_citation(), _embed(F52_PATH, F52_CHART, "Claude Fable 5.2 vs Fable 5.1 vs Opus 5.5 on 25 real bugs", "Claude Fable 5.2 real bugs"),
+                                [(BUG_PATH, "Claude Haiku vs Opus on 25 real bugs (dataset 25)"), (SMV_PATH, "Explore subagent model by Claude Code version (dataset 28)"), ("/agents", "Estimate your own Claude Code bill")]))
+
+
+_CTA_MAP[F52_PATH] = "/agents"

@@ -16,8 +16,8 @@
 "hash": "98b1ece49ee0316d"
 },
 "https://tokensave.app/author/jonhisking": {
-"date": "2026-11-08",
-"hash": "0aa6f513084d9184"
+"date": "2026-11-13",
+"hash": "fed4915c4fef19cf"
 },
 "https://tokensave.app/blog/": {
 "date": "2026-10-30",
@@ -236,8 +236,8 @@
 "hash": "952d603727f71d7a"
 },
 "https://tokensave.app/data/": {
-"date": "2026-11-08",
-"hash": "6f8de45273b58518"
+"date": "2026-11-13",
+"hash": "69e079d1db9b1c0b"
 },
 "https://tokensave.app/data/ai-agent-web-search-tokens": {
 "date": "2026-10-23",
@@ -290,6 +290,10 @@
 "https://tokensave.app/data/claude-effort-cost": {
 "date": "2026-10-23",
 "hash": "7071ab9fc792848c"
+},
+"https://tokensave.app/data/claude-fable-5-2-real-bugs": {
+"date": "2026-11-13",
+"hash": "281fa8c6af167335"
 },
 "https://tokensave.app/data/claude-haiku-vs-opus-real-bugs": {
 "date": "2026-10-26",
