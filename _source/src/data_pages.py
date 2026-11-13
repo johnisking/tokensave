@@ -4234,8 +4234,11 @@ _CTA_MAP[SMV_PATH] = "/agents"
 F52_PATH = "/data/claude-fable-5-2-real-bugs"
 F52_MEASURED = "2026-11-13"
 F52_CHART = "/claude-fable-5-2-real-bugs-chart.png"
-F52_DOI = ""
-F52_MIRRORS = [("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-fable-5-2-real-bugs")]
+F52_DOI = "10.5281/zenodo.24186078"
+F52_MIRRORS = [("Zenodo", "https://zenodo.org/records/24186079"),
+               ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-fable-5-2-real-bugs"),
+               ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-fable-5-2-vs-opus-5-5-on-25-real-bugs"),
+               ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/claude-fable-5-2-real-bugs")]
 F52_TITLE = "Claude Fable 5.2 costs 40% less than 5.1 per run, not 20%, and fixed the same bugs as Opus 5.5 at 83% more: 125 runs"
 F52_DESC = ("Dataset: 135 Claude Code runs (125 pre-registered) on 25 real bugs, scored by the maintainers' tests. Fable 5.2 cost 40% less per run than Fable 5.1 against a 20% list-price cut, "
             "and fixed exactly as many bugs cleanly as Opus 5.5 (37 of 50 each) at 83% higher cost. Free CSV, CC BY 4.0.")
