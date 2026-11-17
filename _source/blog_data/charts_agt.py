@@ -26,6 +26,6 @@ for ax, (t, vals, xl) in zip(axes.flat, panels):
     ax.grid(axis='x', color=GRID); ax.set_axisbelow(True); ax.set_xlim(0, mx * 1.22)
     ax.xaxis.set_major_locator(matplotlib.ticker.MaxNLocator(4)); ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f'{int(v):,}'))
 fig.text(0.02, 0.965, "Claude Code vs Codex vs Cursor: tokens before and during work", fontsize=17, fontweight='bold', color=FG)
-fig.text(0.02, 0.93, "Averages of 2-5 runs · same Windows machine · task: browser brick-breaker · Claude Code and Codex 2026-10-18/22, Cursor 2026-11-17 · tokensave.app/data · CC BY 4.0", fontsize=10.5, color=MUTED)
+fig.text(0.02, 0.93, "Averages of 2-5 runs · same Windows PC · browser brick-breaker task · Cursor measured 2026-11-17 · tokensave.app/data · CC BY 4.0", fontsize=10.5, color=MUTED)
 plt.subplots_adjust(left=0.17, right=0.98, top=0.85, bottom=0.08, hspace=0.55, wspace=0.55)
 plt.savefig('src/static/claude-code-vs-codex-tokens-chart.png', facecolor=BG); plt.close(fig)
