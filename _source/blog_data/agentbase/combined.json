@@ -1,12 +1,12 @@
 {
- "measured": "2026-10-18 (runs 1-2) and 2026-10-22 (startup runs 3-4, task runs 3-5), same tool versions",
+ "measured": "2026-10-18 (runs 1-2) and 2026-10-22 (startup runs 3-4, task runs 3-5), same tool versions; Cursor 2026-10-18 (startup, partial) and 2026-11-17 (startup runs 3-4, task runs 1-2)",
  "prompt": "Reply with the single word OK.",
  "machine": "Windows 11 laptop, each run in its own empty folder",
  "mcp_server": "Self-written stdio MCP server (mcp_dummy.js) exposing N tracker tools, each with a one-sentence description and a 5-property input schema. Full definitions: 151 o200k tokens per tool, 4,541 for 30 tools.",
  "notes": [
   "Claude Code: claude -p --output-format json --mcp-config mcp.json --strict-mcp-config; input = input_tokens + cache_creation_input_tokens + cache_read_input_tokens",
   "Codex: codex exec --json -s read-only -c model_reasoning_effort=\"low\", MCP server added with -c mcp_servers.tracker.*; input = input_tokens from turn.completed (includes cached)",
-  "Cursor: cursor-agent -p --output-format stream-json --trust --approve-mcps, MCP server in .cursor/mcp.json; input = inputTokens + cacheReadTokens. Run 2 for 1, 10 and 30 tools failed: free plan usage limit reached",
+  "Cursor: cursor-agent -p --output-format stream-json --trust --approve-mcps, MCP server in .cursor/mcp.json; input = inputTokens + cacheReadTokens. 2026-10-18 run 2 for 1, 10 and 30 tools failed (free plan usage limit); re-measured 2026-11-17 after the reset with the same CLI version (2026.10.16), 0 to 30 tools twice each. The 2026-11-17 startup was 909 tokens lower than on 2026-10-18; averages use 2026-11-17",
   "Codex with 10 tools, asked to list the tracker tools and call one: 47,876 input tokens (tools are loaded only when needed)"
  ],
  "codex_tool_use_check": {
@@ -197,8 +197,21 @@
    "mcp_tools": 0,
    "run1": 12988,
    "run2": 12988,
-   "avg": 12988,
-   "added_vs_no_mcp": 0
+   "avg": 12079,
+   "added_vs_no_mcp": 0,
+   "runs": [
+    12988,
+    12988,
+    12079,
+    12079
+   ],
+   "run_dates": [
+    "2026-10-18",
+    "2026-10-18",
+    "2026-11-17",
+    "2026-11-17"
+   ],
+   "avg_basis": "2026-11-17 runs (both runs complete); 2026-10-18 runs kept in runs for reference"
   },
   {
    "tool": "cursor",
@@ -207,8 +220,19 @@
    "mcp_tools": 1,
    "run1": 13006,
    "run2": null,
-   "avg": 13006,
-   "added_vs_no_mcp": 18
+   "avg": 12097,
+   "added_vs_no_mcp": 18,
+   "runs": [
+    13006,
+    12097,
+    12097
+   ],
+   "run_dates": [
+    "2026-10-18",
+    "2026-11-17",
+    "2026-11-17"
+   ],
+   "avg_basis": "2026-11-17 runs (both runs complete); 2026-10-18 runs kept in runs for reference"
   },
   {
    "tool": "cursor",
@@ -217,8 +241,19 @@
    "mcp_tools": 10,
    "run1": 13081,
    "run2": null,
-   "avg": 13081,
-   "added_vs_no_mcp": 93
+   "avg": 12135,
+   "added_vs_no_mcp": 56,
+   "runs": [
+    13081,
+    12135,
+    12135
+   ],
+   "run_dates": [
+    "2026-10-18",
+    "2026-11-17",
+    "2026-11-17"
+   ],
+   "avg_basis": "2026-11-17 runs (both runs complete); 2026-10-18 runs kept in runs for reference"
   },
   {
    "tool": "cursor",
@@ -227,8 +262,19 @@
    "mcp_tools": 30,
    "run1": 13165,
    "run2": null,
-   "avg": 13165,
-   "added_vs_no_mcp": 177
+   "avg": 12219,
+   "added_vs_no_mcp": 140,
+   "runs": [
+    13165,
+    12219,
+    12219
+   ],
+   "run_dates": [
+    "2026-10-18",
+    "2026-11-17",
+    "2026-11-17"
+   ],
+   "avg_basis": "2026-11-17 runs (both runs complete); 2026-10-18 runs kept in runs for reference"
   }
  ],
  "full_definition_tokens_o200k": {
@@ -238,7 +284,7 @@
  "task": {
   "measured": "2026-10-18 (runs 1-2) and 2026-10-22 (runs 3-5)",
   "prompt": "Make a brick-breaker game that runs in the browser as a single file named index.html in the current folder. It needs 2 levels, a score display and 3 lives, and it must be playable with the keyboard and the mouse. Write the file and finish.",
-  "setup": "Each run in its own empty folder, no MCP servers. Claude Code: claude -p --effort medium --permission-mode acceptEdits --output-format json; tokens from modelUsage, cost is Claude Code list API cost. Codex: codex exec --json -s workspace-write -c model_reasoning_effort=\"medium\"; tokens from turn.completed. Time is wall-clock. Every game loaded without errors and showed 2 levels, score and 3 lives in a headless browser check.",
+  "setup": "Each run in its own empty folder, no MCP servers. Claude Code: claude -p --effort medium --permission-mode acceptEdits --output-format json; tokens from modelUsage, cost is Claude Code list API cost. Codex: codex exec --json -s workspace-write -c model_reasoning_effort=\"medium\"; tokens from turn.completed. Time is wall-clock. Every game loaded without errors and showed 2 levels, score and 3 lives in a headless browser check. Cursor: cursor-agent -p --force --output-format stream-json --trust (free Hobby plan, model Auto, no effort setting); input = inputTokens + cacheReadTokens; no price is reported on the free plan. Cursor games were also checked by a scripted player: score above 0, level 2 reached, lives 3-2-1-0.",
   "rows": [
    {
     "tool": "claude_code",
@@ -389,6 +435,36 @@
     "file_chars": 8660,
     "works": true,
     "measured": "2026-10-22"
+   },
+   {
+    "tool": "cursor",
+    "tool_name": "Cursor Agent CLI 2026.10.16",
+    "model": "Auto (free Hobby plan)",
+    "run": 1,
+    "input_tokens": 58459,
+    "cached_input_tokens": 45056,
+    "output_tokens": 4816,
+    "seconds": 81,
+    "api_cost_usd": null,
+    "file_lines": 460,
+    "file_chars": 13011,
+    "works": true,
+    "measured": "2026-11-17"
+   },
+   {
+    "tool": "cursor",
+    "tool_name": "Cursor Agent CLI 2026.10.16",
+    "model": "Auto (free Hobby plan)",
+    "run": 2,
+    "input_tokens": 41446,
+    "cached_input_tokens": 19968,
+    "output_tokens": 4928,
+    "seconds": 75,
+    "api_cost_usd": null,
+    "file_lines": 437,
+    "file_chars": 12752,
+    "works": true,
+    "measured": "2026-11-17"
    }
   ]
  }

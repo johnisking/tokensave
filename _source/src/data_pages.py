@@ -236,7 +236,7 @@ def hub_html():
           <span class="block mt-1 text-sm text-zinc-400">One coding task at every Claude effort level, 3 runs each: $0.26 at medium, $5.33 at max on Opus 5.5. CSV · measured {EFF_MEASURED_NEW}</span></a></li>
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{AGT_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(AGT_TITLE)}</span>
-          <span class="block mt-1 text-sm text-zinc-400">Startup tokens, MCP tool overhead and the same coding task: Codex used about half the tokens of Claude Code. CSV · measured {AGT_MEASURED}</span></a></li>
+          <span class="block mt-1 text-sm text-zinc-400">Startup tokens, MCP tool overhead and the same coding task: Codex and Cursor used about half the tokens of Claude Code. CSV · measured {AGT_MEASURED}</span></a></li>
         <li class="border border-zinc-800 rounded-xl p-4 hover:border-violet-500/50"><a href="{AGS_PATH}" class="block no-underline" style="text-decoration:none">
           <span class="block font-semibold text-zinc-100">{esc(AGS_TITLE)}</span>
           <span class="block mt-1 text-sm text-zinc-400">Four kinds of question with web search on: tokens, searches, time and the sites seen and cited. CSV · measured {AGS_MEASURED}</span></a></li>
@@ -1213,17 +1213,17 @@ def eff_html():
 # ---- Dataset 8: Claude Code vs Codex — startup tokens, MCP tools, same coding task (measured 2026-10-18) ----
 AGT_PATH = "/data/claude-code-vs-codex-tokens"
 AGT_MEASURED = "2026-10-18"
-AGT_MEASURED_SHOW = "2026-10-18 and 2026-10-22"
+AGT_MEASURED_SHOW = "2026-10-18, 2026-10-22 and 2026-11-17 (Cursor)"
 AGT_CHART = "/claude-code-vs-codex-tokens-chart.png"
 AGT_DOI = "10.5281/zenodo.23448342"  # concept DOI
 AGT_MIRRORS = [("Zenodo", "https://zenodo.org/records/23589129"),
                ("Hugging Face", "https://huggingface.co/datasets/JOHNISKING/claude-code-vs-codex-tokens"),
                ("Kaggle", "https://www.kaggle.com/datasets/johnisking/claude-code-vs-codex-startup-and-task-tokens"),
                ("GitHub", "https://github.com/johnisking/token-cost-by-language/tree/main/agents")]
-AGT_TITLE = "Claude Code vs Codex: startup tokens, MCP tools and the same coding task"
-AGT_DESC = ("Dataset: input tokens Claude Code and Codex use before any work (a one-word reply), what adding 1 to 30 MCP tools adds, and tokens, time and output "
+AGT_TITLE = "Claude Code vs Codex vs Cursor: startup tokens, MCP tools and the same coding task"
+AGT_DESC = ("Dataset: input tokens Claude Code, Codex and Cursor use before any work (a one-word reply), what adding 1 to 30 MCP tools adds, and tokens, time and output "
             "for the same browser-game task at medium effort. Free CSV, CC BY 4.0.")
-AGT_TOOLS = [("claude_code", "Claude Code (Opus 5.5)"), ("codex", "Codex (gpt-6-luna)")]
+AGT_TOOLS = [("claude_code", "Claude Code (Opus 5.5)"), ("codex", "Codex (gpt-6-luna)"), ("cursor", "Cursor (free, Auto)")]
 
 
 def _agt():
@@ -1268,9 +1268,9 @@ def write_agt_files(dist):
 
 def agt_ld():
     return _dataset_ld(AGT_TITLE, AGT_DESC, AGT_PATH, AGT_MEASURED,
-                       ["Claude Code vs Codex", "coding agent tokens", "MCP token overhead", "system prompt tokens", "Claude Code cost", "Codex cost"],
+                       ["Claude Code vs Codex", "Claude Code vs Cursor", "Cursor CLI tokens", "coding agent tokens", "MCP token overhead", "system prompt tokens", "Claude Code cost", "Codex cost"],
                        ["input tokens for a one-word reply", "input tokens added per MCP tool", "input tokens for the same task", "output tokens", "time (seconds)"],
-                       "Claude Code and Codex CLI run on the same Windows machine; startup with 0, 1, 10 and 30 tools from a self-written MCP server (4 runs each); the same browser-game prompt at medium effort (5 runs each)",
+                       "Claude Code, Codex CLI and Cursor Agent CLI run on the same Windows machine; startup with 0, 1, 10 and 30 tools from a self-written MCP server (4 runs each for Claude Code and Codex, 2 for Cursor); the same browser-game prompt (5 runs each for Claude Code and Codex at medium effort, 2 for Cursor)",
                        AGT_CHART, [("claude-code-vs-codex-tokens.csv", "text/csv"), ("claude-code-vs-codex-tokens.json", "application/json")], doi=AGT_DOI, mirrors=AGT_MIRRORS)
 
 
@@ -1278,9 +1278,9 @@ def agt_html():
     d = _agt()
     base = {(r["tool"], r["mcp_tools"]): r for r in d["rows"]}
     t = _agt_task_avg(d)
-    cc, cx = t["claude_code"], t["codex"]
+    cc, cx, cu = t["claude_code"], t["codex"], t["cursor"]
     pct = lambda a, b: round((a / b - 1) * 100)
-    b_cc, b_cx = base[("claude_code", 0)]["avg"], base[("codex", 0)]["avg"]
+    b_cc, b_cx, b_cu = base[("claude_code", 0)]["avg"], base[("codex", 0)]["avg"], base[("cursor", 0)]["avg"]
     full30 = d["full_definition_tokens_o200k"]["30"]
     strs = "\n".join(
         f'          <tr><td>{n} MCP tool{"s" if n != 1 else ""}</td>' + "".join(
@@ -1292,38 +1292,38 @@ def agt_html():
         f'<td class="text-right tabular-nums">{r["seconds"]} s</td><td class="text-right tabular-nums">{r["file_lines"]:,}</td><td class="text-right tabular-nums">{"–" if r["api_cost_usd"] is None else "$" + format(r["api_cost_usd"], ".2f")}</td></tr>'
         for r in d["task"]["rows"])
     thead = ['<th>Run</th>', '<th class="text-right">Input tokens</th>', '<th class="text-right">Output tokens</th>', '<th class="text-right">Time</th>', '<th class="text-right">Lines in index.html</th>', '<th class="text-right">API cost</th>']
-    return _head("Claude Code vs Codex: how many tokens they use before and during work",
-                 f'<strong>Before doing anything, Claude Code sends {b_cc:,} input tokens and Codex {b_cx:,}.</strong> On the same browser-game task Codex used {abs(pct(cx["input"], cc["input"]))}% fewer input tokens and {abs(pct(cx["output"], cc["output"]))}% fewer output tokens than Claude Code. Adding 30 MCP tools barely changed either.',
-                 f'Measured {AGT_MEASURED_SHOW} · Claude Code 2.1.295 and Codex CLI 0.162 · 4 startup and 5 task runs per tool · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{EFF_PATH}">Claude effort levels</a>',
+    return _head("Claude Code vs Codex vs Cursor: how many tokens they use before and during work",
+                 f'<strong>Before doing anything, Claude Code sends {b_cc:,} input tokens, Codex {b_cx:,} and Cursor {b_cu:,}.</strong> On the same browser-game task Codex used {abs(pct(cx["input"], cc["input"]))}% fewer input tokens than Claude Code and Cursor {abs(pct(cu["input"], cc["input"]))}% fewer. Adding 30 MCP tools barely changed any of them.',
+                 f'Measured {AGT_MEASURED_SHOW} · Claude Code 2.1.295, Codex CLI 0.162 and Cursor Agent CLI 2026.10.16 · 4 startup and 5 task runs for Claude Code and Codex, 2 and 2 for Cursor · License <a href="{LICENSE}">CC BY 4.0</a> · Related: <a href="{EFF_PATH}">Claude effort levels</a>',
                  [("claude-code-vs-codex-tokens.csv", "CSV"), ("claude-code-vs-codex-tokens.json", "JSON")],
-                 AGT_CHART, "Startup input tokens and the same coding task on Claude Code and Codex", doi=AGT_DOI, mirrors=AGT_MIRRORS) + f'''      <h2>Key findings</h2>
+                 AGT_CHART, "Startup input tokens and the same coding task on Claude Code, Codex and Cursor", doi=AGT_DOI, mirrors=AGT_MIRRORS) + f'''      <h2>Key findings</h2>
       <ul>
-        <li><strong>Claude Code starts {pct(b_cc, b_cx)}% heavier.</strong> A one-word reply costs {b_cc:,} input tokens in Claude Code and {b_cx:,} in Codex. That fixed amount is sent again with every request, so it adds up over a session even though most of it is cached.</li>
-        <li><strong>Adding MCP tools barely changed startup tokens.</strong> The full definitions of our 30 test tools are {full30:,} tokens, but adding them raised Claude Code by only {base[("claude_code", 30)]["added_vs_no_mcp"]:,} tokens (about {round(base[("claude_code", 30)]["added_vs_no_mcp"] / 30)} per tool) and Codex by {('nothing measurable' if abs(base[('codex', 30)]['added_vs_no_mcp']) < 200 else format(base[('codex', 30)]['added_vs_no_mcp'], ','))}. Both now load a tool&rsquo;s details only when it is needed.</li>
+        <li><strong>Claude Code starts {pct(b_cc, b_cx)}% heavier than Codex and {pct(b_cc, b_cu)}% heavier than Cursor.</strong> A one-word reply costs {b_cc:,} input tokens in Claude Code, {b_cx:,} in Codex and {b_cu:,} in Cursor. That fixed amount is sent again with every request, so it adds up over a session even though most of it is cached.</li>
+        <li><strong>Adding MCP tools barely changed startup tokens.</strong> The full definitions of our 30 test tools are {full30:,} tokens, but adding them raised Claude Code by only {base[("claude_code", 30)]["added_vs_no_mcp"]:,} tokens (about {round(base[("claude_code", 30)]["added_vs_no_mcp"] / 30)} per tool), Codex by {('nothing measurable' if abs(base[('codex', 30)]['added_vs_no_mcp']) < 200 else format(base[('codex', 30)]['added_vs_no_mcp'], ','))} and Cursor by {base[('cursor', 30)]['added_vs_no_mcp']:,}. All three now load a tool&rsquo;s details only when it is needed.</li>
         <li><strong>Using the tools is what costs.</strong> Asked to list the 10 tracker tools and call one, Codex used {d["codex_tool_use_check"]["input_tokens"]:,} input tokens, {pct(d["codex_tool_use_check"]["input_tokens"], b_cx)}% more than its plain startup.</li>
-        <li><strong>Same task, about half the tokens on Codex.</strong> The browser game took Claude Code {cc["input"]:,} input and {cc["output"]:,} output tokens on average ({cc["seconds"]} s, ${cc["cost"]:.2f} at API prices) and Codex {cx["input"]:,} input and {cx["output"]:,} output tokens ({cx["seconds"]} s). All {len(cc["runs"]) + len(cx["runs"])} games worked.</li>
-        <li><strong>Claude Code wrote more code.</strong> Its games averaged {cc["lines"]} lines against {cx["lines"]} for Codex, which wrote denser code with fewer line breaks; both had every requested feature.</li>
+        <li><strong>Same task, about half the tokens on Codex and Cursor.</strong> The browser game took Claude Code {cc["input"]:,} input and {cc["output"]:,} output tokens on average ({cc["seconds"]} s, ${cc["cost"]:.2f} at API prices), Codex {cx["input"]:,} input and {cx["output"]:,} output tokens ({cx["seconds"]} s) and Cursor {cu["input"]:,} input and {cu["output"]:,} output tokens ({cu["seconds"]} s). All {len(cc["runs"]) + len(cx["runs"]) + len(cu["runs"])} games worked.</li>
+        <li><strong>Claude Code and Cursor wrote similar-length files.</strong> Games averaged {cc["lines"]} lines in Claude Code, {cu["lines"]} in Cursor and {cx["lines"]} in Codex, which wrote denser code with fewer line breaks; all had every requested feature.</li>
       </ul>
       <h2>Startup tokens and MCP tools</h2>
-      <p class="text-sm text-zinc-400">Input tokens for the prompt &ldquo;{esc(d["prompt"])}&rdquo;, average of four runs (two on 2026-10-18, two on 2026-10-22, same versions); in brackets, the change against no MCP server. One Codex run without MCP read 15,018 tokens; all its other startup runs read 14,618 or 14,678.</p>
+      <p class="text-sm text-zinc-400">Input tokens for the prompt &ldquo;{esc(d["prompt"])}&rdquo;, average of four runs for Claude Code and Codex (two on 2026-10-18, two on 2026-10-22, same versions) and two for Cursor (2026-11-17; on 2026-10-18 the same Cursor version read 909 more tokens at every tool count, and its free limit stopped three of the eight runs); in brackets, the change against no MCP server. One Codex run without MCP read 15,018 tokens; all its other startup runs read 14,618 or 14,678.</p>
 {_table(shead, strs)}      <h2>The same coding task</h2>
       <p class="text-sm text-zinc-400">Prompt, word for word: &ldquo;{esc(d["task"]["prompt"])}&rdquo;</p>
 {_table(thead, ttrs)}      <h2>Method</h2>
       <ul>
-        <li>Both tools on the same Windows laptop, each run in its own empty folder.</li>
+        <li>All three tools on the same Windows laptop, each run in its own empty folder.</li>
         <li><strong>Claude Code 2.1.295</strong> with its default model (Opus 5.5) on a Max plan: <code>claude -p --output-format json</code>, MCP servers only from <code>--mcp-config</code> with <code>--strict-mcp-config</code>; the task at <code>--effort medium</code> with <code>--permission-mode acceptEdits</code>. Input tokens are input + cache creation + cache read; the cost is Claude Code&rsquo;s own API-price figure.</li>
         <li><strong>Codex CLI 0.162</strong> with its default model (gpt-6-luna) on a ChatGPT plan: <code>codex exec --json</code>, reasoning effort low for the startup test and medium for the task; the MCP server added with <code>-c mcp_servers.…</code>. Input tokens include cached tokens. No price is shown because Codex reports none on a ChatGPT plan.</li>
         <li><strong>MCP test server:</strong> a small stdio server we wrote that exposes 1, 10 or 30 tracker tools (create, update, list issue and so on), each with a one-sentence description and a five-field input schema.</li>
-        <li>Each finished game was opened in a headless browser: no errors, and two levels, a score and three lives on screen.</li>
+        <li><strong>Cursor Agent CLI 2026.10.16</strong> on the free Hobby plan with model Auto (no effort setting): <code>cursor-agent -p --output-format stream-json --trust</code>, with <code>--approve-mcps</code> and the server in <code>.cursor/mcp.json</code> for the startup test and <code>--force</code> for the task so it can write the file. Input tokens are input + cache read from the result event. No price is shown because Cursor reports none on the free plan.</li>
+        <li>Each finished game was opened in a headless browser: no errors, and two levels, a score and three lives on screen. The two Cursor games were also played by a script: the score rose, level 2 was reached and lives went 3, 2, 1, 0.</li>
       </ul>
       <h2>Limitations</h2>
       <ul>
-        <li>Four startup runs and five task runs per tool, on two days with the same versions, and one task. Claude Code&rsquo;s task runs ranged from {min(r["input_tokens"] for r in cc["runs"]):,} to {max(r["input_tokens"] for r in cc["runs"]):,} input tokens, Codex&rsquo;s from {min(r["input_tokens"] for r in cx["runs"]):,} to {max(r["input_tokens"] for r in cx["runs"]):,}.</li>
-        <li>Default models differ (Opus 5.5 vs gpt-6-luna), and the price per token differs too, so fewer tokens does not automatically mean cheaper.</li>
+        <li>Four startup runs and five task runs for Claude Code and Codex, two of each for Cursor, and one task. Cursor was measured a month later (2026-11-17) than the others. Claude Code&rsquo;s task runs ranged from {min(r["input_tokens"] for r in cc["runs"]):,} to {max(r["input_tokens"] for r in cc["runs"]):,} input tokens, Codex&rsquo;s from {min(r["input_tokens"] for r in cx["runs"]):,} to {max(r["input_tokens"] for r in cx["runs"]):,}.</li>
+        <li>Default models differ (Opus 5.5, gpt-6-luna and Cursor&rsquo;s Auto, which does not say which model it picked), and the price per token differs too, so fewer tokens does not automatically mean cheaper.</li>
         <li>Startup tokens include each tool&rsquo;s installed skills and plugins on this machine; a fresh install may start lower.</li>
-        <li>Cursor will be added when its free-plan limit resets.</li>
       </ul>
-''' + _page_tail(agt_citation(), _embed(AGT_PATH, AGT_CHART, "Startup input tokens and the same coding task on Claude Code and Codex", "Claude Code vs Codex tokens"),
+''' + _page_tail(agt_citation(), _embed(AGT_PATH, AGT_CHART, "Startup input tokens and the same coding task on Claude Code, Codex and Cursor", "Claude Code vs Codex vs Cursor tokens"),
                  [(EFF_PATH, "Claude effort levels: tokens, time and cost"), (PDF_PATH, "PDF token cost, including Codex and Cursor"), ("/claude-code-usage", "Check your own Claude Code and Codex usage")])
 
 
