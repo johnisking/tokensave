@@ -12,7 +12,10 @@ import { tr, fx } from './common.js';
 // =========================================================
 const PROVIDERS = {
   openai: [
-    { id: 'gpt-6-astra',  name: 'GPT-6 Astra',   in: 10.00, out: 50.00, ratio: 1.00, exact: false },
+    // GPT-6.2 Astra and Sol (2026-11-17): developers.openai.com/api/docs/pricing, checked 2026-11-18. GPT-6 Astra is now legacy.
+    { id: 'gpt-6-2-astra', name: 'GPT-6.2 Astra', in: 8.00,  out: 40.00, ratio: 1.00, exact: false },
+    { id: 'gpt-6-2-sol',  name: 'GPT-6.2 Sol',   in: 2.00,  out: 10.00, ratio: 1.00, exact: false },
+    { id: 'gpt-6-astra',  name: 'GPT-6 Astra (legacy)', in: 10.00, out: 50.00, ratio: 1.00, exact: false },
     { id: 'gpt-6-1-sol',  name: 'GPT-6.1 Sol',   in: 2.00,  out: 10.00, ratio: 1.00, exact: false },
     { id: 'gpt-6-1-terra', name: 'GPT-6.1 Terra', in: 1.00,  out: 5.00,  ratio: 1.00, exact: false },
     { id: 'gpt-6-sol',    name: 'GPT-6 Sol',     in: 2.00,  out: 10.00, ratio: 1.00, exact: false },
