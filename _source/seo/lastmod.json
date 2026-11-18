@@ -184,8 +184,8 @@
 "hash": "c9c2b18434787233"
 },
 "https://tokensave.app/claude-code-usage": {
-"date": "2026-11-10",
-"hash": "35b41735ba05ad1f"
+"date": "2026-11-18",
+"hash": "16e62789b19b437d"
 },
 "https://tokensave.app/claude-token-counter": {
 "date": "2026-11-10",
@@ -211,9 +211,29 @@
 "date": "2026-11-10",
 "hash": "a5f6b469f61e8efe"
 },
+"https://tokensave.app/compare/gpt-6-2-astra-vs-claude-fable-5-2": {
+"date": "2026-11-18",
+"hash": "ee89e27a6ccb147b"
+},
+"https://tokensave.app/compare/gpt-6-2-astra-vs-claude-opus-5-5": {
+"date": "2026-11-18",
+"hash": "20529599e9e8404e"
+},
+"https://tokensave.app/compare/gpt-6-2-astra-vs-gemini-4-argon": {
+"date": "2026-11-18",
+"hash": "876324a055f0be32"
+},
+"https://tokensave.app/compare/gpt-6-2-sol-vs-claude-sonnet-5-5": {
+"date": "2026-11-18",
+"hash": "6816451d3aa31fbf"
+},
 "https://tokensave.app/compare/gpt-6-astra-vs-claude-fable-5-2": {
 "date": "2026-11-10",
 "hash": "6cf474a77320a283"
+},
+"https://tokensave.app/compare/gpt-6-astra-vs-gpt-6-2-astra": {
+"date": "2026-11-18",
+"hash": "ca34210ae431a5f8"
 },
 "https://tokensave.app/compare/gpt-6-luna-vs-claude-haiku-4-5": {
 "date": "2026-11-12",
@@ -596,8 +616,8 @@
 "hash": "af11c4907af4a9b8"
 },
 "https://tokensave.app/ja/claude-code-usage": {
-"date": "2026-11-10",
-"hash": "6be661344ac0a3f3"
+"date": "2026-11-18",
+"hash": "2bf863e8fd54ca3a"
 },
 "https://tokensave.app/ja/claude-token-counter": {
 "date": "2026-11-10",
@@ -772,8 +792,8 @@
 "hash": "d6a8591bc52467b5"
 },
 "https://tokensave.app/ko/claude-code-usage": {
-"date": "2026-11-10",
-"hash": "4f0f6ed53eda3d54"
+"date": "2026-11-18",
+"hash": "f207daca9e6c573b"
 },
 "https://tokensave.app/ko/claude-token-counter": {
 "date": "2026-11-10",
@@ -808,8 +828,8 @@
 "hash": "e02ae5cb90a275e3"
 },
 "https://tokensave.app/openai-token-counter": {
-"date": "2026-10-27",
-"hash": "3ca4904792b11607"
+"date": "2026-11-18",
+"hash": "22f2fe76df821215"
 },
 "https://tokensave.app/pl/": {
 "date": "2026-10-21",

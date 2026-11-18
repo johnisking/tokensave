@@ -95,17 +95,17 @@ def guide_and_faq(tag, llm, spec=None):
     return guide, faq
 
 
-OPENAI_IDS = ["gpt-6-astra", "gpt-6-1-sol", "gpt-6-1-terra", "gpt-6-sol", "gpt-6-luna", "gpt-5-mini", "gpt-4o"]
+OPENAI_IDS = ["gpt-6-2-astra", "gpt-6-2-sol", "gpt-6-astra", "gpt-6-1-sol", "gpt-6-1-terra", "gpt-6-sol", "gpt-6-luna", "gpt-5-mini", "gpt-4o"]
 GEMINI_IDS = ["gemini-4-argon", "gemini-3-1-pro", "gemini-3-8-flash", "gemini-3-5-flash-lite", "gemini-3-1-flash-lite"]
 
 OPENAI_TXT = {"en": dict(
     title="OpenAI Token Counter – GPT-6 API Cost",
-    desc="Count GPT tokens and API cost for GPT-6 Astra, GPT-6.1 Sol, Sol and Luna. Free, runs in your browser, nothing uploaded.",
+    desc="Count GPT tokens and API cost for GPT-6.2 Astra, GPT-6.2 Sol, GPT-6 Sol and Luna. Free, runs in your browser, nothing uploaded.",
     h1="OpenAI Token Counter & GPT API Cost Calculator",
-    sub="Count tokens and see what GPT-6 Astra, GPT-6.1 Sol, GPT-6 Sol and Luna charge for your prompt, in any language.",
+    sub="Count tokens and see what GPT-6.2 Astra, GPT-6.2 Sol, GPT-6 Sol and Luna charge for your prompt, in any language.",
     g_h="How GPT counts tokens",
     g_p=["OpenAI publishes its tokenizer, so GPT counts can be exact. GPT-4o, GPT-4.1 and GPT-5 mini and nano use the <code>o200k</code> tokenizer, and this counter uses the same one, so their numbers match what OpenAI bills. OpenAI has not published the tokenizer for GPT-5.4 and later, including GPT-6, so for those models the count is an o200k-based estimate.",
-         "The biggest price decision on OpenAI is the model, not a discount. GPT-6 Astra costs 400% more than GPT-6 Sol per token, and Sol costs 1,900% more than GPT-6 Luna. Most apps run well on Sol or Luna and send only the hard requests to Astra.",
+         "The biggest price decision on OpenAI is the model, not a discount. GPT-6.2 Astra costs 300% more than GPT-6.2 Sol per token, and Sol costs 1,900% more than GPT-6 Luna. Most apps run well on Sol or Luna and send only the hard requests to Astra.",
          "Two ways to pay less on the same model: <strong>prompt caching</strong> bills repeated input (fixed instructions, documents) at a tenth of the normal input price, and the <strong>Batch API</strong> charges about half for work that can wait up to 24 hours. Requests with more than 272,000 input tokens are billed at a higher rate than the table below."],
     t_h="OpenAI API prices", th=("Model", "Input / output per 1M", "1,000 chat requests"),
     t_note="Chat request = 1,500 input + 400 output tokens of English text. Standard list prices, no caching or batch discounts.",

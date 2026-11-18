@@ -38,6 +38,7 @@ def load_models(llm):
     return models
 
 PAIRS = [
+    ("gpt-6-2-astra", "claude-fable-5-2"), ("gpt-6-astra", "gpt-6-2-astra"), ("gpt-6-2-astra", "claude-opus-5-5"), ("gpt-6-2-sol", "claude-sonnet-5-5"), ("gpt-6-2-astra", "gemini-4-argon"),
     ("claude-fable-5-1", "claude-fable-5-2"), ("gpt-6-astra", "claude-fable-5-2"), ("gemini-4-argon", "claude-fable-5-2"), ("claude-opus-5-5", "claude-fable-5-2"),
     ("gpt-6-sol", "claude-sonnet-5-5"), ("gpt-6-astra", "claude-opus-5-5"), ("gpt-6-astra", "claude-fable-5-1"),
     ("gpt-6-astra", "gemini-4-argon"), ("gemini-4-argon", "claude-opus-5-5"), ("gemini-4-argon", "claude-fable-5-1"),

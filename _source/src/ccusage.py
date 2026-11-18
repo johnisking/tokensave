@@ -15,7 +15,7 @@ PRICE_SRC = "https://platform.claude.com/docs/en/about-claude/pricing"
 PLAN_SRC = "https://claude.com/pricing"
 OPENAI_SRC = "https://developers.openai.com/api/docs/pricing"
 # (model, input, cached input, output) per 1M tokens, OpenAI pricing page (short context), for Codex logs
-OPENAI_ROWS = [("GPT-6 Astra", 10, 1, 50), ("GPT-6.1 Sol", 2, 0.10, 10), ("GPT-6 Sol", 2, 0.20, 10), ("GPT-6 Luna", 0.10, 0.01, 0.50),
+OPENAI_ROWS = [("GPT-6.2 Astra", 8, 0.40, 40), ("GPT-6.2 Sol · GPT-6.1 Sol", 2, 0.10, 10), ("GPT-6 Astra (legacy)", 10, 1, 50), ("GPT-6 Sol", 2, 0.20, 10), ("GPT-6 Luna", 0.10, 0.01, 0.50),
                ("GPT-5.6 Sol", 4, 0.40, 20), ("GPT-5.6 Terra", 2, 0.20, 12), ("GPT-5.6 Luna", 0.20, 0.02, 1.20), ("GPT-5.5", 5, 0.50, 30),
                ("GPT-5.4", 2.5, 0.25, 15), ("GPT-5.3 Codex · 5.2", 1.75, 0.175, 14), ("GPT-5.1 · GPT-5", 1.25, 0.125, 10)]
 
