@@ -290,6 +290,9 @@
     "gpt-6-cyber",
     "gpt-6-rosalind",
     "gpt-6.1-sol",
-    "gpt-6.1-terra"
+    "gpt-6.1-terra",
+    "gpt-6.2-astra",
+    "gpt-6.2-astra-law",
+    "gpt-6.2-sol"
   ]
 }
