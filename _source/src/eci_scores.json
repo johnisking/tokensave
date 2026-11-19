@@ -1,7 +1,14 @@
 {
- "checked": "2026-11-18",
+ "checked": "2026-11-19",
  "source": "https://epoch.ai/data/eci_scores.csv",
  "rows": [
+  [
+   "GPT-6.2 Astra",
+   174.17,
+   170.29,
+   178.58,
+   "2026-11-17"
+  ],
   [
    "Claude Fable 5.2",
    173.5,
